@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(KA2-02)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">コンテインメント・ゲーム</h3>
+<div class="doAction">黒はどのようにすればよいのでしょう。</div>
+<div class="gamesituation">マネーゲームです。</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips 黒=0 白=0</div></div>
+ <div class="answertable"></div>
+ <div class="description">相手のベアオフ中にヒットして、その駒を閉じ込めようとする展開を<br>
+「コンテインメント・ゲーム」と呼びます。<br>
+<br>
+みろり＞<br>
+20/14 15/11<br>
+<br>
+実戦ではノータイムで7/3 7/1*としそうですが、こうして問題になっているので考えてみます。<br>
+<br>
+確かに7/1*とすると1ptエンターの確率はany1の11通り31%,7ptエンターの確率はRoll16のみ2通り5.6%。<br>
+バーポイントキープでも、2ptに立たれる確率はany2の11通り、9ptに出てくる確率はRoll26のみ2通りと、<br>
+まったく同じ確率です。<br>
+ではエンター後の攻め駒はどうでしょうか。<br>
+<br>
+7/1* 7/3とした場合、<br>
+1ptにエンターされると　攻め駒はありません。33,44,55,66の4通り11%でヒット可能。<br>
+7ptにエンターされると　攻め駒は8ptの1つ。13,14,15,16の8通り22%でヒット可能。<br>
+<br>
+20/14 15/11とした場合、<br>
+2ptに立たれると　責め駒は14pt,11pt,8pt,7ptの4つ。34,35,45,46,56,33,44,55の13通り36%でヒット可能。<br>
+9ptに立たれると　攻め駒は14ptと11ptの2つ。23,24,25,26,35,45,65,44,55の16通りでヒット可能。<br>
+<br>
+20/14 15/11の方がかなり良さそうです。<br>
+<br>
+miyukichi＞<br>
+15/9、20/16とします。<br>
+2さえ振られなければ、5か6でプライム完成。<br>
+2を振られても4、5、6で攻めこめます。<br>
+26振られるとイタイですが、メリットが上回るように思えます。<br>
+<br>
+7/1、7/3も、相手は16が必要で、26が必要というのと同じくらい困難ということで比較してみましたが、それよりプライムで攻めるほうがカバー目も多く相手をつかまえやすいように思いました。<br>
+<br>
+michihito_k＞<br>
+フルプライムを作って、相手を閉じ込めましょう。<br>
+3ptを埋めれば完成なので、20/16 15/9 と進めてビルダーを配備したくなります。<br>
+相手に2が出ても、4､5､6の目でアタック可能ですね。<br>
+ただその場合は、7､8ptを崩すことが多くあります。<br>
+<br>
+そこで 7/3 と3pt作りを確定させ、7/1* とエースポイントにアタックしましょう。<br>
+弱点は相手に1が出た場合のアタッキングビルダーに乏しいことです。<br>
+しかし、ジョーカー61を振られてもまだまだ戦えます。<br>
+20/16 15/9 だと、ジョーカー62で強烈なダメージを受けます。<br>
+<br>
+正解：7/1* 7/3<br>
+money cubeless equityで、20/16 15/9 に0.040優ります。<br>
+<br>
+miyukichi＞<br>
+真っ先に浮かんだ手は7/3、7/1*でしたが、「フルプライムをつくる」ということを意識しすぎました＾＾；；<br>
+カバー目についても、相手が70%ダンスすることを考えれば、その間にビルダーを運んでくることもできそうですね。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis"></pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board1.png", ["black", "white"], ["white", "black"], ["white", "black"], "ccw")
+board.showBoard("");
+var categoryid = "KA2";
+var probnum = "02";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(KA1-04)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">今日はちょっとマニアックかも。</h3>
+<div class="doAction">マネーゲームで黒に41が出ました。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips 黒=150 白=136</div></div>
+ <div class="answertable"></div>
+ <div class="description">このようなタイプのゲームを「ミューチュアルホールディングゲーム」と呼びます。<br>
+安全なムーブ 13/8 があるのですが、実戦で私は 13/9 6/5 を選びました。<br>
+・駒を重ねてもつまらない<br>
+・ヒットされないとおいしい<br>
+と考えたからです。<br>
+<br>
+でも、本当にショットを与えてよかったのでしょうか？<br>
+わざわざショットを与えたくなる理由を掘り下げてみます。<br>
+<br>
+(1) ショットを与えないと、形がとても悪くなる<br>
+　→ 13/8 はそれほどアグリーではありません。<br>
+(2) 相手にインナーブロットがある<br>
+　→ ありません。<br>
+(3) ヒットされないとかなり好形<br>
+　→ これはあてはまるかも。ヒットされず、9ptをカバーできると明らかに良くなります。<br>
+　　　ただし、まだ4ptと7ptが空いています。<br>
+(4) こちらのアンカーの方が悪い<br>
+　→ こちらのアンカーの方が悪ければ、冒険したくなります。<br>
+　　　でも実際は逆で、こちらのアンカーの方が良いのです。<br>
+<br>
+結局(3)の理由だけが 13/9 6/5 を後押しし、他はすべて安全策を支持します。<br>
+無難な 13/8 が最善手となります。<br>
+<br>
+2008/04/04<br>
+「こちらの方がよいanchorを持っている」という理由の比重がたいへん大きい。<br>
+また9ptにslotしてもフォローアップが弱いのでは。<br>
+13/9 6/5は0.073のerror、8/4 6/5は0.041のerror。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8                         Eq.: +0.202
+       0.551 0.116 0.002 - 0.449 0.070 0.001
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    8/4 6/5                      Eq.: +0.154 (-0.048)
+       0.536 0.130 0.004 - 0.464 0.089 0.002
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    6/5 6/2                      Eq.: +0.144 (-0.058)
+       0.532 0.119 0.002 - 0.468 0.075 0.001
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    13/9 6/5                     Eq.: +0.137 (-0.065)
+       0.533 0.124 0.004 - 0.467 0.090 0.001
+        2-ply cubeful prune [world class]
+    5. Cubeful 2-ply    6/1                          Eq.: +0.082 (-0.120)
+       0.511 0.124 0.003 - 0.489 0.083 0.001
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board1.png", ["black", "white"], ["white", "black"], ["white", "black"], "ccw")
+board.showBoard("XGID=---b-BD-C---bD---dbcB---b-:0:0:1:41:0:0:0:0:10");
+var categoryid = "KA1";
+var probnum = "04";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

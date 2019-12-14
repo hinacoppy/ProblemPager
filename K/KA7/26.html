@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(KA7-26)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">ゲームプラン</h3>
+<div class="doAction">緑に21が出ました。こういうムーブを見ると、つくづくゲームプランが大切だと痛感します。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips 緑=0 白=0</div></div>
+ <div class="answertable"></div>
+ <div class="description">いよいよ明日はJoe-Guy杯ですね。今回もたくさんの人が集まりそうでっせー<br>
+<br>
+toku＞<br>
+8/5<br>
+白の攻めが11枚で強力ですが、相手にハイアンカーを獲られてるので、こちらもハイアンカー確保を目指してバックマンを割るべきだとおもいます。<br>
+あと、白の8ｐがスプリットなのも後押ししてるかな。<br>
+<br>
+かずっち＞<br>
+13/10<br>
+次の白のロールでいい目はぞろ目くらい。逆に悪い目はたくさんありそう。チャンスをうかがいたいと思う。<br>
+バックマンを割ったり、5ポイントにスロットすると、悪い目をいい目に変えてしまい、チャンスをあたえてしまうことになりそう。<br>
+<br>
+西本＞<br>
+23/20、13/10、8/5あたりが有力な手でしょうか。<br>
+10ポイントのブロットが嫌なので、13/10にします。<br>
+(8/5も魅力的ではあるんですけどね～)<br>
+<br>
+vin＞<br>
+8/5<br>
+toku さんに同意です。<br>
+10pt の blot は、hit されてもその瞬間は白の blot 3枚ですから、<br>
+mid point を strip にしてまで急いでカバーしなくても良さそう。 <br>
+ならば、ゲームプランを第一に考えたい。<br>
+ここでは、白のouter point がすべて strip であることに注目し、<br>
+近い将来の hit チャンスを見越して、ボード強化を目指したいです。<br>
+バックマンを割るのは、白の攻め駒が多く、やや怖い感じがします。<br>
+<br>
+michihito_k＞<br>
+「アウターポイントを作れ」という格言があります。<br>
+相手のアンカーをブロックする意味でも、13/10には価値がありますね。<br>
+しかしここでは、より優先順位の高い仕事があるんです。<br>
+緑はムーブ後で27ピップも遅れているので、ヒットして勝ちたいはず。<br>
+そのためには強い陣地作りが必須となります。<br>
+すなわち8/5と進めましょう。<br>
+同時に8ポイントのスタックも解消していますね。<br>
+相手にインナーブロットがあるので、10ポイントのブロットをあまり気にしなくても大丈夫なんです。<br>
+最善手：8/5<br>
+ちなみに、白はプライム作りが難しい形をしています。<br>
+このような状態で、緑がアンカーをばらすことは大変危険。<br>
+ところで、tokuさんのコメントと選んだ手が一致してないように思うんですが…<br>
+<br>
+toku＞<br>
+あ、ほんとだ＾＾；<br>
+第一印象が8/5で理由がインナー強化しか思い浮かばなかったからやめて、23/20のハイアンカー確保に変えました。<br>
+<br>
+西本＞<br>
+相手にインナーブロットがあるときは、ブロットを必要以上に警戒する必要はないんですね。覚えました。<br>
+あと、プライムが困難な形相手にはアンカーは割らない方が良いというのも学びました。<br>
+私がギャモン負けするパターンとして、割ってはいけないアンカーを割って、そのままクローズアウトされて負けるというパターンがあります。この局面の23/20もそのパターンということでしょうか。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis"></pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board1.png", ["black", "white"], ["white", "black"], ["white", "black"], "ccw")
+board.showBoard("");
+var categoryid = "KA7";
+var probnum = "26";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
