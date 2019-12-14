@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2016</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E16-34)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 34</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=7 Black=4</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>No redouble/Take</td><td class='answerscore'>370</td></tr>
+<tr><td>2.</td><td>Redouble/Take</td><td class='answerscore'>0</td></tr>
+<tr><td>3.</td><td>Redouble/Pass</td><td class='answerscore'>167</td></tr>
+</table>
+</div>
+ <div class="description">黒はどんな目を振ってもあと2回で上がることができます。このようなポジションを2rollポジションと呼びます。純粋な2roll vs 2rollのポジションは後振りの勝率が約14%しかなく、大パスです。しかしここでは、白が32,31,21の6通り(約17%)を振ると黒はリダブルを打ってすぐに勝つことができます。白がこれらの悪い目を振らない場合(30通り)でも約14%の勝率があるので、6+30×14%=10.2通りとなり、テイクに必要な9通りを大幅に超えます。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.463
+  0.731 0.000 0.000 - 0.269 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.833
+2. Double, pass        +1.000  (+0.167)
+3. No double           +0.463  (-0.370)
+Proper cube action: Redouble, take
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-C--A-------------------d-:1:1:1:00:0:0:3:0:10");
+var categoryid = "E16";
+var probnum = "34";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

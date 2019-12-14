@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2016</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E16-08)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 8</h3>
+<div class="doAction">白63</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=162 Black=145</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>24/21 13/7</td><td class='answerscore'>183</td></tr>
+<tr><td>2.</td><td>24/21 11/5</td><td class='answerscore'>179</td></tr>
+<tr><td>3.</td><td>24/18 21/18</td><td class='answerscore'>171</td></tr>
+<tr><td>4.</td><td>11/5 8/5</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">黒のバックマンに全て逃げられましたし、ピップも負けていますので、黒の駒をヒットしたい局面です。<br>
+黒は3箇所しかポイントを持っていませんし、2箇所でスタックしています。そのため、白がバックマンをこのままにしておくと、黒に都合の良い出目は、新しくポイントを作ることができる出目か、ゾロ目しかありません。つまり、42,61,31,53の8通りとゾロ目の6通りの合計14通りが、黒にとって都合の良い出目となります。(64は2ポイントを作ることができますが、8ポイントがストリップになるため良い出目とは言えません。)反対に、21,51,62,63,54,65の12通りではダイレクトショットをもらうことができるため、黒にとって都合の悪い目となります。<br>
+もし、21ポイントにアンカーを作ると、24から22ポイントが安全に駒を運べるポイントになってしまいます。同じように、18ポイントにアンカーを作ると、黒にとって24から19ポイントが安全に駒を運べるポイントになってしまいます。いずれの場合も、白がダイレクトショットをもらえることはありません。<br>
+したがって、正解は11/5 8/5となります。5ポイントを作って陣地を固めているのも、白にとって大きなメリットです。もし黒が、アウターポイントを持っていたり、ビルダーを豊富に配置していたりする場合には、アンカーを取る必要性があります。ヒットチャンスを得るためにバックマンをスプリットしたままにしていても、攻められてしまうのであれば意味がありません。<br>
+バックマンに全て逃げられた場合は、黒のポジションを見て、ダイレクトショットをもらうためにバックマンをスプリットしたままにしておくのか、アンカーを取って守りを固めるのかを判断しましょう。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5 8/5                     Eq.: -0.206
+       0.430 0.100 0.003 - 0.570 0.087 0.002
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    13/7 8/5                     Eq.: -0.255 (-0.049)
+       0.419 0.096 0.003 - 0.581 0.101 0.004
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    13/10 11/5                   Eq.: -0.267 (-0.061)
+       0.416 0.094 0.003 - 0.584 0.101 0.004
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    13/7 6/3                     Eq.: -0.287 (-0.081)
+       0.412 0.092 0.003 - 0.588 0.107 0.004
+        2-ply cubeful prune [world class]
+    5. Cubeful 2-ply    13/10 13/7                   Eq.: -0.287 (-0.081)
+       0.412 0.091 0.003 - 0.588 0.105 0.004
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=------E-C--AgD---c-e-A--A-:0:0:1:63:0:0:3:0:10");
+var categoryid = "E16";
+var probnum = "08";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

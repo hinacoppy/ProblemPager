@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2014</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E14-05)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 5</h3>
+<div class="doAction">白42</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=164 Black=158</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>B/23 13/9</td><td class='answerscore'>0</td></tr>
+<tr><td>2.</td><td>B/23 9/5</td><td class='answerscore'>232</td></tr>
+<tr><td>3.</td><td>B/23 8/4*</td><td class='answerscore'>154</td></tr>
+<tr><td>4.</td><td>B/21 6/4*</td><td class='answerscore'>71</td></tr>
+</table>
+</div>
+ <div class="description">選択肢は4ポイントの駒をヒットする手と、9ポイントをカバーする手に大きく分けられます。このように「ルースヒットして攻めるか新しいブロックポイントを作るか」で悩んだ場合、序盤ではほぼ、ポイント作りがルースヒットに勝ります。したがってここでも13/9と9ポイントをカバーする手が正解になります。<br>
+例えばBar/21 6/4*と攻め、相手に42,43,45,22,44の8通りでダブルヒットされると、こちらは一気に窮地に陥ってしまいます。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 13/9                  Eq.: -0.028
+       0.496 0.127 0.005 - 0.504 0.140 0.006
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    bar/21 6/4*                  Eq.: -0.120 (-0.092)
+       0.477 0.128 0.007 - 0.523 0.166 0.011
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    bar/23 8/4*                  Eq.: -0.181 (-0.152)
+       0.459 0.127 0.007 - 0.541 0.174 0.013
+        2-ply cubeful prune [world class]
+    4. Cubeful 0-ply    bar/21 24/22                 Eq.: -0.222 (-0.193)
+       0.444 0.107 0.004 - 0.556 0.167 0.009
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    bar/23 9/5                   Eq.: -0.245 (-0.217)
+       0.438 0.109 0.005 - 0.562 0.176 0.011
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-a--a-E-CA--dD---cae----AA:0:0:1:42:0:0:3:0:10");
+var categoryid = "E14";
+var probnum = "05";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

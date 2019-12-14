@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2013</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E13-50)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 50</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=21 Black=42</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>NoDouble/Take</td><td class='answerscore'>352</td></tr>
+<tr><td>2.</td><td>Double/Take</td><td class='answerscore'>247</td></tr>
+<tr><td>3.</td><td>Double/Pass</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">ピップを確認すると、白21と黒42だが、白は前に詰まっていてベアオフ時に多くのロスが発生する。黒もいくらかロスが発生するだろう。<br>
+このような局面ではピップと上がり枚数だけを見て形勢を判断するのが難しい。そこで便利なのがエフェクティブピップカウント(EPC)という概念だ。このEPCは将来起こりうるロスを考慮に入れた真のピップカウントである。これを使うと比較が難しいポジションを公正に判断することができる。EPCの近似値は以下の計算で求めることができる。<br>
+<br>
+前に偏った側のポジション(白)のEPCの求め方:<br>
+7×(ロール数)+1<br>
+<br>
+比較的バランスの良い配置(黒)のEPCの求め方:<br>
+(ピップ数)+7～8(この値はロスの発生のしやすさによって変化する)<br>
+<br>
+これを問題の局面に当てはめるとそれぞれEPCは以下のようになる。<br>
+白=7×6(ロール)+1=43<br>
+黒=42+7=49<br>
+<br>
+さらに黒のテイクラインだが、(白のロール数-3)差までテイクすることができる。当てはめると、6(ロール)-3=3差までテイクとなるが、先ほどのEPCの差はおよそ6なので、ここではダブルーパスが正解だ。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.668
+  0.834 0.000 0.000 - 0.166 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.236  (+0.236)
+3. No double           +0.895  (-0.105)
+Proper cube action: Double, pass
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-EEB---------------cbbb---:0:0:1:00:0:0:3:0:10");
+var categoryid = "E13";
+var probnum = "50";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2016</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E16-48)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 48</h3>
+<div class="doAction">白32</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=32 Black=109</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>4/2 3/Off</td><td class='answerscore'>135</td></tr>
+<tr><td>2.</td><td>4/1 3/1</td><td class='answerscore'>209</td></tr>
+<tr><td>3.</td><td>4/1 2/Off</td><td class='answerscore'>96</td></tr>
+<tr><td>4.</td><td>3/Off 2/Off</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">2枚上がると、一番後ろのポイントが3枚になるためヒットされてしまう危険性があります。では実際にヒットされる確率はどれくらいなのでしょうか。ヒットされるためには、まず黒がダンスし(16/36)、次に白がブロットを出す目(65,64,54)を振り(6/36)、そしてヒットされなければなりません(11/36)。これは、16/36×6/36×11/36=約2.3%しかありません! しかもヒットされても負けとは限りません。(白がヒットされるときは7枚も上がっていることにも注目してください。)このような低い確率を恐れるよりも、2枚上がってギャモン勝ちを狙うべきです。現状はギャモンできるかどうか際どいので、枚数を多く上がるメリットは非常に大きいのです。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    3/off 2/off                  Eq.: +1.707
+       0.985 0.740 0.003 - 0.015 0.000 0.000
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    4/1 2/off                    Eq.: +1.611 (-0.096)
+       0.995 0.620 0.002 - 0.005 0.000 0.000
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    4/2 3/off                    Eq.: +1.586 (-0.120)
+       0.988 0.612 0.001 - 0.012 0.000 0.000
+        2-ply cubeful prune [world class]
+    4. Cubeful 0-ply    3/1 3/off                    Eq.: +1.498 (-0.209)
+       0.959 0.593 0.000 - 0.041 0.000 0.000
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    4/1 3/1                      Eq.: +1.483 (-0.224)
+       0.980 0.531 0.000 - 0.020 0.000 0.000
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=aBCDC-a-----a-----abcbbb--:1:-1:1:32:0:0:3:0:10");
+var categoryid = "E16";
+var probnum = "48";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

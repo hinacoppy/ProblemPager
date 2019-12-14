@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2019</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E19-34)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 34</h3>
+<div class="doAction">白65</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=82 Black=120</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>16/11 16/10</td><td class='answerscore'>78</td></tr>
+<tr><td>2.</td><td>16/5</td><td class='answerscore'>365</td></tr>
+<tr><td>3.</td><td>7/1 6/1</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">今すぐブロットを出してアンカーを外すのか、それともより良いタイミングを待つのか、いわゆるPay now or laterと呼ばれる問題です。正解は7/1 6/1ともう一手我慢するムーブです。1ポイントに3枚も積んでしまい、とても悪い形にはなりますが、5ポイントボードを維持していて、次にゾロ目か8(62, 53)を振ればほぼ安全に16ポイントをクリアすることができます。16/11 16/10や16/5は今すぐ決着をつけるムーブですが、与えるショット数が多過ぎ(21通り以上)て、ここではやり過ぎとなります。Pay now or laterでは15通り以上のショットを与えてアンカーを外すためには相当の理由が必要になります。<br>
+<br>
+なお、次の参考図は白の6ポイントのスペアを5ポイントに動かした局面です。1ピップしか動いていませんが、正解は16/11 16/10になります。この場合は7/1 6/1だと5ポイントボードを維持できないので、Pay nowが正解となります。<br>
+<br>
+(参考図)<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+ (Cube: 2)
+|       O  X  O  O |   | O  O     O       |   
+|       O  X     O |   | O  O     O       |   
+|                O |   |                  |   
+|                  |   |                  |   
+|                  |   |                  |   
+|                  |BAR|      5 6         |
+|                  |   |                  |   
+|                  |   |                  |   
+|                  |   |    X           X |   
+| O                |   | X  X  X     X  X |   
+| O           O  X |   | X  X  X     X  X |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/1 6/1                      Eq.: +0.062
+       0.590 0.083 0.001 - 0.410 0.061 0.001
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    16/11 16/10                  Eq.: -0.025 (-0.088)
+       0.547 0.094 0.002 - 0.453 0.041 0.002
+        2-ply cubeful prune [world class]
+    3. Cubeful 0-ply    16/5                         Eq.: -0.095 (-0.157)
+       0.498 0.110 0.003 - 0.502 0.033 0.001
+        0-ply cubeful prune [expert]
+    4. Cubeful 0-ply    16/10 7/2                    Eq.: -0.444 (-0.506)
+       0.375 0.105 0.003 - 0.625 0.089 0.001
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    16/10 6/1                    Eq.: -0.461 (-0.523)
+       0.379 0.097 0.002 - 0.621 0.106 0.002
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-CB-BBCAa---b--bBacbb-b---:1:-1:1:65:0:0:3:0:10");
+var categoryid = "E19";
+var probnum = "34";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

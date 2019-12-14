@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2019</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E19-32)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 32</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation">5pマッチ 白1-2黒</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=147 Black=162</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>No double/Take</td><td class='answerscore'>427</td></tr>
+<tr><td>2.</td><td>Double/Take</td><td class='answerscore'>193</td></tr>
+<tr><td>3.</td><td>Double/Pass</td><td class='answerscore'>0</td></tr>
+<tr><td>4.</td><td>Too good to double/Pass</td><td class='answerscore'>234</td></tr>
+</table>
+</div>
+ <div class="description">初手から黒51で24/23 13/8、白55で8/3(2) 6/1(2)*と進め、黒が休んだ局面です。典型的なブリッツの形で、普通のスコアであればノーダブルが正解、テイクはとてもイージーです。しかしスコアに注目してください。白はあと4点でマッチ勝ち、黒はあと3点でマッチ勝ちです。この状況を4away-3awayと呼びますが、このスコアは黒にとって2倍のギャモン(4点)の価値が非常に高い局面です。勝てば一気にマッチに勝つことができるのですから。この局面は大いにギャモン勝ちが期待できるので、白はダブルするべきです。黒はキューブを引いた後にギャモン負けは絶対に避けたいところです。また仮に逆転したとしても、黒は白に対して簡単にリダブルは打てません。なぜなら、白の立場からすると4倍のキューブを降りたら4away-lawayになってしまうため、勝率が多少低くても引かざるを得ないからです。つまり、ギャモン負けは怖いしリダブルは打ちにくい、ということでパスが正解になります。スコアによって正しいキューブアクシヨンが変わる典型例と言えそうです。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.356 (Money: +0.381)
+  0.599 0.285 0.007 - 0.401 0.103 0.005
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.053  (+0.053)
+3. No double           +0.718  (-0.282)
+Proper cube action: Double, pass
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=aBaB--C-A---dE---d-e----B-:0:0:1:00:1:2:0:5:10");
+var categoryid = "E19";
+var probnum = "32";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

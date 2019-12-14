@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2016</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E16-49)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 49</h3>
+<div class="doAction">白51</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=23 Black=69</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>5/4 5/Off</td><td class='answerscore'>41</td></tr>
+<tr><td>2.</td><td>5/Off 2/1</td><td class='answerscore'>100</td></tr>
+<tr><td>3.</td><td>5/Off 1/Off</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">正解は5/Off 1/Offです。5/4 5/Offの方が黒に与えるショットは1通り少ないのですが(12通りから11通りになる)、ヒットされたときに5枚しか上がれておらず、黒から効果的なリダブルが早晩返ってきそうです。5/Off 1/Offであれば6枚上がっているので黒はなかなかリダブルが打てません。このような形では、一般的に、6枚以上上がれるのであれば1通り増やしてでも上がった方が良いのです。5枚以下であれば1通り少ない方が優ります。参考図は1通り増やしても5枚しか上がれないので、5/4 5/Offと安全なプレイが優ります。<br>
+<pre>
+(参考図)
++13-14-15-16-17-18------19-20-21-22-23-24-+
+|                  |   | O  O  O  O  O  O |
+|                  |   | O  O  O  O  O  O |
+|                  |   | O  O             |
+|                  |   |                  |
+|                  |   |                  |
+|                  |BAR|       5 1        |
+|                  |   |             X  X |
+|                  |   |             X  X |
+|                  |   |             X  X |X
+|                  |   |    X        X  X |X
+|                  |   |    X     O  X  X |X
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/off 1/off                  Eq.: +0.480
+       0.778 0.000 0.000 - 0.222 0.000 0.000
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    5/4 5/off                    Eq.: +0.452 (-0.028)
+       0.773 0.000 0.000 - 0.227 0.000 0.000
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    5/off 2/1                    Eq.: +0.399 (-0.081)
+       0.751 0.000 0.000 - 0.249 0.000 0.000
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-EDa-B-------------bcbbbb-:1:-1:1:51:0:0:3:0:10");
+var categoryid = "E16";
+var probnum = "49";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

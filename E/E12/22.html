@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2012</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E12-22)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 22</h3>
+<div class="doAction">黒66</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Black=142 White=135</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>22/10 13/7*(2)</td><td class='answerscore'>0</td></tr>
+<tr><td>2.</td><td>13/7* 11/5(2) 7/1*</td><td class='answerscore'>281</td></tr>
+<tr><td>3.</td><td>13/7*(2) 11/5(2)</td><td class='answerscore'>85</td></tr>
+<tr><td>4.</td><td>13/7*(2) 7/1*(2)</td><td class='answerscore'>141</td></tr>
+</table>
+</div>
+ <div class="description">この局面で最高の出目だが、選択肢が多くて迷ってしまいそうだ。しかし、キューブがまだセンターなことに注目すると、次に安全に相手をダブルで降ろせるムーブを選べばいいことが分かる。(ジャコビールールなのでセンターキューブのままギャモン勝ちはない)<br>
+13/7*(2) 7/1*(2)や13/7* 11/5(2) 7/1*などのムーブはギャモン狙いのブリッツだが、2枚生き返られたり、リターンヒットされたりするとすぐに危なくなってしまう。<br>
+13/7*(2) 11/5(2)はいいムーブだが、バックマンが相手の4プライムに捕まったままなので、白がいいエンターをするとすぐに危なくなる。<br>
+よって正解は22/10 13/7*(2)となる。白は64、55でリターンヒットするか、54、43でハイアンカーを確保しない限り、黒からのキューブを引くことができない。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/10 13/7*(2)               Eq.: +0.837
+       0.725 0.134 0.003 - 0.275 0.056 0.001
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    13/7*(2) 11/5(2)             Eq.: +0.777 (-0.060)
+       0.687 0.242 0.014 - 0.313 0.081 0.003
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    13/7*/1*(2)                  Eq.: +0.725 (-0.112)
+       0.647 0.336 0.010 - 0.353 0.107 0.004
+        2-ply cubeful prune [world class]
+    4. Cubeful 0-ply    13/7*/1* 11/5(2)             Eq.: +0.477 (-0.360)
+       0.603 0.315 0.014 - 0.397 0.126 0.006
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    22/16 13/7* 11/5(2)          Eq.: +0.395 (-0.442)
+       0.612 0.205 0.011 - 0.388 0.135 0.005
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["black", "white"], ["white", "black"], ["white", "black"], "cw")
+board.showBoard("XGID=-a-B--DaB--BbDa---bdbbA---:0:0:1:66:0:0:3:0:10");
+var categoryid = "E12";
+var probnum = "22";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

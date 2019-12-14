@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2016</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E16-04)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 4</h3>
+<div class="doAction">白21</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=166 Black=160</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>Bar/24 13/11</td><td class='answerscore'>60</td></tr>
+<tr><td>2.</td><td>Bar/23 11/10</td><td class='answerscore'>85</td></tr>
+<tr><td>3.</td><td>Bar/23 6/5</td><td class='answerscore'>0</td></tr>
+<tr><td>4.</td><td>Bar/22</td><td class='answerscore'>90</td></tr>
+</table>
+</div>
+ <div class="description">Bar/24 13/11は、11ポイントを作っている点は良いのですが、黒に4ポイントをカバーされた場合にバックマンが初期配置のままだと不利になってしまいます。Bar/23 11/10やBar/22は、有効な仕事をしていません。<br>
+ここで、Bar/23 6/5を見てみると、黒の4の目が、ヒットと4ポイントメイクでデュプリケートします。22,42,44以外はヒットされてもリターンヒットを狙えますし、黒はノーボードなのでさほど危険はありません。スロットした駒がヒットされなければ次に5ポイントを作れそうですし、6ポイントのスタックも解消しています。よって、Bar/23 6/5が正解となります。<br>
+序盤のヒット合戦で不利になり、1の目を振ったときは、スロットを検討するべきです。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 6/5                   Eq.: -0.093
+       0.485 0.134 0.007 - 0.515 0.170 0.011
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    bar/24 13/11                 Eq.: -0.139 (-0.046)
+       0.467 0.126 0.006 - 0.533 0.167 0.009
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    bar/23 11/10                 Eq.: -0.142 (-0.049)
+       0.465 0.124 0.005 - 0.535 0.162 0.007
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    bar/22                       Eq.: -0.174 (-0.081)
+       0.459 0.117 0.005 - 0.541 0.166 0.008
+        2-ply cubeful prune [world class]
+    5. Cubeful 2-ply    bar/23 24/23                 Eq.: -0.182 (-0.089)
+       0.450 0.119 0.005 - 0.550 0.153 0.007
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-b----E-C--AdD---d-d-a--AA:0:0:1:21:0:0:3:0:10");
+var categoryid = "E16";
+var probnum = "04";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

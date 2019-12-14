@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2018</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E18-47)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 47</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=41 Black=126</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>No redouble/Take</td><td class='answerscore'>109</td></tr>
+<tr><td>2.</td><td>Redouble/Take</td><td class='answerscore'>0</td></tr>
+<tr><td>3.</td><td>Redouble/Pass</td><td class='answerscore'>333</td></tr>
+<tr><td>4.</td><td>Too good to redouble/Pass</td><td class='answerscore'>442</td></tr>
+</table>
+</div>
+ <div class="description">一見するとかなリヒットされてしまいそうです。では直後にどのくらいの確率でヒットされるのか、次の出目を分類して考えてみましょう。<br>
+素晴らしい目(65,64,55):5通り・・・これらの目はヒットチャンスを与えません。<br>
+良い目(21,11,22,66,33):6通り・・・これらの目はヒットチャンスを与えないか、与えたとしても11通りで、かつそれが最後のチャンスになりそうです。<br>
+普通の目:残りの25通り・・・多くのヒットチャンスを与えてしまいます。53のように28通りのショットを与えるものもあれば、63や54のように17通りしか与えないものもあります。平均すれば22通りほどのショットを与えます。 1,2が絡む目(例えば61)などは1ポイントをヒットできることも忘れずに。<br>
+<br>
+概算してみると、直後に47%程度ヒットされることが分かります。直後でなくてもその後に打たれるものも含めれば55%ほどヒットされそうです。ヒットされると80%近く負けそうですので、黒の勝率は約44%もあります。テイクは間違いありません。<br>
+<br>
+しかし、ヒットされなければかなり(70%程度)ギャモン勝ちできそうなので、白の期待値は相当高そうです。次の一振りでゲームが決まる重要な局面で、有利なのですからダブルも正解です。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.572
+  0.574 0.410 0.014 - 0.426 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.880
+2. Double, pass        +1.000  (+0.120)
+3. No double           +0.640  (-0.240)
+Proper cube action: Redouble, take
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-aEFab-------A-----bbbbba-:1:1:1:00:0:0:3:0:10");
+var categoryid = "E18";
+var probnum = "47";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

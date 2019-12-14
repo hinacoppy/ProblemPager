@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2019</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E19-41)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 41</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=20 Black=20</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>No redouble/Take</td><td class='answerscore'>400</td></tr>
+<tr><td>2.</td><td>Redouble/Take</td><td class='answerscore'>262</td></tr>
+<tr><td>3.</td><td>Redouble/Pass</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">大雑把に考えることも可能ですが、ここではEPC(Effective Pip Count)を使って厳密に考える方法を紹介します。<br>
+<br>
+(1)白は4ロールなので、EPCは(ロール数)×7+1で求まります。それに従えば4×7+1=29ですが、1を3回振るなどして4ロールで上げられないこともあるので、2を足して31とします。黒のEPCは次の公式で求められます。3.5×(全ての駒の枚数)+アウターの駒のピップ数。これに従えば3.5×6+13=34です。そして両者の差を求めると34-31=3となり、白が3進んでいると分かります。<br>
+<br>
+(2)白のロール数から3を引きます。白は4ロールなので4-3=1です。<br>
+<br>
+(3)(1)と(2)の値を比べて同じならテイク、(1)の方が大きければパスです。ここでは(1)の値が「3」、(2)の値が「1」なので、パスだと分かります。<br>
+<br>
+この方法を使うと、アウターにある黒の駒を図中の12ポイントヘ移してもパスになりますが、実際スモールパスです。さらに黒の駒を11ポイントヘ移すとテイクだと判定できますが、実際テイクです。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.645
+  0.823 0.000 0.000 - 0.177 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.245  (+0.245)
+3. No double           +0.863  (-0.137)
+Proper cube action: Redouble, pass
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-BBBB-------a----------bc-:1:1:1:00:0:0:3:0:10");
+var categoryid = "E19";
+var probnum = "41";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

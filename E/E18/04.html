@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2018</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E18-04)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 4</h3>
+<div class="doAction">白64</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=161 Black=160</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>24/18 13/9</td><td class='answerscore'>174</td></tr>
+<tr><td>2.</td><td>24/14</td><td class='answerscore'>62</td></tr>
+<tr><td>3.</td><td>13/3*</td><td class='answerscore'>58</td></tr>
+<tr><td>4.</td><td>8/2 6/2</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">問題図は初手から白51:24/23 13/8、黒52:24/22 13/8、 白64と進んだ3手目です。仮に黒が初手で52:24/22 13/8、白64と進んだ2手目の局面(参考図)であれば、最善手は13/3*で、僅差で24/14や8/2 6/2が続きます。<br>
+<br>
+(参考図)<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X           O    |   | O              X |   
+| X           O    |   | O              X |   
+| X           O    |   | O                |   
+| X           O    |   | O                |   
+|                  |   | O                |   
+|                  |BAR|      4 6         | (Cube: 1)
+|                  |   | X                |   
+| O           X    |   | X                |   
+| O           X    |   | X                |   
+| O           X    |   | X                |   
+| O           X    |   | X        O     O |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
+<br>
+しかし問題図では8/2 6/2が大差で正解で、他の手は大きなエラーになります。何が違うのでしょうか。問題図では白のバックマンはすでにスプリットされていて動きやすく、参考図に比べて24/14と逃げる必要性が薄いです。逆に、問題図の8/2 6/2は8ポイントに駒が1枚多いため、2ポイントを作った後でも8ポイントにスペアマンが残り、攻めの継続が容易です。参考図で8/2 6/2と2ポイントを作ると8ポイントがストリップしてあまりいい形ではありません。これらの違いから、問題図では8/2 6/2がベストになります。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 6/2                      Eq.: +0.000
+       0.497 0.145 0.004 - 0.503 0.131 0.004
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    13/3*                        Eq.: -0.053 (-0.053)
+       0.484 0.136 0.006 - 0.516 0.138 0.007
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    24/14                        Eq.: -0.078 (-0.078)
+       0.485 0.118 0.004 - 0.515 0.149 0.005
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    24/18 13/9                   Eq.: -0.160 (-0.161)
+       0.462 0.115 0.004 - 0.538 0.156 0.007
+        2-ply cubeful prune [world class]
+    5. Cubeful 0-ply    24/20 13/7                   Eq.: -0.177 (-0.177)
+       0.453 0.110 0.004 - 0.547 0.151 0.007
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-a-a--E-D---dD---d-e---AA-:0:0:1:64:0:0:3:0:10");
+var categoryid = "E18";
+var probnum = "04";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

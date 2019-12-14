@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2013</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E13-11)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 11</h3>
+<div class="doAction">白と黒のピップカウント(ゴールするまでに必要なピップ数)をそれぞれ答えなさい</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=92 Black=96</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>白80 黒90</td><td class='answerscore'>55</td></tr>
+<tr><td>2.</td><td>白80 黒86</td><td class='answerscore'>55</td></tr>
+<tr><td>3.</td><td>白92 黒86</td><td class='answerscore'>55</td></tr>
+<tr><td>4.</td><td>白92 黒96</td><td class='answerscore'>0</td></tr>
+</table>
+</div>
+ <div class="description">ピップカウントはバックギャモンで最も大切なテクニックの一つであり、早く数えるためには頻出する形のピップ数(特に1の位が0のもの)を覚えてしまうのも手である。以下にいくつかの例を挙げる。<br>
+・5プライム=真ん中の数×10ピップ<br>
+・4,6ポイントに1枚ずつ=10ピップ<br>
+・4,5,6ポイントに2枚ずつ=30ピップ<br>
+・13ポイントに2枚と8ポイントに3枚(白のアウターボード)=50ピップ<br>
+・13ポイントに2枚と7ポイントに2枚(黒のアウターボード)=40ピップ<br>
+これらを利用すれば、より早く数えることができる。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.291
+  0.645 0.001 0.000 - 0.355 0.001 0.000
+Cubeful equities:
+1. No double           +0.432
+2. Double, pass        +1.000  (+0.568)
+3. Double, take        +0.346  (-0.086)
+Proper cube action: No double, take (13.1%)
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-A-BBCB-C---bB----bddc----:0:0:1:00:0:0:3:0:10");
+var categoryid = "E13";
+var probnum = "11";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

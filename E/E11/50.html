@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2011</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E11-50)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 50</h3>
+<div class="doAction">Select Best</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Black=0 White=0</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>ac</td><td class='answerscore'>31</td></tr>
+<tr><td>2.</td><td>abc</td><td class='answerscore'>304</td></tr>
+<tr><td>3.</td><td>acd</td><td class='answerscore'>0</td></tr>
+<tr><td>4.</td><td>bcd</td><td class='answerscore'>935</td></tr>
+<tr><td>5.</td><td>abcd</td><td class='answerscore'>273</td></tr>
+<tr><td>6.</td><td>abcde</td><td class='answerscore'>503</td></tr>
+</table>
+</div>
+ <div class="description">a. 24/18が正解<br>
+26通りもの目で黒はバックギャモン負けしてしまいます。白が1を振ったとしてもヒットできるのは11通りだけです。仮にヒットできたとしても勝率はほとんどありません。<br>
+<br>
+b. 24/18は不正解<br>
+白はゾロ目以外すべてブロットとなります。その中でも1を振るとダブルブロットが出ます。運よくダブルブロットを2枚ともヒットすることができれば3回中2回ぐらいは勝てます。(ダブルブロットが出た場合黒はショットを外してもバックギャモン負けにはなりません。)シングルブロットしか出なかった場合でも、23を除いてバックギャモン負けすることは無いので、ステイして頑張るのが正解になります。<br>
+<br>
+c. 24/18が正解<br>
+bと似ていますが、今度はダブルブロットを出す目がありません。シングルブロットを出す目も10通りとかなり減っています。それでいてぞろ目を振られる5通りは相変わらずバックギャモン負けですから、今度はあきらめて24/18とバックギャモンセーブをするのが正解になります。<br>
+<br>
+d. 24/18が正解<br>
+直後に白が2を振るとショットがきますが、cと同じくダブルブロットが出る目はありません。1を振った場合は「b」の形になりますが、そもそも1を振るのは10通り(1ゾロを除く)だけです。白が3以上の目の組み合わせを振ると「a」の形となり、1手前に逃げていなかったことを後悔することになります。ここですでに逃げた方がいいのです。<br>
+<br>
+e. 24/18は不正解<br>
+白が大きい目2つを振ると「b」の形となり、24pにステイするのが正しいプレイとなります。1絡みを振ったときもブロットがもらえたわけですから、黒はステイして良かったことになります。白がぞろ目を振ってもブロットが出ますし、23以外であればバックギャモン負けをすることはありません。一般的に5枚以上が2pに残っている時はほぼステイ(24/18)が正解になります。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity -1.000
+  0.000 0.000 0.000 - 1.000 0.000 0.000
+Cubeful equities:
+1. No double           -1.000
+2. Double, pass        +1.000  (+2.000)
+3. Double, take        -2.000  (-1.000)
+Proper cube action: No double, take (33.3%)
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["black", "white"], ["white", "black"], ["white", "black"], "cw")
+board.showBoard("XGID=--------------------------:0:0:1:00:0:0:0:0:10");
+var categoryid = "E11";
+var probnum = "50";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2019</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E19-24)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 24</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=113 Black=145</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>No double/Take</td><td class='answerscore'>0</td></tr>
+<tr><td>2.</td><td>Double/Take</td><td class='answerscore'>104</td></tr>
+<tr><td>3.</td><td>Double/Pass</td><td class='answerscore'>935</td></tr>
+</table>
+</div>
+ <div class="description">白は黒の駒2枚をフルプライムに閉じ込めています。ネックはバックマン1枚ですが、 次に66, 65, 61が振れればルーズ、 63, 62, 51が振れてかつヒットされなかった場合もマーケットを失います。<br>
+<br>
+しかしこのポジションでダブルは早計です。理由は大きく2つ。まず、上述した以外の目では全くと言っていいほどマーケットを失いません。黒の4プライムは相当に強く、白のバックマンが今後閉じ込められる危険も十分にあります。次に、仮に白が上述した目を振ってマーケットを失ったとしてもそこまで大きく失うわけではありません。その場合、黒は3ポイントアンカーゲームに移行しますが、それでも20%弱ほど勝率は残るのです。<br>
+<br>
+以上の考察によりNo double/Takeが最善となります。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.275
+  0.606 0.117 0.003 - 0.394 0.056 0.001
+Cubeful equities:
+1. No double           +0.379
+2. Double, pass        +1.000  (+0.621)
+3. Double, take        +0.282  (-0.097)
+Proper cube action: No double, take (13.5%)
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=---bBBCCBB--b--a-bccb-A---:0:0:1:00:0:0:3:0:10");
+var categoryid = "E19";
+var probnum = "24";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

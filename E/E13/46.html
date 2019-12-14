@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2013</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E13-46)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 46</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=68 Black=82</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>NoDouble/Take</td><td class='answerscore'>116</td></tr>
+<tr><td>2.</td><td>Double/Take</td><td class='answerscore'>0</td></tr>
+<tr><td>3.</td><td>Double/Pass</td><td class='answerscore'>260</td></tr>
+</table>
+</div>
+ <div class="description">白はレースで十分リードしていて、課題は7以上を振って12ポイントを飛び越えるだけなのでダブルは当然だ。では黒はテイクできるだろうか。白がポイントを飛び越えられない目は16通りある。そのうち1/3をヒットすることができると仮定すると、それは確率にすると約15%だ。さらに単なるレースになったときの勝率が仮に10%残っているならば、計25%勝つことができる。ここでは相手の66や33を止めていることにも気づきたい。黒はテイクだ。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.442
+  0.723 0.002 0.000 - 0.277 0.005 0.000
+Cubeful equities:
+1. Double, take        +0.745
+2. Double, pass        +1.000  (+0.255)
+3. No double           +0.631  (-0.113)
+Proper cube action: Double, take
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-BBCBCB-----b-----Acdbbb--:0:0:1:00:0:0:3:0:10");
+var categoryid = "E13";
+var probnum = "46";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

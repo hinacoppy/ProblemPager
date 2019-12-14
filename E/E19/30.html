@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2019</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E19-30)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 30</h3>
+<div class="doAction">白と黒のピップカウント（ゴールするまでに必要なピップ数）をそれぞれ答えよ</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=128 Black=124</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>白127 黒125</td><td class='answerscore'>55</td></tr>
+<tr><td>2.</td><td>白128 黒124</td><td class='answerscore'>0</td></tr>
+<tr><td>3.</td><td>白128 黒125</td><td class='answerscore'>55</td></tr>
+<tr><td>4.</td><td>白138 黒124</td><td class='answerscore'>55</td></tr>
+<tr><td>5.</td><td>白138 黒125</td><td class='answerscore'>55</td></tr>
+</table>
+</div>
+ <div class="description">ピップカウントはバックギャモンで最も大切なテクニックの一つです。早く数えるためには頻出する形のピップ数(特に一の位が0のもの)を覚えてしまうのがよいでしょう。<br>
+<br>
+以下にいくつか例を挙げます。<br>
+<br>
+・5プライム=真ん中の数×10ピップ<br>
+・4,6ポイントに1枚ずつ=10ピップ<br>
+・4,5,6ポイントに2枚ずつ=30ピップ<br>
+・13ポイントに2枚と8ポイントに3枚=50ピップ<br>
+・13ポイントに2枚と7ポイントに2枚=40ピップ<br>
+・20ポイント＆5ポイント、24ポイント＆1ポイントなど、相対するポイントに駒が2枚ずつある場合=50ピップ<br>
+<br>
+これらを利用すれば、より早く数えることができるようになります。<br>
+<br>
+とはいえ、実戦ではこれらの形に都合よく当てはまらないことが多いです。そのような場合は頭の中で駒を動かし(メンタルシフト)、上記の形にしてしまうとよいでしょう。<br>
+<br>
+白を例に説明します。下の図は問題図から黒の駒をすべて取り、白の8ポイントの駒を(頭の中で)1枚7ポイントに動かし、白の6ポイントの駒を(頭の中で)1枚7ポイントに動かしたところです。1ピップ前に動かし、1ピップ後ろに動かしているので、合計値は変わりません。<br>
+<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X                |   |       X          |OO 
+| X                |   |       X          |OO 
+|                  |   |                  |OO 
+|                  |   |                  |OO 
+|                  |   |                  |OO 
+|                  |BAR|                  |
+|                  |   |                  |   
+|                  |   |       X          |   
+|                  |   |       X          |   
+|                X |   | X  X  X          |   
+|             X  X |   | X  X  X          |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+ (Cube: 2)
+</pre>
+<br>
+この形にすると、上記のテクニックがたくさん使えるのです!下記の図を参照してください。<br>
+<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X                |   |       X          |OO 
+| X                |   |       X          |OO 
+|                  |   |                  |OO 
+|                  |   |                  |OO 
+|                  |   |                  |OO 
+|                  |BAR|                  |
+|                  |   |                  |   
+|                  |   |       X          |   
+|                  |   |       X          |   
+|                X |   | X  X  X          |   
+|             X  X |   | X  X  X          |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+ (Cube: 2)
+</pre>
+<br>
+これならば複雑な足し算は1つもありませんし、あっという間に計算できますね。メンタルシフトは慣れてくれば早いですし楽しいので、ぜひ練習してみてください。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.356
+  0.595 0.252 0.011 - 0.405 0.093 0.003
+Cubeful equities:
+1. No double           +0.562
+2. Double, pass        +1.000  (+0.438)
+3. Double, take        +0.436  (-0.126)
+Proper cube action: No redouble, take (22.3%)
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-a--DBC-B---bB-abb-bbBba--:1:1:1:00:0:0:3:0:10");
+var categoryid = "E19";
+var probnum = "30";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2018</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E18-49)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 49</h3>
+<div class="doAction">白からのキューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=38 Black=22</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>No double/Take</td><td class='answerscore'>0</td></tr>
+<tr><td>2.</td><td>Double/Take</td><td class='answerscore'>89</td></tr>
+<tr><td>3.</td><td>Double/Pass</td><td class='answerscore'>826</td></tr>
+</table>
+</div>
+ <div class="description">ピップを確認すると、自38、黒22ですが、 黒は前に詰まっていてベアオフ時に多くのロスが発生します。そのため、実際には上がりきるまでに22よりもはるかに大きな数を振る必要があります。白もいくらかのロスがあるでしょう。<br>
+このような局面ではピップと上がり枚数だけを見て形勢判断するのは不可能です。ここで便利なのが、エフェクティブピップカウント(Effective Pip Count:EPC)という概念です。このEPCは将来起こりうるロスを考慮に入れた真のピップカウントです。これを使うと比較が難しいポジションを公正に判断することができます。<br>
+EPCの近似値は以下の計算方法で求めることができます。<br>
+<br>
+・比較的バランスの良い配置(白)のEPCの求め方:<br>
+「ピップ数+7～8(この値はロス発生のしやすさによって変化する)」<br>
+<br>
+・前に偏った側のポジション(黒)のEPCの求め方:<br>
+「7×ロール数+1」<br>
+<br>
+これを問題の局面に当てはめると、EPCはそれぞれ以下のようになります。<br>
+白=38+7=45<br>
+黒=7×6(ロール)+1=43<br>
+<br>
+EPCを使ったキューブアクションの求め方は下記の通りです。<br>
+テイクポイント:テイクする側のピップ数がダブルする側より「ダブルする側のロール数-3」以内の負けならばテイクできる<br>
+<br>
+今回の例で言えば、白のロール数が約6なので、6-3=3以内の負けならばテイクできます。白のEPCが45なので、黒のEPCが48までは黒はテイクできるということです。実際には黒は43なので非常にイージーテイク。パスからあまりにもかけ離れているため、ノーダブルが正解です。<br>
+白のビップを2つ前に進めると(参考図)、やっとわずかにダブルとなります。<br>
+<br>
+(参考図)<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+|                  |   |          O  O  O |O  
+|                  |   |          O  O  O |O  
+|                  |   |          O  O  O |O  
+|                  |   |             O  O |   
+|                  |   |                O |   
+|                  |BAR|                  | (Cube: 1)
+|                  |   |                  |X  
+|                  |   |                  |X  
+|                  |   |       X          |X  
+|                  |   | X  X  X          |XX 
+|                  |   | X  X  X     X    |XX 
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.234
+  0.617 0.000 0.000 - 0.383 0.000 0.000
+Cubeful equities:
+1. No double           +0.336
+2. Double, pass        +1.000  (+0.664)
+3. Double, take        +0.238  (-0.098)
+Proper cube action: No double, take (12.9%)
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=--A-BBC---------------cde-:0:0:1:00:0:0:3:0:10");
+var categoryid = "E18";
+var probnum = "49";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

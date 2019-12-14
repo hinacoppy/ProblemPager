@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Backgammon Exam 2019</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(E19-29)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 29</h3>
+<div class="doAction">白番。白がこのロールでブロットを発生させてしまう目は何通りあるか。</div>
+<div class="gamesituation">ただし、白はなるべくブロットを残さないようにプレイするものとする。</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=41 Black=120</div></div>
+ <div class="answertable"><table>
+<tr><td>1.</td><td>11通り</td><td class='answerscore'>55</td></tr>
+<tr><td>2.</td><td>12通り</td><td class='answerscore'>55</td></tr>
+<tr><td>3.</td><td>13通り</td><td class='answerscore'>0</td></tr>
+<tr><td>4.</td><td>14通り</td><td class='answerscore'>55</td></tr>
+<tr><td>5.</td><td>15通り</td><td class='answerscore'>55</td></tr>
+</table>
+</div>
+ <div class="description">バックギャモンでは良い目や悪い目を数える必要が多々あります。数えるときは、数え間違えないように自分なりのルールを持つ必要があります。筆者はいつも、まずゾロ目以外の目を大きい目から小さい目、そしてゾロ目を大きい目から小さい目、という順番で数えています(65, 64, 63, 62, 61・・・21とゾロ目以外を数え上げ、そのあと66, 55, 44, 33, 22, 11とゾロ目を数えています)。ゾロ目は1通りですが、ゾロ目以外は2通りなので、分けて数えた方が良いでしょう。また、順番に数えることにより、漏れや重複がなくなります。<br>
+<br>
+問題の局面で数えてみます。65はブロット (指を1本折ります)。 64, 63は大丈夫。62はブロット(2本目の指を折ります)。61は大丈夫。54, 53はブロット(3本目、4本目の指を折ります)。52は大丈夫。51はブロット(5本目の指を折ります)。 43は大丈夫。 42はブロット(6本目の指を折ります)。41, 32, 31, 21は大丈夫。6本指が折れているので、ゾロ目以外で12通りと分かります。その後はゾロ目を考えます。66はブロットなので、頭の中で12に1を足します。55, 44, 33, 22, 11は大丈夫なので、合計13通りと分かります。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.839
+  0.717 0.368 0.036 - 0.283 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.490  (+0.490)
+3. No double           +0.774  (-0.226)
+Proper cube action: Double, pass
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["white", "black"], ["black", "white"], ["black", "white"], "ccw")
+board.showBoard("XGID=-bDB-CB----------bbcbbb---:0:0:1:00:0:0:3:0:10");
+var categoryid = "E19";
+var probnum = "29";
+var showpipflg = false;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
