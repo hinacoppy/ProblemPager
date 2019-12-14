@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Timothy Chow</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(TC1-29)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 3-1</h3>
+<div class="doAction">Black to play 41</div>
+<div class="gamesituation">Unlimited game</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Black=135 White=120</div></div>
+ <div class="answertable"></div>
+ <div class="description">Black is significantly behind in the pip count and would therefore like to contain White&#39;s remaining straggler.<br>
+In particular, Black would like to prevent White from escaping with a 6.<br>
+White&#39;s weak board gives Black license to play the bold 13/9 6/5, which works very well if White does not roll a 6.<br>
+If White&#39;s 5pt blot were covered (see Variant position below), then 13/9 6/5 would still be a candidate, but so would the prosaic 6/5 6/2.<br>
+The equity gap between the 1st and 2nd plays in the rollout is surprisingly large for such an early-game play.<br>
+<pre>
+1. 13/9 6/5 eq: -0.109          47.29% (G:7.06% B:0.28&)  52.71% (G:14.10% B:0.28%)
+2. 11/7 6/5 eq: -0.280 (-0.171) 41.84% (G:5.31% B:0.20&)  58.16% (G:10.34% B:0.16%)
+3. 6/5 6/2  eq: -0.282 (-0.173) 41.18% (G:4.39% B:0.13&)  58.82% (G: 8.29% B:0.15%)
+4. 8/4 5/4  eq: -0.311 (-0.202) 40.18% (G:4.21% B:0.15&)  59.82% (G: 8.17% B:0.12%)
+5. 8/4 6/5  eq: -0.348 (-0.240) 40.91% (G:6.29% B:0.28&)  59.09% (G:14.12% B:0.28%)
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 6/5                     Eq.: -0.164
+       0.464 0.071 0.002 - 0.536 0.129 0.002
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    6/5 6/2                      Eq.: -0.275 (-0.110)
+       0.417 0.046 0.001 - 0.583 0.067 0.000
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    11/7 6/5                     Eq.: -0.295 (-0.131)
+       0.419 0.056 0.001 - 0.581 0.096 0.001
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    8/4 5/4                      Eq.: -0.314 (-0.150)
+       0.406 0.042 0.001 - 0.594 0.069 0.000
+        2-ply cubeful prune [world class]
+    5. Cubeful 2-ply    8/4 6/5                      Eq.: -0.372 (-0.207)
+       0.406 0.067 0.002 - 0.594 0.132 0.002
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["black", "white"], ["white", "black"], ["white", "black"], "cw")
+board.showBoard("XGID=---a-AE-C--AbE--ac-ea--b--:0:0:1:41:0:0:0:0:10");
+var categoryid = "TC1";
+var probnum = "29";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

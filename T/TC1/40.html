@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Timothy Chow</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(TC1-40)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 3-6</h3>
+<div class="doAction">Black to play 32</div>
+<div class="gamesituation">5 point match, Black 1, White 0</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Black=102 White=133</div></div>
+ <div class="answertable"></div>
+ <div class="description">Once again, the match score makes a difference.<br>
+It might seem natural to play either 10/7, preventing White from escaping her straggler with a 6, or 16/13 7/5, which minimizes shots.<br>
+Both of these would be reasonable plays at double match point (see Variant 1 below).  At this score, gammons are valuable, so Black needs to consider the gammonish plays 7/2 (making a five-point board) and 4/2 4/1*.  The latter sacrifices too many winning chances, leaving 7/2 as the rollout winner.<br>
+Note also that one important disadvantage of 16/13 7/5 is that it stacks up on the 5pt.  If we were to shift Black&#39;s spare on his 5pt to his 6pt, then eXtreme Gammon would slightly favor 16/13 7/5 over 7/2, even at this score (see Variant 2 below).<br>
+<pre>
+1. 7/2        eq: +0.435          65.30% (G:28.63% B:0.83&)  34.70% (G: 6.62% B:0.51%)
+2. 16/13 7/5  eq: +0.349 (-0.087) 66.35% (G:21.29% B:0.41&)  33.65% (G: 6.30% B:0.42%)
+3. 16/14 10/7 eq: +0.321 (-0.114) 65.02% (G:22.79% B:1.01&)  34.98% (G: 9.55% B:0.70%)
+4. 16/14 5/2  eq: +0.289 (-0.146) 62.86% (G:23.08% B:0.71&)  37.14% (G: 8.37% B:0.71%)
+5. 4/2 4/1*   eq: +0.286 (-0.150) 59.35% (G:34.11% B:0.84&)  40.65% (G:14.92% B:1.85%)
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/2                          Eq.: +0.400
+       0.653 0.269 0.006 - 0.347 0.066 0.002
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    16/14 10/7                   Eq.: +0.322 (-0.079)
+       0.657 0.234 0.005 - 0.343 0.100 0.004
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    16/14 5/2                    Eq.: +0.302 (-0.098)
+       0.637 0.226 0.004 - 0.363 0.081 0.003
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    4/2 4/1*                     Eq.: +0.294 (-0.106)
+       0.595 0.345 0.004 - 0.405 0.146 0.010
+        2-ply cubeful prune [world class]
+    5. Cubeful 0-ply    16/13 7/5                    Eq.: +0.243 (-0.158)
+       0.634 0.205 0.004 - 0.366 0.087 0.001
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["black", "white"], ["white", "black"], ["white", "black"], "cw")
+board.showBoard("XGID=-aABBCBA--A-cB-aAc-cbb----:1:-1:1:32:1:0:0:5:10");
+var categoryid = "TC1";
+var probnum = "40";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

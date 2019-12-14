@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Timothy Chow</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(TC1-10)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 1-7</h3>
+<div class="doAction">Black to play 65</div>
+<div class="gamesituation">Gammon go (2 point match, Black 0, White 1, Crawford)</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Black=152 White=148</div></div>
+ <div class="answertable"></div>
+ <div class="description">At gammon go, gammon wins are worth twice as much as they usually are and gammon losses do not matter.<br>
+Therefore one should usually play aggressively at this score, hitting and making home-board points.<br>
+The obvious aggressive play here is 9/3* 8/3.<br>
+However, even at gammon go, there are limits to how aggressively one should play.<br>
+White&#39;s board is simply too strong to be ignored here, and anything other than the seemingly craven 23/18 8/2 is a big mistake.<br>
+<pre>
+1. 23/18 8/2  eq: +0.166          47.71% (G:10.60% B:0.68&)  52.29% (G:17.22% B:1.95%)
+2. 9/3* 8/3   eq: +0.102 (-0.064) 42.29% (G:12.81% B:1.91&)  57.71% (G:25.18% B:4.01%)
+3. 23/18 13/7 eq: +0.091 (-0.075) 44.72% (G: 9.83% B:0.77&)  55.28% (G:20.52% B:2.46%)
+4. 23/18 9/3* eq: +0.082 (-0.084) 43.24% (G:10.85% B:0.85&)  56.76% (G:25.04% B:3.07%)
+5. 18/13 8/2  eq: -0.052 (-0.218) 39.39% (G: 8.03% B:0.32&)  60.61% (G:23.22% B:0.90%)
+6. 18/7       eq: -0.062 (-0.228) 38.84% (G: 8.06% B:0.30&)  61.16% (G:21.77% B:0.95%)
+7. 18/13 9/3* eq: -0.085 (-0.252) 37.08% (G: 8.65% B:0.36&)  62.92% (G:24.90% B:1.56%)
+8. 9/3* 6/1*  eq: -0.104 (-0.270) 35.95% (G: 8.86% B:0.28&)  64.05% (G:29.17% B:3.18%)
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/18 8/2                    Eq.: -0.116
+       0.479 0.107 0.004 - 0.521 0.154 0.004
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    23/18 13/7                   Eq.: -0.262 (-0.146)
+       0.454 0.098 0.004 - 0.546 0.166 0.005
+        2-ply cubeful prune [world class]
+    3. Cubeful 0-ply    9/3* 8/3                     Eq.: -0.363 (-0.246)
+       0.436 0.134 0.006 - 0.564 0.221 0.012
+        0-ply cubeful prune [expert]
+    4. Cubeful 0-ply    23/18 9/3*                   Eq.: -0.390 (-0.273)
+       0.431 0.099 0.005 - 0.569 0.193 0.009
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    18/7                         Eq.: -0.617 (-0.501)
+       0.391 0.085 0.002 - 0.609 0.241 0.010
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["black", "white"], ["white", "black"], ["white", "black"], "cw")
+board.showBoard("XGID=-a-a--E-CB--dC---bAcb-bA--:0:0:1:65:0:0:0:2:2");
+var categoryid = "TC1";
+var probnum = "10";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

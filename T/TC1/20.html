@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Timothy Chow</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(TC1-20)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">Problem 2-3</h3>
+<div class="doAction">Black to play 22</div>
+<div class="gamesituation">Money play</div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Black=99 White=63</div></div>
+ <div class="answertable"></div>
+ <div class="description">At first glance, this one looks like a position that one might be able to calculate. A hit and a dance is a D/P, for 44% wins; if we toss in a few freak wins after getting hit back, we get winning chances in the mid to high 40&#39;s after 20/12*. If we don&#39;t hit, then there are two plausible plans: closing the board, or stepping out with 20/18(2) and half-closing the board with 8/6. The latter play (my choice OTB) generates more shots because it threatens both blots directly, but since it doesn&#39;t close the board, the shots are not quite as deadly. Estimating the winning chances in these two scenarios looks feasible (though time-consuming to do over the board); however, the real question is, how many gammons and backgammons do we lose after 20/12*?<br>
+<br>
+It&#39;s clear we lose a ton of gammons but I&#39;ll be darned if I could estimate them OTB. In this particular position you might arrive at 20/12* anyway even with a not-so-good estimate, because the difference in equity is so large. However, if we change the score to 5a5a (see second rollout below), thereby elevating the gammon value, the plays get closer and the calculation seems very difficult. By the way, eXtreme Gammon version 1.21 doesn&#39;t even register 20/12* as one of its top 32 plays at 5a5a, and I had to do the old &quot;Setup -> Play from position&quot; trick to force it to analyze the move.<br>
+<pre>
+1. 20/12*            eq: -0.357          43.01% (G:8.40% B:0.21%)  56.99% (G:41.45% B:3.29%)
+2. 11/9 8/6 5/1      eq: -0.498 (-0.141) 24.02% (G:0.49% B:0.01%)  75.98% (G: 0.83% B:0.00%)
+3. 20/18(2) 11/9 8/6 eq: -0.504 (-0.147) 22.48% (G:1.11% B:0.02%)  77.52% (G: 1.25% B:0.03%)
+4. 20/18(2) 8/6 5/3  eq: -0.507 (-0.149) 22.21% (G:1.03% B:0.02%)  77.79% (G: 1.43% B:0.03%)
+</pre>
+At a score of 5-away/5-away:<br>
+<pre>
+1. 20/12*            eq: -0.470          43.01% (G:8.42% B:0.28%)  56.99% (G:41.35% B:3.18%)
+2. 11/9 8/6 5/1      eq: -0.496 (-0.026) 23.98% (G:0.52% B:0.01%)  76.02% (G: 0.83% B:0.00%)
+3. 20/18(2) 11/9 8/6 eq: -0.501 (-0.031) 22.44% (G:1.10% B:0.02%)  77.56% (G: 1.24% B:0.03%)
+4. 20/18(2) 8/6 5/3  eq: -0.505 (-0.035) 22.16% (G:0.99% B:0.03%)  77.84% (G: 1.40% B:0.03%)
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    20/12*                       Eq.: -0.330
+       0.442 0.092 0.002 - 0.558 0.431 0.028
+        0-ply cubeful prune [expert]
+    2. Cubeful 0-ply    11/9 8/6 5/1                 Eq.: -0.532 (-0.203)
+       0.205 0.006 0.000 - 0.795 0.017 0.000
+        0-ply cubeful prune [expert]
+    3. Cubeful 0-ply    11/7 8/6 5/3                 Eq.: -0.566 (-0.236)
+       0.190 0.007 0.000 - 0.810 0.019 0.000
+        0-ply cubeful prune [expert]
+    4. Cubeful 0-ply    20/18(2) 11/9 8/6            Eq.: -0.573 (-0.243)
+       0.185 0.004 0.000 - 0.815 0.008 0.000
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    11/5 8/6                     Eq.: -0.578 (-0.249)
+       0.185 0.007 0.000 - 0.815 0.017 0.000
+        0-ply cubeful prune [expert]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board2.png", ["black", "white"], ["white", "black"], ["white", "black"], "cw")
+board.showBoard("XGID=-ABBBCA-A--Aa----a-cBbcbc-:1:1:1:22:0:0:0:0:10");
+var categoryid = "TC1";
+var probnum = "20";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
