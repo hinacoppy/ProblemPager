@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>ChrisBray</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(CBr-12)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">An End-Game Enigma</h3>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips Red=96 White=110</div></div>
+ <div class="answertable"></div>
+ <div class="description">Raj Jansari posted this position on Facebook and had trouble understanding XG’s recommendation. I had the same problem when I studied it so let us try to make sense of the bot’s suggestion.<br>
+<br>
+Before we come to that suggestion let us eliminate a few other plays. 13/6 leaves Black vulnerable to rolling 61 next turn so that cannot be right. 8/5, 8/5 eliminates the 61 problem but now Black will have more trouble clearing his mid-point. In certain variations he will want to keep his 8-pt so that he can play a roll of 5x by moving 13/x, 13/8, giving White a single shot. Moving 8/5, 8/4 eliminates those variations so again that cannot be right.<br>
+<br>
+In positions like this XG’s strategy is to move inside the home board so as to give Black more time to roll a clearing double and never leave a shot. However, it is how you move within the home board that now becomes the focus of this problem. <br>
+<br>
+Black will want to keep some fives to play later so playing 6/3, 6/2 is not the right idea. Equally well Black will not want to leave a hole in his home board on the 4-pt or 5-pt that will cause him to miss with one of those number later in the bear-off. This should eliminate 5/2, 5/1.  6/2, 4/1 is better but risks a later hole on the 4-pt. 5/1, 4/1 is very similar to 6/2, 4/1.<br>
+<br>
+So, what does that leave us with? The answer is XG’s recommendation of 6/3, 5/1 – a somewhat strange looking play. 6/3, 5/1 leaves a five to play later, fills the current hole on the 1-pt (without overcrowding it) and leaves the same number of checkers on the 6-pt and 5-pt which XG seems to approve of.<br>
+<br>
+I performed a long rollout of this position and 6/3, 5/1 comes out top by a long way. The next two plays, 5/2, 5/1 and 5/1, 4/1 are tied but with an equity difference 0.06 less than 6/3, 5/1 which implies a big error for any move other than the correct play.<br>
+<br>
+Can we be sure that XG has got this one right. I believe so. This Is a relatively simple position to play (except of course getting the first move right!) and I would not expect a neural net program to make any mistakes from here. That means that we need to learn to think more about the ideas and analysis that I have gone through above. These ideas are perhaps more important than I would have thought, and I have certainly learnt something by analysing this position so my thanks to Raj for posting it in the first place.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/6                         Eq.: +0.484
+       0.670 0.015 0.000 - 0.330 0.014 0.000
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    5/1 4/1                      Eq.: +0.470 (-0.015)
+       0.666 0.013 0.000 - 0.334 0.016 0.000
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    6/2 4/1                      Eq.: +0.469 (-0.015)
+       0.666 0.013 0.000 - 0.334 0.016 0.000
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    5/2 5/1                      Eq.: +0.460 (-0.024)
+       0.663 0.011 0.000 - 0.337 0.015 0.000
+        2-ply cubeful prune [world class]
+    5. Cubeful 2-ply    6/2 5/2                      Eq.: +0.442 (-0.043)
+       0.657 0.011 0.000 - 0.343 0.017 0.000
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board3.png", ["red", "white"], ["white", "black"], ["white", "black"], "ccw")
+board.showBoard("XGID=--ACBBBbB----C-aa-adbbb---:0:0:1:43:0:0:3:0:10");
+var categoryid = "CBr";
+var probnum = "12";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
