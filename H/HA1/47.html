@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>Hayashi Problem</title>
+</head>
+
+<body class="container">
+<nav class="nav">
+<button id="selectfirst"><i class="fas fa-angle-double-left fa-2x"></i></button>&emsp;
+<button id="selectprev"><i class="fas fa-angle-left fa-2x"></i></button></button>&emsp;
+<button id="return2menu" ><i class="fas fa-home fa-2x"></i></button>&emsp;
+<button id="selectnext"><i class="fas fa-angle-right fa-2x"></i></button>&emsp;
+<button id="selectlast"><i class="fas fa-angle-double-right fa-2x"></i></button>&emsp;
+<button id="showanswer"><i class="fas fa-splotch fa-2x"></i></button>&emsp;
+<button id="analyse"><i class="fas fa-glasses fa-2x"></i></button>&emsp;
+(HA1-47)
+</nav>
+<button id="option" class="option"><i class="fas fa-bars fa-2x"></i></button>
+
+<h3 id="sectionTitle" class="sectionTitle">問題番号1105</h3>
+<div class="doAction">白番。キューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="mainboard" class="mainboard"><img ></div>
+      <div class="pipinfo">pips White=137 Brown=57</div></div>
+ <div class="answertable"></div>
+ <div class="description">セオリーとしての正解キューブアクション<br>
+白番でダブルをしますか?   ダブルをしない<br>
+赤側でダブルがきたら?     ビーバー(Beaver) または 受ける<br>
+解説<br>
+ このポジションは終盤戦で相手が 54 を振ってダブルブロットを作ったところです。<br>
+ ここは白はヒット出来るのが20通りで、ヒット出来ないのが16通りでヒットさへすれば白はほとんど勝てそうです。<br>
+ しかし白番でダブルをしてはいけません。<br>
+ 何故なら勝率は白がやや有利でも、ギャモン勝ちできるのは白は10%程度で、相手は20%程度なので、期待値は相手の方が良いのです。<br>
+ 相手は白からキューブが来れば、ビーバーで引くのが正解です。<br>
+ しかし勝率は白が少し良いので、普通に受けるのも正解とします。<br>
+   勝率     G/BG率   BG率<br>
+ 白 51.8%  10.6%   0.4%<br>
+ 赤 48.2%  20.3%   1.2%<br>
+ 期待値 -0.068  Volatility(統計学的分散) 0.895<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity -0.039
+  0.537 0.107 0.003 - 0.463 0.204 0.019
+Cubeful equities:
+1. No double           +0.097
+2. Double, pass        +1.000  (+0.903)
+3. Double, take        -0.256  (-0.353)
+Proper cube action: No redouble, beaver (28.1%)
+</pre>
+
+<script src="../../js/fa/fontawesome.min.js" defer></script>
+<script src="../../js/fa/solid.min.js" defer></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery.mobile-events.min.js" defer></script>
+<script src="../../js/BgXgid_class.js"></script>
+<script src="../../js/BgBoard_class3.js"></script>
+<script src="../../js/BgUtil_class.js"></script>
+<script>
+var board = new BgBoard();
+board.setBoardAppearance("../../img/board1.png", ["white", "chocolate"], ["black", "white"], ["black", "white"], "cw")
+board.showBoard("XGID=---BBBBCA---------aacccdC-:1:1:1:00:0:0:3:0:10");
+var categoryid = "HA1";
+var probnum = "47";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
