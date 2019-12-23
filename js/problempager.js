@@ -32,10 +32,6 @@ $(function() {
     }
   });
 
-  //画面のフリック操作でページ遷移
-  $('.container').on('swipeleft',  function(e, touch){ move_page(probnum, +1); })
-                 .on('swiperight', function(e, touch){ move_page(probnum, -1); });
-
   //キー操作でページ遷移 / 回答解説の表示切替え
   $('.container').on('keydown', function(e) { 
     switch ( e.keyCode ) {
