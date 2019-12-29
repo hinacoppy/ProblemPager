@@ -4,7 +4,7 @@
 }
 html{
   height:100%;
-  overflow:scroll;
+  overflow:auto;
   overscroll-behavior:none; /* バウンススクロールを抑止(only for Android) */
 }
 body{
@@ -19,7 +19,7 @@ button{
   cursor:pointer;
   display:inline-block;
   width:4vw;
-  font-size:x-large;
+/*  font-size:x-large;*/
   background-color:#eee;
   border:1px solid #999;
   border-radius:10px; /* 角丸表示 */
@@ -48,7 +48,7 @@ button{
 .bgcontainer{
   display:flex;
 }
-.mainboard{
+.board{
   cursor:pointer;
 }
 .answertable{
@@ -67,6 +67,161 @@ button{
   margin-left:20px;
 }
 .gnuanalysis{
+}
+.container{
+}
+
+/* bgboard decoration ----------------------------------------*/
+:root{
+  --point-width:3vw;
+  --board-height:70vh;
+  --board-width:45vw;
+  --board-frame-size:20px;
+  --point-height:30vh;
+  --cube-size:2.7vw;
+}
+.board{
+  position:relative;
+  width:var(--board-width);
+  height:var(--board-height);
+  border:var(--board-frame-size) solid var(--board-frame);
+  background-color:var(--board-color);
+}
+.bar{
+  position:absolute;
+  width:var(--point-width);
+  height:var(--board-height);
+  background-color:var(--board-frame);
+}
+.offtray{
+  position:absolute;
+  width:var(--point-width);
+  height:var(--board-height);
+  background-color:var(--offtray-color);
+}
+#offtray1{
+  border-right:5px solid var(--board-frame);
+}
+#offtray2{
+  border-left:5px solid var(--board-frame);
+}
+.cube{
+  position:absolute;
+  border-radius:5px; /* 角丸表示 */
+  border:1px solid gray;
+  text-align:center;
+  font-weight:bold;
+  font-size:2vw;
+  width:var(--cube-size);
+  height:var(--cube-size);
+  line-height:var(--cube-size);
+  color:var(--cube-text);
+  background-color:var(--cube-base);
+}
+.cubeoffer{
+  background-color:var(--cube-offer);
+}
+.dice{
+  position:absolute;
+  font-size:var(--point-width);
+  z-index:40;
+}
+.label{
+  position:absolute;
+  color:var(--label-color);
+  text-align:center;
+  font-size:0.8vw;
+  line-height:var(--board-frame-size);
+  width:var(--point-width);
+  z-index:5;
+}
+.stack{
+  position:absolute;
+  text-align:center;
+  font-weight:bold;
+  font-size:1.5vw;
+  line-height:var(--point-width);
+  width:var(--point-width);
+  z-index:30;
+}
+.chequer{
+  position:absolute;
+  width:var(--point-width);
+  height:var(--point-width);
+  border-radius:50%;
+  border:1px solid gray;
+  background-image: linear-gradient(rgba(255,255,255,.3) 0%,transparent 50%,transparent 50%,rgba(0,0,0,.1) 100%);
+  box-shadow: 0  2px  2px 0 rgba(255,255,255, .1) inset,
+              0  2px 10px 0 rgba(255,255,255, .2) inset,
+              0 -2px  2px 0 rgba(  0,  0,  0, .1) inset;
+  z-index:10;
+}
+
+/* Point Triangles ------------------------------------- */
+.point{
+  position:absolute;
+  width:var(--point-width);
+  height:var(--point-height);
+}
+.pt_dnev{
+  background:linear-gradient(to top    left,  var(--triangle-odd) 50%, transparent 50%) top left/  50.1% 100% no-repeat,
+             linear-gradient(to top    right, var(--triangle-odd) 50%, transparent 50%) top right/ 50.1% 100% no-repeat;
+}
+.pt_dnod{
+  background:linear-gradient(to top    left,  var(--triangle-evn) 50%, transparent 50%) top left/  50.1% 100% no-repeat,
+             linear-gradient(to top    right, var(--triangle-evn) 50%, transparent 50%) top right/ 50.1% 100% no-repeat;
+}
+.pt_upev{
+  background:linear-gradient(to bottom left,  var(--triangle-odd) 50%, transparent 50%) top left/  50.1% 100% no-repeat,
+             linear-gradient(to bottom right, var(--triangle-odd) 50%, transparent 50%) top right/ 50.1% 100% no-repeat;
+}
+.pt_upod{
+  background:linear-gradient(to bottom left,  var(--triangle-evn) 50%, transparent 50%) top left/  50.1% 100% no-repeat,
+             linear-gradient(to bottom right, var(--triangle-evn) 50%, transparent 50%) top right/ 50.1% 100% no-repeat;
+}
+
+/* Board Object settings ------------------------------------- */
+.cubepos0{
+  transform:rotateZ(-90deg);
+}
+.cubepos1{
+  transform:rotateZ(0deg);
+}
+.cubepos2{
+  transform:rotateZ(180deg);
+}
+.bearoff{
+  transform:rotateX(70deg);
+}
+.turncol1{
+  background-color:var(--chequer1);
+}
+.turncol2{
+  background-color:var(--chequer2);
+}
+.diceface1{
+  width:var(--point-width);
+  height:var(--point-width);
+  stroke:var(--dicepip1);
+  fill:var(--diceface1);
+}
+.diceface2{
+  width:var(--point-width);
+  height:var(--point-width);
+  stroke:var(--dicepip2);
+  fill:var(--diceface2);
+}
+.dicepip1{
+  color:var(--dicepip1);
+}
+.dicepip2{
+  color:var(--dicepip2);
+}
+.stackcol1{
+  color:var(--stack1);
+}
+.stackcol2{
+  color:var(--stack2);
 }
 
 /* index.html decoration ----------------------------------------*/
@@ -96,50 +251,151 @@ button{
   text-align:center;
 }
 
-/* bgboard decoration ----------------------------------------*/
-.mainboard{
-  position:relative;
+/* Board Style Configuration -------------------------------------*/
+.boardStyle0{
+  /* work */
+  --board-color:#889;
+  --board-frame:#220;
+  --triangle-odd:#884;
+  --triangle-evn:#488;
+  --offtray-color:#889;
+  --bar-color:#905;
+  --label-color:#fff;
+  --cube-base:#ecc;
+  --cube-text:#222;
+  --cube-offer:#04f;
+  --stack1:#000;
+  --stack2:#000;
+  --chequer1:#9ce;
+  --chequer2:#ce9;
+  --diceface1:#9ce;
+  --diceface2:#ce9;
+  --dicepip1:#000;
+  --dicepip2:#000;
 }
-.cube{
-  position:absolute;
-  text-align:center;
-  line-height:40px;
-  text-align:center;
-  color:black;
-  font-size:16pt;
-  font-weight:bold;
-  color:white; /* normal cube */
-  background-color:olive;
+.boardStyle1{
+  /* iti board */
+  --board-color:#ccc;
+  --board-frame:#555;
+  --triangle-odd:#999;
+  --triangle-evn:#ddd;
+  --offtray-color:#ccc; /* = --board-color */
+  --bar-color:#555; /* = --board-frame */
+  --label-color:#ddd;
+  --cube-base:#ecc;
+  --cube-text:#222;
+  --cube-offer:#fcc;
+  --stack1:#106; /* = --dicepip1 */
+  --stack2:#606; /* = --dicepip2 */
+  --chequer1:#33f;
+  --chequer2:#fff;
+  --diceface1:#33f; /* = --chequer1 */
+  --diceface2:#fff; /* = --chequer2 */
+  --dicepip1:#000;
+  --dicepip2:#000;
 }
-.cubeoffer{
-  color:blue;
-  background-color:violet;
+.boardStyle2{
+  /* ChrisBray */
+  --board-color:#f6dd92;
+  --board-frame:#b55100;
+  --triangle-odd:#ffffff;
+  --triangle-evn:#df8000;
+  --offtray-color:#c58936;
+  --bar-color:#bf5f04;
+  --label-color:#dddddd;
+  --cube-base:#ffffff;
+  --cube-text:#ff0000;
+  --cube-offer:#ffff00;
+  --stack1:#ffffff;
+  --stack2:#000000;
+  --chequer1:#e71f00;
+  --chequer2:#ffffff;
+  --diceface1:#e71f00;
+  --diceface2:#ffffff;
+  --dicepip1:#000000;
+  --dicepip2:#000000;
 }
-.dice{
-  position:absolute;
-  font-size:35px;
+.boardStyle3{
+  /* gnu brown-white */
+  --board-color:#321;
+  --board-frame:#732;
+  --triangle-odd:#da8;
+  --triangle-evn:#779;
+  --offtray-color:#311;
+  --bar-color:#732;
+  --label-color:#fff;
+  --cube-base:#da6;
+  --cube-text:#008;
+  --cube-offer:#fc8;
+  --stack1:#000;
+  --stack2:#000;
+  --chequer1:#fdc;
+  --chequer2:#d75;
+  --diceface1:#fdc;
+  --diceface2:#d75;
+  --dicepip1:#000;
+  --dicepip2:#ccc;
 }
-.label{
-  position:absolute;
-  text-align:center;
-  color:white;
-  font-size:8pt;
-  width:30px;
+.boardStyle4{
+  /* gnu wb */
+  --board-color:#97a9ad;
+  --board-frame:#69728f;
+  --triangle-odd:#6d7374;
+  --triangle-evn:#aeb5b5;
+  --offtray-color:#97a9ad;
+  --bar-color:#69728f;
+  --label-color:#ffffff;
+  --cube-base:#d6d6d6;
+  --cube-text:#000000;
+  --cube-offer:#a6a6f6;
+  --stack1:#000000;
+  --stack2:#ffffff;
+  --chequer1:#ffffff;
+  --chequer2:#000000;
+  --diceface1:#ffffff;
+  --diceface2:#00000;
+  --dicepip1:#000000;
+  --dicepip2:#ffffff;
 }
-.stack{
-  position:absolute;
-  text-align:center;
-  font-weight:bold;
-  font-size:12pt;
-  padding-top:2px;
-  line-height:30px;
-  width:30px;
-  z-index:30;
+.boardStyle5{
+  /* gnu bw */
+  --board-color:#97a9ad;
+  --board-frame:#69728f;
+  --triangle-odd:#6d7374;
+  --triangle-evn:#aeb5b5;
+  --offtray-color:#97a9ad;
+  --bar-color:#69728f;
+  --label-color:#dddddd;
+  --cube-base:#d6d6d6;
+  --cube-text:#000000;
+  --cube-offer:#a6a6f6;
+  --stack1:#ffffff;
+  --stack2:#000000;
+  --chequer1:#000000;
+  --chequer2:#ffffff;
+  --diceface1:#000000;
+  --diceface2:#ffffff;
+  --dicepip1:#ffffff;
+  --dicepip2:#000000;
 }
-.chequer{
-  position:absolute;
-  width:30px;
-  font-size:30px;
-  line-height:30px;
-  z-index:10;
+.boardStyle6{
+  /* GPS/GMA */
+  --board-color:#fbeeda;
+  --board-frame:#8d5a32;
+  --triangle-odd:#a3a3a3;
+  --triangle-evn:#dab484;
+  --offtray-color:#c1a276;
+  --bar-color:#8d5a32;
+  --label-color:#ffffff;
+  --cube-base:#d6d6d6;
+  --cube-text:#000000;
+  --cube-offer:#a6a6f6;
+  --stack1:#ffffff;
+  --stack2:#000000;
+  --chequer1:#1a1b1b;
+  --chequer2:#fdfdf0;
+  --diceface1:#1a1b1b;
+  --diceface2:#fdfdf0;
+  --dicepip1:#ffffff;
+  --dicepip2:#000000;
 }

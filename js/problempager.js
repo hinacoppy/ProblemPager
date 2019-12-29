@@ -60,7 +60,7 @@ $(function() {
   });
 
   //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
-  $('#showanswer, .mainboard').on('click', function(e){
+  $('#showanswer, .board').on('click', function(e){
     description("toggle");
   });
 
