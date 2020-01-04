@@ -78,13 +78,13 @@ class BgBoard {
 
     xh = '<div id="bar" class="bar"></div>';
     this.mainBoard.append(xh);
-    $("#bar").css(this.getPosObj(21 * this.vw, 0));
+    $("#bar").css(this.getPosObj(this.pointX[0], 0));
 
     xh  = '<div id="offtray1" class="offtray"></div>';
     xh += '<div id="offtray2" class="offtray"></div>';
     this.mainBoard.append(xh);
-    $("#offtray1").css(this.getPosObj( 0 * this.vw - this.offtrayMargin, 0));
-    $("#offtray2").css(this.getPosObj(42 * this.vw, 0));
+    $("#offtray1").css(this.getPosObj( 0 * this.pointWidth - this.offtrayMargin, 0));
+    $("#offtray2").css(this.getPosObj(14 * this.pointWidth, 0));
 
     //point triangles
     this.point = [];
@@ -292,7 +292,7 @@ class BgBoard {
         this.chequer[player][i].position = position;
         this.chequer[player][i].zindex = zindex;
         this.chequer[player][i].dom.css(position).css("z-index", zindex).toggleClass("bearoff", bf);
-        const stackColorClass = ["", "stackcol1", "stackcol1"];
+        const stackColorClass = ["", "stackcol1", "stackcol2"];
         this.stacks[pt].text("").removeClass(stackColorClass.join(" "));
         if (sf) {
           this.stacks[pt].text(st).css(position).addClass(stackColorClass[player]);
@@ -310,7 +310,9 @@ class BgBoard {
 
     this.pointWidth = 3 * this.vw; // equal to width in css
     this.pieceWidth = this.pointWidth;
-    this.pieceHeight = this.pieceWidth;
+    let pieceHeightRatio = this.mainBoardHeight / 13 / this.pieceWidth;
+    pieceHeightRatio = (pieceHeightRatio > 1) ? 1 : pieceHeightRatio;
+    this.pieceHeight = this.pieceWidth * pieceHeightRatio;
     this.boffHeight = this.pieceWidth / 4 ; // bearoff chequer height
 
     this.pointX = [7, 13, 12, 11, 10,  9,  8,  6,  5,  4,  3,  2,  1,
@@ -320,10 +322,10 @@ class BgBoard {
     }
 
     this.yupper = 0;
-    this.ylower = this.mainBoardHeight - this.pieceHeight;
+    this.ylower = this.mainBoardHeight - this.pieceWidth;
 
-    const tray2Y = 0;
-    const tray1Y = this.mainBoardHeight - this.pieceHeight - tray2Y;
+    const tray2Y = -0.4 * this.pieceHeight;
+    const tray1Y = this.mainBoardHeight - this.pieceWidth - tray2Y;
     this.offY = [null, tray1Y, tray2Y];
 
     this.diceSize = this.pointWidth;
@@ -340,7 +342,7 @@ class BgBoard {
     this.cubeX = this.pointX[0] + 0.1 * this.vw; // cube class widthを加味
     const cubeY0 = Math.round(this.mainBoardHeight / 2 - this.cubeSize / 2);
     const cubeY2 = 5;
-    const cubeY1 = this.mainBoardHeight - cubeY2 - this.cubeSize;
+    const cubeY1 = this.mainBoardHeight - this.cubeSize - cubeY2;
     this.cubeY = [cubeY0, cubeY1, cubeY2];
 
     const bar1Y = this.cubeSize + 5;
