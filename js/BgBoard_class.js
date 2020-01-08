@@ -316,7 +316,7 @@ class BgBoard {
     this.boffHeight = this.pieceWidth / 4 ; // bearoff chequer height
 
     this.pointX = [7, 13, 12, 11, 10,  9,  8,  6,  5,  4,  3,  2,  1,
-                       1,  2,  3,  4,  5,  6,  8,  9, 10, 11, 12, 13,  8, 14, 0];
+                       1,  2,  3,  4,  5,  6,  8,  9, 10, 11, 12, 13,  7, 14, 0];
     for (let i=0; i< this.pointX.length; i++) {
       this.pointX[i] *= this.pointWidth;
     }
