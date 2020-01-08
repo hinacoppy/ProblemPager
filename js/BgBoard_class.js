@@ -305,10 +305,10 @@ class BgBoard {
   bgBoardConfig() {
     this.mainBoardHeight = this.mainBoard.height()
     this.mainBoardWidth = this.mainBoard.width()
-    this.vw = this.mainBoardWidth / 45;
-    this.vh = this.mainBoardHeight / 70;
+    this.vw = this.mainBoardWidth / 30;
+    this.vh = this.mainBoardHeight / 50;
 
-    this.pointWidth = 3 * this.vw; // equal to width in css
+    this.pointWidth = 2 * this.vw; // equal to width in css
     this.pieceWidth = this.pointWidth;
     let pieceHeightRatio = this.mainBoardHeight / 13 / this.pieceWidth;
     pieceHeightRatio = (pieceHeightRatio > 1) ? 1 : pieceHeightRatio;
