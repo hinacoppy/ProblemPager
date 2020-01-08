@@ -349,7 +349,7 @@ class BgBoard {
     const bar2Y = this.mainBoardHeight - bar1Y - this.pieceHeight;
     this.barY = [null, bar1Y, bar2Y];
 
-    this.upperlabelY = -20; // equal to border-width of mainBoard
+    this.upperlabelY = -1.3 * this.vw; // equal to border-width of mainBoard
     this.lowerlabelY = this.mainBoardHeight;
 
     this.leftSideOff = 0; // Off tray x coord (left)
