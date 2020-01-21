@@ -8,12 +8,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title></title>
+<title>ChrisBray</title>
 </head>
 
 <body>
 <nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBy  probnum=07)</span>&ensp;
+<span id="sectionTitle" class="sectionTitle">2019 - Position 228</span>&ensp;
 <span>(CBy-07)</span>&ensp;
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
@@ -24,17 +24,31 @@
 <button id="analyse">Anly</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=134 White=34</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">On an initial evaluation XG rates this as a borderline redouble but it sensibly changes its mind on rollout that this is both a redouble and a take.<br>
+<br>
+This is logical. Red has 20 numbers to pick up the second checker and 33, 44 and 66 are also strong. Those rolls don’t necessarily win but most of them are market-losing rolls. <br>
+<br>
+From White’s perspective his six checkers off give him an easy take. He only wins 21% of the time from here but nearly half those wins are gammons and that makes the take quite straightforward. <br>
+<br>
+Not redoubling is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.447
+  0.768 0.000 0.000 - 0.232 0.084 0.004
+Cubeful equities:
+1. No double           +0.779
+2. Double, pass        +1.000  (+0.221)
+3. Double, take        +0.737  (-0.043)
+Proper cube action: No redouble, take (16.2%)
+</pre>
 
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -42,11 +56,11 @@
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "", "");
-board.showBoard("");
+var board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BaB-BB-B----B---A---aAAg-:1:1:1:00:0:0:3:0:10");
 var categoryid = "CBy";
 var probnum = "07";
-var showpipflg = false;
+var showpipflg = true;
 </script>
 <script src="../../js/problempager.js"></script>
 </body>
