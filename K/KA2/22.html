@@ -27,8 +27,8 @@
 <div class="doAction">黒の振り番で、キューブアクションは？</div>
 <div class="gamesituation">11ポイントマッチ、スコア0-0。</div>
 <div class="bgcontainer">
- <div><img src='../../../probimg/michy/b0028671_8112162.jpg' class='board'>
-      <div class="pipinfo">pips 黒=0 白=0</div></div>
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips 黒=114 白=130</div></div>
  <div class="answertable"></div>
  <div class="description">※ 「キューブアクションは？」という問いかけに対しては、次の2つを答える。<br>
 　(1) 振り番である黒はダブルするべきかどうか？<br>
@@ -85,7 +85,15 @@ MCEが0.260で、ダブルすると0.100のエラー。<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.235
+  0.569 0.169 0.002 - 0.431 0.070 0.003
+Cubeful equities:
+1. No double           +0.323
+2. Double, pass        +1.000  (+0.677)
+3. Double, take        +0.179  (-0.144)
+Proper cube action: No double, take (17.6%)
+</pre>
 
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -94,7 +102,7 @@ MCEが0.260で、ダブルすると0.100のエラー。<br>
 <script src="/js/BgBoard_class.js"></script>
 <script>
 var board = new BgBoard("problemPager", "boardStyle5", "ccw");
-board.showBoard("");
+board.showBoard("XGID=-BBB--C-Ba--cB-b-bAdc---A-:0:0:1:00:0:0:3:0:10");
 var categoryid = "KA2";
 var probnum = "22";
 var showpipflg = false;
