@@ -11,7 +11,6 @@ if (!showpipflg) { $('.pipinfo').hide(); }
 $("#selectfirst, #selectprev").prop('disabled', (probnum == "01"));
 $("#selectlast,  #selectnext").prop('disabled', (probnum == "50"));
 
-
 $(function() {
 
   //ナビゲーションボタンがクリックされたときは、ボタンIDで処理を振り分け
@@ -60,8 +59,11 @@ $(function() {
   });
 
   //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
-  $('#showanswer, .board').on('click', function(e){
+  $('#showanswer, #board').on('click', function(e){
     description("toggle");
+    if(window != window.parent) {
+      window.parent.resize_iframe(); //iframeで呼ばれているときは親画面の関数を実行する
+    }
   });
 
   //[Analysis Result]ボタンで、解析結果を表示/非表示を切替え
@@ -74,12 +76,16 @@ $(function() {
     window.location.href = "../../index.html";
   });
 
+  //画面の大きさが変わったときはボードを再描画
+  $(window).on('resize', function(e){
+    board.redraw();
+  });
 });
 
 function move_page(probnum, delta) {
-  let nextpage = Number(probnum) + delta;
+  const nextpage = Number(probnum) + delta;
   if (nextpage <= 0 || nextpage > 50) { return; } 
-  let pn = ("00" + String(nextpage)).substr(-2);
+  const pn = ("00" + String(nextpage)).substr(-2);
   window.location.href = "./" + pn + ".html";
 }
 
