@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgBoard.css">
+<title>ChrisBray</title>
+</head>
+
+<body>
+<nav class="nav">
+<span id="sectionTitle" class="sectionTitle">2020 - Position 188</span>&ensp;
+<span>(CC3-38)</span>&ensp;
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="analyse">Anly</button>&ensp;
+</nav>
+
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Red=30 White=33</div></div>
+ <div class="answertable"></div>
+ <div class="description">To calculate this cube decision accurately you need to understand Effective Pip Counts. You can download my paper “Backgammon Races’ from this website to get information on EPCs.<br>
+From Walter Trice’s formulae Red’s EPC is approximately 40 and White’s is 42.5 indicating redouble and take. In fact, the rollouts show it only just a redouble and a trivial take.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.401
+  0.701 0.000 0.000 - 0.299 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.631
+2. Double, pass        +1.000  (+0.369)
+3. No double           +0.605  (-0.026)
+Proper cube action: Double, take
+</pre>
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgBoard_class.js"></script>
+<script>
+var board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBBBB-----------------d--:0:0:1:00:0:0:3:0:10");
+var categoryid = "CC3";
+var probnum = "38";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
