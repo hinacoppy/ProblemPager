@@ -13,7 +13,7 @@
 
 <body>
 <nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=HA5  probnum=40)</span>&ensp;
+<span id="sectionTitle" class="sectionTitle">問題番号 湘南219</span>&ensp;
 <span>(HA5-40)</span>&ensp;
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
@@ -24,17 +24,34 @@
 <button id="analyse">Anly</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<div class="doAction">白62</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips White=52 Brown=92</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">正解ムーブは  25/19* 19/17<br>
+(簡単な考え方・格言・セオリー: デュープリケーション)<br>
+解説<br>
+このポジションでの 6の目は、25/19* のフォーストムーブ(強制されたムーブ)なので、後の 2 の目が問題です。<br>
+前問と似ていますが、ちょっと相手の駒の位置と白の駒の位置が違っています。<br>
+①25/19* 19/17 は、次に相手からヒットされるのは8通り(15 16 55 56 66)です。<br>
+②25/19* 3/1*  は、次に相手からヒットされるのは11通り(11 12 13 14 15 16)です。<br>
+ここでは 25/19* 19/17 とムーブするのが、相手のヒットとエンターの目を重複させているのでヒット率も下げています。<br>
+「デュープリケーション」のプレーを覚えて下さい。<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/19*/17                   Eq.: +0.827
+       0.737 0.413 0.029 - 0.263 0.000 0.000
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    bar/19* 3/1*                 Eq.: +0.515 (-0.312)
+       0.629 0.370 0.014 - 0.371 0.000 0.000
+        2-ply cubeful prune [world class]
+    3. Cubeful 0-ply    bar/19* 4/2                  Eq.: -0.232 (-1.059)
+       0.395 0.178 0.007 - 0.605 0.000 0.000
+        0-ply cubeful prune [expert]
+</pre>
 
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -43,7 +60,7 @@
 <script src="/js/BgBoard_class.js"></script>
 <script>
 var board = new BgBoard("problemPager", "boardStyle3", "cw");
-board.showBoard("");
+board.showBoard("XGID=-aECB------aa------acbbbbA:1:-1:1:62:0:0:3:0:10");
 var categoryid = "HA5";
 var probnum = "40";
 var showpipflg = true;

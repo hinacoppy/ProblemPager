@@ -13,7 +13,7 @@
 
 <body>
 <nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=HA5  probnum=33)</span>&ensp;
+<span id="sectionTitle" class="sectionTitle">問題番号1908</span>&ensp;
 <span>(HA5-33)</span>&ensp;
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
@@ -24,17 +24,42 @@
 <button id="analyse">Anly</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<div class="doAction">白21</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips White=35 Brown=142</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">正解ムーブは  4/3* 3/1*<br>
+(簡単な考え方・格言・セオリー: ヒット率とギャモントライ)<br>
+解説<br>
+このポジションは白が6駒上がりで相手にヒットされて、ヒットされた白の駒が11ポイントまで逃げてきた形です。白は優勢ですが、ここで 21 を振ったため、まだ完全に逃げきることは出来ません。<br>
+ここでは 11/8* とする手と 4/3* 3/1* の手が浮かぶのが正解です。<br>
+11/8* と動かすと、相手の次に目(11 12 13 15 23 25 26 33 35 36 55 56)の21通りで8ポイントの駒がヒットされてしまいます。<br>
+ヒットされないのは(4絡みと 16 22 66)の15通りです。<br>
+4/3* 3/1* と2駒ヒットすると、相手の次の目(1絡みと 33 55 66)の14通りでヒットされます。<br>
+ヒットされる可能性も変わりますし「ギャモン勝ち」と「バックギャモン勝ち」の可能性は大きく違うので 4/3* 3/1* のダブルヒットが正解。<br>
+この局面のように、終盤などの大事なところでは、指をおっても「ヒットされる目(出来る目)」または「ヒットされない目(出来ない目)」を数えるのも大事です。<br>
+「ヒット率とギャモントライ」の考え方を覚えて下さい。<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    4/3*/1*                      Eq.: +0.449
+       0.568 0.413 0.047 - 0.432 0.000 0.000
+        0-ply cubeful prune [expert]
+    2. Cubeful 0-ply    11/8*                        Eq.: +0.197 (-0.252)
+       0.507 0.301 0.051 - 0.493 0.000 0.000
+        0-ply cubeful prune [expert]
+    3. Cubeful 0-ply    11/9 2/1*                    Eq.: -0.011 (-0.460)
+       0.447 0.257 0.025 - 0.553 0.000 0.000
+        0-ply cubeful prune [expert]
+    4. Cubeful 0-ply    4/1*                         Eq.: -0.060 (-0.510)
+       0.439 0.233 0.020 - 0.561 0.000 0.000
+        0-ply cubeful prune [expert]
+    5. Cubeful 0-ply    11/9 4/3*                    Eq.: -0.395 (-0.845)
+       0.327 0.159 0.020 - 0.673 0.000 0.000
+        0-ply cubeful prune [expert]
+</pre>
 
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -43,7 +68,7 @@
 <script src="/js/BgBoard_class.js"></script>
 <script>
 var board = new BgBoard("problemPager", "boardStyle3", "cw");
-board.showBoard("");
+board.showBoard("XGID=-aDaDaa-a--A-------bbbbb--:1:-1:1:21:0:0:3:0:10");
 var categoryid = "HA5";
 var probnum = "33";
 var showpipflg = true;

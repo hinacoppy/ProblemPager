@@ -13,7 +13,7 @@
 
 <body>
 <nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=HA5  probnum=39)</span>&ensp;
+<span id="sectionTitle" class="sectionTitle">問題番号1911</span>&ensp;
 <span>(HA5-39)</span>&ensp;
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
@@ -24,17 +24,37 @@
 <button id="analyse">Anly</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<div class="doAction">白61</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips White=54 Brown=94</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">正解ムーブは  25/19*  2/1*<br>
+(簡単な考え方・格言・セオリー: デュープリケーションとギャモンチャンス)<br>
+解説<br>
+このポジションでの 6 の目は、25/19* のフォーストムーブ(強制されたムーブ)なので、後の 1 の目が問題です。<br>
+①25/19* 19/18 は、次に相手からヒットされるのは18通り(11 13 14 16 35 36 45 46 56 66)です。<br>
+②25/19* 3/2 は、次に相手からヒットされるのは12通り(14 15 45 46 55 56 66)です。<br>
+③25/19* 2/1* は、次に相手からヒットされるのは12通り(11 12 13 14 15 16 55)です。<br>
+しかも、25/19* 2/1* のムーブは相手に直ぐに1の目が出なければギャモン勝ちの可能性が増え、相手のヒットとエンターの目が重複しているのでヒット率も下げています。<br>
+「デュープリケーションとギャモンチャンス」のプレーを覚えて下さい。<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/19* 2/1*                 Eq.: +1.018
+       0.675 0.440 0.048 - 0.325 0.000 0.000
+        0-ply cubeful prune [expert]
+    2. Cubeful 0-ply    bar/19* 4/3                  Eq.: +0.806 (-0.211)
+       0.617 0.330 0.033 - 0.383 0.000 0.000
+        0-ply cubeful prune [expert]
+    3. Cubeful 0-ply    bar/19*/18                   Eq.: +0.736 (-0.282)
+       0.596 0.309 0.033 - 0.404 0.000 0.000
+        0-ply cubeful prune [expert]
+    4. Cubeful 0-ply    bar/19* 3/2                  Eq.: +0.736 (-0.282)
+       0.594 0.314 0.031 - 0.406 0.000 0.000
+        0-ply cubeful prune [expert]
+</pre>
 
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -43,7 +63,7 @@
 <script src="/js/BgBoard_class.js"></script>
 <script>
 var board = new BgBoard("problemPager", "boardStyle3", "cw");
-board.showBoard("");
+board.showBoard("XGID=-aDCC-------a-aa---abbbbbA:1:1:1:61:0:0:3:0:10");
 var categoryid = "HA5";
 var probnum = "39";
 var showpipflg = true;
