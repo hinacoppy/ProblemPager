@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgBoard.css">
+<title>Peever Problem</title>
+</head>
+
+<body>
+<nav class="nav">
+<span id="sectionTitle" class="sectionTitle">Position 3 (Peever Quiz 2005)</span>&ensp;
+<span>(QZa-03)</span>&ensp;
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="analyse">Anly</button>&ensp;
+</nav>
+
+<div class="doAction">Black to Play 65</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Black=163 White=139</div></div>
+ <div class="answertable"></div>
+ <div class="description">13/8, 13/7が正解です。 ダブルショット(24通り)を残しますが、白の良い3は重ね合わせられ、黒は白がヒット(特に31, 42, 51, 61, 66)したときに、普通リターンショットを得ることができます。<br>
+黒はレースにおいて13ピップ遅れていて、黒のプレイに関係なく劣勢です。<br>
+もし黒が正確に 13/8, 13/7 とプレイすれば、ヒットされた後も勝つチャンスを十分残すことができ、白が12通りでヒットできなかったとき、素晴らしい形になります。<br>
+<br>
+Slotting the 7pt (13/8 13/7) is correct. It leaves a double shot (24 numbers). However,<br>
+White’s 3s are duplicated, and Black usually gets return shots when White hits (especially with 31 42 51 61 66).<br>
+Black trails in the race by 13 pips and is an underdog regardless of his play. If he correctly slots (13/8 13/7), he retains significant winning chances after being hit, and is in great shape after White’s 12 misses.<br>
+<br>
+<pre>
+1. 13/7 13/8  Eq.: -0.082           0.5%  13.9%  48.6%    51.4%  16.5%   1.3%
+2. 24/13      Eq.: -0.127 (-0.045)  0.5%  10.9%  48.3%    51.7%  17.4%   0.4%
+3. 24/18 13/8 Eq.: -0.129 (-0.047)  0.7%  11.9%  48.7%    51.3%  19.2%   0.5%
+4. 13/7 6/1*  Eq.: -0.205 (-0.123)  0.6%  12.9%  46.1%    53.9%  19.0%   1.7%
+</pre>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 13/7                    Eq.: -0.086
+       0.484 0.139 0.006 - 0.516 0.165 0.014
+        2-ply cubeful prune [world class]
+    2. Cubeful 2-ply    24/13                        Eq.: -0.119 (-0.033)
+       0.481 0.107 0.003 - 0.519 0.165 0.004
+        2-ply cubeful prune [world class]
+    3. Cubeful 2-ply    24/18 13/8                   Eq.: -0.121 (-0.035)
+       0.487 0.117 0.005 - 0.513 0.183 0.005
+        2-ply cubeful prune [world class]
+    4. Cubeful 2-ply    13/2                         Eq.: -0.183 (-0.097)
+       0.456 0.129 0.004 - 0.544 0.172 0.014
+        2-ply cubeful prune [world class]
+    5. Cubeful 2-ply    13/7 6/1*                    Eq.: -0.183 (-0.097)
+       0.465 0.131 0.004 - 0.535 0.187 0.018
+        2-ply cubeful prune [world class]
+</pre>
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgBoard_class.js"></script>
+<script>
+var board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a--aBD-B---bE---d-e--b-B-:0:0:1:56:0:0:1:0:10");
+var categoryid = "QZa";
+var probnum = "03";
+var showpipflg = true;
+</script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
