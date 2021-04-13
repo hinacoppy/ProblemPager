@@ -11,7 +11,7 @@ var deschtml = $(".description").html();
 $('.answertable').html(make_answerlist(deschtml)); //答リストを作成し表示
 
 var calcprflg = false;
-$("#pr").text(getPrCookie()); //CookieからPRを取り出して表示
+$("#pr").text(getPtstr()); //localStorageからPRを取り出して表示
 
 //範囲を超えて移動できないようにする
 $("#selectfirst, #selectprev").prop('disabled', (probnum == "01"));
@@ -52,8 +52,8 @@ $(function() {
 
   //[ResetPR]ボタンで、PRをリセット
   $('#resetpr').on('click', function(e){
-    Cookies.remove("bgquiz", { path: '/ProblemPager' });
-    $("#pr").text("(PR = 0.0 / 0)");
+    localStorage.removeItem("bgquiz");
+    $("#pr").text(getPtstr());
   });
 
   //画面の大きさが変わったときはボードを再描画
@@ -73,8 +73,8 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  const prstr = get_prstr(descout);
-  $("#pr").text(prstr);
+  calc_next_pr(descout);
+  $("#pr").text(getPtstr());
 
   switch (action) {
   case "show":
@@ -109,52 +109,48 @@ function mark_choiced(deschtml) {
   return descout;
 }
 
-function get_prstr(deschtml) {
+function calc_next_pr(deschtml) {
   if (calcprflg) { return; }
   calcprflg = true;
-  var temp1 = deschtml.indexOf("·"); //マークを基準に eq を抽出
-  var temp2 = deschtml.indexOf("</tr>", temp1);
-  var str = deschtml.substr(temp1, temp2 - temp1);
-  var temp = str.indexOf("(");
-//  var temp3 = str.indexOf("plusmn");
-//  var temp4 = str.indexOf("±");
+  const temp1 = deschtml.indexOf("·"); //マークを基準に eq を抽出
+  const temp2 = deschtml.indexOf("</tr>", temp1);
+  const str = deschtml.substr(temp1, temp2 - temp1);
+  const temp = str.indexOf("(");
+
   let eq = 0;
-//  if ((Math.max(temp3,temp4) < temp) && (temp3 > 0 || temp4 > 0 )){ // deal with rollouts 
-//    temp = 0;
-//  }
-  if (temp > 1){
+  if (temp > 1){ //最善手でないとき
     eq = parseFloat(str.substr(temp +2, 5));
-    if (Number.isNaN(eq)) { alert(eq); }
+    if (Number.isNaN(eq)) { alert(eq); return; }
   }
-  var [errorSum, count] = parseCookie(Cookies.get("bgquiz"));
-  count += 1;
-  errorSum += eq;
-  const pr = calc_pr(errorSum, count);
-  const cookieval = "errorsum=" + errorSum + ":count=" + count;
-  Cookies.set("bgquiz", cookieval, { path: '/ProblemPager', expires: 7});
-  return "(PR = " + pr + " / " + count + ")";
+
+  let [errorsum, count, pr, prstr] = getStorage();
+  errorsum += eq;
+  count    += 1;
+  pr        = errorsum / count * 500;
+  prstr     = "(PR = " + pr.toFixed(1) + " / " + count + ")";
+  setStorage(errorsum, count, pr, prstr);
 }
 
-function getPrCookie() {
-  const [errorSum, count] = parseCookie(Cookies.get("bgquiz"));
-  const pr = calc_pr(errorSum, count);
-  return "(PR = " + pr + " / " + count + ")";
+function getPtstr() {
+  let [errorsum, count, pr, prstr] = getStorage();
+  return prstr;
 }
 
-function parseCookie(cookieval) {
-  if (cookieval == null) {
-    return [0, 0];
+function getStorage() {
+  const bgquiz = JSON.parse(localStorage.getItem("bgquiz"));
+  if (bgquiz == null) {
+    return [0, 0, 0, "(PR = 0.0 / 0)"];
   }
-  let array = cookieval.match(/[0-9]+\.?[0-9]*/g); //数字部分を抽出
-  return [parseFloat(array[0]), parseInt(array[1])];
+  const errorsum = parseFloat(bgquiz["errorsum"]);
+  const count    = parseInt(bgquiz["count"]);
+  const pr       = parseFloat(bgquiz["pr"]);
+  const prstr    = bgquiz["prstr"];
+  return [errorsum, count, pr, prstr];
 }
 
-function calc_pr(errorSum, count){
-  if (count == 0) { return 0; }
-  const performance = errorSum / count;
-  const elo = Math.round(2240 - (performance * 16500)); //no use
-  const pr = (performance * 500).toFixed(1);
-  return pr;
+function setStorage(errorsum, count, pr, prstr) {
+  const bgquiz = {"errorsum": errorsum, "count": count, "pr": pr, "prstr": prstr};
+  localStorage.setItem("bgquiz", JSON.stringify(bgquiz));
 }
 
 function make_answerlist(deschtml) {
@@ -187,7 +183,7 @@ function make_answerlist(deschtml) {
 
   let answerlist = "";
   for (const ans of answers) {
-    answerlist += '<label><input type="radio" name="uchoice" value="' + ans + '"> ' + ans + '<label><br>';
+    answerlist += '<label><input type="radio" name="uchoice" value="' + ans + '"> ' + ans + '</label><br>';
   }
   answerlist += '<br><button id="answer">Answer</button>';
   return answerlist;
