@@ -105,18 +105,18 @@ function calc_next_score() {
   }
 
   const errscore = parseInt(scoreval);
-  let [responses, correct, errorsum] = getStorage();
-  responses += 1;
+  let [response, correct, errorsum] = getStorage();
+  response += 1;
   errorsum  += errscore;
   if (errscore == 0) {
     correct += 1;
   }
-  setStorage(responses, correct, errorsum);
+  setStorage(response, correct, errorsum);
 }
 
 function getScoreStr() {
-  const [responses, correct, errorsum] = getStorage();
-  const scrstr = "(CorrectAnswer= " + correct + "/" + responses + ", ErrorScore= " + errorsum + ")";
+  const [response, correct, errorsum] = getStorage();
+  const scrstr = "(CorrectAnswer= " + correct + "/" + response + ", ErrorScore= " + errorsum + ")";
   return scrstr;
 }
 
@@ -126,25 +126,38 @@ function resetScore() {
 
 function getStorage() {
   const exampager = JSON.parse(localStorage.getItem("exampager")) || [];
-  const findobj = exampager.find(elem => Object.keys(elem)[0] === categoryid);
+  const findobj = exampager.find(elem =>  (elem.categoryid === categoryid && elem.date === get_today()));
 
   if (findobj === undefined) {
     return [0, 0, 0];
   }
 
-  const findobjval = findobj[categoryid];
-  const responses = parseInt(findobjval["responses"]); //回答数
-  const correct   = parseInt(findobjval["correct"]); //正答数
-  const errorsum  = parseInt(findobjval["errorsum"]); //エラー合計
-  return [responses, correct, errorsum];
+  const response = parseInt(findobj["response"]); //回答数
+  const correct  = parseInt(findobj["correct"]); //正答数
+  const errorsum = parseInt(findobj["errorsum"]); //エラー合計
+  return [response, correct, errorsum];
 }
 
-function setStorage(responses, correct, errorsum) {
-  const exampager = JSON.parse(localStorage.getItem("exampager")) || [];
-  const newobj = {[categoryid]: {"responses": responses, "correct": correct, "errorsum": errorsum}};
+function setStorage(response, correct, errorsum) {
+  const today = get_today();
+  const newobj = {"categoryid":categoryid,
+                  "response": response,
+                  "correct": correct,
+                  "errorsum": errorsum,
+                  "date": today};
 
-  const idx = exampager.findIndex(elem => Object.keys(elem)[0] === categoryid);
+  const exampager = JSON.parse(localStorage.getItem("exampager")) || [];
+  const idx = exampager.findIndex(elem => (elem.categoryid === categoryid && elem.date === today));
   const deletecount = (idx === -1) ? 0 : 1;
   exampager.splice(idx, deletecount, newobj); //deletecountで新規追加か置換を制御
   localStorage.setItem("exampager", JSON.stringify(exampager));
+}
+
+function get_today() {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1);
+  const day = date.getDate();
+  const datestr = year + "/" + month + "/" + day;
+  return datestr;
 }
