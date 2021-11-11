@@ -156,8 +156,8 @@ function setStorage(response, correct, errorsum) {
 function get_today() {
   const date = new Date();
   const year = date.getFullYear();
-  const month = (date.getMonth() + 1);
-  const day = date.getDate();
+  const month = ("00" + (date.getMonth() + 1)).substr(-2);
+  const day = ("00" + date.getDate()).substr(-2);
   const datestr = year + "/" + month + "/" + day;
   return datestr;
 }
