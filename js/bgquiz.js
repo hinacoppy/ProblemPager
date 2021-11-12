@@ -1,17 +1,16 @@
 // bgquiz.js
-// include from bgquiz html (BgQuiz/[C]/{CAT}/{NUM}.html)
+// include from bgquiz html (/B/{CAT}/{NUM}.html)
 'use strict';
 
 //回答、解説を最初は非表示にする
 $('.description').hide();
-$('.gnuanalysis').hide();
 if (!showpipflg) { $('.pipinfo').hide(); }
 
 var deschtml = $(".description").html();
 $('.answertable').html(make_answerlist(deschtml)); //答リストを作成し表示
 
 var calcprflg = false;
-$("#pr").text(getPtstr()); //localStorageからPRを取り出して表示
+$("#scr").text(getScoreStr()); //localStorageからPRを取り出して表示
 
 //範囲を超えて移動できないようにする
 $("#selectfirst, #selectprev").prop('disabled', (probnum == "01"));
@@ -50,10 +49,10 @@ $(function() {
     window.location.href = "../../index.html";
   });
 
-  //[ResetPR]ボタンで、PRをリセット
-  $('#resetpr').on('click', function(e){
-    localStorage.removeItem("bgquiz");
-    $("#pr").text(getPtstr());
+  //[ResetSCR]ボタンで、スコアをリセット
+  $('#resetscr').on('click', function(e){
+    resetScore();
+    $("#scr").text(getScoreStr());
   });
 
   //画面の大きさが変わったときはボードを再描画
@@ -73,24 +72,22 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  calc_next_pr(descout);
-  $("#pr").text(getPtstr());
+  const errscore = get_errscore(descout);
+  calc_next_score(errscore);
+  $("#scr").text(getScoreStr());
 
   switch (action) {
   case "show":
-    $('.answerscore').show();
     $('.description').show();
     $('.answertable').hide();
     if (!showpipflg) { $('.pipinfo').show(); }
     break;
   case "hide":
-    $('.answerscore').hide();
     $('.description').hide();
     $('.answertable').show();
     if (!showpipflg) { $('.pipinfo').hide(); }
     break;
   case "toggle":
-    $('.answerscore').toggle();
     $('.description').toggle();
     $('.answertable').toggle();
     if (!showpipflg) { $('.pipinfo').toggle(); }
@@ -109,48 +106,19 @@ function mark_choiced(deschtml) {
   return descout;
 }
 
-function calc_next_pr(deschtml) {
-  if (calcprflg) { return; }
-  calcprflg = true;
+function get_errscore(deschtml) {
   const temp1 = deschtml.indexOf("·"); //マークを基準に eq を抽出
   const temp2 = deschtml.indexOf("</tr>", temp1);
-  const str = deschtml.substr(temp1, temp2 - temp1);
-  const temp = str.indexOf("(");
+  const temp3 = deschtml.substr(temp1, temp2 - temp1);
+  const temp  = temp3.indexOf("(");
 
   let eq = 0;
   if (temp > 1){ //最善手でないとき
-    eq = parseFloat(str.substr(temp +2, 5));
-    if (Number.isNaN(eq)) { alert(eq); return; }
+    eq = parseFloat(temp3.substr(temp +2, 5));
+    if (Number.isNaN(eq)) { alert(eq); return 0; }
   }
-
-  let [errorsum, count, pr, prstr] = getStorage();
-  errorsum += eq;
-  count    += 1;
-  pr        = errorsum / count * 500;
-  prstr     = "(PR = " + pr.toFixed(1) + " / " + count + ")";
-  setStorage(errorsum, count, pr, prstr);
-}
-
-function getPtstr() {
-  let [errorsum, count, pr, prstr] = getStorage();
-  return prstr;
-}
-
-function getStorage() {
-  const bgquiz = JSON.parse(localStorage.getItem("bgquiz"));
-  if (bgquiz == null) {
-    return [0, 0, 0, "(PR = 0.0 / 0)"];
-  }
-  const errorsum = parseFloat(bgquiz["errorsum"]);
-  const count    = parseInt(bgquiz["count"]);
-  const pr       = parseFloat(bgquiz["pr"]);
-  const prstr    = bgquiz["prstr"];
-  return [errorsum, count, pr, prstr];
-}
-
-function setStorage(errorsum, count, pr, prstr) {
-  const bgquiz = {"errorsum": errorsum, "count": count, "pr": pr, "prstr": prstr};
-  localStorage.setItem("bgquiz", JSON.stringify(bgquiz));
+  eq = Math.trunc(eq * 1000); //eqを千倍して整数化
+  return eq;
 }
 
 function make_answerlist(deschtml) {
@@ -189,7 +157,7 @@ function make_answerlist(deschtml) {
   return answerlist;
 }
 
-//回答選択肢を上位ポイントから順に並べる
+//回答選択肢を文字列ソートして並べる
 function sort_answerlist(answers) {
   let answork = [];
   for (const item of answers) {
@@ -209,3 +177,64 @@ function sort_answerlist(answers) {
   return ansret;
 }
 
+function calc_next_score(errscore) {
+console.log("calc_next_score", calcprflg, errscore);
+  if (calcprflg) { return; }
+  calcprflg = true;
+
+  let [response, correct, errorsum] = getStorage();
+  response += 1;
+  errorsum  += errscore;
+  if (errscore == 0) {
+    correct += 1;
+  }
+  setStorage(response, correct, errorsum);
+}
+
+function getScoreStr() {
+  const [response, correct, errorsum] = getStorage();
+  const scrstr = "(CorrectAnswer= " + correct + "/" + response + ", ErrorScore= " + errorsum + ")";
+  return scrstr;
+}
+
+function resetScore() {
+  setStorage(0, 0, 0);
+}
+
+function getStorage() {
+  const exampager = JSON.parse(localStorage.getItem("exampager")) || [];
+  const findobj = exampager.find(elem =>  (elem.categoryid === categoryid && elem.date === get_today()));
+
+  if (findobj === undefined) {
+    return [0, 0, 0];
+  }
+
+  const response = parseInt(findobj["response"]); //回答数
+  const correct  = parseInt(findobj["correct"]); //正答数
+  const errorsum = parseInt(findobj["errorsum"]); //エラー合計
+  return [response, correct, errorsum];
+}
+
+function setStorage(response, correct, errorsum) {
+  const today = get_today();
+  const newobj = {"categoryid":categoryid,
+                  "response": response,
+                  "correct": correct,
+                  "errorsum": errorsum,
+                  "date": today};
+
+  const exampager = JSON.parse(localStorage.getItem("exampager")) || [];
+  const idx = exampager.findIndex(elem => (elem.categoryid === categoryid && elem.date === today));
+  const deletecount = (idx === -1) ? 0 : 1;
+  exampager.splice(idx, deletecount, newobj); //deletecountで新規追加か置換を制御
+  localStorage.setItem("exampager", JSON.stringify(exampager));
+}
+
+function get_today() {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = ("00" + (date.getMonth() + 1)).substr(-2);
+  const day = ("00" + date.getDate()).substr(-2);
+  const datestr = year + "/" + month + "/" + day;
+  return datestr;
+}
