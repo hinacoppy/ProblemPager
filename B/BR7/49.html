@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">21. エースポイントゲーム</span>&ensp;
 <span>(BR7-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.332 Blue to play 24</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=92 w=6</div></div>
+      <div class="pipinfo">pips b=92 w=6</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は24/18としてバックギャモンをセーブするがギャモン負けが確定するか、8/2として、ヒットチャンスと多分勝利まで希望する選択がある。どちらが正しいか？白が残り3枚の時、正しいプレイは留まることだ。もし、白が21, 31, 41, 51, 61の10通りを振ると、白は2ブロット発生して、もし青が両方ともヒットできたら、青はゲームで有利になるのだ(これは想像するよりよくある。このことを「Coup classique」という)。ゾロ目でなければ、シングルショットが残り、ヒットできれば、少なくともギャモンセーブができる。24ポイントに留まるのは確率的に良いプレイだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:これから勝ったこと、、、実は記憶にない :-) あるん�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/1                          Eq.: -1.676
        0.084 0.000 0.000 - 0.916 0.688 0.184
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/4 7/5                      Eq.: -1.680 (-0.004)
        0.083 0.000 0.000 - 0.917 0.690 0.185
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/2                          Eq.: -1.684 (-0.007)
        0.078 0.000 0.000 - 0.922 0.683 0.182
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    8/6 7/3                      Eq.: -1.684 (-0.008)
        0.083 0.000 0.000 - 0.917 0.693 0.185
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    8/4 6/4                      Eq.: -1.687 (-0.011)
        0.077 0.000 0.000 - 0.923 0.685 0.182
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "49";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--BBBBCBA--------------cA-:1:1:1:24:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "49";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.139 Blue to play 35</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=144 w=148</div></div>
+      <div class="pipinfo">pips b=144 w=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:新しいブロックポイント作りは通常、脱出に優先する。青は3ポイントを作るかバックマン脱出か(24/16)のどちらかができる。3ポイント作りが優れている。3ポイントはよいブロックポイントなだけでなく、ずっと役に立つ。今から3ターン後、白はプレイしづらくなっているだろう。24/16の価値は、白が1か2を出すと消えて無くなる。一時的な価値より、永久資産を好むべきだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:でも、プライム戦になって負けることもよくあるんだ
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16                        Eq.: +0.379
        0.602 0.179 0.011 - 0.398 0.120 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/3 6/3                      Eq.: +0.367 (-0.013)
        0.585 0.200 0.014 - 0.415 0.126 0.006
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    24/21 13/8                   Eq.: +0.129 (-0.250)
        0.531 0.172 0.013 - 0.469 0.144 0.009
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    13/10 13/8                   Eq.: +0.094 (-0.286)
        0.516 0.176 0.012 - 0.484 0.143 0.007
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/5                         Eq.: +0.091 (-0.288)
        0.519 0.178 0.014 - 0.481 0.151 0.012
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "42";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b--B-DBC----Bba-cbe----B-:0:0:1:35:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "42";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

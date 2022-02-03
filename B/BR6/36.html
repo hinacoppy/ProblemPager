@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">14. ヒットするか？</span>&ensp;
 <span>(BR6-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.276 Blue to play 36</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=83 w=100</div></div>
+      <div class="pipinfo">pips b=83 w=100</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:安全にプレイしたとしてもゲームに負けそうなときはルーズヒットを恐れるな。青は明らかに23/17と飛び出すべきで、そして、最善の3を考える。9/6*か、17/14だ。用心深いプレイヤーはヒットを拒否するだろう。ヒットすると次の白の手番でよりリターンヒットされやすいからだ。しかし、このポジションでの正しい考え方は、次の白の手番で白が生き返ったら、青はリターンヒットされようがされまいが、大いに敗勢であることを理解することだ。9/6*は実はリスクのないヒットで、もし白が次のターンに2枚とも生き返ることができないと大変効果がある。<br>
 <br>
@@ -38,30 +42,28 @@ kinchan:青が 2away - 白 4away でもこのプレイをするか？白に6を�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17 9/6*                   Eq.: -0.280
        0.368 0.062 0.000 - 0.632 0.196 0.007
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    23/14                        Eq.: -0.487 (-0.207)
        0.310 0.046 0.000 - 0.690 0.247 0.012
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    9/3 4/1                      Eq.: -0.949 (-0.669)
        0.132 0.007 0.000 - 0.868 0.258 0.007
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    23/17 4/1                    Eq.: -1.147 (-0.867)
        0.143 0.020 0.000 - 0.857 0.458 0.044
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "36";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=aCDCB-a--A--------bbbcbBb-:1:1:1:36:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "36";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">12. プライム</span>&ensp;
 <span>(BR6-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.252 Blue to play 46</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=136 w=138</div></div>
+      <div class="pipinfo">pips b=136 w=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は8/2, 6/2とプレイできるし、多くのプレイヤーが直感的にそうプレイする。インナーポイントメイクだし、安全な形だからだ。しかし2ポイントメイクは青の勝利に必要なポイントではない。非常に重要なポイントは青の5ポイントだ。もし5ポイントを作れたら完璧だ。それに対して、2ポイントはほとんど役立たない。青は2メンダウンしてビルダーを作り、5ポイントを作りに行くべきだ。正しいプレイは13/7, 13/9!だ。<br>
 <br>
@@ -47,33 +51,30 @@ kinchan:24/20, 13/7が結構目につくんだよね～。確かに危険。相�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 13/7                    Eq.: +0.200
        0.545 0.189 0.012 - 0.455 0.131 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/20 13/7                   Eq.: +0.160 (-0.040)
        0.548 0.195 0.018 - 0.452 0.174 0.009
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/2 6/2                      Eq.: +0.102 (-0.098)
        0.520 0.192 0.012 - 0.480 0.150 0.008
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    13/3                         Eq.: +0.057 (-0.143)
        0.508 0.173 0.012 - 0.492 0.148 0.008
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/7 6/2                     Eq.: -0.026 (-0.226)
        0.497 0.160 0.010 - 0.503 0.171 0.012
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "10";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b-BB-CBB----Bb--bbe-b--B-:0:0:1:46:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "10";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

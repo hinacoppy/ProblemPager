@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">30. ベアオフ</span>&ensp;
 <span>(BRb-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.501 Blue to play 15</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=18 w=4</div></div>
+      <div class="pipinfo">pips b=18 w=4</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は、5/OFFとするべきだ。そして最善の1を探す。青はあと一振りしかない。ので次の振り番でゾロ目を振ることを考えなければならない。もし、6/5とすると、次に66, 55, 44で上がりにできる。3/2でも同じだ。しかし4/3とすると33でも上がれる。正しくプレイすると勝率を33%もアップできるのだ!。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:お疲れ様でした。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/off 4/3                    Eq.: -0.815
        0.093 0.000 0.000 - 0.907 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/off                        Eq.: -0.861 (-0.046)
        0.069 0.000 0.000 - 0.931 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    6/1 5/4                      Eq.: -0.861 (-0.046)
        0.069 0.000 0.000 - 0.931 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    5/off 3/2                    Eq.: -0.861 (-0.046)
        0.069 0.000 0.000 - 0.931 0.000 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/1 4/3                      Eq.: -0.907 (-0.093)
        0.046 0.000 0.000 - 0.954 0.000 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRb";
+const probnum = "27";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---AAAA-----------------d-:1:1:1:15:0:0:0:0:10");
-var categoryid = "BRb";
-var probnum = "27";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

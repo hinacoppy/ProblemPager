@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
 <span>(BR1-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.38 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=165 w=163</div></div>
+      <div class="pipinfo">pips b=165 w=163</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手がプライムを素早く作り始めた場合、ポジションが危険になりすぎる前に、素早くアンカーを作りに行く必要がある。正しいプレイは大胆なBar/21, 24/23で、安全だけど保守的なBar/24, 13/9ではなく、すぐにアンカーを作りに行く。白がたくさんのビルダーを持つ前に、今21ポイントに動かすことで青は最善のアンカーを作るチャンスを得る。少したつとスプリットが全然安全ではなくなるだろう。1で24/23と動かすのは戦術的に的確だ。もし白が例えば32のような目で4ポイントを作ったら、青は5か6でヒットできるようになるだろう。また、青は23ポイントにアンカーを作れるかもしれない。23ポイントを作ると24ポイントアンカーに比べてかなり生存しやすいポジションだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ぱっとめに怖い手が最善。今がアンカー作りのラスト
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 24/23                 Eq.: -0.384
        0.414 0.104 0.005 - 0.586 0.190 0.010
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/21 10/9                  Eq.: -0.426 (-0.042)
        0.401 0.102 0.005 - 0.599 0.192 0.011
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/21 6/5                   Eq.: -0.443 (-0.059)
        0.405 0.103 0.005 - 0.595 0.217 0.018
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    bar/24 13/9                  Eq.: -0.540 (-0.156)
        0.370 0.105 0.006 - 0.630 0.206 0.015
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    bar/24 10/6                  Eq.: -0.562 (-0.178)
        0.358 0.095 0.005 - 0.642 0.208 0.011
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR1";
+const probnum = "39";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b----E-C-A-eD---abcb---AA:0:0:1:14:0:0:0:0:10");
-var categoryid = "BR1";
-var probnum = "39";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

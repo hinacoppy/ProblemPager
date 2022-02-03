@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">25. ギャモン勝ちを狙う</span>&ensp;
 <span>(BR9-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.421 Blue to play 56</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=111 w=123</div></div>
+      <div class="pipinfo">pips b=111 w=123</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ゲームを支配しているとき、ギャモン勝ちを直接狙いにいくことができる。青は8/2*, 6/1*とプレイすべきだ。2メンオンザバーにして、白がアンカーを取るチャンスを最小にするのだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:かっこいいプレイだ。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2* 6/1*                    Eq.: +1.364
        0.897 0.609 0.019 - 0.103 0.022 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    10/4 6/1*                    Eq.: +1.346 (-0.018)
        0.914 0.539 0.016 - 0.086 0.009 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    10/5 8/2*                    Eq.: +1.314 (-0.050)
        0.898 0.542 0.023 - 0.102 0.013 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    19/14 10/4                   Eq.: +1.314 (-0.050)
        0.913 0.506 0.020 - 0.087 0.008 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    8/3 8/2*                     Eq.: +1.306 (-0.058)
        0.896 0.542 0.021 - 0.104 0.013 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR9";
+const probnum = "42";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aaBBCCcB-A--------Bb-b-f-:1:-1:1:56:0:0:0:0:10");
-var categoryid = "BR9";
-var probnum = "42";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

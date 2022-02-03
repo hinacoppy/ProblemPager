@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">30. ベアオフ</span>&ensp;
 <span>(BRb-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.477 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=8 w=4</div></div>
+      <div class="pipinfo">pips b=8 w=4</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は1で1/OFFと上がるべきだ。そして、最善の2を考える。3/1か4/2だ。もし4/2とすると次に1を振ると両方とも上がることができない。つまり11通り失敗する。もし、3/1とすると、上がりに失敗するのは21, 31, 32そして11だ。これは7通りだ。正しいプレイは、1/OFF, 3/1だ。<br>
 <br>
@@ -38,30 +42,28 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    3/off                        Eq.: +0.343
        0.671 0.000 0.000 - 0.329 0.000 0.000
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    4/2 1/off                    Eq.: +0.157 (-0.185)
        0.579 0.000 0.000 - 0.421 0.000 0.000
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    4/1                          Eq.: -1.000 (-1.343)
        0.116 0.000 0.000 - 0.884 0.000 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    4/2 3/2                      Eq.: -1.000 (-1.343)
        0.116 0.000 0.000 - 0.884 0.000 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRb";
+const probnum = "03";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-A-AA-------------------d-:1:-1:1:12:0:0:0:0:10");
-var categoryid = "BRb";
-var probnum = "03";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

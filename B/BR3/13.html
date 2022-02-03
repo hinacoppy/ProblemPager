@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.110 Blue to play 24</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=156 w=146</div></div>
+      <div class="pipinfo">pips b=156 w=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:自分のボードが(相手より)弱いときは、慎重にプレイしよう。青は7/5*, 15/11を選択した。これは大胆で他の状況下では正しいプレイだろう。しかし、白の方がインナーボードが強いので、青は慎重なプレイを選ぶ。正しいプレイは13/7だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ふむ<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    13/7                         Eq.: +0.841
        0.728 0.219 0.008 - 0.272 0.087 0.002
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    20/16 7/5*                   Eq.: +0.646 (-0.195)
        0.669 0.220 0.012 - 0.331 0.144 0.008
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    15/11 7/5*                   Eq.: +0.633 (-0.209)
        0.659 0.211 0.010 - 0.341 0.126 0.005
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    7/5*/1                       Eq.: +0.591 (-0.250)
        0.644 0.199 0.009 - 0.356 0.120 0.003
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    20/16 15/13                  Eq.: +0.360 (-0.481)
        0.584 0.172 0.007 - 0.416 0.179 0.006
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "13";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--bbBaDAB----B-A---cCbbab-:1:1:1:24:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "13";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

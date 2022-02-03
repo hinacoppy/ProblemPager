@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">13. コネクティビティ</span>&ensp;
 <span>(BR6-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.268 Blue to play 46</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=178 w=155</div></div>
+      <div class="pipinfo">pips b=178 w=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は安全に21/11とプレイできる。このプレイは適切なプレイに見えるが、深刻な問題がある。青の24ポイントのバックマンは完全に他の青のグループから取り残されている。白はブロックポイントを作る準備ができているので、青は2ターン後には困ったことになっていることに気がつくだろう。最高レベルでバックギャモンをプレイするには、問題が発生する前に対処する感覚が必要だ。中国の偉い人はこう言っている。「全ての戦闘は戦う前に勝っていた。」将来のトラブルを密かに探り、青は正しいプレイを編み出した。24/14!だ。青は2をデュプリケートし、チェッカーの接続を残した。白が非常に幸運でない限り、青は次の手順でアンカーを作り、戦力を共に保つ問題が解決した。<br>
 <br>
@@ -47,33 +51,30 @@ kinchan:21/11がそう悪いとは思えない。が、24/14は非常に為に�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/14                        Eq.: -0.347
        0.429 0.068 0.002 - 0.571 0.170 0.008
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/20 21/15                  Eq.: -0.359 (-0.011)
        0.429 0.068 0.002 - 0.571 0.173 0.008
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/2 6/2                      Eq.: -0.397 (-0.050)
        0.413 0.081 0.002 - 0.587 0.176 0.010
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    21/11                        Eq.: -0.398 (-0.050)
        0.414 0.066 0.002 - 0.586 0.174 0.008
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/20 13/7                   Eq.: -0.399 (-0.052)
        0.418 0.081 0.003 - 0.582 0.187 0.014
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "27";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-----bD-C--BdC--ac-e-A--B-:0:0:1:46:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "27";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

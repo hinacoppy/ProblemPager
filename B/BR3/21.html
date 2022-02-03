@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.118 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=135 w=134</div></div>
+      <div class="pipinfo">pips b=135 w=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手があなたの頭に着陸する準備ができているのなら、相手の攻撃をそらすのが第一だ。白は23ポイントのブロットに正確に狙いをつけた攻撃なので、青は先制攻撃をしなければならない。正しいプレイは8/3*で、白がインナーボードポイントを作るのを邪魔している。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ヒット後、キューブがきそう。。。。。こないか。。
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3*                         Eq.: -0.564
        0.392 0.090 0.003 - 0.608 0.281 0.011
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/8                         Eq.: -0.628 (-0.064)
        0.377 0.081 0.002 - 0.623 0.273 0.006
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    14/13 8/4                    Eq.: -0.639 (-0.075)
        0.374 0.078 0.002 - 0.626 0.272 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    13/12 8/4                    Eq.: -0.948 (-0.384)
        0.340 0.078 0.002 - 0.660 0.333 0.016
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    14/9                         Eq.: -1.000 (-0.436)
        0.323 0.072 0.002 - 0.677 0.339 0.012
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "21";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-B-aBbB-C----DAaa-bcc-bA--:0:0:1:14:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "21";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

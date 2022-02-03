@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">14. ヒットするか？</span>&ensp;
 <span>(BR6-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=0 w=0</div></div>
+      <div class="pipinfo">pips b=0 w=0</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">多くの戦略的な問題は相手のブロットをヒットするかしないかを中心に展開する。もし、ヒットする代わりにインナーボードのポイントを作れるとしたら？駒の配置状況が進歩するとしたら？プライムを抜け出せるとしたら？どうするだろうか？通常、相手のブロットをヒットできるとしたら、多分ヒットしたいだろう。しかし、それには多くの例外があり、それを知っておく必要がある。主なケースは次の通り<br>
 <br>
@@ -42,19 +46,21 @@
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis"></pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "35";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--------------------------:0:0:0:00:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "35";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

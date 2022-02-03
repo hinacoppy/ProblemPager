@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">11. ホールディングゲーム</span>&ensp;
 <span>(BR5-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=0 w=0</div></div>
+      <div class="pipinfo">pips b=0 w=0</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">ホールディングゲームはバックギャモンの基本的なポジションだ。強いプレイヤーの間では、多くのゲームが何らかのホールディングゲームになる。片方がホールディングゲームになるのが最も一般的だ。片方がバックマンをミッドポイントかそれを超えて脱出させる。もう一方が普通は20ポイントか18ポイントにアドバンスドアンカーを作る。アンカーを持った側をホールディングと呼び、ヒットチャンスを得るまでアンカーを保持する。互いのホールディングゲームとは、両方がアンカーを持つことを意味する。プレイはほとんど同じで、両サイドがゾロ目を振るか、ヒットチャンスがくるのを待っている。これらの非常に重要なポジションのガイドラインは次の通り。<br>
 <br>
@@ -41,19 +45,21 @@
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis"></pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR5";
+const probnum = "23";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--------------------------:0:0:0:00:0:0:0:0:10");
-var categoryid = "BR5";
-var probnum = "23";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

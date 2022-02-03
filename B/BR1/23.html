@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
 <span>(BR1-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.22 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=153 w=154</div></div>
+      <div class="pipinfo">pips b=153 w=154</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:攻撃的または防御的ポイントのどちらかを選択する場合、どちらのサイドで仕事量が多いか調べよう。青の攻撃陣は6ポイントに大きなスタックがある。青の防御陣(バックマン)はよく働いている。バックマンはまだ危険ではないし、白サイドによく睨みを効かせている。よって、青の攻撃陣がより助けが必要だ。だから、7/5, 6/5とプレイする。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:当然の一手<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    7/5 6/5                      Eq.: +0.323
        0.572 0.189 0.006 - 0.428 0.097 0.003
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    24/22 23/22                  Eq.: +0.064 (-0.260)
        0.505 0.134 0.004 - 0.495 0.096 0.002
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    23/22 13/11                  Eq.: +0.002 (-0.321)
        0.495 0.135 0.004 - 0.505 0.120 0.005
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    24/21                        Eq.: -0.012 (-0.335)
        0.493 0.125 0.003 - 0.507 0.117 0.003
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    23/20                        Eq.: -0.021 (-0.345)
        0.490 0.126 0.004 - 0.510 0.121 0.004
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR1";
+const probnum = "23";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a----ECB---eCa--c-e---AA-:0:0:1:12:0:0:0:0:10");
-var categoryid = "BR1";
-var probnum = "23";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

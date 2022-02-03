@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR2-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.89 Blue to play 25</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=149 w=165</div></div>
+      <div class="pipinfo">pips b=149 w=165</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手が圧倒的に強力になる前にアドバンスドアンカーを作るムーブをしよう。青はBar/23と生き返る。そして、魅力のない5の選択となる。6/1*とヒットするのは(実際のゲームで選択された)小さな将来性のプラスに対して(ヒットされた場合に)大きなピップロスのリスクがある。しかし、13/8はミッドポイントがストリップになるし、8/3は1枚の駒が本質的に遊び駒になる。正しいプレイは、間違いなく23/18!だ。白がポジションを強化する前によいアンカーを取りに行くのだ。他のプレイと違って、良い点が非常に多く、リスクも納得できるものだ。<br>
 <br>
@@ -38,30 +42,28 @@ kinchan:こんなふうに、相手のバーポイントに飛び出す手は、
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/18                       Eq.: -0.251
        0.444 0.106 0.003 - 0.556 0.175 0.005
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    bar/23 6/1*                  Eq.: -0.434 (-0.183)
        0.380 0.096 0.003 - 0.620 0.162 0.006
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    bar/23 8/3                   Eq.: -0.458 (-0.207)
        0.377 0.106 0.004 - 0.623 0.186 0.006
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    bar/23 13/8                  Eq.: -0.491 (-0.240)
        0.369 0.099 0.003 - 0.631 0.188 0.005
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "42";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a-B-bD-D-a-bC---d-cb--A-A:0:0:1:25:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "42";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

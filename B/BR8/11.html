@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.343 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=77 w=143</div></div>
+      <div class="pipinfo">pips b=77 w=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:バックゲームに対してベアインするとき、通常後ろのポイントからクリアするのが正しい。そうすることで、あなたの駒が連結して普通、将来ポイントをクリアするのが易しくなる。問題343では、青はこのルールに従って、8ポイントをクリアする。8/6, 8/5だ。<br>
 <br>
@@ -45,33 +49,30 @@ kinchan:8/6, 8/5って直後に65, 64でショットを残す。7ポイントを
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/6 8/5                      Eq.: +0.414
        0.656 0.234 0.010 - 0.344 0.024 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    7/5 7/4                      Eq.: +0.394 (-0.020)
        0.651 0.230 0.010 - 0.349 0.030 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    6/1                          Eq.: +0.077 (-0.337)
        0.537 0.205 0.006 - 0.463 0.051 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/5 6/4                      Eq.: -0.068 (-0.482)
        0.490 0.206 0.010 - 0.510 0.090 0.001
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/6 4/1                      Eq.: -0.071 (-0.485)
        0.492 0.202 0.008 - 0.508 0.090 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "11";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-BbbCCCBB--------aabbbba--:1:-1:1:23:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "11";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">9. ブリッツ</span>&ensp;
 <span>(BR5-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.201 Blue to play 26</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=98 w=144</div></div>
+      <div class="pipinfo">pips b=98 w=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:一番弱いポジション修繕を第一に。青は非常にクローズアウトしそうな大優勢のゲームだ。青は攻撃陣を強化する14/6や14/8, 13/11とプレイして、5ポイントに対して三つのビルダーを持つことができる。しかし、このポジションで一番の危険はバックマンが残っているうちに66や55という強制ロールを振ることだ。正しいプレイはバックマンを逃がす24/16だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16                        Eq.: +1.527
        0.910 0.747 0.007 - 0.090 0.016 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/22 13/7                   Eq.: +1.399 (-0.128)
        0.878 0.698 0.007 - 0.122 0.020 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/22 14/8                   Eq.: +1.380 (-0.147)
        0.877 0.682 0.007 - 0.123 0.019 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    14/6                         Eq.: +1.346 (-0.181)
        0.860 0.691 0.008 - 0.140 0.025 0.002
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    14/8 13/11                   Eq.: +1.332 (-0.195)
        0.858 0.681 0.009 - 0.142 0.023 0.001
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR5";
+const probnum = "06";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=bBBBB-BAA---bAA--bbe-b--A-:1:-1:1:26:0:0:0:0:10");
-var categoryid = "BR5";
-var probnum = "06";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

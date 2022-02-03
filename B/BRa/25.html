@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">28. 終盤あれこれ</span>&ensp;
 <span>(BRa-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.451 Blue to play 26</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=66 w=80</div></div>
+      <div class="pipinfo">pips b=66 w=80</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ゲーム終盤でショットを残さなければならないとしたら、多分ヒットされたら負けだろうから、残すショットを最小にしよう。もし青が、16/10, 16/14としたら、全ての2と11の12通りでヒットされる。もし、16/8としたら、全ての4と31, 22, 11の15通りだ。16/14が大体9%負けが少ない。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:原文では全ての4と31, 22, 11を14通りと書いてある。プ�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    16/14 16/10                  Eq.: -0.032
        0.497 0.004 0.000 - 0.503 0.023 0.000
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    16/8                         Eq.: -0.220 (-0.188)
        0.434 0.006 0.000 - 0.566 0.030 0.000
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    16/10 6/4                    Eq.: -0.260 (-0.228)
        0.421 0.007 0.000 - 0.579 0.031 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    16/10 3/1                    Eq.: -0.323 (-0.291)
        0.403 0.007 0.000 - 0.597 0.041 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    16/10 4/2                    Eq.: -0.412 (-0.380)
        0.377 0.004 0.000 - 0.623 0.048 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRa";
+const probnum = "25";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-DBDB-A-----b---Ba-bcbbba-:0:0:1:26:0:0:0:0:10");
-var categoryid = "BRa";
-var probnum = "25";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

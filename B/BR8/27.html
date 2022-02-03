@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.359 Blue to play 24</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=132 w=52</div></div>
+      <div class="pipinfo">pips b=132 w=52</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:バックゲームポイントを崩さねばならないとき、前の方から崩そう。青は7/1でしか、バックゲームポイントを維持できないが、どうせ次の手番で(バックゲームポイントを)崩さねばならないし、7/1とすると相手をヒットしたときにインナーボードが大問題になる。正しいプレイは、即座に20/14だ。<br>
 <br>
@@ -50,33 +54,30 @@ kinchan:7/1、そんなに悪くないとおもうんだけどねぇ。。。白
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/14                        Eq.: -0.202
        0.406 0.076 0.003 - 0.594 0.226 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    20/16 7/5                    Eq.: -0.220 (-0.018)
        0.400 0.073 0.002 - 0.600 0.225 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    7/1                          Eq.: -0.232 (-0.030)
        0.404 0.067 0.002 - 0.596 0.240 0.002
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    20/16 3/1                    Eq.: -0.299 (-0.098)
        0.385 0.070 0.002 - 0.615 0.262 0.002
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/2 3/1                      Eq.: -0.325 (-0.123)
        0.379 0.054 0.001 - 0.621 0.264 0.002
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "27";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--ACBBBA---------b-bBdBaf-:1:1:1:24:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "27";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

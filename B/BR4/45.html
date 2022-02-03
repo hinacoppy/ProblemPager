@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">9. ブリッツ</span>&ensp;
 <span>(BR4-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.190 Blue to play 15</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=146 w=156</div></div>
+      <div class="pipinfo">pips b=146 w=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ブリッツではたびたび、インナーポイントを作るか、2枚目をヒットするかの選択を伴う。多くの場合、ポイントを作る方が重要だ。青は6/1, 21/20とプレイすべきだ。3ポイントボードを作り、白がアンカーを作れなかったときに攻撃する準備をするのだ。これは、21/16, 6/5*よりましだ。このプレイは青が強固になる前に白に多くのエンターとリターンショットを与える。<br>
 <br>
@@ -46,33 +50,30 @@ kinchan:難しいとおもう。ぼくの好みは21/16, 6/5*だ。ロールア�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/20 6/1                    Eq.: +0.262
        0.609 0.252 0.009 - 0.391 0.083 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    21/16 6/5*                   Eq.: +0.240 (-0.022)
        0.607 0.255 0.014 - 0.393 0.106 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    7/1                          Eq.: +0.181 (-0.081)
        0.575 0.264 0.010 - 0.425 0.096 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/8 6/5*                    Eq.: +0.091 (-0.171)
        0.561 0.231 0.010 - 0.439 0.118 0.003
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    8/7 6/1                      Eq.: +0.045 (-0.216)
        0.539 0.210 0.006 - 0.461 0.090 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR4";
+const probnum = "45";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=aA--BaCBB-a-dB---bbb-C--b-:1:-1:1:15:0:0:0:0:10");
-var categoryid = "BR4";
-var probnum = "45";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

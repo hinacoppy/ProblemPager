@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.114 Blue to play 15</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=137 w=128</div></div>
+      <div class="pipinfo">pips b=137 w=128</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:手番毎にゲームプランを変更する準備をしよう。特に戦略的な状況では。黒は今までプライミングゲームをしてきて、13/7とやることでプランを続行できる。しかし、この出目では、ゲームプランを全く変更するときだ。青はゲームプランをブリッツに変更して、7/2*/1*とプレイすべきだ。ブリッツはそれ自体が強力なだけでなく、白をオンザバーに留めることで、青は白の17, 18, 19のビルダーを使って20, 21ポイントを塞がれることも防ぐ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ぺしぺし!<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/2*/1*                      Eq.: +0.385
        0.575 0.255 0.008 - 0.425 0.130 0.013
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/7 6/1*                     Eq.: +0.322 (-0.063)
        0.571 0.209 0.007 - 0.429 0.126 0.009
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    7/2* 6/5                     Eq.: +0.141 (-0.244)
        0.533 0.190 0.009 - 0.467 0.147 0.016
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    13/7                         Eq.: +0.111 (-0.274)
        0.531 0.171 0.007 - 0.469 0.146 0.015
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    24/23 7/2*                   Eq.: +0.051 (-0.333)
        0.520 0.180 0.010 - 0.480 0.179 0.017
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "17";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aa-BBEAA----B---cce--b-B-:0:0:1:15:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "17";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

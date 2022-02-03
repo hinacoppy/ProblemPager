@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
 <span>(BR2-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.52 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=163 w=153</div></div>
+      <div class="pipinfo">pips b=163 w=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ゲーム序盤の一つのゴールは自分の弱点を補強することだ。青は二つの弱みがある。ミッドポイントの大スタックとまだスタートしていないでそのまま捕まってしまいそうな2枚のバックマンだ。青はこの二つの問題を13/11, 24/23! とすることで解決できる。バックマンは動き始めたし、11ポイントのビルダーは7ポイントや9ポイントへの新しいビルダーとなった。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:わかりやすい<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 6/5                    Eq.: -0.277
        0.438 0.108 0.003 - 0.562 0.177 0.007
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/23 13/11                  Eq.: -0.278 (-0.001)
        0.442 0.110 0.004 - 0.558 0.187 0.009
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/23 24/22                  Eq.: -0.294 (-0.017)
        0.434 0.104 0.003 - 0.566 0.172 0.006
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/11 6/5                    Eq.: -0.319 (-0.042)
        0.428 0.108 0.003 - 0.572 0.179 0.010
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    13/10                        Eq.: -0.322 (-0.044)
        0.427 0.108 0.003 - 0.573 0.180 0.010
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "03";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---b-BD-B---cEb--b-d-b--B-:0:0:1:12:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "03";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

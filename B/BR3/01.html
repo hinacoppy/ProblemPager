@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.98 Blue to play 26</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=143 w=143</div></div>
+      <div class="pipinfo">pips b=143 w=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手がアドバンスドアンカーを作ったのなら、バックマンを24ポイントに置きっぱなしにしてはならない。自分もアンカーを作りに行くか、脱出を試みるべきだ。アドバンスドアンカーと少々のブロックポイントは、バックマンがスタート地点(24ポイント)に留まったままなら、ダブルするかどうかの瀬戸際だから、バックマンを動かすのだ。ここでの正しいプレイは、安全だけど保守的な13/5ではなく、その代わりに脱出する24/16だ。白はヒットしてプライムを作ることはできないから、まだそんなに危険ではない。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:24/18, 24/22って、危険すぎるね。でも、24/18, 8/6は結構�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16                        Eq.: -0.243
        0.453 0.094 0.002 - 0.547 0.170 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/18 8/6                    Eq.: -0.304 (-0.061)
        0.435 0.101 0.003 - 0.565 0.181 0.006
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/22 13/7                   Eq.: -0.317 (-0.074)
        0.429 0.106 0.003 - 0.571 0.186 0.009
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/18 13/11                  Eq.: -0.328 (-0.085)
        0.432 0.106 0.003 - 0.568 0.198 0.009
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/22 24/18                  Eq.: -0.331 (-0.088)
        0.431 0.103 0.004 - 0.569 0.200 0.006
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "01";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--B-bBC-C---bCa--c-eb---B-:0:0:1:26:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "01";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

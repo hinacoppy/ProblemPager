@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
 <span>(BR1-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.25 Blue to play 13</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=160 w=153</div></div>
+      <div class="pipinfo">pips b=160 w=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:1枚にはアタック、ブロックはしない。青は8/4*とすべきで、13/9とブロックするべきではない。何故？二つの理由がある。プライムは1枚に対してはあまりよくない。なぜなら一つの良い目で逃げられてしまうから。また1枚ではアンカーを作れないから逃げられるまでブリッツを続けられるから。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:あたっく1ちぇっか～、ぷらいむ2ちぇっか～。とても�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4*                         Eq.: +0.211
        0.536 0.190 0.006 - 0.464 0.111 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/9                         Eq.: +0.187 (-0.024)
        0.532 0.166 0.005 - 0.468 0.090 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    23/22 9/6                    Eq.: +0.050 (-0.160)
        0.498 0.142 0.004 - 0.502 0.095 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    23/20 9/8                    Eq.: +0.049 (-0.162)
        0.499 0.136 0.004 - 0.501 0.093 0.003
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    9/5                          Eq.: +0.042 (-0.168)
        0.492 0.141 0.004 - 0.508 0.087 0.003
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR1";
+const probnum = "26";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=----aBC-CA--fD---c-e---AA-:0:0:1:13:0:0:0:0:10");
-var categoryid = "BR1";
-var probnum = "26";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

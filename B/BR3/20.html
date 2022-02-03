@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.117 Blue to play 13</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=117 w=122</div></div>
+      <div class="pipinfo">pips b=117 w=122</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:殺すか殺されるかの瀬戸際では、のど元を狙おう。青は大変な事件のまっただ中だ。白はキューブを持っていて、それをひっくり返したくてうずうずしている。保守的なプレイのBar/22, 6/5はゲームを終わらせてしまうムーブだ。その代わりに、青はBar/24, 6/3*とプレイすべきだ。このプレイは少なくとも青にゲームで戦えるチャンスを与えてくれる。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:やるか、やられるか。。。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 6/3*                  Eq.: -0.269
        0.474 0.197 0.007 - 0.526 0.232 0.009
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/22 6/5                   Eq.: -0.402 (-0.133)
        0.436 0.145 0.007 - 0.564 0.215 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    bar/24 7/4*                  Eq.: -0.559 (-0.290)
        0.408 0.169 0.006 - 0.592 0.322 0.028
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    bar/24 8/5                   Eq.: -0.913 (-0.644)
        0.330 0.106 0.002 - 0.670 0.321 0.014
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    bar/24 13/10                 Eq.: -1.000 (-0.731)
        0.306 0.101 0.003 - 0.694 0.366 0.033
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "20";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-B-aaBDBB---bB---a-ccb-b-A:1:-1:1:13:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "20";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

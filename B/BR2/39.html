@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR2-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.86 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=151 w=177</div></div>
+      <div class="pipinfo">pips b=151 w=177</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:Bar/24, 13/9*は(比較的)安全なヒットでその一手のように見えるが、気をつけよう!。このプレイはいくつかの欠点がある。バックマンが24ポイントにスタックしている、ミッドポイントはストリップになる、そして白はリターンヒットできなくても21ポイントを作る準備ができている。ポジション的に優秀なプレイはBar/21, 5/4*だ。バックマンは動きだし、ミッドポイントはスペアをキープして、もし白が4ポイントをリターンヒットできなければ窮地に追い込まれる。ムーブを決定する前にポジションのあらゆる要素をチェックしよう。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ためになる。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 5/4*                  Eq.: +0.483
        0.587 0.235 0.024 - 0.413 0.096 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/24 13/9*                 Eq.: +0.453 (-0.030)
        0.579 0.249 0.028 - 0.421 0.103 0.005
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/24 8/4*                  Eq.: +0.436 (-0.047)
        0.578 0.240 0.028 - 0.422 0.109 0.006
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    bar/20                       Eq.: +0.372 (-0.111)
        0.574 0.213 0.015 - 0.426 0.099 0.004
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    bar/21 24/23                 Eq.: +0.317 (-0.167)
        0.560 0.203 0.015 - 0.440 0.100 0.003
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "39";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b--aCD-Ca--bC--bc-d----AA:0:0:1:14:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "39";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

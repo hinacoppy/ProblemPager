@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.134 Blue to play 36</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=110 w=117</div></div>
+      <div class="pipinfo">pips b=110 w=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:「安全について」。他の全てが同じだったら、プレイを決定するときに安全にプレイすべきだ。もちろん青は6で21/15と脱出する。3は、15/12とするか、8/5とするかだ。どちらが最善だろうか？青のムーブ後の白のショット数を見てみよう。21/12では、63と54でヒットされる。4ショットだ。21/15, 8/5では66と44でヒットされる。2ショットだ。他にこのムーブの決定に考慮するべき事項はないから、青は21/15, 8/5とプレイすべきだ。21/12の2倍安全だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:なるほどねぇ。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15 8/5                    Eq.: +0.746
        0.711 0.052 0.000 - 0.289 0.024 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    21/12                        Eq.: +0.733 (-0.013)
        0.705 0.055 0.001 - 0.295 0.028 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    21/15 5/2                    Eq.: +0.641 (-0.105)
        0.692 0.048 0.000 - 0.308 0.029 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    21/15 13/10                  Eq.: +0.639 (-0.106)
        0.678 0.068 0.002 - 0.322 0.054 0.002
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    21/15 4/1                    Eq.: +0.069 (-0.677)
        0.550 0.077 0.001 - 0.450 0.141 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "37";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--BbBCB-C----B---bbdbAc---:0:0:1:36:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "37";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

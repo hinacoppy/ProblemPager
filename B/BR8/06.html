@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.338 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=109 w=148</div></div>
+      <div class="pipinfo">pips b=109 w=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:問題338では二つの選択がある。強力なブロックポイントを作る13/9, 10/9で1といくつかの組み合わせのショットを残すか、10/6, 2/1と安全にプレイするか。どちらがベターか？良いアドバイスがある。相手が崩れ落ちようとしてるときにダイレクトショットを差し出すことはない。待つと新しい状況はどうなるか調べよう。多分ショットを与える必要はない。白は今、三つの良いポイントがあるが、次の手番でどれかを崩さねばならない。青は安全に10/6, 2/1として、動くのを待つべきだ。<br>
 <br>
@@ -45,33 +49,30 @@ kinchan:9ポイントメイクが正解と疑わなかった。しかし、解�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/6 2/1                     Eq.: +0.317
        0.593 0.110 0.002 - 0.407 0.073 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/9 10/9                    Eq.: +0.181 (-0.137)
        0.555 0.127 0.003 - 0.445 0.114 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    11/6                         Eq.: +0.018 (-0.299)
        0.513 0.139 0.002 - 0.487 0.151 0.006
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    11/10 6/2                    Eq.: -0.074 (-0.391)
        0.492 0.145 0.001 - 0.508 0.181 0.007
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    11/10 8/4                    Eq.: -0.232 (-0.549)
        0.453 0.133 0.002 - 0.547 0.204 0.008
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "06";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-BAbBbB-B-ACbB-----bbbba--:0:0:1:14:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "06";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

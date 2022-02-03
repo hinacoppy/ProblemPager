@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">14. ヒットするか？</span>&ensp;
 <span>(BR6-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.282 Blue to play 46</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=113 w=109</div></div>
+      <div class="pipinfo">pips b=113 w=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手のポジションが悪化しそうなときにヒットしてはならない。青は二つのプレイがある。13/3と待つ、そして、8/2*, 8/4とヒットすることだ。一見するとこの二つのプレイの選択は難しそうだ。正しいプレイを見つけるために白のポジションを見てみよう。白のポジションは少し不格好だ。そして、すぐに悪くなりそうだ。白はストリップなポイントがあり、そして青のしっかりしたアンカー。白は次に3を振れないと白のポジションは問題が起こりそうだ。プライムを維持して、白の崩壊を待とう。正しいムーブは13/3だ。<br>
 <br>
@@ -49,33 +53,30 @@ kinchan:21/11ってそんなにだめなのかなぁ。。。スタックに割�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/3                         Eq.: +0.178
        0.549 0.104 0.002 - 0.451 0.071 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    21/11                        Eq.: +0.135 (-0.043)
        0.546 0.145 0.004 - 0.454 0.137 0.005
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    13/9 8/2*                    Eq.: +0.036 (-0.142)
        0.510 0.128 0.002 - 0.490 0.118 0.007
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/4 8/2*                     Eq.: +0.004 (-0.175)
        0.498 0.112 0.002 - 0.502 0.104 0.004
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/2* 7/3                     Eq.: -0.085 (-0.264)
        0.487 0.124 0.001 - 0.513 0.154 0.012
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "42";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-BaBB-BBB----Ab--bbd-Bbb--:0:0:1:46:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "42";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

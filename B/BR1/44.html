@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
 <span>(BR1-44)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.43 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=160 w=152</div></div>
+      <div class="pipinfo">pips b=160 w=152</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青が2でヒットするのは明らかだ。そして、最善の3を考える必要がある。選択は13/10と24/21だ(11/8は安全だけど保守的すぎる)。「ミッドポイントを早めにストリップにしてはならない」は序盤の優れた定石だ。ミッドポイントの3枚目は相手が自分のアウターボードに駒を進めてきたときにミッドポイントを壊さずにヒットする駒だ。もちろん、最終的には、3枚目をプレイするのだが、急ぐ必要はない。青は3で24/21とプレイすべきだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ミッドポイントの3枚目は重要。この定石はかなり役�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/21 13/11*                 Eq.: +0.084
        0.520 0.140 0.006 - 0.480 0.118 0.005
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/11* 13/10                 Eq.: +0.074 (-0.010)
        0.516 0.154 0.007 - 0.484 0.129 0.007
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/11*/8                     Eq.: +0.067 (-0.016)
        0.514 0.139 0.005 - 0.486 0.120 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/11* 8/5                   Eq.: -0.009 (-0.093)
        0.497 0.148 0.007 - 0.503 0.145 0.009
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    13/11* 6/3                   Eq.: -0.049 (-0.133)
        0.489 0.137 0.007 - 0.511 0.148 0.009
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR1";
+const probnum = "44";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a----E-D--adD---d-e--A-A-:0:0:1:23:0:0:0:0:10");
-var categoryid = "BR1";
-var probnum = "44";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

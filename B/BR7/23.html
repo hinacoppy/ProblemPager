@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">20. Too Good to Double ?</span>&ensp;
 <span>(BR7-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=0 w=0</div></div>
+      <div class="pipinfo">pips b=0 w=0</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">ほとんどのバックギャモンクラブで、マネーゲームやシュエットではジャコビールールが採用されている。ジャコビールールはキューブが動いていない限りギャモン勝ち(バックギャモン勝ち)がないという単純なルールだ。この素晴らしいルール(1940～60年代のベストプレイヤー、Oswald Jacoby の発案によるものだ)はゲームをスピードアップさせる。もし既にキューブが動いていたら、リダブルして相手をパスさせるか、そのままゲームを続けてギャモンを狙うかは常に大きな問題だ。一般的な考え方は次の通り<br>
 <br>
@@ -41,19 +45,21 @@
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis"></pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "23";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--------------------------:0:0:0:00:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "23";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

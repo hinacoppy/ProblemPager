@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">8. 5ポイント</span>&ensp;
 <span>(BR4-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.163 Blue to play 35</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=147 w=151</div></div>
+      <div class="pipinfo">pips b=147 w=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ゲームの序盤で最も重要なポイントは自分の5ポイントだ。5ポイントはインナーボードを強くして、相手をブロックし、そして相手がアドバンスドアンカーを作るのを防ぐ。5ポイントを素早く作るためなら少々のリスクを冒す価値がある。青は、8/5、10/5とプレイすべきで、強いインナーボードを作り、その代わりにアウターフィールドに二つのブロットを残す。13/8、6/3(安全だが消極的すぎる)、や21/13(残った駒を白に攻撃することを許す)のプレイは間違いだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:5ポイント最優先<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    10/5 8/5                     Eq.: +0.488
        0.612 0.204 0.010 - 0.388 0.079 0.002
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    13/5                         Eq.: +0.262 (-0.226)
        0.555 0.173 0.009 - 0.445 0.097 0.003
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    13/8 6/3                     Eq.: +0.257 (-0.231)
        0.555 0.167 0.008 - 0.445 0.093 0.002
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    13/10 13/8                   Eq.: +0.214 (-0.274)
        0.541 0.157 0.007 - 0.459 0.086 0.002
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/10 8/3                    Eq.: +0.156 (-0.332)
        0.525 0.159 0.007 - 0.475 0.096 0.003
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR4";
+const probnum = "17";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b-B--D-B-B-cC--bb-d-Bb---:0:0:1:35:0:0:0:0:10");
-var categoryid = "BR4";
-var probnum = "17";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

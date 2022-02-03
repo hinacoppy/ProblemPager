@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">6. フレキシビリティ (FLEXIBILITY)</span>&ensp;
 <span>(BR2-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.66 Blue to play 35</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=143 w=166</div></div>
+      <div class="pipinfo">pips b=143 w=166</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ディストリビューションを犠牲にしてポイントを作ると柔軟性(flexibility)を失う。青は3ポイントを作れるが、残るのはストリップのポイントとミッドポイントの大スタックだ。13/5のほうがベターで、それは一時的に新しいポイントを作るのをパスするが、次のターンにいくつかの選択を与える。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:スタックはブロットと同じ。良い格言です。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/5                         Eq.: +0.495
        0.644 0.135 0.002 - 0.356 0.074 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/10 13/8                   Eq.: +0.403 (-0.092)
        0.614 0.143 0.005 - 0.386 0.091 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/3 6/3                      Eq.: +0.395 (-0.100)
        0.615 0.140 0.003 - 0.385 0.092 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    8/5 6/1*                     Eq.: +0.180 (-0.315)
        0.558 0.127 0.002 - 0.442 0.118 0.002
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/10 6/1*                   Eq.: +0.166 (-0.330)
        0.553 0.127 0.003 - 0.447 0.116 0.004
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "18";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aa--BCbC---bG---cac-b----:0:0:1:35:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "18";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

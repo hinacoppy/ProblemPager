@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">8. 5ポイント</span>&ensp;
 <span>(BR4-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.172 Blue to play 33</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=153 w=172</div></div>
+      <div class="pipinfo">pips b=153 w=172</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:何が簡単か？青は14/8, 8/5*(2)と白をオンザバーにして5ポイントを作ることが同時にできる。これのどこが悪いのか？動かす前に、将来のポジションがどうなるか考えよう。習慣で振って、駒を動かしてはだめだ。大抵5ポイントを作るのは良いプレイだが、ここでは例外だ。問題なのはミッドポイントの大スタックだ。今は5ポイントを作るより、大スタックのチェッカーをプレイに参加させることの方が重要だ。正しいプレイは14/8, 13/10(2)でバランスのよいディストリビューションだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:それでも5ポイント作りたいけどなぁ。。ロールアウ�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/5* 8/5                    Eq.: +0.411
        0.615 0.149 0.003 - 0.385 0.087 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    14/8 13/10(2)                Eq.: +0.378 (-0.032)
        0.613 0.127 0.002 - 0.387 0.087 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/10(2) 8/5*(2)             Eq.: +0.322 (-0.089)
        0.585 0.154 0.006 - 0.415 0.101 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    14/11 8/5*(3)                Eq.: +0.250 (-0.160)
        0.566 0.155 0.005 - 0.434 0.109 0.002
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    8/5*(2) 6/3(2)               Eq.: +0.256 (-0.155)
        0.566 0.148 0.003 - 0.434 0.097 0.003
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR4";
+const probnum = "26";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a---aDbC---cGA-ac-b-b----:0:0:1:33:0:0:0:0:10");
-var categoryid = "BR4";
-var probnum = "26";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

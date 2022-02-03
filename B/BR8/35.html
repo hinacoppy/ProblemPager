@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.367 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=144 w=65</div></div>
+      <div class="pipinfo">pips b=144 w=65</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青はバックゲームをプレイして、白がベアインを完了する前にショットを得た。青は5プライムが控えている。ショットを数えてみると、全ての6と4, 51, 31。24通りだ。「青は明らかに有利だ」そして、「リダブル!」。大きな間違いだ。青は優勢だ。もしキューブを持っていればだ。もしリダブルしてしまうと、その後の展開はそう良いものではない。何故なのか見てみよう。最初に青がダブルしなかったとしよう。24ゲームはヒットして、まだキューブが手元にあるのでほとんどの全てのゲームで勝つ。24ゲームのうち23ゲーム勝つとしよう。残りの12ゲーム(青がミスした)では、キューブが手元にあるから何ゲームかは勝つことができる。12ゲーム中4ゲーム勝てるとしよう。合計、27ゲーム勝ち、9ゲーム負ける(36ゲーム中)。差し引き18ゲーム、キューブが2の状態で勝つ。36ポイントだ。青がリダブル(キューブが4倍)にするとどうなるか？12ゲームは青は(ヒットを)ミスする。白は即座に8倍にリダブルしてきて、青はパスだ。だから、12ゲーム全てが負けだ。ヒットできた24ゲームもゲームは続行だ。白がキューブを持っているので何ゲームかは勝つだろう。24ゲーム中4ゲーム、白勝ちとしよう。結局、青は20ゲーム勝ち、16ゲーム負ける(36ゲーム中)。キューブが4で4ゲーム勝つから、16ポイントだ。リダブルしないでいると36ポイントなのに、ダブルすると16ポイント？明らかにキューブを持っていた方がよい(リダブルしない)。白のテイクは明らかである。<br>
 <br>
@@ -45,19 +49,21 @@ Cubeful equities:
 3. Double, take        -0.069  (-0.415)
 Proper cube action: No redouble, take (38.8%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "35";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---BBBCB---------a-ecBcBc-:1:1:1:00:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "35";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

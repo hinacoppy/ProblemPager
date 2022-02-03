@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR2-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.96 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=151 w=155</div></div>
+      <div class="pipinfo">pips b=151 w=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手がバックマンを閉じこめようとしてきたら、建設的な出目でなければ脱出に使おう。青は白のブロックフォーメーションにプレッシャーを感じ始めている。32は特に良い出目ではない。新しいポイントを作ることはできない。そんなとき、脱出を試みよう。正しい2は24/22で、次の手番で6で脱出できる準備だ。青のバックマンはスプリットして危険にさらされているから、ブロットを消さなければならないから、無様に見える9/6が最善の3だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ぼくは、13/10, 9/7で63, 54, 62の3通りは甘んじてリスクと
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 9/6                    Eq.: -0.374
        0.414 0.109 0.005 - 0.586 0.196 0.010
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/10 9/7                    Eq.: -0.468 (-0.094)
        0.391 0.113 0.006 - 0.609 0.199 0.016
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/22 13/10                  Eq.: -0.474 (-0.100)
        0.406 0.118 0.008 - 0.594 0.254 0.035
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    9/7 6/3                      Eq.: -0.494 (-0.120)
        0.389 0.106 0.005 - 0.611 0.207 0.016
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    9/7 8/5                      Eq.: -0.498 (-0.124)
        0.390 0.109 0.006 - 0.610 0.212 0.019
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "49";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-ba---EBCA---B-b-cbc-b--B-:0:0:1:23:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "49";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

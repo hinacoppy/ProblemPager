@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">6. フレキシビリティ (FLEXIBILITY)</span>&ensp;
 <span>(BR2-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.81 Blue to play 45</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=174 w=150</div></div>
+      <div class="pipinfo">pips b=174 w=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:4は簡単だ。13/9。5はどうしよう？青は三つの選択がある。23/18, 13/8, 7/2だ。アンカーを崩す23/18は簡単に却下できる。これはボクシングで防御を下げて、あごを差し出すようなものだ。しかし、7/2は安全でうれしいか？安全が全てか？そうじゃない。一度白のアンカーの後ろにチェッカーをもっていくと、そのうち、ブロックポイントを作る駒が足りなくなっていることに気がつくだろう。13/8をよく見ると、青に直線的な勝ちが見える。8ポイントを白がヒットする前にもし青は作れたら、このゲームの優越は青にある。だから、大胆なプレイをするに十分な理由だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:ちょっと訳をはしょっている。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 13/8                    Eq.: +0.193
        0.539 0.138 0.005 - 0.461 0.193 0.015
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/9 7/2                     Eq.: +0.094 (-0.099)
        0.498 0.126 0.005 - 0.502 0.190 0.013
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    23/18 13/9                   Eq.: +0.089 (-0.104)
        0.509 0.130 0.006 - 0.491 0.223 0.013
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    13/8 9/5                     Eq.: -0.050 (-0.242)
        0.460 0.110 0.004 - 0.540 0.220 0.019
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    9/5 7/2                      Eq.: -0.089 (-0.282)
        0.440 0.104 0.004 - 0.560 0.210 0.017
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "33";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---c-BBC-A--cD-----dc-bBA-:1:1:1:45:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "33";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

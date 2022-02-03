@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">12. プライム</span>&ensp;
 <span>(BR6-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.264 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=107 w=83</div></div>
+      <div class="pipinfo">pips b=107 w=83</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:プライミングゲームでダブルを考えるとき、常にレースを配慮に入れるべきだ。多くのプレイヤーはこの青のポジションでダブルをするし、白はパスを考える。青は5プライムで、空いている3ポイントに対してビルダーがいくつかいる。白は青のチェッカーをを閉じこめることができない。新しいゲームを始めるべきか？そんなことはない。白の切り札は24ピップもレースでリードしていることだ。もし白がアウターフィールドに飛び出し、ヒットされなかったら、多分リダブルで勝てるだろう。もし白が3ポイントに移動して青がそれをヒットルーズすると(もっともありそうな筋書きだ)白は強いホームボードを持っているのでリターンヒットは即勝ちになる。白は次の2回の手番で50%の確率で2を振るし、2を振れれば多くのゲームで勝利するだろう。ノーダブル・イージーテイクだ。<br>
 <br>
@@ -45,19 +49,21 @@ Cubeful equities:
 3. No double           +0.793  (-0.036)
 Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "22";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aB-BBBD-A-------bBbbbcab-:1:1:1:00:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "22";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

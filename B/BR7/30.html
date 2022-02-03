@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">21. エースポイントゲーム</span>&ensp;
 <span>(BR7-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.313 Blue to play 34</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=90 w=153</div></div>
+      <div class="pipinfo">pips b=90 w=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手が絶体絶命の時は更に打ちのめそう。バックギャモンは冷淡でもないし寛大でもない。非常に優勢なら、それを更に拡大しよう。相手も立場が変わればそうするだろうから。青はアウターボードのコンタクトをなくす18/11とプレイできる。保守的なプレイヤーは安全にホームを目指してそうするだろう。しかし、18ポイントのチェッカーを残したとして何が起こるというのだ。10/6, 8/5だ。もし白が16で生き返ると、2ブロットが発生する。もし他の1がらみが出たら、12ポイントのチェッカーを1枚動かさずに6ポイントを壊すだろう。これは青にとって良いことだ。プレッシャーを保ち、ギャモン勝ち、そしてバックギャモン勝ちを狙おう。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/6 8/5                     Eq.: +1.485
        0.919 0.596 0.080 - 0.081 0.001 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    18/15 8/4                    Eq.: +1.482 (-0.003)
        0.917 0.598 0.080 - 0.083 0.001 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    18/14 8/5                    Eq.: +1.481 (-0.004)
        0.916 0.597 0.081 - 0.084 0.001 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    18/15 10/6                   Eq.: +1.480 (-0.005)
        0.916 0.599 0.079 - 0.084 0.001 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    10/7 8/4                     Eq.: +1.478 (-0.008)
        0.918 0.594 0.077 - 0.082 0.001 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "30";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=acBBBBBBA-A-b-----Ab--dc--:1:-1:1:34:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "30";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

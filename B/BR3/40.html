@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-40)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.137 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=168 w=145</div></div>
+      <div class="pipinfo">pips b=168 w=145</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ストリップのポイントの前に動かそう。そうでない(スペアがいる)ポイントからは離れよう。1はとても簡単だ。24/23で安全なアンカーを作る。4は？7/3*とヒットするか、13/9か、21/17かだ。3ポイントをヒットするのも、13/9とビルダーをもってくるのも別に怖いプレイではない。しかし、21/17をお勧めしたい。何故？17ポイントはミッドポイントから5ピップ離れた攻められやすい場所だ。しかし、ヒットは白の大きな譲歩を必要とする。ヒットするとミッドポイントを放棄しなければならないからだ。もし、青が21ポイントに居残ると、白は5ポイントと6ポイントのスペアでヒットしてくるだろう(他の重要なポイントは保ったまま)。攻められやすい駒はストリップのポイントの前にもっていくと危険が少なくなる。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:よい格言だ。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 21/17                  Eq.: +0.115
        0.494 0.131 0.006 - 0.506 0.170 0.009
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/23 13/9                   Eq.: +0.105 (-0.009)
        0.487 0.138 0.007 - 0.513 0.169 0.011
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/23 7/3*                   Eq.: +0.079 (-0.036)
        0.488 0.143 0.007 - 0.512 0.199 0.015
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/9 7/6                     Eq.: -0.004 (-0.119)
        0.462 0.133 0.007 - 0.538 0.213 0.012
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    7/3*/2                       Eq.: -0.023 (-0.137)
        0.462 0.131 0.007 - 0.538 0.223 0.018
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "40";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---aaBBCbB--bC-----ccAcAA-:1:1:1:14:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "40";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

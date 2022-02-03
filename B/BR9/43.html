@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">25. ギャモン勝ちを狙う</span>&ensp;
 <span>(BR9-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.422 Blue to play 55</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=100 w=128</div></div>
+      <div class="pipinfo">pips b=100 w=128</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ギャモン勝ちが見えてリスクがそれほど大きくないなら、ギャモン勝ちを狙いにいこう。多くのプレイヤーはギャモン勝ちに対して保守的すぎる。負ける確率の2倍以上ギャモン勝ちできるならギャモン勝ちを狙いにいく価値があることを覚えておこう。実戦では青は弱いプレイをした。10/5(3), 6/1だ。完全に安全だが、白は(自分の手番で)動かし続けられるし、青のインナーボードはとても弱くなって、これ以後白を攻撃しにいくことができなくなる。正しいプレイは、9/4*(2), 10/5(2)だ。白をオンザバーにして、白が他のチェッカーを動かす前にクローズアウトを狙うのだ。これがうまくいけば、青は簡単にギャモン勝ちできる。たとえ白に2ポイントをリターンヒットされても、青の負けではない。青は22ポイントを攻撃できる可能性があり、最悪でも五分五分の状態になるだけだ。このリスクは受け入れる価値がある。<br>
 <br>
@@ -45,33 +49,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/5(2) 9/4*(2)              Eq.: +0.931
        0.788 0.457 0.006 - 0.212 0.035 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    10/5 9/4*(2) 8/3             Eq.: +0.844 (-0.087)
        0.760 0.459 0.005 - 0.240 0.049 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    10/5(3) 6/1                  Eq.: +0.839 (-0.092)
        0.887 0.110 0.000 - 0.113 0.007 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    9/4*(2) 8/3(2)               Eq.: +0.739 (-0.192)
        0.753 0.348 0.005 - 0.247 0.035 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    10/5 8/3(2) 6/1              Eq.: +0.717 (-0.214)
        0.816 0.167 0.001 - 0.184 0.022 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR9";
+const probnum = "43";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--ABaBC-BBC-d----b-cbba---:1:-1:1:55:0:0:0:0:10");
-var categoryid = "BR9";
-var probnum = "43";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

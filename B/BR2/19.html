@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">6. フレキシビリティ (FLEXIBILITY)</span>&ensp;
 <span>(BR2-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.67 Blue to play 11</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=109 w=123</div></div>
+      <div class="pipinfo">pips b=109 w=123</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:11は素晴らしい出目だ(事実青のベストロールだ)。しかし、正しくプレイしなければならない。三つの1は明白だ。Bar/24*と2/1*(2)だ。最後の一つの正しいプレイは7/6だ!。良いポイントを崩して2ポイントに対して3ビルダーとするのだ。他のプレイでは2ポイントに3ビルダーにならない。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:簡単<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24* 7/6 2/1*(2)          Eq.: +0.884
        0.775 0.443 0.015 - 0.225 0.045 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/24* 12/11 2/1*(2)        Eq.: +0.865 (-0.019)
        0.778 0.421 0.014 - 0.222 0.046 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/24* 8/7 2/1*(2)          Eq.: +0.836 (-0.047)
        0.764 0.423 0.014 - 0.236 0.047 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    bar/24* 8/6 8/7              Eq.: +0.637 (-0.246)
        0.728 0.306 0.016 - 0.272 0.046 0.001
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    bar/24* 12/11(2) 8/7         Eq.: +0.544 (-0.340)
        0.704 0.283 0.015 - 0.296 0.059 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "19";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aBBBbBBB---B----abd-b-baA:1:-1:1:11:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "19";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

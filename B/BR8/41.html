@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">23. The Containment Game</span>&ensp;
 <span>(BR8-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.372 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=127 w=27</div></div>
+      <div class="pipinfo">pips b=127 w=27</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青の最初の仕事は白がアウターフィールドに飛び出せないようにヒットすることで、6/2*だ。最善の1は、もし白が最善の26を振ったときに、最善のリターンショットがある、15/14だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/14 6/2*                   Eq.: -0.461
        0.278 0.000 0.000 - 0.722 0.092 0.020
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    23/22 6/2*                   Eq.: -0.475 (-0.014)
        0.275 0.000 0.000 - 0.725 0.098 0.021
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/12 6/2*                   Eq.: -0.476 (-0.016)
        0.275 0.000 0.000 - 0.725 0.098 0.021
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    20/19 6/2*                   Eq.: -0.486 (-0.025)
        0.272 0.000 0.000 - 0.728 0.102 0.020
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/2*/1                       Eq.: -0.504 (-0.044)
        0.267 0.000 0.000 - 0.733 0.111 0.018
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "41";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--aBBBCB-----A-A----A--Ad-:1:1:1:14:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "41";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

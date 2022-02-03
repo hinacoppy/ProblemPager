@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.131 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=141 w=127</div></div>
+      <div class="pipinfo">pips b=141 w=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:しばしばダイレクトショットが全てのプレイで最も安全なことがある。リスクと見返りのバランスを考えるとき、ショットについての評価ではなく、ショット数が助けてくれることがある。実戦では青は15/10とプレイした。その考え方はこうだ。5ポイントを作りたいからインダイレクトショットくらい残してもいいし、ダイレクトショットよりはマシだろう。この考え方は正しいのか？実際にショットを数えてみよう。15/11, 6/5とすると1ブロットで11ショットだ。15/10は10ショットで、しかし2ブロットだ。加えて、スロットした方がヒットされなかったとき他のプレイと比べて遙かに5ポイントを作りやすい。15/11, 6/5がリスクと見返りの両方で勝っている。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:6/1を考えたおらはおかしいのかねぇ。。。きたるたた
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/11 6/5                    Eq.: +0.387
        0.573 0.152 0.008 - 0.427 0.129 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/1                          Eq.: +0.306 (-0.081)
        0.556 0.158 0.008 - 0.444 0.156 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    15/10                        Eq.: +0.274 (-0.113)
        0.545 0.135 0.006 - 0.455 0.142 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    11/6                         Eq.: +0.260 (-0.127)
        0.538 0.139 0.007 - 0.462 0.144 0.002
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    15/14 6/2                    Eq.: +0.221 (-0.166)
        0.536 0.149 0.007 - 0.464 0.185 0.005
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "34";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-A-cB-D-B--AbB-A---cBbabb-:1:1:1:14:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "34";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

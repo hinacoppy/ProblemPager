@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">21. エースポイントゲーム</span>&ensp;
 <span>(BR7-40)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.323 Blue to play 13</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=60 w=152</div></div>
+      <div class="pipinfo">pips b=60 w=152</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:問題323では青は安全にプレイすることだけが重要だ。ベアオフの最中にヒットされなければ、青はギャモン勝ちできるだろう。このケースで最も安全なプレイは奇妙に見える、5/2, 5/4!だ。青は5ポイントにギャップを残すけれども、青は5ポイントのうち一つのクリアに成功しているし、それぞれのポイントも安全にクリアできるだろう。このポジションを覚えておこう。もし、6ポイントはクリアできないが、5ポイントをクリアできるとき、5ポイントクリアは多分正しい。<br>
 <br>
@@ -44,33 +48,30 @@ kinchan:6/5, 6/3のほうが優れています(微差だけどね)。このポ�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/5 6/3                      Eq.: +1.035
        0.800 0.460 0.043 - 0.200 0.001 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    5/4 5/2                      Eq.: +0.934 (-0.101)
        0.777 0.422 0.035 - 0.223 0.001 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    4/off                        Eq.: +0.870 (-0.164)
        0.749 0.419 0.038 - 0.251 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    6/3 4/3                      Eq.: +0.833 (-0.202)
        0.743 0.399 0.036 - 0.257 0.000 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/2                          Eq.: +0.805 (-0.230)
        0.733 0.396 0.034 - 0.267 0.000 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "40";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-bDBCBDaa-------abbbbb----:1:-1:1:13:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "40";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

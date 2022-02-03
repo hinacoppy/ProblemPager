@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
 <span>(BR1-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.17 Blue to play 16</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=162 w=162</div></div>
+      <div class="pipinfo">pips b=162 w=162</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ここでの正しい考え方は、ヒットしてレースでリードする23/16*だ。青は自分のバーポイントを作ることができることに注意しよう。序盤では、相手のサイドでヒットするのとよいポイントを作るのとでは、ヒットが通常少し良い。ヒットは二つの利点(レースでリードすることと、バックマンを逃がすこと)を成し遂げるがポイント作りは一つの利点しかない。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:この問題では7ポイントを作った後の形も悪いからね�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    23/16*                       Eq.: +0.235
        0.559 0.162 0.009 - 0.441 0.112 0.005
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    13/7 8/7                     Eq.: +0.042 (-0.193)
        0.510 0.148 0.007 - 0.490 0.138 0.007
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    8/2*/1*                      Eq.: -0.002 (-0.237)
        0.492 0.164 0.006 - 0.508 0.143 0.010
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    24/18 9/8                    Eq.: -0.120 (-0.356)
        0.478 0.118 0.005 - 0.522 0.163 0.005
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    9/2*                         Eq.: -0.130 (-0.365)
        0.466 0.126 0.006 - 0.534 0.149 0.008
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR1";
+const probnum = "18";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aa---E-CA--dD--ac-e---AA-:0:0:1:16:0:0:0:0:10");
-var categoryid = "BR1";
-var probnum = "18";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

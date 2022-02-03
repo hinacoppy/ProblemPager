@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">6. フレキシビリティ (FLEXIBILITY)</span>&ensp;
 <span>(BR2-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.61 Blue to play 56</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=115 w=131</div></div>
+      <div class="pipinfo">pips b=115 w=131</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:重要なポイントを作るために目を分散しよう。青は1ポイントをカバーして5ポイントプライムを完成する13/7, 6/1とできる。しかし本当のゴールは2ポイントを作って白をシャットアウトすることで、最善手は7/1, 13/8として2ポイントに対して三つのビルダーを作ることだ。最初のプレイでは二つしかない。<br>
 <br>
@@ -38,30 +42,28 @@ kinchan:見逃してしまうことありそうだなぁ。。。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 7/1                     Eq.: +1.068
        0.809 0.542 0.012 - 0.191 0.035 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/7 6/1                     Eq.: +1.023 (-0.046)
        0.799 0.520 0.011 - 0.201 0.036 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    7/1 6/1                      Eq.: +0.768 (-0.301)
        0.739 0.413 0.008 - 0.261 0.041 0.001
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    13/2                         Eq.: +0.655 (-0.413)
        0.709 0.409 0.012 - 0.291 0.079 0.007
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "13";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=bA-BCBCA-----A---cce--b-B-:1:-1:1:56:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "13";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.106 Blue to play 16</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=134 w=131</div></div>
+      <div class="pipinfo">pips b=134 w=131</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手が全てのカードを保持しているときに挑発してはならない。青はBar/24/18とプレイしたが、それはトラブルを要求するようなものだ。白は(青より)良いインナーボードを持ち、たくさんの攻撃用ビルダーを持っている。正しい考え方は、Bar/24, 13/7で、もっと良い脱出のチャンスを待つことだ。<br>
 <br>
@@ -38,30 +42,28 @@ kinchan:ふむ<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 13/7                  Eq.: -0.019
        0.505 0.139 0.006 - 0.495 0.161 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/24 8/2*                  Eq.: -0.194 (-0.174)
        0.458 0.149 0.008 - 0.542 0.215 0.008
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/18                       Eq.: -0.239 (-0.220)
        0.469 0.109 0.006 - 0.531 0.202 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    bar/24 7/1                   Eq.: -0.923 (-0.904)
        0.333 0.096 0.003 - 0.667 0.324 0.016
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "09";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--a-BaDBC---bC--ab-bcb-a-A:0:0:1:16:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "09";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

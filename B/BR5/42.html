@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">11. ホールディングゲーム</span>&ensp;
 <span>(BR5-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.235 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=104 w=112</div></div>
+      <div class="pipinfo">pips b=104 w=112</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青はダブルしてはいけない。青は大体8%しかピップリードしていない(104-112)。単純なレースでは(ノーコンタクト状態)ぎりぎりダブルする条件を満たしている。しかしここでは、10ポイントと8ポイントを依然としてクリアしなくてはならず、どちらのポイントでもショットを残すかもしれない。これは、白は重要なよりよい防御側のチャンスが単純なレースよりあることを意味するから、青はもっと多くピップリードするまでダブルしてはならない。<br>
 <br>
@@ -45,19 +49,21 @@ Cubeful equities:
 3. Double, take        +0.460  (-0.052)
 Proper cube action: No double, take (9.7%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR5";
+const probnum = "42";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--B-BbC-C-E----ab--cbbba--:0:0:1:00:0:0:0:0:10");
-var categoryid = "BR5";
-var probnum = "42";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

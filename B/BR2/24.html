@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">6. フレキシビリティ (FLEXIBILITY)</span>&ensp;
 <span>(BR2-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.72 Blue to play 36</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=122 w=113</div></div>
+      <div class="pipinfo">pips b=122 w=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は間違いなく6/3*とヒットして、6の目で22/16と21/15のどちらを選択するかを考えるだろう。白が生き返るのに必要な目は、1と3だ。だから、21/15が正しいプレイだ。青は、白のアウターフィールドで4ではなく、3でヒットされる。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:これもデュプリケーションか。。脱出しやすさから22/
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15 6/3*                   Eq.: +0.321
        0.560 0.221 0.006 - 0.440 0.210 0.016
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    22/16 6/3*                   Eq.: +0.254 (-0.067)
        0.548 0.201 0.005 - 0.452 0.221 0.016
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    13/7 6/3*                    Eq.: +0.053 (-0.268)
        0.497 0.192 0.005 - 0.503 0.262 0.045
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/2 6/3*                     Eq.: +0.028 (-0.293)
        0.463 0.163 0.004 - 0.537 0.211 0.011
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    21/15 8/5                    Eq.: -0.171 (-0.492)
        0.398 0.119 0.004 - 0.602 0.218 0.007
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "24";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--BaBCC-A---bB---bbccAA-b-:1:1:1:36:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "24";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

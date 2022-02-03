@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR3-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.99 Blue to play 25</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=148 w=125</div></div>
+      <div class="pipinfo">pips b=148 w=125</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手が不格好なポジションなら、バックマンを急いでスプリットしてはならない。スプリットすると相手に攻撃の目標を与えることになる。ここで青は14/9, 24/22とプレイできるが、スプリットは間違いだ。白のポジションは不格好で、多くのロールが自分のボードにブロットをばらまく。スプリットは相手にブリッツの口実を与える。その代わりに青は14/9, 6/4とプレイして24ポイントの防御的なアンカーを保ったままインナーボードを作りに行くべきだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:スタックには割るなの変形ってところでしょうか。<br
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/9 6/4                     Eq.: -0.553
        0.355 0.087 0.001 - 0.645 0.156 0.009
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/4 6/1                      Eq.: -0.624 (-0.070)
        0.338 0.083 0.001 - 0.662 0.164 0.011
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/3 6/4                      Eq.: -0.626 (-0.072)
        0.337 0.079 0.001 - 0.663 0.161 0.011
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/22 14/9                   Eq.: -0.643 (-0.090)
        0.344 0.075 0.001 - 0.656 0.195 0.007
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    14/9 8/6                     Eq.: -0.715 (-0.161)
        0.321 0.071 0.001 - 0.679 0.169 0.010
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR3";
+const probnum = "02";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---B--EbC----BA--cee----B-:0:0:1:25:0:0:0:0:10");
-var categoryid = "BR3";
-var probnum = "02";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

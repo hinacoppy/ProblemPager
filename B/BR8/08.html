@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.340 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=110 w=184</div></div>
+      <div class="pipinfo">pips b=110 w=184</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:実戦では青は13/8とした。これは見かけはよいが、間違っている。もし相手が3個目のバックゲームポイントを作ろうとしているなら、それを止めさせなければならない。3個目のポイントは相手にとってとてつもなく柔軟性があり、あなたにとってとても危険だ。青は3ポイントを求めて、6/3*, 15/13とする必要がある。もしリターンヒットされても、大したたことはないが、うまく行ったときはとても強力だ。<br>
 <br>
@@ -47,33 +51,30 @@ kinchan:8/3*もそんなに目くじら立てるほど悪くないとは思う�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/13 6/3*                   Eq.: +0.653
        0.696 0.368 0.048 - 0.304 0.050 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/3*                         Eq.: +0.627 (-0.026)
        0.685 0.366 0.049 - 0.315 0.050 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    6/4 6/3*                     Eq.: +0.572 (-0.082)
        0.672 0.363 0.048 - 0.328 0.067 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/11 6/3*                   Eq.: +0.553 (-0.100)
        0.669 0.357 0.048 - 0.331 0.071 0.004
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    13/8                         Eq.: +0.536 (-0.117)
        0.661 0.332 0.039 - 0.339 0.042 0.001
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "08";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-cBaBbDBA---BA-A-b-d-ab---:1:-1:1:23:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "08";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

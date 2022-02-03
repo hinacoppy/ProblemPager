@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">24. ポスト・エースポイントゲーム</span>&ensp;
 <span>(BR9-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.407 Blue to play 46</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=49 w=35</div></div>
+      <div class="pipinfo">pips b=49 w=35</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は14クロスオーバー、白は12クロスオーバー。青はレースでそう負けていないから、安全にプレイできる。正しいムーブは、6/OFF, 6/2だ。<br>
 <br>
@@ -38,27 +42,26 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/2 6/off                    Eq.: +0.316
        0.564 0.000 0.000 - 0.436 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/off 4/off                  Eq.: +0.265 (-0.051)
        0.539 0.000 0.000 - 0.461 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    6/off 5/1                    Eq.: -0.214 (-0.529)
        0.336 0.000 0.000 - 0.664 0.000 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR9";
+const probnum = "27";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=aBBCCBB----------------cd-:1:1:1:46:0:0:0:0:10");
-var categoryid = "BR9";
-var probnum = "27";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

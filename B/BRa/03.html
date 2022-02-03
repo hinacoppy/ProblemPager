@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">27. コンタクトのあるベアオフ</span>&ensp;
 <span>(BRa-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.430 Blue to play 34</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=91 w=116</div></div>
+      <div class="pipinfo">pips b=91 w=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ゲームがほとんど完全に勝ちなら、相手に不必要なチャンスを与えてはならない。青は1ポイントに対して2枚追加のビルダーを作る10/6, 10/7とプレイできる。しかし、このプレイの代償として、白がオンザバーから61を出すとゲームが逆転する。2/36の確率だ。よりよいプレイは、13/6で、1ポイントに対して一つの新しいビルダーを作る。その代償は、白がオンザバーから11を振って、13ポイントをヒットすることだ。しかし、これは1/36だけ起きる。前のプレイより半分のリスクだ。<br>
 <br>
@@ -45,33 +49,30 @@ kinchan:これって、13/6では11を出されても、1ポイントに対す�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/7 10/6                    Eq.: +1.175
        0.904 0.412 0.002 - 0.096 0.013 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    10/3                         Eq.: +1.174 (-0.002)
        0.914 0.387 0.002 - 0.086 0.014 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/6                         Eq.: +1.172 (-0.003)
        0.909 0.396 0.002 - 0.091 0.014 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/9 10/7                    Eq.: +1.140 (-0.035)
        0.902 0.389 0.002 - 0.098 0.021 0.001
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    13/10 13/9                   Eq.: +1.134 (-0.041)
        0.913 0.345 0.002 - 0.087 0.010 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRa";
+const probnum = "03";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=a-BBBCB---B-bB---bbcc---b-:1:-1:1:34:0:0:0:0:10");
-var categoryid = "BRa";
-var probnum = "03";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

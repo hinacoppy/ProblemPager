@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.347 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=99 w=113</div></div>
+      <div class="pipinfo">pips b=99 w=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:相手のバックゲームが崩壊しているとき、ポジションから追い出す(絞り出す)ことに挑戦しよう。青は安全に14/10, 5/4とできるが、それは間違っている。白の負けは確定だから、青はギャモン勝ちのチャンスを高めたい。よく見ると、白は62を除いて6の目で3ポイントから飛び出なければならず、多分ブロットを二つ残す。そうなるとこれは青の望む最高の展開だ。10/5とプレイすると、3ポイントを作る素晴らしいチャンスとなり、さらに白が61, 63, 64で飛び出たらアウターフィールドでショットを得る。ゲーム全体をを支配しているとき、相手の最悪の目に対してプレイしよう。<br>
 <br>
@@ -51,33 +55,30 @@ kinchan:ぼくの直感は、6/2, 14/13でした。。。。でも、そんな�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/5                         Eq.: +1.224
        0.937 0.358 0.017 - 0.063 0.003 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    14/13 10/6                   Eq.: +1.223 (-0.001)
        0.938 0.353 0.016 - 0.062 0.002 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    10/6 5/4                     Eq.: +1.204 (-0.020)
        0.932 0.350 0.016 - 0.068 0.003 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    8/7 8/4                      Eq.: +1.200 (-0.024)
        0.924 0.362 0.021 - 0.076 0.005 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    14/10 5/4                    Eq.: +1.188 (-0.036)
        0.932 0.335 0.014 - 0.068 0.003 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "15";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b-bCCCBB-A---A-------dbe-:1:-1:1:14:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "15";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

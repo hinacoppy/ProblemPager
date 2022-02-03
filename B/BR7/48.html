@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">21. エースポイントゲーム</span>&ensp;
 <span>(BR7-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.331 Blue to play 24</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=152 w=14</div></div>
+      <div class="pipinfo">pips b=152 w=14</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:エースポイントゲームの最終局面では、可能性があるショットは全て確実に得よう。実戦では青は狼狽して、24/20, 24/22とブロットをばらまいた。白は63を振って、4/OFF, 4/1*とショットを残した。青は54でミスして、全てが終わった。より良いのは、24ポイントを保って、24/22, 7/3だ。ここで白が6/3だと4/OFFでダブルショットを残す。もし青がショットを失敗しても、白が23ポイントをクリアするときにショットが期待できる。エースポイントゲームの終盤では、アンカーを崩さずにキープすることでより多くのショットを得ることができる。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 17/13                  Eq.: -1.761
        0.119 0.000 0.000 - 0.881 0.670 0.370
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/22 24/20                  Eq.: -1.776 (-0.015)
        0.100 0.000 0.000 - 0.900 0.733 0.278
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/22 7/3                    Eq.: -1.777 (-0.015)
        0.119 0.000 0.000 - 0.881 0.681 0.375
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/22 8/4                    Eq.: -1.787 (-0.026)
        0.115 0.000 0.000 - 0.885 0.679 0.376
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/18                        Eq.: -1.791 (-0.030)
        0.085 0.000 0.000 - 0.915 0.755 0.235
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "48";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--B--BBCB--------A---b-cC-:1:1:1:24:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "48";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

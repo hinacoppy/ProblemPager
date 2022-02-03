@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">24. ポスト・エースポイントゲーム</span>&ensp;
 <span>(BR9-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.412 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=32 w=34</div></div>
+      <div class="pipinfo">pips b=32 w=34</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:コンタクトがあるうちは自動的に上がりにしてはならない。ヒットを良く考えよう。レースはかなり接戦(両方とも10クロスオーバー必要)だが、青はレースに最悪の目を振った。2枚上がる代わりに、白をオンザバーにする6/5*, 6/4とすべきだ。もし白がダンスしたらダブルして勝てる。ヒットされてもリターンヒットが期待できる。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/5* 6/4                     Eq.: +0.606
        0.686 0.000 0.000 - 0.314 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    2/off 1/off                  Eq.: +0.601 (-0.005)
        0.670 0.000 0.000 - 0.330 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    6/5*/3                       Eq.: +0.555 (-0.051)
        0.662 0.000 0.000 - 0.338 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    3/off                        Eq.: +0.302 (-0.304)
        0.556 0.000 0.000 - 0.444 0.000 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    4/2 1/off                    Eq.: +0.269 (-0.338)
        0.542 0.000 0.000 - 0.458 0.000 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR9";
+const probnum = "32";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-BBBBaB-------------a--da-:1:1:1:12:0:0:0:0:10");
-var categoryid = "BR9";
-var probnum = "32";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

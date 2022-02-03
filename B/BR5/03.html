@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">9. ブリッツ</span>&ensp;
 <span>(BR5-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.198 Blue to play 13</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=124 w=159</div></div>
+      <div class="pipinfo">pips b=124 w=159</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は1でBar/24と生き返り、最善の3を探す。9/6と24/21の二つの選択がある。ブリッツ最終局面では過剰攻撃で不利にならないことが重要だ。この問題は良い例題だ。9/6と動かせば、白が生き返りに失敗して青が4を振れれば(42, 43, 46以外。これらの目は9/6としないでも有効)すれば2ポイントに対して4の目ができる良いプレイだ。もし、白が(2の目を出して)生き返ったら、9/6と動かしたチェッカーは価値が無くなる。そして、青のバックマンは至急アンカーを作らなくてはならなくなる。3では24/21とするほうがずっとよい。このプレイは攻撃の真っ最中に防御プレイをするので直感に反するように見えるが、バックギャモンというゲームは競合する優先順位間のバランスをうまくやるゲームなのだ。24/21は青がブリッツに失敗した場合に優秀な防御を与える。9/6はただ、ぎりぎりの攻撃向上のためだけに防御を捨てたプレイだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:耳が痛い。。:-)<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21                       Eq.: +0.976
        0.772 0.545 0.011 - 0.228 0.044 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/24 9/6                   Eq.: +0.969 (-0.007)
        0.766 0.554 0.010 - 0.234 0.046 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/24 8/5                   Eq.: +0.931 (-0.046)
        0.761 0.525 0.010 - 0.239 0.044 0.002
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    bar/24 5/2*                  Eq.: +0.685 (-0.292)
        0.694 0.491 0.008 - 0.306 0.089 0.007
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    bar/24 6/3                   Eq.: +0.173 (-0.803)
        0.566 0.320 0.007 - 0.434 0.128 0.011
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR5";
+const probnum = "03";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=aBaBBBB-AA--e----b-dA-b-AA:1:-1:1:13:0:0:0:0:10");
-var categoryid = "BR5";
-var probnum = "03";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">12. プライム</span>&ensp;
 <span>(BR6-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.262 Blue to play 11</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=107 w=87</div></div>
+      <div class="pipinfo">pips b=107 w=87</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:前問(262)と対照的に、正しいプレイは12/9*/8で、9ポイントに留まる12/9*, 5/4ではない。何が違うのか？青は21ポイントにアンカーではなくブロットがある。これは白が生き返りそして21ポイントを攻撃して、青はオンザバーのままになる多くの変化があることを意味している。その変化では青は9ポイントのチェッカーを使えないし、それどころか青は白にヒットされるブロットを必要としないから。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:だいぶん意訳だ。。。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/9*/8                      Eq.: +0.205
        0.644 0.102 0.005 - 0.356 0.059 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    12/9* 5/4                    Eq.: +0.130 (-0.075)
        0.627 0.102 0.005 - 0.373 0.104 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    12/9* 4/3                    Eq.: -0.050 (-0.255)
        0.590 0.087 0.005 - 0.410 0.171 0.011
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    12/9* 8/7                    Eq.: -0.233 (-0.438)
        0.513 0.079 0.005 - 0.487 0.166 0.010
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    12/9* 7/6                    Eq.: -0.355 (-0.560)
        0.471 0.075 0.004 - 0.529 0.184 0.011
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "20";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=----CDBBBa--A----bbccAb-b-:1:-1:1:11:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "20";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

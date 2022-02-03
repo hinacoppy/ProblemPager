@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">30. ベアオフ</span>&ensp;
 <span>(BRb-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.476 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=8 w=2</div></div>
+      <div class="pipinfo">pips b=8 w=2</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は何通りで勝てるか数えよう。ゾロ目では33, 44, 55, 66で上がれる。全部で4通りだ。片方の目が6で両方とも上がれるのは65, 64, 63だ。この6通りで、全部で10通りになった。出目の大きい方が5だったら、両方とも上がれるのは54, 53で4通りだ。これで全てで36通り中14通りだ。青は少し不利だから、ダブルしてはならない。もし白がダブルされたら、テイクではない、ビーバーすべきだ。<br>
 <br>
@@ -45,19 +49,21 @@ Cubeful equities:
 3. Double, take        -0.444  (-0.222)
 Proper cube action: No redouble, take (15.4%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRb";
+const probnum = "02";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=---A-A------------------b-:1:1:1:00:0:0:0:0:10");
-var categoryid = "BRb";
-var probnum = "02";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.357 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=142 w=109</div></div>
+      <div class="pipinfo">pips b=142 w=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:二戦法ゲームはとてつもなく柔軟性がある。青は13/11, 6/5!とプレイすべきだ。もし白がダンスしたら青は単にダブルすればよい。もし、白がヒットしてきたら、青のバックゲームのタイミングは良化する。二戦法ゲームでは、ヒットを恐れることなく重要なポイントにスロットできる。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 6/5                    Eq.: +0.194
        0.518 0.158 0.004 - 0.482 0.173 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/11 9/8                    Eq.: +0.099 (-0.095)
        0.471 0.137 0.003 - 0.529 0.142 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/10                        Eq.: +0.087 (-0.107)
        0.468 0.133 0.003 - 0.532 0.142 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    9/7 6/5                      Eq.: +0.082 (-0.112)
        0.486 0.142 0.004 - 0.514 0.195 0.005
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    13/12 9/7                    Eq.: +0.045 (-0.149)
        0.455 0.127 0.003 - 0.545 0.147 0.003
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "25";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=a-BBB-C--A---Ab--cbbBbBab-:1:1:1:12:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "25";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

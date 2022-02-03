@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR2-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.95 Blue to play 16</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=152 w=168</div></div>
+      <div class="pipinfo">pips b=152 w=168</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:攻撃するときは、正しいポイントを攻撃しよう。青は6で間違いなく23/17とするだろう。そして、最善の1を捜す。攻撃は5/4*と3/2*だ。4ポイントの攻撃はよく見える。とても価値があるところだから。しかし、注意しよう。もし、青が4ポイントをヒットすると、白は18通りでヒットできるが、(ヒットしないときは)青は17通りしかカバーできない。2ポイントをヒットすると、白は14通りでヒットできるが、青は24通りカバーできる。2ポイントはより安全でより多くカバーできる。これが正しいプレイだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:感覚的に2ポイントを攻撃するけど、理論的に説明す�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17 3/2*                   Eq.: -0.154
        0.488 0.175 0.010 - 0.512 0.136 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    23/17 22/21                  Eq.: -0.164 (-0.009)
        0.495 0.166 0.009 - 0.505 0.150 0.005
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    23/17 5/4*                   Eq.: -0.174 (-0.020)
        0.479 0.181 0.013 - 0.521 0.145 0.005
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    17/11 3/2*                   Eq.: -0.289 (-0.135)
        0.443 0.171 0.011 - 0.557 0.159 0.007
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    17/11 5/4*                   Eq.: -0.302 (-0.148)
        0.438 0.175 0.016 - 0.562 0.170 0.008
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "48";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aaCaCC-----cB--bAcbb-BA--:1:-1:1:16:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "48";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

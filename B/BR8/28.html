@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.360 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=118 w=22</div></div>
+      <div class="pipinfo">pips b=118 w=22</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:バックゲームをプレイ中は、常に相手がショットを残すことを強制される機会に注意しよう。青は23ポイントを崩すべきだ。23/20, 5/3だ。これで白は62, 52, 42, 32でショットを残す。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/4 5/3                      Eq.: -1.439
        0.137 0.000 0.000 - 0.863 0.719 0.040
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    23/20 5/3                    Eq.: -1.472 (-0.033)
        0.126 0.000 0.000 - 0.874 0.744 0.024
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    7/5 7/4                      Eq.: -1.474 (-0.035)
        0.123 0.000 0.000 - 0.877 0.722 0.040
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    23/18                        Eq.: -1.477 (-0.038)
        0.122 0.000 0.000 - 0.878 0.743 0.019
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    22/20 7/4                    Eq.: -1.488 (-0.049)
        0.117 0.000 0.000 - 0.883 0.735 0.028
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "28";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-BBA-CBB-------------dABf-:1:1:1:23:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "28";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

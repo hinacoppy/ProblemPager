@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">12. プライム</span>&ensp;
 <span>(BR6-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.254 Blue to play 56</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=103 w=108</div></div>
+      <div class="pipinfo">pips b=103 w=108</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:プライミングゲームでよい定石がある。「難しい方から先にやりなさい。相手に難しいことを作りなさい」。ヒットすると白がオンザバーから1の目を出すのは難しいことだから、6/1*とヒットしよう。ヒットした後、7/1とカバーするか、22/16と脱出するかの選択が残る。カバーは簡単だが、脱出は(6の目を出さないといけないから)難しい。だから、今脱出をして、後でカバーするのだ。正しいプレイは22/16, 6/1*だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/16 6/1*                   Eq.: -0.037
        0.442 0.090 0.002 - 0.558 0.150 0.009
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    22/11                        Eq.: -0.160 (-0.122)
        0.363 0.100 0.004 - 0.637 0.104 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    7/1* 6/1                     Eq.: -0.220 (-0.183)
        0.365 0.042 0.000 - 0.635 0.113 0.004
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    7/2 7/1*                     Eq.: -0.421 (-0.384)
        0.295 0.035 0.000 - 0.705 0.143 0.004
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    22/16 7/2                    Eq.: -0.649 (-0.611)
        0.252 0.055 0.002 - 0.748 0.276 0.020
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "12";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aCB-CCB---------ccbccB---:1:1:1:56:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "12";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

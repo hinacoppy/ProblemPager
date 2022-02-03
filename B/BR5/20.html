@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">10. ワンマンバック</span>&ensp;
 <span>(BR5-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.214 Blue to play 55</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=94 w=116</div></div>
+      <div class="pipinfo">pips b=94 w=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:タイミングの良いスイッチは相手を追い払う。実戦では13/3(2)とプレイしてあまり良くないポジションからトラブルが起こった。正しい考え方は、13/8(2), 6/1*(2)だ。白を追い出して片付けるのだ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8(2) 6/1*(2)              Eq.: +0.749
        0.852 0.103 0.000 - 0.148 0.008 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/3(2)                      Eq.: +0.561 (-0.188)
        0.793 0.054 0.001 - 0.207 0.009 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    13/3 6/1*(2)                 Eq.: +0.474 (-0.276)
        0.739 0.110 0.001 - 0.261 0.025 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/3(2) 6/1*(2)               Eq.: +0.335 (-0.414)
        0.687 0.110 0.000 - 0.313 0.044 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/3 8/3(2)                  Eq.: -0.091 (-0.840)
        0.530 0.060 0.003 - 0.470 0.052 0.001
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR5";
+const probnum = "20";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a-CBCB-C---bB---bbbbbb---:1:-1:1:55:0:0:0:0:10");
-var categoryid = "BR5";
-var probnum = "20";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

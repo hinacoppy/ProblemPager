@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">12. プライム</span>&ensp;
 <span>(BR6-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.263 Blue to play 11</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=128 w=108</div></div>
+      <div class="pipinfo">pips b=128 w=108</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:欠点のない強力なポジションは、それなりのリスクがある超強力な可能性に勝る。青はBar/24, 3/2*(2), 7/6とプレイするべきだ。このスイッチ(3/2*(2))は青に次の白番で攻撃される可能性のない素晴らしいポジションになる。青はBar/24, 4/2*, 7/6とプレイして、6プライムを作りゲームを勝ちにするる可能性を広げることもできる。しかし、オンザバーから2でヒットされるリスクは、勝利をかなり危うくする。白のブロットはあちこちに転がっているので、青は次の手番でオンザバーとならないように安全にプレイすべきだ。<br>
 <br>
@@ -45,33 +49,30 @@ kinchan:Bar/24(確定)、3/2*(2)(確定)。残りの1は、21/20をず～～～�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 7/6 3/2*(2)           Eq.: +0.923
        0.776 0.464 0.041 - 0.224 0.056 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/24 21/20 3/2*(2)         Eq.: +0.853 (-0.070)
        0.755 0.460 0.048 - 0.245 0.078 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/24 7/6 4/2*              Eq.: +0.829 (-0.094)
        0.762 0.427 0.040 - 0.238 0.078 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    bar/24 4/2*/1                Eq.: +0.771 (-0.152)
        0.756 0.391 0.032 - 0.244 0.079 0.003
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    bar/24 21/20 4/2*            Eq.: +0.766 (-0.157)
        0.746 0.432 0.051 - 0.254 0.110 0.008
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "21";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--aBCBBC----aaa--b-c-Bcc-A:1:-1:1:11:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "21";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

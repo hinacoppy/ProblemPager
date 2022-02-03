@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR2-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.85 Blue to play 15</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=146 w=143</div></div>
+      <div class="pipinfo">pips b=146 w=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:中盤では、重要なポイントを目指す戦いになる。プライムを作り始めたら、プライムの前のポイントが重要になり、両プレイヤー共にそこを作りたい。ここでは青の3ポイントが重要なポイントだ。もし、青が白より先に3ポイントを作れたら、白は窮屈なポジションに押し込められるだろう。青は8/3*とヒットしてそのポイント作りを第一とすべきだ。最善の1は23/22で、16ポイントの白に狙いを定める。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:当然の一手。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22 8/3*                   Eq.: +0.322
        0.571 0.231 0.017 - 0.429 0.146 0.009
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/3* 6/5                     Eq.: +0.292 (-0.029)
        0.553 0.227 0.015 - 0.447 0.149 0.009
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/23 8/3*                   Eq.: +0.275 (-0.047)
        0.543 0.221 0.014 - 0.457 0.133 0.007
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    8/3*/2                       Eq.: +0.219 (-0.103)
        0.537 0.221 0.014 - 0.463 0.153 0.010
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    8/3* 4/3                     Eq.: +0.107 (-0.215)
        0.520 0.202 0.015 - 0.480 0.165 0.011
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "38";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a-aBBC-C---bC--abbd-b-AA-:0:0:1:15:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "38";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

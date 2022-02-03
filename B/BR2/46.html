@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
 <span>(BR2-46)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.93 Blue to play 22</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=136 w=166</div></div>
+      <div class="pipinfo">pips b=136 w=166</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:インナーポイントはアウターポイントに勝る!普通は。これは良い定石で、このポジションは典型的だ。青は強力なアウターポイントを作るBar/23, 11/9(3)の代わりに、強力な4ポイントを作るBar/23, 8/4, 6/4とプレイすべきだ。インナーポイントは味方の着地地点となるし、(相手をヒットしたときに)生き返りにくくするが、アウターポイントはブロックポイントとしてしか働かない。ほとんどのケースでインナーポイントの方がより重要だ。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:間違えた。。11/9(3)ってなんか味が良いんだもん。。�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 8/4 6/4               Eq.: +0.077
        0.518 0.148 0.003 - 0.482 0.127 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/23 11/9(3)               Eq.: +0.012 (-0.065)
        0.502 0.141 0.003 - 0.498 0.134 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    bar/21 13/11(2)              Eq.: -0.098 (-0.175)
        0.468 0.145 0.003 - 0.532 0.149 0.004
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    bar/23 13/9 11/9             Eq.: -0.109 (-0.186)
        0.471 0.143 0.002 - 0.529 0.157 0.007
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    bar/21 11/9(2)               Eq.: -0.128 (-0.205)
        0.469 0.145 0.002 - 0.531 0.172 0.007
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR2";
+const probnum = "46";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-B-b-bC-D--CbB--ab-cb-a--A:0:0:1:22:0:0:0:0:10");
-var categoryid = "BR2";
-var probnum = "46";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

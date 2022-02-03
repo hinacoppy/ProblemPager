@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">18. 遅めのブリッツ</span>&ensp;
 <span>(BR7-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.298 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=113 w=111</div></div>
+      <div class="pipinfo">pips b=113 w=111</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ゲームがどちらが優勢とも言えないとき、勝つためのプレイを怖がってはならない。白は青のバックマンを封じ込めようとプライムを作っている過程で、青に最後のチャンスがやってきた。青は4/2*, 8/7とプレイすべきだ。青は白がダンスしたらゲームに決着を付けることができる。<br>
 <br>
@@ -49,33 +53,30 @@ kinchan:8/7もいいけど、22/21も目につく。ブリッツというかク�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/7 4/2*                     Eq.: -0.274
        0.451 0.159 0.003 - 0.549 0.143 0.007
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    22/21 4/2*                   Eq.: -0.311 (-0.037)
        0.448 0.192 0.006 - 0.552 0.230 0.018
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/12 4/2*                   Eq.: -0.314 (-0.040)
        0.437 0.142 0.003 - 0.563 0.120 0.005
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    4/2*/1                       Eq.: -0.356 (-0.082)
        0.426 0.103 0.002 - 0.574 0.102 0.003
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    4/2* 3/2                     Eq.: -0.388 (-0.114)
        0.409 0.130 0.003 - 0.591 0.121 0.005
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "12";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-BaBC-B-C----A-ac-bcc-Bb--:1:-1:1:12:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "12";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

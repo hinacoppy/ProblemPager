@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">29. レース</span>&ensp;
 <span>(BRa-44)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.469 Blue to play 16</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=75 w=54</div></div>
+      <div class="pipinfo">pips b=75 w=54</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:青は、12/6, 2/1とするべきだ。12/6は片方の目で駒がインナーボードに到達する非常に重要なムーブだ。12/6をプレイ後、2/1は6/5とするよりギャップを埋めるのに使っているので正しい。(青はベアオフの時に同じ形で1をベアオフに使える)。11/10はインナーボードが完全にスムースなベアオフ体制が整うまで避けよう。<br>
 <br>
@@ -38,33 +42,30 @@ kinchan:<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5 2/1                     Eq.: -0.734
        0.116 0.000 0.000 - 0.884 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    12/6 2/1                     Eq.: -0.736 (-0.002)
        0.115 0.000 0.000 - 0.885 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    12/5                         Eq.: -0.740 (-0.006)
        0.113 0.000 0.000 - 0.887 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    12/6 11/10                   Eq.: -0.742 (-0.008)
        0.112 0.000 0.000 - 0.888 0.000 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    11/5 6/5                     Eq.: -0.746 (-0.012)
        0.111 0.000 0.000 - 0.889 0.000 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRa";
+const probnum = "44";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--CBCBC----AA------cbcbcb-:1:1:1:16:0:0:0:0:10");
-var categoryid = "BRa";
-var probnum = "44";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

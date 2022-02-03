@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">21. エースポイントゲーム</span>&ensp;
 <span>(BR7-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.328 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=172 w=37</div></div>
+      <div class="pipinfo">pips b=172 w=37</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:選択は易しくない。もし青が8/5, 17/15と前の問題と同じようにすると、2ポイントがプライムに役立たない。3ポイントと4ポイントのギャップがもし青がヒットできたときに大きな問題になるだろう。2ポイントから6ポイントのプライムを作るには3ポイントと4ポイントをできるだけ早く作らなければならない。その観点から、正しいプレイは7/5, 7/4として4ポイントを作りに行くことだ。<br>
 <br>
@@ -47,33 +51,30 @@ kinchan:疑問。8/6, 8/5も捨てがたい。ロールアウトすると。。�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/15 8/5                    Eq.: -1.449
        0.168 0.000 0.000 - 0.832 0.663 0.180
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    7/5 7/4                      Eq.: -1.452 (-0.003)
        0.167 0.000 0.000 - 0.833 0.661 0.181
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    17/14 7/5                    Eq.: -1.457 (-0.008)
        0.166 0.000 0.000 - 0.834 0.664 0.181
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    8/6 8/5                      Eq.: -1.468 (-0.019)
        0.164 0.000 0.000 - 0.836 0.668 0.184
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    17/12                        Eq.: -1.471 (-0.022)
        0.163 0.000 0.000 - 0.837 0.669 0.183
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR7";
+const probnum = "45";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=--B--ABBC--------A--bcccD-:1:1:1:23:0:0:0:0:10");
-var categoryid = "BR7";
-var probnum = "45";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

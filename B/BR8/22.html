@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
 <span>(BR8-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.354 Blue to play 12</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=136 w=111</div></div>
+      <div class="pipinfo">pips b=136 w=111</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:どうしようもないバックゲームになったら、逃亡を考えよう。青は1-3バックゲームのタイミングが全くない。青は自分のボードが壊れるのを待つより、単純な3ポイントゲームに変更しよう。24/22, 24/23だ。このムーブは勝利にはつながらないだろうが(青がこの状態から勝つのはほとんどない)ギャモン負けを防ぐ現実的なショットが期待できる。<br>
 <br>
@@ -53,33 +57,30 @@ kinchan:24/22は賛成だが、24/23はどうかねぇ。。1は8/7とかのほ�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 24/22                  Eq.: -0.944
        0.128 0.013 0.000 - 0.872 0.251 0.007
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/22 8/7                    Eq.: -0.945 (-0.001)
        0.126 0.012 0.000 - 0.874 0.245 0.007
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/22 2/1                    Eq.: -0.946 (-0.002)
        0.125 0.013 0.000 - 0.875 0.246 0.007
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/22 3/2                    Eq.: -0.947 (-0.003)
        0.125 0.013 0.000 - 0.875 0.247 0.006
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/22 5/4                    Eq.: -0.982 (-0.037)
        0.123 0.013 0.000 - 0.877 0.274 0.009
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "22";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-ABC-BB-A-b--a---bbbccB-B-:1:1:1:12:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "22";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

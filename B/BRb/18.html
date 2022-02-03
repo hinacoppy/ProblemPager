@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">30. ベアオフ</span>&ensp;
 <span>(BRb-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.492 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=45 w=45</div></div>
+      <div class="pipinfo">pips b=45 w=45</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:両方の目を使って1枚しか上がりにできない出目、つまり問題492のような場合だ。大抵の場合、両方の出目を使って1枚上がりにするべきだが、例外もある。上がりにした結果、悪いディストリビューションになるのなら、ポジション改善を考えよう。この問題の正しいプレイは、5/OFFだ。青のポジションは上がりにしてもスムースだ。<br>
 <br>
@@ -54,33 +58,30 @@ kinchan:一応、ロールアウト<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/off                        Eq.: +0.217
        0.533 0.000 0.000 - 0.467 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/3 4/2                      Eq.: +0.192 (-0.025)
        0.522 0.000 0.000 - 0.478 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    5/3 4/1                      Eq.: +0.182 (-0.035)
        0.517 0.000 0.000 - 0.483 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    6/3 5/3                      Eq.: +0.180 (-0.037)
        0.516 0.000 0.000 - 0.484 0.000 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    5/3 5/2                      Eq.: +0.177 (-0.040)
        0.515 0.000 0.000 - 0.485 0.000 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRb";
+const probnum = "18";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=----CCC------------ccc----:1:1:1:23:0:0:0:0:10");
-var categoryid = "BRb";
-var probnum = "18";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

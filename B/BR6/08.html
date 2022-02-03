@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">12. プライム</span>&ensp;
 <span>(BR6-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.250 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=109 w=110</div></div>
+      <div class="pipinfo">pips b=109 w=110</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:プライムを前進させるとき、相手のボードがどれくらい強力かに注意しよう。青は安全に10/5とプレイできる。このプレイは青が必要な4ポイントに4つのビルダーを残す。青は少し大胆な8/5, 9/7とプレイできる。このプレイは4ポイントに対し5つのビルダーを残す(4ポイントを作るのに9ポイントを壊すかもしれない)が、その代償は18通りに1回の63だ。どちらが正しいのか？答えは白のホームボードにある。白のホームボードは非常に強いので、青は安全に10/5とプレイすべきだ。もし白のボードが弱いのなら、青は大胆なプレイが可能だ。<br>
 <br>
@@ -44,33 +48,30 @@ kinchan:これ、意外と大差です。いや、大差と思うのはぼくだ
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/5                         Eq.: +0.719
        0.833 0.120 0.004 - 0.167 0.014 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    9/7 8/5                      Eq.: +0.691 (-0.028)
        0.821 0.133 0.005 - 0.179 0.027 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    10/7 9/7                     Eq.: +0.661 (-0.059)
        0.815 0.114 0.004 - 0.185 0.023 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    10/7 8/6                     Eq.: +0.638 (-0.081)
        0.804 0.116 0.004 - 0.196 0.023 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    10/8 9/6                     Eq.: +0.565 (-0.155)
        0.781 0.104 0.004 - 0.219 0.030 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR6";
+const probnum = "08";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b---BDBCCA-a----a-bbbc-b-:1:-1:1:23:0:0:0:0:10");
-var categoryid = "BR6";
-var probnum = "08";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">27. コンタクトのあるベアオフ</span>&ensp;
 <span>(BRa-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.442 Blue to play 24</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=45 w=110</div></div>
+      <div class="pipinfo">pips b=45 w=110</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:ベアオフで過剰に安全なプレイをしてはならない。少しのリスクでギャモン勝ちチャンスが大きく増えるなら、そのリスクは受け入れる価値がある。問題442では、最も安全なのは5ポイントを先にクリアする5/3, 5/1だ。これは白を生き返りやすくし、青がショットを残すチャンスを最小にする。残念ながら、白はたびたびギャモン負けを逃れるだろう。より良いプレイは、7/3, 4/2で以前として非常に安全で、白をオンザバーに保ちやすいのでよりギャモン勝ちが見込まれる。良いプレイだ。最善は、しかしながら、7/3, 2/OFFだ。1枚上がりにして、青の上がりを助ける(全て上がりにするのに8ロールでなく、たったの7ロールだ)。これは非常にギャモン勝ち率が上がり、少しリスクが増す(直後の44, 55, 66でショットを残す)。ギャモン勝ちの率を考えるとベストプレイだ。<br>
 <br>
@@ -46,33 +50,30 @@ kinchan:5ポイントクリアに気がつかなかった。DMPならこれだ�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/3 2/off                    Eq.: +1.417
        0.953 0.522 0.006 - 0.047 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    7/3 4/2                      Eq.: +1.346 (-0.071)
        0.964 0.427 0.003 - 0.036 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    7/1                          Eq.: +1.260 (-0.157)
        0.934 0.411 0.003 - 0.066 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    7/5 4/off                    Eq.: +1.188 (-0.229)
        0.879 0.464 0.006 - 0.121 0.000 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    5/3 5/1                      Eq.: +1.229 (-0.187)
        0.931 0.390 0.002 - 0.069 0.001 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BRa";
+const probnum = "15";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=bDCBCB-A-------a--abcbb-b-:1:-1:1:24:0:0:0:0:10");
-var categoryid = "BRa";
-var probnum = "15";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

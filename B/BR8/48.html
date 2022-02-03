@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">23. The Containment Game</span>&ensp;
 <span>(BR8-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">No.379 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=122 w=44</div></div>
+      <div class="pipinfo">pips b=122 w=44</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">501:1枚捕まえているとき、捕まえている駒から11ピップから14ピップの範囲で待つのが理想的だ。ヒットされる危険はあるが、相手が逃げ出してきたときのヒット確率が最大になる。青は理想的な体制に近い19/14とプレイできる。66はブロックしてあり白が脱出してきたら、ダブルあるいはトリプルショットがいくつもある。<br>
 <br>
@@ -53,33 +57,30 @@ kinchan:一応、ロールアウト<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    19/14                        Eq.: +0.603
        0.827 0.044 0.000 - 0.173 0.037 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    22/20 19/16                  Eq.: +0.601 (-0.001)
        0.827 0.041 0.000 - 0.173 0.034 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    22/17                        Eq.: +0.575 (-0.027)
        0.817 0.040 0.000 - 0.183 0.036 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    19/17 15/12                  Eq.: +0.561 (-0.042)
        0.812 0.048 0.000 - 0.188 0.047 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    22/20 15/12                  Eq.: +0.547 (-0.055)
        0.810 0.042 0.000 - 0.190 0.048 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "BR8";
+const probnum = "48";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aBBBBB------B-A---A--Afh-:1:-1:1:23:0:0:0:0:10");
-var categoryid = "BR8";
-var probnum = "48";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>
