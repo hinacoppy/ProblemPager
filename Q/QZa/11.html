@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Position 11 (Peever Quiz 2005)</span>&ensp;
 <span>(QZa-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to Play 65</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=157 White=150</div></div>
+      <div class="pipinfo">pips Black=157 White=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">ヒットアンドダウン(13/7, 6/1*)が正解です。<br>
 24/13 は5ポイントのカバー目を24通り与えるだけでなく、42, 52, 54, 65, 66で建設的なプレイも与えます。<br>
@@ -50,35 +54,21 @@ Hit-and-down is better than hit-andsplit because it unstacks the midpoint and br
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7 6/1*                    Eq.: -0.307
-       0.443 0.157 0.003 - 0.557 0.147 0.008
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/18 6/1*                   Eq.: -0.310 (-0.003)
-       0.450 0.131 0.003 - 0.550 0.143 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/13                        Eq.: -0.317 (-0.009)
-       0.454 0.106 0.002 - 0.546 0.142 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/18 13/8                   Eq.: -0.371 (-0.063)
-       0.436 0.112 0.003 - 0.564 0.154 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/8 13/7                    Eq.: -0.412 (-0.104)
-       0.412 0.131 0.004 - 0.588 0.154 0.008
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "QZa";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-aB---D-B---eE---d-da---B-:1:-1:1:56:0:0:1:0:10");
-var categoryid = "QZa";
-var probnum = "11";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

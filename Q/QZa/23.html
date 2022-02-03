@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Position 1 (Peever 2nd-roll 32 Problem 2013)</span>&ensp;
 <span>(QZa-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Blue to play 32</div>
 <div class="gamesituation">Unlimited Game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Blue=167 White=160</div></div>
+      <div class="pipinfo">pips Blue=167 White=160</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">まず最初に、二手目である52s－32のロールアウト結果を載せる。<br>
 ダブルヒット(6/3*/1*)はヒット&ダウン(13/11 6/3*)よりもショット数は少ないが、<br>
@@ -53,35 +57,21 @@ Understanding the concept involved in this second-roll position helps one solve 
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 6/3*                   Eq.: -0.121
-       0.472 0.126 0.006 - 0.528 0.160 0.011
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/3*/1*                      Eq.: -0.125 (-0.003)
-       0.468 0.126 0.004 - 0.532 0.152 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/22 6/3*                   Eq.: -0.127 (-0.006)
-       0.470 0.119 0.005 - 0.530 0.151 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/21 13/11                  Eq.: -0.137 (-0.016)
-       0.468 0.118 0.005 - 0.532 0.151 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/11 13/10                  Eq.: -0.159 (-0.038)
-       0.459 0.124 0.005 - 0.541 0.156 0.011
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "QZa";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a-a--E-C---dE---d-e----B-:0:0:1:32:0:0:3:0:10");
-var categoryid = "QZa";
-var probnum = "23";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

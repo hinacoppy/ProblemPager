@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Position 2 (Peever Quiz 2005)</span>&ensp;
 <span>(QZa-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to Play 65</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=163 White=157</div></div>
+      <div class="pipinfo">pips Black=163 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">スプリット(24/18, 13/8)が正解です。白の2ポイントより黒の5ポイントの方がより強力です。だから黒のボードは白のボードより強いのです。<br>
 黒はボードが相手より強いのでヒットの応酬は通常、黒が有利に展開します。ですから、黒はコンタクトが多くなることを望みます。<br>
@@ -53,35 +57,21 @@ When Black has two (or more) checkers on the 24pt in the early game, splitting i
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/18 13/8                   Eq.: +0.273
-       0.578 0.178 0.010 - 0.422 0.129 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/13                        Eq.: +0.270 (-0.003)
-       0.579 0.157 0.006 - 0.421 0.116 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/8 13/7                    Eq.: +0.222 (-0.050)
-       0.556 0.186 0.010 - 0.444 0.131 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    13/2                         Eq.: +0.069 (-0.203)
-       0.519 0.164 0.011 - 0.481 0.150 0.009
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/7 8/3                     Eq.: -0.114 (-0.387)
-       0.477 0.145 0.011 - 0.523 0.190 0.018
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "QZa";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-b---BD-B---eE---b-d---bB-:0:0:1:56:0:0:1:0:10");
-var categoryid = "QZa";
-var probnum = "02";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

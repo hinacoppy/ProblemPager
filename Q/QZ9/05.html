@@ -12,71 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">Problem 4 (Nagoya Quiz 2005)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Problem 5 (Nagoya Quiz 2004)</span>&ensp;
 <span>(QZ9-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Black to Play 32</div>
-<div class="gamesituation">b1-w1/7</div>
+<article>
+<div class="doAction">Black to Play 14</div>
+<div class="gamesituation">b1-w1/9</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=137 White=135</div></div>
+      <div class="pipinfo">pips Black=161 White=178</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description"><pre>
-1. 13/10 11/9  Eq.: +0.615            0.657 0.136 0.004 - 0.343 0.059 0.002
-2. 13/10 6/4   Eq.: +0.543 ( -0.072)  0.644 0.115 0.003 - 0.356 0.047 0.001
-3. 11/9 8/5    Eq.: +0.533 ( -0.082)  0.644 0.124 0.003 - 0.356 0.057 0.001
-4. 13/11 13/10 Eq.: +0.519 ( -0.096)  0.643 0.104 0.002 - 0.357 0.043 0.001
-5. 13/8        Eq.: +0.515 ( -0.100)  0.633 0.111 0.002 - 0.367 0.046 0.001
-6. 13/10 8/6   Eq.: +0.515 ( -0.100)  0.637 0.114 0.003 - 0.363 0.048 0.001
-7. 13/11 8/5   Eq.: +0.511 ( -0.103)  0.632 0.109 0.002 - 0.368 0.048 0.001
-8. 11/6        Eq.: +0.487 ( -0.127)  0.619 0.115 0.002 - 0.381 0.051 0.001
-9. 6/1         Eq.: +0.487 ( -0.128)  0.614 0.126 0.003 - 0.386 0.059 0.002
-10. 8/5 6/4    Eq.: +0.483 ( -0.131)  0.618 0.119 0.003 - 0.382 0.057 0.002
-11. 20/15      Eq.: +0.455 ( -0.160)  0.631 0.097 0.003 - 0.369 0.080 0.002
-12. 11/8 6/4   Eq.: +0.448 ( -0.166)  0.608 0.116 0.003 - 0.392 0.057 0.001
-13. 20/18 8/5  Eq.: +0.355 ( -0.260)  0.599 0.110 0.004 - 0.401 0.099 0.003
+1. 8/4*/3*     Eq.:  0.226           0.8%  19.0%  54.9%    45.1%  12.7%   0.7%
+2. 6/2*/1      Eq.:  0.092 (-0.134)  0.8%  16.3%  51.8%    48.2%  13.6%   0.6%
+3. 24/20 6/5   Eq.:  0.075 (-0.151)  0.4%  14.8%  51.3%    48.7%  12.0%   0.4%
+4. 11/6        Eq.:  0.043 (-0.183)  0.8%  15.6%  50.7%    49.3%  13.6%   0.6%
+5. 24/20 11/10 Eq.:  0.010 (-0.216)  0.8%  13.4%  49.8%    50.2%  12.6%   0.3%
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 11/9                   Eq.: +0.619
-       0.662 0.114 0.003 - 0.338 0.053 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    11/9 8/5                     Eq.: +0.514 (-0.106)
-       0.640 0.117 0.003 - 0.360 0.056 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/11 13/10                  Eq.: +0.507 (-0.112)
-       0.639 0.108 0.002 - 0.361 0.047 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/10 6/4                    Eq.: +0.499 (-0.121)
-       0.636 0.111 0.003 - 0.364 0.051 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/10 8/6                    Eq.: +0.480 (-0.139)
-       0.630 0.112 0.002 - 0.370 0.051 0.001
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---bBBC-C--AbB---d-dBaaa--:0:0:1:32:1:1:0:7:10");
-var categoryid = "QZ9";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "QZ9";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--aaa-EbD--Cd------bAbAbA-:0:0:1:14:1:1:0:9:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

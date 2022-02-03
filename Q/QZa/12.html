@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Position 12 (Peever Quiz 2005)</span>&ensp;
 <span>(QZa-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to Play 65</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=156 White=157</div></div>
+      <div class="pipinfo">pips Black=156 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">24/13が正解です。その手は12ピップリードで黒の最後のバックマンを逃がし、ブロットを残しません。黒はしばしば紛争なしに<br>
 このポジションをホームに運ぶことができるでしょう。<br>
@@ -44,35 +48,21 @@ Hitting twice sometimes (30+%) results in Black’s having two checkers back ins
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/13                        Eq.: +0.016
-       0.578 0.056 0.001 - 0.422 0.052 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/7* 6/1*                   Eq.: -0.006 (-0.022)
-       0.548 0.170 0.004 - 0.452 0.118 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/8 13/7*                   Eq.: -0.056 (-0.072)
-       0.537 0.144 0.006 - 0.463 0.117 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/7*/2                      Eq.: -0.177 (-0.193)
-       0.500 0.133 0.005 - 0.500 0.138 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    24/18 13/8                   Eq.: -0.230 (-0.246)
-       0.489 0.098 0.002 - 0.511 0.132 0.003
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "QZa";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a----EaC---dF--ac-e----A-:1:-1:1:56:0:0:1:0:10");
-var categoryid = "QZa";
-var probnum = "12";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

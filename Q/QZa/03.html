@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Position 3 (Peever Quiz 2005)</span>&ensp;
 <span>(QZa-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to Play 65</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=163 White=139</div></div>
+      <div class="pipinfo">pips Black=163 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">13/8, 13/7が正解です。 ダブルショット(24通り)を残しますが、白の良い3は重ね合わせられ、黒は白がヒット(特に31, 42, 51, 61, 66)したときに、普通リターンショットを得ることができます。<br>
 黒はレースにおいて13ピップ遅れていて、黒のプレイに関係なく劣勢です。<br>
@@ -47,35 +51,21 @@ Black trails in the race by 13 pips and is an underdog regardless of his play. I
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 13/7                    Eq.: -0.086
-       0.484 0.139 0.006 - 0.516 0.165 0.014
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/13                        Eq.: -0.119 (-0.033)
-       0.481 0.107 0.003 - 0.519 0.165 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18 13/8                   Eq.: -0.121 (-0.035)
-       0.487 0.117 0.005 - 0.513 0.183 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/2                         Eq.: -0.183 (-0.097)
-       0.456 0.129 0.004 - 0.544 0.172 0.014
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/7 6/1*                    Eq.: -0.183 (-0.097)
-       0.465 0.131 0.004 - 0.535 0.187 0.018
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "QZa";
+const probnum = "03";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a--aBD-B---bE---d-e--b-B-:0:0:1:56:0:0:1:0:10");
-var categoryid = "QZa";
-var probnum = "03";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

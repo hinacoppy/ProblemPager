@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 10 (2006)</span>&ensp;
 <span>(QZ3-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 21</div>
 <div class="gamesituation">b2-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=118 White=139</div></div>
+      <div class="pipinfo">pips Black=118 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description"><pre>
 1. 12/11 8/6  eq:-0.178          48.1% (G:7.7% B:0.2%) - 51.9% (G:15.0% B:0.6%)
@@ -40,35 +44,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/11 8/6                    Eq.: -0.186
-       0.483 0.079 0.002 - 0.517 0.127 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    12/10 8/7                    Eq.: -0.291 (-0.106)
-       0.464 0.079 0.002 - 0.536 0.151 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    8/7 6/4*                     Eq.: -0.440 (-0.254)
-       0.427 0.085 0.003 - 0.573 0.195 0.011
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    12/11 6/4*                   Eq.: -0.460 (-0.274)
-       0.422 0.085 0.003 - 0.578 0.198 0.011
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    12/9                         Eq.: -0.598 (-0.413)
-       0.382 0.072 0.002 - 0.618 0.182 0.007
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "QZ3";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-B-ba-EBC---A-b--bBbbbb---:0:0:1:12:2:0:0:7:10");
-var categoryid = "QZ3";
-var probnum = "20";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>
