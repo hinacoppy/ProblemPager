@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-10</span>&ensp;
 <span>(TC1-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 11</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=166 White=138</div></div>
+      <div class="pipinfo">pips Black=166 White=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">After the obvious 8/7*(2), Black has to weigh various priorities.  He is way behind in the pip count, so he wants to block White&#39;s anchor if he can, and perhaps make some home-board points to cause trouble for White&#39;s straggler.  His back checkers are getting primed, so he would like to try to escape them, but without giving White too many opportunities to attack with her 12 checkers in the zone.<br>
 The eXtreme Gammon rollout favors 11/10(2), which gives up the six-away point but keeps an eye on the 4pt in case White enters there.<br>
@@ -50,35 +54,21 @@ But note that Black&#39;s balancing of priorities would be much trickier if his 
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/10(2) 8/7*(2)             Eq.: -0.131
-       0.491 0.084 0.003 - 0.509 0.159 0.013
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/23(2) 8/7*(2)             Eq.: -0.169 (-0.038)
-       0.474 0.082 0.002 - 0.526 0.147 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    15/14 12/11 8/7*(2)          Eq.: -0.204 (-0.073)
-       0.472 0.078 0.002 - 0.528 0.164 0.013
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/23 13/12 8/7*(2)          Eq.: -0.213 (-0.082)
-       0.471 0.077 0.002 - 0.529 0.171 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    15/13 8/7*(2)                Eq.: -0.221 (-0.090)
-       0.470 0.077 0.002 - 0.530 0.173 0.012
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-----bDaD--BAA-Abc-e-b--B-:0:0:1:11:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "49";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

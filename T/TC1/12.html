@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 1-8 Variant</span>&ensp;
 <span>(TC1-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 53</div>
 <div class="gamesituation">Strengthen White's board</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=91 White=121</div></div>
+      <div class="pipinfo">pips Black=91 White=121</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description"><pre>
 1. 6/1 5/2  eq: +0.242          65.99% (G:3.33% B:0.04&)  34.01% (G:2.74% B:0.10%)
@@ -36,6 +40,7 @@
 3. 13/8 5/2 eq: +0.167 (-0.075) 62.33% (G:9.78% B:0.23&)  37.67% (G:4.33% B:0.24%)
 4. 13/5     eq: +0.144 (-0.097) 62.76% (G:3.91% B:0.11&)  37.24% (G:2.27% B:0.07%)
 </pre>
+<br>
 <pre>   +24-23-22-21-20-19------18-17-16-15-14-13-+ (Cube: 2)
    |    O  O  O     O |   |    O        O  X |
    |    O  O        O |   |    O           X |
@@ -58,35 +63,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1 5/2                      Eq.: +0.206
-       0.658 0.035 0.000 - 0.342 0.028 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8 5/2                     Eq.: +0.166 (-0.040)
-       0.624 0.099 0.002 - 0.376 0.048 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/1 4/1                      Eq.: +0.165 (-0.042)
-       0.643 0.031 0.000 - 0.357 0.033 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/5                         Eq.: +0.158 (-0.048)
-       0.633 0.045 0.000 - 0.367 0.027 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    6/3 6/1                      Eq.: +0.070 (-0.137)
-       0.608 0.029 0.000 - 0.392 0.041 0.000
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=---DBDBb----bC---b-dabb---:1:-1:1:53:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "12";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

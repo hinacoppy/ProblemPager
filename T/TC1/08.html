@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 1-6</span>&ensp;
 <span>(TC1-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 63</div>
 <div class="gamesituation">Money play with Jacoby</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=105 White=141</div></div>
+      <div class="pipinfo">pips Black=105 White=141</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">Playing 8/2 here is a gargantuan blunder, turning a position in which you have a significant advantage into a position in which your opponent has a significant advantage.<br>
 But even if you realize that 23/17 is mandatory, the choice between 17/14 and 8/5 is a difficult technical decision.<br>
@@ -46,35 +50,21 @@ The balance is a delicate one and seemingly small changes can tip things the oth
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17 8/5                    Eq.: +0.521
-       0.591 0.246 0.030 - 0.409 0.098 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/14                        Eq.: +0.405 (-0.116)
-       0.576 0.219 0.022 - 0.424 0.110 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/17 6/3                    Eq.: +0.378 (-0.143)
-       0.567 0.238 0.028 - 0.433 0.132 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    23/17 5/2                    Eq.: +0.348 (-0.173)
-       0.555 0.246 0.032 - 0.445 0.141 0.009
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    8/2 6/3                      Eq.: -0.161 (-0.682)
-       0.434 0.156 0.014 - 0.566 0.143 0.003
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "08";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-cBBBCC-A--a------bbcbbB--:0:0:1:63:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "08";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

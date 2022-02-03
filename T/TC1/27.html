@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 2-8</span>&ensp;
 <span>(TC1-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 65</div>
 <div class="gamesituation">Gammon save (2 point match, White 0, Black 1, Crawford)</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=91 White=83</div></div>
+      <div class="pipinfo">pips Black=91 White=83</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">I threw this one in for anti-QF purposes. It&#39;s gammon save so the natural thing to do is to play safe, and the top play of the rollout is to play safe. (Clearing the 7pt is better than clearing the 8pt because we might still want to attack next turn.)<br>
 <pre>
@@ -39,35 +43,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/2 7/1                      Eq.: +0.394
-       0.570 0.011 0.000 - 0.430 0.013 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    10/4* 6/1                    Eq.: +0.311 (-0.083)
-       0.658 0.051 0.001 - 0.342 0.122 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    8/3 8/2                      Eq.: +0.098 (-0.296)
-       0.547 0.012 0.000 - 0.453 0.010 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    10/5 10/4*                   Eq.: -0.114 (-0.508)
-       0.541 0.037 0.003 - 0.459 0.144 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/2 6/1                      Eq.: -0.227 (-0.621)
-       0.460 0.024 0.000 - 0.540 0.053 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-A-BaBDBB-B----a---dbbbab-:0:0:1:65:0:0:0:2:2");
-var categoryid = "TC1";
-var probnum = "27";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

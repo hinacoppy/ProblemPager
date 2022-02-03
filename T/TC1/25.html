@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 2-6</span>&ensp;
 <span>(TC1-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 11</div>
 <div class="gamesituation">Gammon go (2 point match, White 1, Black 0, Crawford)</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=125 White=138</div></div>
+      <div class="pipinfo">pips Black=125 White=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">Some might be tricked by the score into hitting, but hitting can&#39;t be better than making a four-point board. What I found surprising was that downgrading the 4pt to the 3pt and keeping the 8pt came out ahead of making the solid four-prime. Generally, a solid prime is much better than a broken one. However, here White has a just a single checker back and we are not really trying to prime it; we&#39;re hoping to attack it by hitting it next turn. The 8pt-6pt-5pt-3pt configuration is better than the four-prime for this purpose; if we make the solid four-prime, then White hops out giving us a single direct shot with 66 65 63 62 61 51 and escapes entirely with 64.  If instead we play 6/5(2) 4/3(2), then White hops out with 62 54 53 52 and escapes entirely only with 55; also it gives White a bad 61, and gives ourselves more good hitting rolls.<br>
 <pre>
@@ -41,35 +45,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/5(2) 4/3(2)                Eq.: +0.752
-       0.635 0.263 0.003 - 0.365 0.078 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/7(2) 6/5(2)                Eq.: +0.750 (-0.003)
-       0.633 0.242 0.003 - 0.367 0.068 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    4/2*(2)                      Eq.: +0.636 (-0.116)
-       0.613 0.212 0.002 - 0.387 0.078 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/2*                         Eq.: +0.593 (-0.159)
-       0.607 0.237 0.004 - 0.393 0.087 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/5 6/5                      Eq.: +0.587 (-0.165)
-       0.604 0.254 0.004 - 0.396 0.078 0.002
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "25";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-Ba-B-D-B---eC---bBd-ab---:0:0:1:11:0:0:0:2:2");
-var categoryid = "TC1";
-var probnum = "25";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

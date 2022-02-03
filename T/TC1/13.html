@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 1-9</span>&ensp;
 <span>(TC1-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 21</div>
 <div class="gamesituation">Gammon save (2 point match, Black 1, White 0, Crawford)</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=116 White=116</div></div>
+      <div class="pipinfo">pips Black=116 White=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">These final two problems are variants of positions from Mary Hickey and Marty Storer&#39;s upcoming book, which they let me have a sneak peek at.<br>
 <br>
@@ -49,35 +53,21 @@ Note that if it were DMP then 13/10* would probably be best, but it loses too ma
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10*                       Eq.: -0.770
-       0.363 0.085 0.003 - 0.637 0.397 0.079
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    14/12 3/2                    Eq.: -0.906 (-0.136)
-       0.339 0.078 0.002 - 0.661 0.317 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    3/1 2/1                      Eq.: -1.000 (-0.230)
-       0.319 0.084 0.002 - 0.681 0.342 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    14/13 3/1                    Eq.: -1.000 (-0.230)
-       0.295 0.079 0.002 - 0.705 0.324 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    5/2                          Eq.: -1.000 (-0.230)
-       0.308 0.076 0.002 - 0.692 0.353 0.010
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=--ACbCB-B-a--BA---bccbAb--:0:0:1:21:0:0:0:2:2");
-var categoryid = "TC1";
-var probnum = "13";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

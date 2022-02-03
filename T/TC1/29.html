@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-1</span>&ensp;
 <span>(TC1-29)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 41</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=135 White=120</div></div>
+      <div class="pipinfo">pips Black=135 White=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">Black is significantly behind in the pip count and would therefore like to contain White&#39;s remaining straggler.<br>
 In particular, Black would like to prevent White from escaping with a 6.<br>
@@ -45,35 +49,21 @@ The equity gap between the 1st and 2nd plays in the rollout is surprisingly larg
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 6/5                     Eq.: -0.164
-       0.464 0.071 0.002 - 0.536 0.129 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/5 6/2                      Eq.: -0.275 (-0.110)
-       0.417 0.046 0.001 - 0.583 0.067 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/7 6/5                     Eq.: -0.295 (-0.131)
-       0.419 0.056 0.001 - 0.581 0.096 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/4 5/4                      Eq.: -0.314 (-0.150)
-       0.406 0.042 0.001 - 0.594 0.069 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/4 6/5                      Eq.: -0.372 (-0.207)
-       0.406 0.067 0.002 - 0.594 0.132 0.002
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "29";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=---a-AE-C--AbE--ac-ea--b--:0:0:1:41:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "29";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

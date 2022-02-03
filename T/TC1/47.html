@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-9</span>&ensp;
 <span>(TC1-47)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 21</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=139 White=153</div></div>
+      <div class="pipinfo">pips Black=139 White=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">It&#39;s very tempting to hit with 24/23* here, but Black is already well ahead in the pip count, and his priority is not to gain more pips but to escape his back checkers.<br>
 The problem with 24/23* is that it actually makes it harder for Black to escape with 6&#39;s.  Black is better off quietly improving his position with 24/22 6/5.  Note that if White&#39;s 8pt checkers were on her 7pt instead, it would be a different story (see Variant position below).<br>
@@ -45,35 +49,21 @@ The problem with 24/23* is that it actually makes it harder for Black to escape 
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 6/5                    Eq.: +0.329
-       0.563 0.204 0.014 - 0.437 0.095 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/23*/21                    Eq.: +0.295 (-0.033)
-       0.535 0.235 0.022 - 0.465 0.095 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/23* 11/9                  Eq.: +0.278 (-0.050)
-       0.531 0.234 0.024 - 0.469 0.100 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/9 6/5                     Eq.: +0.266 (-0.063)
-       0.543 0.207 0.014 - 0.457 0.102 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/22 11/10                  Eq.: +0.263 (-0.066)
-       0.543 0.200 0.012 - 0.457 0.096 0.003
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "47";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-b--CBD-B--Ac--b-b-cbB-aA-:0:0:1:21:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "47";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

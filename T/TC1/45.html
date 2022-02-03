@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-8</span>&ensp;
 <span>(TC1-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 65</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=135 White=140</div></div>
+      <div class="pipinfo">pips Black=135 White=140</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">This is another position where Black would rather not leave a blot but has no choice.  Perhaps the most natural-looking play is 13/8 13/7, but following the general principle that a blot on the 1pt should be covered at the first convenient opportunity lest it become a liability later, 8/2 6/1 leaves about the same number of shots while covering the 1pt.<br>
 Note that 14/8 6/1 also covers the 1pt but leaves a double shot in the outfield; otherwise, it would be a contender (see Variant position below).<br>
@@ -41,35 +45,21 @@ Note that 14/8 6/1 also covers the 1pt but leaves a double shot in the outfield;
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 6/1                      Eq.: -0.345
-       0.321 0.117 0.002 - 0.679 0.205 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8 13/7                    Eq.: -0.420 (-0.075)
-       0.289 0.085 0.002 - 0.711 0.177 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    14/8 6/1                     Eq.: -0.465 (-0.120)
-       0.270 0.092 0.002 - 0.730 0.185 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    14/9 14/8                    Eq.: -0.468 (-0.123)
-       0.268 0.083 0.002 - 0.732 0.174 0.006
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/7 6/1                     Eq.: -0.555 (-0.210)
-       0.263 0.086 0.002 - 0.737 0.245 0.014
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-A-a-BE-B--adBB--abbbb--A-:1:1:1:65:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "45";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

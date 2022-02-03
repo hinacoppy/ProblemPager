@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-3</span>&ensp;
 <span>(TC1-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 55</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=181 White=141</div></div>
+      <div class="pipinfo">pips Black=181 White=141</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">Doublets can usually be played in many different ways, and this position is no exception.<br>
 Despite gaining 20 pips with this roll, Black is still well behind in the pip count, and wants White to expose blots that he can hit.<br>
@@ -45,35 +49,21 @@ Advancing the 23pt to the 18pt with 23/18(2) 15/5 has the advantage of holding a
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/13 15/5                   Eq.: -0.224
-       0.425 0.099 0.003 - 0.575 0.104 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/18(2) 15/5                Eq.: -0.232 (-0.008)
-       0.425 0.099 0.002 - 0.575 0.108 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/18(2) 15/10 8/3           Eq.: -0.261 (-0.038)
-       0.422 0.097 0.002 - 0.578 0.120 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    23/18(2) 6/1(2)              Eq.: -0.302 (-0.078)
-       0.411 0.093 0.002 - 0.589 0.122 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    23/8 15/10                   Eq.: -0.304 (-0.080)
-       0.409 0.095 0.003 - 0.591 0.124 0.004
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=------EbC---bBbA-c-eB-aB--:0:0:1:55:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "33";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 2-7</span>&ensp;
 <span>(TC1-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 42</div>
 <div class="gamesituation">Money play</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=112 White=135</div></div>
+      <div class="pipinfo">pips Black=112 White=135</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">At some point during a blitz, the &quot;local ammunition&quot; starts to run low and we face a tricky decision. Do we keep rushing the nearest available ammunition forwards to try to continue attacking, at the risk of overextending ourselves? Or do we start consolidating by moving our rear checkers into a better position so that we retain a strong advantage even if the blitz fails?<br>
 Here it is tempting to keep trying to close out the checker by playing 13/9, but according to the rollout, anything but 20/16 18/16 is a whopper.<br>
@@ -45,35 +49,21 @@ Here it is tempting to keep trying to close out the checker by playing 13/9, but
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16 18/16                  Eq.: +0.828
-       0.761 0.431 0.002 - 0.239 0.046 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/18 20/16                  Eq.: +0.757 (-0.070)
-       0.741 0.420 0.002 - 0.259 0.055 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/16 13/11                  Eq.: +0.725 (-0.103)
-       0.731 0.419 0.002 - 0.269 0.063 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/16 7/5                    Eq.: +0.718 (-0.110)
-       0.731 0.408 0.002 - 0.269 0.058 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    18/16 13/9                   Eq.: +0.699 (-0.129)
-       0.720 0.403 0.002 - 0.280 0.048 0.003
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=aBBB-BBA----bAb--dAdB-b---:1:-1:1:42:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "26";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

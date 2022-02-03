@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 1-1</span>&ensp;
 <span>(TC1-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 51</div>
 <div class="gamesituation">Money play with Jacoby</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=127 White=161</div></div>
+      <div class="pipinfo">pips Black=127 White=161</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">It is easy, especially over the board, to see only two plays here: 16/10* and 21/16 9/8.  However, the blot on the 8pt is not in all that much danger (there are some rolls where White will decline to break anchor to hit), and the blot on the 23pt is poorly positioned.<br>
 Many players underestimate how weak a blot on the 23pt is when it is blocked by the opponent&#39;s 8pt.<br>
@@ -42,35 +46,21 @@ Shift Black&#39;s blot forward a pip to the 22pt and the decision is much closer
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22 21/16                  Eq.: +0.307
-       0.586 0.123 0.001 - 0.414 0.075 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    16/10*                       Eq.: +0.249 (-0.058)
-       0.542 0.199 0.003 - 0.458 0.094 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/16 9/8                    Eq.: +0.225 (-0.082)
-       0.563 0.117 0.001 - 0.437 0.082 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    21/16 8/7                    Eq.: +0.138 (-0.168)
-       0.533 0.127 0.002 - 0.467 0.091 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    16/11 9/8                    Eq.: -0.086 (-0.392)
-       0.461 0.135 0.002 - 0.539 0.110 0.005
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=--BBbBB-ACa-d---Ac-cbA-A--:0:0:1:51:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "01";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

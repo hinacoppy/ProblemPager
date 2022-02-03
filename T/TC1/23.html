@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 2-5</span>&ensp;
 <span>(TC1-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 53</div>
 <div class="gamesituation">Money play</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=103 White=118</div></div>
+      <div class="pipinfo">pips Black=103 White=118</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">Slot boldly or play safe? If we slot then it is fairly clear that 8/3 7/4 is best since it diversifies our numbers to cover and escape. This diversification is important; see the variant position below, and compare the  absolute  equity of 8/3 7/4 (+0.332&plusmn;0.011) in the variant position with the absolute equity of 8/5 7/2 (+0.348&plusmn;0.010) in the original position. It is clear we gain a lot if the slot works but we also lose big if it does not. I played safe here and the rollout says it was a whopper.<br>
 <pre>
@@ -40,35 +44,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 7/4                      Eq.: +0.439
-       0.616 0.427 0.006 - 0.384 0.096 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/5 8/3                      Eq.: +0.403 (-0.036)
-       0.608 0.412 0.005 - 0.392 0.095 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/3 6/3                      Eq.: +0.397 (-0.042)
-       0.602 0.421 0.005 - 0.398 0.122 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/5 7/2                      Eq.: +0.375 (-0.064)
-       0.612 0.370 0.004 - 0.388 0.083 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    7/4 6/1                      Eq.: -0.364 (-0.803)
-       0.415 0.154 0.002 - 0.585 0.143 0.008
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=aBB-BBBAB---b---ac-bbbBb--:1:-1:1:53:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "23";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

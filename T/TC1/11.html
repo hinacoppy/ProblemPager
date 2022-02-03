@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 1-8</span>&ensp;
 <span>(TC1-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 53</div>
 <div class="gamesituation">Money play with Jacoby</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=91 White=127</div></div>
+      <div class="pipinfo">pips Black=91 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">The obvious play here is 13/5, but then most sixes on the next roll will force us to leave a double shot.  6/1 5/2 is safe but ugly.<br>
 White&#39;s weak board allows us to make the bold, flexible play of 13/8 5/2, duplicating White&#39;s ones.<br>
@@ -38,38 +42,25 @@ Note that 13/5 may not be correct even if we still have four checkers on the mid
 1. 13/8 5/2 eq: +0.339          70.19% (G:6.97% B:0.21&)  29.81% (G:2.34% B:0.11%)
 2. 6/1 5/2  eq: +0.278 (-0.061) 68.03% (G:4.68% B:0.10&)  31.97% (G:2.64% B:0.12%)
 3. 13/5     eq: +0.276 (-0.063) 67.90% (G:6.35% B:0.20&)  32.10% (G:2.09% B:0.06%)
+</pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 5/2                     Eq.: +0.364
-       0.705 0.084 0.001 - 0.295 0.029 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/5                         Eq.: +0.299 (-0.065)
-       0.682 0.067 0.001 - 0.318 0.024 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/1 5/2                      Eq.: +0.267 (-0.097)
-       0.677 0.049 0.000 - 0.323 0.027 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/1 4/1                      Eq.: +0.233 (-0.131)
-       0.666 0.043 0.000 - 0.334 0.029 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    13/8 4/1                     Eq.: +0.240 (-0.124)
-       0.653 0.095 0.000 - 0.347 0.044 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=---DBDBb----bC---c-ea-b---:1:-1:1:53:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "11";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

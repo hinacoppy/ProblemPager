@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-5</span>&ensp;
 <span>(TC1-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 44</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=148 White=142</div></div>
+      <div class="pipinfo">pips Black=148 White=142</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">After the forced bar/21, it looks natural to make the 4pt with Black&#39;s two spares on his 8pt, especially since a strong board is typically a useful defense against having one&#39;s straggler attacked.<br>
 However, the race is still close, and so there&#39;s a lot of value in blocking in White&#39;s two back checkers by making the 9pt, which is 6 pips away, and preparing to make a solid five-prime with 11/7.  In the (admittedly somewhat artificially constructed)<br>
@@ -45,35 +49,21 @@ Variant position below, Black has an extra spare on his 8pt, so after making the
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 13/9(2) 11/7          Eq.: +0.377
-       0.617 0.140 0.005 - 0.383 0.120 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/21 11/7 8/4(2)           Eq.: +0.268 (-0.109)
-       0.587 0.131 0.004 - 0.413 0.120 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/21 13/9(2) 8/4           Eq.: +0.238 (-0.139)
-       0.587 0.143 0.006 - 0.413 0.155 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/21 13/9(2) 6/2           Eq.: +0.229 (-0.148)
-       0.587 0.123 0.004 - 0.413 0.141 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/21 13/9 8/4(2)           Eq.: +0.220 (-0.157)
-       0.577 0.136 0.005 - 0.423 0.140 0.005
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=---b-BC-D--AcD---c-db---aA:0:0:1:44:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "38";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

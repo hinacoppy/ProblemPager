@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Problem 3-7</span>&ensp;
 <span>(TC1-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Black to play 64</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=129 White=145</div></div>
+      <div class="pipinfo">pips Black=129 White=145</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">Black would rather not leave a direct shot here, but he has no choice.<br>
 Breaking anchor with 21/15 14/10 leaves far too many blots and shots, so his real choice is between leaving shots in the outfield and attacking on the 1pt.  Since Black has the stronger board and hitting minimizes return shots, hitting might seem to be the way to go.<br>
@@ -44,35 +48,21 @@ The trouble is that the blot on the 1pt is hard to cover even if it is not hit i
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/4                         Eq.: -0.226
-       0.476 0.148 0.005 - 0.524 0.141 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    14/10 14/8                   Eq.: -0.290 (-0.064)
-       0.467 0.133 0.005 - 0.533 0.160 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    15/11 7/1*                   Eq.: -0.295 (-0.069)
-       0.470 0.124 0.002 - 0.530 0.161 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    7/3 7/1*                     Eq.: -0.308 (-0.083)
-       0.460 0.127 0.002 - 0.540 0.157 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    15/11 14/8                   Eq.: -0.404 (-0.178)
-       0.435 0.108 0.004 - 0.565 0.185 0.010
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "cw");
+const categoryid = "TC1";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle5", "cw");
 board.showBoard("XGID=-aBBBbBB----b-BA-b-ccBb---:1:-1:1:64:0:0:0:0:10");
-var categoryid = "TC1";
-var probnum = "43";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>
