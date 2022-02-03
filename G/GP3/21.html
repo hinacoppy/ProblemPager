@@ -8,85 +8,57 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GPS</title>
+<title>GMA</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第25回(gma) - 問5</span>&ensp;
 <span>(GP3-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。55 はどう動かしますか？</div>
 <div class="gamesituation">2-1:7pt</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=136 White=179</div></div>
+      <div class="pipinfo">pips Black=136 White=179</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 55
-
-    1. XG Roller++ 13/3(2)                      eq:+0.447
-      Player:   59.57% (G:23.97% B:0.90%)
-      Opponent: 40.43% (G:7.80% B:0.30%)
-
-    2. XG Roller++ 18/8(2)                      eq:+0.370 (-0.077)
-      Player:   58.69% (G:19.96% B:0.67%)
-      Opponent: 41.31% (G:7.44% B:0.26%)
-
-    3. 3-ply       18/13(2) 8/3(2)              eq:+0.341 (-0.107)
-      Player:   58.07% (G:21.05% B:0.89%)
-      Opponent: 41.93% (G:8.94% B:0.35%)
-
-    4. 3-ply       18/13 18/3                   eq:+0.336 (-0.112)
-      Player:   58.15% (G:20.64% B:0.81%)
-      Opponent: 41.85% (G:9.06% B:0.36%)
-
-    5. 3-ply       18/3 8/3                     eq:+0.320 (-0.127)
-      Player:   57.26% (G:22.78% B:0.98%)
-      Opponent: 42.74% (G:10.03% B:0.42%)
-
-
-eXtreme Gammon Version: 2.03, MET: Kazaross XG2
+ <div class="description"><pre>
+1. 13/3(2)           eq:+0.447            59.57% (G:23.97% B:0.90%)   40.43% (G: 7.80% B:0.30%)
+2. 18/8(2)           eq:+0.370 (-0.077)   58.69% (G:19.96% B:0.67%)   41.31% (G: 7.44% B:0.26%)
+3. 18/13(2) 8/3(2)   eq:+0.341 (-0.107)   58.07% (G:21.05% B:0.89%)   41.93% (G: 8.94% B:0.35%)
+4. 18/13 18/3        eq:+0.336 (-0.112)   58.15% (G:20.64% B:0.81%)   41.85% (G: 9.06% B:0.36%)
+5. 18/3 8/3          eq:+0.320 (-0.127)   57.26% (G:22.78% B:0.98%)   42.74% (G:10.03% B:0.42%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/3(2)                      Eq.: +0.507
-       0.614 0.249 0.010 - 0.386 0.080 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    18/8(2)                      Eq.: +0.456 (-0.051)
-       0.613 0.216 0.008 - 0.387 0.076 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    18/13(2) 8/3(2)              Eq.: +0.424 (-0.083)
-       0.602 0.229 0.006 - 0.398 0.083 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/3 8/3                     Eq.: +0.408 (-0.099)
-       0.595 0.235 0.009 - 0.405 0.092 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    18/3 18/13                   Eq.: +0.403 (-0.104)
-       0.599 0.221 0.008 - 0.401 0.086 0.002
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP3";
+const probnum = "21";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-Bb-BbC-B---dC---ABfa-----:0:0:1:55:2:1:0:7:10");
-var categoryid = "GP3";
-var probnum = "21";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

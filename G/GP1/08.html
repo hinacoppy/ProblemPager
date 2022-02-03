@@ -8,85 +8,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GPS</title>
+<title>GMA</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第2回(gma) - 問3</span>&ensp;
 <span>(GP1-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。11 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=159 White=156</div></div>
+      <div class="pipinfo">pips Black=159 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 11
-
-    1. ロールアウト1     Bar/24 6/5*(3)               eq:+0.537
-      プレーヤー: 62.60% (G:21.20% B:1.24%)
-      対戦相手:  37.40% (G:11.07% B:0.60%)
-      Confidence: ±0.006 (+0.531..+0.543) - [100.0%]
-      経過時間: 1 分 16 秒
-
-    2. ロールアウト1     Bar/24 8/7 6/5*(2)           eq:+0.476 (-0.061)
-      プレーヤー: 61.75% (G:19.92% B:1.17%)
-      対戦相手:  38.25% (G:12.38% B:0.91%)
-      Confidence: ±0.006 (+0.470..+0.482) - [0.0%]
-      経過時間: 1 分 10 秒
-
-    3. ロールアウト1     Bar/24 9/8 6/5*(2)           eq:+0.475 (-0.063)
-      プレーヤー: 61.22% (G:19.57% B:1.11%)
-      対戦相手:  38.78% (G:11.15% B:0.50%)
-      Confidence: ±0.006 (+0.469..+0.480) - [0.0%]
-      経過時間: 1 分 13 秒
-
-    4. ロールアウト1     Bar/24 8/7(2) 6/5*           eq:+0.130 (-0.407)
-      プレーヤー: 54.55% (G:15.45% B:0.91%)
-      対戦相手:  45.45% (G:16.63% B:1.47%)
-      Confidence: ±0.007 (+0.123..+0.136) - [0.0%]
+ <div class="description"><pre>
+1. Bar/24 6/5*(3)       eq:+0.537            62.60% (G:21.20% B:1.24%)   37.40% (G:11.07% B:0.60%)
+2. Bar/24 8/7 6/5*(2)   eq:+0.476 (-0.061)   61.75% (G:19.92% B:1.17%)   38.25% (G:12.38% B:0.91%)
+3. Bar/24 9/8 6/5*(2)   eq:+0.475 (-0.063)   61.22% (G:19.57% B:1.11%)   38.78% (G:11.15% B:0.50%)
+4. Bar/24 8/7(2) 6/5*   eq:+0.130 (-0.407)   54.55% (G:15.45% B:0.91%)   45.45% (G:16.63% B:1.47%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 6/5*(3)               Eq.: +0.530
-       0.627 0.210 0.013 - 0.373 0.108 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/24 8/7 6/5*(2)           Eq.: +0.466 (-0.064)
-       0.618 0.200 0.013 - 0.382 0.120 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/24 9/8 6/5*(2)           Eq.: +0.463 (-0.067)
-       0.619 0.199 0.012 - 0.381 0.109 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/24 8/7(2) 6/5*           Eq.: +0.155 (-0.375)
-       0.553 0.161 0.010 - 0.447 0.153 0.014
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/24 9/7 8/7               Eq.: +0.082 (-0.448)
-       0.529 0.145 0.007 - 0.471 0.144 0.008
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP1";
+const probnum = "08";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-aa--aE-DA--cC---b-e---bAA:0:0:1:11:0:0:3:0:10");
-var categoryid = "GP1";
-var probnum = "08";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

@@ -12,91 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第34回(gma) - 問4</span>&ensp;
 <span>(GP4-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。52 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=106 White=166</div></div>
+      <div class="pipinfo">pips Black=106 White=166</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 52
-
-    1. ロールアウト¹     16/11* 4/2                   eq:+0.524
-      プレーヤー: 66.12% (G:32.38% B:3.72%)
-      対戦相手:  33.88% (G:2.39% B:0.07%)
-      Confidence: ±0.005 (+0.519..+0.529) - [100.0%]
-      経過時間: 49.4 秒
-
-    2. ロールアウト¹     16/9                         eq:+0.448 (-0.076)
-      プレーヤー: 66.81% (G:24.36% B:2.14%)
-      対戦相手:  33.19% (G:3.21% B:0.12%)
-      Confidence: ±0.006 (+0.443..+0.454) - [0.0%]
-      経過時間: 51.7 秒
-
-    3. 2-ply       16/11* 8/6                   eq:+0.396 (-0.128)
-      プレーヤー: 62.32% (G:30.64% B:3.58%)
-      対戦相手:  37.68% (G:3.17% B:0.09%)
-
-    4. 2-ply       16/11* 11/9                  eq:+0.372 (-0.152)
-      プレーヤー: 61.84% (G:29.97% B:3.34%)
-      対戦相手:  38.16% (G:3.50% B:0.11%)
-
-    5. 1-ply       16/11* 9/7                   eq:+0.353 (-0.172)
-      プレーヤー: 61.51% (G:29.67% B:3.46%)
-      対戦相手:  38.49% (G:4.30% B:0.24%)
-
-
-¹Truncated at 9 moves using 3-ply.
-   720 Games rolled with Variance Reduction.
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.01
+ <div class="description"><pre>
+1. 16/11* 4/2    eq:+0.524            66.12% (G:32.38% B:3.72%)   33.88% (G:2.39% B:0.07%)
+2. 16/9          eq:+0.448 (-0.076)   66.81% (G:24.36% B:2.14%)   33.19% (G:3.21% B:0.12%)
+3. 16/11* 8/6    eq:+0.396 (-0.128)   62.32% (G:30.64% B:3.58%)   37.68% (G:3.17% B:0.09%)
+4. 16/11* 11/9   eq:+0.372 (-0.152)   61.84% (G:29.97% B:3.34%)   38.16% (G:3.50% B:0.11%)
+5. 16/11* 9/7    eq:+0.353 (-0.172)   61.51% (G:29.67% B:3.46%)   38.49% (G:4.30% B:0.24%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/11* 4/2                   Eq.: +0.619
-       0.685 0.340 0.040 - 0.315 0.024 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    16/11* 8/6                   Eq.: +0.525 (-0.094)
-       0.651 0.326 0.041 - 0.349 0.025 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    16/9                         Eq.: +0.514 (-0.105)
-       0.678 0.271 0.024 - 0.322 0.027 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    16/11*/9                     Eq.: +0.508 (-0.112)
-       0.645 0.325 0.040 - 0.355 0.027 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    16/11* 9/7                   Eq.: +0.437 (-0.182)
-       0.626 0.310 0.039 - 0.374 0.036 0.001
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP4";
+const probnum = "14";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-b-bCBBBCB-a----Abbbbb----:1:-1:1:52:0:0:3:0:10");
-var categoryid = "GP4";
-var probnum = "14";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

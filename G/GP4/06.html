@@ -12,91 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第32回(gma) - 問6</span>&ensp;
 <span>(GP4-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。52 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=95 White=155</div></div>
+      <div class="pipinfo">pips Black=95 White=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 52
-
-    1. ロールアウト¹     16/11 4/2                    eq:+0.496
-      プレーヤー: 68.50% (G:23.88% B:2.16%)
-      対戦相手:  31.50% (G:2.28% B:0.07%)
-      Confidence: ±0.005 (+0.491..+0.501) - [100.0%]
-      経過時間: 37.6 秒
-
-    2. ロールアウト¹     16/11 7/5                    eq:+0.416 (-0.079)
-      プレーヤー: 66.42% (G:23.57% B:1.90%)
-      対戦相手:  33.58% (G:4.29% B:0.18%)
-      Confidence: ±0.006 (+0.411..+0.422) - [0.0%]
-      経過時間: 34.2 秒
-
-    3. 1-ply       16/14 7/2                    eq:+0.293 (-0.203)
-      プレーヤー: 62.22% (G:23.13% B:2.24%)
-      対戦相手:  37.78% (G:4.32% B:0.14%)
-
-    4. 1-ply       7/2 4/2                      eq:+0.216 (-0.280)
-      プレーヤー: 59.41% (G:22.58% B:2.25%)
-      対戦相手:  40.59% (G:4.67% B:0.16%)
-
-    5. 1-ply       16/9                         eq:+0.210 (-0.286)
-      プレーヤー: 60.58% (G:21.56% B:1.73%)
-      対戦相手:  39.42% (G:6.51% B:0.19%)
-
-
-¹Truncated at 9 moves using 3-ply.
-   720 Games rolled with Variance Reduction.
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.01
+ <div class="description"><pre>
+1. 16/11 4/2   eq:+0.496            68.50% (G:23.88% B:2.16%)   31.50% (G:2.28% B:0.07%)
+2. 16/11 7/5   eq:+0.416 (-0.079)   66.42% (G:23.57% B:1.90%)   33.58% (G:4.29% B:0.18%)
+3. 16/14 7/2   eq:+0.293 (-0.203)   62.22% (G:23.13% B:2.24%)   37.78% (G:4.32% B:0.14%)
+4. 7/2 4/2     eq:+0.216 (-0.280)   59.41% (G:22.58% B:2.25%)   40.59% (G:4.67% B:0.16%)
+5. 16/9        eq:+0.210 (-0.286)   60.58% (G:21.56% B:1.73%)   39.42% (G:6.51% B:0.19%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/11 4/2                    Eq.: +0.475
-       0.672 0.247 0.019 - 0.328 0.023 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    16/11 7/5                    Eq.: +0.398 (-0.078)
-       0.652 0.240 0.018 - 0.348 0.045 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    16/14 7/2                    Eq.: +0.295 (-0.180)
-       0.607 0.228 0.027 - 0.393 0.038 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    16/11 6/4                    Eq.: +0.251 (-0.225)
-       0.603 0.218 0.027 - 0.397 0.065 0.002
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    7/2 6/4                      Eq.: +0.232 (-0.244)
-       0.583 0.229 0.028 - 0.417 0.049 0.001
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP4";
+const probnum = "06";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-bAbCBCCB---a---A-bbbbb---:1:-1:1:52:0:0:3:0:10");
-var categoryid = "GP4";
-var probnum = "06";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

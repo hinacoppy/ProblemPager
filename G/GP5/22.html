@@ -12,83 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第45回(gma) - 問7</span>&ensp;
 <span>(GP5-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。キューブアクションは？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=79 White=68</div></div>
+      <div class="pipinfo">pips Black=79 White=68</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X on roll, cube action
-
-Analyzed in ロールアウト
-ノーリダブル
+ <div class="description"><pre>
+No redouble
   Player Winning Chances:   75.01% (G:1.05% B:0.02%)
   Opponent Winning Chances: 24.99% (G:0.51% B:0.01%)
-リダブル/テイク
+Redouble/Take
   Player Winning Chances:   74.38% (G:1.00% B:0.01%)
   Opponent Winning Chances: 25.62% (G:0.48% B:0.01%)
-
-Cubeless Equities: No Double=+0.506, Double=+0.986
-
+Cubeless Equities: No double=+0.506, Double=+0.986
 Cubeful Equities:
-       ノーリダブル:    +0.786 (-0.049)
-       リダブル/テイク:  +0.835
-       リダブル/パス:   +1.000 (+0.165)
-
-ベストキューブアクション：リダブル / テイク
-
-ロールアウト:
- Truncated at 9 moves using 3-ply.
-  720 Games rolled with Variance Reduction.
-  First 9 moves and cube decisions: 3-ply
-  Remaining moves and cube decisions: 1-ply
-  Confidence No Double: ± 0.002 (+0.784..+0.788)
-  Confidence Double:    ± 0.006 (+0.829..+0.841)
-
-  Double Decision confidence: 100.0%
-  Take Decision confidence: 100.0%
-
-  経過時間: 5.4 秒
-
-eXtreme Gammon Version: 2.01
+   No redouble:    +0.786 (-0.049)
+   Redouble/Take:  +0.835
+   Redouble/Pass:  +1.000 (+0.165)
+Best Cube Action: Redouble / Take
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.531
-  0.764 0.010 0.000 - 0.236 0.006 0.000
-Cubeful equities:
-1. Double, take        +0.916
-2. Double, pass        +1.000  (+0.084)
-3. No double           +0.793  (-0.123)
-Proper cube action: Redouble, take
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP5";
+const probnum = "22";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=aBBBB-DA------B-----cccbc-:1:1:1:00:0:0:3:0:10");
-var categoryid = "GP5";
-var probnum = "22";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

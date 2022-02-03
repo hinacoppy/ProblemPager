@@ -12,89 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第37回(gma) - 問3</span>&ensp;
 <span>(GP4-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。21 はどう動かしますか？</div>
 <div class="gamesituation">0-0:9pt</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=105 White=103</div></div>
+      <div class="pipinfo">pips Black=105 White=103</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 21
-
-    1. Rollout¹    6/4* 5/4                     eq:+0.343
-      Player:   56.23% (G:8.54% B:0.20%)
-      Opponent: 43.77% (G:15.61% B:0.22%)
-      Confidence: ±0.009 (+0.334..+0.352) - [100.0%]
-      Duration: 1 minute 50 seconds
-
-    2. Rollout¹    13/10                        eq:+0.228 (-0.115)
-      Player:   52.09% (G:2.51% B:0.02%)
-      Opponent: 47.91% (G:3.73% B:0.07%)
-      Confidence: ±0.006 (+0.223..+0.234) - [0.0%]
-      Duration: 1 minute 20 seconds
-
-    3. 4-ply       6/3                          eq:+0.219 (-0.124)
-      Player:   51.93% (G:2.37% B:0.03%)
-      Opponent: 48.07% (G:3.41% B:0.03%)
-
-    4. 3-ply       3/2 3/1                      eq:+0.163 (-0.180)
-      Player:   49.86% (G:1.90% B:0.02%)
-      Opponent: 50.14% (G:2.88% B:0.04%)
-
-    5. 3-ply       5/2                          eq:+0.163 (-0.180)
-      Player:   49.99% (G:1.98% B:0.02%)
-      Opponent: 50.01% (G:3.27% B:0.04%)
-
-
-¹  1296 Games rolled with Variance Reduction.
-   Moves: 3-ply, cube decisions: XG Roller
-
-
-eXtreme Gammon Version: 2.10, MET: Kazaross XG2
+ <div class="description"><pre>
+1. 6/4* 5/4   eq:+0.343            56.23% (G:8.54% B:0.20%)   43.77% (G:15.61% B:0.22%)
+2. 13/10      eq:+0.228 (-0.115)   52.09% (G:2.51% B:0.02%)   47.91% (G: 3.73% B:0.07%)
+3. 6/3        eq:+0.219 (-0.124)   51.93% (G:2.37% B:0.03%)   48.07% (G: 3.41% B:0.03%)
+4. 3/2 3/1    eq:+0.163 (-0.180)   49.86% (G:1.90% B:0.02%)   50.14% (G: 2.88% B:0.04%)
+5. 5/2        eq:+0.163 (-0.180)   49.99% (G:1.98% B:0.02%)   50.01% (G: 3.27% B:0.04%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/4* 5/4                     Eq.: +0.289
-       0.554 0.093 0.002 - 0.446 0.152 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/10                        Eq.: +0.247 (-0.042)
-       0.535 0.044 0.001 - 0.465 0.052 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/3                          Eq.: +0.213 (-0.076)
-       0.521 0.037 0.000 - 0.479 0.046 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    3/2 3/1                      Eq.: +0.111 (-0.177)
-       0.479 0.029 0.000 - 0.521 0.038 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    5/2                          Eq.: +0.105 (-0.184)
-       0.478 0.029 0.000 - 0.522 0.044 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP4";
+const probnum = "28";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-A-BaCD---B-bC--a-abbbbb--:1:1:1:21:0:0:0:9:10");
-var categoryid = "GP4";
-var probnum = "28";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

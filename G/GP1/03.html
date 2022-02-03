@@ -8,86 +8,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GPS</title>
+<title>GMA</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第1回(gma) - 問5</span>&ensp;
 <span>(GP1-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。65 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=181 White=170</div></div>
+      <div class="pipinfo">pips Black=181 White=170</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 65
-
-    1. ロールアウト1     23/18 14/8                   eq:-0.196
-      プレーヤー: 45.93% (G:11.90% B:0.45%)
-      対戦相手:  54.07% (G:17.50% B:0.66%)
-      Confidence: ±0.006 (-0.203..-0.190) - [100.0%]
-      経過時間: 1 分 38 秒
-
-    2. ロールアウト1     24/18 23/18                  eq:-0.284 (-0.088)
-      プレーヤー: 44.67% (G:11.15% B:0.42%)
-      対戦相手:  55.33% (G:19.92% B:0.80%)
-      Confidence: ±0.007 (-0.291..-0.277) - [0.0%]
-      経過時間: 1 分 31 秒
-
-    3. ロールアウト1     24/18 13/8                   eq:-0.372 (-0.175)
-      プレーヤー: 42.32% (G:10.85% B:0.43%)
-      対戦相手:  57.68% (G:20.25% B:1.02%)
-      Confidence: ±0.007 (-0.378..-0.365) - [0.0%]
-      経過時間: 1 分 28 秒
-
-    4. ロールアウト1     18/13 14/8                   eq:-0.397 (-0.200)
-      プレーヤー: 41.02% (G:10.93% B:0.43%)
-      対戦相手:  58.98% (G:18.82% B:0.99%)
-      Confidence: ±0.006 (-0.403..-0.391) - [0.0%]
-      経過時間: 1 分 23 秒
+ <div class="description"><pre>
+1. 23/18 14/8    eq:-0.196            45.93% (G:11.90% B:0.45%)   54.07% (G:17.50% B:0.66%)
+2. 24/18 23/18   eq:-0.284 (-0.088)   44.67% (G:11.15% B:0.42%)   55.33% (G:19.92% B:0.80%)
+3. 24/18 13/8    eq:-0.372 (-0.175)   42.32% (G:10.85% B:0.43%)   57.68% (G:20.25% B:1.02%)
+4. 18/13 14/8    eq:-0.397 (-0.200)   41.02% (G:10.93% B:0.43%)   58.98% (G:18.82% B:0.99%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/18 14/8                   Eq.: -0.120
-       0.475 0.121 0.004 - 0.525 0.165 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/18 23/18                  Eq.: -0.180 (-0.061)
-       0.464 0.116 0.005 - 0.536 0.189 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    24/18 13/8                   Eq.: -0.325 (-0.206)
-       0.421 0.106 0.004 - 0.579 0.201 0.014
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    24/18 14/9                   Eq.: -0.338 (-0.219)
-       0.419 0.104 0.004 - 0.581 0.207 0.014
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    18/13 14/8                   Eq.: -0.404 (-0.285)
-       0.394 0.094 0.004 - 0.606 0.190 0.013
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP1";
+const probnum = "03";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-a-Bb-CbB---bCA--bAb-bbBA-:0:0:1:65:0:0:3:0:10");
-var categoryid = "GP1";
-var probnum = "03";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

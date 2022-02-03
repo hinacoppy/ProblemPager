@@ -8,100 +8,57 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GMA</title>
+<title>GPS</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第12回(gps) - 問6</span>&ensp;
 <span>(GP7-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。41 はどう動かしますか？</div>
 <div class="gamesituation">4-4:5pt</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=137 White=101</div></div>
+      <div class="pipinfo">pips Black=137 White=101</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 41
-
-    1. Rollout¹    9/4*                         eq:-0.041
-      Player:   47.96% (G:7.95% B:0.32%)
-      Opponent: 52.04% (G:28.16% B:3.91%)
-      Confidence: ±0.004 (-0.045..-0.037) - [100.0%]
-      Duration: 1 minute 05 seconds
-
-    2. Rollout¹    8/4* 4/3                     eq:-0.083 (-0.042)
-      Player:   45.84% (G:8.77% B:0.36%)
-      Opponent: 54.16% (G:22.24% B:1.95%)
-      Confidence: ±0.004 (-0.087..-0.079) - [0.0%]
-      Duration: 1 minute 12 seconds
-
-    3. Rollout¹    9/8 7/3                      eq:-0.181 (-0.140)
-      Player:   40.95% (G:6.93% B:0.29%)
-      Opponent: 59.05% (G:21.85% B:1.60%)
-      Confidence: ±0.004 (-0.185..-0.177) - [0.0%]
-      Duration: 1 minute 22 seconds
-
-    4. Rollout¹    9/5 7/6                      eq:-0.199 (-0.158)
-      Player:   40.06% (G:6.66% B:0.28%)
-      Opponent: 59.94% (G:21.44% B:2.11%)
-      Confidence: ±0.004 (-0.203..-0.195) - [0.0%]
-      Duration: 1 minute 14 seconds
-
-    5. XG Roller+  9/5 3/2                      eq:-0.246 (-0.205)
-      Player:   37.70% (G:5.34% B:0.22%)
-      Opponent: 62.30% (G:23.14% B:1.84%)
-
-
-¹Truncated at 9 moves using 3-ply.
-   720 Games rolled with Variance Reduction.
-   Dice Seed: 48453166
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.03, MET: Kazaross XG2
+ <div class="description"><pre>
+1. 9/4*       eq:-0.041            47.96% (G:7.95% B:0.32%)   52.04% (G:28.16% B:3.91%)
+2. 8/4* 4/3   eq:-0.083 (-0.042)   45.84% (G:8.77% B:0.36%)   54.16% (G:22.24% B:1.95%)
+3. 9/8 7/3    eq:-0.181 (-0.140)   40.95% (G:6.93% B:0.29%)   59.05% (G:21.85% B:1.60%)
+4. 9/5 7/6    eq:-0.199 (-0.158)   40.06% (G:6.66% B:0.28%)   59.94% (G:21.44% B:2.11%)
+5. 9/5 3/2    eq:-0.246 (-0.205)   37.70% (G:5.34% B:0.22%)   62.30% (G:23.14% B:1.84%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/4*                         Eq.: -0.039
-       0.480 0.081 0.003 - 0.520 0.270 0.032
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/4*/3                       Eq.: -0.090 (-0.051)
-       0.455 0.094 0.004 - 0.545 0.212 0.016
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    9/5 7/6                      Eq.: -0.261 (-0.222)
-       0.369 0.069 0.002 - 0.631 0.177 0.011
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    9/8 7/3                      Eq.: -0.262 (-0.223)
-       0.369 0.064 0.002 - 0.631 0.181 0.008
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/4* 7/6                     Eq.: -0.267 (-0.227)
-       0.367 0.061 0.002 - 0.633 0.360 0.063
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP7";
+const probnum = "09";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=---AaBBCBC----b-a--ccc-bB-:0:0:1:41:4:4:0:5:6");
-var categoryid = "GP7";
-var probnum = "09";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

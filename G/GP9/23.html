@@ -12,86 +12,52 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第35回(gps) - 問5</span>&ensp;
 <span>(GP9-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。62 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=214 White=133</div></div>
+      <div class="pipinfo">pips Black=214 White=133</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 62
-
-    1. ロールアウト¹     Bar/23 24/18                 eq:-0.507
-      プレーヤー: 36.33% (G:2.36% B:0.10%)
-      対戦相手:  63.67% (G:34.23% B:7.79%)
-      Confidence: ±0.019 (-0.526..-0.488) - [100.0%]
-      経過時間: 2 分 13 秒
-
-    2. ロールアウト¹     Bar/23 13/7                  eq:-0.585 (-0.078)
-      プレーヤー: 34.05% (G:2.54% B:0.13%)
-      対戦相手:  65.95% (G:37.37% B:8.12%)
-      Confidence: ±0.021 (-0.605..-0.564) - [0.0%]
-      経過時間: 2 分 02 秒
-
-    3. ロールアウト¹     Bar/17*                      eq:-0.668 (-0.162)
-      プレーヤー: 31.16% (G:3.88% B:0.20%)
-      対戦相手:  68.84% (G:38.84% B:7.64%)
-      Confidence: ±0.019 (-0.687..-0.649) - [0.0%]
-      経過時間: 2 分 20 秒
-
-    4. ロールアウト¹     Bar/23 8/2                   eq:-0.693 (-0.186)
-      プレーヤー: 30.60% (G:1.95% B:0.11%)
-      対戦相手:  69.40% (G:38.42% B:8.62%)
-      Confidence: ±0.020 (-0.713..-0.673) - [0.0%]
-      経過時間: 2 分 11 秒
-
-
-¹  720 Games rolled with Variance Reduction.
-   Moves: 3-ply, cube decisions: XG Roller
-
-
-eXtreme Gammon Version: 2.10
+ <div class="description"><pre>
+1. Bar/23 24/18   eq:-0.507            36.33% (G:2.36% B:0.10%)   63.67% (G:34.23% B:7.79%)
+2. Bar/23 13/7    eq:-0.585 (-0.078)   34.05% (G:2.54% B:0.13%)   65.95% (G:37.37% B:8.12%)
+3. Bar/17*        eq:-0.668 (-0.162)   31.16% (G:3.88% B:0.20%)   68.84% (G:38.84% B:7.64%)
+4. Bar/23 8/2     eq:-0.693 (-0.186)   30.60% (G:1.95% B:0.11%)   69.40% (G:38.42% B:8.62%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 13/7                  Eq.: -0.782
-       0.322 0.030 0.001 - 0.678 0.434 0.132
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/23 24/18                 Eq.: -0.797 (-0.015)
-       0.318 0.028 0.000 - 0.682 0.440 0.129
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/17*                      Eq.: -0.798 (-0.016)
-       0.295 0.042 0.001 - 0.705 0.431 0.101
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/23 8/2                   Eq.: -1.011 (-0.230)
-       0.285 0.026 0.000 - 0.715 0.513 0.191
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP9";
+const probnum = "23";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-a----C-C---eD---a-bbbbACA:1:1:1:62:1:2:3:0:10");
-var categoryid = "GP9";
-var probnum = "23";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

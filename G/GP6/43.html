@@ -8,92 +8,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GMA</title>
+<title>GPS</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第9回(gps) - 問5</span>&ensp;
 <span>(GP6-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。53 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=163 White=153</div></div>
+      <div class="pipinfo">pips Black=163 White=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 53
-
-    1. ロールアウト¹     Bar/20 24/21                 eq:-0.311
-      プレーヤー: 43.40% (G:10.09% B:0.41%)
-      対戦相手:  56.60% (G:18.79% B:0.63%)
-      Confidence: ±0.005 (-0.317..-0.306) - [100.0%]
-      経過時間: 42.2 秒
-
-    2. ロールアウト¹     Bar/20 13/10                 eq:-0.365 (-0.054)
-      プレーヤー: 42.10% (G:10.28% B:0.39%)
-      対戦相手:  57.90% (G:18.84% B:0.94%)
-      Confidence: ±0.005 (-0.370..-0.360) - [0.0%]
-      経過時間: 43.0 秒
-
-    3. ロールアウト¹     Bar/20 8/5                   eq:-0.443 (-0.132)
-      プレーヤー: 40.72% (G:9.47% B:0.35%)
-      対戦相手:  59.28% (G:20.79% B:1.15%)
-      Confidence: ±0.005 (-0.448..-0.438) - [0.0%]
-      経過時間: 41.9 秒
-
-    4. ロールアウト¹     Bar/20 6/3                   eq:-0.460 (-0.148)
-      プレーヤー: 40.72% (G:9.28% B:0.38%)
-      対戦相手:  59.28% (G:21.74% B:1.14%)
-      Confidence: ±0.006 (-0.466..-0.453) - [0.0%]
-      経過時間: 39.7 秒
-
-
-¹Truncated at 9 moves using 3-ply.
-   360 Games rolled with Variance Reduction.
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.01
+ <div class="description"><pre>
+1. Bar/20 24/21   eq:-0.311            43.40% (G:10.09% B:0.41%)   56.60% (G:18.79% B:0.63%)
+2. Bar/20 13/10   eq:-0.365 (-0.054)   42.10% (G:10.28% B:0.39%)   57.90% (G:18.84% B:0.94%)
+3. Bar/20 8/5     eq:-0.443 (-0.132)   40.72% (G: 9.47% B:0.35%)   59.28% (G:20.79% B:1.15%)
+4. Bar/20 6/3     eq:-0.460 (-0.148)   40.72% (G: 9.28% B:0.38%)   59.28% (G:21.74% B:1.14%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 24/21                 Eq.: -0.314
-       0.435 0.104 0.005 - 0.565 0.194 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20 13/10                 Eq.: -0.342 (-0.027)
-       0.425 0.107 0.005 - 0.575 0.190 0.010
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/20 8/5                   Eq.: -0.433 (-0.118)
-       0.406 0.095 0.004 - 0.594 0.205 0.013
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/20 6/3                   Eq.: -0.437 (-0.123)
-       0.407 0.093 0.004 - 0.593 0.210 0.012
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP6";
+const probnum = "43";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-aa---E-D---dD---c-d--b-AA:0:0:1:53:0:0:0:0:6");
-var categoryid = "GP6";
-var probnum = "43";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

@@ -8,85 +8,57 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GMA</title>
+<title>GPS</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第14回(gps) - 問6</span>&ensp;
 <span>(GP7-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。31 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=141 White=191</div></div>
+      <div class="pipinfo">pips Black=141 White=191</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 31
-
-    1. XG Roller+  Bar/24 21/18*                eq:+0.694
-      Player:   61.89% (G:35.38% B:6.63%)
-      Opponent: 38.11% (G:7.18% B:0.37%)
-
-    2. XG Roller+  Bar/24 6/3*                  eq:+0.649 (-0.045)
-      Player:   62.26% (G:36.69% B:7.26%)
-      Opponent: 37.74% (G:9.22% B:0.61%)
-
-    3. XG Roller+  Bar/21                       eq:+0.569 (-0.126)
-      Player:   58.19% (G:30.45% B:4.57%)
-      Opponent: 41.81% (G:8.97% B:0.39%)
-
-    4. XG Roller+  Bar/22 8/7                   eq:+0.488 (-0.207)
-      Player:   56.41% (G:28.65% B:4.21%)
-      Opponent: 43.59% (G:9.24% B:0.44%)
-
-    5. XG Roller+  Bar/22 6/5                   eq:+0.440 (-0.255)
-      Player:   55.75% (G:28.32% B:4.37%)
-      Opponent: 44.25% (G:10.80% B:0.59%)
-
-
-eXtreme Gammon Version: 2.03
+ <div class="description"><pre>
+1. Bar/24 21/18*   eq:+0.694            61.89% (G:35.38% B:6.63%)   38.11% (G: 7.18% B:0.37%)
+2. Bar/24 6/3*     eq:+0.649 (-0.045)   62.26% (G:36.69% B:7.26%)   37.74% (G: 9.22% B:0.61%)
+3. Bar/21          eq:+0.569 (-0.126)   58.19% (G:30.45% B:4.57%)   41.81% (G: 8.97% B:0.39%)
+4. Bar/22 8/7      eq:+0.488 (-0.207)   56.41% (G:28.65% B:4.21%)   43.59% (G: 9.24% B:0.44%)
+5. Bar/22 6/5      eq:+0.440 (-0.255)   55.75% (G:28.32% B:4.37%)   44.25% (G:10.80% B:0.59%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 21/18*                Eq.: +0.715
-       0.619 0.379 0.087 - 0.381 0.066 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/24 6/3*                  Eq.: +0.670 (-0.046)
-       0.636 0.393 0.096 - 0.364 0.083 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    bar/21                       Eq.: +0.450 (-0.266)
-       0.575 0.296 0.042 - 0.425 0.080 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/22 6/5                   Eq.: +0.383 (-0.332)
-       0.553 0.305 0.052 - 0.447 0.099 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/22 8/7                   Eq.: +0.379 (-0.336)
-       0.548 0.305 0.052 - 0.452 0.089 0.003
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP7";
+const probnum = "19";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-c-aBBDCA---d----babbA--AA:0:0:1:31:0:0:3:0:10");
-var categoryid = "GP7";
-var probnum = "19";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

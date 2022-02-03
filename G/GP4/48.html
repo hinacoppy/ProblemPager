@@ -12,91 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第41回(gma) - 問3</span>&ensp;
 <span>(GP4-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。31 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=143 White=159</div></div>
+      <div class="pipinfo">pips Black=143 White=159</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 31
-
-    1. ロールアウト¹     Bar/24 6/3                   eq:+0.208
-      プレーヤー: 54.21% (G:17.33% B:1.17%)
-      対戦相手:  45.79% (G:11.88% B:0.45%)
-      Confidence: ±0.007 (+0.201..+0.215) - [100.0%]
-      経過時間: 1 分 20 秒
-
-    2. ロールアウト¹     Bar/21*                      eq:+0.094 (-0.114)
-      プレーヤー: 50.98% (G:16.84% B:1.30%)
-      対戦相手:  49.02% (G:12.64% B:0.57%)
-      Confidence: ±0.006 (+0.088..+0.100) - [0.0%]
-      経過時間: 1 分 25 秒
-
-    3. 1-ply       Bar/22 9/8                   eq:-0.112 (-0.320)
-      プレーヤー: 47.41% (G:12.52% B:0.68%)
-      対戦相手:  52.59% (G:16.40% B:0.65%)
-
-    4. 1-ply       Bar/24 13/10                 eq:-0.135 (-0.344)
-      プレーヤー: 46.48% (G:13.92% B:0.87%)
-      対戦相手:  53.52% (G:17.07% B:1.14%)
-
-    5. 1-ply       Bar/24 9/6                   eq:-0.152 (-0.360)
-      プレーヤー: 45.96% (G:12.38% B:0.61%)
-      対戦相手:  54.04% (G:15.84% B:0.68%)
-
-
-¹Truncated at 9 moves using 3-ply.
-   720 Games rolled with Variance Reduction.
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.01
+ <div class="description"><pre>
+1. Bar/24 6/3     eq:+0.208            54.21% (G:17.33% B:1.17%)   45.79% (G:11.88% B:0.45%)
+2. Bar/21*        eq:+0.094 (-0.114)   50.98% (G:16.84% B:1.30%)   49.02% (G:12.64% B:0.57%)
+3. Bar/22 9/8     eq:-0.112 (-0.320)   47.41% (G:12.52% B:0.68%)   52.59% (G:16.40% B:0.65%)
+4. Bar/24 13/10   eq:-0.135 (-0.344)   46.48% (G:13.92% B:0.87%)   53.52% (G:17.07% B:1.14%)
+5. Bar/24 9/6     eq:-0.152 (-0.360)   45.96% (G:12.38% B:0.61%)   54.04% (G:15.84% B:0.68%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 6/3                   Eq.: +0.190
-       0.550 0.168 0.010 - 0.450 0.123 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/21*                      Eq.: +0.103 (-0.087)
-       0.520 0.167 0.013 - 0.480 0.126 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    bar/22 9/8                   Eq.: -0.096 (-0.287)
-       0.479 0.130 0.007 - 0.521 0.170 0.006
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/24 13/10                 Eq.: -0.134 (-0.324)
-       0.467 0.139 0.009 - 0.533 0.179 0.012
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/24 9/6                   Eq.: -0.137 (-0.327)
-       0.464 0.129 0.007 - 0.536 0.166 0.006
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP4";
+const probnum = "48";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-b-A--E-CA--cD-b-c-d-a---A:0:0:1:31:0:0:3:0:10");
-var categoryid = "GP4";
-var probnum = "48";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

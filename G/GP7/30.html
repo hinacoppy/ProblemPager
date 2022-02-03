@@ -8,93 +8,57 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GMA</title>
+<title>GPS</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第16回(gps) - 問7</span>&ensp;
 <span>(GP7-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。33 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=160 White=155</div></div>
+      <div class="pipinfo">pips Black=160 White=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 33
-
-    1. ロールアウト¹     Bar/22 24/21 6/3*(2)         eq:+0.293
-      プレーヤー: 56.70% (G:17.63% B:1.17%)
-      対戦相手:  43.30% (G:11.57% B:0.52%)
-      Confidence: ±0.020 (+0.273..+0.312) - [96.9%]
-      経過時間: 5 分 47 秒
-
-    2. ロールアウト¹     Bar/22 13/10 6/3*(2)         eq:+0.264 (-0.029)
-      プレーヤー: 55.30% (G:19.57% B:1.13%)
-      対戦相手:  44.70% (G:12.19% B:0.64%)
-      Confidence: ±0.023 (+0.241..+0.287) - [3.1%]
-      経過時間: 5 分 27 秒
-
-    3. 3-ply       Bar/22 9/3* 6/3              eq:+0.149 (-0.143)
-      プレーヤー: 53.04% (G:17.68% B:0.95%)
-      対戦相手:  46.96% (G:12.04% B:0.59%)
-
-    4. 3-ply       Bar/22 8/5(2) 6/3*           eq:+0.112 (-0.181)
-      プレーヤー: 52.30% (G:18.17% B:1.03%)
-      対戦相手:  47.70% (G:14.43% B:0.92%)
-
-    5. 2-ply       Bar/22 8/5 6/3*(2)           eq:+0.098 (-0.195)
-      プレーヤー: 51.56% (G:16.35% B:0.90%)
-      対戦相手:  48.44% (G:12.83% B:0.64%)
-
-
-¹  720 Games rolled with Variance Reduction.
-   Moves: 3-ply, cube decisions: XG Roller
-
-
-eXtreme Gammon Version: 2.10
+ <div class="description"><pre>
+1. Bar/22 24/21 6/3*(2)   eq:+0.293            56.70% (G:17.63% B:1.17%)   43.30% (G:11.57% B:0.52%)
+2. Bar/22 13/10 6/3*(2)   eq:+0.264 (-0.029)   55.30% (G:19.57% B:1.13%)   44.70% (G:12.19% B:0.64%)
+3. Bar/22 9/3* 6/3        eq:+0.149 (-0.143)   53.04% (G:17.68% B:0.95%)   46.96% (G:12.04% B:0.59%)
+4. Bar/22 8/5(2) 6/3*     eq:+0.112 (-0.181)   52.30% (G:18.17% B:1.03%)   47.70% (G:14.43% B:0.92%)
+5. Bar/22 8/5 6/3*(2)     eq:+0.098 (-0.195)   51.56% (G:16.35% B:0.90%)   48.44% (G:12.83% B:0.64%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 24/21 6/3*(2)         Eq.: +0.284
-       0.569 0.177 0.011 - 0.431 0.110 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/22 13/10 6/3*(2)         Eq.: +0.259 (-0.025)
-       0.560 0.190 0.011 - 0.440 0.116 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/22 9/3* 6/3              Eq.: +0.145 (-0.139)
-       0.530 0.182 0.010 - 0.470 0.126 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/22 8/5(2) 6/3*           Eq.: +0.119 (-0.165)
-       0.523 0.187 0.012 - 0.477 0.145 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/22 8/5 6/3*(2)           Eq.: +0.098 (-0.186)
-       0.519 0.163 0.010 - 0.481 0.135 0.007
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP7";
+const probnum = "30";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-a-a--E-CB--cC-a-bbe----AA:0:0:1:33:0:0:3:0:10");
-var categoryid = "GP7";
-var probnum = "30";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

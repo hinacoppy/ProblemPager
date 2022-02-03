@@ -8,85 +8,64 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GPS</title>
+<title>GMA</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第3回(gma) - 問5</span>&ensp;
 <span>(GP1-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。キューブアクションは？</div>
 <div class="gamesituation">0-0:5pt</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=164 White=114</div></div>
+      <div class="pipinfo">pips Black=164 White=114</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X on roll, cube action
-
-Analyzed in Rollout
+ <div class="description"><pre>
 No double
   Player Winning Chances:   68.58% (G:23.14% B:1.17%)
-  Opponent Winning Chances: 31.42% (G:9.60% B:0.52%)
+  Opponent Winning Chances: 31.42% (G: 9.60% B:0.52%)
 Double/Take
   Player Winning Chances:   68.41% (G:23.26% B:1.40%)
   Opponent Winning Chances: 31.59% (G:10.13% B:0.77%)
-
-Cubeless Equities: No Double=+0.503, Double=+1.045
-
+Cubeless Equities: No double=+0.503, Double=+1.045
 Cubeful Equities:
-       No double:     +0.717 (-0.137)
-       Double/Take:   +0.854
-       Double/Pass:   +1.000 (+0.146)
-
+   No double:     +0.717 (-0.137)
+   Double/Take:   +0.854
+   Double/Pass:   +1.000 (+0.146)
 Best Cube action: Double / Take
-
-Rollout:
-  1296 Games rolled with Variance Reduction.
-  Moves and cube decisions: 1-ply
-  Confidence No Double: ± 0.020 (+0.697..+0.737)
-  Confidence Double:    ± 0.028 (+0.825..+0.882)
-
-  Double Decision confidence: 100.0%
-  Take Decision confidence: 100.0%
-
-  Duration: 44.8 seconds
-
-eXtreme Gammon Version: 2.01, MET: Rockwell-Kazaross
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.476 (Money: +0.484)
-  0.672 0.231 0.014 - 0.328 0.102 0.003
-Cubeful equities:
-1. Double, take        +0.783
-2. Double, pass        +1.000  (+0.217)
-3. No double           +0.664  (-0.119)
-Proper cube action: Double, take
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP1";
+const probnum = "15";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=---aCBB-B----Ba-af-bB-dA-A:0:0:1:00:0:0:0:5:10");
-var categoryid = "GP1";
-var probnum = "15";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

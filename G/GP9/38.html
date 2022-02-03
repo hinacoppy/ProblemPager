@@ -12,92 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第38回(gps) - 問5</span>&ensp;
 <span>(GP9-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。21 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=144 White=180</div></div>
+      <div class="pipinfo">pips Black=144 White=180</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 21
-
-    1. Rollout¹    7/5* 6/5                     eq:+0.116
-      Player:   50.44% (G:21.42% B:1.96%)
-      Opponent: 49.56% (G:14.48% B:0.86%)
-      Confidence: ±0.011 (+0.106..+0.127) - [100.0%]
-      Duration: 30.9 seconds
-
-    2. Rollout¹    24/22 6/5*                   eq:+0.008 (-0.109)
-      Player:   49.07% (G:17.29% B:1.46%)
-      Opponent: 50.93% (G:15.02% B:0.72%)
-      Confidence: ±0.009 (-0.001..+0.017) - [0.0%]
-      Duration: 34.4 seconds
-
-    3. XG Roller+  6/5* 5/3                     eq:-0.163 (-0.279)
-      Player:   44.58% (G:16.28% B:1.31%)
-      Opponent: 55.42% (G:15.78% B:0.77%)
-
-    4. XG Roller+  9/8 9/7                      eq:-0.213 (-0.330)
-      Player:   43.59% (G:14.74% B:0.83%)
-      Opponent: 56.41% (G:15.63% B:0.68%)
-
-    5. XG Roller+  24/22 9/8                    eq:-0.241 (-0.357)
-      Player:   43.41% (G:13.88% B:0.90%)
-      Opponent: 56.59% (G:16.47% B:0.77%)
-
-
-¹Truncated at 9 moves using 3-ply.
-   720 Games rolled with Variance Reduction.
-   Dice Seed: 12209672
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.10
+ <div class="description"><pre>
+1. 7/5* 6/5     eq:+0.116            50.44% (G:21.42% B:1.96%)   49.56% (G:14.48% B:0.86%)
+2. 24/22 6/5*   eq:+0.008 (-0.109)   49.07% (G:17.29% B:1.46%)   50.93% (G:15.02% B:0.72%)
+3. 6/5* 5/3     eq:-0.163 (-0.279)   44.58% (G:16.28% B:1.31%)   55.42% (G:15.78% B:0.77%)
+4. 9/8 9/7      eq:-0.213 (-0.330)   43.59% (G:14.74% B:0.83%)   56.41% (G:15.63% B:0.68%)
+5. 24/22 9/8    eq:-0.241 (-0.357)   43.41% (G:13.88% B:0.90%)   56.59% (G:16.47% B:0.77%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5* 6/5                     Eq.: +0.126
-       0.513 0.218 0.023 - 0.487 0.142 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/22 6/5*                   Eq.: +0.063 (-0.062)
-       0.506 0.179 0.016 - 0.494 0.146 0.008
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/5*/3                       Eq.: -0.052 (-0.177)
-       0.468 0.185 0.017 - 0.532 0.148 0.008
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    13/11 6/5*                   Eq.: -0.119 (-0.244)
-       0.468 0.176 0.017 - 0.532 0.194 0.026
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    24/22 9/8                    Eq.: -0.133 (-0.259)
-       0.456 0.142 0.011 - 0.544 0.151 0.008
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP9";
+const probnum = "38";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-b-BbaCBBB--bB----bbbbA-A-:0:0:1:21:0:0:3:0:10");
-var categoryid = "GP9";
-var probnum = "38";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>

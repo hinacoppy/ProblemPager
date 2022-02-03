@@ -8,92 +8,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgBoard.css">
-<title>GPS</title>
+<title>GMA</title>
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">第10回(gma) - 問7</span>&ensp;
 <span>(GP2-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の手番です。62 はどう動かしますか？</div>
 <div class="gamesituation">Unlimited</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=71 White=91</div></div>
+      <div class="pipinfo">pips Black=71 White=91</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><pre>X to play 62
-
-    1. ロールアウト1     13/5*                        eq:+0.024
-      プレーヤー: 40.52% (G:9.98% B:0.10%)
-      対戦相手:  59.48% (G:13.95% B:0.20%)
-      Confidence: ±0.017 (+0.007..+0.041) - [25.0%]
-      経過時間: 42.0 秒
-
-    2. ロールアウト1     13/7 3/1                     eq:-0.280 (-0.304)
-      プレーヤー: 39.62% (G:0.79% B:0.00%)
-      対戦相手:  60.38% (G:11.36% B:0.14%)
-      Confidence: ±0.012 (-0.291..-0.268) - [25.0%]
-      経過時間: 48.8 秒
-
-    3. ロールアウト1     13/7 6/4                     eq:-1.000 (-1.024)
-      プレーヤー: 24.47% (G:0.41% B:0.00%)
-      対戦相手:  75.53% (G:28.56% B:0.43%)
-      Confidence: ±0.000 (-1.000..-1.000) - [25.0%]
-      経過時間: 27.0 秒
-
-    4. ロールアウト1     13/11 13/7                   eq:-1.000 (-1.024)
-      プレーヤー: 3.08% (G:0.00% B:0.00%)
-      対戦相手:  96.92% (G:59.36% B:3.71%)
-      Confidence: ±0.000 (-1.000..-1.000) - [25.0%]
-      経過時間: 8.3 秒
-
-
-1Truncated at 9 moves using 3-ply.
-   720 Games rolled with Variance Reduction.
-   First 9 moves and cube decisions: 3-ply
-   Remaining moves and cube decisions: 1-ply
-
-
-eXtreme Gammon Version: 2.01
+ <div class="description"><pre>
+1. 13/5*        eq:+0.024            40.52% (G:9.98% B:0.10%)   59.48% (G:13.95% B:0.20%)
+2. 13/7 3/1     eq:-0.280 (-0.304)   39.62% (G:0.79% B:0.00%)   60.38% (G:11.36% B:0.14%)
+3. 13/7 6/4     eq:-1.000 (-1.024)   24.47% (G:0.41% B:0.00%)   75.53% (G:28.56% B:0.43%)
+4. 13/11 13/7   eq:-1.000 (-1.024)    3.08% (G:0.00% B:0.00%)   96.92% (G:59.36% B:3.71%)
 </pre>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/5*                        Eq.: -0.153
-       0.417 0.085 0.001 - 0.583 0.144 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/7 3/1                     Eq.: -0.304 (-0.150)
-       0.409 0.011 0.000 - 0.591 0.116 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    13/7 6/4                     Eq.: -1.000 (-0.847)
-       0.224 0.015 0.000 - 0.776 0.299 0.010
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    13/11 13/7                   Eq.: -1.000 (-0.847)
-       0.103 0.013 0.000 - 0.897 0.512 0.036
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle6", "cw");
+const categoryid = "GP2";
+const probnum = "02";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle6", "cw");
 board.showBoard("XGID=-CDC-aB--a--aC-----bbbbbb-:0:0:1:62:0:0:3:0:10");
-var categoryid = "GP2";
-var probnum = "02";
-var showpipflg = false;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/quizpager.js"></script>
 </body>
 </html>
