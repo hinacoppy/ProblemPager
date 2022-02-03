@@ -1,5 +1,5 @@
-// bgquiz.js
-// include from bgquiz html (/B/{CAT}/{NUM}.html)
+// keeaepager.js
+// include from problempager html (ProblemPager/[C]/{CAT}/{NUM}.html)
 'use strict';
 
 //回答、解説を最初は非表示にする
@@ -72,7 +72,7 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  const errscore = get_errscore(descout);
+  const errscore = get_errscore(deschtml);
   calc_next_score(errscore);
   $("#scr").text(getScoreStr());
 
@@ -101,23 +101,36 @@ function is_cubeaction(deschtml) {
 
 function mark_choiced(deschtml) {
   const choice = $('[name=uchoice]:checked').val();
-//  const choice2 = is_cubeaction(deschtml) ? choice + ":" : choice;
-  const descout = deschtml.replace(choice, '<input type="radio" checked>' + choice + "·"); //mark choiced
+  let descout = "";
+  for (const line of deschtml.split("\n")) {
+    if (line.indexOf(choice) !== -1 && line.match(/eq/i) != null) {
+      const line2 = line.slice(0, -1 * "<br>".length); //delete <br>
+      descout += line2 + "★" + "<br>\n"; //insert ★ before <br>
+    } else {
+      descout += line + "\n";
+    }
+  }
   return descout;
 }
 
 function get_errscore(deschtml) {
-  const temp1 = deschtml.indexOf("·"); //マークを基準に eq を抽出
-  const temp2 = deschtml.indexOf("</tr>", temp1);
-  const temp3 = deschtml.substr(temp1, temp2 - temp1);
-  const temp  = temp3.indexOf("(");
+  const choice = $('[name=uchoice]:checked').val();
+
+  let scstr;
+  for (const line of deschtml.split("\n")) {
+    if (line.indexOf(choice) !== -1 && line.match(/eq/i) != null) {
+      const regex = cubeactionflg ? new RegExp("\\((.+?)\\)", "i") : new RegExp("eq.*? \\((.+?)\\)", "i");
+      scstr = line.match(regex); //ex. (-0.123) -> -0.123
+      break;
+    }
+  }
 
   let eq = 0;
-  if (temp > 1){ //最善手でないとき
-    eq = parseFloat(temp3.substr(temp +2, 5));
-    if (Number.isNaN(eq)) { alert(eq); return 0; }
+  if (scstr != null){ //キューブアクションで最善手でない or チェッカーアクションのとき
+    eq = parseFloat(scstr[1]); //"-0.123" -> -0.123
+    if (Number.isNaN(eq)) { eq = 0; } //チェッカーアクションで最善手のとき (ex. G:10.97% B:0.42%)
   }
-  eq = Math.trunc(eq * 1000); //eqを千倍して整数化
+  eq = Math.trunc(Math.abs(eq) * 1000); //eqを千倍して整数化
   return eq;
 }
 
@@ -132,18 +145,14 @@ function make_answerlist(deschtml) {
       }
     }
   } else {
-    for (const str of deschtml.split("<table")) {
-      if (str.indexOf("eq:") > 1) {
-        for (const tr of str.split("<tr style")) {
-          if (tr.indexOf("eq:") > 1) {
-            const td = tr.split("<td style");
-            const temp1 = td[3].substr(td[3].indexOf(">") +1, td[3].indexOf(">") +5);
-            const temp2 = temp1.substr(0, temp1.length -5);
-            if (!answers.includes(temp2)) {
-              answers.push(temp2);
-            }
-          }
-        }
+    for (const line of deschtml.split("\n")) {
+      if (line.indexOf("<pre>   +24-23-22-21-20-19-") !== -1) { //解説に複数ポジションがある場合は、最初の解析結果のみを使う
+        break;
+      }
+      const movestrregx = line.match(/\d\. (.+) eq/i); //ex. 2. 8/6 8/3    eq: +0.156 (-0.094) ... -> 8/6 8/3
+      if (movestrregx != null) {
+        const movstr = movestrregx[1].trim();
+        answers.push(movstr);
       }
     }
     answers = sort_answerlist(answers);
