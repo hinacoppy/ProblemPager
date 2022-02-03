@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 <style>
 body{
   background: #efe;
@@ -25,7 +25,7 @@ button{
 
 <!-- scripts -->
 <script src="/js/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script>
 'use strict';
 
@@ -62,7 +62,7 @@ $('#historylist').DataTable(dtSetting);
 
 $('#deletebtn').on('click', () => {
   $('input[name="check"]:checked').each( (idx, elem) => {
-    const [date, categoryid] = $(elem).val().split(":");
+    const [date, categoryid] = $(elem).val().split("%");
     exampager = exampager.filter( (d) => !(d.date == date && d.categoryid == categoryid) );
     //選択行を削除して(選択行以外のデータで)データを再作成
   });
@@ -72,85 +72,64 @@ $('#deletebtn').on('click', () => {
 });
 
 function makeCheckbox(data, type, row, meta) {
-  const val = row.date + ":" + row.categoryid;
+  const val = row.date + "%" + row.categoryid;
   return "<input type='checkbox' name='check' value='" + val + "'>";
 }
 
 function getTitle(data, type, row, meta) {
   const titlelist = {
-    E11: "バックギャモン検定 2011",
-    E12: "バックギャモン検定 2012",
-    E13: "バックギャモン検定 2013",
-    E14: "バックギャモン検定 2014",
-    E15: "バックギャモン検定 2015",
-    E16: "バックギャモン検定 2016",
-    E17: "バックギャモン検定 2017",
-    E18: "バックギャモン検定 2018",
-    E19: "バックギャモン検定 2019",
-    BQ1: "Problem of Week 1",
-    BQ2: "Problem of Week 2",
-    BQ3: "Problem of Week 3",
-    BQ4: "Problem of Week 4",
-    BQ5: "Problem of Week 5",
-    BQ6: "Problem of Week 6",
-    BQ7: "Problem of Week 7",
-    BQ8: "Human vs XG 1",
-    BQ9: "Human vs XG 2",
-    BQa: "Human vs XG 3",
-    BQb: "Human vs XG 4",
-    BQc: "Human vs XG 5",
-    BQd: "Money Move 1",
-    BQe: "Money Move 2",
-    BQf: "Money Move 3",
-    BQg: "Money Move 4",
-    BQh: "Money Move 5",
-    BQi: "Money Move 6",
-    BQj: "Money Move 7",
-    BQk: "Money Move 8",
-    BQl: "Money Move 9",
-    BQm: "Money Move 10",
-    BQn: "Money Move 11",
-    BQo: "Money Move 12",
-    BQp: "Money Move 13",
-    BQq: "Money Move 14",
-    BQr: "Money Move 15",
-    BQs: "Money Move 16",
-    BQt: "Backgammon Strategy 1",
-    BQu: "Backgammon Strategy 2",
-    BQv: "Backgammon Strategy 3",
-    BQw: "Backgammon Strategy 4",
-    BP0: "Opening Replies 1",
-    BP1: "Opening Replies 2",
-    BP2: "Opening Replies 3",
-    BP3: "Opening Replies 4",
-    BP4: "Opening Replies 5",
-    BP5: "Opening Replies 6",
-    BP6: "Opening Replies 7",
-    BP7: "Opening Replies 8",
-    BP8: "Opening Replies 9",
-    BP9: "Money Doubles 1",
-    BPa: "Money Doubles 2",
-    BPb: "Money Doubles 3",
-    BPc: "Money Doubles 4",
-    BPd: "Money Doubles 5",
-    BPe: "Money Doubles 6",
-    BPf: "Money Doubles 7",
-    BPg: "Money Doubles 8",
-    BPh: "Money Doubles 9",
-    BPi: "Money Doubles 10",
-    BPj: "Money Doubles 11",
-    BPk: "Money Doubles 12",
-    BPl: "Money Doubles 13",
-    BPm: "Money Doubles 14",
-    BPn: "Money Doubles 15",
-    BPo: "Money Doubles 16",
-    BPp: "Money Doubles 17",
-    BPq: "Money Doubles 18",
-    BPr: "Money Doubles 19",
-    BPs: "Money Doubles 20",
-    BPt: "Money Doubles 21",
+    E11:"バックギャモン検定 2011", E12:"バックギャモン検定 2012", E13:"バックギャモン検定 2013",
+    E14:"バックギャモン検定 2014", E15:"バックギャモン検定 2015", E16:"バックギャモン検定 2016",
+    E17:"バックギャモン検定 2017", E18:"バックギャモン検定 2018", E19:"バックギャモン検定 2019",
+    BQ1:"Problem of Week 1", BQ2:"Problem of Week 2", BQ3:"Problem of Week 3", BQ4:"Problem of Week 4",
+    BQ5:"Problem of Week 5", BQ6:"Problem of Week 6", BQ7:"Problem of Week 7",
+    BQ8:"Human vs XG 1", BQ9:"Human vs XG 2", BQa:"Human vs XG 3", BQb:"Human vs XG 4", BQc:"Human vs XG 5",
+    BQd:"Money Move 1",  BQe:"Money Move 2",  BQf:"Money Move 3",  BQg:"Money Move 4",
+    BQh:"Money Move 5",  BQi:"Money Move 6",  BQj:"Money Move 7",  BQk:"Money Move 8",
+    BQl:"Money Move 9",  BQm:"Money Move 10", BQn:"Money Move 11", BQo:"Money Move 12",
+    BQp:"Money Move 13", BQq:"Money Move 14", BQr:"Money Move 15", BQs:"Money Move 16",
+    BQt:"Backgammon Strategy 1", BQu:"Backgammon Strategy 2", BQv:"Backgammon Strategy 3", BQw:"Backgammon Strategy 4",
+    BP0:"Opening Replies 1", BP1:"Opening Replies 2", BP2:"Opening Replies 3", BP3:"Opening Replies 4",
+    BP4:"Opening Replies 5", BP5:"Opening Replies 6", BP6:"Opening Replies 7", BP7:"Opening Replies 8",
+    BP8:"Opening Replies 9",
+    BP9:"Money Doubles 1",  BPa:"Money Doubles 2",  BPb:"Money Doubles 3",  BPc:"Money Doubles 4",
+    BPd:"Money Doubles 5",  BPe:"Money Doubles 6",  BPf:"Money Doubles 7",  BPg:"Money Doubles 8",
+    BPh:"Money Doubles 9",  BPi:"Money Doubles 10", BPj:"Money Doubles 11", BPk:"Money Doubles 12",
+    BPl:"Money Doubles 13", BPm:"Money Doubles 14", BPn:"Money Doubles 15", BPo:"Money Doubles 16",
+    BPp:"Money Doubles 17", BPq:"Money Doubles 18", BPr:"Money Doubles 19", BPs:"Money Doubles 20",
+    BPt:"Money Doubles 21",
+    HA1:"林プロブレム 1", HA2:"林プロブレム 2", HA3:"林プロブレム 3", HA4:"林プロブレム 4", HA5:"林プロブレム 5",
+    KA1:"今日の成長 1", KA2:"今日の成長 2", KA3:"今日の成長 3", KA4:"今日の成長 4", KA5:"今日の成長 5",
+    KA6:"今日の成長 6", KA7:"今日の成長 7", KA8:"今日の成長 8", KA9:"今日の成長 9",
+    CB1:"ChrisBray 2014 1", CB2:"ChrisBray 2014 2", CB3:"ChrisBray 2014 3",
+    CB4:"ChrisBray 2014 4", CB5:"ChrisBray 2014 5", CB6:"ChrisBray 2014 6",
+    CB7:"ChrisBray 2015 1", CB8:"ChrisBray 2015 2", CB9:"ChrisBray 2015 3",
+    CBa:"ChrisBray 2015 4", CBb:"ChrisBray 2015 5", CBc:"ChrisBray 2015 6",
+    CBd:"ChrisBray 2016 1", CBe:"ChrisBray 2016 2", CBf:"ChrisBray 2016 3",
+    CBg:"ChrisBray 2016 4", CBh:"ChrisBray 2016 5", CBi:"ChrisBray 2016 6",
+    CBj:"ChrisBray 2017 1", CBk:"ChrisBray 2017 2", CBl:"ChrisBray 2017 3",
+    CBm:"ChrisBray 2017 4", CBn:"ChrisBray 2017 5", CBo:"ChrisBray 2017 6",
+    CBp:"ChrisBray 2018 1", CBq:"ChrisBray 2018 2", CBr:"ChrisBray 2018 3",
+    CBs:"ChrisBray 2018 4", CBt:"ChrisBray 2018 5", CBu:"ChrisBray 2018 6",
+    CBv:"ChrisBray 2019 1", CBw:"ChrisBray 2019 2", CBx:"ChrisBray 2019 3", CBy:"ChrisBray 2019 4", CBz:"ChrisBray 2019 5",
+    CC1:"ChrisBray 2020 1", CC2:"ChrisBray 2020 2", CC3:"ChrisBray 2020 3", CC4:"ChrisBray 2020 4", CC5:"ChrisBray 2020 5",
+    CC6:"ChrisBray 2021 1", CC7:"ChrisBray 2021 2", CC8:"ChrisBray 2021 3", CC9:"ChrisBray 2021 4", CCa:"ChrisBray 2021 5",
+    QZ1:"Othello Quiz 2017 - 2013", QZ2:"Othello Quiz 2012 - 2008", QZ3:"Othello Quiz 2007 - 2003",
+    QZ4:"Othello Quiz 2002 - 2000", QZ5:"Othello Quiz 2018 - 2019",
+    QZ6:"Osaka Quiz 2014, 06 - 03", QZ7:"Sapporo Quiz 2010 - 2008", QZ8:"Sapporo Quiz 2007 - 2005",
+    QZ9:"Nagoya Quiz 2004 - 2005", QZa:"peever Quiz 2005, 2013",
+    TC1:"Timothy Chow",
+    GP1:"Gammon Minami Aoyama 1", GP2:"Gammon Minami Aoyama 2", GP3:"Gammon Minami Aoyama 3",
+    GP4:"Gammon Minami Aoyama 4", GP5:"Gammon Minami Aoyama 5",
+    GP6:"Gammon Platform Square 1", GP7:"Gammon Platform Square 2", GP8:"Gammon Platform Square 3",
+    GP9:"Gammon Platform Square 4",
+    KE1:"バックギャモンのお勉強 1", KE2:"バックギャモンのお勉強 2", KE3:"バックギャモンのお勉強 3", KE4:"バックギャモンのお勉強 4",
+    KE5:"バックギャモンのお勉強 5", KE6:"バックギャモンのお勉強 6", KE7:"バックギャモンのお勉強 7", KE8:"バックギャモンのお勉強 8",
+    KE9:"バックギャモンのお勉強 9", KEa:"バックギャモンのお勉強 10",KEb:"バックギャモンのお勉強 11",KEc:"バックギャモンのお勉強 12",
+    BR1:"501 1", BR2:"501 2", BR3:"501 3", BR4:"501 4", BR5:"501 5", BR6:"501 6",
+    BR7:"501 7", BR8:"501 8", BR9:"501 9", BRa:"501 10", BRb:"501 11",
   };
-  return titlelist[row.categoryid];
+  return titlelist[row.categoryid] ? titlelist[row.categoryid] : row.categoryid;
 }
 </script>
 </body>
