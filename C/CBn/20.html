@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 10</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 180</span>&ensp;
 <span>(CBn-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double?  If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=98 White=101</div></div>
+      <div class="pipinfo">pips Red=162 White=163</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A volatile position but is it good enough to double? Red will lose his market with a 4 or a 5 followed by a fan but he also has some bad numbers, 62 for example.<br>
+ <div class="description">Another third roll position that should be ‘known’.<br>
 <br>
-According to the rollouts there is no difference in equity between doubling and not doubling. Of course if you think your opponent is so timid as to drop here then double in a flash but few players would drop this and it would be an octuple blunder to do so!<br>
+13/9, 11/6 is just too inflexible and is nearly a blunder. Correct is 21/16, 13/9 with excellent distribution of the checkers and some duplication of White’s fours.<br>
 <br>
-In practice I held the cube here, hit and doubled my opponent out on the next roll.<br>
+13/9, 13/8, stripping the mid-point is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.253
-  0.603 0.121 0.000 - 0.397 0.073 0.001
-Cubeful equities:
-1. No double           +0.339
-2. Double, pass        +1.000  (+0.661)
-3. Double, take        +0.249  (-0.090)
-Proper cube action: No double, take (11.9%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/16 13/9                   Eq.: -0.299
+       0.435 0.115 0.005 - 0.565 0.199 0.013
+    2. Cubeful 2-ply    13/9 11/6                    Eq.: -0.356 (-0.057)
+       0.413 0.115 0.006 - 0.587 0.184 0.010
+    3. Cubeful 2-ply    13/9 13/8                    Eq.: -0.374 (-0.075)
+       0.413 0.118 0.006 - 0.587 0.201 0.015
+    4. Cubeful 2-ply    13/8 11/7                    Eq.: -0.408 (-0.109)
+       0.403 0.106 0.005 - 0.597 0.191 0.011
+    5. Cubeful 2-ply    21/16 11/7                   Eq.: -0.432 (-0.133)
+       0.402 0.097 0.004 - 0.598 0.205 0.012
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBaBBBBA-----b---ccBbbb--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBn";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "CBn";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b----E-C--AeD---b-dbA--A-:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

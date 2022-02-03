@@ -12,56 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 180</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 70</span>&ensp;
 <span>(CBe-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=119</div></div>
+      <div class="pipinfo">pips Red=148 White=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This belongs to a class of position that XG gets wrong on evaluation but corrects itself on rollout after it looks deeper.<br>
+ <div class="description">Technically this not good enough to double but not everyone is taking this despite it being a trivial take.<br>
 <br>
-White wins nearly a third of the time from here. His problem is that over half his losses are gammons. This makes the position a pass but only by 0.03 (just an error).<br>
-<br>
-Of course if White thinks Red will misplay the position (for example not hitting loose on his 5-pt when White has one checker there and one already on the bar) then White can take.<br>
-<br>
-Note that Red is nowhere near strong enough to play on for a gammon from the start position. Not redoubling here is a double blunder.<br>
+White’s position is sound and Red needs more firepower to carry out a blitz. XG estimates that if there is an 8% that your opponent will drop then the double becomes correct. Against a strong player I would hold the cube here.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.538
-  0.657 0.343 0.011 - 0.343 0.123 0.005
+2-ply cubeless equity +0.380
+  0.609 0.276 0.010 - 0.391 0.116 0.008
 Cubeful equities:
-1. Double, take        +0.844
-2. Double, pass        +1.000  (+0.156)
-3. No double           +0.758  (-0.086)
-Proper cube action: Redouble, take
+1. No double           +0.544
+2. Double, pass        +1.000  (+0.456)
+3. Double, take        +0.495  (-0.049)
+Proper cube action: No double, take (9.8%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-BBB-B-AA-Aca----BbccBb--:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBe";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CBe";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a--aCBBBA---bB-b-b-cbBb-A-:0:0:1:00:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

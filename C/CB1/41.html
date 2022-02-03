@@ -12,58 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">A Timely Reminder</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 41</span>&ensp;
 <span>(CB1-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Money Game. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=99 White=133</div></div>
+      <div class="pipinfo">pips Red=84 White=54</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">On Armistice Day it seems appropriate to remind ourselves that backgammon is, like many ancient games, a representation of war. Its origins are long lost in the sands of time but the two armies have now been battling it out for 5,000 years or more. The second oldest game in the world, Go, is a mere fledgling with only 2,500 years of history.<br>
+ <div class="description">So did you keep White's ace-point? If you did you were in error.<br>
 <br>
-The themes of warfare are constantly repeated in backgammon and indeed I have detailed presentation entitled “The Lessons of War” which I frequently use when teaching.<br>
+If you were fearful of losing a gammon by being pointed on after playing 24/20, 4/3 then you were guilty of mis-analysis. Red loses more gammons by hanging back when he can't free either checker for another couple of rolls than being pointed on.<br>
 <br>
-It is well known that if you can divide an opposing army into two parts with little or no communication between those parts then you will derive an advantage by doing so. That concept is ably demonstrated by this position, taken from a match during a tournament at Mayfair’s 5, Hertford Street Club earlier this week.<br>
+Breaking the home board with something like 5/1, 5/4 also reduces Red's winning chances  after he eventually hits a shot. He must maintain his five-point home board. He keeps alive his chances of winning after a hit and also in the race (admittedly slim).<br>
 <br>
-The player of the Black checkers moved bar/20, 16/10 with his 65 but that allows White to attack the checker left on White’s 5-pt with any 1, 2, 3 or 8. The better move is bar/20/14 leaving a double direct shot. However, it is not only the number of shots that matter but the quality of the shots and the impact that hitting will have on the position.<br>
-<br>
-After bar/20/14 White cannot hit and make a new point unless he rolls 44 and so Black will still have a three-point board on which to enter. Bar/20, 16/10 allows Black nine devastating pointing rolls against the blot on the White’s 5-pt. Secondly, and very importantly, if White hits from his mid-point he has to give up that point to do so and then White’s army will be split in two with his two rear checkers stranded on Black’s 3-pt. Extricating them will be difficult without the mid-point for communication with the rest of his army.<br>
-<br>
-The risk and rewards of leaving blots in front of a stripped point (one with only two checkers on it) have been much better understood since the advent of computers. Like warfare new ideas and methods are constantly being developed and brought into play. Unlike warfare, where new weapons and tactics normally cost lives, the development of backgammon theory merely brings greater understanding and more enjoyment in the game.<br>
+And of course on a good day White will roll 65!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/14                       Eq.: +0.217
-       0.559 0.153 0.003 - 0.441 0.096 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20 16/10                 Eq.: +0.158 (-0.059)
-       0.522 0.193 0.003 - 0.478 0.082 0.003
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 4/3                    Eq.: -0.904
+       0.083 0.000 0.000 - 0.917 0.096 0.002
+    2. Cubeful 2-ply    24/20 2/1                    Eq.: -0.952 (-0.048)
+       0.071 0.000 0.000 - 0.929 0.116 0.002
+    3. Cubeful 2-ply    24/20 3/2                    Eq.: -0.960 (-0.056)
+       0.069 0.000 0.000 - 0.931 0.120 0.002
+    4. Cubeful 2-ply    24/20 5/4                    Eq.: -0.977 (-0.074)
+       0.064 0.000 0.000 - 0.936 0.126 0.002
+    5. Cubeful 2-ply    5/1 4/3                      Eq.: -1.000 (-0.096)
+       0.051 0.000 0.000 - 0.949 0.115 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBbCBB--B--b---Acac-bb--A:0:0:1:65:0:0:3:0:10");
-var categoryid = "CB1";
-var probnum = "41";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "41";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-DBBCB-------------c-dddB-:1:1:1:41:0:0:0:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

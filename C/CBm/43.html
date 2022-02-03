@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 37</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 158</span>&ensp;
 <span>(CBm-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game. How should Red play 52?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=136 White=120</div></div>
+      <div class="pipinfo">pips Red=144 White=202</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A lot of players would intuitively make the 3-pt but in fact making the pure four-point prime is much better and making the 3-pt is an error.<br>
+ <div class="description">The double is very clear but the take is very close.<br>
 <br>
-With twelve checkers in the attack zone after 13/11, 13/8 and the thirteenth not far away Red has good priming chances. The priming chances are not quite so good after 8/3, 5/3. Also because White has a four-point home board Red doesn't want to have to hit loose if he can avoid it so the pure approach turns out to be a better game plan.<br>
+If White was committed to 1 -2 back game then it would be a clear pass but because he has the opportunity to make other points in Red’s board he can just about eke out a take. However, dropping is not even an error. <br>
 <br>
-To answer Tim Chow's question from his comment (keep them coming, Tim) the cube position is not relevant – the key is to come up with the right game plan and then execute it (if possible, given the vagaries of the dice).<br>
+I would consider the opponent factor before making a final decision.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 13/8                   Eq.: +0.286
-       0.578 0.139 0.004 - 0.422 0.077 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/3 5/3                      Eq.: +0.216 (-0.070)
-       0.556 0.148 0.004 - 0.444 0.086 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    13/8 7/5                     Eq.: +0.113 (-0.173)
-       0.530 0.120 0.005 - 0.470 0.094 0.003
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    13/8 6/4                     Eq.: +0.035 (-0.251)
-       0.521 0.128 0.006 - 0.479 0.156 0.008
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/8 5/3                     Eq.: -0.073 (-0.359)
-       0.489 0.113 0.005 - 0.511 0.157 0.007
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.671
+  0.666 0.330 0.058 - 0.334 0.049 0.002
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.114  (+0.114)
+3. No double           +0.929  (-0.071)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a----CDCA---dB-----ccBbb--:0:0:1:52:0:0:3:0:10");
-var categoryid = "CBm";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "CBm";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=abb-ABC-B--AcE---c-bAb----:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 98</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 67</span>&ensp;
 <span>(CBq-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play.  Red trails 2-6 (Crawford). How should Red play 51?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=155 White=107</div></div>
+      <div class="pipinfo">pips Red=128 White=147</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money, with Red holding the cube, the correct ace would be 24/23, reducing the percentage of gammons lost.<br>
+ <div class="description">White’s broken prime is a powerful factor here.<br>
 <br>
-At Crawford, gammons are irrelevant and Red needs to maximise contact and therefore his winning chances, and so he must keep the ace-point anchor.  23/18 helps to preserve his timing and after that 6/5 looks to be the logical way to play the ace.<br>
+When things go well for Red he will win a gammon and indeed, 40% of games end with Red doing just that. However. White wins the game 40% of the time and a quarter of his wins are gammons.<br>
+<br>
+All of this adds up to this being a marginal double for Red and a trivial take for White.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/18 6/5                    Eq.: -0.512
-       0.242 0.028 0.001 - 0.758 0.297 0.033
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8 6/5                     Eq.: -0.534 (-0.022)
-       0.231 0.026 0.001 - 0.769 0.312 0.035
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/23 13/8                   Eq.: -0.535 (-0.023)
-       0.231 0.029 0.001 - 0.769 0.261 0.016
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/23 7/2                    Eq.: -0.537 (-0.025)
-       0.230 0.031 0.001 - 0.770 0.231 0.013
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    7/2 6/5                      Eq.: -0.540 (-0.028)
-       0.228 0.028 0.000 - 0.772 0.280 0.030
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.429
+  0.576 0.384 0.007 - 0.424 0.108 0.006
+Cubeful equities:
+1. No double           +0.575
+2. Double, pass        +1.000  (+0.425)
+3. Double, take        +0.574  (-0.001)
+Proper cube action: No double, take (0.2%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--A--BDBA---bB-a-d-cc-bAB-:0:0:1:51:2:6:1:7:10");
-var categoryid = "CBq";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bB-B-BB-BA--cB---bbbb-bAA-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

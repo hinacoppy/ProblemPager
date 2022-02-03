@@ -12,64 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 123</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 128</span>&ensp;
 <span>(CBf-29)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">a) Match Play.  Double Match Point. How should Red play 51?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=125 White=98</div></div>
+      <div class="pipinfo">pips Red=108 White=166</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">b) Money Play. White owns a 2 cube. How should Red play 51?<br>
+ <div class="description">To quote Kent Goulding: “Four is more than you think”.<br>
 <br>
+White’s four-point prime has great value and holding Red’s ace-point means he is in the game to the end. If Red escapes a rear checker and White fans again then the position becomes a pass but there are many other scenarios in this position.<br>
 <br>
-Red must hit with the 1 in both variations. 8/3*/2 would be a quintuple blunder.<br>
-<br>
-AT DMP you should be playing purely and maximising checker use. Gammons don’t matter, Prime vs. Prime theory says step to the edge of your opponent’s prime and hit him away from the edge of your prime. That points to 24/23*, 8/3* and indeed that is correct play by a long way.<br>
-<br>
-For money gammons do count and here Red loses just enough gammons with 24/23*, 8/3* to give 24/23*, 7/2 the nod as the best play, but it is close and 24/23*, 8/3* is not an error.<br>
+In fact, it is more the double than the take that is in question. The gammon threat does mean that Red should double but dropping here would be a huge blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23* 8/3*                  Eq.: -0.059
-       0.470 0.200 0.021 - 0.530 0.227 0.024
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/23* 7/2                   Eq.: -0.104 (-0.045)
-       0.448 0.210 0.020 - 0.552 0.170 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    8/3* 7/6                     Eq.: -0.314 (-0.254)
-       0.343 0.088 0.005 - 0.657 0.265 0.028
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    8/3* 2/1                     Eq.: -0.378 (-0.318)
-       0.311 0.074 0.003 - 0.689 0.272 0.026
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/3*/2                       Eq.: -0.389 (-0.330)
-       0.305 0.110 0.008 - 0.695 0.176 0.005
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.571
+  0.618 0.345 0.043 - 0.382 0.052 0.000
+Cubeful equities:
+1. Double, take        +0.882
+2. Double, pass        +1.000  (+0.118)
+3. No double           +0.699  (-0.183)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--AaBBBCC-----a--abbcbbaB-:1:-1:1:51:5:5:0:7:10");
-var categoryid = "CBf";
-var probnum = "29";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "29";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=abBBBCC-----bA---ccbb-B---:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 24</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 169</span>&ensp;
 <span>(CBn-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 61?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=172 White=81</div></div>
+      <div class="pipinfo">pips Red=128 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I am sure that over the board many would play 10/4, 8/7* but, as noted in the comments by Tim Chow, Red runs the danger of crashing his home board if he doesn't quickly roll a 5 or a 6.<br>
+ <div class="description">When I set this problem I expected there to be quite a variance in equities in the possible solutions as that is what happened on initial evaluation.<br>
 <br>
-Red does better to adopt a two-way game plan. 23/17 maintains his timing and 8/7* attempts to win by going forwards. White's next roll will determine which game plan is put into action.<br>
+However, on rollout the top four plays are all within 0.0016 of each other, thus proving that in a strong position there can be many ways to win. Red is very likely to win with a cube turn next turn (he’s not quite strong enough to double from the bar).<br>
 <br>
-10/4, 8/7* is an error but not a blunder. 23/17, 5/4 is too passive and basically commits to a back game and XG rates this as a double blunder.<br>
+Take full credit for any of: bar/22*, 7/1, 6/3* or bar/22*, 8/5(3) or bar/22*, 7/4(2), 6/3* or bar/22*, 13/10, 6/3(2)*.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/4 8/7*                    Eq.: -0.271
-       0.447 0.051 0.001 - 0.553 0.300 0.070
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/17 8/7*                   Eq.: -0.272 (-0.000)
-       0.467 0.037 0.000 - 0.533 0.308 0.095
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    23/17 5/4                    Eq.: -0.356 (-0.085)
-       0.442 0.019 0.000 - 0.558 0.317 0.093
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    23/17 10/9                   Eq.: -0.440 (-0.169)
-       0.419 0.013 0.000 - 0.581 0.337 0.098
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    23/16                        Eq.: -0.450 (-0.179)
-       0.418 0.015 0.000 - 0.582 0.340 0.102
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22* 7/1 6/3*             Eq.: +0.791
+       0.706 0.360 0.006 - 0.294 0.059 0.001
+    2. Cubeful 2-ply    bar/22* 8/5(3)               Eq.: +0.790 (-0.001)
+       0.682 0.291 0.009 - 0.318 0.062 0.001
+    3. Cubeful 2-ply    bar/22* 7/4(2) 6/3*          Eq.: +0.782 (-0.010)
+       0.695 0.347 0.010 - 0.305 0.063 0.002
+    4. Cubeful 2-ply    bar/22* 13/10 6/3*(2)        Eq.: +0.780 (-0.012)
+       0.682 0.341 0.009 - 0.318 0.063 0.003
+    5. Cubeful 2-ply    bar/22* 8/5(2) 6/3*          Eq.: +0.707 (-0.085)
+       0.669 0.343 0.010 - 0.331 0.069 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BACBaA-A--------cddcCB-:1:1:1:16:0:0:1:0:10");
-var categoryid = "CBn";
-var probnum = "06";
-var showpipflg = true;
+const categoryid = "CBn";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-A-a--DDC---eB---c-e--a--A:0:0:1:33:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 118</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 47</span>&ensp;
 <span>(CBq-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=125 White=139</div></div>
+      <div class="pipinfo">pips Red=91 White=101</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is from the Battersea chouette. Red, a player rather loose with cube, doubled in an instant but he was overoptimistic. Red has a lot of work to do and White’s position is fundamentally sound other than the blot on Red’s 2-pt.<br>
+ <div class="description">Red could play safe here with 21/17(2), 7/3, 5/1 but then how does he proceed? There will be a lot of problems in bringing the remaining checkers home.<br>
 <br>
-Red would be giving White a present by doubling. Yes, Red does win quite a few gammons but so does White. There are just are not enough market losing sequence to justify a double and in fact doubling is a 1.5 blunder.<br>
+He does much better to play 21/13(2), despite leaving a direct shot. If the shot is missed he will have a lot easier job bringing home the checkers. 21/17(2), 7/3, 5/1 is an error.<br>
+<br>
+Nack Ballard pointed out that if you advance Red's anchor to the 20-pt then the safe play and the running play are virtually equal. It is interesting that advancing the anchor one point can make such a difference.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.277
-  0.586 0.235 0.007 - 0.414 0.130 0.006
-Cubeful equities:
-1. No double           +0.400
-2. Double, pass        +1.000  (+0.600)
-3. Double, take        +0.273  (-0.127)
-Proper cube action: No double, take (17.4%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/17(2) 7/3 5/1             Eq.: +0.091
+       0.604 0.064 0.000 - 0.396 0.046 0.000
+    2. Cubeful 2-ply    21/13(2)                     Eq.: +0.090 (-0.001)
+       0.616 0.044 0.000 - 0.384 0.038 0.000
+    3. Cubeful 0-ply    21/13 21/17 7/3              Eq.: -0.099 (-0.190)
+       0.542 0.064 0.000 - 0.458 0.090 0.001
+    4. Cubeful 0-ply    21/13 7/3 5/1                Eq.: -0.114 (-0.205)
+       0.533 0.084 0.000 - 0.467 0.104 0.002
+    5. Cubeful 0-ply    21/5                         Eq.: -0.128 (-0.219)
+       0.516 0.095 0.000 - 0.484 0.090 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aBBCCc----AB---bAdbcA---:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBq";
-var probnum = "06";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBCbCBA------b----bbBcbb-:1:-1:1:44:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

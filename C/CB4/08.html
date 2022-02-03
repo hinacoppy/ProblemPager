@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 110</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 158</span>&ensp;
 <span>(CB4-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=84 White=93</div></div>
+      <div class="pipinfo">pips Red=77 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">At certain match scores this would certainly be a double but in a money game with an active cube Red still has too much to do in this position. Even after he throws a 1 he still has to escape his rear checker.<br>
+ <div class="description">White needs 15 crossovers to save the gammon so it could be close. <br>
 <br>
-He does better not to activate gammons by leaving the cube in the centre for another roll.<br>
+If Red slots the 5-pt with 13/9, 7/5 and successfully covers next time his gammon percentage should increase significantly. That is actually the case – the slotting play wins close to 20% more gammons than any of the non-slotting plays.<br>
 <br>
-It is very nearly a blunder to double here.<br>
+The non-slotting plays, of which 13/11, 7/3 is the best, win about 6% more games than the slot but that is not enough compensation for the lost gammons so 13/9, 7/5 it is.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.121
-  0.494 0.186 0.003 - 0.506 0.055 0.001
-Cubeful equities:
-1. No double           +0.047
-2. Double, pass        +1.000  (+0.953)
-3. Double, take        -0.109  (-0.156)
-Proper cube action: No double, beaver (14.1%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 7/5                     Eq.: +1.426
+       0.888 0.701 0.002 - 0.112 0.014 0.001
+    2. Cubeful 2-ply    13/11 7/3                    Eq.: +1.397 (-0.029)
+       0.935 0.551 0.001 - 0.065 0.004 0.000
+    3. Cubeful 2-ply    13/9 11/9                    Eq.: +1.378 (-0.047)
+       0.944 0.512 0.001 - 0.056 0.003 0.000
+    4. Cubeful 2-ply    11/9 7/3                     Eq.: +1.361 (-0.064)
+       0.923 0.545 0.002 - 0.077 0.006 0.000
+    5. Cubeful 2-ply    13/7                         Eq.: +1.335 (-0.091)
+       0.932 0.497 0.001 - 0.068 0.003 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aABBCBBAA---------cbccbaA-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB4";
-var probnum = "08";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "08";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBBB-BC---AbAb--d-e-a----:1:-1:1:42:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 92</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 73</span>&ensp;
 <span>(CBq-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-1 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=119</div></div>
+      <div class="pipinfo">pips Red=56 White=67</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is the converse of some recent match play positions.<br>
+ <div class="description">I posted this position because I got it wrong over the board by accepting the redouble from Red.<br>
 <br>
-This is a simple 3-pt holding game and we all know such positions are doubles and takes. That would be true if this was a money game. It would be a strong double and a clear take.<br>
+The problem is that all the formulae get it wrong as well. I use Trice and Reichert and they both give White a take.<br>
 <br>
-However, the score is crucial. Two points get Red to the Crawford Game with White on an odd number of points which is very bad for him. He should drop this double very quickly and play from 1-3 down.<br>
+Both formulae undervalue the potential weakness on White’s 4-pt. Because he has a high number of checkers above what will soon become an empty 4-pt White’s fours become very inefficient. That turns a take into a drop.<br>
 <br>
-Taking is worse than a double blunder.<br>
+Red wins 79.5% of the time from here -  a clear drop.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.580 (Money: +0.553)
-  0.763 0.037 0.002 - 0.237 0.011 0.000
+2-ply cubeless equity +0.588
+  0.794 0.000 0.000 - 0.206 0.000 0.000
 Cubeful equities:
 1. Double, pass        +1.000
-2. Double, take        +1.085  (+0.085)
-3. No double           +0.944  (-0.056)
-Proper cube action: Double, pass
+2. Double, take        +1.050  (+0.050)
+3. No double           +0.872  (-0.128)
+Proper cube action: Redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---bC-D-CCAAa-a---abdaba--:0:0:1:00:2:1:0:5:10");
-var categoryid = "CBq";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-DBBBBA--B------b--ccabbb-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

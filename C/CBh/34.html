@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 17</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 232</span>&ensp;
 <span>(CBh-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=146 White=98</div></div>
+      <div class="pipinfo">pips Red=160 White=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A relatively non-volatile position. I see people give these up as White fearing a crashed board and more checkers being sent back but Red has to move which will give White chances to attack or perhaps hit a fly shot and if he still has a five-point home board a hit will in all likelihood win the game.<br>
+ <div class="description">Red needs to contain the rear White checker and so although 8/4, 6/5 looks pretty it doesn’t address the game plan. 11/7, 8/7 is the right play and so much so that any other play is worse than a double blunder.<br>
 <br>
-That fifty pip lead is very significant. White can withstand a hit and still be in the race. White’s take is trivial (a quadruple blunder to pass) and in fact Red should take a roll before doubling unless of course he thinks that White will pass. It’s only a tiny error to double now.<br>
+Red needs his checkers to work for him and 11/7, 8/7 not only blocks White’s sixes but gives him a flexible dynamic position. After 8/4, 6/5 (the best of the rest), Red’s position is much more static.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.370
-  0.655 0.136 0.004 - 0.345 0.080 0.001
-Cubeful equities:
-1. No double           +0.562
-2. Double, pass        +1.000  (+0.438)
-3. Double, take        +0.507  (-0.055)
-Proper cube action: No double, take (11.1%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/7 8/7                     Eq.: -0.172
+       0.482 0.096 0.005 - 0.518 0.190 0.004
+    2. Cubeful 2-ply    8/4 6/5                      Eq.: -0.211 (-0.040)
+       0.441 0.088 0.004 - 0.559 0.116 0.002
+    3. Cubeful 2-ply    11/10 8/4                    Eq.: -0.237 (-0.065)
+       0.438 0.086 0.004 - 0.562 0.139 0.002
+    4. Cubeful 2-ply    9/4                          Eq.: -0.275 (-0.104)
+       0.433 0.083 0.004 - 0.567 0.148 0.003
+    5. Cubeful 0-ply    9/8 9/5                      Eq.: -0.444 (-0.272)
+       0.386 0.071 0.004 - 0.614 0.194 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----bBCBBB-A---A--bcbbBbb-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBh";
-var probnum = "34";
-var showpipflg = true;
+const categoryid = "CBh";
+const probnum = "34";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a--ABC-AB-B---cb-bbDb--c-:0:0:1:41:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

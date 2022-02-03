@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 101</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 169</span>&ensp;
 <span>(CB4-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 7. Should Red redouble to 8? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=101 White=126</div></div>
+      <div class="pipinfo">pips Red=130 White=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A clear drop for money but if the cube goes to 8 then gammons become irrelevant and White has a take.<br>
+ <div class="description">Red can position his checkers in a variety of ways to try to make the bar next time or he can attack immediately with 9/1*.<br>
 <br>
-Given that Red wins so many gammons from here (55%) then he does better to hold the cube and play on for the gammon.<br>
+‘Attack a blot, prime an anchor' is a well-known backgammon maxim but this one of the exceptions that proves the rule.  Red can get good outfield coverage with 16/13, 9/4, which is the best of the non-hitting plays. At the same this gives White the opportunity to self-destruct with rolls such as 44 and 55.<br>
+<br>
+9/1* wins about the same number of games as 16/13, 9/4 but loses more gammons.  It is an error but not a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.882 (Money: +0.940)
-  0.726 0.536 0.017 - 0.274 0.062 0.003
-Cubeful equities:
-1. No double           +0.894
-2. Double, pass        +1.000  (+0.106)
-3. Double, take        +0.863  (-0.032)
-Proper cube action: No redouble, take (23.0%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/13 9/4                    Eq.: +0.085
+       0.473 0.071 0.002 - 0.527 0.093 0.003
+    2. Cubeful 2-ply    16/11 9/6                    Eq.: +0.075 (-0.011)
+       0.469 0.072 0.002 - 0.531 0.094 0.003
+    3. Cubeful 2-ply    9/1*                         Eq.: +0.037 (-0.048)
+       0.470 0.082 0.002 - 0.530 0.141 0.007
+    4. Cubeful 2-ply    16/13 8/3                    Eq.: +0.029 (-0.057)
+       0.453 0.067 0.002 - 0.547 0.098 0.004
+    5. Cubeful 2-ply    9/6 9/4                      Eq.: +0.028 (-0.057)
+       0.446 0.070 0.002 - 0.554 0.088 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBCB-B--AA-b-a-ab-cc-bAA-:2:1:1:00:0:0:0:7:10");
-var categoryid = "CB4";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-BBBB-BB------AcbcccB---:1:1:1:53:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

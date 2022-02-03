@@ -12,61 +12,77 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 99</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 173</span>&ensp;
 <span>(CBa-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 43?</div>
+<article>
+<div class="doAction">Position submitted by Leo Waters</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=121 White=146</div></div>
+      <div class="pipinfo">pips Red=169 White=119</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A position that the bots have taught us to play. A player from the 1970s would never have found 20/16, 13/10!! exposing five blots.<br>
+ <div class="description"><pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+|    O     O  O  O |   | O     O     X  X |   
+|             O  O |   | O     O        X |   
+|             O  O |   | O                |   
+|                  |   | O                |   
+|                  | X |                  |   
+|                  |BAR|      1 2         | (Cube: 1)
+|                  |   |                  |   
+|                  |   |                  |   
+|                  |   |                  |   
+|             X    |   | X  X  X          |   
+|    X     X  X  X |   | X  X  X  O       |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
 <br>
-The key to the play is understanding that the blots protect each other. Any hit by White, other than with 44, leaves numerous return shots for Red. Meanwhile if White fans then Red has got his rear checkers moving and started to bring builders for the open 4-pt.<br>
+<strong>Money play. What is the only move with Red’s 21 that enables him to take White’s double next turn?</strong>
 <br>
-The more prosaic 21/14 is a close second but the bots have taught us that it is acceptable to take risks when your opponent is on the bar against a five-point home board. Obvious when you think about but not always so easy to put into practice.<br>
+The Quiz Factor makes this relatively easy and bar/23, 4/3* is the only move that allows Red to accept the cube. Red must try to stop White from making his 5-pt and this is the best way to do that. If White makes his 5-pt Red’s position will collapse and he won’t have the timing for a 1-2 back game.<br>
+<br>
+The key question is would you have found this play over the board?<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/14                        Eq.: +0.847
-       0.758 0.453 0.003 - 0.242 0.042 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/16 13/10                  Eq.: +0.843 (-0.005)
-       0.753 0.470 0.003 - 0.247 0.049 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/18 20/16                  Eq.: +0.841 (-0.007)
-       0.757 0.455 0.003 - 0.243 0.047 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/13                        Eq.: +0.825 (-0.022)
-       0.754 0.439 0.003 - 0.246 0.040 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/10 13/9                   Eq.: +0.772 (-0.076)
-       0.730 0.444 0.003 - 0.270 0.042 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 4/3*                  Eq.: -0.825
+       0.391 0.066 0.003 - 0.609 0.325 0.070
+    2. Cubeful 2-ply    bar/23 11/10                 Eq.: -1.000 (-0.175)
+       0.332 0.057 0.002 - 0.668 0.313 0.045
+    3. Cubeful 2-ply    bar/23 7/6                   Eq.: -1.000 (-0.175)
+       0.316 0.057 0.002 - 0.684 0.306 0.043
+    4. Cubeful 2-ply    bar/23 9/8                   Eq.: -1.000 (-0.175)
+       0.321 0.053 0.002 - 0.679 0.314 0.045
+    5. Cubeful 2-ply    bar/23 8/7                   Eq.: -1.000 (-0.175)
+       0.322 0.050 0.002 - 0.678 0.329 0.049
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBB-BB-----cB-b-d-eBA----:1:-1:1:43:0:0:3:0:10");
-var categoryid = "CBa";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aBBBABA-A--a-accd-b-ABA:0:0:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

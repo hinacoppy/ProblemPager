@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 30</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 255</span>&ensp;
 <span>(CB6-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play, Red trails 4-5 to 7. How should Red play 31?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=78 White=79</div></div>
+      <div class="pipinfo">pips Red=142 White=165</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">“Don’t panic. Mr. Mainwaring!”, to quote Dad’s Army.<br>
+ <div class="description">Red's four-point prime (with the potential for becoming a five-point prime) is stronger than it looks. To quote Kent Goulding: “Four is more than you think”.<br>
 <br>
-First win the game and then win the gammon. 5/4*/1 looks tempting but it is an overplay against a four-and-a-half point board. The simple 15/12, 6/5 is the best play. It leaves only 3 shots (all of which leave return shots) and White’s blot may still be under threat next turn.<br>
+This coupled with White's inflexible structure including that stack of checkers on the 8-pt and the blot on his ace-point means that White has to pass Red's double.<br>
+<br>
+Taking is an error but not a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/12 6/5                    Eq.: +0.310
-       0.645 0.022 0.000 - 0.355 0.015 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    15/12 3/2                    Eq.: +0.294 (-0.017)
-       0.637 0.022 0.000 - 0.363 0.016 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    15/11                        Eq.: +0.269 (-0.041)
-       0.623 0.024 0.000 - 0.377 0.015 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    5/4*/1                       Eq.: +0.248 (-0.062)
-       0.586 0.080 0.001 - 0.414 0.092 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    5/4* 5/2                     Eq.: +0.241 (-0.070)
-       0.585 0.073 0.001 - 0.415 0.081 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.636
+  0.689 0.307 0.038 - 0.311 0.081 0.005
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.060  (+0.060)
+3. No double           +0.815  (-0.185)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBCaBC---B--a-A---c-ccca-:1:-1:1:31:4:5:0:7:10");
-var categoryid = "CB6";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CB6";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-baABBBBA---cC---d-bb--AaA:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

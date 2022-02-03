@@ -12,54 +12,74 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 8</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">New Year Hunt</span>&ensp;
 <span>(CBo-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-0 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=106 White=133</div></div>
+      <div class="pipinfo">pips Red=122 White=136</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Unlike the last couple of positions this only a double, not a redouble, so Red does not need to be so cautious with the cube and in fact this is a huge double.<br>
+ <div class="description">Outside on the gravelled drive and surrounding areas the local hunt had gathered for its traditional New Year’s Day event. Graves and his colleagues had been busy serving hot toddies to the participants. The Dowager Duchess (DD) had done the rounds and wished the huntsmen well but one could sense that she was eager to return to the warmth of the library and the hustle of the chouette. <br>
 <br>
-Twenty-seven pips ahead and with an extra landing point in his outer board (the 9-pt) Red must double. For money, this would be a small pass. At this score, because of the redoubling potential, White has an easy take.<br>
+No sooner had the riders, horses and hounds set off than she was back in her favoured environment just in time to see this double two tumble out of the dice-cup held by Cautious Cuthbert. Facing him in the box was the Tempestuous Turk.<br>
 <br>
-Not doubling is a blunder while a pass by White is merely a bad error.<br>
+“A golden opportunity to make two points,” said CC. “13/11(2), 6/4(2) looks very clear to me. Anybody disagree?”<br>
+<br>
+“I agree with making the 4-pt,” ventured the prophylactic Pole (PP) ”but I don’t like stripping the 6-pt and therefore I play 8/4(2).”<br>
+<br>
+“I seem to recall that in such positions one should get TT’s straggler off the ace-point and I rather like the look of 6/4(2), 3/1(2)*,” said Barry Bigplay, entering the fray. “After all it is a sort of big play!”.<br>
+<br>
+“I will be honest and say that I have no idea which of these plays best,” said DD. “I have a slight preference for PP’s play but would happily go with BB’s idea. What do you think, EE?”<br>
+<br>
+The Enigmatic Englishman, as was his wont, had kept silent during the above exchanges but now could contain himself no longer. “I think that if that is the best you can come up with you would all be better off chasing foxes on horseback where at least you would have a chance of being on the winning side.<br>
+<br>
+“All of your plays leave too many stripped points with some very awkward sixes next turn. The best of your offerings is 8/4(2) but I’ll wager even that is a blunder. The most difficult point to clear will be the mid-point so why not eliminate that problem forever? The best play by a long way is the simple 13/11(4). This plays to the theory of connectivity and virtually all of our numbers can be played safely next turn. We will still be some way from being able to double TT, but at least 13/11(4) is a step in the right direction.<br>
+<br>
+“Good Lord,’ exclaimed DD. “I didn’t even consider that play. I wonder if perhaps I had one too many hot toddies with The Hunt? Graves, a glass of your very best mineral water if you would be so kind?”<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.573 (Money: +0.575)
-  0.778 0.032 0.000 - 0.222 0.013 0.000
-Cubeful equities:
-1. Double, take        +0.909
-2. Double, pass        +1.000  (+0.091)
-3. No double           +0.813  (-0.096)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11(4)                     Eq.: +0.392
+       0.636 0.060 0.001 - 0.364 0.059 0.000
+    2. Cubeful 2-ply    8/4(2)                       Eq.: +0.390 (-0.002)
+       0.629 0.080 0.001 - 0.371 0.063 0.000
+    3. Cubeful 2-ply    6/4(2) 3/1*(2)               Eq.: +0.366 (-0.026)
+       0.621 0.091 0.001 - 0.379 0.073 0.000
+    4. Cubeful 2-ply    13/11(2) 3/1*(2)             Eq.: +0.344 (-0.048)
+       0.616 0.085 0.001 - 0.384 0.075 0.000
+    5. Cubeful 2-ply    8/4 6/4(2)                   Eq.: +0.298 (-0.094)
+       0.602 0.072 0.001 - 0.398 0.071 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----CBDcBB--bB---b-cbb--a-:0:0:1:00:2:0:0:7:10");
-var categoryid = "CBo";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CBo";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B--DbE---bD--a--cbbaa--:0:0:1:22:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

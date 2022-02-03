@@ -12,59 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 26</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">This Year's Worst Roll</span>&ensp;
 <span>(CBo-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 42?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=129 White=132</div></div>
+      <div class="pipinfo">pips Red=42 White=173</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The key here is not just to focus on making the bar-point. Those three rear checkers need to start on their journey home. 15/11, 9/7 is therefore the weakest of the possible plays.<br>
+ <div class="description">One of the things we learn early on in our backgammon education is not to put checkers out of play. Not only does this mean you are fighting a war with fewer soldiers than the opposing army but dead checkers reduce overall flexibility and lead to forced moves which is something you want to avoid if at all possible.<br>
 <br>
-The best play is 23/21, 15/11, providing double coverage of the bar-point in case of the dreaded 61 by White, and keeping the anchor for the time being in case of disaster. 23/17 and 21/15 are both OK and even 21/17, 15/13 is not an error.<br>
+The other situation that creates forced moves is in the ending when you are hit after bearing off some of your checkers. Normally there is nothing you can do about this and you end up making a series of forced moves and you just have to hope for the best, as the dice will very likely dictate the outcome.<br>
+<br>
+Such a scenario was recently reported by Michihito Kageyama (Michy), one of the world’s top players. Leading 2-0 to 9 in match he had a couple of checkers hit but thought he had escaped the worst when this position was reached with Michy as black. That was before he threw 43 - definitely a contender for the worst roll of the year! The move is forced, 7/3*, 4/1*. This results in White having four checkers on the bar.<br>
+<br>
+This is where we leave the luck of the dice and skill takes centre stage. Could it possibly be right for White to redouble with four checkers on the bar? That would certainly be remarkable. Such positions are very rare and neither player will have many such positions in their reference library to aid them with the analysis.<br>
+<br>
+I think most players know that a triple shot is not normally sufficient reason to redouble in a back game when the opponent has already taken off nine checkers. However, here Black also has a checker stuck on White’s 2-pt. That could be useful for Black to make an anchor but it could also add to the number of checkers eventually closed out.<br>
+<br>
+For money with a fully active cube a redouble by White would be grossly premature. He does better to hold the cube for now and hope to use the cube efficiently later. The match score changes things considerably. When trailing you can be much more aggressive with the cube and note also that Black can’t use all eight points that he would win if he won a gammon with the cube on 4. <br>
+<br>
+A long rollout from XG shows this as no redouble but it is very close. That is the theoretical answer. In practice, this is a mandatory redouble as I think you will get a fair percentage of passes. In the match Michy’s opponent redouble in a nanosecond after Michys’s 43. <br>
+<br>
+Michy is too good a player to pass and he took. Unfortunately, I don’t know the outcome of the game so perhaps you would like to roll it out a few times to get a feel for the position?<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15                        Eq.: +0.394
-       0.697 0.334 0.005 - 0.303 0.068 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/17                        Eq.: +0.384 (-0.010)
-       0.692 0.334 0.005 - 0.308 0.069 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/17 15/13                  Eq.: +0.370 (-0.024)
-       0.685 0.344 0.006 - 0.315 0.091 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    23/21 15/11                  Eq.: +0.368 (-0.026)
-       0.684 0.325 0.004 - 0.316 0.064 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    15/11 9/7                    Eq.: +0.339 (-0.056)
-       0.669 0.330 0.005 - 0.331 0.079 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    7/3* 4/1*                    Eq.: -0.666
+       0.238 0.090 0.028 - 0.762 0.000 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-BBBBB--A--b-cA--bcbBbA--:0:0:1:42:6:6:0:7:10");
-var categoryid = "CBo";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "CBo";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=baBaBa-A------aa---bbbbA--:1:-1:1:43:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

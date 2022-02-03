@@ -12,63 +12,71 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 158</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 92</span>&ensp;
 <span>(CBe-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red trails 3-4 to 7. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=149</div></div>
+      <div class="pipinfo">pips Red=151 White=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">You have heard it before but here goes: “when ahead in the race, race.”<br>
+ <div class="description">This is a difficult problem because Red has to come up with the right game plan rather than just looking at the next move.<br>
 <br>
-Red should go now while he has a stronger home board if a hitting battle ensues. He should play 22/14. 22/16, 22/20 is weak because of all the double hits.<br>
+With Red’s rear two checkers stuck behind a five-point prime there are two possibilities.<br>
 <br>
-8/6, 8/2* is great when it works (i.e. White fans) and that does give Red a marginal double (trivial take for White) but Red needs to play the percentages.<br>
+a) Prime White’s three rear checkers and cause his p&#91;rime to crack <br>
+b) Blitz White’s checkers and then escape his own rear checkers.<br>
 <br>
-22/14 makes Red a 53% favourite. 13/5 (the do nothing play) is the second best move but it is nearly a blunder.<br>
+A play like 8/5*/1 just won’t work – it isn’t aggressive enough. 9/5*, 8/5 is reasonable but it will be easy for White to play his big numbers – Red needs his 8-pt.<br>
+<br>
+The correct play is 14/11*, 9/5* which ticks all the boxes. It looks risky because when it goes wrong it can go very wrong but surprisingly Red loses pretty much the same percentage of gammons whichever play he chooses so he might as well go for the play that maximises his winning chances.<br>
+<br>
+Interestingly the match score has no real effect and 14/11*, 9/5* would be the right play for money as well. <br>
+<br>
+The bots have taught us make plays like this. in the 1970s virtually nobody would have considered the correct play and even if they had considered it, even fewer would actually have made the play.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/14                        Eq.: +0.164
-       0.540 0.191 0.012 - 0.460 0.146 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/5                         Eq.: +0.060 (-0.104)
-       0.496 0.195 0.007 - 0.504 0.117 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    22/20 8/2*                   Eq.: +0.059 (-0.105)
-       0.495 0.213 0.013 - 0.505 0.171 0.012
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    22/16 13/11                  Eq.: +0.027 (-0.137)
-       0.504 0.200 0.014 - 0.496 0.177 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/11 8/2*                   Eq.: +0.011 (-0.153)
-       0.482 0.205 0.009 - 0.518 0.142 0.007
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/11* 9/5*                  Eq.: +0.360
+       0.468 0.142 0.008 - 0.532 0.277 0.029
+    2. Cubeful 2-ply    9/5* 8/5                     Eq.: +0.324 (-0.036)
+       0.461 0.156 0.009 - 0.539 0.287 0.028
+    3. Cubeful 2-ply    14/11* 13/9                  Eq.: +0.176 (-0.184)
+       0.422 0.109 0.006 - 0.578 0.250 0.018
+    4. Cubeful 0-ply    8/5*/1                       Eq.: +0.052 (-0.308)
+       0.391 0.145 0.009 - 0.609 0.277 0.024
+    5. Cubeful 0-ply    9/5*/2*                      Eq.: -0.025 (-0.386)
+       0.383 0.115 0.007 - 0.617 0.326 0.036
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aaB-CC-B---bC-b-bbc-bB---:0:0:1:62:0:0:3:0:10");
-var categoryid = "CBe";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "CBe";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-Aa-BaC-BA-a-CA--b-bbbcBa-:1:1:1:43:3:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

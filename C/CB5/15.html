@@ -12,61 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 63</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 215</span>&ensp;
 <span>(CB5-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 43?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=97 White=132</div></div>
+      <div class="pipinfo">pips Red=129 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is about maximising gammons by recirculating checkers.<br>
+ <div class="description">Over the board I played 13/4* without much thought, seeking to take advantage of a strong home board and sniffing a gammon in the air. However, one should be wary of such hits when there is only direct cover next turn.<br>
 <br>
-6/2, 5/2 is safe but 5/2, 5/1* is the best play as it nets 3% more gammons while winning very nearly the same percentage of games. <br>
+It turns out that 24/15 is the better play. It escapes a rear checker and neatly duplicates White's 3's. In fact with virtually all 3's White should anchor rather than hit on his next roll.<br>
 <br>
-Note that White still wins about 16% of the time from here which some might think rather high but that’s what makes backgammon so much fun. White’s position looks perilous and yet he still wins one game in six!<br>
+If Red does hit he should do so with 8/4*, 8/3, preserving his mid-point. This is still an error while 13/4* is technically a blunder despite some duplication of 1's.<br>
+<br>
+The gain in gammons from hitting doesn't compensate for the additional losses Red suffers after hitting. It goes to show that you can't just play on general theory – you have to examine the specifics of each position.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/2 5/1*                     Eq.: +0.869
-       0.845 0.243 0.007 - 0.155 0.018 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/2 5/2                      Eq.: +0.838 (-0.031)
-       0.842 0.217 0.004 - 0.158 0.013 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    9/6 9/5                      Eq.: +0.623 (-0.246)
-       0.766 0.188 0.006 - 0.234 0.023 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    9/6 5/1*                     Eq.: +0.444 (-0.425)
-       0.705 0.200 0.008 - 0.295 0.071 0.002
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    9/2                          Eq.: +0.370 (-0.500)
-       0.678 0.197 0.009 - 0.322 0.080 0.003
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/15                        Eq.: +0.398
+       0.657 0.266 0.008 - 0.343 0.071 0.002
+    2. Cubeful 2-ply    8/4* 8/3                     Eq.: +0.393 (-0.005)
+       0.624 0.356 0.014 - 0.376 0.090 0.005
+    3. Cubeful 2-ply    13/4*                        Eq.: +0.355 (-0.044)
+       0.614 0.337 0.015 - 0.386 0.089 0.005
+    4. Cubeful 0-ply    24/20 8/3                    Eq.: +0.240 (-0.158)
+       0.597 0.264 0.008 - 0.403 0.086 0.002
+    5. Cubeful 0-ply    8/4* 6/1*                    Eq.: +0.124 (-0.275)
+       0.556 0.292 0.009 - 0.444 0.130 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-c-EDBBB---------cbabab-:1:-1:1:43:0:0:3:0:10");
-var categoryid = "CB5";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CB5";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBaBB-C---dB---bbe---AA-:1:-1:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

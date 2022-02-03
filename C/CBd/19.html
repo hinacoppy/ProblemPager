@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 232</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 19</span>&ensp;
 <span>(CBd-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-1 to 11. How should Red play 52?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-2 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=93 White=98</div></div>
+      <div class="pipinfo">pips Red=147 White=154</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is an easy problem provided you see the play. It is too easy to play 7/5, 7/2 assuming there is nothing better. However, the bots have taught us to look further than just “routine” moves.<br>
+ <div class="description">The key to this position is the score. For money it would be a small error to double as Red doesn’t have enough checkers in the zone.<br>
 <br>
-6/4*, 6/1 is the right play by a long way. A fan by White puts Red back in charge and the possibility of a gammon is once more in the wind. 20/15, 6/4* (the full banana split) is way too big a play just in case you considered it!<br>
+The score changes things significantly. A gammon for Red gives him the match with perfect efficiency so that should give him an alert. At this score not doubling is on the edge of being a blunder!<br>
 <br>
-7/5, 7/2 is a bad blunder.<br>
+Remember, before you start any game in a match always think about the score and decide what your doubling strategy should be. At this score any sight of a gammon should give you pause for thought as you should double earlier than normal.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/4* 6/1                     Eq.: -0.182
-       0.492 0.121 0.001 - 0.508 0.080 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    7/5 7/2                      Eq.: -0.279 (-0.097)
-       0.474 0.046 0.001 - 0.526 0.049 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    7/2 5/3                      Eq.: -0.508 (-0.326)
-       0.391 0.038 0.000 - 0.609 0.074 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    20/15 5/3                    Eq.: -0.552 (-0.370)
-       0.392 0.082 0.001 - 0.608 0.136 0.004
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    20/15 6/4*                   Eq.: -0.619 (-0.437)
-       0.435 0.179 0.003 - 0.565 0.303 0.025
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.499 (Money: +0.404)
+  0.599 0.310 0.008 - 0.401 0.106 0.005
+Cubeful equities:
+1. Double, take        +0.716
+2. Double, pass        +1.000  (+0.284)
+3. No double           +0.661  (-0.054)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBaCBB----a----bbbBcbb--:1:-1:1:52:3:1:0:11:10");
-var categoryid = "CBd";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bA---BCAB--AbC--bbbe-A--A-:0:0:1:D:3:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

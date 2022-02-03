@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 97</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 154</span>&ensp;
 <span>(CBg-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 64?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=118 White=126</div></div>
+      <div class="pipinfo">pips Red=119 White=181</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a classic middle game double. Red has market-losing sequences so should double now.<br>
+ <div class="description">The key to this position is understanding the required strategy. <br>
 <br>
-From White’s perspective he is in the race, has a four-point home board and his mid-point holds the Red checkers on Red’s 18-pt. If he can survive the blitz he will have good game-winning chances. In fact he wins about 35% of the time but also loses a gammon about 30% of the time.<br>
+White has a well-timed back game but is not yet ready to hit and contain a blot so he is unlikely to hit from Red’s 1-pt or 4-pt even if he gets the chance.<br>
 <br>
-Not doubling would be a triple blunder while passing the double would only be a double blunder!<br>
+However, Red should not run from White’s bar-point with 18/8 as that might allow White to win by going forward.  Red should position his checkers in his home board where he wants them. Given that at some point he will need to make his 2-pt he should do so now with 8/2, 6/2.<br>
+<br>
+10/6, 8/2, triplicating ones, is also OK . 18/8 is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.510
-  0.652 0.314 0.006 - 0.348 0.111 0.003
-Cubeful equities:
-1. Double, take        +0.785
-2. Double, pass        +1.000  (+0.215)
-3. No double           +0.648  (-0.137)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 6/2                      Eq.: +0.158
+       0.554 0.268 0.030 - 0.446 0.094 0.003
+    2. Cubeful 2-ply    10/6 8/2                     Eq.: +0.151 (-0.007)
+       0.552 0.261 0.027 - 0.448 0.087 0.002
+    3. Cubeful 2-ply    18/8                         Eq.: +0.129 (-0.030)
+       0.543 0.255 0.032 - 0.457 0.086 0.003
+    4. Cubeful 2-ply    10/6 9/3                     Eq.: +0.086 (-0.072)
+       0.531 0.250 0.028 - 0.469 0.093 0.002
+    5. Cubeful 2-ply    9/5 9/3                      Eq.: +0.067 (-0.091)
+       0.525 0.250 0.031 - 0.475 0.099 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aB-aC-D-B-A-c-----Ccb-bc--:0:0:1:00:0:0:0:0:10");
-var categoryid = "CBg";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBg";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-BbCCaBBA-b----bBbca----:1:-1:1:64:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

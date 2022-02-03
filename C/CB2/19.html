@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 183</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 69</span>&ensp;
 <span>(CB2-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled should White take?</div>
+<article>
+<div class="doAction">Money Game.  How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=117 White=106</div></div>
+      <div class="pipinfo">pips Red=67 White=65</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is the follow-up to Position 182. <br>
+ <div class="description">Over the board Red played 13/6. It looks pretty but it gives too much away. Now numbers like White's 42 and 51 that would have exposed two blots hit on the mid-point.<br>
 <br>
-Red’s position looks stronger than it is. Even after a hit he still has two rear checkers to extract and he is not even favourite to hit. The duplication of sixes is also very important.<br>
-<br>
-It is a huge mistake to double here. It’s not quite a beaver but it is closer than you might think.<br>
+Inelegant though it looks Red must break his home board. There is very little to choose between the various plays but 6/3, 5/1 comes out fractionally of the others.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.184
-  0.565 0.221 0.008 - 0.435 0.158 0.017
-Cubeful equities:
-1. No double           +0.301
-2. Double, pass        +1.000  (+0.699)
-3. Double, take        +0.092  (-0.209)
-Proper cube action: No double, take (23.0%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3 5/1                      Eq.: +0.331
+       0.616 0.015 0.000 - 0.384 0.007 0.000
+    2. Cubeful 2-ply    5/2 5/1                      Eq.: +0.328 (-0.003)
+       0.613 0.014 0.000 - 0.387 0.008 0.000
+    3. Cubeful 2-ply    6/2 5/2                      Eq.: +0.316 (-0.015)
+       0.611 0.014 0.000 - 0.389 0.008 0.000
+    4. Cubeful 2-ply    13/6                         Eq.: +0.293 (-0.039)
+       0.592 0.021 0.000 - 0.408 0.002 0.000
+    5. Cubeful 2-ply    6/2 4/1                      Eq.: +0.271 (-0.060)
+       0.599 0.014 0.000 - 0.401 0.009 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aBCBBBa-----B---b-bccc-B-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB2";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CB2";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BCCBBAb-----B-------bcdd-:0:0:1:34:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

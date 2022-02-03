@@ -12,61 +12,74 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 239</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 33</span>&ensp;
 <span>(CB7-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 65?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-3 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=84</div></div>
+      <div class="pipinfo">pips Red=13 White=12</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The key here is not to give up the 23-pt in order to maintain pressure on the White checkers on his 11-pt.<br>
+ <div class="description">Thanks to Martin for the match score analysis and take points (see comments).<br>
 <br>
-Red’s plan should be to play a well-timed 2-pt game. The problem with giving up the 23-pt with 23/12 is that triples Red’s gammon losses! It does win a few more games but they don’t compensate for the gammon losses.<br>
+Most people don’t do this over the board either because they can’t or because they haven’t got the time. I am able to do these calculations but only do so in major tournaments as they take time and certainly on Gridgammon people would become impatient.  I use the Janowski formula to do my match equity calculations.<br>
 <br>
-At DMP 23/12 would be correct but not in this money game. Either 18/12, 18/13 or 18/7 is OK with virtually nothing between them.<br>
+Without doing the calculations I would reason as follows:<br>
+<br>
+This is somewhere around a three-roll position but with lots of potential misses for both sides so it could actually be a 1,2, 3 or 4-roll position. <br>
+<br>
+As Red if I redouble and win I will be 6-3 (Crawford) ahead and my opponent is on an odd number of points ahead which is very good for me.<br>
+<br>
+If I redouble and lose then I lose the match which is obviously bad for me buy hey you can't win them all.<br>
+<br>
+On roll and 1 pip behind I am favourite probably somewhere between 60 and 70%.<br>
+<br>
+The position is highly volatile so ‘taking a roll’ looks wrong – I should nearly certainly redouble now.<br>
+<br>
+Finally apply Woolsey’s Law and give the problem to White – Redouble!<br>
+<br>
+In fact Red is about 65% in this position. The take is trivial but the redouble is massively correct – it is more than a double blunder not to redouble.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/13 18/12                  Eq.: -0.545
-       0.220 0.011 0.000 - 0.780 0.069 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    18/7                         Eq.: -0.562 (-0.017)
-       0.240 0.020 0.000 - 0.760 0.141 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    18/12 8/3                    Eq.: -0.586 (-0.041)
-       0.233 0.018 0.000 - 0.767 0.146 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/13 8/2                    Eq.: -0.593 (-0.048)
-       0.235 0.019 0.000 - 0.765 0.157 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    23/12                        Eq.: -0.667 (-0.123)
-       0.221 0.027 0.001 - 0.779 0.210 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.274 (Money: +0.274)
+  0.637 0.000 0.000 - 0.363 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.666
+2. Double, pass        +1.000  (+0.334)
+3. No double           +0.452  (-0.214)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-B-BBBB-A-----b--bBcd-bBb-:1:1:1:65:0:0:3:0:10");
-var categoryid = "CB7";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CB7";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--B-AA---------------ba-a-:1:1:1:00:2:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

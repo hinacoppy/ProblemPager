@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Posoition 207</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 40</span>&ensp;
 <span>(CB1-40)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Double Match Point. How should Red play 61?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=131 White=140</div></div>
+      <div class="pipinfo">pips Red=80 White=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic prime versus prime. As I have said before most prime versus primes are doubles and takes and this one is no exception. The double is clear and actually the take is also very clear despite the lack of an anchor. <br>
+ <div class="description">For money the hit with 10/4, 2/1* is clear because it wins so many more gammons. <br>
 <br>
-If Red’s rear checkers were on the 21-pt instead of the 22-pt, giving him fives and sixes to leap the prime then the position would be a huge pass but, because Red can only leap with sixes, White’s prime is perhaps stronger than it looks.<br>
+At DMP things are not so obvious. All Red needs is to win the game. If he plays 10/3 then all sixes other than 66 will leave a shot next turn, but that may never happen whereas 10/4, 2/1* gives White a shot immediately.  More likely is that Red will leave a couple of indirect shots next turn.<br>
 <br>
-It is a triple blunder to drop this double.<br>
+With White having a four-point home board the hit turns out to be slightly too risky and 10/3 is the correct play.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.492
-  0.650 0.274 0.011 - 0.350 0.090 0.004
-Cubeful equities:
-1. Double, take        +0.746
-2. Double, pass        +1.000  (+0.254)
-3. No double           +0.657  (-0.089)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/3                         Eq.: +0.669
+       0.834 0.142 0.001 - 0.166 0.020 0.000
+    2. Cubeful 2-ply    10/4 2/1*                    Eq.: +0.627 (-0.042)
+       0.813 0.303 0.002 - 0.187 0.031 0.000
+    3. Cubeful 2-ply    13/7 2/1*                    Eq.: +0.597 (-0.072)
+       0.798 0.324 0.002 - 0.202 0.092 0.009
+    4. Cubeful 0-ply    13/6                         Eq.: +0.498 (-0.171)
+       0.749 0.109 0.003 - 0.251 0.031 0.001
+    5. Cubeful 0-ply    10/4 6/5                     Eq.: +0.337 (-0.332)
+       0.668 0.085 0.001 - 0.332 0.053 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aaBBCBC---bA---bbdc-B---:0:0:1:00:0:0:1:0:10");
-var categoryid = "CB1";
-var probnum = "40";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "40";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aDBBBB---A-cB-----d-cbb--:0:0:1:61:4:4:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

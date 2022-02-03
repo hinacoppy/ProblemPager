@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 189</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 33</span>&ensp;
 <span>(CBj-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-2 to 7. Should Red double. If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=118 White=139</div></div>
+      <div class="pipinfo">pips Red=139 White=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a clear no double and trivial take. White has all his checkers in play and Red's rear checkers haven't moved.<br>
+ <div class="description">This is not easy as there are several viable game plans. Red can try to prime White or alternatively attempt to escape his rear checkers. Finally he can try a blitz.<br>
 <br>
-However, at this match score Red's gammons are perfectly efficient and this is enough to make this a clear double although it is a very easy take. It never ceases to amaze me just how much difference a match score can make to a decision.<br>
+For the priming plan 10/4 is best. For escaping, Red should take a tempo with 6/1* and then play 24/23. Finally, he can blitz with 10/9, 6/1*. <br>
+<br>
+Which plan is best? Actually, all of them! Those three plays are within 0.007 of each other! For once there is no absolutely correct play, so take your pick and don’t forget to consider the opponent factor.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.474 (Money: +0.382)
-  0.588 0.304 0.004 - 0.412 0.098 0.005
-Cubeful equities:
-1. Double, take        +0.657
-2. Double, pass        +1.000  (+0.343)
-3. No double           +0.584  (-0.073)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 6/1*                   Eq.: -0.375
+       0.313 0.083 0.003 - 0.687 0.358 0.036
+    2. Cubeful 2-ply    10/4                         Eq.: -0.375 (-0.000)
+       0.313 0.065 0.002 - 0.687 0.253 0.026
+    3. Cubeful 2-ply    13/7                         Eq.: -0.385 (-0.010)
+       0.308 0.054 0.001 - 0.692 0.323 0.048
+    4. Cubeful 2-ply    10/9 6/1*                    Eq.: -0.387 (-0.012)
+       0.307 0.070 0.001 - 0.693 0.286 0.036
+    5. Cubeful 2-ply    24/23 10/5                   Eq.: -0.392 (-0.017)
+       0.304 0.087 0.005 - 0.696 0.335 0.014
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-AaBB-CCB---d---bb-d--b-B-:0:0:1:00:3:2:0:7:10");
-var categoryid = "CBj";
-var probnum = "41";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "41";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B-CC-B-A-bB--b--dbbb-B-:0:0:1:51:10:10:0:11:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

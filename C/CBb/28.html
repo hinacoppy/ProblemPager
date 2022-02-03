@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 46</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 227</span>&ensp;
 <span>(CBb-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-2 to 5.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 32?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=7 White=7</div></div>
+      <div class="pipinfo">pips Red=210 White=70</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White needs exactly 25% to take this double. Over the next two rolls he will win 323/1296 times, 1 win shy of the 324 he needs to take. However, sometimes there is a third roll after the sequence Red: 21, White: any non-winning number. The fact that Red might then roll 21 again gives White his take equity.<br>
+ <div class="description">Red certainly shouldn’t play 22/20 with the 2. This gives White pick-and-pass and pointing numbers at a time when Red wants to build a prime to contain a hit checker.<br>
 <br>
-However, more important is the opponent factor consideration. If White is the weaker player he should snap this up. If much stronger then he should pass.<br>
+The question is where to build that prime? Normally you would build your home board but here Red’s timing precludes that option. He should use the two points he already has (8-pt and 10-pt) and build around those.<br>
+<br>
+13/10, 11/9 starts a new point and makes a third point in the prime and is easily the best play. Once you understand the logic the best play is clear but it is getting to that logic in an unfamiliar position that is the difficult bit.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.498 (Money: +0.498)
-  0.749 0.000 0.000 - 0.251 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.987
-2. Double, pass        +1.000  (+0.013)
-3. No double           +0.502  (-0.486)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 11/9                   Eq.: -0.031
+       0.529 0.118 0.002 - 0.471 0.385 0.005
+    2. Cubeful 2-ply    13/8                         Eq.: -0.094 (-0.062)
+       0.512 0.111 0.002 - 0.488 0.398 0.006
+    3. Cubeful 2-ply    11/8 9/7                     Eq.: -0.096 (-0.065)
+       0.511 0.106 0.002 - 0.489 0.394 0.005
+    4. Cubeful 2-ply    11/9 8/5                     Eq.: -0.098 (-0.066)
+       0.510 0.109 0.002 - 0.490 0.397 0.006
+    5. Cubeful 2-ply    13/10 9/7                    Eq.: -0.099 (-0.067)
+       0.511 0.111 0.002 - 0.489 0.402 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---AA----------------aa---:0:0:1:00:3:2:0:5:10");
-var categoryid = "CBb";
-var probnum = "28";
-var showpipflg = true;
+const categoryid = "CBb";
+const probnum = "28";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=------C-BA-A-B---bcd-BDcc-:1:1:1:32:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

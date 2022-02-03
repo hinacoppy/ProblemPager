@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 50</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 223</span>&ensp;
 <span>(CBb-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 4-5 to 7. How should Red play 63?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=152</div></div>
+      <div class="pipinfo">pips Red=153 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It is more the double than the take that is in question here. Red’s board is imperfect while White’s structure is very sound with no weaknesses other than the two checkers on the bar.<br>
+ <div class="description">For money 24/18, 6/3 would be very clear.<br>
 <br>
-Having said that two on the bar is a substantial weakness and two thirds of Red’s 60% wins will be gammons. That is enough to make this a marginal double. A trivial take for White of course. <br>
+At this score Red want to create a gammon threat if he can and the position is slightly more awkward for White if hangs back with 18/9. On the downside the rear Red checker could get isolated.<br>
 <br>
-When I originally looked at this position the third checker on White’s 8-pt was on his 9-pt. in that scenario the position becomes a very strong double and the take is nearly a blunder.<br>
+The rollout makes this a dead heat between the two plays. Over the board I would go with 18/9 as this might lead to more difficult cube decisions for White later on.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.473
-  0.600 0.377 0.008 - 0.400 0.106 0.006
-Cubeful equities:
-1. Double, take        +0.674
-2. Double, pass        +1.000  (+0.326)
-3. No double           +0.642  (-0.032)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/9                         Eq.: +0.344
+       0.566 0.086 0.001 - 0.434 0.093 0.002
+    2. Cubeful 2-ply    24/18 6/3                    Eq.: +0.311 (-0.033)
+       0.564 0.073 0.001 - 0.436 0.069 0.001
+    3. Cubeful 2-ply    24/18 8/5                    Eq.: +0.272 (-0.072)
+       0.547 0.090 0.002 - 0.453 0.079 0.002
+    4. Cubeful 2-ply    24/18 13/10                  Eq.: +0.262 (-0.081)
+       0.543 0.097 0.002 - 0.457 0.086 0.002
+    5. Cubeful 0-ply    24/18 9/6                    Eq.: +0.116 (-0.228)
+       0.507 0.084 0.001 - 0.493 0.085 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=bB--BBBA----bDb--c-bbb-AA-:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBb";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CBb";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=----b-E-CB--dC---dAe----A-:0:0:1:63:4:5:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

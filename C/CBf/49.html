@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 103</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 148</span>&ensp;
 <span>(CBf-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=122</div></div>
+      <div class="pipinfo">pips Red=132 White=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">There are enough market losers (especially as White doesn’t have an anchor) to make this a double and not doubling is an error.<br>
+ <div class="description">Red must hit a putting a fourth checker behind the broken prime with 18/16* seems logical.<br>
 <br>
-However, Red has only a two-point home board to White’s four-point board and the race is close so this is a trivial take. <br>
+The key to the position is then maintaining that broken prime to contain the White checkers. This implies that 13/9 is the correct 4 and indeed it is. In fact, any other play is at least a double (and nearly a triple) blunder. <br>
 <br>
-A lot of people wait a roll in positions like this but the volatility makes doubling clearly correct.<br>
+In the same way making the 4-pt with 8/4*, 6/4* looks good but it opens White’s escape route. And a hit could be immediately fatal. <br>
+<br>
+Broken primes are much stronger than look and the more checkers trapped behind them the more powerful they become.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.460
-  0.688 0.165 0.009 - 0.312 0.088 0.002
-Cubeful equities:
-1. Double, take        +0.708
-2. Double, pass        +1.000  (+0.292)
-3. No double           +0.667  (-0.041)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/16* 13/9                  Eq.: +0.619
+       0.654 0.185 0.011 - 0.346 0.098 0.004
+    2. Cubeful 2-ply    18/16* 8/4*                  Eq.: +0.350 (-0.269)
+       0.585 0.226 0.021 - 0.415 0.165 0.012
+    3. Cubeful 2-ply    8/4* 6/4                     Eq.: +0.294 (-0.325)
+       0.593 0.195 0.016 - 0.407 0.167 0.007
+    4. Cubeful 0-ply    18/16* 6/2                   Eq.: +0.351 (-0.268)
+       0.606 0.169 0.011 - 0.394 0.127 0.007
+    5. Cubeful 0-ply    18/16* 10/6                  Eq.: +0.275 (-0.344)
+       0.584 0.172 0.012 - 0.416 0.143 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aa--BEBB--AbB---b-bbAc-b-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBf";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-aaBD-BBB-bB--a-Abcbb---:0:0:1:42:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

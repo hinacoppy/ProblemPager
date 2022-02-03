@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 205</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 22</span>&ensp;
 <span>(CBj-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money game. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=129 White=152</div></div>
+      <div class="pipinfo">pips Red=124 White=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">When I was a young man I used to be hesitant about doubling positions like this (what if my opponent anchored?) and I would snap up the cube if doubled.<br>
+ <div class="description">Hopefully nobody found 9/4, 6/2 which is the equivalent of waving a white flag.<br>
 <br>
-Age has given me wisdom (and a lot of practice and study) and I now know to double these positions in a flash and to drop them just as quickly. It's a triple blunder not to double and worse than a triple blunder to take. Even using something as simple as PRaT (Position, Race, Threat) gives you the right answer.<br>
+When I set the problem I assumed that my over the board play of 8/3, 7/3, making a broken prime would be the easy winner. Imagine my surprise when it dead-heated with the wide-open 9/5*, 6/1*!<br>
+<br>
+This latter play seeks to build a counter-prime by force. It can backfire spectacularly but when it works it reaps a rich reward. The play wins 24% of the time which many will find a surprisingly high percentage. <br>
+<br>
+The position is worthy of a longer analysis and commentary but for now just enjoy the result.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.728
-  0.692 0.414 0.016 - 0.308 0.083 0.004
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.247  (+0.247)
-3. No double           +0.762  (-0.238)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 7/3                      Eq.: -0.711
+       0.234 0.039 0.001 - 0.766 0.275 0.024
+    2. Cubeful 2-ply    9/5* 6/1*                    Eq.: -0.727 (-0.016)
+       0.240 0.059 0.002 - 0.760 0.317 0.033
+    3. Cubeful 2-ply    9/5* 7/2                     Eq.: -0.733 (-0.023)
+       0.221 0.051 0.002 - 0.779 0.283 0.022
+    4. Cubeful 2-ply    9/4 7/3                      Eq.: -0.762 (-0.051)
+       0.192 0.031 0.001 - 0.808 0.228 0.015
+    5. Cubeful 2-ply    9/5* 8/3                     Eq.: -0.768 (-0.057)
+       0.256 0.051 0.002 - 0.744 0.367 0.052
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBA-aBBAA---dEa--b-c-b-Aa-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBj";
-var probnum = "25";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "25";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aB-BaCCBA--------bdbbc-B-:1:1:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

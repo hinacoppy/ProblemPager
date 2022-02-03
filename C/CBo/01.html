@@ -12,65 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 42</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 206</span>&ensp;
 <span>(CBo-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 64?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=67</div></div>
+      <div class="pipinfo">pips Red=18 White=15</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a trade-off between games and gammons. Red can play 14/8, 13/9 paying off to a 6 by White but slotting the point he most wants to make and adding an attacker for White's blot on his 2-pt.<br>
+ <div class="description">Most formulae, including Reichart’s, get this one correct. Clear double and clear take.<br>
 <br>
-The alternative is 14/10, 13/7 which wins fewer games but loses fewer gammons.<br>
+What if you don’t like formulae? The old-fashioned way of looking at this would be roughly:<br>
 <br>
-A roll-out has the two plays neck and neck with 14/8, 13/9 just winning by a short head.<br>
+This is a more or less and three-roll positions. I trail by three pips but the roll is worth 4 pips so actually I am marginally ahead. A small lead in a short race is nearly always worth a double so I will double. Equally well my opponent trails by only 1 pip (after the adjustment for the roll) therefore he probably has a take.<br>
 <br>
-Hopefully nobody wanted to play 24/14 which dismantles Red's final anchor.<br>
-<br>
-As is often the case the aggressive play wins out.<br>
+So, hard formulae or common-sense analysis – the choice is yours.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/8 13/9                    Eq.: +0.105
-       0.688 0.000 0.000 - 0.312 0.137 0.018
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    14/10 13/7                   Eq.: +0.084 (-0.021)
-       0.659 0.000 0.000 - 0.341 0.101 0.008
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    14/4                         Eq.: +0.051 (-0.054)
-       0.653 0.000 0.000 - 0.347 0.118 0.012
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/14                        Eq.: +0.025 (-0.080)
-       0.644 0.000 0.000 - 0.356 0.133 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/20 13/7                   Eq.: +0.018 (-0.086)
-       0.645 0.000 0.000 - 0.355 0.149 0.006
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.368
+  0.684 0.000 0.000 - 0.316 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.652
+2. Double, pass        +1.000  (+0.348)
+3. No double           +0.526  (-0.126)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aCBBBB----aAA------dccB-:2:-1:1:64:0:0:3:0:10");
-var categoryid = "CBo";
-var probnum = "01";
-var showpipflg = true;
+const categoryid = "CBo";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---AAAA------------b---aa-:0:0:1:00:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

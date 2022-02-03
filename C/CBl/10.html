@@ -12,58 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 120</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 90</span>&ensp;
 <span>(CBl-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 4-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=115 White=78</div></div>
+      <div class="pipinfo">pips Red=110 White=71</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Position submitted by George Jacobs<br>
+ <div class="description">This turned out to be closer than I expected. <br>
 <br>
-What a deceptive position! <br>
+The best non-hitting play is 15/13, 15/10. Hitting gains 11% wins but gives away 30% gammons. That is just too many but only just and hitting is not even classified as an error. <br>
 <br>
-Despite the 32 shots this is nowhere near a double for money. Red will never be able to afford to hit loose once White enters so must rely on making points naturally. In addition any fly shot that White hits from the bar will be an immediate winner. It is nearly a double blunder to offer the cube in a money game.<br>
-<br>
-At this match score the key thing is estimating gammons. If Red closes out both White checkers he will a gammon 40% of the time but because of the constraints already noted that isn't going to happen very often. Before rolling it out I estimated 10% gammons but even that turns out to be too high. The actual figure is just over 8%. White will win this position around 38% of the time. Those fly shots add up plus White can anchor and win with a late shot or by winning the race.<br>
-<br>
-If you plug the percentages above into a match equity chart you find that the position is a clear double and a huge take. Dropping is worse than a quintuple blunder!!<br>
+So, if you are feeling lucky, go ahead and hit. The psychological gain from winning with such a hit may last well beyond just this one game – something always worth considering.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.146 (Money: +0.195)
-  0.604 0.073 0.003 - 0.396 0.086 0.002
-Cubeful equities:
-1. Double, take        +0.462
-2. Double, pass        +1.000  (+0.538)
-3. No double           +0.389  (-0.073)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/13 15/10                  Eq.: -0.858
+       0.108 0.002 0.000 - 0.892 0.110 0.003
+    2. Cubeful 2-ply    15/10 9/7                    Eq.: -0.864 (-0.006)
+       0.107 0.002 0.000 - 0.893 0.113 0.003
+    3. Cubeful 2-ply    15/10 4/2                    Eq.: -0.867 (-0.009)
+       0.107 0.002 0.000 - 0.893 0.116 0.003
+    4. Cubeful 2-ply    15/8                         Eq.: -0.868 (-0.011)
+       0.105 0.002 0.000 - 0.895 0.113 0.003
+    5. Cubeful 2-ply    15/13 9/4                    Eq.: -0.885 (-0.027)
+       0.099 0.001 0.000 - 0.901 0.116 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---B-CBaBCa--C-----bbbcbb-:0:0:1:00:4:5:0:7:10");
-var categoryid = "CBl";
-var probnum = "10";
-var showpipflg = true;
+const categoryid = "CBl";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-CBBC----A-----Bab-bcbcBb-:1:1:1:52:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

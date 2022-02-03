@@ -12,56 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 214</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 32</span>&ensp;
 <span>(CB1-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=75 White=81</div></div>
+      <div class="pipinfo">pips Red=130 White=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is very nearly a last roll position but the blot on Red’s 2-pt means there is life after death if for White if he gets hit.<br>
+ <div class="description">This is very difficult as evidenced by the fact that nobody in our chouette selected the best play. Nothing looks much good. The key decision is whether to play against the single checker by attacking it with 8/7, 6/1*, play as safe as you can with something like 8/2 or to play the position as prime vs. prime.<br>
 <br>
-Is Red the equity favourite because of the gammons he wins? Impossible to calculate over the board. A rollout gives Red a tiny equity advantage and XG has doubling correct but only by 0.009.<br>
+The problem with the hit is that it creates three blots and therefore gammon losses increase. Meanwhile Red still has two rear checkers to escape with not much time to do so and White will surely escape.<br>
 <br>
-Therefore, any decision you make is Red is basically correct. White has a take but not a beaver because of the gammon losses.<br>
+8/2 is anti-thematic – how will Red improve from here? Answer – not very easily. We can discard this idea (or lack of idea).<br>
 <br>
-The key is to at least think about doubling here – many would not give it a second thought.<br>
+The correct plan is to play this as prime vs. prime. 8/3, 6/5 is a good try but 8/7, 8/3 is much, much better. But now the key question – can you take the cube after any play?<br>
+<br>
+Over to you as you enjoy Position 33.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.180
-  0.521 0.155 0.001 - 0.479 0.019 0.000
-Cubeful equities:
-1. Double, take        +0.025
-2. Double, pass        +1.000  (+0.975)
-3. No double           +0.003  (-0.022)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/7 8/3                      Eq.: -0.937
+       0.319 0.066 0.002 - 0.681 0.256 0.027
+    2. Cubeful 2-ply    8/3 6/5                      Eq.: -0.983 (-0.047)
+       0.301 0.064 0.002 - 0.699 0.236 0.025
+    3. Cubeful 2-ply    8/3 4/3                      Eq.: -1.000 (-0.063)
+       0.287 0.057 0.002 - 0.713 0.236 0.024
+    4. Cubeful 2-ply    8/2                          Eq.: -1.000 (-0.063)
+       0.262 0.058 0.002 - 0.738 0.204 0.016
+    5. Cubeful 2-ply    6/1* 2/1                     Eq.: -1.000 (-0.063)
+       0.274 0.065 0.001 - 0.726 0.249 0.024
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CACBBC-----b----abb-cabbA:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB1";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aB-BBC-B---bB----bbcc-bB-:0:0:1:51:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

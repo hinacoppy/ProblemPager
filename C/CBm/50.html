@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 30</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 164</span>&ensp;
 <span>(CBm-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=165 White=151</div></div>
+      <div class="pipinfo">pips Red=120 White=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White's four blots and Red's three-point home board point one in the direction of a double but Red has very few checkers in the attack zone and is unlikely to be able to blitz White. <br>
+ <div class="description">For money, hitting the second checker would clearly be right because of the extra gammons and 23/22*, 13/10 is the best play.<br>
 <br>
-The more likely scenario is that Red will hit a checker and White will make an anchor leading to a more static position. It turns out that this is not a close decision with not doubling being clearly correct.<br>
+At DMP gammons don’t count so the pure 8/5, 6/5 must come into consideration. This is what I did over the board employing Falafel’s maxim, “make the 5-pt and then think” but I wasn’t sure.<br>
 <br>
-Of course if you think White might take fright and drop the cube then by all means ship it across. According to XG you need a 12% chance that White will drop to make the double correct.<br>
-<br>
-Only you know your opponent(s)!<br>
+It turns out that (a) 23/22*, 13/10 (b) 23/222*, 11/8 and (c) 8/5, 6/5 are all within 0.007 equity points of each other so I suspect everybody got this one correct!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.331
-  0.597 0.225 0.022 - 0.403 0.102 0.006
-Cubeful equities:
-1. No double           +0.451
-2. Double, pass        +1.000  (+0.549)
-3. Double, take        +0.388  (-0.063)
-Proper cube action: No double, take (10.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22* 11/8                  Eq.: +0.380
+       0.690 0.435 0.015 - 0.310 0.069 0.003
+    2. Cubeful 2-ply    23/22* 13/10                 Eq.: +0.377 (-0.003)
+       0.688 0.452 0.016 - 0.312 0.072 0.004
+    3. Cubeful 2-ply    23/22* 6/3                   Eq.: +0.348 (-0.032)
+       0.674 0.414 0.015 - 0.326 0.078 0.003
+    4. Cubeful 2-ply    23/22* 4/1                   Eq.: +0.337 (-0.043)
+       0.668 0.440 0.012 - 0.332 0.082 0.003
+    5. Cubeful 2-ply    8/5 6/5                      Eq.: +0.331 (-0.048)
+       0.666 0.403 0.013 - 0.334 0.087 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aBBaB-B---cD-a-c-ea-A-AA:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBm";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "CBm";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aA-BB-C-B--BdBa--c-cb-aA--:1:-1:1:31:5:6:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

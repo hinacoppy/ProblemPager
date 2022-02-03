@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 221</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 30</span>&ensp;
 <span>(CBd-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 2-2 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 32?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=112</div></div>
+      <div class="pipinfo">pips Red=92 White=97</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This position came up in my match against Sean Williams in the London League match between Roehampton and the Union Club. <br>
+ <div class="description">Beware of leaving gratuitous shots when your opponent has a four-point home board. 15/12, 5/3 is not quite an error but any other play is, except of course the correct play of 6/1. <br>
 <br>
-For money this would be double and a very easy take but at 3-away/3-away the rule of thumb is to both double early and drop early. I doubled and after long thought Sean passed.<br>
-<br>
-In fact it is a take but only by 0.014 equity points so in practice either decision is OK. The big error would be in not doubling as Red.<br>
+Red can always volunteer indirect shots next turn if the dice so dictate but there is no need to do so immediately. The simple play is the correct one in this position.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.506 (Money: +0.487)
-  0.726 0.065 0.002 - 0.274 0.032 0.000
-Cubeful equities:
-1. Double, take        +0.949
-2. Double, pass        +1.000  (+0.051)
-3. No double           +0.870  (-0.079)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1                          Eq.: +0.222
+       0.653 0.060 0.001 - 0.347 0.024 0.000
+    2. Cubeful 2-ply    15/12 5/3                    Eq.: +0.207 (-0.015)
+       0.642 0.076 0.003 - 0.358 0.037 0.001
+    3. Cubeful 2-ply    5/3 5/2                      Eq.: +0.195 (-0.026)
+       0.644 0.051 0.000 - 0.356 0.020 0.000
+    4. Cubeful 2-ply    15/13 15/12                  Eq.: +0.191 (-0.031)
+       0.635 0.080 0.004 - 0.365 0.040 0.001
+    5. Cubeful 2-ply    15/13 5/2                    Eq.: +0.190 (-0.031)
+       0.638 0.068 0.003 - 0.362 0.035 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-AbB-CC-B----Da--aac-cbb--:0:0:1:00:2:2:0:5:10");
-var categoryid = "CBd";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BBbDCB-------B-a-bbdac--:1:-1:1:32:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

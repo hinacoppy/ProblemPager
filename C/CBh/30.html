@@ -12,59 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 21</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 228</span>&ensp;
 <span>(CBh-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-0 to 7. Should Red double? If doubled. Should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=90 White=112</div></div>
+      <div class="pipinfo">pips Red=104 White=121</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">There are times to hold on to an anchor but this isn’t one of them.<br>
+ <div class="description">A position that many would get wrong.<br>
 <br>
-Playing 8/6, 8/2 gives White total control of the outer boards. Red must go now with 20/18, 20/14 whereby he takes control. If White hits and covers so be it. Red will 55% of the time if he runs and only 47% if he holds the anchor. When ahead in the race, race!<br>
+For money this is a double and a close take. White wins about 23% of the time but his access to the cube gives him just enough chances to take.<br>
+<br>
+At this match score the correct actions are double/drop. Although White will immediately redouble to 4 that doesn’t quite generate enough match winning chances to justify a take because White can never use the cube to win the game as he will have already redoubled. That lack of cube access makes all the difference.<br>
+<br>
+Taking is a small error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/18 20/14                  Eq.: -0.090
-       0.545 0.088 0.001 - 0.455 0.103 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/12                        Eq.: -0.193 (-0.103)
-       0.499 0.104 0.001 - 0.501 0.121 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/14 3/1                    Eq.: -0.213 (-0.123)
-       0.496 0.077 0.001 - 0.504 0.109 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/14 4/2                    Eq.: -0.259 (-0.169)
-       0.482 0.093 0.001 - 0.518 0.140 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    8/6 8/2                      Eq.: -0.298 (-0.208)
-       0.460 0.068 0.000 - 0.540 0.100 0.001
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.556 (Money: +0.551)
+  0.773 0.008 0.000 - 0.227 0.003 0.000
+Cubeful equities:
+1. Double, take        +0.999
+2. Double, pass        +1.000  (+0.001)
+3. No double           +0.945  (-0.054)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CBACbB-B------b-c-bBabc--:1:-1:1:62:0:0:3:0:10");
-var categoryid = "CBh";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CBh";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--B-B-DCAc--bC----acbb-b--:0:0:1:00:5:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

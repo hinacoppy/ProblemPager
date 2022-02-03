@@ -12,61 +12,68 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 135</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Play to a Plan</span>&ensp;
 <span>(CBk-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game. How should Red play 63?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=141 White=103</div></div>
+      <div class="pipinfo">pips Red=134 White=123</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I hope this solution doesn't cause anyone to give up backgammon! (see comments).<br>
+ <div class="description">When this position occurred Black played the seemingly obvious 5/2, 3/2 making a very strong five-point home board. The problem is that he failed to look further ahead than just his own next move.<br>
 <br>
-As I have stressed before don't fight a war on two fronts. With fourteen checkers in White's attack zone and behind in the race the alarm bells should be ringing for Red if he thinks of splitting. <br>
+The key in any backgammon position is to have a plan for the rest of the game. The dice are capricious and can destroy any plan at a moment’s notice but you should always know what you are trying to achieve, even if you are subsequently forced into a change of plan by the vagaries of the dice.<br>
 <br>
-The correct plan is concentrate on containing White's rear checker. The rear checkers can escape later. 13/10, 13/7* is right by quite some way and 24/21, 13/7* is officially an error! Sorry, Sue.<br>
+In this position Black should recognize that he cannot hold on to both his opponent’s bar-point and his ace-point. The timing is such that he will not be able to play a well-timed ace-point and so he should be looking to play a bar-point holding game, especially as that point is currently constraining the five checkers on White’s mid-point.<br>
+<br>
+Once you have a plan then that you can look for candidate plays that enable you to put that plan into action.  Here there is an obvious candidate play, namely 24/21, 3/2. The plan will then be to escape that checker into the outfield next turn while maintaining the other rear checker on White’s ace-point. <br>
+<br>
+This play gives Black flexibility. Black can either escape that checker next time or, if it is hit, he will hope to remake an anchor in White’s home board or possibly escape it next time. The key is to be able to keep a strong home board and maintain pressure on White’s mid-point.<br>
+<br>
+After Black played 5/2, 3/2 White rolled 21 and play 8/5. Black then rolled 54 and was immediately in trouble. A lack of planning and foresight meant that Black paid dearly for his error. So remember, always know what your plan is before you start selecting candidate plays. Just making moves is not the route to winning backgammon.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 13/7*                  Eq.: +0.344
-       0.584 0.178 0.005 - 0.416 0.107 0.009
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/21 13/7*                  Eq.: +0.281 (-0.063)
-       0.567 0.172 0.006 - 0.433 0.123 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/7* 8/5                    Eq.: +0.179 (-0.165)
-       0.552 0.175 0.005 - 0.448 0.153 0.016
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/7* 6/3                    Eq.: +0.177 (-0.167)
-       0.542 0.159 0.004 - 0.458 0.106 0.008
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/7*/4                      Eq.: +0.104 (-0.239)
-       0.525 0.154 0.004 - 0.475 0.103 0.007
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/21 3/2                    Eq.: -0.471
+       0.364 0.084 0.002 - 0.636 0.133 0.004
+    2. Cubeful 2-ply    24/21 5/4                    Eq.: -0.509 (-0.037)
+       0.355 0.079 0.002 - 0.645 0.135 0.004
+    3. Cubeful 2-ply    5/2 3/2                      Eq.: -0.522 (-0.050)
+       0.351 0.080 0.001 - 0.649 0.116 0.004
+    4. Cubeful 2-ply    24/23 5/2                    Eq.: -0.534 (-0.063)
+       0.353 0.081 0.002 - 0.647 0.137 0.004
+    5. Cubeful 2-ply    24/21 6/5                    Eq.: -0.548 (-0.077)
+       0.347 0.075 0.002 - 0.653 0.139 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BB-DaB----Ca--bdd---cB-:0:0:1:63:0:0:1:0:10");
-var categoryid = "CBk";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CBk";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---CBCC-----e----cBcb-b-B-:0:0:1:31:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

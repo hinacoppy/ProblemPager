@@ -12,56 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 202</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 46</span>&ensp;
 <span>(CB1-46)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 3-4 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=24 White=21</div></div>
+      <div class="pipinfo">pips Red=156 White=159</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money, this is no redouble/beaver.<br>
+ <div class="description">I posted this one really as a cautionary tale not to always believe XG Mobile's initial evaluation.<br>
 <br>
-However, the score is the dominant factor. The redoubling window at this particular score is 30% - 59%. If White has less than 41% chances of winning he must drop the redouble.<br>
+It flagged my 24/15 as an error (when ahead in the race, race) which I found hard to believe so I subjected the position to a comprehensive rollout.<br>
 <br>
-Red wins just a fraction under 50% (something that is relatively easy to estimate) of the time from here so he is well within the window and the position is highly volatile so now is exactly the moment to redouble – he might have lost his market by his next roll. <br>
+The rollout has 24/15 and 13/9, 13/8 as exactly equal thus showing both game plans are viable as perhaps one would expect.<br>
 <br>
-White has a trivial take of course = he would be giving up 9% winning chances by passing.<br>
+24/20, 13/8 is an error as there is no point staying on the 20-pt as you can't hope to make it and it lets White attack on a point he wants to make.<br>
+<br>
+So the lesson is always do a full rollout before making a final judgment on any position.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.005 (Money: -0.005)
-  0.498 0.000 0.000 - 0.502 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.508
-2. Double, pass        +1.000  (+0.492)
-3. No double           +0.366  (-0.143)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 13/8                    Eq.: +0.037
+       0.516 0.135 0.005 - 0.484 0.142 0.004
+    2. Cubeful 2-ply    24/15                        Eq.: +0.013 (-0.024)
+       0.519 0.089 0.002 - 0.481 0.129 0.003
+    3. Cubeful 2-ply    24/20 13/8                   Eq.: -0.025 (-0.062)
+       0.508 0.113 0.005 - 0.492 0.156 0.004
+    4. Cubeful 2-ply    13/4                         Eq.: -0.109 (-0.145)
+       0.480 0.123 0.005 - 0.520 0.165 0.006
+    5. Cubeful 0-ply    13/8 6/2                     Eq.: -0.139 (-0.176)
+       0.471 0.113 0.004 - 0.529 0.172 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-A-AB-B------------aba--a-:1:1:1:00:3:4:0:7:10");
-var categoryid = "CB1";
-var probnum = "46";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "46";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b----E-C---eF---b-d--b-A-:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

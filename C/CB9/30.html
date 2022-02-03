@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 143</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 130</span>&ensp;
 <span>(CB9-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-3 to 7. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=126 White=167</div></div>
+      <div class="pipinfo">pips Red=90 White=140</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A lot of players would quickly discard the idea of doubling here because Red has a lot of work to do. However, those two white blots in Red’s home board create gammon opportunities and that is just enough to swing the vote in favour of doubling now.<br>
+ <div class="description">It doesn’t have to be beautiful if it does the job.<br>
 <br>
-Of course, White has a trivial take and virtually nobody would drop this. In such situations it pays to know your opponent and if he/she is someone would take later despite the position deteriorating, then Red can wait a roll or two. Technically, however, this is double/take.<br>
+9/4(2), 7/2(2) just looks so wrong and it is. 9/4(2), 6/1(2)* puts White on the bar and creates some space for Red behind White’s anchor as he tries to bear-in his remaining checkers.<br>
+<br>
+Of course, 25% of the time Red gets the bonus of White staying on the bar, making the bear-in just that little bit easier.<br>
+<br>
+9/4(2), 7/2(2) is in blunder country.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.503
-  0.650 0.265 0.013 - 0.350 0.072 0.003
-Cubeful equities:
-1. Double, take        +0.769
-2. Double, pass        +1.000  (+0.231)
-3. No double           +0.731  (-0.038)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/4(2) 6/1*(2)               Eq.: +0.481
+       0.663 0.194 0.002 - 0.337 0.041 0.000
+    2. Cubeful 2-ply    7/2(2) 6/1*(2)               Eq.: +0.137 (-0.344)
+       0.573 0.176 0.002 - 0.427 0.072 0.001
+    3. Cubeful 0-ply    9/4(2) 7/2(2)                Eq.: +0.320 (-0.161)
+       0.607 0.212 0.006 - 0.393 0.047 0.000
+    4. Cubeful 0-ply    9/4 7/2 6/1*(2)              Eq.: +0.107 (-0.374)
+       0.562 0.165 0.002 - 0.438 0.072 0.001
+    5. Cubeful 0-ply    7/2(4)                       Eq.: -0.036 (-0.517)
+       0.516 0.160 0.005 - 0.484 0.072 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aaBbCB-D---bC---bbb-bAa--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB9";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CB9";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBcC-BDBB-----a---bbbbb--:0:0:1:55:5:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

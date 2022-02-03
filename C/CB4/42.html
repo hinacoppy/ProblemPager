@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 82</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 192</span>&ensp;
 <span>(CB4-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=142 White=120</div></div>
+      <div class="pipinfo">pips Red=110 White=93</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red can play safe with 8/5, take a small risk with 11/10, 11/9 or play big with 11/9, 8/7. Which shall it be?<br>
+ <div class="description">To win the game Red will need his 3-pt so lifting the blot is not an option despite the risk.<br>
 <br>
-8/5 is clearly wrong – it does nothing to improve Red’ s position. The key is the doubling cube. If Red slots the bar and White rolls neither a 5 or a 1 he will have to pass Red’s double. If he does creep up with a 1 Red will still have a powerful, but takeable cube.<br>
+There are many different ways to play this 21 some of which involve de-duplicating Red's 5's (which he needs to escape) but many of those plays expose another blot and that could add to Red's gammons losses.<br>
 <br>
-11/10, 11/9 is a reasonable play but still a small error.<br>
+The best play is 10/7 which leaves no more blots and has one other benefit which may not be immediately obvious. When White enters and hits the blot on Red's 3-pt, Red has an effective prime against White's checker that could cause White's front position to collapse if he can't escape that checker. It is this that gives 10/7 the edge.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/9 8/7                     Eq.: +0.475
-       0.644 0.144 0.004 - 0.356 0.100 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    11/10 11/9                   Eq.: +0.412 (-0.063)
-       0.608 0.135 0.003 - 0.392 0.076 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/5                          Eq.: +0.338 (-0.137)
-       0.594 0.147 0.004 - 0.406 0.073 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/10 8/6                    Eq.: +0.330 (-0.146)
-       0.592 0.145 0.004 - 0.408 0.078 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    13/10                        Eq.: +0.269 (-0.206)
-       0.579 0.123 0.003 - 0.421 0.080 0.002
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 3/2                      Eq.: -0.526
+       0.262 0.020 0.000 - 0.738 0.154 0.005
+    2. Cubeful 2-ply    10/7                         Eq.: -0.530 (-0.004)
+       0.268 0.023 0.000 - 0.732 0.175 0.006
+    3. Cubeful 2-ply    7/6 3/1                      Eq.: -0.533 (-0.007)
+       0.260 0.019 0.000 - 0.740 0.154 0.005
+    4. Cubeful 2-ply    10/8 7/6                     Eq.: -0.562 (-0.036)
+       0.253 0.021 0.000 - 0.747 0.170 0.005
+    5. Cubeful 2-ply    8/7 8/6                      Eq.: -0.574 (-0.048)
+       0.269 0.023 0.000 - 0.731 0.216 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--a-BBB-C--BbB---bceB--b--:0:0:1:21:0:0:3:0:10");
-var categoryid = "CB4";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBA-BBAB-A------c-cbbbBb-:1:1:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

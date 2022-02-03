@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 188</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 63</span>&ensp;
 <span>(CB2-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money game. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=134 White=129</div></div>
+      <div class="pipinfo">pips Red=122 White=55</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This one is right on the cusp. Clearly Red must double as he has plenty of threats. It would be a double blunder not to double.<br>
+ <div class="description">This is all about knowing reference positions. If both White checkers were closed out this would be a big pass. As a reference (one that most players should know) two closed out checkers plus two White checkers on the ace-point is a very close pass. <br>
 <br>
-White can squeeze a take because the race is equal and he has as strong a home board as Red. Theory is great but I can see a lot of boxes dropping this double in a chouette as multiple doubled gammons loom on the horizon!<br>
+Here White may anchor but Red should then execute a trap play to separate the rear checkers. Alternatively White may anchor, roll an ace and get a third checker sent back.<br>
+<br>
+Over the board I would balance the above variations with the fact that White's three home board checkers are on his 2-pt and not his ace-point and come to the conclusion that this will be a borderline decision.<br>
+<br>
+That in fact is the case and XG rates this as close (0.018) pass. However, if Red was a weak player who would make a six-point prime against an anchor rather than executing a trap play then the position becomes a take. So here you have not only to analyse the position but also your opponent.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.576
-  0.695 0.245 0.008 - 0.305 0.068 0.001
+2-ply cubeless equity +0.542
+  0.782 0.000 0.000 - 0.218 0.019 0.004
 Cubeful equities:
-1. Double, take        +0.945
-2. Double, pass        +1.000  (+0.055)
-3. No double           +0.776  (-0.169)
-Proper cube action: Double, take
+1. Double, take        +0.935
+2. Double, pass        +1.000  (+0.065)
+3. No double           +0.911  (-0.025)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aaB-BC-BB--bB---d-cB--bb-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB2";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CB2";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aaBBBBC------A---A----AcA-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 99</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 66</span>&ensp;
 <span>(CBq-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=149</div></div>
+      <div class="pipinfo">pips Red=117 White=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This position demonstrates once again the power of the broken prime. If White’s checker on the bar enters on Red’s ace-point he could very soon be in trouble and his position could unravel.<br>
+ <div class="description">Obviously Red must hit or he will be attacked himself so 13/11* is clear for the 2. He can minimise blots by 11/10 or 7/6 with the 1.<br>
 <br>
-Because of this White loses a gammon a whopping 26% of the time and it this makes the position a huge redouble. It is a blunder not to redouble.<br>
+However, Red owns the cube and can use it to powerful effect if White fans. After 13/12, 13/11* followed by a fan by White, Red will redouble and White has the skinniest of takes. After either of the other plays White has a much easier take.<br>
 <br>
-On the other hand , Red still has four rear checkers to extricate and he could have trouble doing that, particularly the ones on White’s 2-pt. This is enough to give White a take, although it is quite close.<br>
-<br>
-It is interesting that the redouble is predicated more upon White rolling badly than Red rolling well, which is usually the case.<br>
+Note also that 13/12, 13/11* beautifully triplicates White’s 2s and even his 52 is duplicated. The bottom line is that Red needs his bar-point so he should leave it slotted.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.539
-  0.674 0.262 0.023 - 0.326 0.089 0.004
-Cubeful equities:
-1. Double, take        +0.856
-2. Double, pass        +1.000  (+0.144)
-3. No double           +0.806  (-0.049)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/12 13/11*                 Eq.: +0.337
+       0.560 0.186 0.005 - 0.440 0.199 0.020
+    2. Cubeful 2-ply    13/11* 7/6                   Eq.: +0.272 (-0.065)
+       0.542 0.188 0.006 - 0.458 0.188 0.012
+    3. Cubeful 2-ply    13/11*/10                    Eq.: +0.249 (-0.088)
+       0.529 0.184 0.005 - 0.471 0.202 0.012
+    4. Cubeful 2-ply    13/11* 6/5                   Eq.: +0.222 (-0.115)
+       0.532 0.192 0.006 - 0.468 0.233 0.026
+    5. Cubeful 0-ply    7/4                          Eq.: -0.352 (-0.689)
+       0.323 0.059 0.001 - 0.677 0.164 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=abBBB-BB----b--A--bcBcbB--:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBq";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---BBBCA-bBa-B---b-ccbAb--:1:1:1:12:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

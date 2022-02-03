@@ -12,56 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 114</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 158</span>&ensp;
 <span>(CBa-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=123 White=123</div></div>
+      <div class="pipinfo">pips Red=138 White=149</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">What would be a near beaver for money becomes a very clear double for Red at this match score.<br>
+ <div class="description">You have heard it before but here goes: “when ahead in the race, race.”<br>
 <br>
-With any sniff of a gammon Red should be doubling and this position fulfils that criterion precisely.<br>
+Red should go now while he has a stronger home board if a hitting battle ensues. He should play 22/14. 22/16, 22/20 is weak because of all the double hits.<br>
 <br>
-Not to double here would be a triple blunder. More than anything else the bots have taught us how to optimise doubling at the end of matches.<br>
+8/6, 8/2* is great when it works (i.e. White fans) and that does give Red a marginal double (trivial take for White) but Red needs to play the percentages.<br>
 <br>
-If you didn’t double this position then you have some serious studying to do!<br>
+22/14 makes Red a 53% favourite. 13/5 (the do nothing play) is the second best move but it is nearly a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.064 (Money: +0.133)
-  0.506 0.284 0.011 - 0.494 0.162 0.011
-Cubeful equities:
-1. Double, take        +0.506
-2. Double, pass        +1.000  (+0.494)
-3. No double           +0.349  (-0.157)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/14                        Eq.: +0.164
+       0.540 0.191 0.012 - 0.460 0.146 0.005
+    2. Cubeful 2-ply    13/5                         Eq.: +0.060 (-0.104)
+       0.496 0.195 0.007 - 0.504 0.117 0.004
+    3. Cubeful 2-ply    22/20 8/2*                   Eq.: +0.059 (-0.105)
+       0.495 0.213 0.013 - 0.505 0.171 0.012
+    4. Cubeful 2-ply    22/16 13/11                  Eq.: +0.027 (-0.137)
+       0.504 0.200 0.014 - 0.496 0.177 0.010
+    5. Cubeful 2-ply    13/11 8/2*                   Eq.: +0.011 (-0.153)
+       0.482 0.205 0.009 - 0.518 0.142 0.007
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BaBB-C-B---bBaa--cc-bbAA-:0:0:1:00:1:5:0:7:10");
-var categoryid = "CBa";
-var probnum = "09";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "09";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aaB-CC-B---bC-b-bbc-bB---:0:0:1:62:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

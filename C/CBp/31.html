@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 58</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 26</span>&ensp;
 <span>(CBp-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=154 White=121</div></div>
+      <div class="pipinfo">pips Red=129 White=132</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White’s position is awkward but those spare checkers on his 3-pt are not dead yet. In addition, White has a large racing lead.<br>
+ <div class="description">The key here is not just to focus on making the bar-point. Those three rear checkers need to start on their journey home. 15/11, 9/7 is therefore the weakest of the possible plays.<br>
 <br>
-The position is not that volatile and Red has only a few market losers. However, positionally he is well placed.<br>
-<br>
-All of this adds up to a position where Red can double or not, his equity is the same either way and his decision should be based upon his knowledge of his opponent. White has a trivial take, dropping would be a triple blunder.<br>
+The best play is 23/21, 15/11, providing double coverage of the bar-point in case of the dreaded 61 by White, and keeping the anchor for the time being in case of disaster. 23/17 and 21/15 are both OK and even 21/17, 15/13 is not an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.461
-  0.665 0.212 0.009 - 0.335 0.088 0.002
-Cubeful equities:
-1. Double, take        +0.695
-2. Double, pass        +1.000  (+0.305)
-3. No double           +0.686  (-0.009)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15                        Eq.: +0.394
+       0.697 0.334 0.005 - 0.303 0.068 0.002
+    2. Cubeful 2-ply    23/17                        Eq.: +0.384 (-0.010)
+       0.692 0.334 0.005 - 0.308 0.069 0.003
+    3. Cubeful 2-ply    21/17 15/13                  Eq.: +0.370 (-0.024)
+       0.685 0.344 0.006 - 0.315 0.091 0.007
+    4. Cubeful 2-ply    23/21 15/11                  Eq.: +0.368 (-0.026)
+       0.684 0.325 0.004 - 0.316 0.064 0.003
+    5. Cubeful 2-ply    15/11 9/7                    Eq.: +0.339 (-0.056)
+       0.669 0.330 0.005 - 0.331 0.079 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--bB-CB-B-AA----bbbbC-e-A-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBp";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BBBBB--A--b-cA--bcbBbA--:0:0:1:42:6:6:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

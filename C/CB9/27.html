@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 146</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 127</span>&ensp;
 <span>(CB9-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 4-1 to 7. How should Red play 66?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=153 White=174</div></div>
+      <div class="pipinfo">pips Red=141 White=149</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">If Red makes his 5-pt and White doesn’t create a second anchor then the position will probably become a pass. <br>
+ <div class="description">Although 9/3(2) looks neat the right play by a long way is 24/18(2), 13/(7), locking in the White checkers on Red’s ace-point.<br>
 <br>
-White’s position is awkward to play anyway because of his home-board structure. Having said that his 4-pt anchor will keep him in the game for a long time and so while his position isn’t wonderful he easily has enough equity to take.<br>
-<br>
-The error here would be not doubling as Red. As noted above he has market-losing sequences and his overall position is very solid whatever happens. Not doubling here is a bad error but not quite a blunder. Dropping the double would be a blunder.<br>
+For money 24/18(2), 9/3(2) would be a blunder but at this match score it is a double blunder because in a lot of variations Red will want to play on for an undoubled gammon to get him to 6-1 (Crawford). That extra point is extremely valuable. On a minor point 24/18(2), 13/7(2) duplicates White’s hitting aces.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.531
-  0.685 0.232 0.009 - 0.315 0.079 0.002
-Cubeful equities:
-1. Double, take        +0.847
-2. Double, pass        +1.000  (+0.153)
-3. No double           +0.788  (-0.059)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/18(2) 13/7(2)             Eq.: +0.579
+       0.682 0.208 0.011 - 0.318 0.086 0.003
+    2. Cubeful 2-ply    24/18(2) 9/3(2)              Eq.: +0.435 (-0.144)
+       0.645 0.225 0.011 - 0.355 0.098 0.002
+    3. Cubeful 0-ply    13/7(2) 9/3(2)               Eq.: -0.098 (-0.677)
+       0.511 0.190 0.018 - 0.489 0.154 0.010
+    4. Cubeful 0-ply    24/18 13/7(3)                Eq.: -0.138 (-0.717)
+       0.504 0.177 0.016 - 0.496 0.161 0.009
+    5. Cubeful 0-ply    24/18(2) 13/7 9/3            Eq.: -0.393 (-0.972)
+       0.475 0.160 0.011 - 0.525 0.238 0.023
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-acADBC---cB----Ac-Bb-b-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB9";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CB9";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bA-CBB--B--cC--bb-bb-b-B-:0:0:1:66:4:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

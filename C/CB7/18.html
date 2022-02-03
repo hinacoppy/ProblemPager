@@ -12,63 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 254</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 18</span>&ensp;
 <span>(CB7-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 54?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=106 White=139</div></div>
+      <div class="pipinfo">pips Red=150 White=147</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Back to theme of broken primes!<br>
+ <div class="description">Addition Trivia Question: How many times do you need to roll the dice before you become favourite to roll a specific double, e.g. 66? (This came up in relation to Position 17).<br>
 <br>
-I’m sure nearly everybody would hit here (I did) with either 13/4* or 10/5, 8/4*, there is little to choose between those two plays.<br>
+I had this position in a match and played 11/1(2)*. My opponent fanned a couple of times and I won an easy gammon.<br>
 <br>
-However, Red is running out of time to free his back checker and he could end up closing out two White checkers but still be unable to free his own rear checker.<br>
+XG thinks this is an overplay and prefers 13/3(2). This gives much better connectivity between Red’s checkers. White’s home board is just strong enough to discourage a blitz and so the pure play wins this one. White is not really threatening much on his side of the board and 13/3(2) makes a useful point while developing the spare checkers from the mid-point.<br>
 <br>
-Although it is close the correct play is 24/20/15. This triplicates White’s 3’s and if Red is not hit (there are only 10 shots) then he is in a very strong position. Even if he is hit there will be multiple return shots. Before the bots nobody would have thought of playing 24/15 but the game has evolved hugely in the last 20 years.<br>
+XG rates 11/1(2)* as an error but only just and at certain match scores, i.e. when trailing, it could well be the right play. <br>
+<br>
+The answer to the rolls question is 25 (see Alastair's comment for the necessary equaton). A few hundred years ago a french gambler did the maths wrong and came up with 24. That small error lost him a lot of money over the years!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/5 8/4*                    Eq.: +0.626
-       0.659 0.490 0.021 - 0.341 0.084 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/15                        Eq.: +0.618 (-0.008)
-       0.697 0.389 0.015 - 0.303 0.076 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/4*                        Eq.: +0.602 (-0.024)
-       0.653 0.482 0.015 - 0.347 0.080 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/20 10/5                   Eq.: +0.561 (-0.065)
-       0.675 0.383 0.015 - 0.325 0.076 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/3 7/3                      Eq.: +0.525 (-0.100)
-       0.642 0.420 0.015 - 0.358 0.065 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/1*(2)                     Eq.: +0.401
+       0.590 0.207 0.006 - 0.410 0.113 0.003
+    2. Cubeful 2-ply    13/3(2)                      Eq.: +0.392 (-0.009)
+       0.606 0.184 0.009 - 0.394 0.114 0.003
+    3. Cubeful 2-ply    13/8 11/1* 6/1               Eq.: +0.354 (-0.047)
+       0.583 0.199 0.007 - 0.417 0.120 0.003
+    4. Cubeful 2-ply    13/3 11/6 8/3                Eq.: +0.276 (-0.125)
+       0.577 0.183 0.009 - 0.423 0.132 0.004
+    5. Cubeful 0-ply    13/3 8/3 6/1*                Eq.: +0.152 (-0.249)
+       0.538 0.191 0.009 - 0.462 0.151 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBB-aBBAC-A-aA--bbbd-b--A-:1:-1:1:54:0:0:3:0:10");
-var categoryid = "CB7";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "CB7";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa--BC-C--BdD---a-db-b-A-:0:0:1:55:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,52 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 97</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 68</span>&ensp;
 <span>(CBq-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=104 White=75</div></div>
+      <div class="pipinfo">pips Red=95 White=171</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A number of players take this redouble because they reason they cannot lose a gammon as they have a checker off and a lucky hit for White can win him a gammon.<br>
+ <div class="description">I found this position very instructive.<br>
 <br>
-Both statements are true but sadly White loses 83% of the time and this is a huge drop. It is worse than a 2.5 blunder to take. Not redoubling is also a double blunder. Quite often the game is effectively over after the next roll as nearly all of Red’s numbers work well for him.<br>
+White is playing a 1-2 back game and one of the weaknesses of such games is that that the opponent only bears in slowly because his 5s and 6s often cannot be played. Meanwhile the player of the back game sees his home board crunch.<br>
+<br>
+Here, White’s timing is questionable and so Red should seek to eliminate his 5s and 6s. He also doesn't want to make his 5-pt, why make a point that is difficult to clear?<br>
+<br>
+All of this leads to the correct play of 9/6(4). Any other play is at least an error. (A point cleared is a point not to be feared!). This gives Red plenty of 2s and 3’s to play. 4s may become a problem but you can’t have everything.<br>
+<br>
+I got this wrong over the board but hopefully this analysis will help me get similar problems correct in future.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.601
-  0.828 0.000 0.000 - 0.172 0.051 0.003
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.088  (+0.088)
-3. No double           +0.796  (-0.204)
-Proper cube action: Redouble, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/3 9/6 7/4                  Eq.: +0.326
+       0.582 0.284 0.055 - 0.418 0.033 0.000
+    2. Cubeful 2-ply    9/3(2)                       Eq.: +0.271 (-0.055)
+       0.567 0.274 0.048 - 0.433 0.037 0.000
+    3. Cubeful 2-ply    9/3 9/6(2)                   Eq.: +0.253 (-0.073)
+       0.569 0.261 0.046 - 0.431 0.046 0.001
+    4. Cubeful 2-ply    9/6 7/4(3)                   Eq.: +0.236 (-0.090)
+       0.554 0.268 0.052 - 0.446 0.040 0.000
+    5. Cubeful 2-ply    7/4(3) 6/3                   Eq.: +0.229 (-0.097)
+       0.553 0.267 0.050 - 0.447 0.042 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBACBAB--Aa-----AA---bgcA-:2:1:1:00:0:0:1:0:10");
-var categoryid = "CBq";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bbBBaDC-D-a-------cbca---:1:-1:1:33:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

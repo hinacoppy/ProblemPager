@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 141</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 109</span>&ensp;
 <span>(CBf-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 4-4 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=105 White=113</div></div>
+      <div class="pipinfo">pips Red=166 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">At this score white should drop earlier than for money but even so it is a very easy take.<br>
+ <div class="description">If you didn’t play 6/1(2)* with two of the fives then you are living in a pre-bot era. The tempo taken by that play could well be vital.<br>
 <br>
-When Red doesn’t roll a 4 he has to compromise his own position. However, for Red there is life after death (i.e. a hit) whereas for White there is very little because of Red’s near perfect board.<br>
+Obviously the first five is bar/20 so it’s just a question of the fourth one.<br>
 <br>
-All of this adds up to a very big double for Red. Not doubling is worse than a triple blunder! The position is very volatile so it so screaming out for a double.<br>
+The two back checkers should stay connect and so 20/15 is eliminated. Given White’s reasonable board Red does slightly better to play 11/6 rather than 13/8 but it is quite close. <br>
+<br>
+The key point is that making the 1-pt is mandatory.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.528 (Money: +0.444)
-  0.642 0.218 0.002 - 0.358 0.060 0.001
-Cubeful equities:
-1. Double, take        +0.757
-2. Double, pass        +1.000  (+0.243)
-3. No double           +0.594  (-0.163)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 11/1* 6/1             Eq.: -0.106
+       0.473 0.155 0.005 - 0.527 0.164 0.006
+    2. Cubeful 2-ply    bar/20 13/8 6/1*(2)          Eq.: -0.112 (-0.006)
+       0.472 0.159 0.006 - 0.528 0.169 0.009
+    3. Cubeful 2-ply    bar/15 6/1*(2)               Eq.: -0.113 (-0.007)
+       0.477 0.136 0.004 - 0.523 0.172 0.008
+    4. Cubeful 2-ply    bar/10 13/8                  Eq.: -0.227 (-0.121)
+       0.451 0.112 0.004 - 0.549 0.182 0.008
+    5. Cubeful 2-ply    bar/20 13/3 8/3              Eq.: -0.265 (-0.159)
+       0.439 0.140 0.008 - 0.561 0.193 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BCBBB--b--bBa---Bbdb-b--:0:0:1:00:4:4:0:7:10");
-var categoryid = "CBf";
-var probnum = "10";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa---E-C--AdD--ab-d-b--AA:0:0:1:55:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

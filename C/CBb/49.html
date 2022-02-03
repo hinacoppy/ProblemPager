@@ -12,59 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 25</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 248</span>&ensp;
 <span>(CBb-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 63?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=118 White=123</div></div>
+      <div class="pipinfo">pips Red=188 White=154</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money (and with the cube on White’ side) 10/1* is attractive because of the increase in gammons and it more or less ties with 13/7, 10/7.<br>
+ <div class="description">Positions like this are very difficult because there are so many possible game plans.<br>
 <br>
-However, at DMP it’s not even close with the five-point prime the clear winner. To quote an old adage – put them where you want them. The long-term asset outweighs any short-term tactical considerations.<br>
+I tried for the advanced anchor with bar/20, 23/21. This gets flagged as a minor error with XG preferring bar/20, 24/22 if you are going to take that approach. Of the high anchor plays bar/18 comes first.<br>
+<br>
+Overall XG prefers bar/23, 8/3* making the guaranteed second anchor and taking a tempo from White. The difference between this and bar/18 is only 0.012. I don’t like giving up the 8-pt in a position where I have so few assets and so I would still vote for one of the high anchor plays even if bar/23, 8/3* is technically correct. <br>
+<br>
+Food for thought - and a much longer rollout.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7 10/7                    Eq.: +0.333
-       0.666 0.241 0.017 - 0.334 0.109 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    10/1*                        Eq.: +0.290 (-0.042)
-       0.645 0.328 0.013 - 0.355 0.118 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/15 4/1*                   Eq.: +0.254 (-0.078)
-       0.627 0.266 0.011 - 0.373 0.153 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/2 5/2                      Eq.: +0.205 (-0.128)
-       0.602 0.278 0.017 - 0.398 0.129 0.006
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/7 4/1*                    Eq.: +0.120 (-0.213)
-       0.560 0.280 0.011 - 0.440 0.215 0.032
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 8/3*                  Eq.: -0.486
+       0.395 0.101 0.004 - 0.605 0.227 0.027
+    2. Cubeful 2-ply    bar/20 6/4                   Eq.: -0.522 (-0.036)
+       0.397 0.094 0.004 - 0.603 0.243 0.031
+    3. Cubeful 2-ply    bar/18                       Eq.: -0.522 (-0.036)
+       0.391 0.090 0.004 - 0.609 0.233 0.025
+    4. Cubeful 2-ply    bar/20 7/5                   Eq.: -0.542 (-0.056)
+       0.389 0.092 0.004 - 0.611 0.233 0.027
+    5. Cubeful 2-ply    bar/20 24/22                 Eq.: -0.542 (-0.057)
+       0.383 0.091 0.004 - 0.617 0.235 0.023
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--CCC-B-AabBa---bd-Abb--:0:0:1:63:6:6:0:7:10");
-var categoryid = "CBb";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "CBb";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---a--EABa--dC-a-c-e---ABA:0:0:1:52:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,63 +12,79 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 75</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 197</span>&ensp;
 <span>(CBa-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 64?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=105</div></div>
+      <div class="pipinfo">pips Red=159 White=158</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is one from the Battersea chouette.<br>
+ <div class="description"><pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X           O  X |   | O  O  X  O  O  X |   
+| X                |   | O  O     O  O    |   
+|                  |   |                  |   
+|                  |   |                  |   
+|                  |   |                  |   
+|                  |BAR|                  | (Cube: 1)
+|                  | O |                  |   
+|                  | O |                  |   
+|                X |   |    X             |   
+| O  X           X |   | X  X  O          |   
+| O  X           X |   | X  X  O          |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
 <br>
-The team attempted to win by going forward with 13/3* but this is way too ambitious. Sixes don’t grow on trees and Red’s plan should be to try to maintain a well-timed ace-point game and hope to win with a later shot when he has a strong board.<br>
+Money Play. Should Red double? If doubled, should White take?<br>
 <br>
-The correct play is 24/14. This wins about 5% more games while losing about the same percentage of gammons.<br>
+Perhaps a deceptive position because although Red threatens to put a third White checker on the bar that wouldn’t necessarily be decisive. <br>
 <br>
-13/3* is overplaying the position and hoping for too much. As such it is an error.<br>
+White could play a back game, a high anchor game, a blitz or even a priming game!<br>
+<br>
+Red just doesn’t have sufficient threats to justify a cube turn here. He should wait for some improvement before doubling. <br>
+<br>
+I don’t think many players would drop as White so a bluff double won’t work here either.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/14                        Eq.: -1.397
-       0.129 0.008 0.000 - 0.871 0.581 0.127
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/3*                        Eq.: -1.423 (-0.026)
-       0.105 0.011 0.000 - 0.895 0.589 0.090
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18 6/2                    Eq.: -1.446 (-0.049)
-       0.103 0.007 0.000 - 0.897 0.580 0.114
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    13/7 6/2                     Eq.: -1.540 (-0.143)
-       0.071 0.007 0.000 - 0.929 0.626 0.086
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    24/18 5/1                    Eq.: -1.626 (-0.229)
-       0.073 0.005 0.000 - 0.927 0.657 0.144
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.438
+  0.650 0.228 0.008 - 0.350 0.093 0.003
+Cubeful equities:
+1. No double           +0.649
+2. Double, pass        +1.000  (+0.351)
+3. Double, take        +0.638  (-0.011)
+Proper cube action: No double, take (3.1%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBaABC--b---A-----ccbbbD-:1:1:1:64:0:0:1:0:10");
-var categoryid = "CBa";
-var probnum = "48";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "48";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=b---bCBC---BbB---aAbbAbbA-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

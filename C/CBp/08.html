@@ -12,59 +12,61 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 77</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 7</span>&ensp;
 <span>(CBp-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-0 to 5. How should Red play 53?</div>
+<article>
+<div class="doAction">(a)	Match Play. Red leads 2-0 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=150</div></div>
+      <div class="pipinfo">pips Red=103 White=114</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money with a centred cube this would be close call between 24/16* and 8/3*, 6/3.<br>
+ <div class="description">(b)	Money Play. Should Red redouble? If redoubled, should White take?<br>
 <br>
-However, at this score it is a double blunder to hit outside because 8/3*, 6/3 hugely increases Red’s gammon chances while winning the same amount of single games. 24/16* thus becomes a double blunder. Taking the asset is the right idea here.<br>
+<br>
+For money, this a huge redouble but also a comfortable take because of White' strong home board and the closenees of the race. It is a double blunder not to redouble.<br>
+<br>
+At the match score redoubling is worse than a double blunder. The cube will be coming back on 8 if White gets even a sniff of victory. Red does much better to hold the cube. He wins a gammon 10% of the time and that will get him to 6-0 (Crawford). He can always use the cube efficiently later if it becomes appropriate.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3* 6/3                     Eq.: +0.935
-       0.737 0.384 0.008 - 0.263 0.043 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/16*                       Eq.: +0.867 (-0.068)
-       0.740 0.235 0.005 - 0.260 0.043 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    24/21 9/4                    Eq.: +0.587 (-0.348)
-       0.662 0.249 0.005 - 0.338 0.063 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    9/4 6/3*                     Eq.: +0.584 (-0.351)
-       0.656 0.286 0.006 - 0.344 0.067 0.002
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    9/6 7/2                      Eq.: +0.505 (-0.430)
-       0.637 0.253 0.004 - 0.363 0.069 0.002
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.537 (Money: +0.530)
+  0.726 0.101 0.002 - 0.274 0.024 0.000
+Cubeful equities:
+1. No double           +0.700
+2. Double, pass        +1.000  (+0.300)
+3. Double, take        +0.557  (-0.143)
+Proper cube action: No redouble, take (32.3%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---aB-DCBA--eB--ac-e----A-:0:0:1:53:3:0:0:5:10");
-var categoryid = "CBp";
-var probnum = "08";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "08";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aCCCbD----B-a-a-bbbb-b-:1:1:1:00:2:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

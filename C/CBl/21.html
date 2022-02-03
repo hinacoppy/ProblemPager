@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 109</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 99</span>&ensp;
 <span>(CBl-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=128</div></div>
+      <div class="pipinfo">pips Red=110 White=66</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Despite Red playing a back game it is White who loses the gammons. 50% of his losses will be gammons. Unless White can enter in the next couple of rolls his goose will be well and truly cooked.<br>
+ <div class="description">Another position which provides an excellent learning point.<br>
 <br>
-He just doesn't get a playable position often enough and it is hard to construct a winning game plan for him. A take by White would be a double blunder and yet Red didn't even double this position!<br>
+I played 20/14, 4/2 here and was surprised to have it flagged as an error. <br>
+<br>
+14/6 and 20/14, 4/2 both win the same percentage of games – circa 29%. The problem with 20/14, 4/2 is that it loses many more gammons (about 6% extra). That is enough to make 14/6 correct by quite some way.<br>
+<br>
+If you considered the gammon percentage when making your choice then well done. If not you now know to consider it in similar situations. Yet again holding the anchor wins the day.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.663
-  0.690 0.340 0.004 - 0.310 0.059 0.002
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.115  (+0.115)
-3. No double           +0.803  (-0.197)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/6                         Eq.: -0.399
+       0.288 0.023 0.000 - 0.712 0.092 0.000
+    2. Cubeful 2-ply    14/8 4/2                     Eq.: -0.423 (-0.024)
+       0.287 0.025 0.000 - 0.713 0.114 0.001
+    3. Cubeful 2-ply    20/14 4/2                    Eq.: -0.432 (-0.033)
+       0.288 0.038 0.001 - 0.712 0.140 0.000
+    4. Cubeful 0-ply    14/8 3/1                     Eq.: -0.527 (-0.128)
+       0.237 0.019 0.000 - 0.763 0.099 0.001
+    5. Cubeful 0-ply    14/8 5/3                     Eq.: -0.537 (-0.138)
+       0.237 0.022 0.000 - 0.763 0.112 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBB-BBB---A-b-b--c-dBBab--:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBl";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CBl";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-B-BCBB-----b-B----cBbbbd-:1:1:1:62:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

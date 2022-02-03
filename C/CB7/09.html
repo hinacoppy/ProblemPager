@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 263</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 9</span>&ensp;
 <span>(CB7-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=137 White=146</div></div>
+      <div class="pipinfo">pips Red=121 White=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classical early blitz position with huge volatility.<br>
+ <div class="description">This is an area of the game where the bots have considerably improved our play over the last ten years.<br>
 <br>
-It is clearly right to double – Red’s market may have disappeared by next turn. However White has a very easy take. Red’s 6’s are duplicated and even if White is hit he may anchor or at least enter immediately. <br>
+Red has the dual objectives of closing out White and getting the back checkers moving.  13/10, 13/9 concentrates too much on the former while something like 20/13 is not aggressive enough.<br>
 <br>
-A triple blunder not to double, only a double blunder if your passed the cube!<br>
+Many would vote for 21/14 which is reasonable but best of all is 20/16, 13/10 (!!) which meets both objectives outlined above. The play may look very loose but unless White rolls 44 any other hitting number leaves multiple return shots and therefore potential gammon wins for Red.<br>
+<br>
+Once you see the play it seems clear but many would not have it as a candidate play. Hopefully now you have seen the technique you can include it in your backgammon armoury.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.519
-  0.633 0.333 0.007 - 0.367 0.083 0.004
-Cubeful equities:
-1. Double, take        +0.788
-2. Double, pass        +1.000  (+0.212)
-3. No double           +0.556  (-0.232)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/14                        Eq.: +0.968
+       0.759 0.455 0.003 - 0.241 0.042 0.002
+    2. Cubeful 2-ply    21/18 20/16                  Eq.: +0.964 (-0.004)
+       0.757 0.454 0.003 - 0.243 0.047 0.002
+    3. Cubeful 2-ply    20/13                        Eq.: +0.957 (-0.011)
+       0.754 0.438 0.003 - 0.246 0.040 0.001
+    4. Cubeful 2-ply    20/16 13/10                  Eq.: +0.916 (-0.051)
+       0.753 0.469 0.003 - 0.247 0.049 0.003
+    5. Cubeful 2-ply    13/6                         Eq.: +0.911 (-0.057)
+       0.726 0.415 0.003 - 0.274 0.042 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-B-BBaB---AAeC---cae----AA:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB7";
-var probnum = "09";
-var showpipflg = true;
+const categoryid = "CB7";
+const probnum = "09";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBB-BB-----cB-b-d-eBA----:0:0:1:43:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

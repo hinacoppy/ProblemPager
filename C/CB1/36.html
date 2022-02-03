@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 211</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 36</span>&ensp;
 <span>(CB1-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Game. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=26 White=35</div></div>
+      <div class="pipinfo">pips Red=129 White=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Trice’s Stack &amp; Straggler formula works well for this one.<br>
+ <div class="description">Red should not redouble but only because he is already too good. In fact redoubling White out is also OK because the equity difference is tiny. Of course if you think White might hallucinate and take you should redouble immediately!<br>
 <br>
-Red’s Effective Pip Count is 43 (using the 7n+1) formula. White’s EPC is 46 (6x3.5 plus 25 for the straggler). White can take if his deficit is no more than the number of rolls to go minus 3. Here that is 7-3=4.<br>
+The mistake would be to wait because you don't think you are good enough to redouble.<br>
 <br>
-This gives White a bare take but Trice’s formula assumes the straggler is on the board and not on the bar. That difference swings it from a bare take to a bare pass which is what XG says as well. It is a pass by a mere 0.0019.<br>
+It is an interesting exercise to take the spare checker on White' s 2-pt, move it around the board and see how its location dramatically affects the redoubling decision. I'll leave you to do just that!<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.556
-  0.778 0.000 0.000 - 0.222 0.000 0.000
+2-ply cubeless equity +0.809
+  0.811 0.236 0.005 - 0.189 0.053 0.001
 Cubeful equities:
-1. Double, take        +0.981
-2. Double, pass        +1.000  (+0.019)
-3. No double           +0.822  (-0.159)
-Proper cube action: Redouble, take
+1. Double, pass        +1.000
+2. Double, take        +1.489  (+0.489)
+3. No double           +0.972  (-0.028)
+Proper cube action: Redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aCCCB------------------e--:1:1:1:00:0:0:1:0:10");
-var categoryid = "CB1";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-AAbbBCBBB---------b-bbcbB:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

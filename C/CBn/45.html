@@ -12,42 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBn  probnum=45)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 201</span>&ensp;
 <span>(CBn-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Money Play. how should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=158 White=131</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">I found this one quite surprising. My opponent played 24/18, 23/18 which to me looked very logical. However, XG rates this as a blunder, preferring both 23/18, 8/2 and 8/2, 6/1*.<br>
+<br>
+The logic of the first play is to keep an anchor when behind in the race while at the same time strengthening the home board. The second play is an attempt at a blitz, albeit with perhaps not quite enough ammunition?<br>
+<br>
+XG rates 23/18, 8/2 as its top play (which interestingly none of those who commented on the position selected) with the blitz 8/2, 6/1* a mere  0.011 behind it.<br>
+<br>
+This is one of those plays that in the pre-bot era nobody would have known that making the opponent’s bar-point was a blunder and yet apparently it is! An interesting lesson from our silicon friend.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 6/1*                     Eq.: -0.354
+       0.418 0.148 0.004 - 0.582 0.219 0.022
+    2. Cubeful 2-ply    23/18 8/2                    Eq.: -0.365 (-0.011)
+       0.414 0.131 0.005 - 0.586 0.207 0.018
+    3. Cubeful 2-ply    24/18 23/18                  Eq.: -0.419 (-0.065)
+       0.412 0.113 0.005 - 0.588 0.239 0.010
+    4. Cubeful 2-ply    11/6 8/2                     Eq.: -0.450 (-0.096)
+       0.392 0.119 0.004 - 0.608 0.200 0.016
+    5. Cubeful 0-ply    13/2                         Eq.: -0.532 (-0.179)
+       0.369 0.114 0.004 - 0.631 0.223 0.024
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBn";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CBn";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aAB--C-C--AbBba-b-d--cAB-:0:0:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

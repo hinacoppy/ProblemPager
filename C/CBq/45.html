@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 87</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 78</span>&ensp;
 <span>(CBq-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=136 White=150</div></div>
+      <div class="pipinfo">pips Red=115 White=125</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I found this one quite surprising. I would quickly double as Red and expect White to take some time before accepting the double. XG has this a borderline no double and an absolutely trivial take.<br>
+ <div class="description">It might look correct to keep the four-point block and run with 18/7.<br>
 <br>
-White’s three-point home board is a crucial factor in the decision making. That and the fact that Red currently has four blots. While Red has threats they are not decisive and it is that lack of volatility that I suspect makes XG lean towards not doubling.<br>
+However, that gives White undeserved counter-play at a time when he is stripped on all his outside points. Red does much better to play 8/3, 8/2 and await further developments.<br>
 <br>
-However, I would still double this in practice.<br>
+18/7 is a blunder (just).<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.457
-  0.628 0.296 0.020 - 0.372 0.107 0.006
-Cubeful equities:
-1. Double, take        +0.662
-2. Double, pass        +1.000  (+0.338)
-3. No double           +0.615  (-0.047)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 8/2                      Eq.: +0.139
+       0.609 0.103 0.001 - 0.391 0.049 0.001
+    2. Cubeful 2-ply    7/2 7/1                      Eq.: +0.119 (-0.021)
+       0.604 0.101 0.001 - 0.396 0.056 0.001
+    3. Cubeful 2-ply    18/7                         Eq.: +0.053 (-0.086)
+       0.580 0.088 0.003 - 0.420 0.052 0.001
+    4. Cubeful 2-ply    7/1 6/1                      Eq.: +0.024 (-0.115)
+       0.566 0.110 0.002 - 0.434 0.070 0.002
+    5. Cubeful 2-ply    8/2 6/1                      Eq.: -0.032 (-0.172)
+       0.548 0.096 0.001 - 0.452 0.069 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aaA-BCCBA--eA-----cbbAaA-:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBq";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=----bEDBB---b--b-bB--bcb--:1:-1:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

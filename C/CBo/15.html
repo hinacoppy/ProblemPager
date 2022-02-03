@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 -Position 30</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 217</span>&ensp;
 <span>(CBo-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 9. Should Red redouble to 8. If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=53 White=157</div></div>
+      <div class="pipinfo">pips Red=66 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is pretty much a standard back game except that Red has already cleared his 5-pt.<br>
+ <div class="description">Can one checker do the work of two? And is this 1-5 pseudo-backgame strong enough to accept the redouble?<br>
 <br>
-Does that make a difference? The simple answer is no. The correct time to double a back game is when you still have three points to clear in front of the defender's front anchor.<br>
+For money, the answer would be no, despite Red’s stack of checkers on his 2-pt.<br>
 <br>
-Red should double - it is a blunder not to do so -  and White should take - dropping is worse than a double blunder.<br>
+At this score however, things are not so clear. If White gets any shot he will be redoubling for the match. Is it better for Red to play on for the gammon, rather than redouble?<br>
+<br>
+The answer is that it is very close. XG has this as a redouble but only by 0.01 so it is hardly an error to keep the cube, with the possibility of using it later. <br>
+<br>
+Of course, if you think White might drop this redouble then redouble in a flash. It is nearly a double blunder to drop at this match score.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.560
-  0.571 0.406 0.019 - 0.429 0.008 0.000
+2-ply cubeless equity +0.570 (Money: +0.581)
+  0.718 0.149 0.009 - 0.282 0.013 0.000
 Cubeful equities:
-1. Double, take        +0.828
-2. Double, pass        +1.000  (+0.172)
-3. No double           +0.739  (-0.089)
-Proper cube action: Double, take
+1. Double, take        +0.849
+2. Double, pass        +1.000  (+0.151)
+3. No double           +0.836  (-0.013)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-EbbF-D--a-----a---bcbb---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBo";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CBo";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bEBBaBBB---------abbbbc--:2:1:1:00:0:0:0:9:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

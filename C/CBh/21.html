@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 30</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 219</span>&ensp;
 <span>(CBh-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 61?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=181 White=146</div></div>
+      <div class="pipinfo">pips Red=122 White=112</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It is clear to make the opponent’s bar-point with the 6. Some may play 23/22 with the 1 but better is 24/23, making the deep 23-pt anchor.<br>
+ <div class="description">The position is volatile so Red should consider doubling. His five-point prime is strong, particularly with White one pip from the edge. On the down side it is easy to see Red escaping one checker and then having the other one closed out.<br>
 <br>
-Red trails in the race so it is not clear he wants to advance his anchor and secondly White has ten checkers in the attack zone so that should be respected.<br>
+Even when that happens White still has to escape his own rear checker. On average it will take him five rolls to escape that checker if Red’s position doesn’t change. <br>
 <br>
-With the two anchors secured Red can turn his attention to attacking/restraining White’s rear checkers.<br>
-<br>
-23/22 is a bad error but not quite a blunder.<br>
+How does this all add up? The take is trivial as White has many ways to win the game. The double is close but correct with Red’s gammons just making the difference between double and no double.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 24/18                  Eq.: -0.333
-       0.421 0.096 0.003 - 0.579 0.188 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/18 23/22                  Eq.: -0.421 (-0.088)
-       0.409 0.096 0.004 - 0.591 0.232 0.008
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    24/18 6/5                    Eq.: -0.529 (-0.196)
-       0.399 0.088 0.004 - 0.601 0.275 0.017
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    13/6                         Eq.: -0.568 (-0.236)
-       0.383 0.088 0.004 - 0.617 0.249 0.023
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/7 8/7                     Eq.: -0.632 (-0.300)
-       0.386 0.085 0.003 - 0.614 0.277 0.030
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.447
+  0.682 0.141 0.004 - 0.318 0.061 0.001
+Cubeful equities:
+1. Double, take        +0.677
+2. Double, pass        +1.000  (+0.323)
+3. No double           +0.652  (-0.026)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-Ba-C-B---cD---cAe-b-AB-:0:0:1:61:0:0:3:0:10");
-var categoryid = "CBh";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CBh";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--a-BBDBC---a----bcccBb---:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

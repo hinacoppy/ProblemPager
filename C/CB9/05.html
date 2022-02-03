@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 168</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 105</span>&ensp;
 <span>(CB9-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 11?</div>
+<article>
+<div class="doAction">Match Play. Red leads 4-2 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=141 White=90</div></div>
+      <div class="pipinfo">pips Red=120 White=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">8/7(2), 3/2(2)* is the wrong idea. Red wants White to play and if Red plays the simple 17/13 then most of White’s 6’s will leave shots.<br>
+ <div class="description">I made the classic error here of making a money decision in a match and dropped Red’s double. For money this is double and drop. White loses too many gammons to allow him to accept.<br>
 <br>
-Any hitting play is a blunder.<br>
+At this score, however, Red does not get full value from his gammons (the concept of overage) plus White will need only 15% winning chances to redouble. These two factors give White a skinny take. Obviously it’s still a very strong double. <br>
+<br>
+Not doubling is a huge blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/13                        Eq.: +0.397
-       0.700 0.181 0.008 - 0.300 0.088 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/7(2) 3/2*(2)               Eq.: +0.338 (-0.060)
-       0.684 0.180 0.006 - 0.316 0.105 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    17/15 8/7(2)                 Eq.: +0.314 (-0.083)
-       0.679 0.173 0.007 - 0.321 0.111 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    17/15 3/2*(2)                Eq.: +0.202 (-0.195)
-       0.638 0.158 0.006 - 0.362 0.112 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    17/16 8/7 3/2*(2)            Eq.: +0.143 (-0.255)
-       0.637 0.158 0.005 - 0.363 0.163 0.008
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.672 (Money: +0.615)
+  0.727 0.244 0.009 - 0.273 0.091 0.001
+Cubeful equities:
+1. Double, take        +0.864
+2. Double, pass        +1.000  (+0.136)
+3. No double           +0.720  (-0.144)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aBBBB-B---bB---A--dcbBc-:1:-1:1:11:0:0:1:0:10");
-var categoryid = "CB9";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CB9";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-BBBBaC---bC-----bcAbbb-:0:0:1:00:4:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

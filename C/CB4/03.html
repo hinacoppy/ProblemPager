@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 114</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 153</span>&ensp;
 <span>(CB4-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 4-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=129 White=139</div></div>
+      <div class="pipinfo">pips Red=123 White=115</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is clearly no double/take as Red has a lot of work to do.<br>
+ <div class="description">The general theory of positions such as this is: ‘attack a blot, prime an anchor', and this position is no exception.<br>
 <br>
-At this match score this is a good benchmark position. Whether Red doubles or not he will technically be making the right decision as the decision is borderline. White has a trivially easy take.<br>
+So the 3 is played 6/3*. Go and commit hara-kiri if you chose 3/2 with the 1! <br>
 <br>
-The opponent factor thus becomes relevant. Who is the better player and by how much? I’ll let you mull over the implications!<br>
+The best 1 is a matter of attention to detail. 10/9 is reasonable but most accurate is 4/3 as that duplicates the 4 that White needs to cover his ace-point. Perhaps surprisingly any move other 6/3*, 4/3 is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.340 (Money: +0.351)
-  0.675 0.024 0.000 - 0.325 0.022 0.000
-Cubeful equities:
-1. Double, take        +0.717
-2. Double, pass        +1.000  (+0.283)
-3. No double           +0.701  (-0.017)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3* 4/3                     Eq.: +0.171
+       0.526 0.184 0.005 - 0.474 0.146 0.005
+    2. Cubeful 2-ply    11/10 6/3*                   Eq.: +0.121 (-0.050)
+       0.519 0.157 0.004 - 0.481 0.102 0.002
+    3. Cubeful 2-ply    8/7 6/3*                     Eq.: +0.113 (-0.057)
+       0.516 0.171 0.004 - 0.484 0.154 0.006
+    4. Cubeful 2-ply    10/9 6/3*                    Eq.: +0.106 (-0.065)
+       0.517 0.169 0.004 - 0.483 0.141 0.004
+    5. Cubeful 2-ply    6/3*/2                       Eq.: +0.084 (-0.087)
+       0.516 0.138 0.003 - 0.484 0.092 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----BbD-B-BBcC--abad---b--:0:0:1:00:4:5:0:7:10");
-var categoryid = "CB4";
-var probnum = "03";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "03";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BaB-CBB-AAc----b-ccB-ba-:0:0:1:31:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

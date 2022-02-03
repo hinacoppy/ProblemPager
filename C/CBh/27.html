@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 24</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 225</span>&ensp;
 <span>(CBh-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 32?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=112 White=135</div></div>
+      <div class="pipinfo">pips Red=145 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">If this were Double Match Point then bar/22, 10/8 would be very clear.<br>
+ <div class="description">Red trails by 18 pips and is out-boarded. A hit on the mid-point followed by a fan only just loses his market but that only happens a very small percentage of the time. <br>
 <br>
-However, with a live cube it is very clear to hit because it exchanges 4% losses for 14% more gammons – a very fair exchange rate I think you’ll agree. <br>
-<br>
-After the hit with bar/23* the three options for the 3 are very close with 10/7 (the pure play) edging out 8/5 and 6/3 by a few thousandths of a point. 11/8, stacking checkers, is weaker.<br>
+White has a very easy take in the diagrammed position and Red just doesn’t have enough threats to justify turning the cube here. No double/trivial take.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23* 8/5                  Eq.: +0.499
-       0.661 0.328 0.023 - 0.339 0.058 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/23* 10/7                 Eq.: +0.494 (-0.005)
-       0.666 0.323 0.022 - 0.334 0.066 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/23* 6/3                  Eq.: +0.479 (-0.019)
-       0.655 0.328 0.024 - 0.345 0.062 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/23* 11/8                 Eq.: +0.462 (-0.037)
-       0.652 0.312 0.022 - 0.348 0.056 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/22 10/8                  Eq.: +0.448 (-0.051)
-       0.693 0.224 0.015 - 0.307 0.068 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.352
+  0.655 0.164 0.010 - 0.345 0.128 0.003
+Cubeful equities:
+1. No double           +0.541
+2. Double, pass        +1.000  (+0.459)
+3. Double, take        +0.470  (-0.071)
+Proper cube action: No double, take (13.4%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--cBBBC-C-AA-----bbbbc-a-A:2:-1:1:32:0:0:3:0:10");
-var categoryid = "CBh";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CBh";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa--BCBB--AaD---bbcc--bA-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,63 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 32</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 216</span>&ensp;
 <span>(CBo-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 65?</div>
+<article>
+<div class="doAction">Monry Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=136 White=136</div></div>
+      <div class="pipinfo">pips Red=108 White=129</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board I played 13/2*, following the theory of attacking a lone checker and wanting to be active rather passive.<br>
+ <div class="description">This is the sort of position where XG underestimates the strength of the doubling side on initial evaluation. This position is classified as double/take on initial evaluation but once a rollout is performed it quickly changes its mind to double and clear pass.<br>
 <br>
-XG really doesn't like the play, classifying it as a blunder. It also doesn't like 24/18, 13/8 because that play takes the pressure off White's blot on his 5-pt and allows White a free attack at Red's blot on the bar-point.<br>
-<br>
-The only non-blunder is 13/8, 13/7. This seems counter-intuitive because it diversifies White's numbers and gives him his whole roll. The up-side is that Red is one roll away from making a strong broken prime and he still has pressure on White's blot on his 5-pt.<br>
-<br>
-This is an unusual play and one that bears some study as it seems to break some of the rules of theory, e.g. attack a lone checker. I found it highly instructive.<br>
+2-pt holding games are rarely takes without some compensation and here White has none. Red’s checkers are all well-placed and the fact that White loses a gammon about 8% of the time takes this position into clear drop territory.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 13/7                    Eq.: +0.601
-       0.624 0.236 0.006 - 0.376 0.096 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/2*                        Eq.: +0.471 (-0.130)
-       0.614 0.281 0.008 - 0.386 0.103 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18 13/8                   Eq.: +0.452 (-0.149)
-       0.618 0.165 0.005 - 0.382 0.086 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/8 9/3                     Eq.: +0.414 (-0.187)
-       0.601 0.213 0.005 - 0.399 0.095 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    24/13                        Eq.: +0.394 (-0.207)
-       0.614 0.122 0.002 - 0.386 0.055 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.604
+  0.779 0.068 0.002 - 0.221 0.023 0.001
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.059  (+0.059)
+3. No double           +0.934  (-0.066)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aB-BC-AB--bDb--c-fa---A-:0:0:1:65:0:0:3:0:10");
-var categoryid = "CBo";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CBo";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--b-CCC-B-AAbB---b-bcbb---:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

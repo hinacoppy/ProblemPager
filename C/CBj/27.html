@@ -12,54 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 203</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 24</span>&ensp;
 <span>(CBj-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money game. How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-5 to 9. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=79 White=165</div></div>
+      <div class="pipinfo">pips Red=143 White=162</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Only two legal moves, 10/2 and 9/1 and yet most people get this one wrong.<br>
+ <div class="description">With ten checkers in the zone but an ugly home board structure this would be double and easy take for money.<br>
 <br>
-The most difficult point to clear is the 9-pt because it held by both of White's anchors and so Red should clear that point now before White's board improves any more. <br>
-<br>
-It is perhaps surprising that 10/2 is worse than a blunder giving up 0.114 equity points! If White's spare checker on his 6-pt were on his 3-pt giving him a four-point board then 10/2 would be correct and 9/1 would be a blunder.<br>
-<br>
-The devil is in the detail!<br>
+However, at 2-5 to 9, a gammon loss would be expensive for White and so this becomes a very clear drop. Once again the match score determines the correct action.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/1                          Eq.: -0.111
-       0.464 0.255 0.005 - 0.536 0.114 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    10/2                         Eq.: -0.149 (-0.038)
-       0.451 0.249 0.004 - 0.549 0.113 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.550 (Money: +0.543)
+  0.636 0.355 0.014 - 0.364 0.093 0.005
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.080  (+0.080)
+3. No double           +0.760  (-0.240)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BCbcCC--BB---a--a-cbba---:1:-1:1:62:0:0:3:0:10");
-var categoryid = "CBj";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB-A-aD-B--AdCa--c-e----B-:0:0:1:00:2:5:0:9:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

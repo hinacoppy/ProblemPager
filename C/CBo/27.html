@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 20</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2107 - Position 227</span>&ensp;
 <span>(CBo-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 64?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=132 White=140</div></div>
+      <div class="pipinfo">pips Red=141 White=128</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Nobody is going to drop this as White but can it really be a double?<br>
+ <div class="description">For those who have read “Opening Concepts” by Michihito Kageyama and Roland Herrera this is a simple problem as it is what they call a “Double Tiger” play which is putting two checkers on the bar but also leaving two home board blots.<br>
 <br>
-Technically the answer is yes but only by 0.01 and so you would be perfectly within your rights to double but I think most people would wait a roll.<br>
+21/15, 7/3* is better than 13/3* as it frees a checker from behind White’s four-point prime. 7/1, 5/1 is completely the wrong idea, reducing Red’s winning chances by 7% and his gammons by 3.5%,<br>
 <br>
-It is interesting that a slightly better structure and a small number of threats can add up to a double in an apparently virtually equal position. Every detail matters!<br>
+The whole idea of “Double Tiger” has really developed since the advent of the bots – prior to the mid-19902 such plays were really seen.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.399
-  0.635 0.222 0.018 - 0.365 0.107 0.004
-Cubeful equities:
-1. No double           +0.552
-2. Double, pass        +1.000  (+0.448)
-3. Double, take        +0.550  (-0.002)
-Proper cube action: No double, take (0.4%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15 7/3*                   Eq.: +0.355
+       0.592 0.262 0.010 - 0.408 0.151 0.007
+    2. Cubeful 2-ply    13/3*                        Eq.: +0.268 (-0.087)
+       0.566 0.261 0.009 - 0.434 0.175 0.009
+    3. Cubeful 0-ply    7/1 5/1                      Eq.: +0.147 (-0.208)
+       0.522 0.201 0.004 - 0.478 0.111 0.003
+    4. Cubeful 0-ply    10/4 7/3*                    Eq.: +0.044 (-0.311)
+       0.506 0.196 0.006 - 0.494 0.164 0.009
+    5. Cubeful 0-ply    21/11                        Eq.: +0.033 (-0.323)
+       0.511 0.179 0.006 - 0.489 0.174 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b-BBBC-B---bB-a-c-c-bb-B-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBo";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CBo";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BaBACA--A--B---cdcbC--a-:0:0:1:64:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

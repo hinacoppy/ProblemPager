@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 230</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 21</span>&ensp;
 <span>(CBd-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 54?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-0 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=133 White=113</div></div>
+      <div class="pipinfo">pips Red=51 White=55</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red’s key objective here is to save the gammon. To that end he needs to minimise the number of checkers he has behind White’s prime.<br>
+ <div class="description">Beware the cube that gives your opponent the match. <br>
 <br>
-He can leave a shot later if he has to but for now 6/2, 6/1 is the prosaic but correct play. With a fourth checker back he will be even money to lose a gammon. A fifth checker back makes things very much worse indeed.<br>
+If White takes he will redouble but winning only gets him to Crawford. That empty 4-pt is ruinous and will cost White dearly.<br>
+<br>
+For money this is an easy take because the cube is live and can be used to good effect by White. After the redouble at this match score the cube is effectively dead and cannot be used to win the game. Taking here is an error while not doubling is a double blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/2 6/1                      Eq.: -1.334
-       0.043 0.005 0.000 - 0.957 0.414 0.027
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    7/3* 7/2                     Eq.: -1.384 (-0.050)
-       0.054 0.010 0.000 - 0.946 0.486 0.036
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    7/2 5/1                      Eq.: -1.391 (-0.057)
-       0.042 0.005 0.000 - 0.958 0.462 0.032
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/3* 7/3                     Eq.: -1.407 (-0.073)
-       0.057 0.011 0.000 - 0.943 0.502 0.050
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/4 7/2                      Eq.: -1.462 (-0.128)
-       0.060 0.008 0.000 - 0.940 0.542 0.067
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.546 (Money: +0.546)
+  0.773 0.000 0.000 - 0.227 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.051  (+0.051)
+3. No double           +0.899  (-0.101)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBAa-CBBB----a----bbbbbbC-:1:1:1:54:0:0:3:0:10");
-var categoryid = "CBd";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BDBBCB------------cd-ccb-:0:0:1:00:3:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 235</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 37</span>&ensp;
 <span>(CB7-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 11?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-1 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=114 White=113</div></div>
+      <div class="pipinfo">pips Red=107 White=65</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">With the cube in play Red would be playing 7/56(2), 2/1(2)* in order to win more gammons.<br>
+ <div class="description">A clear no double for money but a very clear redouble at this score especially as a gammon wins the match for Red.<br>
 <br>
-At DMP gammons are of no interest and Red just needs to make the play that wins the game most often. To win the game he will need his 4-pt ergo, he should slot it immediately with 8/4 and hope to make it next time. This tries to wrap up the win immediately and 8/4 wins 2% more games than any other play.<br>
+Even if he misses the cube isn’t coming back very quickly (what Danny Kleinman used to call a crippled cube) whereas in a money game it is much more likely to return promptly.<br>
 <br>
-This type of play recurs frequently at DMP – watch out for it!<br>
+Not redoubling is a big blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/5 8/7                      Eq.: +0.222
-       0.611 0.108 0.002 - 0.389 0.059 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    10/6                         Eq.: +0.215 (-0.007)
-       0.607 0.114 0.003 - 0.393 0.064 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    10/9 8/6 8/7                 Eq.: +0.198 (-0.023)
-       0.599 0.106 0.002 - 0.401 0.059 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    10/9 8/5                     Eq.: +0.195 (-0.027)
-       0.597 0.108 0.002 - 0.403 0.064 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    10/8 2/1*(2)                 Eq.: +0.184 (-0.038)
-       0.592 0.187 0.005 - 0.408 0.069 0.003
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.217 (Money: +0.213)
+  0.585 0.081 0.001 - 0.415 0.039 0.000
+Cubeful equities:
+1. No double           +0.321
+2. Double, pass        +1.000  (+0.679)
+3. Double, take        +0.291  (-0.030)
+Proper cube action: No redouble, take (4.2%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aBB-BBBB-A-a----bcccBb---:0:0:1:11:10:10:0:11:10");
-var categoryid = "CB7";
-var probnum = "37";
-var showpipflg = true;
+const categoryid = "CB7";
+const probnum = "37";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBBBBB--------a-b-c-BfAc-:1:1:1:00:0:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

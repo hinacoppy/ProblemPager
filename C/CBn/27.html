@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 3</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 186</span>&ensp;
 <span>(CBn-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should red play 21?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=137</div></div>
+      <div class="pipinfo">pips Red=160 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Discounting 11/8 that does nothing to improve Red's position, the choice is between 13/11, 6/5 (14 shots) and 13/10 (7 shots).<br>
+ <div class="description">In most scenarios the correct play would be 8/4(2), 6/2(2)* as more gammons are generated that way.<br>
 <br>
-Are the extra shots (plus the asset of owning the 11-pt) and the possibility of making the 5-pt next turn justified?<br>
-<br>
-Yes but only by the smallest of margins. Note that White needs fours to hit and fours to cover his 2-pt so there is some useful duplication.<br>
-<br>
-The key here is to consider both plays. If you didn't even think of slotting your 5-pt then you need to rethink your approach to such positions.<br>
+At DMP purity often takes preference over brute force and that is the case here. 13/5(2) is the correct play albeit by a mere 0.022. A small difference admittedly but it the position serves well to reinforce the point about purity.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 6/5                    Eq.: +0.138
-       0.538 0.144 0.005 - 0.462 0.110 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/10                        Eq.: +0.136 (-0.002)
-       0.534 0.133 0.004 - 0.466 0.091 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/8                         Eq.: +0.042 (-0.096)
-       0.507 0.105 0.003 - 0.493 0.081 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/9 6/5                     Eq.: +0.009 (-0.129)
-       0.503 0.134 0.005 - 0.497 0.128 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/11 8/7                    Eq.: -0.013 (-0.151)
-       0.497 0.135 0.004 - 0.503 0.128 0.003
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/5(2)                      Eq.: +0.079
+       0.539 0.192 0.008 - 0.461 0.139 0.007
+    2. Cubeful 2-ply    8/4(2) 6/2*(2)               Eq.: +0.060 (-0.019)
+       0.530 0.200 0.007 - 0.470 0.133 0.006
+    3. Cubeful 2-ply    13/9(2) 6/2*(2)              Eq.: +0.029 (-0.050)
+       0.514 0.178 0.008 - 0.486 0.145 0.007
+    4. Cubeful 2-ply    7/3(2) 6/2*(2)               Eq.: -0.016 (-0.095)
+       0.492 0.179 0.008 - 0.508 0.150 0.006
+    5. Cubeful 2-ply    13/9(2) 8/4(2)               Eq.: -0.037 (-0.116)
+       0.482 0.166 0.006 - 0.518 0.157 0.008
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B--D-B--AeD---bBd--ba--:0:0:1:21:0:0:3:0:10");
-var categoryid = "CBn";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CBn";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa---EBB---dD---c-db---B-:0:0:1:44:6:6:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

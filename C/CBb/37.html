@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 37</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 236</span>&ensp;
 <span>(CBb-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. 3-3 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=65 White=134</div></div>
+      <div class="pipinfo">pips Red=144 White=71</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Pay me now with 3 shots or delay matters?<br>
+ <div class="description">In a money game this is a long way from a redouble with gammons active for both players.<br>
 <br>
-10/2 wins nearly 5% more games so the answer is very clear – pay now. If White enters after Red play 7/1, 4/2 then Red may have trouble clearing his 10-pt so he should clear it now. If White rolls 52 or 55 you just know it’s not your day!<br>
+It is very different at this match score. A redouble removes gammons from the equation and so it is purely a question of game winning chances. At this score White has a very high take point of 33% because he can drop and play from 3-5 behind which is 33%.<br>
+<br>
+Does he have 33%? Not quite and so he should let this one go although many would take this over the board. The key is in knowing your match equity tables.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/2                         Eq.: +1.141
-       0.859 0.480 0.000 - 0.141 0.010 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    7/1 4/2                      Eq.: +1.039 (-0.102)
-       0.834 0.444 0.000 - 0.166 0.016 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    10/4 7/5                     Eq.: +0.684 (-0.457)
-       0.703 0.419 0.001 - 0.297 0.042 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    7/1 3/1                      Eq.: +0.252 (-0.889)
-       0.606 0.252 0.001 - 0.394 0.079 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    10/4 3/1                     Eq.: +0.199 (-0.941)
-       0.589 0.273 0.001 - 0.411 0.110 0.003
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.330 (Money: +0.336)
+  0.664 0.164 0.008 - 0.336 0.162 0.001
+Cubeful equities:
+1. Double, take        +0.969
+2. Double, pass        +1.000  (+0.031)
+3. No double           +0.716  (-0.253)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBCBC-BAb-B----a-bbbcb----:1:-1:1:62:0:0:3:0:10");
-var categoryid = "CBb";
-var probnum = "37";
-var showpipflg = true;
+const categoryid = "CBb";
+const probnum = "37";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aaBDBB-A--B-----A-bcceA:1:1:1:00:3:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,63 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 156</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 102</span>&ensp;
 <span>(CB3-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 22?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=97 White=130</div></div>
+      <div class="pipinfo">pips Red=17 White=5</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board it’s too easy to play 8/4(2).<br>
+ <div class="description">This is a difficult position to evaluate over the board. The best way to do it is by using effective pip counts (see the paper on Backgammon Races in the ‘Downloads' section of this website).<br>
 <br>
-However, the bots have taught us to leap these broken primes when we can. <br>
+White's EPC is 22 (using the method outlined in the paper). Red's EPC is 17 (his actual pip-count) plus wastage (the number of pips Red will waste bearing off. For example if Red now rolled 66 he would waste 7 pips as he only needs 17 to bear-off). The key is estimating that wastage. In his comment Tim Chow as guessed at 5 which is very reasonable – according to XG it is 5.5.<br>
 <br>
-20/18(2), 8/6, 7/5 is right by a long way. Making the 4-pt is very nearly a blunder. Another  instructive position. <br>
+In such positions White's point of last take is Red's EPC plus the number of rolls to go minus three (see the Backgammon Races paper for an explanation of this). This is a 3-roll position so White's take point is 22 – (3-3) = 22.<br>
 <br>
-Put the two checkers on White’s 11-pt on his 12-pt and making the 4-pt is then right by a huge amount. You can risk being blocked by three points but not four.<br>
+So if Red's wastage is 5 pips White would have a borderline take. As it is 5.5 White has a comfortable take and this is borne out by XG. Give Red one less pip and the position becomes a pass. Such are the margins in end game bear-offs.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/18(2) 8/6 7/5             Eq.: +0.918
-       0.809 0.390 0.002 - 0.191 0.026 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/4(2)                       Eq.: +0.846 (-0.072)
-       0.767 0.428 0.002 - 0.233 0.036 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/18(2) 8/4                 Eq.: +0.775 (-0.142)
-       0.747 0.427 0.002 - 0.253 0.056 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/18(2) 8/6(2)              Eq.: +0.757 (-0.161)
-       0.768 0.330 0.002 - 0.232 0.031 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    20/18(2) 6/4(2)              Eq.: +0.723 (-0.195)
-       0.774 0.282 0.002 - 0.226 0.031 0.001
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.522
+  0.761 0.000 0.000 - 0.239 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.991
+2. Double, pass        +1.000  (+0.009)
+3. No double           +0.689  (-0.302)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBB-BBAB-----b-cc-dBb----:1:-1:1:22:0:0:3:0:10");
-var categoryid = "CB3";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "CB3";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-----AB-----------------e-:0:0:-1:D:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

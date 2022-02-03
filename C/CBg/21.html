@@ -12,52 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 81</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 170</span>&ensp;
 <span>(CBg-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-4 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=69 White=99</div></div>
+      <div class="pipinfo">pips Red=86 White=70</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board I thought there were so few market losers that this wasn’t a redouble but Red only gives up 8% winning chances (his chances from 0-6) and so the doubling window is very skewed at this score with the cube already on 2.<br>
+ <div class="description">This is one of those odd position where Red should double to avoid losing his market on a small number of market losers, any 7 plus 66 and 55. Importantly the double activates Red’s 10% gammon-winning chances. <br>
 <br>
-XG has this as a redouble but only by 0.016 so my non-redouble wasn’t even an error. I rolled 43 and my opponent fanned - c’est la vie! Now it is a huge pass – even for money.<br>
+The key point is that White won’t be able to redouble any time soon because of his horrendous structure and even if he misses this shot Re may well get more. It is an error not to double here.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.017 (Money: -0.004)
-  0.508 0.033 0.000 - 0.492 0.051 0.001
+2-ply cubeless equity +0.258
+  0.587 0.094 0.001 - 0.413 0.012 0.000
 Cubeful equities:
-1. Double, take        +0.370
-2. Double, pass        +1.000  (+0.630)
-3. No double           +0.360  (-0.010)
-Proper cube action: Redouble, take
+1. No double           +0.266
+2. Double, pass        +1.000  (+0.734)
+3. Double, take        +0.237  (-0.029)
+Proper cube action: No double, take (3.8%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aCCDC---------A-bb-bbcAc--:1:1:1:00:0:4:0:7:10");
-var categoryid = "CBg";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CBg";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-ACCBBB-----ba---b--B-bbf-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

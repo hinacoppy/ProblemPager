@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 222</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 22</span>&ensp;
 <span>(CB1-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=133 White=137</div></div>
+      <div class="pipinfo">pips Red=133 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This one surprised me at first sight. I didn’t double and got flagged by XG in post-game analysis.<br>
+ <div class="description">This is not too difficult a problem if you have seen the idea before.<br>
 <br>
-In fact, this is just a double but a very easy take. The reason it is a double is the high percentage of gammons won by Red – 45% of his wins are gammons! That makes this position volatile enough to warrant a double. <br>
+Red should not play safely with 13/5. Sixes don't grow on trees and his prime could collapse all too quickly if he doesn't roll another six very shortly.<br>
 <br>
-I must admit that in a chouette if my captain didn’t want to double I wouldn’t be arguing too hard for him to change his mind. However, this has made me reassess positions of this type -  a useful reference for the future.<br>
+Playing 22/16, 13/11 considerably helps his timing and even if White points on the Red checker left in White's home board the 4-pt will still be available for re-entry. Meanwhile Red has increased his chances of making a full prime.<br>
+<br>
+If Red's two rear checkers were on White's 4-pt then 13/5 would be the correct play – as it is, it is a blunder!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.491
-  0.639 0.289 0.007 - 0.361 0.081 0.003
-Cubeful equities:
-1. Double, take        +0.736
-2. Double, pass        +1.000  (+0.264)
-3. No double           +0.698  (-0.038)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/16 13/11                  Eq.: +0.084
+       0.605 0.162 0.007 - 0.395 0.146 0.010
+    2. Cubeful 2-ply    13/11 9/3                    Eq.: +0.023 (-0.061)
+       0.565 0.145 0.004 - 0.435 0.097 0.003
+    3. Cubeful 2-ply    13/5                         Eq.: +0.020 (-0.063)
+       0.559 0.148 0.003 - 0.441 0.090 0.002
+    4. Cubeful 2-ply    22/14                        Eq.: +0.002 (-0.082)
+       0.589 0.149 0.008 - 0.411 0.175 0.013
+    5. Cubeful 2-ply    9/3 7/5                      Eq.: -0.008 (-0.092)
+       0.554 0.147 0.004 - 0.446 0.105 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a--BBBB-B-A-bBb--cbc-bAA--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB1";
-var probnum = "22";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--a-BBBCBA--bA---cccc-B---:1:-1:1:62:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

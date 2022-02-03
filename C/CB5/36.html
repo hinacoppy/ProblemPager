@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 45</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 236</span>&ensp;
 <span>(CB5-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 5-4 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money play. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=55 White=77</div></div>
+      <div class="pipinfo">pips Red=109 White=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This position is a classic demonstration of the muddy thinking surrounding match play. Many would not double (and be automatically redoubled) because of the fear of losing the match.<br>
+ <div class="description">Red can preserve his anchor with 12/1 but it looks remarkably ugly and how will he win from there even if not hit? <br>
 <br>
-The doubling window at this score is from 67% to 75%. The key question is whether Red’s winning chances fall within this window. The likelihood is yes because White will often get a single shot with a few extras and he will hit circa 30 – 35% of the time. The race is pretty much a lock so if not hit Red should win easily.<br>
+Even with the best play Red is only a fraction over 50% to win the game so he must accept that and find the best move to win the game. That move is 23/12 which admittedly leaves 2's, 4's, 5's and 6's to hit but few of those are immediately fatal as he will often have a take of a double after a hit by White and a fan by red. 23/12 keeps all Red's checkers in play and puts the pressure on White to perform.<br>
 <br>
-In fact, Red wins 69% of the time indicating double and take. Not doubling is a bad error. Red must know how to play rolls like 51 and 61 where the correct plats are 17/11 and 17/10 respectively. He should not hit 4/3* with the 1. He has lots of life after death if one checker is hit but not two.<br>
+The second best move is 23/18, 7/1 but that is still a bad blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.412 (Money: +0.394)
-  0.689 0.020 0.000 - 0.311 0.005 0.000
-Cubeful equities:
-1. No double           +0.522
-2. Double, pass        +1.000  (+0.478)
-3. Double, take        +0.509  (-0.013)
-Proper cube action: No double, take (2.7%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/12                        Eq.: -0.153
+       0.517 0.145 0.004 - 0.483 0.155 0.002
+    2. Cubeful 2-ply    23/18 7/1                    Eq.: -0.229 (-0.076)
+       0.494 0.145 0.004 - 0.506 0.197 0.007
+    3. Cubeful 2-ply    7/1 6/1                      Eq.: -0.320 (-0.168)
+       0.443 0.092 0.001 - 0.557 0.102 0.002
+    4. Cubeful 2-ply    12/1                         Eq.: -0.349 (-0.196)
+       0.437 0.100 0.001 - 0.563 0.107 0.002
+    5. Cubeful 0-ply    23/18 12/6                   Eq.: -0.441 (-0.289)
+       0.434 0.131 0.003 - 0.566 0.242 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BGaCB--a--------A-b-cbbd-:0:0:1:00:5:4:0:7:10");
-var categoryid = "CB5";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CB5";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BbBBBCA----A----c-c-bcBb-:1:-1:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

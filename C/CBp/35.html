@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 55</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 29</span>&ensp;
 <span>(CBp-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=135 White=128</div></div>
+      <div class="pipinfo">pips Red=47 White=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red must double – it is a double blunder not to do so. Fully 50% of Red’s wins are gammons. <br>
+ <div class="description">Unless you are given this position as a quiz problem you will never look at 6/5*, 6/2 but that play swaps 5.5% losses for an additional 15% gammon wins - a good trade.<br>
 <br>
-Equally well White has a clear take with all his checkers in play and Red a little light on ammunition for his blitz (but his four-point home board is more than adequate compensation).<br>
-<br>
-White would be better off if his blot on his 3-pt was on his 8-pt but even then the position is a clear double thus demonstrating how powerful a blitz attack can be.<br>
+4/off, 1/off is not an error but the important thing is to at least see 6/5*, 6/2 as a candidate play even if you decide not to play it.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.441
-  0.611 0.312 0.003 - 0.389 0.093 0.004
-Cubeful equities:
-1. Double, take        +0.617
-2. Double, pass        +1.000  (+0.383)
-3. No double           +0.506  (-0.111)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/5* 6/2                     Eq.: +1.037
+       0.933 0.195 0.001 - 0.067 0.002 0.000
+    2. Cubeful 2-ply    4/off 1/off                  Eq.: +1.030 (-0.007)
+       0.998 0.034 0.000 - 0.002 0.000 0.000
+    3. Cubeful 2-ply    6/5*/1                       Eq.: +1.019 (-0.018)
+       0.923 0.201 0.001 - 0.077 0.003 0.000
+    4. Cubeful 2-ply    4/3 4/off                    Eq.: +1.018 (-0.018)
+       0.992 0.037 0.000 - 0.008 0.000 0.000
+    5. Cubeful 2-ply    4/off 2/1                    Eq.: +1.014 (-0.022)
+       0.990 0.037 0.000 - 0.010 0.000 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---Ab-EBBa--bDa-a--bA-bbb-:0:0:-1:00:0:0:3:0:10");
-var categoryid = "CBp";
-var probnum = "35";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "35";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-CCBEaB-----a----cah----a-:1:-1:1:41:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

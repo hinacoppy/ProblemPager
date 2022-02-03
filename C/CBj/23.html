@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 207</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 20</span>&ensp;
 <span>(CBj-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">a)	Money game. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=14 White=8</div></div>
+      <div class="pipinfo">pips Red=169 White=165</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">b)	Match Play 0-0 to 4. Should Red redouble? If redoubled, should White take?<br>
+ <div class="description">This is a  difficult problem. Killing a checker with the 4 is not the right idea so we have the choice of 23/18; 22/18, 6/5 and 24/20, 23/22. The plays are very close and none of them would be classified as an error. Note however that 24/20, 6/5 would be an error. This is because you don’t want to be hit twice and let your opponent start a new home board point at the same time – It’s much better to have both hits outside the opponent’s home board.<br>
 <br>
-For money this is no double. Two 1's by Red plus some other combinations mean that Red will win from here just 64% of the time. However, the volatility of the position is such that it is only a tiny error not to double. Redoubling for money would be an error.<br>
+XG has a mild preference for the very pure 22/18, 6/5. This strives to make White’s bar-point or at least promote an exchange of hits there. It also unstacks the heavy 6-pt. I’d be happy with any of the plays in a chouette and the anchoring play comes out second best in the rollouts.<br>
 <br>
-At the match score winning a 4 cube gets Red to the Crawford game so now not redoubling would be a small error. Never underestimate the importance of getting to the Crawford Game in match play.<br>
+Partly this is a matter of style and you should play these positions in a way that you feel comfortable with.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.277
-  0.639 0.000 0.000 - 0.361 0.000 0.000
-Cubeful equities:
-1. No double           +0.536
-2. Double, pass        +1.000  (+0.464)
-3. Double, take        +0.493  (-0.043)
-Proper cube action: No redouble, take (8.4%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/18 6/5                    Eq.: -0.240
+       0.446 0.107 0.004 - 0.554 0.170 0.012
+    2. Cubeful 2-ply    24/20 23/22                  Eq.: -0.242 (-0.002)
+       0.432 0.093 0.003 - 0.568 0.133 0.005
+    3. Cubeful 2-ply    23/22 6/2                    Eq.: -0.285 (-0.045)
+       0.421 0.095 0.003 - 0.579 0.147 0.007
+    4. Cubeful 2-ply    24/20 6/5                    Eq.: -0.289 (-0.049)
+       0.434 0.102 0.004 - 0.566 0.175 0.012
+    5. Cubeful 2-ply    22/21 6/2                    Eq.: -0.292 (-0.052)
+       0.425 0.099 0.003 - 0.575 0.158 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ABC-------------------bd-:1:1:1:00:0:0:1:0:10");
-var categoryid = "CBj";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=----b-E-C-BacBb--c-d--AAA-:0:0:1:41:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 13</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 277</span>&ensp;
 <span>(CB6-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 5.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=92 White=85</div></div>
+      <div class="pipinfo">pips Red=97 White=111</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Obviously for money this is no double and a beaver but once more the match score influences matters hugely.<br>
+ <div class="description">This is a simple technical play. <br>
 <br>
-It is very close but the high percentage of gammons that Red wins just makes this a double although it is very close. Getting to the Crawford game is sufficient incentive for Red to double. <br>
+Red shouldn't lift the blot with 3/2 as he has a lot of work still to do and gammons to win!<br>
 <br>
-Doubling when the underdog is something you just have to get used to at match play. Technically it is a very small error not to double as Red.<br>
+It's easy to make the relatively safe play 13/9, 10/9 and overlook 13/9, 4/3 that gives many more covers and (hopefully) makes the game a one-shot proposition. If White doesn't roll a 4 Red should be home free.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.084 (Money: +0.127)
-  0.454 0.238 0.018 - 0.546 0.035 0.001
-Cubeful equities:
-1. Double, take        +0.020
-2. Double, pass        +1.000  (+0.980)
-3. No double           -0.022  (-0.042)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 4/3                     Eq.: +0.240
+       0.632 0.247 0.001 - 0.368 0.165 0.023
+    2. Cubeful 2-ply    13/9 10/9                    Eq.: +0.204 (-0.036)
+       0.612 0.227 0.002 - 0.388 0.118 0.008
+    3. Cubeful 2-ply    11/7 4/3                     Eq.: +0.204 (-0.036)
+       0.626 0.244 0.001 - 0.374 0.186 0.029
+    4. Cubeful 2-ply    13/9 3/2                     Eq.: +0.202 (-0.037)
+       0.620 0.181 0.001 - 0.380 0.093 0.007
+    5. Cubeful 2-ply    10/6 3/2                     Eq.: +0.200 (-0.040)
+       0.621 0.172 0.001 - 0.379 0.084 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBBCCA-A--a---abacbb-abA:0:0:1:00:0:2:0:5:10");
-var categoryid = "CB6";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CB6";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBABBB---AAbA---b-bdb-bA-:1:-1:1:41:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

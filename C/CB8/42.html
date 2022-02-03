@@ -12,61 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 181</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 92</span>&ensp;
 <span>(CB8-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 33?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=141 White=142</div></div>
+      <div class="pipinfo">pips Red=152 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red wants to clear the bar-point anchor but because the race is close he also wants to block White’s checkers on his 4-pt. Which is more important?<br>
+ <div class="description">When I had this position I fairly quickly played 13/9*/5, 7/3(2)*. My opponent entered with one checker and I cashed the game.<br>
 <br>
-Because the race is close 13/10(3) takes priority. After that the final 3 should be played 6/3. This starts a new point but also gives Red an extra outfield checker to play with while he awaits another double to clear from White’s bar-point.<br>
+I was amazed when I put this into XG that it preferred 8/4(2), 7/3(2)*. How can hitting one possibly be better than hitting two? All three of the ‘hit two’ plays have the same equity but they are 0.05 behind the hit one play.<br>
 <br>
-Second place is a tie between 18/15(2), 8/5, 6/3 and 13/10(3), 8/5. Both of these moves are errors (just). Even in such a simple position there is still much to think about.<br>
+Normally when XG recommends a move I can quickly see why but here it took some time. What I think is going on is this:<br>
+<br>
+After the hit one play the only roll that allows White to take Red’s double next turn is 26 (bar/23/17*) and that is no bargain. After the hit two plays White can take after 11, 22 and 44 but now he has a much better position.<br>
+<br>
+It would seem that this possibility of White anchoring with an effective double is the difference between the plays which I think you would agree is something you wouldn’t have thought about when playing Red’s 44 – I certainly didn’t!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/15(2) 8/5 6/3             Eq.: +0.296
-       0.603 0.039 0.000 - 0.397 0.043 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/10(3) 6/3                 Eq.: +0.285 (-0.011)
-       0.594 0.066 0.001 - 0.406 0.055 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/10(3) 8/5                 Eq.: +0.273 (-0.023)
-       0.590 0.067 0.001 - 0.410 0.054 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/15(2) 8/2                 Eq.: +0.272 (-0.024)
-       0.595 0.040 0.000 - 0.405 0.046 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    18/15(2) 8/5(2)              Eq.: +0.270 (-0.026)
-       0.594 0.042 0.000 - 0.406 0.046 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4(2) 7/3*(2)               Eq.: +0.992
+       0.757 0.487 0.015 - 0.243 0.039 0.001
+    2. Cubeful 2-ply    13/9*/5 7/3*(2)              Eq.: +0.943 (-0.049)
+       0.749 0.444 0.015 - 0.251 0.042 0.001
+    3. Cubeful 2-ply    13/9*(2) 7/3*(2)             Eq.: +0.942 (-0.050)
+       0.744 0.440 0.016 - 0.256 0.044 0.002
+    4. Cubeful 2-ply    24/20 13/9* 7/3*(2)          Eq.: +0.941 (-0.051)
+       0.750 0.416 0.015 - 0.250 0.041 0.001
+    5. Cubeful 2-ply    24/20 13/9*(3)               Eq.: +0.918 (-0.074)
+       0.726 0.254 0.008 - 0.274 0.043 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----bBD-D---cC---cBcca----:0:0:1:33:0:0:3:0:10");
-var categoryid = "CB8";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CB8";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---a-BCBCa--eC---c-e---AA-:0:0:1:44:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

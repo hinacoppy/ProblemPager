@@ -12,52 +12,68 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015- Position 87</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 164</span>&ensp;
 <span>(CBg-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=124 White=46</div></div>
+      <div class="pipinfo">pips Red=131 White=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Not redoubling here is a double blunder. Red’s chances from 0-6 are about 8% and 20% of the time he doesn’t even get that because he loses a gammon. <br>
+ <div class="description">When I first posted this I thought it would be another case for the broken prime but in fact there are three viable plays.<br>
 <br>
-This is just about last chance saloon so Red should ensure he wins the match if he hits and closes out White. Redouble and of course a trivial take.<br>
+11/5, 6/4 – keeping the broken prime and slotting the key 5-pt<br>
+<br>
+11/5, 7/5 – making the 5-pt but breaking the prime<br>
+<br>
+20/14, 11/9 – keeping the ‘pure’ broken prime.<br>
+<br>
+The three plays are very close to each other in terms of equity with 11/5, 6/4 winning by 0.001.<br>
+<br>
+Thus proving that more than one game plan is often viable and sometimes there is no ‘best’ move.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.295 (Money: -0.431)
-  0.368 0.026 0.000 - 0.632 0.194 0.000
-Cubeful equities:
-1. Double, take        -0.007
-2. Double, pass        +1.000  (+1.007)
-3. No double           -0.138  (-0.131)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5 6/4                     Eq.: +0.341
+       0.679 0.141 0.004 - 0.321 0.051 0.001
+    2. Cubeful 2-ply    11/5 7/5                     Eq.: +0.331 (-0.010)
+       0.672 0.146 0.003 - 0.328 0.048 0.001
+    3. Cubeful 2-ply    20/14 11/9                   Eq.: +0.317 (-0.024)
+       0.683 0.131 0.004 - 0.317 0.073 0.002
+    4. Cubeful 2-ply    20/18 20/14                  Eq.: +0.300 (-0.041)
+       0.683 0.121 0.004 - 0.317 0.080 0.003
+    5. Cubeful 2-ply    20/14 6/4                    Eq.: +0.281 (-0.060)
+       0.671 0.130 0.004 - 0.329 0.081 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBBCB---------Aa--dCbdd-:2:1:1:00:0:2:0:7:10");
-var categoryid = "CBg";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CBg";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---bB-DBBB-Ad----c-dB---b-:1:-1:1:62:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

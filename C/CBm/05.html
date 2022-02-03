@@ -12,65 +12,68 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 75</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Back Game Doubling Theory</span>&ensp;
 <span>(CBm-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. DMP. How should Red play 41?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=75 White=123</div></div>
+      <div class="pipinfo">pips Red=170 White=44</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Bill Davis continues to pose excellent and challenging problems on the ABT Facebook account. <br>
+ <div class="description">Doubling theory in back games is still evolving, largely because the bots now play back games so well. Early versions of the TD-Gammon and JellyFish did not play back games particularly well and even Snowie had its problems.<br>
 <br>
-In a money game (particularly with White owning the cube on 2) the decision would be easier because of the gammon wins and hitting White's blot on Red's 4-pt would be mandatory. The best way to hit is 8/4*, 5/4 as there is some duplication of 3's. This superior to 8/4*/3 because of the additional cover numbers for Red on the next roll.<br>
+Player like Bill Robertie and Kent Goulding did a lot of work in this area while developing and publishing their landmark magazine, “Inside Backgammon”. The early publication years coincided with the emergence of the bots and when computer rollouts replaced hand rollouts back game theory began to evolve quite quickly.<br>
 <br>
-At DMP Gammons don't matter either way so you want the play that wins the most games. This brings 13/8 into contention because it starts to clear the most difficult point. <br>
+I think it was Kent Goulding who first postulated that you should double a back game when you have only three more points to clear in front of the defender’s most advanced anchor. For example, if your opponent is playing a 1-3 back game you should not double until you have cleared your own bar-point. This postulate assumes that the defending side has a well-timed game.<br>
 <br>
-Calculating this over the board is virtually impossible so you have to go by experience and a little bit of gut feel. Back to that old adage –“when in doubt, hit.” It is remarkable just how often the adage is correct.<br>
+Redoubling in back games is a much murkier area precisely because less work has been done on the topic. There are many factors to be considered: the number of shots; how many checkers (if any) have already been borne off; the state of the defender’s home board/prime and finally how efficiently can the cube be used subsequently by either player.<br>
 <br>
-It turns out that 8/4*, 5/4 wins 1.3% more games than 13/8 so that is the right play.<br>
+There are many positions where even a triple shot for the back game player is insufficient reason to redouble. In this week’s position Black has a mere twenty-three shots at White’s blot on the bar-point. In the game from which this was taken Black rolled 55 and then won with a redouble next turn. The question is: did he miss a redouble before rolling his double fives?<br>
+<br>
+The answer is yes and in fact not redoubling is a clear blunder. It is a redouble for the following reasons: a hit will nearly certainly result in a winning redouble next turn – Black’s market will have been lost; White has no checkers off (very key) and can still lose a gammon (in fact he does so 17&amp; of the time); White has six dead checkers and a weak home-board position. Finally, even if Red misses, White will not be able to win with an immediate redouble - in fact White cannot consider redoubling for some time to come.<br>
+<br>
+This position just begins to touch on some of the key elements involved in redoubling in back games. There is a long way to go before we really understand the topic.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8                         Eq.: +0.094
-       0.547 0.163 0.004 - 0.453 0.071 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/4* 5/4                     Eq.: +0.045 (-0.049)
-       0.522 0.245 0.002 - 0.478 0.154 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/4*/3                       Eq.: +0.038 (-0.056)
-       0.519 0.241 0.002 - 0.481 0.155 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/4* 2/1                     Eq.: +0.014 (-0.079)
-       0.507 0.234 0.002 - 0.493 0.163 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    6/5 6/2                      Eq.: +0.008 (-0.086)
-       0.504 0.085 0.000 - 0.496 0.102 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.095
+  0.665 0.000 0.000 - 0.335 0.225 0.011
+Cubeful equities:
+1. No double           +0.350
+2. Double, pass        +1.000  (+0.650)
+3. Double, take        -0.037  (-0.387)
+Proper cube action: No redouble, beaver (37.3%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CD-aBBcB----B--a--acbbb--:0:0:1:41:0:0:0:1:10");
-var categoryid = "CBm";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBm";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-----BBACC--------ad-bBBe-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

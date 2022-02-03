@@ -12,63 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 201</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 48</span>&ensp;
 <span>(CB1-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. how should Red play 65?</div>
+<article>
+<div class="doAction">Match Play. Red leads 1-0 to 3. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=158 White=131</div></div>
+      <div class="pipinfo">pips Red=99 White=105</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I found this one quite surprising. My opponent played 24/18, 23/18 which to me looked very logical. However, XG rates this as a blunder, preferring both 23/18, 8/2 and 8/2, 6/1*.<br>
+ <div class="description">Firstly my thanks to those who have been brave enough to add their comments to this position and others - please keep writing as it adds great value to the site.<br>
 <br>
-The logic of the first play is to keep an anchor when behind in the race while at the same time strengthening the home board. The second play is an attempt at a blitz, albeit with perhaps not quite enough ammunition?<br>
+When Danny sent this to me I wondered why, as it seemed a trivial problem. Indeed, for money it is trivial and there is virtually no difference between 7/1, 6/4 and 7/1, 5/3. This is because the game will in all likelihood very shortly end with a cube turn.<br>
 <br>
-XG rates 23/18, 8/2 as its top play (which interestingly none of those who commented on the position selected) with the blitz 8/2, 6/1* a mere  0.011 behind it.<br>
+At the match score it is not nearly so trivial because if White hits the shot that Red leaves and Red fans White will be too good to double most of the time and will be playing for a gammon. Winning a gammon is very important for White because he will then be 2-1 ahead at the Crawford Game – very different from the score being tied at 1-1.<br>
 <br>
-This is one of those plays that in the pre-bot era nobody would have known that making the opponent’s bar-point was a blunder and yet apparently it is! An interesting lesson from our silicon friend.<br>
+Now 7/1, 5/3 is much better than 7/1, 6/4 because: it reduces the number of shots from 12 to 11; when White hits with a 1 (except 11) he will still need a 6 (or 15) to leap Red's prime. This may force him to cash the game in some variations.<br>
+<br>
+The equity difference is 0.06 which is much larger than I would have expected and demonstrates once again just how complex backgammon can be and how much a live cube can affect a checker play decision. Until you think about the implications of the match score you don't get close to solving this problem.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 6/1*                     Eq.: -0.354
-       0.418 0.148 0.004 - 0.582 0.219 0.022
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/18 8/2                    Eq.: -0.365 (-0.011)
-       0.414 0.131 0.005 - 0.586 0.207 0.018
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18 23/18                  Eq.: -0.419 (-0.065)
-       0.412 0.113 0.005 - 0.588 0.239 0.010
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/6 8/2                     Eq.: -0.450 (-0.096)
-       0.392 0.119 0.004 - 0.608 0.200 0.016
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    13/2                         Eq.: -0.532 (-0.179)
-       0.369 0.114 0.004 - 0.631 0.223 0.024
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/1 6/4                      Eq.: +0.314
+       0.583 0.056 0.001 - 0.417 0.093 0.001
+    2. Cubeful 2-ply    7/1 5/3                      Eq.: +0.312 (-0.002)
+       0.591 0.049 0.001 - 0.409 0.085 0.001
+    3. Cubeful 0-ply    11/5 6/4                     Eq.: +0.025 (-0.289)
+       0.555 0.054 0.002 - 0.445 0.128 0.002
+    4. Cubeful 0-ply    11/5 7/5                     Eq.: +0.020 (-0.294)
+       0.537 0.046 0.002 - 0.463 0.082 0.001
+    5. Cubeful 0-ply    7/5 7/1                      Eq.: -0.189 (-0.503)
+       0.485 0.044 0.001 - 0.515 0.095 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aAB--C-C--AbBba-b-d--cAB-:0:0:1:65:0:0:3:0:10");
-var categoryid = "CB1";
-var probnum = "48";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "48";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-Aa--CDCBb-B------bbbb-bb-:0:0:1:62:1:0:0:3:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

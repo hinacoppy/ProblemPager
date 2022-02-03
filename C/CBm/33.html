@@ -12,56 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 47</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 150</span>&ensp;
 <span>(CBm-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-0 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=105 White=177</div></div>
+      <div class="pipinfo">pips Red=90 White=108</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would obviously be a very clear double and a huge pass but the match score changes everything.<br>
+ <div class="description">6/4, 6/1 is postponing the inevitable and is a 2.5 blunder.<br>
 <br>
-Losing a gammon doesn't really hurt White that much as he will only give up about 15% match winning chances. However, he will be redoubling very quickly if he begins to turn the game around.<br>
-<br>
-Admittedly White's position is very poor but as he has no checkers out of play he can rebuild it.<br>
-<br>
-Technically this is just a double but it is also a trivial take. This is the sort of position where it pays to know your opponent. I did and I knew he would take later so I held the cube. As it happened I played on and won a gammon very easily.<br>
+Ahead in the race Red should just play 15/13, 15/10. White misses 21 times out of 36 and then Red will have some playability for the next roll. Surprisingly after any play White is still favourite!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.959 (Money: +0.840)
-  0.691 0.427 0.063 - 0.309 0.033 0.001
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.074  (+0.074)
-3. No double           +0.945  (-0.055)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/13 15/10                  Eq.: -0.149
+       0.452 0.037 0.000 - 0.548 0.124 0.001
+    2. Cubeful 2-ply    13/6                         Eq.: -0.192 (-0.043)
+       0.438 0.059 0.000 - 0.562 0.128 0.001
+    3. Cubeful 0-ply    6/4 6/1                      Eq.: -0.364 (-0.215)
+       0.411 0.044 0.000 - 0.589 0.161 0.000
+    4. Cubeful 0-ply    15/8                         Eq.: -0.376 (-0.227)
+       0.415 0.058 0.000 - 0.585 0.197 0.002
+    5. Cubeful 0-ply    13/11 13/8                   Eq.: -1.000 (-0.851)
+       0.305 0.051 0.000 - 0.695 0.285 0.007
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-bBBBdC-C--B-----baba-cA--:0:0:1:00:2:0:0:5:10");
-var categoryid = "CBm";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CBm";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BCBBbB-----bB-B---bbbbc--:0:0:1:52:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

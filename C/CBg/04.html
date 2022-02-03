@@ -12,63 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 98</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 153</span>&ensp;
 <span>(CBg-04)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money play. How should Red play 22?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=163 White=145</div></div>
+      <div class="pipinfo">pips Red=107 White=79</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I learned a good lesson here. I played 24/22(2) quite quickly and then 13/11(2) looked logical for the two 2’s. Given Red’s home board I was keen to advance to the edge of White’s prime.<br>
+ <div class="description">Red will have difficulty executing a blitz because of White’s strong home board. He must also be careful about the number of shots he leaves as an early hit by White could cost Red a gammon.<br>
 <br>
-Very wrong said XG. You should make your own four-point prime plus an additional home board point with 13/11, 8/4, 6/4, putting the checkers where they belong.<br>
+Making the 2-pt is the wrong strategy as it leaves too many immediate shots and it commits Red to an attacking game plan.<br>
 <br>
-Because I thought 24/22(2) was mandatory I never considered XG’s play but once you see it becomes both logical and clear. The lesson is to consider all four quadrants of the board before selecting a move.<br>
+The alternative plan is to build a prime and hope White’s board cracks. !3/7 is clear and then the 2 should be played 12/10, creating new a builder for the 5-pt while only leaving a single shot (55) for White. Even 13/11, 13/7 (leaving two shots) is an error.<br>
 <br>
-13/11, 8/4, 6/4 gives Red a better prime than White so that is the play he should make. 24/22(2), 13/11(2) is a bad blunder!<br>
+The key here is to select the right strategy and then attempt to execute it.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 8/4 6/4                Eq.: +0.257
-       0.581 0.176 0.008 - 0.419 0.156 0.012
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/22(2) 13/11(2)            Eq.: +0.139 (-0.118)
-       0.544 0.139 0.006 - 0.456 0.130 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/22 8/4 6/4                Eq.: +0.106 (-0.151)
-       0.545 0.166 0.010 - 0.455 0.189 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    24/22(2) 13/9                Eq.: +0.054 (-0.203)
-       0.522 0.138 0.006 - 0.478 0.148 0.007
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    24/22(2) 13/11 8/6           Eq.: +0.039 (-0.219)
-       0.511 0.137 0.005 - 0.489 0.132 0.004
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7 12/10                   Eq.: +0.219
+       0.539 0.020 0.001 - 0.461 0.062 0.001
+    2. Cubeful 2-ply    13/7 13/11                   Eq.: +0.184 (-0.035)
+       0.528 0.021 0.001 - 0.472 0.073 0.001
+    3. Cubeful 2-ply    14/12 13/7                   Eq.: +0.138 (-0.081)
+       0.496 0.018 0.001 - 0.504 0.041 0.000
+    4. Cubeful 2-ply    13/9(2)                      Eq.: +0.094 (-0.126)
+       0.502 0.021 0.001 - 0.498 0.101 0.001
+    5. Cubeful 2-ply    12/10 6/2 4/2                Eq.: +0.093 (-0.126)
+       0.507 0.023 0.000 - 0.493 0.115 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b---BCBA---cE---b-dbb--B-:0:0:1:22:0:0:3:0:10");
-var categoryid = "CBg";
-var probnum = "04";
-var showpipflg = true;
+const categoryid = "CBg";
+const probnum = "04";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB--C-CAB---ABA--b--bdbbb-:1:1:1:22:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

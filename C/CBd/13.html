@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 238</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 13</span>&ensp;
 <span>(CBd-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 3-3 to 7. Should Red redouble? If redoubled should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=148 White=92</div></div>
+      <div class="pipinfo">pips Red=145 White=158</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This reinforces the lesson of Position 236. For money this no redouble/beaver but at this match score not redoubling is a blunder.<br>
+ <div class="description">When I originally selected this position there was clear difference on the XG 3-ply evaluation between the best and second-best moves.<br>
 <br>
-White easily has the 33% he needs to take but virtually all 2’s are market losers for Red and White’s board could easily crash and so the volatility of the position demands that Red should redouble now.<br>
+However, things changed on the rollout and three plays are virtually tied in equity: 8/4(2), 6/2(2); 20/16(2), 8/4(2) and 13/9, 8/4, 6/2(2). One can make a case for all three but it would seem that there are three valid game plans in the position.<br>
+<br>
+Sorry, it wasn’t more conclusive on rollout!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.231 (Money: -0.082)
-  0.539 0.139 0.006 - 0.461 0.296 0.008
-Cubeful equities:
-1. Double, take        +0.228
-2. Double, pass        +1.000  (+0.772)
-3. No double           +0.158  (-0.070)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9(3) 8/4                  Eq.: +0.315
+       0.598 0.094 0.002 - 0.402 0.059 0.001
+    2. Cubeful 2-ply    20/16(2) 8/4(2)              Eq.: +0.295 (-0.020)
+       0.596 0.107 0.003 - 0.404 0.092 0.001
+    3. Cubeful 2-ply    20/16(2) 13/9 8/4            Eq.: +0.290 (-0.024)
+       0.590 0.121 0.004 - 0.410 0.092 0.002
+    4. Cubeful 2-ply    8/4(2) 6/2(2)                Eq.: +0.287 (-0.028)
+       0.587 0.112 0.002 - 0.413 0.075 0.002
+    5. Cubeful 2-ply    13/9 8/4 6/2(2)              Eq.: +0.279 (-0.036)
+       0.582 0.113 0.003 - 0.418 0.069 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-a-BDBB-A--B-----cbbbAdA:1:1:1:00:3:3:0:7:10");
-var categoryid = "CBd";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a--AbE-D---bC---bddB-----:0:0:1:44:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

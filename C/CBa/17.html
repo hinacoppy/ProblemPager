@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 106</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 166</span>&ensp;
 <span>(CBa-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red Play 63?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=92 White=86</div></div>
+      <div class="pipinfo">pips Red=111 White=185</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board my opponent quickly passed but actually this is a trivial take and a double blunder to pass.<br>
+ <div class="description">It’s easy to play on automatic here and move 13/4  (yes, I did).<br>
 <br>
-Red has to both cover his inner board blot and escape his rear checker. If his home board were closed then this would be a pass (see Kit Woolsey’s ‘Encyclopaedia of Backgammon’ for the relevant reference positions).<br>
+However, the bar-point could be useful here to destroy White’s timing and if the blot is hit it can easily be recirculated. The key point is that White won’t hit with most of his ‘hitting’ numbers so the blot is not really exposed to a double shot.<br>
 <br>
-The double is very clear due to the volatility of the position.<br>
+Even 13/7, 4/1 is better than 13/4.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.442
-  0.734 0.030 0.000 - 0.266 0.054 0.002
-Cubeful equities:
-1. Double, take        +0.713
-2. Double, pass        +1.000  (+0.287)
-3. No double           +0.683  (-0.029)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7 8/5                     Eq.: +0.284
+       0.589 0.281 0.023 - 0.411 0.057 0.001
+    2. Cubeful 2-ply    13/4                         Eq.: +0.225 (-0.058)
+       0.565 0.279 0.024 - 0.435 0.058 0.001
+    3. Cubeful 2-ply    13/7 4/1                     Eq.: +0.213 (-0.071)
+       0.574 0.264 0.019 - 0.426 0.071 0.002
+    4. Cubeful 0-ply    13/10 13/7                   Eq.: -0.221 (-0.505)
+       0.446 0.203 0.019 - 0.554 0.139 0.008
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aABCBBC-----------AdccbbA-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBa";
-var probnum = "17";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "17";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--cbCBC-Da-a-C---a-bbc----:1:-1:1:63:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

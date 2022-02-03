@@ -12,58 +12,68 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 129</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Learning through Analysis</span>&ensp;
 <span>(CBl-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">a)	Match Play. Red trails 0-1 to 7. Should Red redouble? If redoubled should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=87 White=129</div></div>
+      <div class="pipinfo">pips Red=31 White=119</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">b)	Match Play. Red leads 1-0 to 7. Should Red redouble? If redoubled should White take?<br>
+ <div class="description">When this position popped up in the chouette it led to a heated argument. The advocates of 6/3*, 6/1 were certain that their move was correct. Equally adamant were the proponents of 6/1, 4/1.<br>
 <br>
-Unlike the last position I posted this time the dice were with me. I redoubled at 0-1, my opponent took and my next two rolls were 54 and 16. I won a gammon easily and with it the match. But what about the cube decisions?<br>
+The latter group argued that with their play White (the Box) would be only be able to pick up one blot while 6/3*, 6/1 would risk two blots being hit if White started with a 2. However, the number of blots is virtually irrelevant because White will nearly certainly be able to win the game with a redouble if he hits a blot.<br>
 <br>
-It turns out that this is a redouble (just) and a trivial take. Leading 1-0 it would be nearly an octuple blunder to redouble! The overage counts against Red and he should just play on,  keep the cube and hope to win a gammon.<br>
+Both plays leave twenty immediate shots so is there really much difference between them? Before the advent of computers some hardy souls might have spent the night rolling out the two positions a couple of hundred times but that would not have provided a meaningful statistical sample.  The simple answer is that thirty years ago the arguments would have continued but nobody would have “known’ the correct move.<br>
 <br>
-Small differences in the score in short matches lead to huge changes in the doubling decisions and this position is a classic demonstration of that fact.<br>
+In the end the Captain chose 6/1, 4/1, got hit with a 2 and had to pass the Box’s redouble. I supported the Captain’s choice but truly had no idea which play was correct.<br>
 <br>
-By the way I seem to remember that in one of Kleinman's or Robertie's book there is the analysis to prove that  Red's checker on the 23pt will take, on average, 5.5 rolls to escape.<br>
+Luckily, nowadays we can ask Extreme Gammon (XG) and be nearly certain it will give us an accurate analysis. That is precisely what I did and I was very surprised at the result. 6/1, 4/1 is very nearly a double blunder! Why is there such a big difference between the two plays?<br>
+<br>
+As both plays leave the same number of initial hits the difference must come from the 16 games where Black is not hit by White’s first roll. In fact both plays win very nearly the same percentage of games (48%) but the difference emerges once you look at the percentage of gammons won in both variations.<br>
+<br>
+6/3*, 6/1 wins a gammon 34% of the time while 6/1, 4/1 wins only 24% gammons – that is a huge difference. Can we account for it?<br>
+<br>
+I believe we can. Firstly, White will fan with 4 rolls (11, 44, 14, 41) and there is obviously a huge swing on double fours. Secondly, the gammon is very close. After the hit White will need 50 pips to save the gammon and after 6/1, 4/1 he will need 47 pips. This is a small but significant difference when Black will need between 5 and 6 rolls to bear off his remaining checkers and the race to get off the gammon may well be very close. <br>
+<br>
+Once you have XG’s rollouts you can work out exactly what is going on in a position – most of the time anyway! Players in the 1970s had to fly blind and many problems like this were never answered. Using modern technology we can solve the problems and by solving them we can improve our performance and become stronger players. That is why todays masters are so far ahead of their counterparts from the so-called golden era of backgammon.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.364 (Money: +0.341)
-  0.555 0.294 0.005 - 0.445 0.065 0.002
-Cubeful equities:
-1. Double, take        +0.553
-2. Double, pass        +1.000  (+0.447)
-3. No double           +0.549  (-0.004)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3* 6/1                     Eq.: +0.183
+       0.498 0.345 0.001 - 0.502 0.000 0.000
+    2. Cubeful 2-ply    6/1 4/1                      Eq.: +0.034 (-0.149)
+       0.481 0.257 0.001 - 0.519 0.000 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aaCBBCC----A-----bdcbb-A--:1:1:1:D:0:1:0:7:10");
-var categoryid = "CBl";
-var probnum = "01";
-var showpipflg = true;
+const categoryid = "CBl";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-EAaCaB-a--------abbbbba--:1:-1:1:53:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 269</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 259</span>&ensp;
 <span>(CBi-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 66?</div>
+<article>
+<div class="doAction">Match Play. Red leads 1-0 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=115 White=90</div></div>
+      <div class="pipinfo">pips Red=87 White=95</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">With no cube and no gammons Red must make the play the play that gives him the best chance of winning the game.<br>
+ <div class="description">For money or at 0-0 to 7 this is an obvious double and a comfortable take.<br>
 <br>
-He can play for contact with 23/17(2), 8/2(2) or simply race with 23/11(2).<br>
+It is interesting that at this match score XG rates this as double/pass. It is hard to see why the 1-0 lead makes such a difference as a gammon only gets Red to 2-away rather than Crawford. Also, there are very few gammons here.<br>
 <br>
-The problem with playing for contact is that he may have to break first and/or he may have to crash his home board which will diminish his racing chances.<br>
-<br>
-The racing play 23/11(2) turns out to be best although he enters the race one pip behind. This play wins 40% of the time, the contact play only wins 38.6% of the time. QED, 23/11(2) is correct.<br>
+Over the board I would expect double/take to be the normal action and I’m still working on why XG rates this as double/pass. For once the commentator is flummoxed!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17(2) 8/2(2)              Eq.: -0.193
-       0.403 0.006 0.000 - 0.597 0.008 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/17(2) 8/2 7/1             Eq.: -0.197 (-0.003)
-       0.402 0.006 0.000 - 0.598 0.007 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/11(2)                     Eq.: -0.199 (-0.006)
-       0.401 0.000 0.000 - 0.599 0.000 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    23/11 23/17 8/2              Eq.: -0.460 (-0.267)
-       0.270 0.013 0.000 - 0.730 0.041 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    23/5 23/17                   Eq.: -0.470 (-0.277)
-       0.265 0.015 0.000 - 0.735 0.030 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.557 (Money: +0.552)
+  0.764 0.032 0.001 - 0.236 0.007 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.021  (+0.021)
+3. No double           +0.890  (-0.110)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BCBCAB---b-----bccbcB--:0:0:1:66:6:6:0:7:10");
-var categoryid = "CBi";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "CBi";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BCbBBBB--B-------dd-abb-:0:0:1:00:1:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 180</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 73</span>&ensp;
 <span>(CB2-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 54?</div>
+<article>
+<div class="doAction">Match Play. Red leads 1-0 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=162 White=163</div></div>
+      <div class="pipinfo">pips Red=135 White=123</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Another third roll position that should be ‘known’.<br>
+ <div class="description">For money a double here would be premature as there are only a few market losing sequences so Red does best to leave the cube in the centre. A double would be nearly a blunder in XG terms.<br>
 <br>
-13/9, 11/6 is just too inflexible and is nearly a blunder. Correct is 21/16, 13/9 with excellent distribution of the checkers and some duplication of White’s fours.<br>
+At 1-0 to 5 things are different as a gammon with the cube on 2 wins the match for Red with perfect efficiency. With a good sequence of rolls a gammon is certainly on (in fact Red wins a gammon 22% of the time).<br>
 <br>
-13/9, 13/8, stripping the mid-point is a blunder.<br>
+This cube efficiency makes the position a double at this score. White, of course, has a very easy take.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/16 13/9                   Eq.: -0.299
-       0.435 0.115 0.005 - 0.565 0.199 0.013
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/9 11/6                    Eq.: -0.356 (-0.057)
-       0.413 0.115 0.006 - 0.587 0.184 0.010
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/9 13/8                    Eq.: -0.374 (-0.075)
-       0.413 0.118 0.006 - 0.587 0.201 0.015
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/8 11/7                    Eq.: -0.408 (-0.109)
-       0.403 0.106 0.005 - 0.597 0.191 0.011
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    21/16 11/7                   Eq.: -0.432 (-0.133)
-       0.402 0.097 0.004 - 0.598 0.205 0.012
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.426 (Money: +0.358)
+  0.619 0.211 0.012 - 0.381 0.099 0.004
+Cubeful equities:
+1. No double           +0.624
+2. Double, pass        +1.000  (+0.376)
+3. Double, take        +0.580  (-0.045)
+Proper cube action: No double, take (10.7%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b----E-C--AeD---b-dbA--A-:0:0:1:54:0:0:3:0:10");
-var categoryid = "CB2";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "CB2";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bBB-CB-A----B--bbbbBbabA-:0:0:1:00:1:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

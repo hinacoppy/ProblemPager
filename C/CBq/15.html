@@ -12,54 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 111</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 54</span>&ensp;
 <span>(CBq-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play.  Red trails 0-4 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-3 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=138</div></div>
+      <div class="pipinfo">pips Red=95 White=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a clear double and a relatively easy take.<br>
+ <div class="description">This position looks like a drop because of all the space behind the White anchors for Red to dump checkers in. However, White can play this as a well-timed 4-pt holding game (with a few extra chances) where Red has an open 5-pt. <br>
 <br>
-The match score changes things very significantly. A gammon by Red (and there are a lot of them) brings him level with White and undoes White’s previous good work. <br>
-<br>
-White must be disciplined enough to let this one go and play from 4-1 ahead. Taking is worse than a triple blunder.<br>
+This and the fact that he loses only around 10% gammons gives him just enough equity to take. Of course, Red must double and many players of the White checkers would pass, as happened over the board.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.513 (Money: +0.521)
-  0.652 0.292 0.009 - 0.348 0.081 0.001
+2-ply cubeless equity +0.589 (Money: +0.600)
+  0.751 0.121 0.001 - 0.249 0.023 0.001
 Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.123  (+0.123)
-3. No double           +0.880  (-0.120)
-Proper cube action: Double, pass
+1. Double, take        +0.997
+2. Double, pass        +1.000  (+0.003)
+3. No double           +0.953  (-0.044)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a--B-CCbB---cB-A-b-b-Bbab-:0:0:1:00:0:4:0:7:10");
-var categoryid = "CBq";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-B--bbDCF--a----a--bcbb---:0:0:1:00:2:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

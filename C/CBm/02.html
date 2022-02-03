@@ -12,54 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 78</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 124</span>&ensp;
 <span>(CBm-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=134 White=149</div></div>
+      <div class="pipinfo">pips Red=162 White=149</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic middle game double: Red has a clear advantage in the race and has threats while White has the better home board.<br>
+ <div class="description">This one is a close call.<br>
 <br>
-The position is volatile so the moment to double is now. White's anchor and his better board give him a comfortable take as he has many ways to win.<br>
+21/11, 6/1(2)* looks very logical, escaping a checker, putting White on the bar and leaving no meaningful return shots.<br>
 <br>
-Red doubled, White took and Red then rolled 62. He correctly played 10/4, 6/4 and went on to win a gammon<br>
+Is it worth the extra return shots to build a second home point board with 8/3(2), 6/1(2)*? Even if White fans Red does not have a double.<br>
+<br>
+XG rollouts have 8/3(2), 6/1(2)* better by a tiny margin because of the additional gammons won but I am not convinced that Red can double efficiently enough (with the Jacoby Rule in effect) to get the benefit of those gammons. Over the board I played 21/11, 6/1(2)* and would do so again.<br>
+<br>
+Note however that in match play with no Jacoby Rule in effect 8/3(2), 6/1(2)* is right by quite a long way because of the extra gammons won.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.503
-  0.693 0.197 0.011 - 0.307 0.088 0.003
-Cubeful equities:
-1. Double, take        +0.796
-2. Double, pass        +1.000  (+0.204)
-3. No double           +0.731  (-0.065)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/11 6/1*(2)                Eq.: +0.067
+       0.513 0.138 0.002 - 0.487 0.104 0.002
+    2. Cubeful 2-ply    8/3(2) 6/1*(2)               Eq.: +0.064 (-0.003)
+       0.499 0.198 0.003 - 0.501 0.117 0.006
+    3. Cubeful 2-ply    13/8 11/1* 6/1               Eq.: -0.027 (-0.094)
+       0.481 0.141 0.003 - 0.519 0.103 0.003
+    4. Cubeful 2-ply    21/16 13/8 6/1*(2)           Eq.: -0.031 (-0.098)
+       0.485 0.142 0.003 - 0.515 0.122 0.005
+    5. Cubeful 2-ply    13/8(2) 6/1*(2)              Eq.: -0.057 (-0.124)
+       0.474 0.147 0.003 - 0.526 0.115 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ab--BDBB-B-bB-aa--bbb-bA-:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBm";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "CBm";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a----E-C--AeD---bbe-A--A-:0:0:1:55:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

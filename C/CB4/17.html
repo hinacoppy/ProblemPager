@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 102</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 167</span>&ensp;
 <span>(CB4-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=7 White=16</div></div>
+      <div class="pipinfo">pips Red=115 White=121</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a ‘Rolls versus Pips” position best handled with Trice’s formulae. For a full understanding of these read my monograph on racing formulae in the Downloads section of this website.<br>
+ <div class="description">This one is straightforward. White loses way too many gammons to take Red's redouble. <br>
 <br>
-In brief Red’s EPC (Effective Pip Count) is 22. White’s actual Pip Count is 16. Then you need to add his wastage which I would estimate to be between 6 and pips (note how bad White’s fours are for him).<br>
+From Red's perspective he has a free shot to play on for the gammon. There are a couple of sequences where White can take next turn but they are far outweighed by the gammons Red wins.<br>
 <br>
-To have a take in a three-roll position White’s EPC must be no greater than Red’s. Six pips of wastage give him a borderline take but 7 pips make it a drop. XG gives White’s EPC as 22.4 thus the position is double and drop. Moving White’s checker on his 2-pt to his 1-pt makes the position the skinniest of takes.<br>
+Too Good to Double/Drop.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.556
-  0.778 0.000 0.000 - 0.222 0.000 0.000
+2-ply cubeless equity +0.762
+  0.786 0.216 0.006 - 0.214 0.030 0.000
 Cubeful equities:
 1. Double, pass        +1.000
-2. Double, take        +1.062  (+0.062)
-3. No double           +0.693  (-0.307)
-Proper cube action: Double, pass
+2. Double, take        +1.378  (+0.378)
+3. No double           +0.999  (-0.001)
+Proper cube action: Redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CB----------------aa-aa--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB4";
-var probnum = "17";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "17";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BbCBB-B---AA-a--Bbbbbc--:1:1:1:00:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

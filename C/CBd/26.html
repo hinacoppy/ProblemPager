@@ -12,54 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 225</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 26</span>&ensp;
 <span>(CBd-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-3 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 4-1 to 7. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=172 White=104</div></div>
+      <div class="pipinfo">pips Red=48 White=112</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a very big no redouble/take as the cube will have huge value to White.<br>
+ <div class="description">The automatic play is 6/3, 6/2 but Red wants to maximise his gammon chances at this score.<br>
 <br>
-Thing are very different at this match score. The cube has no value whatever to White and gammons do not count. Meanwhile if Red wins the game he will be at 6-3 Crawford and that is very advantageous for him. Of course, a gammon (and that happens 20% of the time) will win the match for Red.<br>
+Crucially he still has access to the cube so he is very unlikely to ever lose the game.<br>
 <br>
-Many players miscalculate such positions because they don’t take into account the dead cube properly. White must drop this redouble. Taking is a blunder.<br>
+Red has the choice between 6/2, 3/off or 4/off, 3/off.<br>
+<br>
+The former play wins by a narrow margin as it preserves the home board a little longer in many variations and it doesn’t pay off to the 44 joker. <br>
+<br>
+6/3, 6/2 is an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.372 (Money: +0.353)
-  0.655 0.211 0.011 - 0.345 0.171 0.009
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.009  (+0.009)
-3. No double           +0.831  (-0.169)
-Proper cube action: Redouble, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3 6/2                      Eq.: +1.652
+       0.986 0.576 0.005 - 0.014 0.000 0.000
+    2. Cubeful 2-ply    6/2 3/off                    Eq.: +1.648 (-0.003)
+       0.940 0.635 0.015 - 0.060 0.000 0.000
+    3. Cubeful 2-ply    4/1 4/off                    Eq.: +1.641 (-0.010)
+       0.966 0.597 0.008 - 0.034 0.000 0.000
+    4. Cubeful 2-ply    5/2 5/1                      Eq.: +1.634 (-0.018)
+       0.975 0.578 0.005 - 0.025 0.000 0.000
+    5. Cubeful 2-ply    4/off 3/off                  Eq.: +1.623 (-0.028)
+       0.927 0.624 0.021 - 0.073 0.000 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aa--DBCA-A-----abbbcBBc-:1:1:1:00:2:3:0:7:10");
-var categoryid = "CBd";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bBBDBBB---------a-be--abb-:0:0:1:43:4:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

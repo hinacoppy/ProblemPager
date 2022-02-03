@@ -12,63 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 72</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 12</span>&ensp;
 <span>(CBp-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 4-4 to 9. How should Red play 21?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=99 White=72</div></div>
+      <div class="pipinfo">pips Red=81 White=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A glorious opportunity for a trap play here.<br>
+ <div class="description">Basic backgammon theory says that you should wait to double a back game until you have only three points to clear in front of the defender's front-most anchor.<br>
 <br>
-11/8 would be a very wooden play. The simple trap play is 11/10, 4/2 but better by quite some way is 8/7, 4/2. Red wants to separate the White checkers on his 5-pt as soon as possible and 8/7, 4/2 makes White run on plays such as 43 and 63. In some variations the blot on White’s 6-pt can be picked up.<br>
+That is the case here and so Red should certainly double.<br>
 <br>
-11/10, 4/2 and 8/7, 4/2 win the same percentage of games but 8/7, 4/2 picks up 3.5% more gammons and that is quite a big swing.<br>
+Unlike most back games Red has room to park checkers behind White's anchors and so when I saw this position I assumed White must have a clear drop,<br>
 <br>
-Now be honest, did you consider 8/7, 4/2 as a candidate play? If not, then this is a highly educational position. Bank it for future use.<br>
+This turns out not to be the case and this position is right on the borderline and White can take or pass. One reason is that when White does lose he loses fewer gammons than when his anchors are further back in Red's home board. Thus, he needs to win a lower percentage than normal to be able to accept the double.<br>
+<br>
+Interestingly if you take a checker from White's 2-pt and put it on his mid-point the take becomes trivial because White won't have to give up one of his back game anchors so quickly.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/10 4/2                    Eq.: +0.373
-       0.693 0.112 0.002 - 0.307 0.021 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/7 4/2                      Eq.: +0.362 (-0.011)
-       0.678 0.151 0.005 - 0.322 0.045 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    9/8 4/2                      Eq.: +0.297 (-0.076)
-       0.660 0.106 0.002 - 0.340 0.022 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/9 3/2                     Eq.: +0.295 (-0.078)
-       0.666 0.085 0.001 - 0.334 0.017 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/7 8/6                      Eq.: +0.293 (-0.080)
-       0.658 0.103 0.002 - 0.342 0.019 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.612
+  0.749 0.132 0.001 - 0.251 0.019 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.054  (+0.054)
+3. No double           +0.948  (-0.052)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--ABCbB-BB-C-------a--edc-:1:-1:1:21:0:0:3:0:10");
-var categoryid = "CBp";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-ABBbbCDC-----a----cabbb--:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 -  Position 67</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 17</span>&ensp;
 <span>(CBp-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=147</div></div>
+      <div class="pipinfo">pips Red=117 White=115</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White’s broken prime is a powerful factor here.<br>
+ <div class="description">The key here is to keep a five-point block, including blocking Whites sixes. <br>
 <br>
-When things go well for Red he will win a gammon and indeed, 40% of games end with Red doing just that. However. White wins the game 40% of the time and a quarter of his wins are gammons.<br>
+7/1(2) is the wrong idea as it reduces the prime and puts two checkers out of play, despite the fact that it makes a five-point home board.<br>
 <br>
-All of this adds up to this being a marginal double for Red and a trivial take for White.<br>
+There is virtually no difference between 11/8(2), 7/4(2) and 11/8(2), 4/1(2). The former gets the nod by 0.005.<br>
+<br>
+11/5(2), stacking the 5-pt is inefficient use of the checkers and lets White escape a checker with all sixes.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.429
-  0.576 0.384 0.007 - 0.424 0.108 0.006
-Cubeful equities:
-1. No double           +0.575
-2. Double, pass        +1.000  (+0.425)
-3. Double, take        +0.574  (-0.001)
-Proper cube action: No double, take (0.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/8(2) 4/1(2)               Eq.: +0.526
+       0.759 0.124 0.002 - 0.241 0.037 0.001
+    2. Cubeful 2-ply    11/8(2) 7/4(2)               Eq.: +0.494 (-0.032)
+       0.741 0.134 0.004 - 0.259 0.038 0.001
+    3. Cubeful 2-ply    11/5(2)                      Eq.: +0.476 (-0.050)
+       0.729 0.146 0.004 - 0.271 0.039 0.001
+    4. Cubeful 2-ply    7/1(2)                       Eq.: +0.388 (-0.138)
+       0.693 0.143 0.002 - 0.307 0.038 0.000
+    5. Cubeful 2-ply    11/8(2) 7/1                  Eq.: +0.358 (-0.168)
+       0.680 0.166 0.005 - 0.320 0.062 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=bB-B-BB-BA--cB---bbbb-bAA-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBp";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--bBBCBB---B----bb-bBcca--:1:-1:1:33:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

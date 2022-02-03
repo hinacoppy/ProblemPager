@@ -12,58 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 185</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 36</span>&ensp;
 <span>(CBj-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 7.  Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=76 White=33</div></div>
+      <div class="pipinfo">pips Red=125 White=199</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I got this wrong over the board and thinking I was pretty much in last chance saloon I redoubled and promptly rolled 63! I then went on to win the match.<br>
+ <div class="description">The instinctive play is 24/20* destroying the slotted 5-pt, which I played over the board without much thought.<br>
 <br>
-BUT except for that perfecto Red gets better value from the cube after hitting and White fanning when he has a redouble/pass. It also gives up the 8/9% chance of winning from 0-6 behind. <br>
+However, Red’s prime objective here is to crunch White’s home board if possible. To that end he should be hitting 13/12*, taking away playable pips from White.<br>
 <br>
-If Red's board were closed in the original position then it would be a perfectly correct redouble and take.<br>
+After that it’s a close call between 12/9, trying to build the 9-pt, and 6/3, attempting to slow down Red’s progress by recirculating a checker that currently is not working for a living. The two plays dead-heat in the rollout so take your choice.<br>
 <br>
-In his comment Alastair Woods asked about an update IOS XG Mobile. Xavier concentrated on getting the Android version delivered (which he has now done) but he does have a beta version of the next release of the IOS version so hopefully it won't be too long. It definitely fixes the iPhone screen size issue.<br>
-<br>
-XG3, which is for both Mac and PC, is probably about a year away.<br>
+The key is to understand Red’s game plan and then choose a move that fits in with the plan. That eliminates 24/20*.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.526 (Money: -0.559)
-  0.245 0.000 0.000 - 0.755 0.049 0.000
-Cubeful equities:
-1. No double           -0.391
-2. Double, pass        +1.000  (+1.391)
-3. Double, take        -0.451  (-0.060)
-Proper cube action: No redouble, take (4.1%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/12* 6/3                   Eq.: +0.722
+       0.673 0.443 0.090 - 0.327 0.043 0.001
+    2. Cubeful 2-ply    13/12*/9                     Eq.: +0.689 (-0.033)
+       0.657 0.440 0.090 - 0.343 0.036 0.000
+    3. Cubeful 2-ply    13/12* 13/10                 Eq.: +0.666 (-0.056)
+       0.651 0.433 0.088 - 0.349 0.038 0.001
+    4. Cubeful 2-ply    24/20*                       Eq.: +0.649 (-0.073)
+       0.637 0.436 0.097 - 0.363 0.034 0.000
+    5. Cubeful 2-ply    13/12* 8/5                   Eq.: +0.611 (-0.111)
+       0.634 0.420 0.090 - 0.366 0.043 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CBBBCA--A---------a-bccdA:2:1:1:00:0:2:0:7:10");
-var categoryid = "CBj";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-dB-bBCBB---aC--aa-cab--A-:1:-1:1:31:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

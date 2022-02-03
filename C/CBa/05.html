@@ -12,56 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 118</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 154</span>&ensp;
 <span>(CBa-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 6-11 to 13. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 41</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=131 White=133</div></div>
+      <div class="pipinfo">pips Red=111 White=118</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a clear no double/take – Red has too much work to do.<br>
+ <div class="description">The second best play is 7/3*/2 leaving the blot where, if it is hit, White won’t be at the edge of Red’s prime unless he rolls 21 or 11.<br>
 <br>
-At this score, however, the gammons that Red will win are very powerful and so he should double. To not turn the cube here is a double blunder.<br>
-<br>
-Despite the gammon threat White has a clear take and two points win the match for him exactly. Passing would be a blunder.<br>
-<br>
-The position demonstrates the very big impact that a skewed match score can have on ‘normal’ cube decisions.<br>
+However, Red will be 12 pips up after the roll and only 66 and 65 completely escape for White. On any other roll Red will still have shots next turn. The best play is simply 13/8. 7/3*/2 is an error but not a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.355 (Money: +0.393)
-  0.620 0.220 0.004 - 0.380 0.069 0.002
-Cubeful equities:
-1. Double, take        +0.837
-2. Double, pass        +1.000  (+0.163)
-3. No double           +0.732  (-0.105)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8                         Eq.: +0.495
+       0.748 0.075 0.001 - 0.252 0.017 0.000
+    2. Cubeful 2-ply    7/3*/2                       Eq.: +0.444 (-0.051)
+       0.722 0.140 0.003 - 0.278 0.069 0.001
+    3. Cubeful 2-ply    7/2                          Eq.: +0.427 (-0.068)
+       0.713 0.076 0.001 - 0.287 0.023 0.000
+    4. Cubeful 2-ply    7/6 5/1                      Eq.: +0.395 (-0.100)
+       0.698 0.069 0.001 - 0.302 0.023 0.000
+    5. Cubeful 2-ply    8/7 8/4                      Eq.: +0.376 (-0.119)
+       0.688 0.056 0.000 - 0.312 0.015 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--a-BBCCA-A-b-b-AbbdBb----:0:0:1:00:6:11:0:13:10");
-var categoryid = "CBa";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aBCBCB---bCa--b-ccab---:0:0:1:41:6:6:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

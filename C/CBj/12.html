@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 218</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 10</span>&ensp;
 <span>(CBj-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 43?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=82 White=142</div></div>
+      <div class="pipinfo">pips Red=117 White=77</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic ‘pay me now pay me later' problem that is easy to get wrong. Those two stripped points are more difficult to clear than you might think and problems may start immediately. <br>
+ <div class="description">At first sight this looks like a monster double but it is not so in real life.<br>
 <br>
-Meanwhile. White has a lot of blots strewn around. If White's third checker on his bar-point was on his 3-pt giving him a 3-pt board then 10/7, 10/6 and 6/2, 4/1 would be virtually tied.<br>
+Red has seven misses  (on all of which White will redouble to 16) and if he hits with a 1 his 8-pt is likely to disappear. Meanwhile White is 40 pips up in the race with the stronger home board. In fact it is the take that is trivial and the double that is in question.<br>
 <br>
-As it is 10/7, 10/6 is a very clear winner with 6/2, 4/1 nearly a blunder. Both plays win about the same percentage of games but 10/7, 10/6 wins 6% more gammons because White has to give up his anchor to hit and because of the state of his home board. That 6% is a huge difference. Never forget to evaluate gammon possibilities in positions like this.<br>
+A rollout has either double or no double as correct so take your pick! In practice most players would redouble this because a fair few Whites will pass, seeing only the downside of the position.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/7 10/6                    Eq.: +0.694
-       0.810 0.155 0.003 - 0.190 0.017 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/2 4/1                      Eq.: +0.636 (-0.058)
-       0.800 0.119 0.000 - 0.200 0.014 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    10/6 4/1                     Eq.: +0.598 (-0.096)
-       0.755 0.194 0.002 - 0.245 0.024 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    10/3                         Eq.: +0.594 (-0.100)
-       0.751 0.199 0.001 - 0.249 0.024 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/3 6/2                      Eq.: +0.579 (-0.115)
-       0.779 0.114 0.000 - 0.221 0.017 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.277 (Money: +0.261)
+  0.654 0.056 0.001 - 0.346 0.102 0.002
+Cubeful equities:
+1. Double, take        +0.725
+2. Double, pass        +1.000  (+0.275)
+3. No double           +0.555  (-0.171)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBCbD-B-B-c---aacbb-a---:1:-1:1:43:0:0:3:0:10");
-var categoryid = "CBj";
-var probnum = "12";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---BCBBaB---A--AAcAbb-bbc-:2:1:1:00:4:5:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

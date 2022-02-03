@@ -12,56 +12,63 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 13</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 236</span>&ensp;
 <span>(CBh-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 7. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=81 White=72</div></div>
+      <div class="pipinfo">pips Red=134 White=89</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This came up at the Battersea chouette and Red thought long and hard about doubling. In the end he didn’t, fanned and got doubled out next turn.<br>
+ <div class="description">Two perfectly valid game plans here:<br>
 <br>
-Obviously the only reason Red might double is the number of gammons he wins. <br>
+a)	Give White bad fours and sixes by playing 13/11(2)<br>
+b)	Blitz the blot with 8/7(2), 3/2(2)*<br>
 <br>
-I put this into XG and was delighted to find this is a genuine example of the Kauder Paradox. Red should double to reduce his negative equity and White should therefore Beaver!<br>
-<br>
-For a description of the Paradox and more examples see Raymond Kershaw’s really excellent book, “Backgammon Funfair”.<br>
+The latter wins more gammons but loses more games and the rollouts have the two plays with identical equities. Sometimes there is more than one way to skin a cat!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.195
-  0.524 0.183 0.001 - 0.476 0.038 0.000
-Cubeful equities:
-1. Double, take        -0.036
-2. Double, pass        +1.000  (+1.036)
-3. No double           -0.091  (-0.055)
-Proper cube action: Double, beaver
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11(2)                     Eq.: -0.034
+       0.500 0.088 0.002 - 0.500 0.103 0.001
+    2. Cubeful 2-ply    13/11 3/2*(2)                Eq.: -0.060 (-0.026)
+       0.501 0.078 0.002 - 0.499 0.127 0.003
+    3. Cubeful 2-ply    8/7(2) 3/2*(2)               Eq.: -0.078 (-0.045)
+       0.489 0.072 0.001 - 0.511 0.105 0.002
+    4. Cubeful 2-ply    13/12(2) 3/2*(2)             Eq.: -0.122 (-0.088)
+       0.478 0.068 0.001 - 0.522 0.107 0.002
+    5. Cubeful 2-ply    8/6 3/2*(2)                  Eq.: -0.141 (-0.108)
+       0.478 0.073 0.001 - 0.522 0.126 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CBBBBB-----bA----ab-cbdaA:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBh";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "CBh";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BaBB-B-B----B----dbAeBc--:0:0:1:11:0:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

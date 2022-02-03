@@ -12,54 +12,70 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 208</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Snake Eyes</span>&ensp;
 <span>(CBj-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money game. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=21 White=31</div></div>
+      <div class="pipinfo">pips Red=163 White=145</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">You can do this from first principles or you can save yourself a lot of time and use Trice's rules for such positions. You can find these in his book “Backgammon Boot Camp” or download the “Backgammon Races” monograph from this website. <br>
+ <div class="description">In gambling games in general double ones, which are known as ‘Snake Eyes” have often been associated with bad luck because they represent the lowest possible roll with two dice.<br>
 <br>
-If you don't understand or know about EPC (Effective Pip Count) and Wastage now would be a good time to learn.<br>
+In backgammon, more often than not, snake eyes can be very useful. With small numbers and particularly with small doubles there are often many different ways to play them. Therefore the first lesson is to take your time when a small double pops out of the dice cup so you can identify all the candidate plays. The second useful lesson is to remember that you do not always have to move the checkers in pairs, although that will often be the case.<br>
 <br>
-Apply Trice's formulae and you get the right answer for this position – redouble and huge pass.<br>
+When this position arose Black quickly played 6/5(2) with two of the aces which was correct. The question is how to play the other two? 8/6, stripping the 8-pt and taking away a builder for the bar does not look correct. Similarly playing 6/5 and 24/23 is the wrong game plan as it creates a weakness at a time when White has the stronger home board. Black is behind in the race so should not be trying to race.<br>
+<br>
+Having eliminated these options Black chose the natural 11/10(2), bringing those two checkers to bear on his 4-pt now that his 5-pt had been made. At first glance this move looks to be the right idea. Black looked at and rejected 24/23(2) because that would mean that his rear checkers were blocked by four of White’s points rather than three.<br>
+<br>
+When I put the position into XG for a rollout I expected 11/10(2), 6/5(2) to be easily the best move. Imagine my surprise when it was flagged as a blunder. XG flagged 24/23(2), 6/5(2) as very clearly the best play. So, having got that result, can we explain it?<br>
+<br>
+The answer is very obvious once you look at the statistics of the rollout. The reason is that when things go badly for Black he loses a much higher percentage of gammons when he holds White’s ace-point rather than his 2-pt and therefore he should take the 2-pt now. Rather than seeking to avoid contact with White’s checkers he should seek contact and by advancing to White’s 2-pt he puts pressure on White’s 8-pt.<br>
+<br>
+I suspect that before the advent of computers nearly everybody would have played 11/10(2), 6/5(2) and not even known they were making a mistake.  The reason that playing strength has improved so much over the last twenty years is precisely because we can use analytical tools to really understand what is going on in complex positions. QED.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.615
-  0.807 0.000 0.000 - 0.193 0.000 0.000
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.114  (+0.114)
-3. No double           +0.862  (-0.138)
-Proper cube action: Redouble, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23(2) 6/5(2)              Eq.: -0.207
+       0.444 0.116 0.005 - 0.556 0.156 0.008
+    2. Cubeful 2-ply    11/10(2) 6/5(2)              Eq.: -0.215 (-0.007)
+       0.452 0.126 0.005 - 0.548 0.187 0.013
+    3. Cubeful 2-ply    24/23 6/5(3)                 Eq.: -0.264 (-0.057)
+       0.448 0.122 0.007 - 0.552 0.222 0.011
+    4. Cubeful 2-ply    6/4(2)                       Eq.: -0.334 (-0.126)
+       0.424 0.118 0.005 - 0.576 0.201 0.015
+    5. Cubeful 2-ply    8/5 6/5                      Eq.: -0.338 (-0.131)
+       0.422 0.120 0.005 - 0.578 0.200 0.015
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-G------------A-----bbbbc-:2:1:1:00:0:0:1:0:10");
-var categoryid = "CBj";
-var probnum = "22";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa---E-C--BbCb--c-b-bb-B-:0:0:1:11:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

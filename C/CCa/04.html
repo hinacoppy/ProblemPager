@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgBoard.css">
+<title>ChrisBray</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 204</span>&ensp;
+<span>(CCa-04)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">Match Play. Red trails 2-3 to 5. Should Red double? If doubled, should White take?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Red=174 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">In a money game a double here would be grossly premature.<br>
+<br>
+However, doubling kills the cube and Red’s gammons give him the match. So this becomes a classic 3-away vs 2-away double.<br>
+<br>
+Meanwhile White has problems: a poorly structured home board: the stack of checkers on the mid-point; the two checkers stranded on Red’s 2-pt behind a solid Red structure and finally the loose checker on Red’s 9-pt.<br>
+<br>
+All of these factors contribute to White losing a gammon 21% of the time and means the correct action for White is to drop the double, albeit not by much.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.347 (Money: +0.346)
+  0.619 0.211 0.013 - 0.381 0.113 0.004
+Cubeful equities:
+1. Double, take        +0.901
+2. Double, pass        +1.000  (+0.099)
+3. No double           +0.810  (-0.091)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgBoard_class.js"></script>
+<script>
+const categoryid = "CCa";
+const probnum = "04";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--bB-BB-Ba--eB---A-cbBAAb-:0:0:1:00:2:3:0:5:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

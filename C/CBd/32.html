@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 219</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 32</span>&ensp;
 <span>(CBd-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=139 White=59</div></div>
+      <div class="pipinfo">pips Red=153 White=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Normally a double shot from a back game is not enough to justify a redouble but there is a key difference here - if Red misses the double shot White won’t have a redouble for some time because he still has to clear his troublesome 11-pt.<br>
+ <div class="description">There is little to choose between the passive 13/6 and the more aggressive 8/1*. White’s excellent structure means he is about 65/35 favourite after either play.<br>
 <br>
-This is the key to the position and so the correct actions are redouble and take. Not redoubling is an error and the take is trivial. <br>
+The key is that the doubling cube is still in the centre. White doesn’t have a double after either 13/6, or 8/1* but if Red elects for the more aggressive 24/22, 6/1* then White has a perfectly correct double.<br>
 <br>
-This position occurred in the Battersea chouette. Both sides got the cube action correct. Red then missed three double shots in a row and White won with a well-timed redouble to 8. Such is backgammon!<br>
+24/22, 6/1* is the correct play at DMP but here either 8/1* or 13/6 should be chosen to avoid the cube.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.336
-  0.644 0.160 0.006 - 0.356 0.118 0.001
-Cubeful equities:
-1. No double           +0.541
-2. Double, pass        +1.000  (+0.459)
-3. Double, take        +0.444  (-0.097)
-Proper cube action: No redouble, take (17.4%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/6                         Eq.: -0.686
+       0.335 0.097 0.004 - 0.665 0.214 0.014
+    2. Cubeful 2-ply    8/1*                         Eq.: -0.689 (-0.003)
+       0.342 0.102 0.004 - 0.658 0.233 0.018
+    3. Cubeful 2-ply    24/22 6/1*                   Eq.: -0.695 (-0.009)
+       0.355 0.102 0.005 - 0.645 0.267 0.018
+    4. Cubeful 2-ply    24/22 13/8                   Eq.: -0.720 (-0.034)
+       0.352 0.099 0.005 - 0.648 0.275 0.012
+    5. Cubeful 2-ply    13/11 6/1*                   Eq.: -0.737 (-0.051)
+       0.339 0.100 0.004 - 0.661 0.244 0.023
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BBBC----AAAb---abBAbdd-:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBd";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa--BD-D---bC--bb-cbb--B-:0:0:1:52:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

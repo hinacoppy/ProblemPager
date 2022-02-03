@@ -12,52 +12,70 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 123</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Early Skirmishes</span>&ensp;
 <span>(CBl-07)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=83 White=78</div></div>
+      <div class="pipinfo">pips Red=156 White=145</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">As others have noted this is simply a matter of knowing how many spare pips for Red before his board crashes constitutes a double and how many a take for White.<br>
+ <div class="description">The first few moves of a game are crucial because they define the path that the game will take. Make a mistake in the opening and you may never recover. You might think that after 5,000 years we would know how to play most three move opening sequences – that is three moves by each player.<br>
 <br>
-If Red has 8 spare pips he can redouble (just) and White can take until Red has 19 spare pips at which point it becomes a pass. This position with 15 spare pips is therefore double/take.<br>
+Sadly the answer is no. Jim Pasko, the veteran US master, has laid down the following challenge: play one hundred three move games and then analyse those openings using XG. He will wager you that his PR for 100 games will be lower than yours. This emphasises just how much importance top players attribute to the opening. Even if you do not want to take the bet this is an excellent training method to improve your game.<br>
+<br>
+In this week’s position Black went badly wrong on his third move when playing his 31. He played bar/24, 13/10. This move secures an anchor and brings down another useful builder but the problem is that Black is playing catch-up. After two moves White has the better board and has already escaped a rear checker. Black should be trying to wrest the initiative back from White rather than playing passively.<br>
+<br>
+If he fails in the attempt and loses quickly then so be it – he would probably lose in the long-term anyway. He does far better to try to equalise the position now rather than hoping for something better later. He has two sensible choices: (a) bar/22, 9/8 or (b) bar/22, 24/23.<br>
+<br>
+Move (a) seeks to establish an advanced anchor as quickly as possible. To concentrate on that Black safeties the blot on his 9-pt to avoid it becoming a distraction. Move (b) similarly seeks the advanced anchor but uses 24/23 to at least partially freeze the checkers on White’s 8-pt. <br>
+<br>
+Both moves have merit and both seek to establish at least an even position for Black. The moves are active rather passive. In the rollout bar/22, 9/8 just edges out bar/22, 24/23, probably because it leaves two blots rather than three and concentrates more clearly on the key aspect of the position, securing the advanced anchor. However, the two moves have virtually identical equities.<br>
+<br>
+Bar/24, 13/10, which initially might look perfectly reasonable, is actually a double blunder! Thus we  see that even after 5,000 years of backgammon evolution and in a match between two strong players it is very easy to make a very big mistake only three moves into the game. Then again, nobody ever said backgammon is easy.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.551
-  0.769 0.028 0.000 - 0.231 0.015 0.000
-Cubeful equities:
-1. Double, take        +0.946
-2. Double, pass        +1.000  (+0.054)
-3. No double           +0.759  (-0.188)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 24/23                 Eq.: -0.548
+       0.353 0.084 0.003 - 0.647 0.171 0.007
+    2. Cubeful 2-ply    bar/22 9/8                   Eq.: -0.553 (-0.004)
+       0.355 0.083 0.003 - 0.645 0.169 0.006
+    3. Cubeful 2-ply    bar/22 6/5                   Eq.: -0.629 (-0.081)
+       0.352 0.086 0.004 - 0.648 0.212 0.015
+    4. Cubeful 0-ply    bar/24 13/10                 Eq.: -0.694 (-0.146)
+       0.325 0.089 0.003 - 0.675 0.188 0.012
+    5. Cubeful 0-ply    bar/24 9/6                   Eq.: -0.796 (-0.248)
+       0.308 0.077 0.002 - 0.692 0.191 0.008
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBCBBBB--------A---bbcebA-:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBl";
-var probnum = "07";
-var showpipflg = true;
+const categoryid = "CBl";
+const probnum = "07";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B--D-BA--eD---bbc-b--AA:0:0:1:31:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 266</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 5</span>&ensp;
 <span>(CB7-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails White 2-4 to 5.  How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=154 White=157</div></div>
+      <div class="pipinfo">pips Red=102 White=136</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This one fools a lot of people. Superficially it looks like a position after White opens 6x and then Red rolls 55 and then White fans.<br>
+ <div class="description">For money this is a toss-up between 20/16(2), 8/4, 5/1 and 20/16(2), 8/4(2).<br>
 <br>
-The difference here is the race as it is virtually equal before Red rolls. In the standard scenario Red is ahead on the pip count by about 15 pips and that accounts for quite a few wins when his blitz stalls.<br>
-<br>
-That is not the case here and White is much better off because of the equal race. This is obviously a very clear double but it is also a very easy take.<br>
+However, at this match score gammons are very effective for Red and not at all for White and so the bolder play 20/16, 8/4(2), 5/1 is correct by quite some way. It loses 6% more games but wins 12% more gammons. At this match score that’s a no-brainer.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.542
-  0.638 0.351 0.008 - 0.362 0.088 0.004
-Cubeful equities:
-1. Double, take        +0.838
-2. Double, pass        +1.000  (+0.162)
-3. No double           +0.727  (-0.111)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16 8/4(2) 5/1             Eq.: +0.807
+       0.663 0.241 0.009 - 0.337 0.061 0.002
+    2. Cubeful 2-ply    20/16(2) 8/4(2)              Eq.: +0.765 (-0.042)
+       0.700 0.183 0.007 - 0.300 0.050 0.001
+    3. Cubeful 2-ply    20/16(2) 8/4 5/1             Eq.: +0.755 (-0.052)
+       0.693 0.184 0.005 - 0.307 0.048 0.001
+    4. Cubeful 0-ply    20/16(2) 5/1(2)              Eq.: +0.649 (-0.158)
+       0.644 0.180 0.005 - 0.356 0.071 0.001
+    5. Cubeful 0-ply    20/16 5/1(3)                 Eq.: +0.477 (-0.330)
+       0.532 0.207 0.004 - 0.468 0.127 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aB---BCa-A--dD-A-d-e----B-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB7";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CB7";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-AbBCCB-B---b-b--b-bBbaaa-:1:-1:1:44:2:4:0:5:1010");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

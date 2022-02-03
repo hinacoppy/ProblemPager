@@ -12,58 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 74</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 177</span>&ensp;
 <span>(CBg-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 43?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=109 White=58</div></div>
+      <div class="pipinfo">pips Red=143 White=168</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A clear lesson here: don’t break you perfect board unless you have to!<br>
+ <div class="description">For money, 9/3*, 5/3 would be very clear as it wins more gammons.<br>
 <br>
-After any board-breaking play Red must drop White’s double because a hit for Red doesn’t always win. After bar/21/18 Red has a trivial take of White’s double as any hit for Red is a clear winner with the odd gammon thrown in. Perhaps surprisingly Red wins 32% of the time after bar/21/18.<br>
-<br>
-Remember: Don’t break that board.<br>
+At DMP Red just wants to win the game and now it becomes a toss-up between the hitting play and 13/7, 9/7, locking four checkers behind a four-point prime. Technically 13/7, 9/7 wins by 0.005 equity points but I think we’ll call it a draw!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/18                       Eq.: -0.584
-       0.331 0.050 0.000 - 0.669 0.117 0.001
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    bar/21 6/3                   Eq.: -0.962 (-0.379)
-       0.249 0.023 0.000 - 0.751 0.086 0.000
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    bar/21 5/2                   Eq.: -0.983 (-0.399)
-       0.244 0.022 0.000 - 0.756 0.085 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/21 4/1                   Eq.: -1.000 (-0.416)
-       0.239 0.021 0.000 - 0.761 0.084 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/3* 5/3                     Eq.: +0.386
+       0.693 0.319 0.038 - 0.307 0.065 0.002
+    2. Cubeful 2-ply    13/7 9/7                     Eq.: +0.371 (-0.014)
+       0.686 0.278 0.025 - 0.314 0.073 0.003
+    3. Cubeful 2-ply    21/15 11/9                   Eq.: +0.242 (-0.143)
+       0.621 0.246 0.024 - 0.379 0.116 0.004
+    4. Cubeful 0-ply    11/3*                        Eq.: +0.205 (-0.180)
+       0.603 0.248 0.028 - 0.397 0.114 0.006
+    5. Cubeful 0-ply    13/11 9/3*                   Eq.: +0.202 (-0.184)
+       0.601 0.245 0.027 - 0.399 0.110 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBBBB-----aa------cBbddA:0:0:1:43:0:0:3:0:10");
-var categoryid = "CBg";
-var probnum = "28";
-var showpipflg = true;
+const categoryid = "CBg";
+const probnum = "28";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-baa-CD-BA-AcB-----cbBba--:0:0:1:62:4:4:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

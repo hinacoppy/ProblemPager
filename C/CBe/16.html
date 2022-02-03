@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 185</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 65</span>&ensp;
 <span>(CBe-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 5-3 to 7. Should Red double? If doubled, should white take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=106 White=129</div></div>
+      <div class="pipinfo">pips Red=155 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a big pass. <br>
+ <div class="description">Another very instructive position. It might seem that Red should split the back checkers in an attempt to gain a high anchor. However, White has ten checkers in the attack zone, a better home board and his own high anchor so a hitting battle without the security of an anchor is not the right idea.<br>
 <br>
-The doubling window at this score is very narrow but for once Red is within it. Technically this is a drop but only by a tiny amount and if White thinks Red might misplay the position or if he was the weaker player he could venture a take here.<br>
+The correct plan is to try to build a better home board before leaving the rear anchor. Those ten checkers on the 8-pt and 6-pt are crying out for development and so 8/4, 6/5 is the correct play, giving Red a two-way game plan. If hit, he can fall into a back game or holding game. If not hit, he can establish a priming/blocking game. Once he has a stronger home board it will be safer to leave to leave the rear anchor.<br>
 <br>
-If for example Red rolled 52 and played 6/4, 6/1 that would be a big enough error to turn this into a take – the correct play is 9/7, 9/4 clearing an awkward point and creating some spares for future rolls.<br>
+All plays other than 8/4, 6/5 are errors and something like 24/23, 6/2 is virtually a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.728 (Money: +0.683)
-  0.816 0.063 0.001 - 0.184 0.013 0.001
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.011  (+0.011)
-3. No double           +0.976  (-0.024)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 6/5                      Eq.: -0.521
+       0.384 0.094 0.003 - 0.616 0.216 0.020
+    2. Cubeful 2-ply    6/5 6/2                      Eq.: -0.571 (-0.050)
+       0.368 0.089 0.003 - 0.632 0.209 0.017
+    3. Cubeful 2-ply    24/23 24/20                  Eq.: -0.590 (-0.070)
+       0.373 0.085 0.003 - 0.627 0.249 0.008
+    4. Cubeful 2-ply    24/23 6/2                    Eq.: -0.597 (-0.076)
+       0.369 0.088 0.002 - 0.631 0.240 0.010
+    5. Cubeful 2-ply    24/20 6/5                    Eq.: -0.599 (-0.079)
+       0.378 0.089 0.003 - 0.622 0.262 0.014
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---aBbEBBBB------bbbbca---:0:0:1:00:5:3:0:7:10");
-var categoryid = "CBe";
-var probnum = "16";
-var showpipflg = true;
+const categoryid = "CBe";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---b--F-D---cC---cad--b-B-:0:0:1:41:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

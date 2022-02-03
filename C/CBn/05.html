@@ -12,55 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 25</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 168</span>&ensp;
 <span>(CBn-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-2 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=85 White=135</div></div>
+      <div class="pipinfo">pips Red=153 White=106</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Well the six is easy! What about the two?<br>
+ <div class="description">For money, this is not quite a double but trailing 0-2 makes a huge difference. Now not doubling is a 1.5 blunder. The take is still trivial of course.<br>
 <br>
-Both 6/4 and 5/3 are just storing up the problem for later. Red needs to play this as a prime versus prime position and slot the 2-pt with 4/2, intending to create a five-point prime next turn.<br>
-<br>
-Both 6/4 and 5/3 are blunders. After 4/2 Red can take the impending redouble.<br>
+The reason is that White will be slow to redouble to 4 as if does so Red will only need to generate 10% winning chances to spin the cube to 8. This reinforces how even a small lead in a short match can radically affect the cube handling.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    4/2                          Eq.: -0.858
-       0.266 0.090 0.006 - 0.734 0.142 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    5/3                          Eq.: -1.000 (-0.142)
-       0.231 0.072 0.006 - 0.769 0.133 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/4                          Eq.: -1.000 (-0.142)
-       0.235 0.070 0.005 - 0.765 0.140 0.005
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.318 (Money: +0.310)
+  0.641 0.207 0.006 - 0.359 0.174 0.010
+Cubeful equities:
+1. Double, take        +0.646
+2. Double, pass        +1.000  (+0.354)
+3. No double           +0.563  (-0.083)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b-DDCCa----a-----bcbbb-A-:1:-1:1:26:0:0:1:0:10");
-var categoryid = "CBn";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBn";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aaBBBAB------A---AbbdBcBb-:0:0:1:00:0:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

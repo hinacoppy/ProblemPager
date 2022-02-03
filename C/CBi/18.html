@@ -12,52 +12,86 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 262</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">A Winter's Tale</span>&ensp;
 <span>(CBi-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=158 White=166</div></div>
+      <div class="pipinfo">pips Red=147 White=101</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is another fairly standard middle game doubling decision.<br>
+ <div class="description">For once the hustle and bustle of Baker Street had diminished. The heavy snowfall had kept many people indoors and even the wheels of the hansom cabs were muted as they passed over the snow.<br>
 <br>
-The position is volatile and gammonish and therefore it is a very clear double. From White's perspective he has all his checkers in play, he owns his own 5-pt, Red has only 10 checkers in the attack zone and Red still has three rear checkers. This all adds up to a clear if slightly scary take.<br>
+Holmes and I had dined well on the excellent fare provided by Mrs. Hudson, and we then relaxed with a glass of postprandial port, as we often did of a winter’s evening.<br>
+<br>
+The conversation turned, as ever, to our favourite game and Holmes talked at some length about the complexity of match play. <br>
+<br>
+“The most common error, Watson, is that the vast majority of players do not adjust their cube action and checker play to the match score.”<br>
+<br>
+“Could you give me an example, Holmes?” I enquired.<br>
+<br>
+“Certainly, my dear doctor. Let us make it relevant by using a position from your match against Inspector Lestrade only this last week. I think you will remember the key position?”. <br>
+<br>
+Holmes then rapidly set up the board as shown above.<br>
+<br>
+“As I recall it you trailed 0-4 to 7 and had a double 1 to play?”<br>
+<br>
+“I remember it well, Holmes. I decided to leave the rear checkers where they were and therefore made the only sensible play of 11/9(2). That created a five-point broken prime with the intent of later completing the prime if possible.”<br>
+<br>
+“Precisely my point, Watson. In a money game or with a centered cube in a long match that move would be very obvious but it does not meet the demand of this specific match score.”<br>
+<br>
+“I still do not see a sensible alternative,” I replied with some asperity.<br>
+<br>
+“Let me remind you of something I once said in the story you kindly entitled ‘The Sign of Four” and that was this:  when you have eliminated the impossible, whatever remains, however improbable, must be the truth. Now, Watson, see if you can find a different move.”<br>
+<br>
+“Good Lord, Holmes, you surely cannot mean 5/2*/1?”<br>
+<br>
+“Precisely so, Watson. At this score a gammon with the cube on 4 wins you the match. Your opponent’s blot on his mid-point will flee to safety unless you take immediate action to prevent just that. By taking a tempo from White (and maybe even the whole of his next roll) you significantly increase your gammon-winning chances. Those chances fully justify what looks to be an extraordinary move.”<br>
+<br>
+“As ever, Holmes, your explanation makes everything so clear. A Merry Christmas to you, my dear fellow.”<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.562
-  0.676 0.277 0.022 - 0.324 0.084 0.005
-Cubeful equities:
-1. Double, take        +0.903
-2. Double, pass        +1.000  (+0.097)
-3. No double           +0.793  (-0.110)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/9(2)                      Eq.: -0.273
+       0.489 0.104 0.006 - 0.511 0.180 0.003
+    2. Cubeful 2-ply    18/17(2) 8/7(2)              Eq.: -0.307 (-0.034)
+       0.469 0.100 0.005 - 0.531 0.162 0.002
+    3. Cubeful 2-ply    11/9 8/7(2)                  Eq.: -0.311 (-0.038)
+       0.474 0.107 0.006 - 0.526 0.191 0.004
+    4. Cubeful 2-ply    11/10(2) 8/7(2)              Eq.: -0.320 (-0.047)
+       0.467 0.102 0.005 - 0.533 0.174 0.003
+    5. Cubeful 2-ply    18/16(2)                     Eq.: -0.343 (-0.069)
+       0.456 0.093 0.004 - 0.544 0.161 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aa-aBBB-C-A-cB---b-eb-B-A-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBi";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "CBi";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-Aa-BBB-B--Ba-b---BdbBabb-:2:-1:1:11:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

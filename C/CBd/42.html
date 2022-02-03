@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 209</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 42</span>&ensp;
 <span>(CBd-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=144 White=145</div></div>
+      <div class="pipinfo">pips Red=127 White=114</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A very non-volatile position so unless White already has a drop this is unlikely to be a double and that is the case.<br>
+ <div class="description">Should Red give up his prime to switch points? The answer to that is no – he still has too much work to do. He does better to maintain his prime. He would like to hit the White blot on the 2-pt but again he shouldn’t give up his 8-pt to do.<br>
 <br>
-All of White’s checkers are working and Red has numbers such as 44 and 55 that don’t help him that much if at all.<br>
+Equally well he shouldn’t race when behind so the weak 20/14, 15/13 is definitely not correct and that blot on White’s 5-pt should remain there to hassle White’s checkers on that side of the board.<br>
 <br>
-Red should wait for some improvement before doubling. This is a relatively unusual case where three checkers behind a five-point prime is not good enough to create a double.<br>
+The best play is 14/8, 15/13, hoping that White doesn’t roll a 5 so Red can attack the blot on the 2-pt with a 6 next turn. 14/6 is the second best play but it is still nearly an error.<br>
+<br>
+This was a difficult position with lots of factors influencing the decision-making – I suspect only a very low percentage of readers would have found the best play here. Such is the complexity of backgammon.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.424
-  0.658 0.206 0.009 - 0.342 0.100 0.006
-Cubeful equities:
-1. No double           +0.621
-2. Double, pass        +1.000  (+0.379)
-3. Double, take        +0.615  (-0.005)
-Proper cube action: No double, take (1.3%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16 4/2*(2)                Eq.: +0.293
+       0.658 0.151 0.003 - 0.342 0.062 0.001
+    2. Cubeful 2-ply    8/2* 8/6                     Eq.: +0.274 (-0.019)
+       0.642 0.248 0.007 - 0.358 0.139 0.005
+    3. Cubeful 2-ply    13/11(2) 4/2*(2)             Eq.: +0.272 (-0.021)
+       0.647 0.170 0.003 - 0.353 0.076 0.001
+    4. Cubeful 2-ply    20/18 15/13 4/2*(2)          Eq.: +0.261 (-0.031)
+       0.647 0.148 0.003 - 0.353 0.062 0.000
+    5. Cubeful 2-ply    14/10 4/2*(2)                Eq.: +0.261 (-0.031)
+       0.643 0.185 0.004 - 0.357 0.092 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a--bBBCCB---a----c-cc-bAB-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBd";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--aBBBBbB----BAA-b-dAb-ca-:1:-1:1:22:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 216</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 30</span>&ensp;
 <span>(CB1-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Monry Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Game. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=129</div></div>
+      <div class="pipinfo">pips Red=165 White=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is the sort of position where XG underestimates the strength of the doubling side on initial evaluation. This position is classified as double/take on initial evaluation but once a rollout is performed it quickly changes its mind to double and clear pass.<br>
+ <div class="description">White's four blots and Red's three-point home board point one in the direction of a double but Red has very few checkers in the attack zone and is unlikely to be able to blitz White. <br>
 <br>
-2-pt holding games are rarely takes without some compensation and here White has none. Red’s checkers are all well-placed and the fact that White loses a gammon about 8% of the time takes this position into clear drop territory.<br>
+The more likely scenario is that Red will hit a checker and White will make an anchor leading to a more static position. It turns out that this is not a close decision with not doubling being clearly correct.<br>
+<br>
+Of course if you think White might take fright and drop the cube then by all means ship it across. According to XG you need a 12% chance that White will drop to make the double correct.<br>
+<br>
+Only you know your opponent(s)!<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.604
-  0.779 0.068 0.002 - 0.221 0.023 0.001
+2-ply cubeless equity +0.331
+  0.597 0.225 0.022 - 0.403 0.102 0.006
 Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.059  (+0.059)
-3. No double           +0.934  (-0.066)
-Proper cube action: Double, pass
+1. No double           +0.451
+2. Double, pass        +1.000  (+0.549)
+3. Double, take        +0.388  (-0.063)
+Proper cube action: No double, take (10.2%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--b-CCC-B-AAbB---b-bcbb---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB1";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--aBBaB-B---cD-a-c-ea-A-AA:0:0:1:00:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

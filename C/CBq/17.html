@@ -12,59 +12,70 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 109</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Scope 2018</span>&ensp;
 <span>(CBq-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  How should Red play 62?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=102 White=113</div></div>
+      <div class="pipinfo">pips Red=153 White=154</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For those who read my weekend article this is a very easy problem. Now is not the time to leave gratuitous shots. Red needs to let White come to him next turn and for this turn he should play safe with 23/17, 4/2 which is better than 23/17, 6/4.<br>
+ <div class="description">Last weekend the RAC once again very successfully hosted the annual charity tournament in aid of Scope. Scope (www.scope.org.uk) does tremendous work for disabled people and their families. I do not have the final figure for the amount raised on the day, but it was many thousands of pounds.<br>
 <br>
-23/15 leaves 5 shots for no reason and turns White’s 66 into a joker.<br>
+I have played in the tournament many times but, other than winning the Consolation one year, without success. This year, I am pleased to say, there was a different outcome and after seven and a half hours of virtually non-stop play I emerged with the first prize which is a superb Geoffrey Parker backgammon board where I can specify my own colours. <br>
+<br>
+In the early rounds I beat Lewis Potter, Antonio Sgambato and Sean Williams. In the semi-final I managed to overcome Peter Bennet (some positions from that match in due course) and then I had to face Eric McAlpine in the final. Eric is a two-time winner of Scope and I was determined not let him win for a third time.<br>
+<br>
+Things did not look too good when I lost a gammon to go 6-9 behind in a match to 11. However, I managed to win the next couple of games with well-timed doubles and so we reached 8-9. If you have read last week’s article you will know that the correct tactic at 3-Away versus 2-Away is to double early as the trailer and to drop early as the leader, particularly when there is a gammon threat.<br>
+<br>
+I have spent countless hours on GridGammon learning exactly when to double at this particular match score precisely because it occurs so frequently. After a couple of moves we reached the position above. For money this would be a premature double but at this score I can never be redoubled and there is a meaningful gammon threat. I could lose my market by next turn and so this is precisely the correct moment to double. In fact, not doubling is a clear blunder.<br>
+<br>
+I doubled (there were a few gasps in the crowd) and Eric took which is perfectly correct. I rolled 61 and moved 13/7, 6/5*. Unfortunately for him, Eric chose this moment to dance with a 63. Two turns later I rolled 44 and had three of Eric’s checkers on the bar against my four-point home board.<br>
+<br>
+He did manage to anchor on my 2-pt and for a while he looked like saving the gammon, but at the key moment I manged to roll a couple of doubles and won a gammon and the match.<br>
+<br>
+Without all those hours of practice online I may well not have doubled at the right moment and we could have ended up at 9-9 and then who knows what might have happened? I hark back to the words of golfer, Gary Player: “It is strange but the more I practise, the luckier I become”. Wise words indeed!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17 4/2                    Eq.: +0.211
-       0.578 0.058 0.001 - 0.422 0.066 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/17 6/4                    Eq.: +0.191 (-0.021)
-       0.572 0.062 0.001 - 0.428 0.072 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    23/15                        Eq.: -0.040 (-0.252)
-       0.508 0.057 0.001 - 0.492 0.127 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    23/17 8/6                    Eq.: -1.000 (-1.211)
-       0.291 0.045 0.001 - 0.709 0.285 0.007
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/6 8/2                      Eq.: -1.000 (-1.211)
-       0.243 0.053 0.001 - 0.757 0.293 0.007
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.261
+  0.574 0.223 0.012 - 0.426 0.116 0.006
+Cubeful equities:
+1. No double           +0.364
+2. Double, pass        +1.000  (+0.636)
+3. Double, take        +0.233  (-0.131)
+Proper cube action: No double, take (17.1%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--CbDaD-B--------A-ccbbAb-:0:0:1:62:0:0:3:0:10");
-var categoryid = "CBq";
-var probnum = "17";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "17";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B-aDAB---cD--ad-e----B-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

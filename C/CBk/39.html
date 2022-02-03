@@ -12,59 +12,77 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 141</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Take Care with High Cubes</span>&ensp;
 <span>(CBk-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game. How should Red play 42?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=73 White=85</div></div>
+      <div class="pipinfo">pips Red=7 White=7</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red wants to clear his outside points as quickly as possible but also make it awkward for White to escape. <br>
+ <div class="description">At an even score or in a money game this would be a trivial redouble and pass. White only wins just over 21% of the time, nowhere near the 25% he needs to take the double.<br>
 <br>
-Sometimes a single blot does the work of a point and here Red can execute a trap play with 9/5, 7/5, which meets both of the criteria above. Sadly the more prosaic 9/7, 9/5 and 7/5, 7/3 give identical equities to the pretty play as White is unlikely to hit any of the blots.<br>
+However, a combination of a high cube and a match score changes things considerably. Black should firstly note that if he redoubles he puts the match on the line. Secondly he should observe that if wins the score will be 18-0, giving him three points more than he needs. These three points are called overage and once overage occurs you should always look very carefully at the situation. Let us do just that.<br>
+<br>
+From White’s perspective things are very clear. If Black redoubles he will take as he will have 21% match winning chances (MWC). If he drops he will be behind 0-10, with approximately 10% MWC. So, a no-brainer for White. This again should give Black pause for thought as the take is so trivial for White. Might Black do better by not redoubling this turn?<br>
+<br>
+Being within a redoubling window doesn't mean that you must redouble. In a last roll situation you obviously redouble with any advantage but if that is not the case you have to look at potential future use of the cube and that is precisely the case here.<br>
+<br>
+Let us examine a cross section of 36 of possibilities where:<br>
+<br>
+For Black on his next roll he can roll a double (one instance) or a non-double (five instances). The same is true for White, one instance of a double and five instances of a non-double. That gives us our 36 possibilities.<br>
+<br>
+Now consider 3 scenarios where Black does not redouble immediately:<br>
+<br>
+1) Black rolls a double and White rolls anything. This occurs 1x6 = 6 times. Black will be sorry he didn't redouble but he will still be 10-0 up with 90% MWC.<br>
+2) Black rolls a non-double and White rolls a double. This occurs 5x1 = 5 times. Now Black will be glad he didn't redouble (unless he rolls a double next turn himself).<br>
+<br>
+3) On the other 25 instances neither player rolls a double and we reach a 2-roll ending. Now Black can offer a powerful redouble that White should still take but he is now much closer to his pass point than he was in the 3-roll ending.<br>
+<br>
+It is these last 25 instances that make it incorrect to redouble in the initial position because Black can use the cube so much more effectively in the third scenario. If you do the necessary arithmetic you will find that Black’s MWC are just slightly greater than the 78.8% gained from an immediate redouble.<br>
+<br>
+So, take great care with high cubes in match situations and make sure that you use the doubling cube with optimal efficiency, as is the case here where Black should not redouble but wait one roll.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/5 7/5                      Eq.: +0.896
-       0.922 0.079 0.001 - 0.078 0.001 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    9/7 9/5                      Eq.: +0.888 (-0.008)
-       0.933 0.043 0.000 - 0.067 0.000 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    7/5 7/3                      Eq.: +0.875 (-0.020)
-       0.922 0.058 0.000 - 0.078 0.000 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    9/5 3/1                      Eq.: +0.870 (-0.025)
-       0.925 0.047 0.000 - 0.075 0.000 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    9/3                          Eq.: +0.864 (-0.032)
-       0.922 0.047 0.000 - 0.078 0.000 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.576
+  0.788 0.000 0.000 - 0.212 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.151  (+0.151)
+3. No double           +0.769  (-0.231)
+Proper cube action: Redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ACBbBCB-B-b----------abh-:1:-1:1:42:0:0:3:0:10");
-var categoryid = "CBk";
-var probnum = "39";
-var showpipflg = true;
+const categoryid = "CBk";
+const probnum = "39";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-EA--------------------ae-:3:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

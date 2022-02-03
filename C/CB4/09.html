@@ -12,64 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 109</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 159</span>&ensp;
 <span>(CB4-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">a)	Match Play. 0-0 to 11. How should Red play 61?</div>
+<article>
+<div class="doAction">Match Play. Red leads White 1-0 to 5. Should Red double? If doubled should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=102 White=91</div></div>
+      <div class="pipinfo">pips Red=144 White=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">b)	Money Play. How should Red play 61?<br>
+ <div class="description">For money this is a perfectly correct double and an equally correct take. After all Red does have two checkers on the bar and White's ace-point anchor keeps him in the game to the end. The volatility of the position means that Red must double now.<br>
 <br>
+At the match score losing a gammon is ruinous for White as he loses the match immediately. This converts a money take into a match score pass, albeit not by that much.<br>
 <br>
-For both parts the one must be played 6/5*. If White fans Red wins immediately with the cube.<br>
-<br>
-However, in scenario a) if White hits from the bar and Red fans then White has the option of playing on for a gammon if Red has played 20/14 with his six. If he has played 8/2 then White should simply cash the game.<br>
-<br>
-So the correct match play answer is 8/2, 6/5*. For money with the Jacoby Rule protecting against gammons the two moves have identical equities – take your pick.<br>
+When a gammon for my opponent can give him the match or take him to Crawford I always spend a little more time on my decision and err on the side of caution.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 6/5*                     Eq.: +0.189
-       0.520 0.114 0.003 - 0.480 0.087 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/14 6/5*                   Eq.: +0.151 (-0.037)
-       0.549 0.133 0.004 - 0.451 0.155 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    8/1                          Eq.: -0.249 (-0.438)
-       0.417 0.037 0.000 - 0.583 0.043 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    8/2 4/3                      Eq.: -0.467 (-0.656)
-       0.354 0.021 0.000 - 0.646 0.053 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/2 3/2                      Eq.: -0.473 (-0.662)
-       0.353 0.018 0.000 - 0.647 0.053 0.001
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.660 (Money: +0.555)
+  0.659 0.306 0.040 - 0.341 0.105 0.004
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.095  (+0.095)
+3. No double           +0.781  (-0.219)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--CBBaC-C--a-----b-bBdcb--:0:0:1:61:0:0:0:11:10");
-var categoryid = "CB4";
-var probnum = "09";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "09";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-BBaCAB---dC-----daa--bB:0:0:1:00:1:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 104</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 165</span>&ensp;
 <span>(CB4-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 66?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=140 White=132</div></div>
+      <div class="pipinfo">pips Red=83 White=74</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Even if the cube had been turned 13/1(2)* would be wrong. It leaves a position that is too disjointed. <br>
+ <div class="description">I have a rule of thumb that says that giving up one home board point in positions like this is OK but think carefully before giving up a second point. <br>
 <br>
-13/7(2), 8/2(2) is the strongest play as making the extra home board point is stronger than 13/7(2), 11/5(2) which gives a poorer distribution of checkers and a reduction in flexibility for next turn.<br>
+This is because Red needs to be able to contain any White checker that is hit and that becomes progressively more difficult as the home board weakens.<br>
 <br>
-After 13/7(2), 8/2(2) Red will be doubling White out next turn after a lot of White’s replies because of the increased gammon threat.<br>
+Red does much better here to play 13/8 and keep the home board, rather than dismantle it 5/4, 5/1 (which make rolls like 41 and 42 very awkward next turn). Even if the blot is hit he will re-enter immediately 30% of the time and still be in the game.<br>
+<br>
+5/4, 5/1 gives up 5% game winning chances and is nearly a double blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7(2) 8/2(2)               Eq.: +0.865
-       0.682 0.235 0.004 - 0.318 0.047 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/7(2) 11/5(2)              Eq.: +0.838 (-0.027)
-       0.674 0.227 0.005 - 0.326 0.050 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/1*(2)                     Eq.: +0.750 (-0.115)
-       0.635 0.289 0.004 - 0.365 0.058 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    11/5(2) 8/2(2)               Eq.: +0.402 (-0.463)
-       0.594 0.201 0.003 - 0.406 0.061 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/7(2) 11/5 8/2             Eq.: +0.382 (-0.483)
-       0.592 0.198 0.004 - 0.408 0.074 0.003
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8                         Eq.: -0.297
+       0.447 0.020 0.000 - 0.553 0.052 0.000
+    2. Cubeful 2-ply    5/4 5/1                      Eq.: -0.402 (-0.105)
+       0.410 0.007 0.000 - 0.590 0.023 0.000
+    3. Cubeful 0-ply    5/1 2/1                      Eq.: -0.448 (-0.151)
+       0.394 0.006 0.000 - 0.606 0.037 0.000
+    4. Cubeful 0-ply    5/1 4/3                      Eq.: -0.452 (-0.155)
+       0.392 0.006 0.000 - 0.608 0.036 0.000
+    5. Cubeful 0-ply    5/1 3/2                      Eq.: -0.470 (-0.173)
+       0.385 0.006 0.000 - 0.615 0.036 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BBC-B--BbBb--bbcBc----:0:0:1:66:0:0:3:0:10");
-var categoryid = "CB4";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-CBBBB-b-----D------cbbcc-:1:-1:1:41:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

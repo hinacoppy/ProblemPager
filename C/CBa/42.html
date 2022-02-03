@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 81</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 191</span>&ensp;
 <span>(CBa-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=134 White=74</div></div>
+      <div class="pipinfo">pips Red=149 White=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">If White had a five-point home board this would be a different matter as a fly shot would very likely win the game for him.<br>
+ <div class="description">Red can spread his builders for the crucial bar-point with something like 13/12, 10/9, 10/8 leaving two blots or 13/12, 13/11, 10/9 leaving three blots.  Alternatively he can play (apparently) more boldly with 10/9, 10/7, slotting the bar.<br>
 <br>
-As it is those four dead checkers and the dilly builder on the 3-pt mean that many of White’s moves will be forced.<br>
-<br>
-He wins enough games but loses too many gammons to make this a take and he must pass Red’s double and move on to the next game.<br>
+When there are only a few active checkers and an urgency to make the point then slotting is normally correct as it is here. It makes Red’s sixes good next turn and then in some variations a strong double will follow very shortly thereafter.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.534
-  0.715 0.240 0.008 - 0.285 0.139 0.006
-Cubeful equities:
-1. Double, take        +0.877
-2. Double, pass        +1.000  (+0.123)
-3. No double           +0.640  (-0.237)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/7 10/9                    Eq.: +0.448
+       0.657 0.135 0.003 - 0.343 0.126 0.011
+    2. Cubeful 2-ply    13/11 13/12 10/9             Eq.: +0.392 (-0.056)
+       0.624 0.130 0.003 - 0.376 0.128 0.011
+    3. Cubeful 2-ply    13/9                         Eq.: +0.345 (-0.102)
+       0.609 0.125 0.003 - 0.391 0.126 0.010
+    4. Cubeful 0-ply    13/12 10/8 10/9              Eq.: +0.359 (-0.089)
+       0.619 0.139 0.003 - 0.381 0.117 0.010
+    5. Cubeful 0-ply    10/7 8/7                     Eq.: +0.358 (-0.089)
+       0.631 0.141 0.003 - 0.369 0.150 0.019
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BB-aBaB-BB--A---Ab-cAdd-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBa";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--a-BBB-BAB--B---cde---bB-:0:0:1:11:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

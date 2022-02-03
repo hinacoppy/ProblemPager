@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 97</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 175</span>&ensp;
 <span>(CBa-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-3 to 5. How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=159 White=92</div></div>
+      <div class="pipinfo">pips Red=110 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The volatility indicates this is a massive double for Red. The question is whether White can take.<br>
+ <div class="description">Two on the bar is better by far, so the saying goes. However, sayings are not always accurate and this is one instance. Red wins 75% of the time whichever move he chooses and he also wins 60% gammons with all three candidate plays. It might surprise some that the non-hitting play 9/2 wins the same gammon percentage.<br>
 <br>
-At first sight it looks as if White loses too many gammons but a key point is that White has no checkers out of play and he has a surprising amount of what is known as ‘scramble vig’.<br>
+The difference comes in the losses – he loses twice as many gammons after either of the hitting plays. The solid 9/2 gives him the same winning percentages without the risk and is therefore the correct play.<br>
 <br>
-That 67 pip lead in the race is huge compensation for all the shots and of course most of the shots aren’t outright winners. Something like 52 for Red followed by 32 for White gives White a very reasonable position.<br>
-<br>
-It is scary to take positions like this but it is actually a blunder to drop this double.<br>
+Both the hitting plays are errors (just).<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.476
-  0.695 0.230 0.009 - 0.305 0.134 0.019
-Cubeful equities:
-1. Double, take        +0.744
-2. Double, pass        +1.000  (+0.256)
-3. No double           +0.663  (-0.081)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/2                          Eq.: +1.332
+       0.756 0.584 0.007 - 0.244 0.058 0.004
+    2. Cubeful 2-ply    15/10* 9/7                   Eq.: +1.300 (-0.032)
+       0.744 0.577 0.009 - 0.256 0.083 0.009
+    3. Cubeful 2-ply    15/10* 8/6                   Eq.: +1.291 (-0.041)
+       0.737 0.582 0.008 - 0.263 0.092 0.014
+    4. Cubeful 2-ply    15/10*/8                     Eq.: +1.212 (-0.120)
+       0.727 0.539 0.008 - 0.273 0.079 0.007
+    5. Cubeful 0-ply    15/13 14/9                   Eq.: +0.788 (-0.544)
+       0.609 0.405 0.005 - 0.391 0.109 0.007
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aBBBBA--A-A----c-baddBB-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBa";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBAB-BB-BAa-d-AA-b-bb-c-A-:1:-1:1:52:0:3:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 167</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 51</span>&ensp;
 <span>(CBk-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 66?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=115 White=121</div></div>
+      <div class="pipinfo">pips Red=162 White=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This one is straightforward. White loses way too many gammons to take Red's redouble. <br>
+ <div class="description">The key here is not to overplay your hand, especially as you own the cube. Over the board the blitz with 20/14*, 13/1, 7/1 was tried but that is way too big, the ammunition for the blitz just isn’t there.<br>
 <br>
-From Red's perspective he has a free shot to play on for the gammon. There are a couple of sequences where White can take next turn but they are far outweighed by the gammons Red wins.<br>
-<br>
-Too Good to Double/Drop.<br>
+20/14* and 14/8 are clear as is 13/7. The final six should be played 13/7 bringing more checkers to bear on the point that Red will want next, his own 3-pt. This is much better than 22/10, 20/14*/8 which leaves three blots and fails to lock up the bar-point. That play is a blunder. The blitz play was a double blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.762
-  0.786 0.216 0.006 - 0.214 0.030 0.000
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.378  (+0.378)
-3. No double           +0.999  (-0.001)
-Proper cube action: Redouble, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/16 20/14*/8 13/7          Eq.: +0.368
+       0.569 0.189 0.012 - 0.431 0.187 0.004
+    2. Cubeful 2-ply    20/14*/8 13/7(2)             Eq.: +0.289 (-0.079)
+       0.540 0.188 0.011 - 0.460 0.185 0.005
+    3. Cubeful 2-ply    22/10 20/14*/8               Eq.: +0.226 (-0.142)
+       0.529 0.193 0.014 - 0.471 0.244 0.009
+    4. Cubeful 0-ply    20/14*/8 16/10 13/7          Eq.: +0.203 (-0.165)
+       0.531 0.194 0.015 - 0.469 0.230 0.020
+    5. Cubeful 0-ply    20/14* 13/1 7/1              Eq.: +0.191 (-0.176)
+       0.510 0.242 0.015 - 0.490 0.242 0.016
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-BbCBB-B---AA-a--Bbbbbc--:1:1:1:00:0:0:1:0:10");
-var categoryid = "CBk";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CBk";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BaB-BAA--a-Ba-BbbcAcAAb-:1:1:1:66:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,42 +12,73 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBn  probnum=46)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Out of the Box Reprise</span>&ensp;
 <span>(CBn-46)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=111 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">In “Backgammon in the Wind” one of the long articles was entitled “out of the Box”. The theme of the article was how computer programs such as Extreme Gammon (XG) have broadened our thinking in the last twenty-five years.<br>
+<br>
+Before the bots we were reliant on manual rollouts. Although they could help they could not give definitive answers because they were statistically unreliable. Theory development was very slow.<br>
+<br>
+As a simple example suppose your opponent opens with 52 and plays 24/22, 13/8 and you reply with 64. In the pre-bot era the two commons moves were 24/14 and 8/2, 6/2. Now we “know” that, by a small margin, the correct response is 13/3*. Taking half of your opponents roll away is fractionally better than running or making the point.<br>
+<br>
+The original article looked at positions where the bots had changed our thinking and in some instances they had found plays that nobody would have considered considered in the pre-bot era. I keep a file of such positions and add to it when I find an “Out of the Box” play.<br>
+<br>
+That happened earlier this year when I came across this position with Black to play 65. Over the board 8/2, 6/1 was played but that leaves Black’s four outfield checkers stranded. A better attempt is 16/11, 8/2 but that still leaves a position that is difficult to clean up.<br>
+<br>
+Before putting the position into XG I assume 16/11, 8/2 would come out as the best play. How wrong I was! It quickly found 16/11, 16/10 (!!) leaving a voluntary triple shot. Once you look at the play the logic is obvious: it solves the problem of clearing the 16-pt; it duplicates White’s one and threes and finally it reduces the position to a ‘pay me now, pay me later’ problem. Black should take the risk now before White’s board is any stronger.<br>
+If the blots are missed Black is well ahead in the race and the blots should be relatively easy to tidy up. The play is possible because of the strength of Black’s home board.<br>
+<br>
+Imagine trying to make this play in the pre-bot era in a chouette. You would have been lynched by your team-mates! However, an XG rollout demonstrates that any play other than 16/11, 16/10 is a blunder or worse.<br>
+<br>
+Thus we develop our backgammon knowledge and our ability to think about such positions. Solving these “Out of the Box’ problems helps us to improve our overall level of play and it is why today’s masters are so much stronger than the top players of the 1970s and 1980s.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/11 16/10                  Eq.: +0.071
+       0.531 0.105 0.005 - 0.469 0.119 0.005
+    2. Cubeful 2-ply    16/11 8/2                    Eq.: -0.056 (-0.127)
+       0.489 0.100 0.003 - 0.511 0.128 0.003
+    3. Cubeful 2-ply    8/2 6/1                      Eq.: -0.093 (-0.164)
+       0.491 0.073 0.000 - 0.509 0.128 0.001
+    4. Cubeful 2-ply    16/5                         Eq.: -0.096 (-0.167)
+       0.477 0.104 0.003 - 0.523 0.116 0.003
+    5. Cubeful 2-ply    16/10 8/3                    Eq.: -0.118 (-0.189)
+       0.466 0.119 0.005 - 0.534 0.142 0.004
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBn";
-var probnum = "46";
-var showpipflg = true;
+const categoryid = "CBn";
+const probnum = "46";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---BCCBbA---cB--Baacabb---:0:0:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

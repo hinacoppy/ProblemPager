@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 210</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 41</span>&ensp;
 <span>(CBd-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-4 to 5. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=144</div></div>
+      <div class="pipinfo">pips Red=133 White=132</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It should be clear the volatility of the position demands a double from Red.<br>
+ <div class="description">At most scores 13/8, 6/5 would be very clear. The score creates the possibility of 13/8, 5/4* as the gammon is very valuable. The play swaps 4% gammons for 4% gammons -  a deal that is only valid because of the score.<br>
 <br>
-The question is – can White take? A non-hit by Red followed by anchoring by White gives him a comfortable take and White’s broken five-point prime is a strong asset. The duplication of 4’s is also relevant.<br>
-<br>
-Strong double – comfortable take.<br>
+XG has 13/8, 5/4* as better by 0.004 than 13/8, 6/5, i.e. the plays are basically equal. Would you have the nerve to play 13/8, 5/4* in a tournament final? Most people wouldn’t!!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.568
-  0.617 0.416 0.006 - 0.383 0.084 0.004
-Cubeful equities:
-1. Double, take        +0.875
-2. Double, pass        +1.000  (+0.125)
-3. No double           +0.611  (-0.264)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/16 13/8                   Eq.: +0.784
+       0.704 0.188 0.015 - 0.296 0.078 0.001
+    2. Cubeful 2-ply    13/8 6/5                     Eq.: +0.757 (-0.026)
+       0.690 0.189 0.015 - 0.310 0.097 0.002
+    3. Cubeful 2-ply    17/12 6/5                    Eq.: +0.755 (-0.029)
+       0.695 0.182 0.015 - 0.305 0.092 0.002
+    4. Cubeful 2-ply    17/12 16/15                  Eq.: +0.755 (-0.029)
+       0.700 0.177 0.014 - 0.300 0.087 0.002
+    5. Cubeful 2-ply    17/12 13/12                  Eq.: +0.750 (-0.033)
+       0.696 0.179 0.014 - 0.304 0.088 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aB-BaBC-C---bB--bc-bbbA---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBd";
-var probnum = "41";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "41";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=ab--aCE-B----C--AA-c-bbbb-:1:-1:1:51:2:4:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

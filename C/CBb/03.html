@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 70</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 202</span>&ensp;
 <span>(CBb-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=148 White=143</div></div>
+      <div class="pipinfo">pips Red=117 White=119</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Technically this not good enough to double but not everyone is taking this despite it being a trivial take.<br>
+ <div class="description">Red could play safe with 5/2 as happened over the board.<br>
 <br>
-White’s position is sound and Red needs more firepower to carry out a blitz. XG estimates that if there is an 8% that your opponent will drop then the double becomes correct. Against a strong player I would hold the cube here.<br>
+However, White’s position will improve and all of Red’s outer board points are stripped. Despite the apparent risk now is the time for Red to hit with 18/17*, 18/16 and it’s not even close.<br>
+<br>
+If White fans, which happens 25% of the time, then White must drop Red’s double. If White does hit there will be lots of return hits for Red. Any play that doesn’t hit is a triple blunder or worse.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.380
-  0.609 0.276 0.010 - 0.391 0.116 0.008
-Cubeful equities:
-1. No double           +0.544
-2. Double, pass        +1.000  (+0.456)
-3. Double, take        +0.495  (-0.049)
-Proper cube action: No double, take (9.8%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/17*/15                    Eq.: +0.531
+       0.654 0.165 0.007 - 0.346 0.125 0.004
+    2. Cubeful 2-ply    18/17* 18/16                 Eq.: +0.490 (-0.042)
+       0.647 0.172 0.007 - 0.353 0.137 0.004
+    3. Cubeful 2-ply    18/17* 5/3                   Eq.: +0.437 (-0.094)
+       0.622 0.178 0.008 - 0.378 0.149 0.005
+    4. Cubeful 0-ply    5/2                          Eq.: +0.293 (-0.238)
+       0.589 0.103 0.001 - 0.411 0.064 0.000
+    5. Cubeful 0-ply    18/17* 13/11                 Eq.: +0.255 (-0.276)
+       0.599 0.164 0.005 - 0.401 0.189 0.016
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a--aCBBBA---bB-b-b-cbBb-A-:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBb";
-var probnum = "03";
-var showpipflg = true;
+const categoryid = "CBb";
+const probnum = "03";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--ABbCCB----bB---aBe-ba-b-:0:0:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

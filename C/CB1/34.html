@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 212</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 34</span>&ensp;
 <span>(CB1-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 43?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 64?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=57 White=122</div></div>
+      <div class="pipinfo">pips Red=75 White=98</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I happened upon this position while watching some games on GridGammon. Red played 17/13, 4/1 with the obvious intention of avoiding 55 by White.<br>
+ <div class="description">The generally accepted theory for positions like this is hit on the ace-point unless White has a full prime.<br>
 <br>
-What he failed to do was to look further ahead. After his play 62 next turn is ruinous and 53 is a weakener. This is definitely a case of paying now rather than later. 6/3, 6/2 is even worse as it significantly reduces the percentage of gammon wins.<br>
+Here though Red has very little spare timing if things go awry. Move Red's spare checker from his 4-pt to his mid-point and hitting is clear. I'll leave you to experiment with moving the spare checkers to determine the break-even point between hitting and playing safe.<br>
 <br>
-Any move other than 17/10 is at least a blunder.<br>
+In our position 11/5, 6/2 is correct by a small margin.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/10                        Eq.: +1.505
-       0.893 0.649 0.025 - 0.107 0.003 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    17/13 4/1                    Eq.: +1.463 (-0.042)
-       0.888 0.607 0.017 - 0.112 0.004 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/3 6/2                      Eq.: +1.282 (-0.223)
-       0.844 0.491 0.011 - 0.156 0.007 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    17/13 6/3                    Eq.: +1.043 (-0.462)
-       0.732 0.424 0.011 - 0.268 0.032 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    17/14 6/2                    Eq.: +0.989 (-0.516)
-       0.713 0.393 0.009 - 0.287 0.033 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/1*                        Eq.: +0.846
+       0.899 0.087 0.002 - 0.101 0.007 0.000
+    2. Cubeful 2-ply    11/5 6/2                     Eq.: +0.839 (-0.007)
+       0.916 0.038 0.000 - 0.084 0.002 0.000
+    3. Cubeful 0-ply    7/3 7/1*                     Eq.: +0.602 (-0.245)
+       0.812 0.064 0.001 - 0.188 0.023 0.001
+    4. Cubeful 0-ply    11/5 7/3                     Eq.: +0.536 (-0.310)
+       0.792 0.030 0.001 - 0.208 0.007 0.000
+    5. Cubeful 0-ply    7/1* 6/2                     Eq.: +0.529 (-0.317)
+       0.790 0.060 0.001 - 0.210 0.038 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=cDCBC-B----------A-bcbbc--:1:1:1:43:0:0:1:0:10");
-var categoryid = "CB1";
-var probnum = "34";
-var showpipflg = true;
+const categoryid = "CB1";
+const probnum = "34";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBCBCB---A------bfbbb---:1:-1:1:64:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 205</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 46</span>&ensp;
 <span>(CBd-46)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-2 to 5.  Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=137 White=52</div></div>
+      <div class="pipinfo">pips Red=7 White=7</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The more you play tournament backgammon the more you realise just how much influence the match score has on cube decisions.<br>
+ <div class="description">White needs exactly 25% to take this double. Over the next two rolls he will win 323/1296 times, 1 win shy of the 324 he needs to take. However, sometimes there is a third roll after the sequence Red: 21, White: any non-winning number. The fact that Red might then roll 21 again gives White his take equity.<br>
 <br>
-For money this not quite a double but at this score this a huge double – in fact it’s a double blunder not to turn the cube. White has a take of course. A gammon for Red (an 8% chance) gets him to 4-2 Crawford.<br>
-<br>
-My rule of thumb for back games at his score is that a double shot normally merits a double.<br>
+However, more important is the opponent factor consideration. If White is the weaker player he should snap this up. If much stronger then he should pass.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.221 (Money: +0.254)
-  0.653 0.080 0.001 - 0.347 0.133 0.001
+2-ply cubeless equity +0.498 (Money: +0.498)
+  0.749 0.000 0.000 - 0.251 0.000 0.000
 Cubeful equities:
-1. Double, take        +0.426
-2. Double, pass        +1.000  (+0.574)
-3. No double           +0.367  (-0.059)
+1. Double, take        +0.987
+2. Double, pass        +1.000  (+0.013)
+3. No double           +0.502  (-0.486)
 Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBBBB------A--a--cBcBec-:0:0:1:00:0:2:0:5:10");
-var categoryid = "CBd";
-var probnum = "46";
-var showpipflg = true;
+const categoryid = "CBd";
+const probnum = "46";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---AA----------------aa---:0:0:1:00:3:2:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

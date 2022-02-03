@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 49</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 232</span>&ensp;
 <span>(CB5-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-1 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money play. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=136 White=92</div></div>
+      <div class="pipinfo">pips Red=213 White=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red is the favourite here and any 5 will lose his market but in a money game his gammon losses make this no redouble.<br>
+ <div class="description">Another difficult problem and one probably worthy of a longer article in its own right.<br>
 <br>
-At 0-0 to 7 this is borderline redouble as a gammon wins the match for either player. Once you trail in a match the redouble becomes more powerful because if White wins a gammon he will have overage (too many points). At this 0-1 score it is a double blunder not to redouble!<br>
+Red is well-timed for a back game but should at least consider going forward with bar/22, 8/7*. This turns out to be the second-best play. He doesn't have the timing to hold three points in White's board with bar/24, 8/5. <br>
 <br>
-Ten years ago nobody made redoubles in positions like this but they are becoming more common as we learn more about match play. If you got this one correct then well done.<br>
+He should hold two points and seek escape options for the other two rear checkers so that he doesn't crash his forward position. The play to do all this is bar/22, 23/22. Any other play but bar/22, 8/7* (which also gives Red flexibility) is at least an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.265 (Money: +0.261)
-  0.632 0.173 0.009 - 0.368 0.186 0.001
-Cubeful equities:
-1. Double, take        +0.645
-2. Double, pass        +1.000  (+0.355)
-3. No double           +0.540  (-0.105)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 23/22                 Eq.: -0.255
+       0.466 0.096 0.004 - 0.534 0.249 0.014
+    2. Cubeful 2-ply    bar/22 8/7*                  Eq.: -0.284 (-0.029)
+       0.457 0.099 0.004 - 0.543 0.253 0.021
+    3. Cubeful 2-ply    bar/22 6/5                   Eq.: -0.306 (-0.051)
+       0.460 0.090 0.004 - 0.540 0.265 0.023
+    4. Cubeful 2-ply    bar/24 8/5                   Eq.: -0.351 (-0.096)
+       0.446 0.086 0.003 - 0.554 0.254 0.028
+    5. Cubeful 2-ply    bar/24 23/20                 Eq.: -0.394 (-0.138)
+       0.441 0.082 0.003 - 0.559 0.260 0.027
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aaBBBB-B----C-a---bAbbccA:1:1:1:00:0:1:0:7:10");
-var categoryid = "CB5";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CB5";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=------CaD---cB--cc-e-B-BAA:0:0:1:31:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

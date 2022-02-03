@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 65</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 19</span>&ensp;
 <span>(CBp-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 4-4 to 7. Should Red double? If doubled. Should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=113 White=145</div></div>
+      <div class="pipinfo">pips Red=144 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White’s broken four-point prime does just enough to give him a take here. Red’s even numbers leave him in trouble and even if he escapes one checker there is no guarantee he will escape the other two.<br>
+ <div class="description">After bar/21 I think most people would find 9/5*/1* here. The question is the last 4.<br>
 <br>
-Naturally Red must double what is a very volatile position but a drop by White is very nearly a blunder. In practical terms I would expect to get a lot of drops here if I doubled as Red.<br>
+After most sequences Red will be doubling next turn and White will be passing and Red will not have to cover the blot on his ace-point. Therefore 10/6 is an overplay and Red may as well protect against White's 55 joker by keeping his 10-pt. 20/16 is the correct play.<br>
+<br>
+Perhaps surprisingly, XG rates 10/6 with the final 4 as very close to a blunder. Always remember to consider imminent cube action when making a play and particularly if you have rolled a joker, before which cube action seemed a long way off.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.599 (Money: +0.459)
-  0.599 0.363 0.009 - 0.401 0.107 0.005
-Cubeful equities:
-1. Double, take        +0.735
-2. Double, pass        +1.000  (+0.265)
-3. No double           +0.623  (-0.112)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 20/16 9/5*/1*         Eq.: +0.883
+       0.692 0.409 0.013 - 0.308 0.078 0.003
+    2. Cubeful 2-ply    bar/21 10/6 9/5*/1*          Eq.: +0.822 (-0.061)
+       0.676 0.411 0.010 - 0.324 0.079 0.002
+    3. Cubeful 2-ply    bar/21 20/16(2) 9/5*         Eq.: +0.701 (-0.182)
+       0.674 0.340 0.016 - 0.326 0.094 0.003
+    4. Cubeful 2-ply    bar/21 20/16 10/6 9/5*       Eq.: +0.678 (-0.206)
+       0.676 0.352 0.016 - 0.324 0.086 0.003
+    5. Cubeful 0-ply    bar/21 10/6(2) 9/5*          Eq.: +0.577 (-0.306)
+       0.626 0.311 0.012 - 0.374 0.089 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aaCBBBB-A---b--b-b-cbCb---:0:0:1:00:4:4:0:7:10");
-var categoryid = "CBp";
-var probnum = "22";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBBaB--AB-b-b--c-cC--baA:0:0:1:44:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

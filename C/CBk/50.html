@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 130</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 82</span>&ensp;
 <span>(CBk-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game. How should Red play 65?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=125 White=52</div></div>
+      <div class="pipinfo">pips Red=142 White=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Any thought of not hitting must be discounted immediately. Hitting wins more game and loses fewer gammons. Secondly if Red can hit and safety the blot on his 3-pt he should do so – leaving it slotted is living in cloud cuckoo land. The game plan is first to save the gammon and only if he gets really lucky should Red be looking to win the game.<br>
+ <div class="description">Red can play safe with 8/5, take a small risk with 11/10, 11/9 or play big with 11/9, 8/7. Which shall it be?<br>
 <br>
-The key is that after hitting with the six, 23/17* the five must be played 23/18 rather than leaving the blot on the 23-pt where it is still subject to attack while White still has a 4-pt board. Red should play to keep his checkers connected.<br>
+8/5 is clearly wrong – it does nothing to improve Red’ s position. The key is the doubling cube. If Red slots the bar and White rolls neither a 5 or a 1 he will have to pass Red’s double. If he does creep up with a 1 Red will still have a powerful, but takeable cube.<br>
 <br>
-Carelessly playing 23/17*/12 is a blunder as is any move other than 23/18, 23/27*.<br>
+11/10, 11/9 is a reasonable play but still a small error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/18 23/17*                 Eq.: -0.996
-       0.141 0.007 0.000 - 0.859 0.331 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/17* 21/16                 Eq.: -1.043 (-0.047)
-       0.152 0.010 0.000 - 0.848 0.397 0.011
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/17*/12                    Eq.: -1.067 (-0.071)
-       0.139 0.009 0.000 - 0.861 0.392 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    23/17* 15/10                 Eq.: -1.109 (-0.113)
-       0.130 0.008 0.000 - 0.870 0.414 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    21/16 21/15                  Eq.: -1.125 (-0.129)
-       0.092 0.001 0.000 - 0.908 0.339 0.003
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/9 8/7                     Eq.: +0.475
+       0.644 0.144 0.004 - 0.356 0.100 0.003
+    2. Cubeful 2-ply    11/10 11/9                   Eq.: +0.412 (-0.063)
+       0.608 0.135 0.003 - 0.392 0.076 0.002
+    3. Cubeful 2-ply    8/5                          Eq.: +0.338 (-0.137)
+       0.594 0.147 0.004 - 0.406 0.073 0.002
+    4. Cubeful 2-ply    11/10 8/6                    Eq.: +0.330 (-0.146)
+       0.592 0.145 0.004 - 0.408 0.078 0.002
+    5. Cubeful 0-ply    13/10                        Eq.: +0.269 (-0.206)
+       0.579 0.123 0.003 - 0.421 0.080 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CDAB----------A-a-bcBdBe-:1:1:1:65:0:0:3:0:10");
-var categoryid = "CBk";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "CBk";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--a-BBB-C--BbB---bceB--b--:0:0:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

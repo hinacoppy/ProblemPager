@@ -12,58 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 273</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 255</span>&ensp;
 <span>(CBi-07)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=127 White=80</div></div>
+      <div class="pipinfo">pips Red=175 White=115</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">These always look better for the attacking side than they actually are.<br>
+ <div class="description">Red played bar/20/16 here, thinking to preserve his back game timing but there is no rush to do this.<br>
 <br>
-White sees only a six from Red and then his board collapsing and the loss of a gammon.<br>
-<br>
-But White leads by 47 pips in the race and has, at least for the moment, a stronger home board and he has a five-point prime. All of this adds up to a very comfortable take for White. <br>
-<br>
-Still a very strong double for Red of course because a six does give him real gammon chances and he has his own five-point prime.<br>
-<br>
-Learning to take positions like this one as White is a key to winning backgammon.<br>
+He does better to freeze White’s builders for one more roll. He can play bar/20 with the 5 and then 7/3, 6/2 and even 5/1 (!) are all OK for the 4.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.412
-  0.691 0.134 0.006 - 0.309 0.103 0.007
-Cubeful equities:
-1. Double, take        +0.619
-2. Double, pass        +1.000  (+0.381)
-3. No double           +0.562  (-0.057)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 6/2                   Eq.: -0.867
+       0.315 0.050 0.001 - 0.685 0.215 0.007
+    2. Cubeful 2-ply    bar/20 5/1                   Eq.: -0.882 (-0.014)
+       0.310 0.051 0.001 - 0.690 0.211 0.007
+    3. Cubeful 2-ply    bar/20 7/3                   Eq.: -0.903 (-0.036)
+       0.307 0.050 0.001 - 0.693 0.213 0.007
+    4. Cubeful 2-ply    bar/21 20/15                 Eq.: -0.941 (-0.073)
+       0.318 0.048 0.001 - 0.682 0.252 0.011
+    5. Cubeful 2-ply    bar/16                       Eq.: -1.000 (-0.133)
+       0.315 0.044 0.001 - 0.685 0.282 0.014
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BBDCB---------abbcccB-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBi";
-var probnum = "07";
-var showpipflg = true;
+const categoryid = "CBi";
+const probnum = "07";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-A-B-BCA--a---c--bcdABbB-A:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

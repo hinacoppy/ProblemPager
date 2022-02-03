@@ -12,59 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 117</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 134</span>&ensp;
 <span>(CBf-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 32?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=39 White=37</div></div>
+      <div class="pipinfo">pips Red=123 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">5/off is an error. The correct play is 6/3, 4/2 unstacking both the heavy points, filling two gaps and leaving good fives.<br>
+ <div class="description">Red must have a game plan. <br>
 <br>
-As a quiz problem this is not too difficult – the key is to get it right over the board and not play 5/off too quickly. 5/off cost 2% game-winning chances.<br>
+If he tries the brute force approach of 13/9, 3/1(2)* then he is likely doomed to failure. After that play Red will need two aces and two sixes in quick succession while White has to stay on the bar.<br>
+<br>
+Once Red sees this as a prime versus prime position he will do better. To make the prime he needs the bar-point and as he won’t make it naturally he should slot it with 15/7. If he can make his bar then White may crash his home board position.<br>
+<br>
+Any play other than 15/7 is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3 4/2                      Eq.: -0.006
-       0.434 0.000 0.000 - 0.566 0.000 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    4/2 4/1                      Eq.: -0.056 (-0.049)
-       0.414 0.000 0.000 - 0.586 0.000 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    5/off                        Eq.: -0.057 (-0.051)
-       0.414 0.000 0.000 - 0.586 0.000 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/1                          Eq.: -0.082 (-0.076)
-       0.401 0.000 0.000 - 0.599 0.000 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    6/4 6/3                      Eq.: -0.084 (-0.077)
-       0.401 0.000 0.000 - 0.599 0.000 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/11 3/1*(2)                Eq.: -0.252
+       0.399 0.174 0.003 - 0.601 0.099 0.004
+    2. Cubeful 2-ply    11/7 3/1*(2)                 Eq.: -0.258 (-0.006)
+       0.398 0.175 0.003 - 0.602 0.099 0.004
+    3. Cubeful 2-ply    13/9 3/1*(2)                 Eq.: -0.270 (-0.019)
+       0.394 0.172 0.003 - 0.606 0.100 0.004
+    4. Cubeful 2-ply    15/13 11/9 3/1*(2)           Eq.: -0.290 (-0.038)
+       0.387 0.168 0.003 - 0.613 0.099 0.004
+    5. Cubeful 2-ply    5/1*(2)                      Eq.: -0.308 (-0.056)
+       0.378 0.166 0.002 - 0.622 0.102 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----DAC------------cca----:1:1:1:32:0:0:3:0:10");
-var categoryid = "CBf";
-var probnum = "35";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "35";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBBBB----A-A-AbcbccaB---:0:0:1:22:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

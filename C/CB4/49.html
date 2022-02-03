@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 76</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 199</span>&ensp;
 <span>(CB4-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 7-6 to 11. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Game. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=124 White=137</div></div>
+      <div class="pipinfo">pips Red=90 White=73</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a small double. Red leads in the race and has two blots to shoot at, plus he has some prime making rolls. On the downside he has a checker trapped behind a broken prime and stripped outside points.<br>
+ <div class="description">This basically a decision on whether to execute a trap play with 8/5, 8/4 or hold the position with 15/8.<br>
 <br>
-However, at this match score not doubling is worse than a double blunder. A doubled gammon gives Red the match exactly so the double is very efficient. The score also means that White’s redoubles will be somewhat constrained precisely because four points gives Red the match.<br>
+In fact Red wins the same percentage of games with either play but wins 4% more gammons with the trap play (consider White's 51). White's board is just weak enough to execute the trap while the Red's checker on the 15-pt is far enough back to catch a fleeing White checker.<br>
+<br>
+Give White a five-point home board and then the two plays have virtually identical equities.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.481 (Money: +0.399)
-  0.621 0.259 0.012 - 0.379 0.108 0.006
-Cubeful equities:
-1. Double, take        +0.705
-2. Double, pass        +1.000  (+0.295)
-3. No double           +0.611  (-0.094)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/5 8/4                      Eq.: +0.387
+       0.695 0.115 0.003 - 0.305 0.015 0.000
+    2. Cubeful 2-ply    15/8                         Eq.: +0.359 (-0.028)
+       0.697 0.074 0.002 - 0.303 0.011 0.000
+    3. Cubeful 2-ply    15/12 6/2                    Eq.: +0.275 (-0.111)
+       0.661 0.084 0.001 - 0.339 0.019 0.000
+    4. Cubeful 2-ply    15/12 10/6                   Eq.: +0.218 (-0.169)
+       0.645 0.073 0.001 - 0.355 0.023 0.000
+    5. Cubeful 0-ply    10/7 10/6                    Eq.: +0.201 (-0.185)
+       0.635 0.088 0.000 - 0.365 0.033 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aaBBBB-B--BbB---bbcb-b-A-:0:0:1:00:7:6:0:11:10");
-var categoryid = "CB4";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-C-bBBC-B-B----A-----cbce-:1:-1:1:43:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

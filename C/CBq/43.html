@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 88</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 77</span>&ensp;
 <span>(CBq-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-0 to 5. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=131 White=40</div></div>
+      <div class="pipinfo">pips Red=128 White=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This type of position is quite common. Red has a double shot to more or less win the game and he will actually win a gammon 17% of the time.<br>
+ <div class="description">For money with a centred cube this would be close call between 24/16* and 8/3*, 6/3.<br>
 <br>
-For money this is a big no redouble because the cube is still fully active, and White will use it to win the game if Red misses. At this score however, this is a very clear redouble and it is a blunder not to do so.<br>
-<br>
-If White is missed he will play for the gammon rather than turn the cube to 8 and that makes all the difference. If White cannot use the cube there is no reason for Red to hold it. After all, a gammon with the cube on 4 wins him the match!<br>
+However, at this score it is a double blunder to hit outside because 8/3*, 6/3 hugely increases Red’s gammon chances while winning the same amount of single games. 24/16* thus becomes a double blunder. Taking the asset is the right idea here.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.295 (Money: +0.294)
-  0.641 0.155 0.002 - 0.359 0.145 0.000
-Cubeful equities:
-1. Double, take        +0.449
-2. Double, pass        +1.000  (+0.551)
-3. No double           +0.402  (-0.047)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3* 6/3                     Eq.: +0.935
+       0.737 0.384 0.008 - 0.263 0.043 0.001
+    2. Cubeful 2-ply    24/16*                       Eq.: +0.867 (-0.068)
+       0.740 0.235 0.005 - 0.260 0.043 0.001
+    3. Cubeful 0-ply    24/21 9/4                    Eq.: +0.587 (-0.348)
+       0.662 0.249 0.005 - 0.338 0.063 0.001
+    4. Cubeful 0-ply    9/4 6/3*                     Eq.: +0.584 (-0.351)
+       0.656 0.286 0.006 - 0.344 0.067 0.002
+    5. Cubeful 0-ply    9/6 7/2                      Eq.: +0.505 (-0.430)
+       0.637 0.253 0.004 - 0.363 0.069 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBBBBA----------abBcB-i-:1:1:1:00:0:0:0:7:10");
-var categoryid = "CBq";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "CBq";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aB-DCBA--eB--ac-e----A-:0:0:1:53:3:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

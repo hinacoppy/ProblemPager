@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 64</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 214</span>&ensp;
 <span>(CB5-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 3-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-3 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=115 White=86</div></div>
+      <div class="pipinfo">pips Red=99 White=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a big double but a very easy take due to White’s large racing lead. <br>
+ <div class="description">A difficult problem: Red leads in the race and can release one checker from his 17-pt when two of his checkers will then be holding four of White's.<br>
 <br>
-At this match score gammons are perfectly efficient for Red but he won’t win that many – in fact about 5%. Even so two points are very valuable to Red and he wins about 73% of the time.<br>
+For money it would be a huge mistake to double as the position has very low volatility and other than 33 and 44 Red has no potential market losers. The match score has some influence however because getting to 4-3 Crawford is a big advantage for Red.<br>
 <br>
-The bottom line is that White can take or pass this double – it is right on the borderline, which means that judging the skill differential between the two players will need to be considered in the equation.<br>
+However, the very low volatility and the very low gammon percentage mean that Red should wait. This position actually occurred at UK Open with Red being Chris Rogers and White being Mochy. I think (but can't prove) that the disparity in skill makes the double reasonable rather than an error which is how XG rates it.<br>
+<br>
+Chris rolled 51 (10/5, 6/5) and then Mochy rolled 62 which he correctly played 13/11, 13/7 as then if Red hits with 33 he has to break his home board. Chris missed the shot and after a long battle Chris misplayed a vital 41 in the bear-off, got hit, and Mochy won the game and match.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.345 (Money: +0.397)
-  0.719 0.033 0.001 - 0.281 0.073 0.003
-Cubeful equities:
-1. Double, take        +0.773
-2. Double, pass        +1.000  (+0.227)
-3. No double           +0.579  (-0.194)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/16(3) 6/5                 Eq.: +0.476
+       0.623 0.023 0.000 - 0.377 0.013 0.000
+    2. Cubeful 2-ply    17/16(3) 10/9                Eq.: +0.436 (-0.039)
+       0.615 0.022 0.000 - 0.385 0.014 0.000
+    3. Cubeful 2-ply    17/16(3) 4/3                 Eq.: +0.355 (-0.121)
+       0.591 0.031 0.000 - 0.409 0.022 0.000
+    4. Cubeful 0-ply    17/16(3) 3/2                 Eq.: +0.355 (-0.120)
+       0.591 0.023 0.000 - 0.409 0.019 0.000
+    5. Cubeful 0-ply    10/7 6/5                     Eq.: +0.345 (-0.131)
+       0.579 0.046 0.000 - 0.421 0.025 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---aBACACC---B---b-cbcb-b-:0:0:1:00:3:5:0:7:10");
-var categoryid = "CB5";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "CB5";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBBB-C---Abb--b-C-bbbc---:0:0:1:11:2:3:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

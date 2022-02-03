@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 87</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 185</span>&ensp;
 <span>(CBa-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 63?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-3 to 7. Should Red double? If doubled, should white take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=118 White=122</div></div>
+      <div class="pipinfo">pips Red=106 White=129</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a difficult choice. <br>
+ <div class="description">For money this would be a big pass. <br>
 <br>
-Over the board 8/2*, 6/3 was tried but it is very difficult to bring home the game from there with three stripped outfield points. There are two reasonable moves: a) 15/9*, 11/8 gaining in the race and sending back a second White checker and b) 11/5, 8/5 strengthening the home board and leaving only a single blot.<br>
+The doubling window at this score is very narrow but for once Red is within it. Technically this is a drop but only by a tiny amount and if White thinks Red might misplay the position or if he was the weaker player he could venture a take here.<br>
 <br>
-I would certainly have gone for (a) despite leaving two blots but the additional gammon losses from that approach are enough to just swing the decision to b) although it is very close. After that play Red is 13 pips up in the race and if not hit he will have a relatively easy job to bring home his other checkers.<br>
-<br>
-I think that over the board not many would players would elect for 11/5, 8/5.<br>
+If for example Red rolled 52 and played 6/4, 6/1 that would be a big enough error to turn this into a take – the correct play is 9/7, 9/4 clearing an awkward point and creating some spares for future rolls.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/9* 11/8                   Eq.: +0.179
-       0.622 0.202 0.006 - 0.378 0.146 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    11/5 8/5                     Eq.: +0.165 (-0.014)
-       0.598 0.210 0.005 - 0.402 0.108 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/2* 6/3                     Eq.: +0.072 (-0.107)
-       0.573 0.225 0.004 - 0.427 0.144 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    11/8 11/5                    Eq.: +0.051 (-0.128)
-       0.572 0.167 0.004 - 0.428 0.117 0.002
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    15/9*/6                      Eq.: +0.036 (-0.142)
-       0.572 0.201 0.008 - 0.428 0.164 0.006
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.728 (Money: +0.683)
+  0.816 0.063 0.001 - 0.184 0.013 0.001
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.011  (+0.011)
+3. No double           +0.976  (-0.024)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BaB--D-Aa-BdB-B--ab--bbb-:1:-1:1:63:0:0:1:0:10");
-var categoryid = "CBa";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aBbEBBBB------bbbbca---:0:0:1:00:5:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

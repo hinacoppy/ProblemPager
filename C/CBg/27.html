@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 75</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 176</span>&ensp;
 <span>(CBg-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 22?</div>
+<article>
+<div class="doAction">Match Play. 4-4 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=161 White=158</div></div>
+      <div class="pipinfo">pips Red=137 White=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red has a lead in development and he shouldn’t passively make two new points, attractive though that may look.<br>
+ <div class="description">For money this is a very clear double because of the volatility but also a very a clear take as the cube has full value to White. Dropping would be a blunder.<br>
 <br>
-13/7* is virtually mandatory here. As well as gaining a tempo it also develops that ugly stack of checkers on the mid-point.<br>
+At this score things are very different. The general rule at 3-away, 3-away is double earlier than usual and drop earlier than usual. With lots of gammons in the air taking here would be a double blunder. However, Red is not nearly good enough to play on for an undoubled gammon and not doubling this position is very nearly a double blunder.<br>
 <br>
-The question is how to play the 2? 7/5 is too bold and 6/4 is the wrong place for that checker so it is a choice between 24/22 and 13/11. The latter follows Magriel’s ‘hit and split’ maxim while 13/11 continues to develop the extra checkers on the mid-point.<br>
-<br>
-The rollouts have 13/11 by a short head but it’s very close and 24/22 is certainly not an error.<br>
+The position reinforces just how much influence the match score in doubling decisions in short matches.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7* 13/11                  Eq.: +0.311
-       0.568 0.204 0.012 - 0.432 0.117 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/22 13/7*                  Eq.: +0.302 (-0.010)
-       0.566 0.192 0.010 - 0.434 0.108 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/7*/5                      Eq.: +0.226 (-0.085)
-       0.546 0.186 0.010 - 0.454 0.122 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/7* 6/4                    Eq.: +0.224 (-0.088)
-       0.548 0.190 0.010 - 0.452 0.120 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/20(2)                     Eq.: +0.197 (-0.114)
-       0.547 0.128 0.003 - 0.453 0.062 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.717 (Money: +0.570)
+  0.647 0.353 0.007 - 0.353 0.081 0.004
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.062  (+0.062)
+3. No double           +0.822  (-0.178)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--B-DaB---dE-a-c-e----B-:0:0:1:22:0:0:3:0:10");
-var categoryid = "CBg";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CBg";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBaB-BB-A---cD---cbe---AA-:0:0:1:00:4:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

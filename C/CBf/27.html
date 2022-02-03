@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 -Position 125</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 126</span>&ensp;
 <span>(CBf-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=112 White=81</div></div>
+      <div class="pipinfo">pips Red=131 White=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A good benchmark position. <br>
+ <div class="description">This position demonstrates very clearly the power of the broken prime. Any move that does not dismantle the broken prime is better than any other move. <br>
 <br>
-Red has a double but it’s marginal and White has a trivial take based on his combined/hitting chances.  There are minimal gammon chances for both players.<br>
+Of these 20/14, 11/9 and 20/18, 20/14 are tied in first place. They get the rear checkers moving while ahead in the race and while White has only a two-point home board.<br>
 <br>
-The volatility demands a double but psychology also comes into. If Red is playing someone who he thinks will still take after he points on the White checker but enters next roll then perhaps he should hold the cube.<br>
+11/5, 7/5 is a reasonable try but it makes White’s escape easier and does nothing about moving the back checkers.<br>
+<br>
+The key here is to understand the power of the broken prime in creating an effective blockade.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.360
-  0.688 0.024 0.001 - 0.312 0.039 0.002
-Cubeful equities:
-1. No double           +0.561
-2. Double, pass        +1.000  (+0.439)
-3. Double, take        +0.521  (-0.040)
-Proper cube action: No double, take (8.4%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/18 20/14                  Eq.: +0.367
+       0.683 0.120 0.003 - 0.317 0.080 0.003
+    2. Cubeful 2-ply    20/14 11/9                   Eq.: +0.366 (-0.001)
+       0.683 0.130 0.004 - 0.317 0.073 0.002
+    3. Cubeful 2-ply    11/5 6/4                     Eq.: +0.359 (-0.008)
+       0.679 0.141 0.004 - 0.321 0.053 0.001
+    4. Cubeful 2-ply    20/14 6/4                    Eq.: +0.344 (-0.022)
+       0.672 0.134 0.004 - 0.328 0.080 0.003
+    5. Cubeful 2-ply    11/5 7/5                     Eq.: +0.337 (-0.030)
+       0.669 0.161 0.005 - 0.331 0.050 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---aBCC-CB-A------Adbccb--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBf";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---bB-DBBB-Ad----c-dB---b-:1:-1:1:62:5:5:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

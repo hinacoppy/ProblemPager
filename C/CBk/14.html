@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 166</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2017 - Position 52</span>&ensp;
 <span>(CBk-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 63?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=112 White=130</div></div>
+      <div class="pipinfo">pips Red=110 White=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red certainly has the edge and at first sight White seems to be in trouble but Red is also stripped everywhere and his position may weaken next turn unless he rolls well. He has very few market losing sequences and should wait before doubling. Doubling is a double blunder.<br>
+ <div class="description">Before computers this might have caused arguments. The bots have given us a clear strategy for such positions:<br>
 <br>
-Interestingly if you move the third checker on the 2-pt back to the 6-pt then the position is very close to a double. A remarkable change effected by giving Red just a little bit of flexibility.<br>
+Take the home board asset and remove the chance of White anchoring. <br>
+<br>
+After 24/15* White has thirteen rolls that anchor and will keep in the game until the end. Making the point with 7/1*, 4/1 will lose a few more games but it will win a lot more gammons, so much so that 24/15* is actually a blunder.<br>
+<br>
+So remember – take the asset.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.310
-  0.607 0.194 0.012 - 0.393 0.108 0.003
-Cubeful equities:
-1. No double           +0.446
-2. Double, pass        +1.000  (+0.554)
-3. Double, take        +0.353  (-0.092)
-Proper cube action: No double, take (14.3%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/1* 4/1                     Eq.: +1.061
+       0.791 0.580 0.014 - 0.209 0.041 0.002
+    2. Cubeful 2-ply    24/15*                       Eq.: +1.001 (-0.060)
+       0.810 0.456 0.024 - 0.190 0.032 0.001
+    3. Cubeful 0-ply    24/18 4/1*                   Eq.: +0.709 (-0.353)
+       0.719 0.441 0.016 - 0.281 0.087 0.004
+    4. Cubeful 0-ply    24/21 7/1*                   Eq.: +0.583 (-0.478)
+       0.677 0.439 0.015 - 0.323 0.108 0.007
+    5. Cubeful 0-ply    13/7 4/1*                    Eq.: +0.522 (-0.539)
+       0.664 0.394 0.008 - 0.336 0.087 0.007
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-bCBBBB-----bB---b-cbbBb--:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBk";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "CBk";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aB-CBBBA---bBaa-c-dc---A-:1:-1:1:63:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

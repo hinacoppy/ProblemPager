@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 89</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 183</span>&ensp;
 <span>(CBa-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-1 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=65 White=64</div></div>
+      <div class="pipinfo">pips Red=75 White=98</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money it would be a blunder not to double. The volatility is sky-high and gammons abound.<br>
+ <div class="description">If White had a perfect home board then 7/3(2), 5/1(2) would be correct but this is a perfect “Pay me Now” opportunity and 16/4, 7/3 is the correct play.<br>
 <br>
-At this score Red needs to be a little more careful because the value of gammons to White is greater to White than Red (less overage). However, the volatility still demands a double (and of course a take).<br>
+There is life after death (i.e. being hit) because of White’s open 3-pt and the fact that one White checker will probably still be trapped behind a four-point prime.<br>
 <br>
-At this score it is only an error not to double rather than blunder bit if you are not doubling such positions you are being far too conservative.<br>
+7/3(2), 5/1(2) is an error but not a blunder. For money and with White owning a 2-cube paying now is right by a long way.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.446
-  0.723 0.000 0.000 - 0.277 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.719
-2. Double, pass        +1.000  (+0.281)
-3. No double           +0.680  (-0.039)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/4 7/3                     Eq.: +0.514
+       0.757 0.072 0.001 - 0.243 0.007 0.000
+    2. Cubeful 2-ply    7/3(2) 5/1(2)                Eq.: +0.451 (-0.064)
+       0.725 0.042 0.001 - 0.275 0.016 0.000
+    3. Cubeful 2-ply    16/8 7/3(2)                  Eq.: +0.432 (-0.082)
+       0.716 0.064 0.001 - 0.284 0.009 0.000
+    4. Cubeful 0-ply    16/4 5/1                     Eq.: +0.340 (-0.174)
+       0.670 0.042 0.001 - 0.330 0.027 0.000
+    5. Cubeful 0-ply    16/8 5/1(2)                  Eq.: +0.242 (-0.272)
+       0.621 0.031 0.000 - 0.379 0.032 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--DBC-CC-b----------abbec-:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBa";
-var probnum = "34";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "34";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-CbBBBCB--------Aa-cbb-cb-:0:0:1:44:4:4:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

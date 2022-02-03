@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 225</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 47</span>&ensp;
 <span>(CB7-47)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=127</div></div>
+      <div class="pipinfo">pips Red=75 White=74</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red trails by 18 pips and is out-boarded. A hit on the mid-point followed by a fan only just loses his market but that only happens a very small percentage of the time. <br>
+ <div class="description">Hitting turns out to be a big error, nearly a blunder.<br>
 <br>
-White has a very easy take in the diagrammed position and Red just doesn’t have enough threats to justify turning the cube here. No double/trivial take.<br>
+With a slight led in the race and only one checker to get home to his opponent’s two, now is not the time to engage in a battle. A hit from the bar by White (after Red plays bar/20, 2/1*) and a fan by Red may give Red an awkward redoubling decision to make.<br>
+<br>
+Correct is the simple bar/20/19.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.352
-  0.655 0.164 0.010 - 0.345 0.128 0.003
-Cubeful equities:
-1. No double           +0.541
-2. Double, pass        +1.000  (+0.459)
-3. Double, take        +0.470  (-0.071)
-Proper cube action: No double, take (13.4%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/19                       Eq.: +0.275
+       0.670 0.047 0.001 - 0.330 0.004 0.000
+    2. Cubeful 2-ply    bar/20 5/4                   Eq.: +0.240 (-0.035)
+       0.660 0.041 0.000 - 0.340 0.004 0.000
+    3. Cubeful 2-ply    bar/20 3/2                   Eq.: +0.214 (-0.061)
+       0.650 0.039 0.000 - 0.350 0.004 0.000
+    4. Cubeful 2-ply    bar/20 2/1*                  Eq.: +0.199 (-0.076)
+       0.640 0.070 0.001 - 0.360 0.020 0.000
+    5. Cubeful 2-ply    bar/20 4/3                   Eq.: +0.174 (-0.101)
+       0.636 0.032 0.000 - 0.364 0.004 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aa--BCBB--AaD---bbcc--bA-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB7";
-var probnum = "47";
-var showpipflg = true;
+const categoryid = "CB7";
+const probnum = "47";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aCDCD---a-----------dcccA:1:-1:1:51:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

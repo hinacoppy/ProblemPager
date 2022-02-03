@@ -12,61 +12,68 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 192</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Match Play</span>&ensp;
 <span>(CBj-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 21?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=110 White=93</div></div>
+      <div class="pipinfo">pips Red=74 White=85</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">To win the game Red will need his 3-pt so lifting the blot is not an option despite the risk.<br>
+ <div class="description">My own match play has improved immeasurably over the last two years by playing and studying on the online site GridGammon. In that time I have played over two thousand matches and learnt a great deal along the way.<br>
 <br>
-There are many different ways to play this 21 some of which involve de-duplicating Red's 5's (which he needs to escape) but many of those plays expose another blot and that could add to Red's gammons losses.<br>
+We have come a long way since one of the early backgammon authors, Georges Mabardi, said in his 1930 book, “Backgammon to Win”: “If two absolutely perfect players engaged in a match, there would never be an accepted double.” In fairness, doubling was only four years old at the time and so the understanding of the concepts involved were very much in their infancy.<br>
 <br>
-The best play is 10/7 which leaves no more blots and has one other benefit which may not be immediately obvious. When White enters and hits the blot on Red's 3-pt, Red has an effective prime against White's checker that could cause White's front position to collapse if he can't escape that checker. It is this that gives 10/7 the edge.<br>
+The more you play matches rather than money backgammon the more you come to understand just how much influence the match score has on both checker plays and cube decisions. When at least one, and quite often both, players are within five points of the finish line that influence grows in significance.<br>
+<br>
+Twenty years ago, with the score 3-away vs. 2-away and after the sequence Black 31: 8/5, 6/5; White 32: 24/22, 13/10 nobody would have considered doubling as Black and yet now that is standard practice - it would be a bad error for Black not to double. At 4-away vs. 2-away, and after the same sequence, not doubling would be a bad blunder.<br>
+<br>
+Despite all that we have learnt the most common mistake that I still see is players making money cube decisions in match situations. This week’s position is taken from an early round match at the recent Gibraltar tournament between two of the world’s top players (who shall remain nameless!).<br>
+<br>
+I was watching online when Black correctly doubled this position at 3-away vs. 4-away. For money this a comfortable take because White has a number of ways of winning but a take at this match score is a double blunder. A win for Black gets him to the Crawford game with his opponent on an odd number (ideal) and with 83% winning chances. <br>
+<br>
+White does much better to pass and play from 4-away vs. 2-away where he has optimal cube leverage. White took this double after about a second’s thought so I assume he was playing on automatic. That’s another key point: at the end of a match always take longer over your doubling decisions – they are likely to be crucial so it is worth investing the time.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 3/2                      Eq.: -0.526
-       0.262 0.020 0.000 - 0.738 0.154 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    10/7                         Eq.: -0.530 (-0.004)
-       0.268 0.023 0.000 - 0.732 0.175 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    7/6 3/1                      Eq.: -0.533 (-0.007)
-       0.260 0.019 0.000 - 0.740 0.154 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    10/8 7/6                     Eq.: -0.562 (-0.036)
-       0.253 0.021 0.000 - 0.747 0.170 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/7 8/6                      Eq.: -0.574 (-0.048)
-       0.269 0.023 0.000 - 0.731 0.216 0.010
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.542
+  0.761 0.024 0.000 - 0.239 0.005 0.000
+Cubeful equities:
+1. Double, take        +0.923
+2. Double, pass        +1.000  (+0.077)
+3. No double           +0.832  (-0.091)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBA-BBAB-A------c-cbbbBb-:1:1:1:21:0:0:3:0:10");
-var categoryid = "CBj";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "CBj";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBCbBB-C----A------dbcbb-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

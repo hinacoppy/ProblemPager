@@ -12,63 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 109</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 163</span>&ensp;
 <span>(CBa-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 55?</div>
+<article>
+<div class="doAction">Match Play. 2-2 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=166 White=156</div></div>
+      <div class="pipinfo">pips Red=63 White=61</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">If you didn’t play 6/1(2)* with two of the fives then you are living in a pre-bot era. The tempo taken by that play could well be vital.<br>
+ <div class="description">My apologies for the diagram error. At 2-2 to 5, which is what the original diagram showed, this would be a redouble and take as owning the cube would be of no value to White and Red is a clear favourite.<br>
 <br>
-Obviously the first five is bar/20 so it’s just a question of the fourth one.<br>
-<br>
-The two back checkers should stay connect and so 20/15 is eliminated. Given White’s reasonable board Red does slightly better to play 11/6 rather than 13/8 but it is quite close. <br>
-<br>
-The key point is that making the 1-pt is mandatory.<br>
+At 2-2 to 7 this is (just) not a redouble. White gets enough value from possible redoubles to 8 that Red should hold the cube for a roll. The key is to at least consider redoubling here. If you looked at the pip count and quickly rejected redoubling then you were not thinking through the implications of the match score.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 11/1* 6/1             Eq.: -0.106
-       0.473 0.155 0.005 - 0.527 0.164 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20 13/8 6/1*(2)          Eq.: -0.112 (-0.006)
-       0.472 0.159 0.006 - 0.528 0.169 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/15 6/1*(2)               Eq.: -0.113 (-0.007)
-       0.477 0.136 0.004 - 0.523 0.172 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/10 13/8                  Eq.: -0.227 (-0.121)
-       0.451 0.112 0.004 - 0.549 0.182 0.008
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/20 13/3 8/3              Eq.: -0.265 (-0.159)
-       0.439 0.140 0.008 - 0.561 0.193 0.010
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.354 (Money: +0.354)
+  0.677 0.000 0.000 - 0.323 0.000 0.000
+Cubeful equities:
+1. No double           +0.655
+2. Double, pass        +1.000  (+0.345)
+3. Double, take        +0.645  (-0.010)
+Proper cube action: No redouble, take (2.8%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aa---E-C--AdD--ab-d-b--AA:0:0:1:55:0:0:3:0:10");
-var categoryid = "CBa";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--CDCBB----Aa---a--b-bcdb-:1:1:1:00:2:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

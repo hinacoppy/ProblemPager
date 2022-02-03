@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 64</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 20</span>&ensp;
 <span>(CBp-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game; How should Red play 65?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=124 White=58</div></div>
+      <div class="pipinfo">pips Red=132 White=140</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Hitting with 8/3* is clearly wrong but does Red play 19/14 or 12/7?<br>
+ <div class="description">Nobody is going to drop this as White but can it really be a double?<br>
 <br>
-The former provides outfield coverage while the latter brings another checker to attack the White blot on Red’s 3-pt.<br>
+Technically the answer is yes but only by 0.01 and so you would be perfectly within your rights to double but I think most people would wait a roll.<br>
 <br>
-Given that White is not favourite to escape next roll, 12/7 is the logical play and in fact bar/19/14 is an error despite the fact that White can play 61, 62, 63 and 64 without leaving a direct if Red plays bar/19, 12/7. Note that bar/19/14 leaves White both 63 and 65 to hit and potentially win a gammon.<br>
-<br>
-In fact, bar/19/14 doubles Red gammon losses from 4.2% to 8.4%.<br>
+It is interesting that a slightly better structure and a small number of threats can add up to a double in an apparently virtually equal position. Every detail matters!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/19 12/7                  Eq.: +0.673
-       0.697 0.054 0.001 - 0.303 0.047 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/14                       Eq.: +0.606 (-0.067)
-       0.678 0.050 0.001 - 0.322 0.092 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/19 16/11                 Eq.: +0.547 (-0.126)
-       0.650 0.047 0.001 - 0.350 0.091 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/19 6/1                   Eq.: +0.369 (-0.304)
-       0.605 0.049 0.001 - 0.395 0.098 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/19 8/3*                  Eq.: +0.249 (-0.424)
-       0.611 0.056 0.002 - 0.389 0.234 0.004
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.399
+  0.635 0.222 0.018 - 0.365 0.107 0.004
+Cubeful equities:
+1. No double           +0.552
+2. Double, pass        +1.000  (+0.448)
+3. Double, take        +0.550  (-0.002)
+Proper cube action: No double, take (0.4%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---aBCCBB---A---A---bbbddA:1:1:1:65:0:0:3:0:10");
-var categoryid = "CBp";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CBp";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-BBBC-B---bB-a-c-c-bb-B-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

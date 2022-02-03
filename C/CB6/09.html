@@ -12,58 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 27</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 259</span>&ensp;
 <span>(CB6-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 64?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=89 White=33</div></div>
+      <div class="pipinfo">pips Red=163 White=152</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Note: this should have been posed as a redoubling rather than a doubling question. <br>
+ <div class="description">8/2, 6/2 was played over the board but that is the wrong idea.<br>
 <br>
-The standard reference position has White with five checkers borne off and one checker closed out. That would be a redouble and a close take.<br>
+Red needs to promote contact while he has the better home board. 13/9, 13/7 is one approach but if White doesn't hit there is no pressure on him on the other side of the board so he is free to move checkers in his outer boards.<br>
 <br>
-Here, White’s checker is not closed out, he has a second checker exposed but he has six checkers borne off. How does that change things? <br>
-<br>
-The position is very volatile so the redouble is justified but it is close. White has a very easy take because he lots of ways to win, including creating an anchor and then roiling boxes! If the second checker is not hit Red is under immediate pressure to perform.<br>
-<br>
-This is a great practical redouble because many would drop because of the second exposed checker.<br>
+This is similar to an opening 64 but Red has the advantage of his 5-pt so 24/18, 13/9 is even clearer here than it would be as a first move.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.407
-  0.726 0.000 0.000 - 0.274 0.044 0.001
-Cubeful equities:
-1. Double, take        +0.629
-2. Double, pass        +1.000  (+0.371)
-3. No double           +0.571  (-0.058)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 13/7                    Eq.: -0.062
+       0.475 0.153 0.006 - 0.525 0.135 0.008
+    2. Cubeful 2-ply    24/18 13/9                   Eq.: -0.068 (-0.006)
+       0.478 0.128 0.005 - 0.522 0.126 0.005
+    3. Cubeful 2-ply    24/20 13/7                   Eq.: -0.112 (-0.049)
+       0.465 0.134 0.005 - 0.535 0.132 0.006
+    4. Cubeful 2-ply    8/2 6/2                      Eq.: -0.150 (-0.088)
+       0.447 0.143 0.004 - 0.553 0.133 0.006
+    5. Cubeful 2-ply    13/3                         Eq.: -0.158 (-0.096)
+       0.448 0.137 0.005 - 0.552 0.136 0.008
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aBCBBD--A-------------agA:0:0:1:00:0:0:3:0:10");
-var categoryid = "CB6";
-var probnum = "09";
-var showpipflg = true;
+const categoryid = "CB6";
+const probnum = "09";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a---BD-B---dEb--c-e----B-:0:0:1:64:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

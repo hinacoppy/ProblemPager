@@ -12,56 +12,61 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2016 - Position 90</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2015 - Position 182</span>&ensp;
 <span>(CBa-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=20 White=20</div></div>
+      <div class="pipinfo">pips Red=51 White=142</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Most players see 41, 42, and 43 and decide to wait a roll.<br>
+ <div class="description">This is difficult to calculate over the board but see the various comments (thanks to the contributors!) for a list of shot leaving numbers. It should be clear that Red will win a lot of gammons but White will win a lot of games. <br>
 <br>
-However, the optimist sees that he can lose his market by the next roll with a lot of sequences and spins the cube. This is a close but perfectly correct double.<br>
+The number of checkers off is also crucial. Just one more checker off turns this from a close take to a massive pass.<br>
 <br>
-If Red already holds the cube then he should not redouble. <br>
-<br>
-This is a good example of the classic difference between doubling and redoubling.<br>
+As it is, it is a monster double and a scary, but perfectly correct take. Dropping gives up 0.06 equity points. If White’s checker on his 2-pt was on his ace-point (thus making the ace-point) then the take becomes trivial.<br>
+Remember, every detail matters.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.338
-  0.669 0.000 0.000 - 0.331 0.000 0.000
+2-ply cubeless equity +0.687
+  0.610 0.389 0.079 - 0.390 0.000 0.000
 Cubeful equities:
-1. Double, take        +0.552
-2. Double, pass        +1.000  (+0.448)
-3. No double           +0.528  (-0.024)
-Proper cube action: Double, take
+1. Double, pass        +1.000
+2. Double, take        +1.109  (+0.109)
+3. No double           +0.598  (-0.402)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBC-A--------------b-bab-:0:0:1:00:0:0:1:0:10");
-var categoryid = "CBa";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CBa";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=abBAHaB--------a---bbbbaa-:0:0:1:D:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

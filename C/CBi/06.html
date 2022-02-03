@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2014 - Position 274</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 254</span>&ensp;
 <span>(CBi-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=160 White=97</div></div>
+      <div class="pipinfo">pips Red=106 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This sort of continues yesterday's theme.<br>
+ <div class="description">Back to theme of broken primes!<br>
 <br>
-This is a very clear double due to the volatility but not all numbers hit by any means. Even if Red does hit White can anchor and win that way or Red may have trouble extricating his rear checkers.<br>
+I’m sure nearly everybody would hit here (I did) with either 13/4* or 10/5, 8/4*, there is little to choose between those two plays.<br>
 <br>
-White has a comfortable take and dropping would be a blunder.<br>
+However, Red is running out of time to free his back checker and he could end up closing out two White checkers but still be unable to free his own rear checker.<br>
+<br>
+Although it is close the correct play is 24/20/15. This triplicates White’s 3’s and if Red is not hit (there are only 10 shots) then he is in a very strong position. Even if he is hit there will be multiple return shots. Before the bots nobody would have thought of playing 24/15 but the game has evolved hugely in the last 20 years.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.498
-  0.700 0.218 0.010 - 0.300 0.121 0.010
-Cubeful equities:
-1. Double, take        +0.791
-2. Double, pass        +1.000  (+0.209)
-3. No double           +0.676  (-0.116)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/5 8/4*                    Eq.: +0.626
+       0.659 0.490 0.021 - 0.341 0.084 0.006
+    2. Cubeful 2-ply    24/15                        Eq.: +0.618 (-0.008)
+       0.697 0.389 0.015 - 0.303 0.076 0.005
+    3. Cubeful 2-ply    13/4*                        Eq.: +0.602 (-0.024)
+       0.653 0.482 0.015 - 0.347 0.080 0.006
+    4. Cubeful 2-ply    24/20 10/5                   Eq.: +0.561 (-0.065)
+       0.675 0.383 0.015 - 0.325 0.076 0.004
+    5. Cubeful 2-ply    8/3 7/3                      Eq.: +0.525 (-0.100)
+       0.642 0.420 0.015 - 0.358 0.065 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--a-BBBBC--------bccabBcB-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBi";
-var probnum = "06";
-var showpipflg = true;
+const categoryid = "CBi";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBB-aBBAC-A-aA--bbbd-b--A-:1:-1:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

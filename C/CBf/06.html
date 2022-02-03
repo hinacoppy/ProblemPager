@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 145</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 105</span>&ensp;
 <span>(CBf-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 3-5 to 7. How should Red play 55?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 63?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=151 White=147</div></div>
+      <div class="pipinfo">pips Red=120 White=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money bar/20*, 13/3, 8/3 would be very clear.<br>
+ <div class="description">Red cannot be passive here and so he can implement one of two game plans: a) running with 24/15 which frees a rear checker and creates some duplications of 3’s or b) aggressively attacking with 7/4*, 7/1. This is a better hit than 8/2, 7/4* as it leaves one fewer blots.<br>
 <br>
-At this match score gammons are particularly valuable and so bar/20*/5* should at least be considered. Over the board, being optimistic, I went with the double hit. I was pleased to find it was only wrong by 0.021.<br>
+Something like 8/5, 8/2 is a do nothing move. Red must take positive action here.<br>
 <br>
-The key is to consider the play even if you elect not to make it. As fate would have it my opponent rolled 61 and I cruised to the gammon and the match.<br>
+It turns out that both plans are viable. The hitting play both wins and loses more gammons but there is only 0.0017 equity difference between the two plays in the rollout with the hitting play just winning.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20* 13/3 8/3             Eq.: +0.614
-       0.590 0.217 0.019 - 0.410 0.150 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20*/5*                   Eq.: +0.534 (-0.080)
-       0.565 0.202 0.017 - 0.435 0.185 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/20* 18/8 13/8            Eq.: +0.462 (-0.152)
-       0.563 0.168 0.011 - 0.437 0.150 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/20*/15 18/8              Eq.: +0.460 (-0.154)
-       0.564 0.166 0.013 - 0.436 0.165 0.004
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/20* 8/3(3)               Eq.: +0.445 (-0.168)
-       0.529 0.194 0.019 - 0.471 0.190 0.006
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/4* 7/1                     Eq.: -0.013
+       0.425 0.142 0.002 - 0.575 0.138 0.012
+    2. Cubeful 2-ply    24/15                        Eq.: -0.048 (-0.035)
+       0.420 0.106 0.003 - 0.580 0.130 0.008
+    3. Cubeful 2-ply    8/2 7/4*                     Eq.: -0.054 (-0.041)
+       0.416 0.145 0.003 - 0.584 0.179 0.022
+    4. Cubeful 0-ply    7/1 5/2                      Eq.: -0.206 (-0.193)
+       0.354 0.086 0.001 - 0.646 0.114 0.007
+    5. Cubeful 0-ply    7/1 6/3                      Eq.: -0.252 (-0.239)
+       0.342 0.082 0.001 - 0.658 0.124 0.011
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-cA--aEaC----D----Acab-bbA:1:-1:1:55:3:5:0:7:10");
-var categoryid = "CBf";
-var probnum = "06";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-AA-aCDBB---a----cce---bB-:1:1:1:63:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

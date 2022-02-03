@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 80</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 194</span>&ensp;
 <span>(CB4-44)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 11?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=159 White=151</div></div>
+      <div class="pipinfo">pips Red=130 White=172</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This position came up in a lesson with a student. Red has opened with 53 and White has responded with 44. How should Red now play 11? <br>
+ <div class="description">On initial evaluation XG has this as double/pass but a log rollout gives very clear double but also a very clear take.<br>
 <br>
-There are many ways of splitting the back checkers including 24/20 and 24/23, 24/21.<br>
+From Red's perspective the position is volatile and making his 4-pt and /or possibly the bar-pt would certainly lose his market. He also has a long-term advantage because White's 1-2 back game is not well timed.<br>
 <br>
-However, the simple 24/22(2) is best. It gives Red an anchor and White nothing to attack. Yes White owns his 9-pt and blocks Red’s sixes but the game is still in its infancy and can develop in many different ways. Red should simply take what the dice offer him and that is to make the 22-pt.<br>
+From White's point of view he has the guarantee of 1-2 back game, albeit poorly timed, but he may be able to make Red's 4-pt or bar-pt or even, very rarely, win by going forwards from here. His real weakness is his structure. If he had his 5-pt instead of his 3-pt the position would be no double/take but the fact that he has made a deep in-board point, coupled with the poor distribution of his spare checkers, gives him a weakness that Red should rightly exploit by doubling.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22(2)                     Eq.: -0.335
-       0.400 0.070 0.001 - 0.600 0.110 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/21 24/23                  Eq.: -0.433 (-0.098)
-       0.396 0.071 0.001 - 0.604 0.165 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/22 8/7(2)                 Eq.: -0.447 (-0.113)
-       0.394 0.070 0.001 - 0.606 0.173 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/20                        Eq.: -0.448 (-0.114)
-       0.397 0.068 0.001 - 0.603 0.171 0.006
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/23(2) 8/7(2)              Eq.: -0.493 (-0.158)
-       0.370 0.066 0.001 - 0.630 0.144 0.005
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.599
+  0.663 0.301 0.042 - 0.337 0.067 0.002
+Cubeful equities:
+1. Double, take        +0.969
+2. Double, pass        +1.000  (+0.031)
+3. No double           +0.862  (-0.107)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---B-bD-B---cE--bc-e----B-:0:0:1:11:0:0:3:0:10");
-var categoryid = "CB4";
-var probnum = "44";
-var showpipflg = true;
+const categoryid = "CB4";
+const probnum = "44";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bbB-BE-A--AbB-A-b-e--b-A-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

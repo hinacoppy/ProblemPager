@@ -12,63 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2015 - Position 120</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2016 - Position 131</span>&ensp;
 <span>(CBf-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 7. How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-3 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=100 White=72</div></div>
+      <div class="pipinfo">pips Red=148 White=185</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board 10/8, 10/4 was played, minimising shots for the next roll, but leaving future problems.<br>
+ <div class="description">Yet another demonstration of the power of the match score in short matches.<br>
 <br>
-Making the 2-pt is crucial because if White misses whatever shot he is left Red wants as strong a board as possible so that he can attack White’s blots.<br>
+For money this is no double because of White’s anchor on the 2-pt. However, at 3-away, 2-away any threat of gammon is normally enough to turn the cube.<br>
 <br>
-Surprisingly 15/9, 4/2 just edges out 10/1 in the rollouts but it is very close indeed. White doesn’t have much time to pick up the second blot and so he rarely closes out two checkers.<br>
+In this position it would be a double blunder not to turn the cube and White has only a bare take. <br>
 <br>
-It turns out that keeping the 10-pt is worth the risk, not something I would have considered over the board.<br>
+If your thinking was to hold the cube because 2 points give White the match then think again – 4 points gives Red the match and a measly 2 points gets him to Crawford!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/2                         Eq.: -0.687
-       0.192 0.004 0.000 - 0.808 0.133 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    15/9 4/2                     Eq.: -0.697 (-0.010)
-       0.218 0.006 0.000 - 0.782 0.197 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    15/7                         Eq.: -0.760 (-0.073)
-       0.177 0.005 0.000 - 0.823 0.169 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    10/8 10/4                    Eq.: -0.789 (-0.102)
-       0.154 0.003 0.000 - 0.846 0.144 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    15/9 6/4                     Eq.: -0.806 (-0.119)
-       0.179 0.005 0.000 - 0.821 0.215 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.478 (Money: +0.426)
+  0.624 0.249 0.018 - 0.376 0.084 0.004
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.023  (+0.023)
+3. No double           +0.855  (-0.145)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--ABCaE---B----Ba--bbbbbc-:1:1:1:62:0:0:0:7:10");
-var categoryid = "CBf";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CBf";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-bAa-EAB---cD--Ac-e----A-:0:0:1:00:2:3:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

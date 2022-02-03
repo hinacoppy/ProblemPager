@@ -12,61 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2017 - Position 57</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2014 - Position 222</span>&ensp;
 <span>(CB5-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 42?</div>
+<article>
+<div class="doAction">Match Play. Red leads 6-5 to 7 (Crawford Game). How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=75 White=81</div></div>
+      <div class="pipinfo">pips Red=130 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A minor technical problem.<br>
+ <div class="description">For money, with the cube in any position, any ply other than 22/11 would be a blunder as leaping the partial prime is of paramount importance.<br>
 <br>
-Red must move in his home board. Does he give himself bad fives next turn and move 6/4, 6/2 (which is better for the race) or save a five with 5/13, 5/1?<br>
+At 6-5 Crawford Red must be wary of losing a gammon and the match and therefore more caution must be exercised. 22/11 is now an error. 8/2, 7/2 is reasonable but leaves two blots so disaster could strike. XG rates it on a par with 22/11.<br>
 <br>
-I had hoped the rollout might give a clear answer but actually it is a dead-heat between the two plays as the pros and cons cancel each other out. Sometimes there just isn’t a single best move.<br>
+The correct play is 13/2. This play leaves a single blot in a place where Red doesn't mind getting hit and, importantly, retains the solid five-point prime.<br>
+<br>
+This just goes to show how much care one must take at this particular score.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/2 3/1                      Eq.: -0.410
-       0.379 0.003 0.000 - 0.621 0.041 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    5/3 5/1                      Eq.: -0.420 (-0.010)
-       0.376 0.002 0.000 - 0.624 0.032 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/4 6/2                      Eq.: -0.429 (-0.019)
-       0.377 0.003 0.000 - 0.623 0.045 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    5/1 3/1                      Eq.: -0.451 (-0.040)
-       0.366 0.002 0.000 - 0.634 0.044 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    6/4 5/1                      Eq.: -0.526 (-0.115)
-       0.347 0.002 0.000 - 0.653 0.039 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/2                         Eq.: -0.118
+       0.539 0.139 0.005 - 0.461 0.098 0.002
+    2. Cubeful 2-ply    22/11                        Eq.: -0.143 (-0.025)
+       0.604 0.167 0.010 - 0.396 0.175 0.007
+    3. Cubeful 2-ply    7/1* 6/1                     Eq.: -0.177 (-0.060)
+       0.513 0.190 0.005 - 0.487 0.102 0.003
+    4. Cubeful 2-ply    8/2 7/2                      Eq.: -0.191 (-0.073)
+       0.511 0.136 0.005 - 0.489 0.107 0.003
+    5. Cubeful 2-ply    13/8 7/1*                    Eq.: -0.227 (-0.109)
+       0.496 0.155 0.005 - 0.504 0.109 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-DBC-BB-----b-----Bcccbb--:0:0:1:42:0:0:1:0:10");
-var categoryid = "CB5";
-var probnum = "22";
-var showpipflg = true;
+const categoryid = "CB5";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a--BBCCB---bA--b-bbbcB-a-:0:0:1:65:6:5:1:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>
