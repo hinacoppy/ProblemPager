@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 85</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 16</span>&ensp;
 <span>(CBv-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=72 White=88</div></div>
+      <div class="pipinfo">pips Red=127 White=180</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This type of position is deceptive. It is surprisingly difficult to bring Red’s checkers home safely and he normally leaves a fair number of indirect shots.<br>
+ <div class="description">It is so easy to simply play bar/21*, 8/6 but White has a very well-timed back game and Red needs to slow down his own progress.<br>
 <br>
-It is a double and not to do so would be blunder. Equally well White has a very comfortable take and dropping would also be a blunder. Once you have seen a position like this you know what to do but I have seen many a player drop such doubles as White.<br>
+The correct move is bar/21*, 3/1!! This attempts to recirculate the two checkers on the 3-pt and bring them back into play. This technique was not commonplace before the advent of the bots, but the theory is now much better understood.<br>
+<br>
+Bar/21*, 8/6 is very nearly blunder and any other move certainly use. So, learn the technique and re-use it when appropriate.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.524
-  0.765 0.013 0.000 - 0.235 0.018 0.000
-Cubeful equities:
-1. Double, take        +0.899
-2. Double, pass        +1.000  (+0.101)
-3. No double           +0.800  (-0.099)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21* 8/6                  Eq.: +0.366
+       0.561 0.259 0.012 - 0.439 0.071 0.001
+    2. Cubeful 2-ply    bar/21* 3/1                  Eq.: +0.348 (-0.018)
+       0.567 0.247 0.010 - 0.433 0.093 0.004
+    3. Cubeful 2-ply    bar/21* 11/9                 Eq.: +0.347 (-0.020)
+       0.561 0.248 0.010 - 0.439 0.077 0.002
+    4. Cubeful 2-ply    bar/23 11/7                  Eq.: +0.298 (-0.068)
+       0.563 0.212 0.009 - 0.437 0.097 0.003
+    5. Cubeful 2-ply    bar/21* 9/7                  Eq.: +0.264 (-0.102)
+       0.538 0.243 0.012 - 0.462 0.084 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aCCBB--AB----B-a---dbbbba-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBv";
-var probnum = "16";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--bBbbCBCB-Ba-----abbab--A:0:0:1:42:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

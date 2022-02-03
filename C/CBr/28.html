@@ -12,52 +12,74 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 141</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Then and Now</span>&ensp;
 <span>(CBr-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-4 to 11. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=148 White=167</div></div>
+      <div class="pipinfo">pips Red=137 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this a close but correct take for White – I hope everybody doubled as Red (ahead in position, race and threat). White’s anchor gives him some measure of security.<br>
+ <div class="description">When I first started playing backgammon if there was a dispute about a position there were only two ways to resolve it. You either asked a recognised expert or you resorted to performing a hand roll-out (there were no such things as backgammon-playing computer programs).<br>
 <br>
-However, at the match score, gammons are more useful for Red (he wins a gammon 30% of the time) than for White and despite it being relatively early in the match that fact pushes this position well into drop territory and taking is very nearly a blunder.<br>
+Both methods were flawed. The expert naturally based his judgement on his backgammon knowledge and experience. Sadly, we now know that some of that knowledge was flawed, as errors in backgammon theory had been handed down for generations. That is not denigrate the experts of the past. After all they were only working with the tools and books available to them at the time. Hand roll-outs were useful but they were time-consuming to perform and, more importantly, the results were not necessarily statistically significant. Four hours of hard work could give you an indication of the correct checker play or cube decision but sometimes you were no better off after all your hard work.<br>
+<br>
+That meant that while the standard of play improved gradually over time some of the theory was still flawed and mistakes were consistently repeated without anybody realising they were even making a mistake!<br>
+<br>
+All of this changed twenty-five years ago with the emergence of the bots, led by Gerry Tesauro’s ground-breaking TD-Gammon. Now at last there was an element of certainty to problem solving. JellyFish, gnubg, Snowie and TD-Gammon followed over time and nowadays we can rely on the roll-out results from these programs in all but the most bizarre positions. <br>
+<br>
+Forty years ago, some, but probably not many, would have considered doubling in today’s position. The race is even and Black has two rear checkers to White’s one (which has already reached Black’s bar-point). A hand roll-out produces indeterminate results. I know because I have tried it and soon got bored after a trial of 72 games.<br>
+<br>
+Fast forward to the present day. The volatility of the position would quickly be evident to most modern-day players. They would also take into consideration the blot on White’s ace-point and consider its relevance if the game becomes a blot-hitting contest. The gammon percentage for Black will be very high.<br>
+<br>
+The key is that a modern player can study this position, make a judgement, and then cross-check it against Extreme Gammon. He will quickly find that not doubling is a 2.5 blunder. Further he will discover that nearly 50% of Black’s wins are gammons. If he is inquisitive he will move the blot on White’s ace-point back to his 6-pt to see what impact that has on the doubling decision and perhaps be surprised to find that, in this variation, the position becomes a borderline double/no double and the take is trivial while the original position is an uncomfortable take. <br>
+<br>
+Forty years ago, the importance of that White ace-point blot would have gone completely unnoticed by virtually all except the very best. Nobody would have had the patience to do two sets of hand roll-outs to determine the difference between the two plays.<br>
+<br>
+Even if the modern player gets the initial decision wrong he will have only taken a few minutes to understand why and crucially, his model of the game will have been updated so that, when he faces a similar decision in the future, hopefully he will make the correct decision.<br>
+<br>
+The foregoing explains why the bots have had such a dramatic impact on the game in the last quarter of a century and why today’s backgammon experts are light-years ahead of their 1970s counterparts. I wonder what the experts of 2043 will be saying about today’s top players?<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.574 (Money: +0.581)
-  0.664 0.295 0.035 - 0.336 0.074 0.003
+2-ply cubeless equity +0.560
+  0.655 0.320 0.008 - 0.345 0.076 0.003
 Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.039  (+0.039)
-3. No double           +0.851  (-0.149)
-Proper cube action: Double, pass
+1. Double, take        +0.886
+2. Double, pass        +1.000  (+0.114)
+3. No double           +0.753  (-0.133)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=ab-BB-C-B---cD---cac--bA-A:0:0:1:00:2:4:0:11:10");
-var categoryid = "CBr";
-var probnum = "28";
-var showpipflg = true;
+const categoryid = "CBr";
+const probnum = "28";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---B-BDaB-A-fB---b-c-bAAa-:0:0:1:00:0:0:0:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

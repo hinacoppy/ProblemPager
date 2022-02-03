@@ -12,54 +12,68 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 156</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 145</span>&ensp;
 <span>(CBx-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Game. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=12 White=10</div></div>
+      <div class="pipinfo">pips Red=112 White=125</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic endgame double due to the volatility.<br>
+ <div class="description">I admit to playing 8/2 over the board, having considered and rejected 8/6, 8/4.<br>
 <br>
-Even if Red misses White cannot redouble immediately so now is the time to double.  Of course, White’s redoubles are immensely powerful when the do occur.<br>
+I didn’t even consider the correct play of 13/11, 13/9!<br>
 <br>
-Not doubling is a quadruple blunder while passing is a quintuple blunder!<br>
+8/2 is just too wooden and inflexible. What will Red do next turn?<br>
+<br>
+This has become a ‘pay me now, pay me later’ problem. It turns out that paying now is very clear. While White has only a three-point home board and there is some duplication of fours breaking the mid-point is correct. <br>
+<br>
+If you move a checker from White’s 6-pt to his 2-pt, giving him a four-point home board, then the dull 8/2 is correct.               <br>
+<br>
+8/6, 8/4 is not quite an error and is the second-best play.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.327
-  0.664 0.000 0.000 - 0.336 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.432
-2. Double, pass        +1.000  (+0.568)
-3. No double           +0.278  (-0.154)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 13/9                   Eq.: +0.134
+       0.488 0.131 0.002 - 0.512 0.132 0.003
+    2. Cubeful 2-ply    8/6 8/4                      Eq.: +0.123 (-0.011)
+       0.487 0.116 0.001 - 0.513 0.133 0.002
+    3. Cubeful 2-ply    8/2                          Eq.: +0.111 (-0.023)
+       0.492 0.080 0.000 - 0.508 0.125 0.001
+    4. Cubeful 2-ply    8/4 6/4                      Eq.: +0.013 (-0.121)
+       0.464 0.075 0.000 - 0.536 0.152 0.001
+    5. Cubeful 2-ply    6/4 6/2                      Eq.: -0.010 (-0.145)
+       0.460 0.060 0.000 - 0.540 0.151 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-AAA--A---------------bb--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BB-B-BbC---bB-b--Bccb-a--:1:1:1:42:4:4:0:11:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

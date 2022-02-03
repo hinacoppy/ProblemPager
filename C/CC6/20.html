@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 70</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 20</span>&ensp;
 <span>(CC6-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=105</div></div>
+      <div class="pipinfo">pips Red=150 White=140</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The old adage is that all prime against prime positions are doubles and takes. That is not quite true here as third checker back for Red makes quite a difference because needing three sixes rather than the more usual two makes the position more difficult for Red and an immediate six may well not lose his market.<br>
+ <div class="description">Something has to give here. <br>
 <br>
-That difference makes this a no double and trivial take although doubling is only a small error. XG says that if 4 % of players would drop this double, and I think you could easily get one in twenty-five people to drop this double, then the double is correct in practice.<br>
+Red must hold White’s bar-point to provide an escape avenue for the rearmost checker.<br>
+<br>
+Playing 8/5(2), 6/3(2) or 8/2(2) destroys Red’s connectivity and it will be very difficult to bring those outfield checkers home safely.<br>
+<br>
+That leaves us with 13/10(3), 6/3 which is the only move that is not a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.307
-  0.634 0.161 0.004 - 0.366 0.117 0.008
-Cubeful equities:
-1. No double           +0.375
-2. Double, pass        +1.000  (+0.625)
-3. Double, take        +0.353  (-0.021)
-Proper cube action: No double, take (3.3%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10(3) 6/3                 Eq.: -0.317
+       0.414 0.069 0.001 - 0.586 0.131 0.003
+    2. Cubeful 2-ply    8/2(2)                       Eq.: -0.395 (-0.078)
+       0.401 0.077 0.001 - 0.599 0.169 0.004
+    3. Cubeful 2-ply    8/5(2) 6/3(2)                Eq.: -0.410 (-0.093)
+       0.395 0.078 0.001 - 0.605 0.165 0.004
+    4. Cubeful 2-ply    13/10 8/5(2) 6/3             Eq.: -0.426 (-0.109)
+       0.395 0.108 0.003 - 0.605 0.195 0.006
+    5. Cubeful 2-ply    8/2 8/5 6/3                  Eq.: -0.493 (-0.176)
+       0.382 0.080 0.001 - 0.618 0.189 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b-BBBBBB----------dcbbbC-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC6";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---B--EbB---bCb-baBbbb-A--:0:0:1:33:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

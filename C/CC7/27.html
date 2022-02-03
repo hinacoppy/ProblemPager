@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 127</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 77</span>&ensp;
 <span>(CC7-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-4 to 5 (post-Crawford). How should Red play 61?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-0 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=114 White=79</div></div>
+      <div class="pipinfo">pips Red=30 White=39</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The key here is not to give up the anchor, thus giving White counterplay that he doesn’t deserve.<br>
+ <div class="description">If White drops he will have 15% match-winning chances from 0-4 down. So that is the benchmark.<br>
 <br>
-Red should complete his prime before leaving the anchor and so the correct play is the simple 9/2. <br>
+If he takes, redoubles next turn and wins then he will lead 4-3 (Crawford) and be at 70%. Therefore, to take needs to solve the equation 70 x match-winning chances = 15%. Therefore, he needs to win this game about 21.5% of the time. Does he have enough to take? Can he win just over one game in five? <br>
 <br>
-9/8, 7/1* doesn’t win enough extra gammons to warrant the risk, although it is close.<br>
+Red should be off in five or six rolls after he enters. White will take eight rolls unless he rolls a big double. So White needs Red to fan a couple of times to give him realistic winning chances. Also, White will have to play carefully – he can’t afford to be hit.<br>
+<br>
+Without rollouts it would be difficult to be sure. For money this is a skinny take because of the redouble potential but here White will already have redoubled. That pushes the position into drop territory and taking is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/2                          Eq.: +1.286
-       0.858 0.285 0.014 - 0.142 0.040 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    9/8 7/1*                     Eq.: +1.266 (-0.020)
-       0.791 0.342 0.014 - 0.209 0.077 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    7/1* 5/4                     Eq.: +1.260 (-0.025)
-       0.793 0.337 0.013 - 0.207 0.073 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    7/6 7/1*                     Eq.: +1.230 (-0.056)
-       0.784 0.331 0.013 - 0.216 0.056 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    7/1* 6/5                     Eq.: +1.209 (-0.077)
-       0.780 0.324 0.012 - 0.220 0.075 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.572 (Money: +0.572)
+  0.786 0.000 0.000 - 0.214 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.154  (+0.154)
+3. No double           +0.901  (-0.099)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-BBCCB-A----b----a-dBdc-:1:-1:1:61:2:4:0:5:10");
-var categoryid = "CC7";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-E-----------------bb-bceA:0:0:1:00:3:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

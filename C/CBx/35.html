@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 166</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 135</span>&ensp;
 <span>(CBx-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-2 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 63?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=105 White=117</div></div>
+      <div class="pipinfo">pips Red=78 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a standard double and take where the take is very comfortable.<br>
+ <div class="description">After the forced 8/2 Red can choose between 8/5, 5/2 or 4/1.<br>
 <br>
-The match score changes things because a doubled gammon wins the match for Red with perfect efficiency. That turns the position into a clear pass and in fact it is a blunder to take.<br>
+The worst of these by a long way is 5/2. The play does leave only one blot, but it creates a potential gap in front of White’s anchor. It will also subsequently leave bad fives for Red which will reduce the gammon win percentage. That play is a double blunder.<br>
 <br>
-Fascinating how that one point lead can make such a difference.<br>
+4/1 is merely an error. Red’s 5s are still potentially bad.<br>
+<br>
+Red should accelerate his bear-in with 8/5, 8/2. White’s board is not particularly threatening if Red his hit. Even if White had a five-point prime on the other side of the board 8/5, 8/2 would still be the correct play by a long, long way.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.506 (Money: +0.486)
-  0.727 0.060 0.002 - 0.273 0.029 0.000
-Cubeful equities:
-1. Double, take        +0.914
-2. Double, pass        +1.000  (+0.086)
-3. No double           +0.847  (-0.067)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/5 8/2                      Eq.: +0.905
+       0.761 0.492 0.007 - 0.239 0.033 0.001
+    2. Cubeful 2-ply    8/2 4/1                      Eq.: +0.833 (-0.072)
+       0.747 0.447 0.006 - 0.253 0.027 0.001
+    3. Cubeful 0-ply    8/2 5/2                      Eq.: +0.665 (-0.240)
+       0.692 0.415 0.007 - 0.308 0.035 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--CbECB----B---a-ccab-b-:0:0:1:00:3:2:0:7:10");
-var categoryid = "CBx";
-var probnum = "35";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "35";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB-bCBE-C---c----c-b-b-b--:1:-1:1:63:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

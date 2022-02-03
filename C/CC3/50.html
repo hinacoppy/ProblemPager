@@ -12,58 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 200</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 150</span>&ensp;
 <span>(CC3-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money play. How should Red play 33?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=140 White=158</div></div>
+      <div class="pipinfo">pips Red=125 White=48</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It is easy to get seduced by 13/1, making another home board point but far, far stronger is 13/7(2) making a five-and-a-half-point prime with White’s two checkers on Red’s 2-pt well and truly stranded.<br>
-What perhaps is surprising is that any play other than 13/7(2) is actually a quintuple blunder or worse!<br>
+ <div class="description">If Red fails to hit the blot on White’s ace-point then White would have a take for a long time as one checker closed out with five borne off is a borderline take/pass.<br>
+That blot makes the position volatile so that Red should double.<br>
+White can win by escaping the rear checker, by anchoring and winning from there or by winning from the one-checker closed out scenario. All of these add up to about 23% but what makes it a comfortable take is that White will win a gammon 4% of the time.<br>
+Dropping would be a 2.5 blunder, while not doubling as Red is merely an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    13/7(2)                      Eq.: +0.063
-       0.469 0.171 0.011 - 0.531 0.195 0.022
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    13/1                         Eq.: -0.168 (-0.231)
-       0.394 0.156 0.007 - 0.606 0.231 0.024
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    16/10 13/10(2)               Eq.: -0.211 (-0.274)
-       0.380 0.129 0.008 - 0.620 0.217 0.019
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    16/4                         Eq.: -0.212 (-0.274)
-       0.383 0.138 0.009 - 0.617 0.233 0.022
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/4 13/10                   Eq.: -0.363 (-0.425)
-       0.351 0.131 0.008 - 0.649 0.283 0.041
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.442
+  0.745 0.000 0.000 - 0.255 0.048 0.002
+Cubeful equities:
+1. Double, take        +0.710
+2. Double, pass        +1.000  (+0.290)
+3. No double           +0.685  (-0.025)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aAbABBB-Bb---B--A-cbbc--B-:1:1:1:33:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-BBBBB-AAA--------AbccaA:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

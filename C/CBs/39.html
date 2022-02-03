@@ -12,52 +12,70 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 174</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">An End-Game Enigma</span>&ensp;
 <span>(CBs-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 5. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=127 White=58</div></div>
+      <div class="pipinfo">pips Red=96 White=110</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money it would be a double blunder to redouble here. With a fully active cube giving it away now is definitely wrong by a long way.<br>
+ <div class="description">Raj Jansari posted this position on Facebook and had trouble understanding XG’s recommendation. I had the same problem when I studied it so let us try to make sense of the bot’s suggestion.<br>
 <br>
-However, at this match score, getting to 4-0 (Crawford) or even winning the match with a gammon is massive and not redoubling is a double blunder. For the umpteenth time the match score determines the decision.<br>
+Before we come to that suggestion let us eliminate a few other plays. 13/6 leaves Black vulnerable to rolling 61 next turn so that cannot be right. 8/5, 8/5 eliminates the 61 problem but now Black will have more trouble clearing his mid-point. In certain variations he will want to keep his 8-pt so that he can play a roll of 5x by moving 13/x, 13/8, giving White a single shot. Moving 8/5, 8/4 eliminates those variations so again that cannot be right.<br>
+<br>
+In positions like this XG’s strategy is to move inside the home board so as to give Black more time to roll a clearing double and never leave a shot. However, it is how you move within the home board that now becomes the focus of this problem. <br>
+<br>
+Black will want to keep some fives to play later so playing 6/3, 6/2 is not the right idea. Equally well Black will not want to leave a hole in his home board on the 4-pt or 5-pt that will cause him to miss with one of those number later in the bear-off. This should eliminate 5/2, 5/1.  6/2, 4/1 is better but risks a later hole on the 4-pt. 5/1, 4/1 is very similar to 6/2, 4/1.<br>
+<br>
+So, what does that leave us with? The answer is XG’s recommendation of 6/3, 5/1 – a somewhat strange looking play. 6/3, 5/1 leaves a five to play later, fills the current hole on the 1-pt (without overcrowding it) and leaves the same number of checkers on the 6-pt and 5-pt which XG seems to approve of.<br>
+<br>
+I performed a long rollout of this position and 6/3, 5/1 comes out top by a long way. The next two plays, 5/2, 5/1 and 5/1, 4/1 are tied but with an equity difference 0.06 less than 6/3, 5/1 which implies a big error for any move other than the correct play.<br>
+<br>
+Can we be sure that XG has got this one right. I believe so. This Is a relatively simple position to play (except of course getting the first move right!) and I would not expect a neural net program to make any mistakes from here. That means that we need to learn to think more about the ideas and analysis that I have gone through above. These ideas are perhaps more important than I would have thought, and I have certainly learnt something by analysing this position so my thanks to Raj for posting it in the first place.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.240 (Money: +0.243)
-  0.624 0.140 0.004 - 0.376 0.148 0.002
-Cubeful equities:
-1. Double, take        +0.450
-2. Double, pass        +1.000  (+0.550)
-3. No double           +0.434  (-0.016)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/6                         Eq.: +0.484
+       0.670 0.015 0.000 - 0.330 0.014 0.000
+    2. Cubeful 2-ply    5/1 4/1                      Eq.: +0.470 (-0.015)
+       0.666 0.013 0.000 - 0.334 0.016 0.000
+    3. Cubeful 2-ply    6/2 4/1                      Eq.: +0.469 (-0.015)
+       0.666 0.013 0.000 - 0.334 0.016 0.000
+    4. Cubeful 2-ply    5/2 5/1                      Eq.: +0.460 (-0.024)
+       0.663 0.011 0.000 - 0.337 0.015 0.000
+    5. Cubeful 2-ply    6/2 5/2                      Eq.: +0.442 (-0.043)
+       0.657 0.011 0.000 - 0.343 0.017 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBaBBC-----A-A----aAhcbA:1:1:1:00:0:0:0:5:10");
-var categoryid = "CBs";
-var probnum = "39";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "39";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--ACBBBbB----C-aa-adbbb---:0:0:1:43:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

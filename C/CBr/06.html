@@ -12,69 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">The Gambler</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 87</span>&ensp;
 <span>(CBr-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=126</div></div>
+      <div class="pipinfo">pips Red=136 White=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">In Kenny Roger’s famous song “The Gambler” he repeats the line “know when to hold ‘em, know when to fold ‘em” which is the basic strategy for poker. The same strategy, in a slightly different way, also applies to backgammon.<br>
+ <div class="description">I found this one quite surprising. I would quickly double as Red and expect White to take some time before accepting the double. XG has this a borderline no double and an absolutely trivial take.<br>
 <br>
-There are times when you have to recognise that you are in a losing position and that the best course of action is to limit those losses. This normally involves just losing a single game rather than a gammon or a backgammon.<br>
+White’s three-point home board is a crucial factor in the decision making. That and the fact that Red currently has four blots. While Red has threats they are not decisive and it is that lack of volatility that I suspect makes XG lean towards not doubling.<br>
 <br>
-In this week’s position Black elected to play 23/22, 6/4(2)*, 3/2. On a freak day White might enter immediately and then roll a couple of big doubles to crack his prime and let Black win by going forward. However, in the real world it is Black whose board will disintegrate and then he may end up with more checkers sent back , no chances to win the game and a gammon loss a high probability.<br>
-<br>
-At the moment he has only four checkers behind White’s prime which gives him very real chances of saving the gammon if he can avoid more checkers being sent back. The best play is 23/22, 6/5(3), largely giving up on winning but only losing a gammon 22% of the time. With the move actually chosen he increases his gammon losses to around 33% while actually decreasing his winning chances (from 7% to 6%).<br>
-<br>
-It always hard to wave the white flag, particularly in a game famous for its last-minute turnarounds, but Black must do precisely that in this position.<br>
-<br>
-Now let’s suppose this position occurred at Double Match Point. In this scenario the cube is irrelevant and gammons do not count. Black can now employ a very different strategy as his only concern is winning the game. The best play to achieve that aim is 6/4*, 3/1, with the objective of obtaining a playable back game. With this move Black’s winning chances rise to 10%. His 43% gammon losses are, luckily, of no consequence.<br>
-<br>
-So remember to follow the wise words of The Gambler: “know when to hold ‘em, know when to fold ’em.”<br>
+However, I would still double this in practice.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22 6/5(3)                 Eq.: -1.056
-       0.075 0.004 0.000 - 0.925 0.229 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/22 6/5 3/1                Eq.: -1.075 (-0.019)
-       0.072 0.004 0.000 - 0.928 0.244 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/5(3) 3/2                   Eq.: -1.078 (-0.022)
-       0.078 0.005 0.000 - 0.922 0.259 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    23/22 3/1 3/2                Eq.: -1.084 (-0.028)
-       0.071 0.004 0.000 - 0.929 0.249 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    3/1(2)                       Eq.: -1.091 (-0.035)
-       0.079 0.005 0.000 - 0.921 0.275 0.006
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.457
+  0.628 0.296 0.020 - 0.372 0.107 0.006
+Cubeful equities:
+1. Double, take        +0.662
+2. Double, pass        +1.000  (+0.338)
+3. No double           +0.615  (-0.047)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--ACaDC-a------abbbbbbCA--:1:1:1:11:0:0:3:0:10");
-var categoryid = "CBr";
-var probnum = "06";
-var showpipflg = true;
+const categoryid = "CBr";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aaA-BCCBA--eA-----cbbAaA-:0:0:1:00:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

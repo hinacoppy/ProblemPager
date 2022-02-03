@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 146</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 55</span>&ensp;
 <span>(CBw-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=112 White=129</div></div>
+      <div class="pipinfo">pips Red=113 White=124</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Whatever decision you made for White you were correct! I assume you doubled as Red.<br>
+ <div class="description">When ahead in the race, race so we can discount 13/5(2), leaving the rear checkers stranded.<br>
 <br>
-This is a good reference position as it is right on the border line. Take the spare checker on Red’s 6-pt and put it on his 2-pt and White has a massive take. Every dead checker in such positions makes a huge difference and, of course, the race is highly relevant.<br>
+There are two ways two race: 18/10(2) and 18/14(2), 13/9(2).<br>
+<br>
+18/10(2) leaves a fragile structure with two points that will be difficult to clear easily. 18/14(2), 13/9(2) is flexible and will give Red time to play safely while he waits to clear the 14-pt.<br>
+<br>
+18/10(2) is nearly a quadruple blunder. Everything else is in sextuple blunder country!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.551
-  0.764 0.039 0.001 - 0.236 0.017 0.000
-Cubeful equities:
-1. Double, take        +0.942
-2. Double, pass        +1.000  (+0.058)
-3. No double           +0.918  (-0.024)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/14(2) 13/9(2)             Eq.: +0.738
+       0.687 0.167 0.002 - 0.313 0.067 0.001
+    2. Cubeful 2-ply    18/10(2)                     Eq.: +0.566 (-0.172)
+       0.662 0.154 0.001 - 0.338 0.082 0.001
+    3. Cubeful 0-ply    13/9(2) 8/4*(2)              Eq.: +0.390 (-0.348)
+       0.591 0.298 0.004 - 0.409 0.157 0.006
+    4. Cubeful 0-ply    13/5(2)                      Eq.: +0.349 (-0.389)
+       0.593 0.175 0.001 - 0.407 0.090 0.000
+    5. Cubeful 0-ply    18/14(2) 8/4*(2)             Eq.: +0.247 (-0.492)
+       0.565 0.236 0.002 - 0.435 0.169 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--Ab-BCBCB--bB---aadbab---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBw";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBAa-CbC---bB----Bbbbca--:0:0:1:44:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

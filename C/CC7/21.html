@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 121</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 71</span>&ensp;
 <span>(CC7-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 33?</div>
+<article>
+<div class="doAction">Match Play. Red leads 2-0 to 5.  Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=173 White=160</div></div>
+      <div class="pipinfo">pips Red=101 White=121</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">After bar/22 the best point to make is White’s bar-point with 21/18(2), giving Red a key communication point. The final three would then be played 6/3.<br>
+ <div class="description">The question is not the double, which White should pass, but whether Red should play on for an undoubled gammon.<br>
 <br>
-This is better than making the 10-pt because that move could strand the three rear checkers and leave Red’s forces disconnected.<br>
-<br>
-In fact, bar/22, 13/10(2), 6/3 is very nearly a blunder. Remember, good communication is normally a key element of a strong backgammon position<br>
+The rollouts have the decision as right on the borderline. That implies that for practical purposes Red should double and give White the opportunity to make a mistake by taking.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 21/18(2) 6/3          Eq.: -0.233
-       0.444 0.071 0.002 - 0.556 0.125 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/22 13/10(2) 6/3          Eq.: -0.286 (-0.053)
-       0.420 0.072 0.002 - 0.580 0.112 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/22 13/4                  Eq.: -0.340 (-0.106)
-       0.400 0.068 0.002 - 0.600 0.104 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/22 21/18(2) 13/10        Eq.: -0.377 (-0.144)
-       0.407 0.074 0.002 - 0.593 0.154 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/22 13/10 6/3(2)          Eq.: -0.407 (-0.174)
-       0.388 0.076 0.003 - 0.612 0.135 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.826 (Money: +0.785)
+  0.787 0.240 0.002 - 0.213 0.031 0.001
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.340  (+0.340)
+3. No double           +0.987  (-0.013)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-----bE-Ca--dD---c-cbB---A:0:0:1:33:0:0:2:0:10");
-var categoryid = "CC7";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BB-CC-Bb---B--Abbbbb-b--:0:0:1:00:2:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

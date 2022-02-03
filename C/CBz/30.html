@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 30</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 230</span>&ensp;
 <span>(CBz-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 66?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=102 White=103</div></div>
+      <div class="pipinfo">pips Red=123 White=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Note: The solution to this problem will be posted on Wednesday 19th February.<br>
+ <div class="description">This is already nearly a pass for White because of the gammon threat and so the position is highly volatile. Virtually any roll by Red followed by a fan for White will make this a pass so Red must double now. Not doubling is a triple blunder.<br>
+<br>
+Because of the gammon threat which, if executed, gets Red to the Crawford Game White only just squeeze a take from this position.<br>
+<br>
+For money, the take is much clearer although it is still a massive double for Red.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/6(2)                      Eq.: +0.966
-       0.783 0.022 0.000 - 0.217 0.006 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    18/12(2) 9/3(2)              Eq.: +0.876 (-0.090)
-       0.750 0.029 0.000 - 0.250 0.008 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    18/6 9/3(2)                  Eq.: +0.188 (-0.778)
-       0.548 0.081 0.001 - 0.452 0.028 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    18/6 18/12 9/3               Eq.: +0.070 (-0.896)
-       0.536 0.060 0.001 - 0.464 0.097 0.001
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.489 (Money: +0.512)
+  0.624 0.343 0.002 - 0.376 0.077 0.003
+Cubeful equities:
+1. Double, take        +0.799
+2. Double, pass        +1.000  (+0.201)
+3. No double           +0.705  (-0.094)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--CAbCD--B---b----Bbabbbb-:0:0:1:66:0:0:3:0:10");
-var categoryid = "CBz";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBB-BBB-----cC---cbd-b--B-:0:0:1:00:0:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 168</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 118</span>&ensp;
 <span>(CC3-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 54?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=150 White=144</div></div>
+      <div class="pipinfo">pips Red=155 White=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">There are two real choices, hitting with 13/4* or running with 24/15. Any other play is a triple blunder or worse.<br>
-I think many would choose 13/4* to gain a tempo but a return hit could be ruinous, and the game could end quickly with a cube turn.<br>
-White has a powerful home board position and if he makes his 5-pt it will be a winning prime.<br>
-24/15 triplicates White’s threes while escaping one checker from behind the growing prime. The race is close so running is a reasonable strategy.<br>
-The rollout shows that 24/15 is the correct play and that 13/4* is an error but not a blunder.<br>
+ <div class="description">Both players have structural problems. The race is even. Red has the advantage because White has a checker on the bar and two exposed blots.<br>
+Red should double because of the volatility. However, Red has only nine checkers in the attack zone and two of those are out of play on his ace-point.<br>
+If White can anchor, he has a very playable game. The position is only just a double and it is a trivial take. Dropping would be a triple blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/15                        Eq.: +0.043
-       0.519 0.142 0.006 - 0.481 0.147 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/4*                        Eq.: -0.029 (-0.072)
-       0.493 0.174 0.010 - 0.507 0.168 0.014
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/20 13/8                   Eq.: -0.185 (-0.227)
-       0.463 0.143 0.007 - 0.537 0.177 0.009
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/20 6/1*                   Eq.: -0.191 (-0.233)
-       0.457 0.148 0.007 - 0.543 0.180 0.011
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    8/4* 6/1*                    Eq.: -0.225 (-0.267)
-       0.436 0.182 0.009 - 0.564 0.211 0.024
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.471
+  0.621 0.337 0.018 - 0.379 0.119 0.006
+Cubeful equities:
+1. Double, take        +0.685
+2. Double, pass        +1.000  (+0.315)
+3. No double           +0.612  (-0.073)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--aCCBB---bC--acbc-b--B-:0:0:1:54:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB-aBBC-a---c-AbA--bbC-cA-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

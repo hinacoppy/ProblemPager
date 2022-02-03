@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 36</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 218</span>&ensp;
 <span>(CBu-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=120 White=125</div></div>
+      <div class="pipinfo">pips Red=98 White=126</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red is the favourite here and nearly half of his wins will be gammons but there are not enough market-losing sequences to justify a double here. He does better to wait until his threats are stronger.<br>
+ <div class="description">A pay me now, pay me later problem.<br>
 <br>
-Giving White ownership of the cube here is not a good idea. His anchor on Red’s bar-point will give him counter-play for a long time.<br>
+17/8 or 8/3, 6/2. White’s board is improving, and Red is running out of time. After 8/3, 6/2 both of Red’s outside points are stripped and the alarm bells should start ringing for him.<br>
 <br>
-Red should bide his time and leave the cube in the centre.<br>
+This points to 17/8 as the correct play and indeed it is. 8/3, 6/2 is an error. Pay now.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.227
-  0.549 0.262 0.013 - 0.451 0.143 0.005
-Cubeful equities:
-1. No double           +0.248
-2. Double, pass        +1.000  (+0.752)
-3. Double, take        +0.152  (-0.096)
-Proper cube action: No double, take (11.3%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 6/2                      Eq.: +0.313
+       0.607 0.085 0.000 - 0.393 0.071 0.001
+    2. Cubeful 2-ply    17/8                         Eq.: +0.277 (-0.037)
+       0.574 0.111 0.002 - 0.426 0.057 0.001
+    3. Cubeful 2-ply    8/4 6/1                      Eq.: +0.266 (-0.047)
+       0.592 0.082 0.000 - 0.408 0.077 0.000
+    4. Cubeful 2-ply    6/2 6/1                      Eq.: +0.212 (-0.101)
+       0.578 0.083 0.000 - 0.422 0.089 0.001
+    5. Cubeful 0-ply    8/4 8/3                      Eq.: +0.186 (-0.127)
+       0.562 0.101 0.001 - 0.438 0.094 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aBCBBbB----C---abccba--A:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBu";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CBu";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-B-BBbD-C---b---bB-ccb--a-:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

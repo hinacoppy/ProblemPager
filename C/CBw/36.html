@@ -12,63 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 115</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 86</span>&ensp;
 <span>(CBw-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 44?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-2 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=136 White=134</div></div>
+      <div class="pipinfo">pips Red=137 White=147</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Given that Red leads in the race it is logical to play 20/16(2) with two of the fours.<br>
+ <div class="description">A classic volatile middle game position. White’s four blots invite a double which is perfectly correct and not doubling is a blunder.<br>
 <br>
-Then it is really a question of playing 13/9(2) or 13/9, 7/3.<br>
+The take is very clear as White has so many ways to win the game from here, especially as Red is on the bar and fans 11% of the time.  Passing this would be worse than a quadruple blunder.<br>
 <br>
-The latter is the better move. It secures a three-point home board and a broken five-point prime. The blot left on the mid-point isn’t in too much danger as Red is likely to get return shots even if it is hit.<br>
-<br>
-After 20/16(2), 13/9, 7/3 Red will be doubling next turn on most sequences, and White will be hard-pushed to accept.<br>
+Interesting things happen when you play around with moving the checkers in Red’s home board. Give him his 5-pt and 4-pt instead of his 3-pt and 2-pt and the position becomes double and big pass at this score but double and an easy take for money.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16(2) 13/9 7/3            Eq.: +0.888
-       0.723 0.195 0.006 - 0.277 0.060 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/5 13/9 7/3                Eq.: +0.867 (-0.021)
-       0.680 0.231 0.004 - 0.320 0.046 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/16(2) 13/9(2)             Eq.: +0.819 (-0.069)
-       0.718 0.162 0.003 - 0.282 0.058 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/4(3) 7/3                   Eq.: +0.809 (-0.079)
-       0.660 0.256 0.005 - 0.340 0.051 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/9(2) 8/4 7/3              Eq.: +0.762 (-0.126)
-       0.675 0.240 0.005 - 0.325 0.055 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.470 (Money: +0.370)
+  0.581 0.305 0.027 - 0.419 0.118 0.007
+Cubeful equities:
+1. Double, take        +0.577
+2. Double, pass        +1.000  (+0.423)
+3. No double           +0.515  (-0.062)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aA-BBCC---bBc--c-cBb-a--:0:0:1:44:0:0:3:0:10");
-var categoryid = "CBw";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBB--DaB---cBa--cBbca---A:0:0:1:00:3:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

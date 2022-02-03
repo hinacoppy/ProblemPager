@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 213</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 172</span>&ensp;
 <span>(CBy-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-2 to 7. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=22 White=29</div></div>
+      <div class="pipinfo">pips Red=97 White=76</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is one that Reichert’s formula gets wrong, deeming it to be a pass.<br>
+ <div class="description">7/3, 6/1 is the correct play here.<br>
 <br>
-I think this is due to it not correctly assessing the weakness of Red’s 1s and 3s while he has an even number of checkers.<br>
+What is remarkable is that 6/2, 6/1 is a blunder and not just an error. Keeping even on the high points seems to be more important than I had thought. 6/2, 6/1 needlessly leaves a bad 66 next turn. <br>
 <br>
-In essence this is very close to a four-vs-four bear-off which would be double and take.  In fact, this is a very big double but also a very easy take.<br>
+If you thought about playing 10/6, 10/5 for more than a nanosecond then I’m afraid it is back to school for you!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.460
-  0.730 0.000 0.000 - 0.270 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.830
-2. Double, pass        +1.000  (+0.170)
-3. No double           +0.729  (-0.101)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/3 6/1                      Eq.: +0.857
+       0.700 0.065 0.000 - 0.300 0.009 0.000
+    2. Cubeful 2-ply    7/2 6/2                      Eq.: +0.826 (-0.031)
+       0.695 0.063 0.001 - 0.305 0.010 0.000
+    3. Cubeful 2-ply    6/2 6/1                      Eq.: +0.758 (-0.099)
+       0.683 0.063 0.001 - 0.317 0.013 0.000
+    4. Cubeful 2-ply    7/2 5/1                      Eq.: +0.693 (-0.164)
+       0.673 0.061 0.001 - 0.327 0.016 0.000
+    5. Cubeful 0-ply    6/1 5/1                      Eq.: +0.480 (-0.377)
+       0.633 0.045 0.000 - 0.367 0.010 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ACAC--------------bbaa---:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBy";
-var probnum = "22";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-A--bCDCB-B--------a-cbcd-:0:0:1:54:3:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

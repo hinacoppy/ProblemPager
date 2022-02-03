@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 79</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 29</span>&ensp;
 <span>(CC1-29)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-5 to 7. Should Red double? If doubled should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=117 White=104</div></div>
+      <div class="pipinfo">pips Red=161 White=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This would be a ludicrous double for money, but the match score makes it perfectly valid because of the match score. If Red loses this game then he will trail 1-6 (Crawford), assuming he loses a single game, with only 10% match-winning chances. However, if he wins a gammon, he will tie the match at 5-5.<br>
+ <div class="description">When your opponent makes his 2pt early in the game it is rarely correct to split the back checkers as this gives him the option of a blitz attack while priming doesn’t work well for him as he owns both his 2-pt and 8-pt.<br>
 <br>
-The reward is worth the risk. Not doubling here is an error. Dropping the double is worse than an octuple blunder – Red has a great deal of work to do bring this position home even if he starts with a 63!<br>
+The choice here is between 13/5 and 13/11, 13/7. The latter gives a much better distribution of checkers and potential return hits. Therefore, that is the correct move.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.165 (Money: +0.207)
-  0.558 0.181 0.003 - 0.442 0.092 0.002
-Cubeful equities:
-1. Double, take        +0.454
-2. Double, pass        +1.000  (+0.546)
-3. No double           +0.429  (-0.025)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 13/7                   Eq.: -0.034
+       0.499 0.163 0.009 - 0.501 0.173 0.014
+    2. Cubeful 2-ply    13/5                         Eq.: -0.047 (-0.013)
+       0.494 0.157 0.008 - 0.506 0.170 0.012
+    3. Cubeful 2-ply    24/16                        Eq.: -0.067 (-0.033)
+       0.495 0.136 0.006 - 0.505 0.185 0.006
+    4. Cubeful 2-ply    13/7 6/4                     Eq.: -0.092 (-0.058)
+       0.481 0.148 0.007 - 0.519 0.170 0.012
+    5. Cubeful 2-ply    24/18 13/11                  Eq.: -0.095 (-0.061)
+       0.495 0.145 0.008 - 0.505 0.207 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-BCBAB-B----a---bbbcCbb--:0:0:1:00:1:5:0:7:10");
-var categoryid = "CC1";
-var probnum = "29";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "29";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b--B-D-B---dE---c-ca--bB-:0:0:1:62:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 184</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 117</span>&ensp;
 <span>(CBx-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 65?</div>
+<article>
+<div class="doAction">Match Play. Red trails 1-2 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=195 White=76</div></div>
+      <div class="pipinfo">pips Red=144 White=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">To hit or not to hit? Does hitting give up Red’s anchor on White’s 2-pt too early?<br>
+ <div class="description">For money this is technically a double and a trivial take. The double is right on the borderline so waiting would be fine. <br>
 <br>
-Without Red having his own four-point prime the answers would be simple. Move one checker from Red’s bar-point to his 6-pt and hitting would be an horrendous blunder.<br>
+At this score not doubling would be a blunder. Red could easily lose his market by his next turn so he must double now. The take is still quite comfortable.<br>
 <br>
-As it is hitting is correct. Red must play 23/17*, 21/15 and hope the four-point prime does its job. 21/16, 21/15 attempts to build an ever better block but, of course, Red may never get another shot. It is better to hit now. Not hitting is an error but not a blunder<br>
+If this were a 5-pt match then taking would be nearly a quadruple blunder! <br>
+<br>
+The power of the match score is ably demonstrated by this problem.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/16 21/15                  Eq.: -0.111
-       0.498 0.075 0.001 - 0.502 0.341 0.011
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/10                        Eq.: -0.157 (-0.045)
-       0.484 0.073 0.001 - 0.516 0.353 0.012
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/18* 21/15                 Eq.: -0.168 (-0.057)
-       0.471 0.090 0.004 - 0.529 0.357 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    23/18*/12                    Eq.: -0.278 (-0.167)
-       0.436 0.081 0.004 - 0.564 0.375 0.009
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    21/15 7/2                    Eq.: -0.329 (-0.218)
-       0.439 0.054 0.001 - 0.561 0.394 0.017
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.471 (Money: +0.474)
+  0.653 0.228 0.004 - 0.347 0.063 0.001
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.167  (+0.167)
+3. No double           +0.848  (-0.152)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----BBBB---------dacbEbBc-:1:1:1:65:0:0:1:0:10");
-var categoryid = "CBx";
-var probnum = "17";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "17";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--a--BD-C-A-eD---d-e----A-:0:0:1:00:1:2:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

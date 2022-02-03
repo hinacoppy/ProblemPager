@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 148</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 98</span>&ensp;
 <span>(CC7-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-1 to 3.  How should Red play 64?</div>
+<article>
+<div class="doAction">Unlimited games. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=104 White=102</div></div>
+      <div class="pipinfo">pips Red=141 White=103</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Sixes don’t grow on trees so, despite the risks, Red should play 22/16, 6/2.<br>
+ <div class="description">A volatile position indeed. Red has twenty shots and he will nearly certainly lose his market if he hits the exposed White checker. Red will also win a fair percentage of gammons if he hits the blot.<br>
 <br>
-8/4, 8/2 is not even an error but it is not the best play. Red must take a risk now. White does not have a double after 22/16, 6/2 because of the match score. For money it would be double and pass.<br>
+However, sixteen numbers don’t hit and if White then rolls a six he will have a strong position. Note also that White leads by a not insignificant thirty-eight pips.<br>
+<br>
+This turns out to be much more of a take than a double but due to the volatility and the gammons it is just a double. The take is trivial and dropping would be worse than a triple blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/16 6/2                    Eq.: -0.799
-       0.276 0.081 0.003 - 0.724 0.257 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    22/12                        Eq.: -0.864 (-0.065)
-       0.266 0.061 0.002 - 0.734 0.202 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/4 8/2                      Eq.: -0.876 (-0.077)
-       0.275 0.030 0.001 - 0.725 0.091 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/2 6/2                      Eq.: -1.000 (-0.201)
-       0.228 0.015 0.000 - 0.772 0.111 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/2 5/1                      Eq.: -1.000 (-0.201)
-       0.224 0.016 0.000 - 0.776 0.113 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.413
+  0.643 0.234 0.007 - 0.357 0.108 0.006
+Cubeful equities:
+1. No double           +0.617
+2. Double, pass        +1.000  (+0.383)
+3. Double, take        +0.585  (-0.032)
+Proper cube action: No redouble, take (7.8%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--ADBBBbB--------bbbbcB-b-:0:0:1:64:0:1:0:3:10");
-var categoryid = "CC7";
-var probnum = "48";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "48";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBBBB------A--bcabBbbbB-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

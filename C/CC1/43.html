@@ -12,52 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 93</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 43</span>&ensp;
 <span>(CC1-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-2 to 5. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 66?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=137 White=131</div></div>
+      <div class="pipinfo">pips Red=135 White=133</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic match play doubling situation. Red will behind 4-away vs 1-away (with 18% nmatch-winning chances) if he loses this game or he will have lost the match if he loses a gammon.<br>
+ <div class="description">The wrong idea here is 13/7(3), 10/4, despite the duplication of 3’s.<br>
 <br>
-What would be a huge beaver for money becomes a correct double and take at this match score. Not redoubling is actually an error. Of course, White has a trivial take. Hopefully nobody would drop this as White!<br>
+Red has the choice of creating a broken prime with 13/7(2), 8/2(2) or blitzing with 13/1(2)*. The rollouts have it too close to call.<br>
+<br>
+If the cube had already been turned then 13/1(2)* would be very clear because of the gammons won.<br>
+<br>
+However, here it is a question of getting to an efficient cube turn. That is why 13/7(3), 10/4 is so wrong. When White doesn’t roll a 3 Red has gone way beyond his doubling point but if White does roll the 3 Red will regret the play. Red does much better with the other two plays as they potentially give White a much more difficult doubling decision.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.139 (Money: -0.042)
-  0.499 0.174 0.008 - 0.501 0.219 0.004
-Cubeful equities:
-1. Double, take        +0.516
-2. Double, pass        +1.000  (+0.484)
-3. No double           +0.457  (-0.059)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7(2) 8/2(2)               Eq.: +0.876
+       0.693 0.238 0.006 - 0.307 0.064 0.002
+    2. Cubeful 2-ply    13/1*(2)                     Eq.: +0.871 (-0.005)
+       0.691 0.314 0.004 - 0.309 0.060 0.002
+    3. Cubeful 2-ply    13/7(3) 10/4                 Eq.: +0.699 (-0.177)
+       0.686 0.222 0.005 - 0.314 0.071 0.002
+    4. Cubeful 0-ply    13/1* 13/7(2)                Eq.: +0.605 (-0.271)
+       0.652 0.261 0.006 - 0.348 0.084 0.002
+    5. Cubeful 0-ply    13/1* 8/2(2)                 Eq.: +0.529 (-0.347)
+       0.623 0.287 0.004 - 0.377 0.097 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BbBDbC----Ba--a-bbbAabA:1:1:1:00:1:2:0:5:10");
-var categoryid = "CC1";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B-BC-B-A-bCb--cBdab----:0:0:1:66:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 120</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 70</span>&ensp;
 <span>(CC7-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 43?</div>
+<article>
+<div class="doAction">Money play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=137</div></div>
+      <div class="pipinfo">pips Red=138 White=105</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red could make his 3-pt with 7/3, 6/3 but as he will be 16 pips up after the roll he should be seeking the best way to bring his checkers home safely.<br>
+ <div class="description">The old adage is that all prime against prime positions are doubles and takes. That is not quite true here as third checker back for Red makes quite a difference because needing three sixes rather than the more usual two makes the position more difficult for Red and an immediate six may well not lose his market.<br>
 <br>
-To do that he should play 10/7, 10/6. This clears the awkward 10-pt and provides a new landing point for the mid-point checkers.<br>
-<br>
-7/3, 6/3 is a mistake rather than an error but knowing the correct approach here is the key to the solution. With a closer race making the 3-pt and blocking sixes would be correct but here 10/7, 10/6 is the right move.<br>
+That difference makes this a no double and trivial take although doubling is only a small error. XG says that if 4 % of players would drop this double, and I think you could easily get one in twenty-five people to drop this double, then the double is correct in practice.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/7 10/6                    Eq.: +0.497
-       0.665 0.026 0.000 - 0.335 0.018 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/10 7/3                    Eq.: +0.475 (-0.022)
-       0.662 0.028 0.000 - 0.338 0.025 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    7/3 6/3                      Eq.: +0.450 (-0.048)
-       0.654 0.027 0.000 - 0.346 0.025 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    8/5 7/3                      Eq.: +0.318 (-0.180)
-       0.612 0.052 0.000 - 0.388 0.059 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/10 6/2                    Eq.: +0.297 (-0.201)
-       0.607 0.057 0.000 - 0.393 0.069 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.307
+  0.634 0.161 0.004 - 0.366 0.117 0.008
+Cubeful equities:
+1. No double           +0.375
+2. Double, pass        +1.000  (+0.625)
+3. Double, take        +0.353  (-0.021)
+Proper cube action: No double, take (3.3%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----b-EAD-B-bC---cbd-aa---:0:0:1:43:0:0:2:0:10");
-var categoryid = "CC7";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-BBBBBB----------dcbbbC-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

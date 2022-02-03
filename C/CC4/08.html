@@ -12,56 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 208</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 158</span>&ensp;
 <span>(CC4-08)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 8-9 to 13. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=67 White=73</div></div>
+      <div class="pipinfo">pips Red=98 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Firstly, my apologies. The problem should have stated that the match score was 8-9 to 13. At that score the position is no double/take. Giving white the cube on 2 when he might have a perfectly efficient redouble to 4 later (and thus win the match) should give Red pause for thought.<br>
-<br>
-For money this is a borderline double and a trivial take.<br>
-<br>
-At 8-9 to 11 this is a huge double. At 2-away vs 3-away the rule is “double early as the trailer, drop early as the leader”. Two points get Red to the Crawford Game. <br>
-<br>
-Not doubling is nearly a double blunder but the take is still trivial.<br>
+ <div class="description">It would be nice to play 3/1, 2/1 but Red doesn’t have enough time to do that. On average it will take him five rolls to escape the checker from White’s point and he does not have five rolls.<br>
+This is a question of priorities and Red’s key priority is to escape the rear checker. The 2 should be played 24/22. The 1 should be played 17/16. If White then rolls 44 you just know it is not your day! However, most of the time the duplication will work well.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.434 (Money: +0.434)
-  0.717 0.000 0.000 - 0.283 0.000 0.000
-Cubeful equities:
-1. No double           +0.583
-2. Double, pass        +1.000  (+0.417)
-3. Double, take        +0.504  (-0.079)
-Proper cube action: No double, take (15.9%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 17/16                  Eq.: +0.094
+       0.487 0.129 0.002 - 0.513 0.164 0.009
+    2. Cubeful 2-ply    24/22 3/2                    Eq.: +0.036 (-0.058)
+       0.469 0.125 0.002 - 0.531 0.178 0.010
+    3. Cubeful 2-ply    24/22 12/11                  Eq.: +0.024 (-0.070)
+       0.463 0.124 0.002 - 0.537 0.175 0.010
+    4. Cubeful 2-ply    3/1 2/1                      Eq.: +0.019 (-0.074)
+       0.437 0.137 0.001 - 0.563 0.134 0.007
+    5. Cubeful 0-ply    24/22 2/1                    Eq.: -0.246 (-0.339)
+       0.391 0.128 0.001 - 0.609 0.266 0.024
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBC-CA-B---a-a---dbbabb-:0:0:1:00:8:9:0:13:10");
-var categoryid = "CC4";
-var probnum = "08";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "08";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-CD-CB-b---A----Abcbc-bA-:1:1:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

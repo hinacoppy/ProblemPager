@@ -12,51 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 188</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 138</span>&ensp;
 <span>(CC3-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=30 White=33</div></div>
+      <div class="pipinfo">pips Red=164 White=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">To calculate this cube decision accurately you need to understand Effective Pip Counts. You can download my paper “Backgammon Races’ from this website to get information on EPCs.<br>
-From Walter Trice’s formulae Red’s EPC is approximately 40 and White’s is 42.5 indicating redouble and take. In fact, the rollouts show it only just a redouble and a trivial take.<br>
+ <div class="description">11/5 looks nice and it is safe, but it is also a blunder.<br>
+There are too many White checkers in the attack zone for Red to split comfortably, although 24/20, 13/11 is the second-best play.<br>
+The top play is 8/4, 6/4 leaving a fluid and dynamic position. Red is behind in the race so being hit on his 11-pt may help him rather than hinder him.<br>
+13/9, 11/9 is a bad mistake. As usual, taking a solid inner board asset is better than the outer board point.<br>
+Making the 4-pt is not obvious but once you see it, its merits become obvious.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.401
-  0.701 0.000 0.000 - 0.299 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.631
-2. Double, pass        +1.000  (+0.369)
-3. No double           +0.605  (-0.026)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 6/4                      Eq.: -0.430
+       0.385 0.096 0.002 - 0.615 0.158 0.008
+    2. Cubeful 2-ply    24/20 13/11                  Eq.: -0.456 (-0.026)
+       0.391 0.084 0.002 - 0.609 0.179 0.007
+    3. Cubeful 2-ply    13/11 8/4                    Eq.: -0.475 (-0.046)
+       0.376 0.097 0.002 - 0.624 0.171 0.010
+    4. Cubeful 2-ply    13/9 11/9                    Eq.: -0.488 (-0.059)
+       0.371 0.086 0.002 - 0.629 0.158 0.007
+    5. Cubeful 2-ply    11/5                         Eq.: -0.502 (-0.072)
+       0.367 0.081 0.001 - 0.633 0.155 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBBBB-----------------d--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-----ADbC--AcD---cbe----B-:0:0:1:42:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

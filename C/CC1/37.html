@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 87</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 37</span>&ensp;
 <span>(CC1-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 51?</div>
+<article>
+<div class="doAction">Match Play. Red trails 1-4 to 13. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=139 White=131</div></div>
+      <div class="pipinfo">pips Red=106 White=67</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">11/10, 6/1 is an entirely reasonable play and it is certainly not an error. However, just beating it is the very prosaic 8/2.<br>
+ <div class="description">In a money game it would be an horrendous error to redouble, nearly a beaver because of the fully active cube.<br>
 <br>
-In a very level position not giving White sevens and most eights to hit it correct. Red’s position after 8/2 is fine and he can just hope for something better next time.<br>
-<br>
-Sometimes the quiet play is correct and this position is a demonstration of that idea.<br>
+The match score disparity means that Red should seriously consider redoubling but in fact, the disparity is not enough to warrant the redouble. If Red were trailing 1-5 it would be a borderline redouble and at any score worse than 1-5 the redouble would be clear. As it is, Red should wait.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2                          Eq.: +0.078
-       0.516 0.128 0.003 - 0.484 0.093 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/7 6/1                      Eq.: +0.048 (-0.030)
-       0.510 0.125 0.003 - 0.490 0.101 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/10 6/1                    Eq.: +0.046 (-0.033)
-       0.511 0.120 0.003 - 0.489 0.095 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/10 11/6                   Eq.: +0.033 (-0.045)
-       0.503 0.114 0.003 - 0.497 0.084 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    11/5                         Eq.: -0.024 (-0.102)
-       0.496 0.127 0.004 - 0.504 0.115 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.103 (Money: +0.095)
+  0.572 0.072 0.002 - 0.428 0.123 0.001
+Cubeful equities:
+1. No double           +0.370
+2. Double, pass        +1.000  (+0.630)
+3. Double, take        +0.251  (-0.119)
+Proper cube action: No redouble, take (15.9%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-A-bB-C-C--BbB---d-bBbc---:0:0:1:51:0:0:3:0:10");
-var categoryid = "CC1";
-var probnum = "37";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "37";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBCBBC-------A---Ac-bbdcA:1:1:1:00:1:4:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

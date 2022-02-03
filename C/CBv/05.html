@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 96</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 5 (Corrected Solution)</span>&ensp;
 <span>(CBv-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 53?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-4 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=88 White=123</div></div>
+      <div class="pipinfo">pips Red=154 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red has doubled so must win through his play of the checkers. He can pay now with 13/10, 13/8 or pay later with 8/5, 6/1. Which is correct?<br>
+ <div class="description">For money, this would be double and a huge drop. White’s structure is terrible and his lead in the race does not give him nearly sufficient compensation.<br>
 <br>
-The answer is that the two plays have identical equities and so either play is correct. What this position provides is a very good reference for this type of problem so please remember it for future use.<br>
+The common strategy at 2-away vs 3-away is to play on for an undoubled gammon but here Red has a lot to do to achieve that and much can still go wrong. So, should he play on for the gammon or double?<br>
 <br>
-Note that if the cube was in the centre Red should have doubled before rolling but if he had rolled this 53 with the cube in the centre then 13/10, 13/8 would be a double blunder. Never give your opponent the chance to win the game without making him pay for that opportunity. In other words,  you must double first before paying now.<br>
+He should double and give White a tricky decision. White needs 25% game-winning chances to take (gammons don’t count, of course). In fact, White has just slightly more than 25% game-winning chances and so he has a skinny take but it’s no bargain.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 13/8                   Eq.: +0.283
-       0.695 0.037 0.000 - 0.305 0.032 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/5 6/1                      Eq.: +0.274 (-0.009)
-       0.689 0.030 0.000 - 0.311 0.029 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/5 8/3                      Eq.: +0.215 (-0.067)
-       0.662 0.036 0.000 - 0.338 0.028 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/3 6/1                      Eq.: +0.212 (-0.070)
-       0.667 0.026 0.000 - 0.333 0.034 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/3 6/3                      Eq.: +0.192 (-0.091)
-       0.657 0.027 0.000 - 0.343 0.032 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.909 (Money: +0.690)
+  0.736 0.281 0.021 - 0.264 0.081 0.002
+Cubeful equities:
+1. No double           +0.907
+2. Double, pass        +1.000  (+0.093)
+3. Double, take        +0.885  (-0.022)
+Proper cube action: No double, take (19.3%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBB--CbD---cB----abcbb---:1:-1:1:53:0:0:1:0:10");
-var categoryid = "CBv";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-aBBB-B-A-aD---bbc--bBb-:0:0:1:00:5:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

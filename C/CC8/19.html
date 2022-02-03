@@ -12,41 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 169</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 119</span>&ensp;
 <span>(CC8-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 4-6 to 11. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-0 to 5. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=113 White=109</div></div>
+      <div class="pipinfo">pips Red=133 White=183</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It is amazing what trailing in match and having a gammon threat in a volatile position can do to the doubling cube.<br>
+ <div class="description">When your opponent already has three points in your home board it is rarely correct to hit more of his checkers and therefore improve his timing. This position is no exception.<br>
 <br>
-For money this is no double/beaver. At this score not doubling is an error, albeit not by much. Needless to say that over the board in a UK league match I gave scant thought to doubling. The opportunity only came to light in post-match analysis.<br>
-<br>
-Yet again a good position to learn from.<br>
+Red should simply play bar/21, 13/8. White has to play and he will shortly have to give up one of those three anchors or compromise his forward position.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.091 (Money: +0.079)
-  0.525 0.220 0.021 - 0.475 0.203 0.009
-Cubeful equities:
-1. No double           +0.146
-2. Double, pass        +1.000  (+0.854)
-3. Double, take        +0.141  (-0.004)
-Proper cube action: No double, take (0.5%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/16*                      Eq.: +0.732
+       0.689 0.291 0.021 - 0.311 0.039 0.001
+    2. Cubeful 2-ply    bar/20* 6/2                  Eq.: +0.643 (-0.089)
+       0.661 0.319 0.032 - 0.339 0.053 0.001
+    3. Cubeful 2-ply    bar/20*/16*                  Eq.: +0.626 (-0.106)
+       0.645 0.338 0.038 - 0.355 0.041 0.001
+    4. Cubeful 0-ply    bar/20* 13/9                 Eq.: +0.579 (-0.153)
+       0.646 0.309 0.032 - 0.354 0.060 0.002
+    5. Cubeful 0-ply    bar/21 13/8                  Eq.: +0.579 (-0.154)
+       0.655 0.271 0.021 - 0.345 0.062 0.002
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -54,12 +59,13 @@ Proper cube action: No double, take (0.5%)
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--ABaBCBCa----Aaac-c--c-bA:0:0:1:00:4:6:0:11:10");
-var categoryid = "CC8";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-bBbDBB-B--B--ababa---bA:0:0:1:54:3:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

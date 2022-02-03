@@ -12,42 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBy  probnum=36)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 186</span>&ensp;
 <span>(CBy-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Money Play. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=148 White=110</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">This is not easy because there are so many candidate plays.<br>
+<br>
+The key is to find the play that enables Red to win with the cube as soon as possible. I truns out that advancing the prime with prime with bar/15, 8/3(2)  is correct. This keep pressure on White’s blot on the 4-pt and nicely duplicates the ace White needs to advance to the 22-pt.<br>
+<br>
+The DMP play would be very different – bar/15, 23/18(2). Without access to the cube, trying to build the full prime takes precedence.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/15 8/3(2)                Eq.: +0.716
+       0.694 0.191 0.009 - 0.306 0.106 0.004
+    2. Cubeful 2-ply    bar/15 23/18(2)              Eq.: +0.653 (-0.063)
+       0.708 0.133 0.006 - 0.292 0.114 0.002
+    3. Cubeful 2-ply    bar/20 10/5 8/3(2)           Eq.: +0.632 (-0.084)
+       0.661 0.209 0.011 - 0.339 0.100 0.003
+    4. Cubeful 2-ply    bar/20 23/18(2) 10/5         Eq.: +0.597 (-0.119)
+       0.670 0.154 0.009 - 0.330 0.116 0.001
+    5. Cubeful 2-ply    bar/5                        Eq.: +0.583 (-0.133)
+       0.660 0.160 0.007 - 0.340 0.098 0.003
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBy";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a--BBBCBaA-----bb-d-abBbA:0:0:1:55:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

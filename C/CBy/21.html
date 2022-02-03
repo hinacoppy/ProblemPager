@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 214</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 171</span>&ensp;
 <span>(CBy-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 13. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=93 White=111</div></div>
+      <div class="pipinfo">pips Red=87 White=124</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White has a trivial take because of the awkwardness of Red’s position and in particular 4’s. The question is the double and this is right on the borderline, according to XG. <br>
+ <div class="description">The key to this position is the doubling cube. For money this would be double/pass due to the Jacoby Rule.<br>
 <br>
-I would be inclined to wait and hopefully give White a more difficult decision next turn, but I wouldn’t blame anybody for doubling this now.<br>
+In a match the correct technique is to play on for the gammon with no risk if possible. Here Red should simply play 8/3, 8/2. If White enters with an ace Red should cash the game. If he fans Red should play on for the gammon.<br>
+<br>
+I got this wrong over the board playing 13/2 but that move and any other move that is not 8/3, 8/2 is a blunder. I found this a very useful learning exercise as it will enable me to play similar positions correctly in the future.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.466
-  0.734 0.012 0.000 - 0.266 0.015 0.000
-Cubeful equities:
-1. No double           +0.775
-2. Double, pass        +1.000  (+0.225)
-3. Double, take        +0.758  (-0.018)
-Proper cube action: No double, take (7.3%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 8/2                      Eq.: +1.346
+       0.887 0.493 0.001 - 0.113 0.013 0.000
+    2. Cubeful 2-ply    13/2                         Eq.: +1.256 (-0.090)
+       0.882 0.427 0.001 - 0.118 0.011 0.000
+    3. Cubeful 2-ply    13/7 8/3                     Eq.: +1.247 (-0.099)
+       0.867 0.481 0.001 - 0.133 0.018 0.001
+    4. Cubeful 2-ply    13/8 13/7                    Eq.: +1.230 (-0.116)
+       0.874 0.431 0.001 - 0.126 0.008 0.000
+    5. Cubeful 0-ply    13/7 6/1                     Eq.: +0.004 (-1.342)
+       0.510 0.222 0.001 - 0.490 0.237 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-A-BbBB-H--------abccbb---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBy";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BBBCB-B---cB---c-bbbb---:0:0:1:65:0:0:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

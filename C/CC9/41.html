@@ -12,29 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CC9  probnum=41)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 191</span>&ensp;
 <span>(CC9-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Red leads 7-5 to 11. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=136 White=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">What is an easy double and take for money becomes a borderline decision at this score.<br>
+<br>
+That is because a gammon with the cube on 2 will give Red the match with perfect efficiency. The XG rollout has this literally on the borderline of take/drop. Your decision may well be influenced by your opponent’s skill level.<br>
+<br>
+Of course, this is a massive double. Not doubling as Red is very nearly a double blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.543
+  0.694 0.220 0.015 - 0.306 0.077 0.002
+Cubeful equities:
+1. Double, take        +0.878
+2. Double, pass        +1.000  (+0.122)
+3. No double           +0.722  (-0.156)
+Proper cube action: Double, take
+</pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -46,8 +63,9 @@ const categoryid = "CC9";
 const probnum = "41";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
+board.showBoard("XGID=-a--aCBCC---bC---dac-ab--A:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

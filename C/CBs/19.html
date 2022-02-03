@@ -12,56 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 191</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 138</span>&ensp;
 <span>(CBs-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 61?</div>
+<article>
+<div class="doAction">Match Play. 1-1 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=63 White=170</div></div>
+      <div class="pipinfo">pips Red=116 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a technical play but it is always good to know the correct technique. It is more important to have a smooth distribution than to be even on the two highest points.<br>
+ <div class="description">The volatility is sky-high so this is clearly a double.<br>
 <br>
-The correct play is 6/off, 5/4 rather 6/off, 4/3 which is a bad error or 6/off, 3/2 which is actually a blunder.<br>
+Frightening though it may look this is a comfortable take for White. He has a strong home board and Red’s structure is somewhat awkward with sixes duplicated. Dropping is a blunder (just).<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/off 5/4                    Eq.: +1.229
-       0.802 0.591 0.102 - 0.198 0.000 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/off 4/3                    Eq.: +1.185 (-0.045)
-       0.791 0.576 0.098 - 0.209 0.000 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/off 3/2                    Eq.: +1.136 (-0.093)
-       0.776 0.567 0.094 - 0.224 0.000 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    6/5 6/off                    Eq.: +1.008 (-0.222)
-       0.738 0.527 0.093 - 0.262 0.000 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.551 (Money: +0.513)
+  0.630 0.362 0.013 - 0.370 0.114 0.008
+Cubeful equities:
+1. Double, take        +0.864
+2. Double, pass        +1.000  (+0.136)
+3. No double           +0.655  (-0.210)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-cBCCDCa----b---ab-ca-b---:1:-1:1:61:0:0:3:0:10");
-var categoryid = "CBs";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bA-CaBBC----bC-----ccbb-A-:0:0:1:00:1:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

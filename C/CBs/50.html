@@ -12,70 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">One Army</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 164</span>&ensp;
 <span>(CBs-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=195 White=28</div></div>
+      <div class="pipinfo">pips Red=106 White=129</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Black has hit a late shot to give himself chances both to save the gammon and perhaps even win the game. How should he play this double fives?<br>
+ <div class="description">The two comments were spot on. This is a prime versus prime position and they are often both doubles and takes. This one is no exception.<br>
 <br>
-I have already mentioned “The Art of War” by Sun Tzu in my columns and once again we can use his wise words to help guide us to the solution. One of the fundamental principles of war is not to let your army be split into disparate groups. Soldiers work efficiently when they work together towards a common goal. Keep that idea in your mind.<br>
-<br>
-In the early days of backgammon bots the first effective program was Dr. Gerry Tesauro’s TD-Gammon. Bill Robertie analysed some of its early games in “Inside Backgammon”, a magazine he brilliantly co-authored with Kent Goulding. I remember him analysing a position similar to this one and querying one of TD-Gammon’s moves which looked somewhat awkward to him. Its opponent’s next roll was 44, which TD-Gammon had carefully blocked with its ‘awkward’ play. That particular comment stuck in my mind and ever since in positions like this one, I have taken careful note of how my opponent’s doubles play on his next turn.<br>
-<br>
-The final clue to solving positions like this is to note that Black can choose where to build his prime and then roll it home from wherever he elects builds it. Rolling it home will eventually end with a closeout, but the key idea is to build a prime somewhere. Here, Black could for example, initially target building his prime from his 11-pt to his 6-pt.<br>
-<br>
-Armed with these ideas what is Black’s best play? Certainly, anything that involves hitting on his 5-pt is completely the wrong idea as that splits his army too much and, in any case, what is the point of hitting with a one-point home board? 20/10(2) is reasonable because it blocks White’s double fives but Black can do better.<br>
-<br>
-Look at 22/17, 21/16, 20/15(2). It blocks all six doubles! Not only that but the soldiers of the army (the checkers) are working together in tight formation and are well place to build an effective prime in Blacks’s outer board. It is very clearly the best play. Any other move, other than 20/10 (2), is at least an error and any hitting play is a blunder.<br>
-<br>
-<br>
-I am pleased to say that having learnt how to think about such positions I found this play over the board. The bad news is that my opponent rolled 65, played 20/9*. I fanned with double ones and I was lucky to save the backgammon! Such is backgammon. I may have lost this game but the ability to reuse the thinking outlined in this article will win me many more games in the future.<br>
+Red’s gammon percentage (42%) pushes him into double territory but it is close as time is running out. White’s take is trivial.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/17 21/16 20/15(2)         Eq.: -0.805
-       0.391 0.000 0.000 - 0.609 0.307 0.012
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/10(2)                     Eq.: -0.813 (-0.007)
-       0.395 0.000 0.000 - 0.605 0.301 0.029
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/5* 20/15                  Eq.: -0.964 (-0.159)
-       0.376 0.000 0.000 - 0.624 0.319 0.044
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/5* 19/14                  Eq.: -0.970 (-0.165)
-       0.376 0.000 0.000 - 0.624 0.319 0.046
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    20/5* 17/12                  Eq.: -1.000 (-0.195)
-       0.373 0.000 0.000 - 0.627 0.323 0.054
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.429
+  0.569 0.365 0.019 - 0.431 0.089 0.004
+Cubeful equities:
+1. Double, take        +0.565
+2. Double, pass        +1.000  (+0.435)
+3. No double           +0.510  (-0.054)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-----aC-D----B---A-ABAAbd-:1:0:1:55:0:0:3:0:10");
-var categoryid = "CBs";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bA-BCCBB--------abbcbcA-A-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

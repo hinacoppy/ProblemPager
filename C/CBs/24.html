@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 186</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 142</span>&ensp;
 <span>(CBs-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=137 White=139</div></div>
+      <div class="pipinfo">pips Red=155 White=147</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">To some this may look like an early double but in fact not doubling is a triple blunder.<br>
+ <div class="description">Bar/24, 13/8 is safe but leaves Red looking a poor second.<br>
 <br>
-Red leads in race, threat and position and White only just has a take. That blot on his 1-pt may well come back to haunt him. Move it to safety on his 4-pt and Red has a bare double. Remember to consider all four quadrants of the board when making doubling decisions – it pays large dividends!<br>
+Now is the time to take a risk with White having only 9 checkers in the attack zone. The correct play is bar/20, 24/23. If you take a checker from White’s mid-point and put it on his 8-pt then the two plays are equal in equity. As it stands bar/24, 13/8 is an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.560
-  0.655 0.320 0.008 - 0.345 0.076 0.003
-Cubeful equities:
-1. Double, take        +0.886
-2. Double, pass        +1.000  (+0.114)
-3. No double           +0.729  (-0.157)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 24/23                 Eq.: -0.429
+       0.404 0.107 0.005 - 0.596 0.233 0.008
+    2. Cubeful 2-ply    bar/24 13/8                  Eq.: -0.444 (-0.015)
+       0.395 0.110 0.004 - 0.605 0.204 0.011
+    3. Cubeful 2-ply    bar/24 6/1*                  Eq.: -0.548 (-0.120)
+       0.380 0.105 0.003 - 0.620 0.226 0.017
+    4. Cubeful 2-ply    bar/24 8/3                   Eq.: -0.553 (-0.124)
+       0.371 0.103 0.003 - 0.629 0.215 0.014
+    5. Cubeful 0-ply    bar/20 6/5                   Eq.: -0.708 (-0.279)
+       0.366 0.092 0.005 - 0.634 0.289 0.019
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---B-BDaB-A-fB---b-c-bAAa-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBs";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aaB--D-C---dD---b-c-bb-AA:0:0:1:51:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

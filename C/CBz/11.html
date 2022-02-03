@@ -12,56 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 11</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 211</span>&ensp;
 <span>(CBz-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=146 White=147</div></div>
+      <div class="pipinfo">pips Red=150 White=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">When this position occurred over the board, I invoked Woolsey’s law and redoubled. I was more than pleasantly surprised when my opponent dropped.<br>
+ <div class="description">I got pinged by XG for playing 13/8. However, on rollout the difference between 13/8 and 8/3* is negligible. 8/3* both wins and loses more gammons.<br>
 <br>
-I was fairly sure it was an easy take. After all Red has to roll five numbers, a one, a two and three sixes (and in the right order), while White has only to enter three checkers into a four-point board where he is favourite each turn to enter one checker.<br>
-<br>
-Looked at with that logic I began to think the double was circumspect and so it proved on a rollout. Redoubling is 1.5 blunder. Red must improve before redoubling. If he escapes a checker and White fans it is a pass but if Red escapes a checker (except with 61 or 62) and White enters one checker then it is still no redouble.<br>
-<br>
-Of course, many will pass this so if you know your opponent well enough (I did) you can redouble with an air of confidence. Good luck!<br>
+So for money you can take your choice.  Different match scores would significantly affect the play.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.427
-  0.608 0.304 0.023 - 0.392 0.109 0.007
-Cubeful equities:
-1. No double           +0.659
-2. Double, pass        +1.000  (+0.341)
-3. Double, take        +0.586  (-0.072)
-Proper cube action: No redouble, take (17.5%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3*                         Eq.: +0.158
+       0.525 0.209 0.010 - 0.475 0.145 0.010
+    2. Cubeful 2-ply    13/8                         Eq.: +0.099 (-0.058)
+       0.522 0.183 0.007 - 0.478 0.138 0.007
+    3. Cubeful 2-ply    8/4 6/5                      Eq.: +0.006 (-0.152)
+       0.493 0.177 0.006 - 0.507 0.145 0.008
+    4. Cubeful 0-ply    24/23 8/4                    Eq.: -0.037 (-0.195)
+       0.484 0.161 0.006 - 0.516 0.152 0.006
+    5. Cubeful 0-ply    6/1*                         Eq.: -0.104 (-0.261)
+       0.467 0.169 0.006 - 0.533 0.172 0.013
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=c--BBBB-BA------AbbdbbAAA-:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBz";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-aBBD-A---cD---d-db---B-:0:0:1:41:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

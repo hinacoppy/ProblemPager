@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 53</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 3</span>&ensp;
 <span>(CC1-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 11?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=143 White=141</div></div>
+      <div class="pipinfo">pips Red=75 White=159</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It turns out that there are two valid game plans. The pure priming play with 24/23, 8/7(3) with four White checkers trapped behind a four-point prime; the escape plan 24/23(2), 4/3(2)*, attempting to find time to escape the rear checkers.<br>
+ <div class="description">For money this would be a redouble and a take.<br>
 <br>
-The key is to see both plays and understand the game plans. Choosing between them is extremely difficult and you would have to go with your gut instincts over the board. There is only 0.005 between them on the rollout with the priming play just edging it.<br>
+Interestingly because a double gammon gives Red more points than he needs to win the match XG advises holding the cube and playing for a gammon with the cube on 2.<br>
+<br>
+Having said that, for practical purposes I would redouble this position because I know I will get a lot of drops precisely because of the gammon threat.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23(2) 4/3*(2)             Eq.: +0.416
-       0.683 0.245 0.017 - 0.317 0.099 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/7(3) 6/5                   Eq.: +0.368 (-0.049)
-       0.666 0.254 0.016 - 0.334 0.114 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/23(2) 11/10(2)            Eq.: +0.360 (-0.056)
-       0.668 0.234 0.013 - 0.332 0.105 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/23(2) 13/12 6/5           Eq.: +0.350 (-0.066)
-       0.666 0.231 0.013 - 0.334 0.106 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/23(2) 13/11               Eq.: +0.349 (-0.068)
-       0.663 0.225 0.012 - 0.337 0.098 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.694 (Money: +0.661)
+  0.616 0.467 0.004 - 0.384 0.041 0.001
+Cubeful equities:
+1. Double, take        +0.833
+2. Double, pass        +1.000  (+0.167)
+3. No double           +0.775  (-0.058)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-abaBBC-C--B-A-----bcdb-B-:1:-1:1:11:0:0:3:0:10");
-var categoryid = "CC1";
-var probnum = "03";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "03";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBCBcCD-------a--bbbbbA---:1:1:1:00:0:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

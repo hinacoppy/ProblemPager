@@ -12,65 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 117</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 67</span>&ensp;
 <span>(CC7-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-5 to 9. How should Red play 21?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=77 White=15</div></div>
+      <div class="pipinfo">pips Red=96 White=140</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red can play the simple 22/20*/19 and win about 40% of the time. <br>
+ <div class="description">A classic middle game double. Red leads by 44 pips and if he safeties the blot on his 16-pt he will lose his market.<br>
 <br>
-However, that other White blot on White’s 2-pt should give him pause for thought. Can he pick up that checker or even split the two checkers on White’s 4-pt and then pick up one or more of them?<br>
+However, White has both hitting chances and racing chances, so he has a very comfortable take.<br>
 <br>
-The answer is yes and the correct play here 22/20*, 2/1, voluntarily breaking the perfect home board. Now look how 32 plays for White! There are other variations of course but any 2 by White except 22 will give Red a chance to pick up the second blot. <br>
-<br>
-Red increases his winning chances to nearly 45% at the cost of losing some gammons but not nearly enough to make 22/20*/19 correct.<br>
-<br>
-The solution to this problem is very similar to the very last problem ever published in Chicago Point and so I had seen the technique before. Now you have too, and so you can use it in future games.<br>
+Not doubling is a blunder while dropping is nearly a triple blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/20* 2/1                   Eq.: +0.051
-       0.433 0.000 0.000 - 0.567 0.079 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    22/20* 7/6                   Eq.: -0.051 (-0.102)
-       0.377 0.000 0.000 - 0.623 0.016 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    22/20* 3/2                   Eq.: -0.062 (-0.113)
-       0.399 0.000 0.000 - 0.601 0.099 0.012
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    22/20*/19                    Eq.: -0.065 (-0.116)
-       0.373 0.000 0.000 - 0.627 0.021 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    22/20* 6/5                   Eq.: -0.076 (-0.127)
-       0.367 0.000 0.000 - 0.633 0.016 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.478
+  0.723 0.063 0.001 - 0.277 0.031 0.001
+Cubeful equities:
+1. Double, take        +0.769
+2. Double, pass        +1.000  (+0.231)
+3. No double           +0.698  (-0.071)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBBBCA------------abAa--:1:1:1:21:0:5:0:9:10");
-var categoryid = "CC7";
-var probnum = "17";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "17";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-B-Ab-ECC---c---Abacbb----:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

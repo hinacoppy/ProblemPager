@@ -12,51 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 134</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 84</span>&ensp;
 <span>(CC2-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 6-5 (Crawford). How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=142</div></div>
+      <div class="pipinfo">pips Red=118 White=105</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic double against one rear checker where Red has the advantage of being on roll. He is ahead in race, threat and position which would normally indicate double/drop but White only trails marginally in those three elements and actually this is a very clear take.<br>
-Not doubling is a double blunder but dropping is a triple blunder.<br>
+ <div class="description">I must admit I would play 11/5 or 12/6 here. XG has a tiny preference (0.014) for 12/7, 11/10, attempting to make the game a one roll proposition.<br>
+<br>
+12/7, 11/10 increases the gammon losses by 5% but wins 5% more games. In a money game slotting the bar would be clearer but it is much harder to do it at 1-away vs 2-away (Crawford) even if technically it is the correct play. Computers have the advantage of playing emotionless backgammon!<br>
+<br>
+I’ll stick with 11/5 but applaud anybody who slotted the bar.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.491
-  0.646 0.271 0.005 - 0.354 0.075 0.002
-Cubeful equities:
-1. Double, take        +0.742
-2. Double, pass        +1.000  (+0.258)
-3. No double           +0.619  (-0.123)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5                         Eq.: +0.170
+       0.647 0.124 0.003 - 0.353 0.062 0.002
+    2. Cubeful 2-ply    12/6                         Eq.: +0.166 (-0.004)
+       0.645 0.124 0.003 - 0.355 0.062 0.002
+    3. Cubeful 2-ply    13/12 11/6                   Eq.: +0.131 (-0.039)
+       0.622 0.112 0.002 - 0.378 0.056 0.001
+    4. Cubeful 2-ply    13/8 12/11                   Eq.: +0.130 (-0.040)
+       0.615 0.106 0.002 - 0.385 0.050 0.001
+    5. Cubeful 2-ply    13/8 11/10                   Eq.: +0.113 (-0.057)
+       0.624 0.108 0.002 - 0.376 0.067 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BaBD-C---eB-A-c-d-b-A--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC2";
-var probnum = "34";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "34";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBBBB----AAA-d---cbBcb--:0:0:1:51:6:5:1:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

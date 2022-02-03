@@ -12,63 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 231</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 181</span>&ensp;
 <span>(CC4-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-2 to 5. How should Red play 31?</div>
+<article>
+<div class="doAction">(a)  Match Play. Red trails 4-10 to 13. Should Red double. If doubled should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=162 White=157</div></div>
+      <div class="pipinfo">pips Red=189 White=158</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">When I set this problem, I hadn’t done a rollout and I thought that hitting with 21/18 *, 11/10 was probably, but not certainly, correct. That was the move played over the board.<br>
+ <div class="description">(b)  Money Play. Should Red double. If doubled should White take?<br>
 <br>
-It turns out that Falafel’s Law applies and that 8/5, 6/5 is correct.<br>
+Let’s deal with (b) first. For money this would be a grossly premature blunder – a triple blunder in fact.<br>
 <br>
-The other three plays: 21/18*, 11/10; 24/23, 21/18* and 24/21, 11/10 are tied in second place. <br>
+The match score problem is much more interesting. At 4-10 you are not going to win by winning single games. With any sniff of a gammon you should be shipping the cube. In this position there is more than a sniff and White could end up with four checkers on the bar. Not doubling here would be a blunder. A gammon would bring the score to 8-10 which is much more palatable for Red.<br>
 <br>
-I am sure Falafel would have played 8/5, 6/5 in a flash. He was one of the most naturally gifted backgammon players I have ever seen, and the backgammon world is the sadder for his passing this year.<br>
+Better to take a risk now than slowly be ground down.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 21/18*                 Eq.: +0.004
-       0.487 0.126 0.007 - 0.513 0.160 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/21 11/10                  Eq.: -0.032 (-0.036)
-       0.469 0.106 0.004 - 0.531 0.106 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/18* 11/10                 Eq.: -0.034 (-0.038)
-       0.478 0.126 0.007 - 0.522 0.168 0.009
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/5 6/5                      Eq.: -0.041 (-0.045)
-       0.474 0.141 0.009 - 0.526 0.186 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/21 6/5                    Eq.: -0.064 (-0.068)
-       0.465 0.108 0.004 - 0.535 0.126 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.146 (Money: +0.153)
+  0.554 0.216 0.017 - 0.446 0.167 0.021
+Cubeful equities:
+1. Double, take        +0.603
+2. Double, pass        +1.000  (+0.397)
+3. No double           +0.566  (-0.037)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b----E-C--AdD---badbA--A-:0:0:1:31:1:2:0:5:10");
-var categoryid = "CC4";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=b---BaBBB---dB---A-cb-baD-:0:0:1:00:4:10:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

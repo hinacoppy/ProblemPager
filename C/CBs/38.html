@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 175</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 154</span>&ensp;
 <span>(CBs-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 44?</div>
+<article>
+<div class="doAction">Money Play.  How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=127 White=58</div></div>
+      <div class="pipinfo">pips Red=175 White=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is one the bots have taught us. Because the race is close. It is worth blocking White’s sixes for one more roll and therefore 14/2, 5/1 is the correct play. Second best, and not an error, is 10/2(2). Third is 14/2, 7/3.<br>
+ <div class="description">Using the six to play 21/15* is the wrong idea as it strands the rear checkers. Therefore, the six must be 24/18*. Using the five to run to the safety of the mid-point is too passive, Red wants those rear checkers connected.<br>
 <br>
-The key here is to learn the technique. The blot exposed on the 5-pt is not in much danger.<br>
+He has two choices for the five, either 13/8 or the tempo hit 6/1*. The rollouts give the two moves identical equities so take your choice from 24/18*, 13/8 or 24/18*, 6/1*.<br>
+<br>
+All other plays are at least errors.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.240 (Money: +0.243)
-  0.624 0.140 0.004 - 0.376 0.148 0.002
-Cubeful equities:
-1. Double, take        +0.450
-2. Double, pass        +1.000  (+0.550)
-3. No double           +0.434  (-0.016)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/18* 13/8                  Eq.: -0.058
+       0.484 0.136 0.008 - 0.516 0.144 0.007
+    2. Cubeful 2-ply    24/18*/13                    Eq.: -0.073 (-0.015)
+       0.481 0.129 0.006 - 0.519 0.144 0.007
+    3. Cubeful 2-ply    24/18* 6/1*                  Eq.: -0.076 (-0.017)
+       0.482 0.140 0.007 - 0.518 0.156 0.010
+    4. Cubeful 2-ply    21/15*/10                    Eq.: -0.110 (-0.051)
+       0.470 0.135 0.007 - 0.530 0.156 0.009
+    5. Cubeful 2-ply    24/18* 21/16                 Eq.: -0.111 (-0.053)
+       0.476 0.130 0.008 - 0.524 0.165 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBaBBC-----A-A----aAhcbA:1:1:1:00:0:0:0:5:10");
-var categoryid = "CBs";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a----E-C---cDba-bae-A--B-:0:0:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

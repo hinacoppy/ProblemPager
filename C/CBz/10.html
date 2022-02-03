@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 10</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 210</span>&ensp;
 <span>(CBz-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-2 to 9. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=110 White=102</div></div>
+      <div class="pipinfo">pips Red=104 White=108</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">In a money game this would be a very poor redouble. However, the match score dominates the decision in this position.<br>
+ <div class="description">Red’s best hope is to outprime White even if that is relatively unlikely. Therefore, 5/2*/1 is the wrong plan.<br>
 <br>
-A gammon with the cube on 4 gives Red the match exactly and that efficiency is enough to make this a very strong redouble. It is a trivial take of course, but not redoubling here is a blunder.<br>
+The best play is 8/4, hoping to either make the point next time or get hit and stay on the bar long enough to preserve the home board. 5/1 without hitting is the second-best play. The 3-pt anchor will give Red long-term winning chances and he actually wins more than 25% of the time from here, although he loses quite a few gammons.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.258 (Money: +0.228)
-  0.535 0.260 0.005 - 0.465 0.104 0.003
-Cubeful equities:
-1. No double           +0.419
-2. Double, pass        +1.000  (+0.581)
-3. Double, take        +0.411  (-0.007)
-Proper cube action: No redouble, take (1.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4                          Eq.: -0.418
+       0.281 0.038 0.001 - 0.719 0.110 0.003
+    2. Cubeful 2-ply    5/1                          Eq.: -0.467 (-0.048)
+       0.261 0.024 0.000 - 0.739 0.101 0.002
+    3. Cubeful 2-ply    6/5 6/3                      Eq.: -0.517 (-0.099)
+       0.241 0.014 0.000 - 0.759 0.092 0.002
+    4. Cubeful 2-ply    22/21 5/2*                   Eq.: -0.600 (-0.182)
+       0.256 0.048 0.001 - 0.744 0.233 0.014
+    5. Cubeful 2-ply    5/2* 3/2                     Eq.: -0.605 (-0.187)
+       0.217 0.025 0.000 - 0.783 0.134 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBB-CB---A-b-a--bBcdba--A:1:1:1:00:1:2:0:9:10");
-var categoryid = "CBz";
-var probnum = "10";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-CaB-CB-C-------bbbcc-Bb--:1:1:1:31:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

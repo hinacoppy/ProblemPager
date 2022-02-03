@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 87</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 37</span>&ensp;
 <span>(CC6-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 51?</div>
+<article>
+<div class="doAction">Unlimited Games. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=125 White=154</div></div>
+      <div class="pipinfo">pips Red=123 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Despite White’s two home board blots there is no need to overcomplicate things here. <br>
+ <div class="description">Half of Red’s wins will be gammons but he will lose 35% of the time.<br>
 <br>
-11/6, 9/8 puts checkers in useful positions. 13/8, 9/8 makes an unwieldy stack on the 8-pt, and 11/10, 11/6 is an unnecessary overplay.<br>
+White’s strong home board means that Red’s blitz will be difficult to execute as a single hit by White may stall the blitz in its tracks. In addition, Red’s home board is impure and if White manages to anchor Red will have trouble bearing in and off.<br>
 <br>
-9/3 puts a checker in the wrong place and is far too conservative. It is also a big blunder.<br>
+Clearly the position is highly volatile and Red should redouble now. By next turn he may have missed his market. Not redoubling is nearly a blunder.<br>
+<br>
+However, the strength of White’s home board gives him an easy take. Dropping is nearly a triple blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/6 9/8                     Eq.: +0.689
-       0.687 0.134 0.005 - 0.313 0.060 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8 9/8                     Eq.: +0.674 (-0.015)
-       0.698 0.092 0.002 - 0.302 0.051 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/7                         Eq.: +0.663 (-0.026)
-       0.683 0.112 0.004 - 0.317 0.062 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    9/3                          Eq.: +0.635 (-0.054)
-       0.690 0.098 0.002 - 0.310 0.056 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    11/10 11/6                   Eq.: +0.452 (-0.237)
-       0.640 0.124 0.004 - 0.360 0.077 0.002
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.466
+  0.644 0.314 0.005 - 0.356 0.135 0.005
+Cubeful equities:
+1. Double, take        +0.696
+2. Double, pass        +1.000  (+0.304)
+3. No double           +0.678  (-0.017)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-BBbB-BA-BbD---d-da-a---:0:0:1:51:0:0:3:0:10");
-var categoryid = "CC6";
-var probnum = "37";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "37";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bBA--BC-B---bD-----cccbA--:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

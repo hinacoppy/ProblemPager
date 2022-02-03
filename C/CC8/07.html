@@ -12,46 +12,48 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 157</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 107</span>&ensp;
 <span>(CC8-07)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 62?</div>
+<article>
+<div class="doAction">Unlimited Games. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=115 White=125</div></div>
+      <div class="pipinfo">pips Red=8 White=13</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Everybody got this one right. Sixes don’t grow on trees and Red must play 22/16. 16/14 is a fraction better than 3/1 with the two because it doesn’t put a checker out of play.<br>
+ <div class="description">A fairly straightforward ending very similar to a famous ending from the first ever World Cup featuring Joe Sylvester and Ray Glazer.<br>
 <br>
-8/6, 8/2 was played over the board but that makes White’s life very easy. It is a 1.5 blunder.<br>
+It is a three-roll ending where White has a take because he may only take only one or two rolls to bear off.<br>
+<br>
+Not doubling is nearly a double blunder while dropping would be worse than a quintuple blunder! <br>
+<br>
+I had the World Cup position as a reference position so I knew the answer as soon as the position occurred. Reference positions are incredibly useful in providing shortcuts to the correct solutions.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/14                        Eq.: -0.639
-       0.360 0.089 0.002 - 0.640 0.246 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    22/16 3/1                    Eq.: -0.675 (-0.036)
-       0.358 0.087 0.002 - 0.642 0.257 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/6 8/2                      Eq.: -0.691 (-0.052)
-       0.324 0.060 0.001 - 0.676 0.142 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    9/7 9/3                      Eq.: -0.741 (-0.103)
-       0.314 0.048 0.000 - 0.686 0.141 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    8/2 3/1                      Eq.: -1.000 (-0.361)
-       0.238 0.035 0.000 - 0.762 0.179 0.008
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.358
+  0.679 0.000 0.000 - 0.321 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.551
+2. Double, pass        +1.000  (+0.449)
+3. No double           +0.389  (-0.162)
+Proper cube action: Double, take
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -59,12 +61,13 @@
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-B-CabBBBB-------bbbbbBb--:0:0:1:62:0:0:3:0:10");
-var categoryid = "CC8";
-var probnum = "07";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "07";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BC-----------------aa-b--:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

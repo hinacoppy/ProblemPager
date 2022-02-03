@@ -12,39 +12,45 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 186</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 136</span>&ensp;
 <span>(CC8-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-0 to 7.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=80 White=122</div></div>
+      <div class="pipinfo">pips Red=160 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic doubling position that should be well known.<br>
-<br>
-Red should double when he is twenty pips ahead and White can take until he is fifty pips behind. Above fifty pips the gammon losses can push White into drop territory. That is quite a large doubling window and this position is well within it so as you might expect this is double and take.<br>
+ <div class="description">“Four is more than you think”, to quote Kent Golding. You can make a case for shuffling Red’s checker around his bar point in many different ways but bar/24, 9/8, 6/4 is the strongest move here, despite leaving a direct shot.<br>
+Everything else is at least an error. This is an excellent learning problem. Most students don’t slot the 4-pt but now you know to follow the wise words of Mr. Goulding.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.450 (Money: +0.423)
-  0.682 0.085 0.002 - 0.318 0.028 0.000
-Cubeful equities:
-1. Double, take        +0.661
-2. Double, pass        +1.000  (+0.339)
-3. No double           +0.568  (-0.093)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 9/8 6/4               Eq.: +0.022
+       0.524 0.144 0.007 - 0.476 0.186 0.016
+    2. Cubeful 2-ply    bar/24 9/8 5/4(2)            Eq.: +0.004 (-0.018)
+       0.510 0.152 0.007 - 0.490 0.170 0.011
+    3. Cubeful 2-ply    bar/24 8/5                   Eq.: -0.049 (-0.071)
+       0.494 0.153 0.007 - 0.506 0.177 0.013
+    4. Cubeful 2-ply    bar/24 9/7 6/5               Eq.: -0.090 (-0.112)
+       0.486 0.141 0.006 - 0.514 0.179 0.013
+    5. Cubeful 2-ply    bar/24 9/6                   Eq.: -0.099 (-0.121)
+       0.482 0.144 0.006 - 0.518 0.180 0.013
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -52,12 +58,13 @@ Proper cube action: Double, take
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBBbC-B---bBa---abbbba--:0:0:1:00:3:0:0:7:10");
-var categoryid = "CC8";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b---BCBAA--dD----bc-b-bAA:0:0:1:11:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

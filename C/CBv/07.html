@@ -12,52 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 84</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 7</span>&ensp;
 <span>(CBv-07)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 3-3 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 4-5 to 7. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=73 White=76</div></div>
+      <div class="pipinfo">pips Red=96 White=53</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White’s take point for the redouble is a very high 33% (because his match winning chances from 3-5 down are 33%).<br>
+ <div class="description">I got this one wrong over the board playing the ultra-conservative 13/7, 11/6.<br>
 <br>
-For money the redouble would be premature here but Red doesn’t want to risk losing his market at this match score and so he should redouble now. To reinforce the point not redoubling here is a double blunder.<br>
+Also wrong is 8/2*, 7/2. Losing a gammon is ruinous for Red (he loses the match) and five blots is too many despite having a five-point home board.<br>
+<br>
+Red should steer for the middle ground here with 14/9, 13/7 leaving only two blots and four shots.<br>
+<br>
+The risk is justified because the gammon losses are outweighed by the extra games won when Red manages to make his 5-pt.<br>
+<br>
+This is not an easy problem to get right over the board and many would make their 2-pt and then close their eyes!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.325 (Money: +0.325)
-  0.662 0.000 0.000 - 0.338 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.962
-2. Double, pass        +1.000  (+0.038)
-3. No double           +0.788  (-0.175)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2* 7/2                     Eq.: +0.581
+       0.656 0.017 0.000 - 0.344 0.073 0.001
+    2. Cubeful 2-ply    13/7 11/6                    Eq.: +0.563 (-0.018)
+       0.623 0.024 0.000 - 0.377 0.019 0.000
+    3. Cubeful 2-ply    13/8 11/5                    Eq.: +0.462 (-0.120)
+       0.626 0.029 0.000 - 0.374 0.065 0.000
+    4. Cubeful 2-ply    14/9 11/5                    Eq.: +0.426 (-0.155)
+       0.642 0.030 0.000 - 0.358 0.092 0.000
+    5. Cubeful 0-ply    14/8 11/6                    Eq.: +0.384 (-0.197)
+       0.599 0.023 0.000 - 0.401 0.017 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BDDDA---------a-edd-a--:1:1:1:00:3:3:0:7:10");
-var categoryid = "CBv";
-var probnum = "07";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "07";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BaBB-BBB--A-AA------cbcf-:0:0:1:65:4:5:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,41 +12,48 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 184</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 134</span>&ensp;
 <span>(CC8-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 5. Should Red Redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=27 White=33</div></div>
+      <div class="pipinfo">pips Red=112 White=56</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red leaves a shot with fifteen numbers. White will hit in five games which will put the game on the line and make it highly volatile. In a money game Red should hold on to the cube until his next turn at least.<br>
+ <div class="description">This is a competition to roll a 5. If Red rolls a five his gammon prospects are excellent. If he fans and White rolls a five it is Red who could lose a gammon.<br>
 <br>
-At this match score it is very different. At 3-away vs 5-away White needs 33% winning chances to accept and, of course, he cannot win with the cube.<br>
+Because Red has only 13 hitting numbers he is not quite good enough to double although it is close.<br>
 <br>
-It turns out that he has precisely 33% winning chances in this position, so he can drop or take Red’s redouble and still make the right decision. Of course, Red must redouble.<br>
+As a practical double this is excellent as you only need 3% drops to turn this into a correct double and you will definitely get those.<br>
+<br>
+So technically no double but in practice you should double this position.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.325 (Money: +0.325)
-  0.662 0.000 0.000 - 0.338 0.000 0.000
+2-ply cubeless equity +0.294
+  0.618 0.126 0.003 - 0.382 0.071 0.000
 Cubeful equities:
-1. Double, take        +0.984
-2. Double, pass        +1.000  (+0.016)
-3. No double           +0.665  (-0.319)
-Proper cube action: Redouble, take
+1. No double           +0.466
+2. Double, pass        +1.000  (+0.534)
+3. Double, take        +0.332  (-0.134)
+Proper cube action: No redouble, take (20.0%)
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -54,12 +61,13 @@ Proper cube action: Redouble, take
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aCBBB-A----------------d--:1:1:1:00:0:2:0:5:10");
-var categoryid = "CC8";
-var probnum = "34";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "34";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-Ba-CCB-B------B----abcceA:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

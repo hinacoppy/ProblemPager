@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 165</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 115</span>&ensp;
 <span>(CC3-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 53?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-4 to 7. Should Red double. If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=130 White=119</div></div>
+      <div class="pipinfo">pips Red=42 White=49</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Clearly the 3 must be played bar/22.<br>
-Given that White will attack that blot Red with all guns blazing Red can’t afford too many blots, despite his five-point prime. 13/8 is much too big a play and is nearly a double blunder.<br>
-The choice is between 10/5 and 9/4. For similar reasons 9/4 is much better than 10/5 which is merely a very bad error. If Red stays on the bar and White comes to the edge of Red’s prime, having a checker exposed to a direct 6 is not a good idea.<br>
-If Red manages to escape his rear checker then he will probably not need a full six-prime.<br>
-Prudence wins the day and bar/22, 9/4 is the correct play.<br>
+ <div class="description">For money this would be double/pass.<br>
+At this score White can take because winning the game with the cube on 2 gets him to Crawford. Being behind doesn’t always mean you have to play more tightly with the cube. As I have often said the score is nearly always the overriding factor.<br>
+This sort of problem occurs often enough that you should know what to do in such situations.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 9/4                   Eq.: +0.475
-       0.730 0.200 0.014 - 0.270 0.106 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/22 10/5                  Eq.: +0.453 (-0.021)
-       0.726 0.200 0.014 - 0.274 0.118 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/22 13/8                  Eq.: +0.433 (-0.041)
-       0.731 0.197 0.014 - 0.269 0.139 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/22 8/3                   Eq.: -0.447 (-0.922)
-       0.514 0.148 0.014 - 0.486 0.418 0.054
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/22 7/2                   Eq.: -1.183 (-1.657)
-       0.292 0.090 0.009 - 0.708 0.598 0.115
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.588 (Money: +0.588)
+  0.794 0.000 0.000 - 0.206 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.920
+2. Double, pass        +1.000  (+0.080)
+3. No double           +0.818  (-0.102)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b--BBBBBAA--B--ababcb-b-A:1:-1:1:53:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-AACC-C------------dcb--b-:0:0:1:00:2:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

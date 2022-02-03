@@ -12,39 +12,50 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 210</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 160</span>&ensp;
 <span>(CC9-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=122 White=55</div></div>
+      <div class="pipinfo">pips Red=135 White=122</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a close double and a trivial take. Red’s open 6-pt gives White many long-term chances and White’s home board is as strong as Red’s, at least for the moment.<br>
+ <div class="description">Over the board, 10/3* was played (by me) and I think that move would be the choice of a lot of players.<br>
 <br>
-At this score the double is stronger, but it is still a trivial take for the same reasons as above. White would be very unlucky to have both blots hit and closed out and then to lose a gammon. Dropping is a bad blunder.<br>
+However, the race is close, White’s home board is stronger than Red’s and White still has two rear checkers to escape. On top of that some of White’s fives and threes don’t play well if Red doesn’t hit.<br>
+<br>
+This all adds up to the quiet 13/10, 8/4 being the correct play and 10/3* is an error.<br>
+<br>
+I like this problem because it demonstrates that the ‘obvious’ play is not necessarily correct. I played 10/3* without much thought but much thought is precisely what this position needs to arrive at the correct answer.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.312
-  0.639 0.149 0.004 - 0.361 0.117 0.001
-Cubeful equities:
-1. No double           +0.456
-2. Double, pass        +1.000  (+0.544)
-3. Double, take        +0.388  (-0.068)
-Proper cube action: No double, take (11.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 8/4                    Eq.: +0.053
+       0.506 0.128 0.004 - 0.494 0.094 0.002
+    2. Cubeful 2-ply    10/3*                        Eq.: -0.001 (-0.054)
+       0.498 0.146 0.005 - 0.502 0.139 0.004
+    3. Cubeful 2-ply    13/10 6/2                    Eq.: -0.015 (-0.068)
+       0.490 0.118 0.004 - 0.510 0.107 0.002
+    4. Cubeful 2-ply    8/1*                         Eq.: -0.024 (-0.077)
+       0.495 0.144 0.004 - 0.505 0.141 0.005
+    5. Cubeful 2-ply    13/9 6/3*                    Eq.: -0.054 (-0.107)
+       0.495 0.144 0.006 - 0.505 0.176 0.007
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -56,8 +67,9 @@ const categoryid = "CC9";
 const probnum = "10";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BCBB-a---B-AA----abBcdd-:0:0:1:00:0:0:3:0:10");
+board.showBoard("XGID=-a-aC-D-D-A--A---f-c-bB-b-:0:0:1:43:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

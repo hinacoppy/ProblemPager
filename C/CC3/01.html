@@ -12,59 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 151</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 101</span>&ensp;
 <span>(CC3-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 65?</div>
+<article>
+<div class="doAction">Match Play. Red leads 6-5 to 13. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=137</div></div>
+      <div class="pipinfo">pips Red=132 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red could run with 22/11 but that leaves an even race where White has 14 shots at the blot.<br>
-Red’s better game plan is a blitz and 13/7*, 6/1* is the best move to achieve that.<br>
-13/8, 13/7* is not unreasonable but it leaves White with many more return shots (including hitting loose on his 3-pt).<br>
+ <div class="description">For money this would be a borderline take/pass. If the score was the other way around it would be a huge pass.<br>
+<br>
+That should give you enough clues to work out that with Red leading this will be a double and a clear take. Once again, the match score has a significant influence on the doubling decisions. What’s new??<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7* 6/1*                   Eq.: +0.002
-       0.501 0.152 0.005 - 0.499 0.177 0.008
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8 13/7*                   Eq.: -0.010 (-0.012)
-       0.495 0.140 0.007 - 0.505 0.178 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    22/11                        Eq.: -0.056 (-0.058)
-       0.472 0.052 0.001 - 0.528 0.110 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    22/16 13/8                   Eq.: -0.065 (-0.067)
-       0.467 0.068 0.002 - 0.533 0.127 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/7*/2                      Eq.: -0.085 (-0.087)
-       0.458 0.126 0.006 - 0.542 0.200 0.007
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.576 (Money: +0.564)
+  0.682 0.262 0.025 - 0.318 0.085 0.004
+Cubeful equities:
+1. Double, take        +0.844
+2. Double, pass        +1.000  (+0.156)
+3. No double           +0.690  (-0.154)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a---BCaD---bE---bbdc-A---:0:0:1:65:0:0:0:1:10");
-var categoryid = "CC3";
-var probnum = "01";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-BBBBBA---bB---badbb--B-:0:0:1:00:6:5:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

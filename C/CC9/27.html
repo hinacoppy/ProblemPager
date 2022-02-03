@@ -12,29 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CC9  probnum=27)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 177</span>&ensp;
 <span>(CC9-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. 1-1 to 5. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=126 White=137</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">“To kill or be killed?”, that is the question, to paraphrase the bard.<br>
+<br>
+With gammons so important to both players White cannot be allowed his whole roll here so the banana split play bar/21, 3/1* is mandatory. Everything else is a double blunder or worse.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 3/1*                  Eq.: +0.172
+       0.532 0.348 0.020 - 0.468 0.186 0.018
+    2. Cubeful 2-ply    bar/23 5/1*                  Eq.: +0.059 (-0.113)
+       0.510 0.340 0.017 - 0.490 0.179 0.014
+    3. Cubeful 2-ply    bar/21 24/22                 Eq.: +0.055 (-0.117)
+       0.546 0.247 0.011 - 0.454 0.133 0.005
+    4. Cubeful 2-ply    bar/21 11/9                  Eq.: +0.025 (-0.147)
+       0.534 0.259 0.012 - 0.466 0.140 0.007
+    5. Cubeful 0-ply    bar/23 11/7                  Eq.: -0.138 (-0.310)
+       0.494 0.236 0.007 - 0.506 0.143 0.006
+</pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -46,8 +63,9 @@ const categoryid = "CC9";
 const probnum = "27";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
+board.showBoard("XGID=-aBBBBB----AcB-a-cacc---AA:1:-1:1:42:1:1:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

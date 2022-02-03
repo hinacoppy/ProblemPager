@@ -12,53 +12,61 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 183</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 133</span>&ensp;
 <span>(CC3-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 3-9 to 11. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=102 White=118</div></div>
+      <div class="pipinfo">pips Red=144 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This was the position faced (as White) by Tim Cross in the final of the Florida Open on Sunday evening.<br>
-For money this is a big double and a trivial take. If Red fans White will win with a redouble. At this match score, however, it is rather more exciting as if things go well for him Red will get 7to -9. Note that White cannot win with a redouble so must win by using the checkers.<br>
-After long thought, Tim accepted the double. His opponent rolled double aces, but Tim still went on to win the game and the match.<br>
-The take was perfectly correct, although only by 0.03 equity points. Well played Tim, for having the courage to take under extreme pressure. It would have been very easy to drop and play from 9-4 ahead.<br>
+ <div class="description">A passive play is out of the question here. 13/9, 13/8 gives White far too much control.<br>
+9/5* must be part of the solution. The question is whether to play 13/8 or go for the Double Tiger with 6/1*. The advantage of the double hit is that White must spend the whole of his next turn re-entering his checkers from the bar and, if he doesn’t roll a 5 or a 1, Red will have the initiative.<br>
+As is often the case the more aggressive play turns out to be correct. Double Tiger it is.<br>
+13/8, 9/5* is an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.173 (Money: +0.274)
-  0.555 0.342 0.012 - 0.445 0.185 0.004
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.005  (+0.005)
-3. No double           +0.447  (-0.553)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/5* 6/1*                    Eq.: -0.288
+       0.428 0.179 0.007 - 0.572 0.202 0.016
+    2. Cubeful 2-ply    13/8 9/5*                    Eq.: -0.295 (-0.008)
+       0.424 0.165 0.008 - 0.576 0.189 0.013
+    3. Cubeful 0-ply    9/5* 8/3                     Eq.: -0.428 (-0.141)
+       0.383 0.137 0.008 - 0.617 0.221 0.020
+    4. Cubeful 0-ply    13/9 6/1*                    Eq.: -0.464 (-0.177)
+       0.364 0.126 0.005 - 0.636 0.197 0.011
+    5. Cubeful 0-ply    13/9 13/8                    Eq.: -0.715 (-0.428)
+       0.321 0.098 0.004 - 0.679 0.199 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BB-CcBBB---a----AabbbabaA:0:0:1:00:3:9:0:11:10");
-var categoryid = "CC3";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-BBaC-BA--bC---bbdc---B-:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

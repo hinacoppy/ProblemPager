@@ -12,69 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">Bread and Butter</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 159</span>&ensp;
 <span>(CBs-44)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Money Play.  Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=132 White=152</div></div>
+      <div class="pipinfo">pips Red=117 White=160</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">If you watch beginners play backgammon everything happens very slowly. That is because everything is new to them and they do not have a mental model of the game imprinted on their memory. When making decisions they do not have prior knowledge of similar positions to draw upon and thus they have to try to work things out from first principles.<br>
+ <div class="description">White has anchor and other than the blot on the bar no other weaknesses. <br>
 <br>
-This phase does not last long as they quickly build a library of reference positions and their speed of play increases. So, for example, when rolling a 63 in response to an opening 54 played 24/20, 13/8 they will quickly “learn” that 13/7, 8/5* is the correct move and next time they have the same position they will automatically play the right move without having to think. <br>
+Red meanwhile has five blots but crucially he is roll and threatening to make another home board point. He will win a gammon about a quarter of the time from this position.<br>
 <br>
-I call such plays ‘bread and butter’ moves, i.e. they form some of the fundamental basics of everybody’s game and speed up play. However, problems can arise when you learn the wrong concepts and make ‘bread and butter’ plays that are, in fact, incorrect. You are likely to repeat the errors unless somebody adjusts your thinking.<br>
-<br>
-This week’s position is a good example of someone making an error without knowing it. Faced with this 42 Black elected to keep his racing lead by moving 8/4, 6/4. This is fine for one move but Black must look ahead. 8/4, 6/4 puts two checkers behind White’s anchor and also gives him four stripped points in his outer board, meaning he could have difficulty playing future moves safely.<br>
-<br>
-If Black is lucky a better player will point out to him the advantages of playing 13/7.  This move gives Black a healthy stack of builders on his 6-, 7- and 8-points; it starts to dismantle a point that he may have trouble clearing later. The blot that is left on the mid-point is not in much danger. White will be loath to give up his own mid-point to hit and he may well not hit unless he can cover the blot on his 4-pt at the same time.<br>
-<br>
-After playing 13/7, Black should now have plenty of timing and hopefully he will roll a big double to bring the checkers on White’s bar-point to safety. Of course, this is backgammon, so nothing is guaranteed but 13/7 is the play that best meets the demand of the position.<br>
-<br>
-Once Black has learnt the concepts behind the play then hopefully he will be able to use the same technique in future positions and it can become one of his ‘bread and butter’ moves.<br>
+Those gammons and the volatility of the position are just sufficient to give him a double, but it is very close. White has a trivially easy take – dropping would be a quadruple blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7                         Eq.: +0.423
-       0.600 0.105 0.003 - 0.400 0.088 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/4 6/4                      Eq.: +0.374 (-0.050)
-       0.584 0.105 0.003 - 0.416 0.099 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/11 13/9                   Eq.: +0.358 (-0.065)
-       0.573 0.126 0.005 - 0.427 0.110 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/16 18/14                  Eq.: +0.357 (-0.067)
-       0.577 0.136 0.007 - 0.423 0.132 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/2                          Eq.: +0.308 (-0.116)
-       0.561 0.108 0.003 - 0.439 0.114 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.504
+  0.640 0.285 0.029 - 0.360 0.086 0.004
+Cubeful equities:
+1. Double, take        +0.763
+2. Double, pass        +1.000  (+0.237)
+3. No double           +0.693  (-0.070)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BbDBC---bB---cBdba----:1:1:1:42:0:0:3:0:10");
-var categoryid = "CBs";
-var probnum = "44";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "44";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=abBB--DBA-A-cA-A-b-c-bbA--:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

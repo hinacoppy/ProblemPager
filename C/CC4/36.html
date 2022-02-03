@@ -12,58 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 236</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 186</span>&ensp;
 <span>(CC4-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">(a) Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 8-3 to 9 (Crawford). How should Red play 61?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=160 White=120</div></div>
+      <div class="pipinfo">pips Red=78 White=123</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">(b) Match Play. Red trails 1-4 to 7. Should Red double? If doubled, should White take?<br>
-<br>
-Happy New Year to everyone!<br>
-<br>
-For money this is a borderline double/no double. Red’s command of most of the board plus White’s somewhat ugly structure is counterbalanced by White’s 40-pip lead in the race. Personally, I would wait because there are very few market losing sequences.<br>
-<br>
-The match score is very different. There will be a lot of gammons for both sides and gammon is just what Red wants. This is precisely the type of position you want when trailing in a match.<br>
-<br>
-Now the double is crystal clear and in fact, White must drop. He gets no value from holding the cube as he will hardly ever use it to win the game and a gammon loss will put him behind in the match. Taking this double would be a blunder.<br>
+ <div class="description">Both players have stripped outer board points, so something has to give.<br>
+Red has the choice of leaving 20 shots or 24 shots. Four extra shots is too many when White has such a strong home board. The correct play is 8/2, 3/2 with 8/1 second.<br>
+10/3 is a blunder. Red must play 8/2, 3/2, hope that White misses and that he has to give up one of his outer board points.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.398 (Money: +0.418)
-  0.658 0.216 0.010 - 0.342 0.120 0.004
-Cubeful equities:
-1. Double, take        +0.918
-2. Double, pass        +1.000  (+0.082)
-3. No double           +0.774  (-0.144)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 3/2                      Eq.: -0.157
+       0.469 0.084 0.001 - 0.531 0.075 0.001
+    2. Cubeful 2-ply    8/1                          Eq.: -0.197 (-0.040)
+       0.455 0.062 0.000 - 0.545 0.085 0.001
+    3. Cubeful 2-ply    8/2 6/5                      Eq.: -0.204 (-0.048)
+       0.456 0.081 0.001 - 0.544 0.091 0.002
+    4. Cubeful 2-ply    10/3                         Eq.: -0.253 (-0.096)
+       0.415 0.067 0.001 - 0.585 0.065 0.001
+    5. Cubeful 0-ply    10/9 8/2                     Eq.: -1.435 (-1.279)
+       0.172 0.064 0.001 - 0.828 0.611 0.070
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--bBB-BB-AA---cA---eBb-Bc-:0:0:1:00:1:4:0:7:10");
-var categoryid = "CC4";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-C-BbCCbB-B--------bcbbb--:0:0:1:61:8:3:1:9:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

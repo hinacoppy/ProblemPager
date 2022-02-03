@@ -12,50 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 155</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 105</span>&ensp;
 <span>(CC3-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">(a)  Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=71 White=74</div></div>
+      <div class="pipinfo">pips Red=62 White=65</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a clear take despite White’s disadvantages. Cube ownership is worth a lot in races and so, despite the fact that White only wins 23% of the time this is actually a comfortable take. A mandatory double of course.<br>
+ <div class="description">(b) Match Play. Red trails 0-2 to 13. Should Red redouble? If redoubled, should White take?<br>
+<br>
+For money this is not yet a redouble. Red should hold on to the cube and hope to use it more effectively later.<br>
+You might think that 0-2 to 13 wouldn’t influence the decision.  However, now Red should redouble and White should take. With the cube on 4 and with potential for it to get 8 or 16 the score has a significant influence. White will be slow to redouble to 8 because of the leverage it gives Red with that match-deciding 16-cube waiting in the wings.<br>
+Whenever a match cube gets to 4 and above things normally begin to get interesting!<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.549
-  0.772 0.005 0.000 - 0.228 0.001 0.000
+2-ply cubeless equity +0.430 (Money: +0.430)
+  0.715 0.000 0.000 - 0.285 0.000 0.000
 Cubeful equities:
-1. Double, take        +0.951
-2. Double, pass        +1.000  (+0.049)
-3. No double           +0.798  (-0.152)
-Proper cube action: Double, take
+1. Double, take        +0.762
+2. Double, pass        +1.000  (+0.238)
+3. No double           +0.733  (-0.029)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BCBDBb-B---------abbbbd-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBBBCBAA---------cbadbba-:1:1:1:00:0:2:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

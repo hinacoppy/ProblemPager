@@ -12,60 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 111</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 61</span>&ensp;
 <span>(CC2-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 32?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-0 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=110 White=142</div></div>
+      <div class="pipinfo">pips Red=130 White=147</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red should hit but where - the 11-pt or 4-pt?<br>
-Hitting on the 11-pt dismantles the mid-point and gives White the chance to anchor.<br>
-Red is much better off keeping the mid-point and playing the blitz attack 24/21, 6/4*.<br>
-24/21 13/11* is an error and 13/11*, 13/10 is a blunder. The 3 must be used to advance the rear checker as Red is 32 pips up in the race and that checker needs to head for home.<br>
+ <div class="description">Red should not double this position but that is because he is too good to double. He is ahead in race, threat and position so White should be dropping very quickly if he is given the chance to do so. A gammon loss with the cube on 2 would spell the end of the match for White.<br>
+<br>
+Red can afford to take a roll here and he can keep the cube in reserve for later if his gammon chances recede. Even at 0-0 he should play on.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/21 6/4*                   Eq.: +0.274
-       0.637 0.304 0.005 - 0.363 0.075 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/21 13/11*                 Eq.: +0.245 (-0.029)
-       0.623 0.288 0.005 - 0.377 0.080 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/22 6/3                    Eq.: +0.218 (-0.057)
-       0.609 0.265 0.006 - 0.391 0.076 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/4*/1                       Eq.: +0.186 (-0.088)
-       0.593 0.246 0.004 - 0.407 0.074 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/21 8/6                    Eq.: +0.173 (-0.102)
-       0.586 0.227 0.004 - 0.414 0.086 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.942 (Money: +0.807)
+  0.728 0.413 0.014 - 0.272 0.072 0.003
+Cubeful equities:
+1. No double           +1.013
+2. Double, take        +1.498  (+0.484)
+3. Double, pass        +1.000  (-0.013)
+Proper cube action: Too good to double, pass (2.7%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BB-a-E-C--acB---cbe----A-:0:0:1:32:12:12:0:13:10");
-var categoryid = "CC2";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aaBB-BBB--B-d----bAc-bAbA-:0:0:1:00:3:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

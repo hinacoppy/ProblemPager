@@ -12,65 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 175</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 126</span>&ensp;
 <span>(CBx-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money game. How should Red play 65?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=156 White=137</div></div>
+      <div class="pipinfo">pips Red=116 White=122</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Not the easiest problem with Red’s undeveloped position.<br>
+ <div class="description">This is only just a double, and that is because of the need to activate gammons. Without that factor Red should hold on to the cube. As it is White has a very easy take of Red’s double. Dropping would be quintuple blunder.<br>
 <br>
-Once you reject the passive 13/2 it is a choice between 21/16, 21/15* and 21/15*, 6/1*.<br>
-<br>
-21/16, 21/15* is the winner. It keeps the number of blots to two, reduces the number of return hits and keeps all of Red’s checkers connected.<br>
-<br>
-Given these three factors it is not surprising that 21/15*, 6/1* turns out to be an error. <br>
-<br>
-Red is not favourite after either play but 21/16, 21/15* is his best chance.<br>
+Note that 33 and 53 don’t give Red a full prime and Red still has to clear his rear checkers. It is only the gammon threat that makes this a double and even then it close.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/16 21/15*                 Eq.: -0.132
-       0.438 0.087 0.004 - 0.562 0.241 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/15* 6/1*                  Eq.: -0.185 (-0.053)
-       0.415 0.099 0.004 - 0.585 0.248 0.011
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/2                         Eq.: -0.197 (-0.065)
-       0.368 0.065 0.002 - 0.632 0.123 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/15*/10                    Eq.: -0.210 (-0.078)
-       0.405 0.100 0.006 - 0.595 0.254 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    21/15* 13/8                  Eq.: -0.213 (-0.082)
-       0.410 0.098 0.005 - 0.590 0.267 0.010
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.417
+  0.647 0.204 0.004 - 0.353 0.083 0.003
+Cubeful equities:
+1. Double, take        +0.594
+2. Double, pass        +1.000  (+0.406)
+3. No double           +0.548  (-0.046)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a---aE-D---bD-a-bacbBb---:1:1:1:65:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-CBABBC---b----d-cd-Ba--:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,56 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 128</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 73</span>&ensp;
 <span>(CBw-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 4-0 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-6 (Crawford) to 7. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=113 White=151</div></div>
+      <div class="pipinfo">pips Red=140 White=141</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a huge double and a huge pass but the match score changes things dramatically.<br>
+ <div class="description">Everybody who commented got this one correct. Despite the gammon being meaningless to Red at this score, the best way to play the position is as a blitz. <br>
 <br>
-I was watching when Red doubled and White took very quickly. Of course White will be redoubling very swiftly if he gets an opportunity. In the game Red won a gammon and the match but were the cube actions correct?<br>
-<br>
-White was correct, it is a trivial take at this score. XG indicates no double by a very small margin – Red should play for an undoubled gammon.<br>
-<br>
-In practice I would always double this – you are going to get a lot of passes.<br>
+Letting White anchor is not a good plan so bar/5* is the correct play. Any other move is at least an error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.829 (Money: +0.815)
-  0.746 0.324 0.037 - 0.254 0.037 0.001
-Cubeful equities:
-1. Double, take        +0.923
-2. Double, pass        +1.000  (+0.077)
-3. No double           +0.861  (-0.062)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/5*                       Eq.: +0.312
+       0.631 0.340 0.011 - 0.369 0.111 0.005
+    2. Cubeful 2-ply    bar/20 13/8 9/4(2)           Eq.: +0.262 (-0.050)
+       0.607 0.326 0.011 - 0.393 0.115 0.006
+    3. Cubeful 2-ply    bar/15 9/4(2)                Eq.: +0.251 (-0.060)
+       0.605 0.291 0.009 - 0.395 0.111 0.004
+    4. Cubeful 2-ply    bar/20 13/8 6/1(2)           Eq.: +0.183 (-0.129)
+       0.571 0.312 0.007 - 0.429 0.144 0.009
+    5. Cubeful 2-ply    bar/15 6/1(2)                Eq.: +0.162 (-0.150)
+       0.564 0.269 0.005 - 0.436 0.138 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=ab-BBCBBA---bB---b-bbbb-A-:0:0:1:00:4:0:0:7:10");
-var categoryid = "CBw";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BB-aD--B--dC----bc-b-bAA:0:0:1:55:0:6:1:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

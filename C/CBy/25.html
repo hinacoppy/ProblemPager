@@ -12,59 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 210</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 175</span>&ensp;
 <span>(CBy-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 31?</div>
+<article>
+<div class="doAction">Money game. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=104 White=108</div></div>
+      <div class="pipinfo">pips Red=156 White=137</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red’s best hope is to outprime White even if that is relatively unlikely. Therefore, 5/2*/1 is the wrong plan.<br>
+ <div class="description">Not the easiest problem with Red’s undeveloped position.<br>
 <br>
-The best play is 8/4, hoping to either make the point next time or get hit and stay on the bar long enough to preserve the home board. 5/1 without hitting is the second-best play. The 3-pt anchor will give Red long-term winning chances and he actually wins more than 25% of the time from here, although he loses quite a few gammons.<br>
+Once you reject the passive 13/2 it is a choice between 21/16, 21/15* and 21/15*, 6/1*.<br>
+<br>
+21/16, 21/15* is the winner. It keeps the number of blots to two, reduces the number of return hits and keeps all of Red’s checkers connected.<br>
+<br>
+Given these three factors it is not surprising that 21/15*, 6/1* turns out to be an error. <br>
+<br>
+Red is not favourite after either play but 21/16, 21/15* is his best chance.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4                          Eq.: -0.418
-       0.281 0.038 0.001 - 0.719 0.110 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    5/1                          Eq.: -0.467 (-0.048)
-       0.261 0.024 0.000 - 0.739 0.101 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/5 6/3                      Eq.: -0.517 (-0.099)
-       0.241 0.014 0.000 - 0.759 0.092 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    22/21 5/2*                   Eq.: -0.600 (-0.182)
-       0.256 0.048 0.001 - 0.744 0.233 0.014
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    5/2* 3/2                     Eq.: -0.605 (-0.187)
-       0.217 0.025 0.000 - 0.783 0.134 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/16 21/15*                 Eq.: -0.132
+       0.438 0.087 0.004 - 0.562 0.241 0.007
+    2. Cubeful 2-ply    21/15* 6/1*                  Eq.: -0.185 (-0.053)
+       0.415 0.099 0.004 - 0.585 0.248 0.011
+    3. Cubeful 2-ply    13/2                         Eq.: -0.197 (-0.065)
+       0.368 0.065 0.002 - 0.632 0.123 0.003
+    4. Cubeful 2-ply    21/15*/10                    Eq.: -0.210 (-0.078)
+       0.405 0.100 0.006 - 0.595 0.254 0.010
+    5. Cubeful 2-ply    21/15* 13/8                  Eq.: -0.213 (-0.082)
+       0.410 0.098 0.005 - 0.590 0.267 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-CaB-CB-C-------bbbcc-Bb--:1:1:1:31:0:0:1:0:10");
-var categoryid = "CBy";
-var probnum = "25";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "25";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a---aE-D---bD-a-bacbBb---:1:1:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

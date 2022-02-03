@@ -12,63 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 86</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 36</span>&ensp;
 <span>(CC6-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 31?</div>
+<article>
+<div class="doAction">Match Play. 0-1 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=126 White=66</div></div>
+      <div class="pipinfo">pips Red=133 White=177</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">When in doubt, hit. But does that apply here? <br>
+ <div class="description">I put this one in just to remind everybody that the Jacoby Rule does not apply in match play!<br>
 <br>
-Yes, because it is the simplest route to victory. All other options require a complex parlay for Red to succeed.<br>
-<br>
-The rollouts show that Red gains 11% wins in exchange for 18% gammon losses but leaves him on the plus side of the ledger.<br>
-<br>
-All other moves are errors. The second best move, which is still an error, is 21/18, 4/3.<br>
+Clearly this way too good to double and Red should play on for the gammon. He can always use the cube later. Doubling is 1.5 blunder. If Red does double and White takes that is a tenfold blunder!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9*                        Eq.: -0.710
-       0.330 0.025 0.001 - 0.670 0.486 0.021
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/18 4/3                    Eq.: -0.728 (-0.018)
-       0.227 0.013 0.000 - 0.773 0.270 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/17                        Eq.: -0.736 (-0.025)
-       0.226 0.014 0.000 - 0.774 0.277 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/18 5/4                    Eq.: -0.763 (-0.052)
-       0.227 0.013 0.000 - 0.773 0.303 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    21/18 2/1                    Eq.: -0.814 (-0.103)
-       0.209 0.012 0.000 - 0.791 0.312 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.864 (Money: +0.848)
+  0.710 0.496 0.009 - 0.290 0.073 0.003
+Cubeful equities:
+1. No double           +1.051
+2. Double, take        +1.617  (+0.566)
+3. Double, pass        +1.000  (-0.051)
+Proper cube action: Too good to double, pass (8.2%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ABBABB--a---B-----ccCccb-:1:1:1:31:0:0:3:0:10");
-var categoryid = "CC6";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=bB-B-BCb----dB---ACdc-----:0:0:1:00:0:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,29 +12,47 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CC9  probnum=26)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 176</span>&ensp;
 <span>(CC9-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Red trails 2-4 to 5. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=146 White=94</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">At this score gammons don’t count against him so Red should make the best play to win the game.<br>
+<br>
+20/12(2) is a very reasonable try and not an error but even better is the whole enchilada, 20/16, 20/8!!<br>
+If White doesn’t roll a 1 or a 2 Red’s numbers will all play well. If White does hit a blot then Red can always fall back on a well-timed ace-point game knowing that White cannot use the cube to win the game.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/8 20/16                   Eq.: +0.154
+       0.505 0.071 0.002 - 0.495 0.298 0.068
+    2. Cubeful 2-ply    20/12(2)                     Eq.: +0.135 (-0.019)
+       0.497 0.071 0.002 - 0.503 0.255 0.038
+    3. Cubeful 2-ply    20/12 20/16 9/5              Eq.: +0.111 (-0.043)
+       0.485 0.070 0.002 - 0.515 0.258 0.043
+    4. Cubeful 2-ply    24/16(2)                     Eq.: +0.066 (-0.087)
+       0.473 0.060 0.003 - 0.527 0.296 0.008
+    5. Cubeful 2-ply    20/12 20/16 7/3              Eq.: +0.045 (-0.109)
+       0.461 0.062 0.002 - 0.539 0.303 0.063
+</pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -46,8 +64,9 @@ const categoryid = "CC9";
 const probnum = "26";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
+board.showBoard("XGID=-aAABBBB-A-------bbcBcbbB-:1:-1:1:44:2:4:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

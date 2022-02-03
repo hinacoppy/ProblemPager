@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 49</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 207</span>&ensp;
 <span>(CBu-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 4-4 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=53</div></div>
+      <div class="pipinfo">pips Red=110 White=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a grossly premature redouble but once the cube is on 4 gammons don’t count and the cube is dead. Those factors make a huge difference.<br>
+ <div class="description">This is a question of putting the checkers where you want them. <br>
 <br>
-The volatility indicates a double and that is precisely the case. Very clear double and equally well, a very clear take. Not redoubling is a 1.5 blunder while dropping is a 2.5 blunder. Once again the match score is the dominant factor.<br>
+8/2*, 6/1 just looks wrong despite minimising shots.<br>
+<br>
+Red should just make his 3-pt with 9/3, 8/3. The resulting position is much easier to develop than the one arising after 8/2*, 6/1. In addition it gives Red an additional home board point which will be useful if there is an exchange of hits.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.256 (Money: +0.254)
-  0.709 0.000 0.000 - 0.291 0.163 0.001
-Cubeful equities:
-1. Double, take        +0.833
-2. Double, pass        +1.000  (+0.167)
-3. No double           +0.710  (-0.123)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/3 8/3                      Eq.: +0.286
+       0.565 0.159 0.003 - 0.435 0.099 0.002
+    2. Cubeful 2-ply    8/2* 6/1                     Eq.: +0.115 (-0.171)
+       0.546 0.119 0.001 - 0.454 0.116 0.002
+    3. Cubeful 2-ply    8/3 8/2*                     Eq.: +0.034 (-0.251)
+       0.518 0.124 0.002 - 0.482 0.143 0.004
+    4. Cubeful 0-ply    13/2*                        Eq.: -0.037 (-0.322)
+       0.489 0.129 0.001 - 0.511 0.132 0.003
+    5. Cubeful 0-ply    13/8 13/7                    Eq.: -0.186 (-0.472)
+       0.446 0.113 0.001 - 0.554 0.144 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--a-BBB-B-BA-B-----AabbceA:1:1:1:00:4:4:0:7:10");
-var categoryid = "CBu";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "CBu";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-Ba-b-D-EB--bB-a-b-cbb----:0:0:1:65:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

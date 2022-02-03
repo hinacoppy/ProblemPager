@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 196</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 133</span>&ensp;
 <span>(CBs-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Score is tied 3-3 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=141</div></div>
+      <div class="pipinfo">pips Red=158 White=129</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is the most common error I see in match play backgammon - the application of money play thinking to match play.<br>
+ <div class="description">Over the board I played bar/21, 15/3* fairly quickly and was surprised when XG didn’t much like that play, preferring bar/21, 24/20(2), 15/11.<br>
 <br>
-Red is too good to double by quite some margin and should play on for the undoubled gammon. The Jacoby Rule precludes this in money games and players forget this when playing matches. It is nearly a double blunder to offer the cube here.<br>
+That play reduces the gammon wins by 8% but wins 4% more games overall. The key is that hitting increases the gammon losses by 5%.<br>
 <br>
-Of course, White should drop the double and be grateful.<br>
+The hitting play leaves Red’s rear checkers somewhat stranded so the idea is to create a strong advanced anchor and then attack White. Attacking first can lead to problems so why not avoid those variations.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +1.024 (Money: +0.881)
-  0.743 0.444 0.004 - 0.257 0.051 0.002
-Cubeful equities:
-1. No double           +1.136
-2. Double, take        +2.509  (+1.373)
-3. Double, pass        +1.000  (-0.136)
-Proper cube action: Too good to double, pass (9.0%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 24/20(2) 15/11        Eq.: +0.530
+       0.716 0.258 0.011 - 0.284 0.071 0.003
+    2. Cubeful 2-ply    bar/21 15/3*                 Eq.: +0.474 (-0.056)
+       0.686 0.317 0.012 - 0.314 0.110 0.010
+    3. Cubeful 0-ply    bar/21 24/16 15/11           Eq.: +0.314 (-0.216)
+       0.660 0.236 0.012 - 0.340 0.130 0.009
+    4. Cubeful 0-ply    bar/21 24/16 24/20           Eq.: +0.310 (-0.220)
+       0.662 0.223 0.010 - 0.338 0.125 0.007
+    5. Cubeful 0-ply    bar/21 24/20 15/7            Eq.: +0.278 (-0.252)
+       0.647 0.245 0.011 - 0.353 0.141 0.012
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aB-BABB-C---cBb--b-dc---A-:0:0:1:00:3:3:0:7:10");
-var categoryid = "CBs";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a--aBBC-BB--b--A-b-e--bbBA:1:-1:1:44:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

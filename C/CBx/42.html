@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 159</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 142</span>&ensp;
 <span>(CBx-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 2-2 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled. Should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=106 White=121</div></div>
+      <div class="pipinfo">pips Red=134 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Only a timid player would redouble this position and only a true optimist would accept the redouble!<br>
+ <div class="description">This one is close but Red should redouble. White has a trivial take.<br>
 <br>
-Red should play on for the gammon that he will win over 25% of the time. <br>
+The reason for the redouble is that 50% of Red’s wins will be gammons and he increases his equity by redoubling now. The position is also highly volatile. One good roll by red freeing a back checker followed by a fan from White will give White a huge pass.<br>
 <br>
-Redoubling is a double blunder.<br>
+Red must redouble now.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.969 (Money: +0.886)
-  0.808 0.294 0.004 - 0.192 0.028 0.001
+2-ply cubeless equity +0.498
+  0.641 0.310 0.004 - 0.359 0.094 0.004
 Cubeful equities:
-1. No double           +1.105
-2. Double, take        +1.607  (+0.503)
-3. Double, pass        +1.000  (-0.105)
-Proper cube action: Too good to redouble, pass (17.3%)
+1. Double, take        +0.753
+2. Double, pass        +1.000  (+0.247)
+3. No double           +0.737  (-0.016)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-C-a-bE-Fa---------bcbb-bA:1:-1:-1:00:2:2:0:7:10");
-var categoryid = "CBx";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a-BBBBB-----dB---b-bbbBbA-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

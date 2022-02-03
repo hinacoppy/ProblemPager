@@ -12,63 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 152</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 149</span>&ensp;
 <span>(CBx-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 65?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=131 White=142</div></div>
+      <div class="pipinfo">pips Red=62 White=77</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Playing on automatic I quickly chose 10/4, 9/4, duplicating 3s. However, that is not the best move. It leaves White with an attack when his home board is the stronger. It also leaves three blots.<br>
+ <div class="description">It is the double, not the take that is in question here. White is favourite to enter next roll and any hit will be a winner. Red has very few market losing sequences, but the volatility is just enough for Red to venture a redouble. <br>
 <br>
-Best is 15/9, 6/1. This strengthens the home board, races when ahead and only leaves two blots, one of which can’t be attacked directly.<br>
-<br>
-10/4, 9/4 ‘looks’ obvious but once you think it through the advantages of 15/9, 6/1 become apparent. I wager that many would get this one wrong over the board.<br>
-<br>
-Note that 22/16, 15/10 is a reasonable play but not as strong as 15/9, 6/1.<br>
+The take is trivial and dropping would be nearly a triple blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/9 6/1                     Eq.: +0.234
-       0.578 0.168 0.006 - 0.422 0.149 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    22/16 15/10                  Eq.: +0.218 (-0.016)
-       0.587 0.109 0.004 - 0.413 0.142 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    15/10 9/3                    Eq.: +0.151 (-0.084)
-       0.557 0.149 0.007 - 0.443 0.164 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    10/4 9/4                     Eq.: +0.125 (-0.109)
-       0.552 0.171 0.009 - 0.448 0.186 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    15/9 10/5                    Eq.: +0.064 (-0.170)
-       0.535 0.158 0.005 - 0.465 0.197 0.007
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.451
+  0.730 0.003 0.000 - 0.270 0.012 0.000
+Cubeful equities:
+1. Double, take        +0.749
+2. Double, pass        +1.000  (+0.251)
+3. No double           +0.741  (-0.008)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-AbB--C-CAA-dB-A-b-c-bA-b-:0:0:1:65:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBED--B------B-----bbcdc--:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

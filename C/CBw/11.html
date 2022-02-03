@@ -12,63 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 140</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 61</span>&ensp;
 <span>(CBw-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-3 to 5. How should Red play 11?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=113 White=55</div></div>
+      <div class="pipinfo">pips Red=21 White=29</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">My apologies for misprinting the question. The dice roll was 11.<br>
+ <div class="description">If you evaluate this position using Trice’s Rules for Effective Pip Counts as outlined in my Backgammon Races paper in the downloads section of this website, then you will find it is double/drop. However, that formula does not take account of White’s hitting chances.<br>
 <br>
-I had this position against Ray Kershaw in a London League match a couple of months ago. <br>
-<br>
-I am please to say I found 18/17*, 5/2. This wins more games and gammons than any other play. Making the ace-point is far too weak. Look at how White’s 14 and especially 15 play after 18/17*, 5/2. Any move other than 18/7*, 5/2 is a blunder. <br>
-<br>
-I am pleased to say that I did win the gammon and the match, much to Ray’s chagrin!<br>
+White will hit in approximately 5 games out of 36 which gives him added winning chances. Do the hits plus his racing chance add up to 25%? Not quite but the fact that he will own the cube gives him just enough to take, but only by a mere 0.015 equity points so don’t be ashamed of yourself if you chose to drop. If you chose not to double as Red now that is an entirely different matter!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/17* 5/2                   Eq.: +0.554
-       0.732 0.095 0.004 - 0.268 0.142 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    18/17*/16 18/17 2/1          Eq.: +0.502 (-0.052)
-       0.718 0.070 0.002 - 0.282 0.067 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    18/17*/15 2/1                Eq.: +0.491 (-0.063)
-       0.712 0.070 0.002 - 0.288 0.067 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/17*/16 5/4 2/1            Eq.: +0.486 (-0.068)
-       0.712 0.065 0.002 - 0.288 0.064 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    18/17*/16 9/8 2/1            Eq.: +0.480 (-0.074)
-       0.704 0.075 0.002 - 0.296 0.088 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.545
+  0.772 0.000 0.000 - 0.228 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.952
+2. Double, pass        +1.000  (+0.048)
+3. No double           +0.720  (-0.232)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-AABBCB--A-------aBb-cedA-:1:-1:1:11:2:3:0:5:10");
-var categoryid = "CBw";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBDB-A------------------d-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

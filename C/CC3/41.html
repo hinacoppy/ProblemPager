@@ -12,58 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 191</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 141</span>&ensp;
 <span>(CC3-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money play. How should Red play 43?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-2 to 7. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=137 White=155</div></div>
+      <div class="pipinfo">pips Red=131 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board I played 8/1*, wanting to deny my opponent the chance to anchor. On a swift evaluation XG thought that play was an error.<br>
-On rollout it turns out that 8/1* is marginally inferior to 21/18, 9/5. The latter play seeks to capitalise on the racing lead while 8/1* is the brute force play. The plays are close enough that you can choose whichever move suits your playing style better. Also don’t forget that Red owns the cube and is hoping to be able to redouble effectively very soon.<br>
+ <div class="description">The safe but timid play is 20/15, 20/14.  At DMP that would be the correct play. However, gammons count double in backgammon and the only play that is not a double blunder or worse is 9/3*, 8/3.<br>
+That raises the gammons won from 14% with 20/15, 20/14 to more than 35%.<br>
+The problem is no brainer once you see that giving up the full prime is correct but inbuilt caution sometimes gets in the way of clear thinking. You have been warned!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/18 9/5                    Eq.: +0.539
-       0.586 0.264 0.016 - 0.414 0.130 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/1*                         Eq.: +0.503 (-0.036)
-       0.561 0.312 0.010 - 0.439 0.143 0.010
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    9/5 8/5                      Eq.: +0.459 (-0.080)
-       0.558 0.266 0.016 - 0.442 0.135 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/14                        Eq.: +0.455 (-0.085)
-       0.569 0.236 0.014 - 0.431 0.140 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/9 8/5                     Eq.: +0.377 (-0.163)
-       0.534 0.252 0.016 - 0.466 0.149 0.009
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    9/3* 8/3                     Eq.: +1.082
+       0.854 0.383 0.009 - 0.146 0.036 0.001
+    2. Cubeful 0-ply    20/15 20/14                  Eq.: +0.883 (-0.199)
+       0.875 0.159 0.004 - 0.125 0.026 0.001
+    3. Cubeful 0-ply    20/9                         Eq.: +0.862 (-0.221)
+       0.856 0.180 0.004 - 0.144 0.025 0.001
+    4. Cubeful 0-ply    20/14 13/8                   Eq.: +0.839 (-0.243)
+       0.846 0.181 0.004 - 0.154 0.028 0.001
+    5. Cubeful 0-ply    20/15 13/7                   Eq.: +0.836 (-0.247)
+       0.840 0.192 0.005 - 0.160 0.030 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aa-B-BC-CAb-bB---b-cbAbA--:1:1:1:43:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "41";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "41";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aBBBBBB--bA---caeBa-b--:1:-1:1:65:0:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

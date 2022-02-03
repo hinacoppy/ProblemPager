@@ -12,58 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 110</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 60</span>&ensp;
 <span>(CC2-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 7. How should Red play 53?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 32?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=142 White=139</div></div>
+      <div class="pipinfo">pips Red=105 White=80</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">8/3, 6/3* wins fractionally more gammons but gives away too many losses to be correct. That move is overplaying the position.<br>
-The simple 13/10, 13/8 is correct. Any other move other than that is a blunder and 13/8, 6/3* enters the realm of the triple blunder.  Red should simply be concentrating on extending his prime.<br>
+ <div class="description">White’s two inner board blots allow Red to play aggressively. Sometimes a single blot can do the work of a point by limiting the opponent’s options.<br>
+<br>
+Here the correct play is 18/15, 3/1 which generates extra shots on some of White’s fives, look at 65 for instance.<br>
+<br>
+Because this tactic is correct you may be surprised to learn that 18/15, 13/11 leaving four blots, is not even quite an error. 13/8 and 18/13 are both double blunders.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 13/8                   Eq.: +0.508
-       0.703 0.238 0.004 - 0.297 0.043 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/3* 6/3                     Eq.: +0.428 (-0.079)
-       0.668 0.253 0.005 - 0.332 0.052 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/5                         Eq.: +0.410 (-0.098)
-       0.674 0.220 0.005 - 0.326 0.054 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    13/8 6/3*                    Eq.: +0.281 (-0.227)
-       0.638 0.193 0.006 - 0.362 0.070 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    20/15 13/10                  Eq.: +0.208 (-0.300)
-       0.631 0.178 0.003 - 0.369 0.110 0.008
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/15 3/1                    Eq.: -0.017
+       0.468 0.080 0.004 - 0.532 0.057 0.001
+    2. Cubeful 2-ply    13/8                         Eq.: -0.150 (-0.132)
+       0.443 0.058 0.001 - 0.557 0.035 0.000
+    3. Cubeful 2-ply    18/13                        Eq.: -0.182 (-0.165)
+       0.430 0.050 0.001 - 0.570 0.032 0.000
+    4. Cubeful 2-ply    4/1 3/1                      Eq.: -0.263 (-0.246)
+       0.411 0.054 0.001 - 0.589 0.049 0.000
+    5. Cubeful 0-ply    18/16 18/15                  Eq.: -0.280 (-0.262)
+       0.410 0.064 0.000 - 0.590 0.084 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---a-BCBBB--eB---b-dBc----:1:-1:1:53:0:0:0:7:10");
-var categoryid = "CC2";
-var probnum = "10";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BCBBB---b--B----Bcd-ada-:0:0:1:32:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

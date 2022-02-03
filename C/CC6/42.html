@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 92</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 42</span>&ensp;
 <span>(CC6-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 9-2 to 11. How should Red play 21?</div>
+<article>
+<div class="doAction">Match Play. Red leads 2-0 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=63 White=120</div></div>
+      <div class="pipinfo">pips Red=116 White=94</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">White is playing for an undoubled gammon, but things have not gone quite to plan and he now faces a difficult decision.<br>
+ <div class="description">This position is very deceptive. White has the long-term equity of his 3-pt holding game. Meanwhile Red still has to escape his last rear checker and he has three dead checkers on his 2-pt. An immediate double fours does him no favours.<br>
 <br>
-6/4*/3 doesn’t really solve Red’s problems. The ace should be played 11/10*. The question is whether Red should then play 6/4*, leaving three blots or simply 11/9, leaving only two blots.<br>
+For money this is a redouble (just) and take but at this score a redouble is very nearly a double blunder. White will need only 10% winning chances to redouble to 8. <br>
 <br>
-In a money game with White owning the cube, 6/4* would be clear because of the much higher gammon percentage. At this lop-sided score it turns out that 11/10*, 11/9 is just fractionally better than 11/10*, 6/4* but the latter play is not an error.<br>
+Red must hold on to the cube and hope to use it when he can give White a difficult decision.<br>
+<br>
+Once again, the match score dominates the cube decision.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/10* 6/4*                  Eq.: +0.707
-       0.669 0.433 0.004 - 0.331 0.119 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    11/10* 11/9                  Eq.: +0.597 (-0.110)
-       0.645 0.340 0.003 - 0.355 0.077 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/4*/3                       Eq.: +0.553 (-0.154)
-       0.670 0.224 0.001 - 0.330 0.032 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/10* 3/1                   Eq.: +0.442 (-0.266)
-       0.615 0.293 0.002 - 0.385 0.077 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    11/10*/8                     Eq.: +0.421 (-0.287)
-       0.631 0.299 0.003 - 0.369 0.053 0.002
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.547 (Money: +0.539)
+  0.727 0.115 0.002 - 0.273 0.030 0.000
+Cubeful equities:
+1. No double           +0.702
+2. Double, pass        +1.000  (+0.298)
+3. Double, take        +0.566  (-0.136)
+Proper cube action: No redouble, take (31.3%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-DBCabD---aB-------cbbb-b-:0:0:1:21:9:2:0:11:10");
-var categoryid = "CC6";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--Cb-BBBBB-------A-bbceAa-:1:1:1:00:2:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

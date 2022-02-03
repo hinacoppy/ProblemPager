@@ -12,39 +12,48 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 218</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 168</span>&ensp;
 <span>(CC9-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=29 White=37</div></div>
+      <div class="pipinfo">pips Red=146 White=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Nearly all the formulae get this wrong because they underestimate the gap on Red’s 4-pt and also the strength of the three checkers on White’s 4-pt. Remember the old adage, “you can never have too many checkers on your 4-pt”. <br>
+ <div class="description">Another type of play that many get wrong. This is all about connectivity and letting the checkers talk to each other.<br>
 <br>
-This position is a classic demonstration of the truth of that adage. The formulae all make this double/pass but in fact it is clearly a huge double (worse than a double blunder not to double) and a skinny take.<br>
+Any move other than 18/15(2), 13/10(2) is a blunder, despite the attraction of making the 5-pt.<br>
+<br>
+All Red needs is time to throw some clearing numbers and 18/15(2), 13/10(2) gives him the best chance of doing that.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.545
-  0.772 0.000 0.000 - 0.228 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.957
-2. Double, pass        +1.000  (+0.043)
-3. No double           +0.786  (-0.171)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/15(2) 13/10(2)            Eq.: +0.428
+       0.647 0.045 0.000 - 0.353 0.045 0.000
+    2. Cubeful 2-ply    18/15(2) 8/5(2)              Eq.: +0.389 (-0.039)
+       0.634 0.048 0.000 - 0.366 0.047 0.000
+    3. Cubeful 2-ply    18/15(2) 6/3(2)              Eq.: +0.305 (-0.123)
+       0.609 0.045 0.000 - 0.391 0.058 0.000
+    4. Cubeful 0-ply    18/15(2) 8/2                 Eq.: +0.234 (-0.193)
+       0.587 0.053 0.000 - 0.413 0.074 0.000
+    5. Cubeful 0-ply    13/10(2) 8/5(2)              Eq.: +0.232 (-0.195)
+       0.576 0.082 0.001 - 0.424 0.071 0.000
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -56,8 +65,9 @@ const categoryid = "CC9";
 const probnum = "18";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBB-AB------------bbca---:0:0:1:00:0:0:3:0:10");
+board.showBoard("XGID=----b-E-D--BcBb--bBdb-----:0:0:1:33:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

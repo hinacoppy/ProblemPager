@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 123</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 73</span>&ensp;
 <span>(CC7-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-4 to 5 (Crawford). How should Red play 44?</div>
+<article>
+<div class="doAction">Match Play. Red leads 4-3 to 5 (Crawford). How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=148 White=139</div></div>
+      <div class="pipinfo">pips Red=141 White=182</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The key here is to keep the pressure on White’s blot on his 2-pt and in general to keep pressure on all quadrants.<br>
+ <div class="description">This is one of the positions where XG (and me) get it wrong on initial evaluation. The difference is that XG can correct itself on a rollout whereas I just made the mistake over the board.<br>
 <br>
-Therefore 24/20 is not part of the solution. 20/16 is part of the solution. The question then is what to with the other three fours. It is very close between 13/9, 13/5 and 13/9(2), 6/2. The equity difference is tiny so take your pick.<br>
+It looks natural to make the 5-pt which is what I did. However, that is an error. The correct plan is to play 18/7. This clears the most troublesome checker and if White hits it he will have to give up one of his anchors prematurely. If the blot is left unchallenged it will help to bring home the rest of Red’s checkers.<br>
 <br>
-The over the board play of 24/20, 13/9(2) 6/2 was a bad error as it takes the pressure off White.<br>
+Once you see the rollout the play becomes ‘obvious’ but sadly we don’t have that information over the board. Hindsight is a truly wonderful thing.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/5(2)                      Eq.: +0.101
-       0.543 0.151 0.003 - 0.457 0.090 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/16 13/5 13/9              Eq.: +0.098 (-0.003)
-       0.542 0.142 0.003 - 0.458 0.093 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/16 13/9(2) 6/2            Eq.: +0.093 (-0.008)
-       0.540 0.135 0.002 - 0.460 0.094 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/16 13/9(2) 8/4            Eq.: +0.087 (-0.014)
-       0.536 0.143 0.003 - 0.464 0.100 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    20/16 13/5 6/2               Eq.: +0.080 (-0.021)
-       0.533 0.139 0.002 - 0.467 0.100 0.003
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/13 11/5                   Eq.: -0.057
+       0.572 0.172 0.006 - 0.428 0.100 0.004
+    2. Cubeful 2-ply    18/7                         Eq.: -0.077 (-0.019)
+       0.565 0.175 0.006 - 0.435 0.104 0.004
+    3. Cubeful 2-ply    11/5 10/5                    Eq.: -0.089 (-0.032)
+       0.553 0.196 0.008 - 0.447 0.098 0.003
+    4. Cubeful 2-ply    18/13 8/2                    Eq.: -0.117 (-0.059)
+       0.552 0.176 0.005 - 0.448 0.110 0.004
+    5. Cubeful 2-ply    11/6 8/2                     Eq.: -0.205 (-0.148)
+       0.518 0.177 0.006 - 0.482 0.120 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----BBCbB---cD---d-eA--aA-:0:0:1:44:0:4:1:5:10");
-var categoryid = "CC7";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---bb-E-D-BAc--BbcAb--a---:0:0:1:65:4:3:1:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

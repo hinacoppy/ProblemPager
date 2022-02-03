@@ -12,59 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 68</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 33</span>&ensp;
 <span>(CBv-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 6-3 (post-Crawford). How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-1 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=76 White=125</div></div>
+      <div class="pipinfo">pips Red=135 White=154</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Timidity doesn’t win much at backgammon. Red must play 13/5*. If not hit he should be able to win the game and the match. Occasionally he will lose a gammon and the match but White only has a three point board and if hit he will nearly certainly have return shots.<br>
+ <div class="description">For money this would be a clear-cut double and a very easy take.<br>
 <br>
-10/2 costs Red 7% game-winning chances and that is too much. 13/5* only loses a gammon 8% of the time. 10/12 is a bad error but not quite a blunder.<br>
+At this score White would be blundering if he took Red’s double. A gammon and four points give Red the match with perfect efficiency. That should set the alarm bells ringing. White must drop and play from 1-4 down.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    13/5*                        Eq.: +0.366
-       0.748 0.511 0.003 - 0.252 0.062 0.002
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    10/2                         Eq.: +0.204 (-0.162)
-       0.648 0.163 0.000 - 0.352 0.044 0.000
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    10/4 6/4                     Eq.: +0.134 (-0.232)
-       0.621 0.167 0.000 - 0.379 0.052 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    10/4 3/1                     Eq.: +0.082 (-0.284)
-       0.601 0.141 0.000 - 0.399 0.057 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/11 13/7                   Eq.: -0.507 (-0.873)
-       0.398 0.114 0.001 - 0.602 0.144 0.004
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.639 (Money: +0.542)
+  0.637 0.337 0.006 - 0.363 0.074 0.002
+Cubeful equities:
+1. Double, take        +0.950
+2. Double, pass        +1.000  (+0.050)
+3. No double           +0.749  (-0.201)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BCBBaC--bA-aB----ccc-b---:1:1:1:62:6:3:0:7:10");
-var categoryid = "CBv";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BaB--C-A-B-fC---c-daB----:0:0:1:00:3:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

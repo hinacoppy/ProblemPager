@@ -12,46 +12,48 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 164</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 114</span>&ensp;
 <span>(CC8-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 5. How should Red play 31?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=179 White=156</div></div>
+      <div class="pipinfo">pips Red=53 White=121</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board bar/24, 8/5 was played but that was the wrong game plan. Red is only 19 pips behind (fewer if he hits) so committing to a back game now is too negative.<br>
+ <div class="description">A slightly trick question.<br>
 <br>
-The choice is between bar/24/21 and bar/24, 21/18*. A very long rollout produced an equity difference of 0.005 so for all intents and purposes the two plays are identical and you can take your choice. The key lesson here is not to steer for a back game too early. Here there is plenty of play for Red whichever of the other game plans he chooses.<br>
+If Red doubles White should drop in a flash. Even if he hits a shot he has very little chance of containing the hit checker.<br>
+<br>
+However, Red should not double because he is too good to double and should play on for a gammon. <br>
+<br>
+Doubling is very nearly a blunder. Of course, if you think White might mistakenly take then by all means, go ahead and double.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 21/18*                Eq.: -0.294
-       0.449 0.127 0.008 - 0.551 0.219 0.022
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/21                       Eq.: -0.306 (-0.012)
-       0.434 0.107 0.005 - 0.566 0.191 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    bar/24 8/5                   Eq.: -0.474 (-0.180)
-       0.413 0.079 0.002 - 0.587 0.245 0.025
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/24 6/3                   Eq.: -0.489 (-0.195)
-       0.410 0.078 0.002 - 0.590 0.248 0.024
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/24 13/10                 Eq.: -0.762 (-0.468)
-       0.364 0.070 0.002 - 0.636 0.272 0.029
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +1.086 (Money: +1.123)
+  0.849 0.435 0.000 - 0.151 0.010 0.000
+Cubeful equities:
+1. No double           +1.141
+2. Double, take        +2.258  (+1.118)
+3. Double, pass        +1.000  (-0.141)
+Proper cube action: Too good to double, pass (11.2%)
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -59,12 +61,13 @@ The choice is between bar/24/21 and bar/24, 21/18*. A very long rollout produced
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ba---E-Da---Bb---adbBb-AA:0:0:1:31:0:0:0:5:10");
-var categoryid = "CC8";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aECB-ACb----bA-----b-bbd--:0:0:1:00:0:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

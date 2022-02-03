@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 86</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 36</span>&ensp;
 <span>(CC1-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 21?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=193</div></div>
+      <div class="pipinfo">pips Red=141 White=135</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The key when playing against a potential back game is to deny your opponent a second anchor if at all possible.<br>
+ <div class="description">Red just doesn’t have enough threats to warrant a double here.<br>
 <br>
-Here Red is no danger on White’s side of the board so making the 20-pt is irrelevant. After entering with bar/24, he must use the 2 to hit with 6/4*. Any other move is at least a bad error.<br>
+He certainly has the advantage, but White’s board is as strong as Red’s and the race is nearly even. The volatility just isn’t there.<br>
+<br>
+Red does better to wait and give White a more difficult decision later on.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 6/4*                  Eq.: +0.298
-       0.598 0.333 0.023 - 0.402 0.110 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/24 10/8                  Eq.: +0.250 (-0.048)
-       0.595 0.283 0.013 - 0.405 0.095 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/24 22/20                 Eq.: +0.211 (-0.087)
-       0.588 0.260 0.013 - 0.412 0.094 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/22                       Eq.: +0.127 (-0.171)
-       0.564 0.253 0.012 - 0.436 0.114 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/24 20/18                 Eq.: +0.101 (-0.197)
-       0.560 0.255 0.010 - 0.440 0.127 0.006
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.389
+  0.666 0.139 0.006 - 0.334 0.085 0.002
+Cubeful equities:
+1. No double           +0.590
+2. Double, pass        +1.000  (+0.410)
+3. Double, take        +0.550  (-0.040)
+Proper cube action: No double, take (8.9%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BaBadC-B-A-cB---a-cA-Ab-A:1:-1:1:21:0:0:3:0:10");
-var categoryid = "CC1";
-var probnum = "36";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b--BBC-A---bE--Bacbbab---:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

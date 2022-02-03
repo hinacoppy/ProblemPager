@@ -12,59 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 163</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 113</span>&ensp;
 <span>(CC3-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 54?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-6 to 9. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=149 White=134</div></div>
+      <div class="pipinfo">pips Red=123 White=78</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Red can take the passive approach of playing safely with 13/9, 13/8 but things will have to go very well for him to win after that move. He wins only about 16% of the time.<br>
-The alternative is to try to create a counter-prime with 9/5, 6/1*. This is very bold but wins another 6% of the time. It also loses about 11% more gammons.<br>
-If White held the cube the passive play would be correct but holding the cube Red can engineer positions where he can make effective use of the cube. This makes enough of a difference that 9/5, 6/1* is the correct move and the passive play is a small error.<br>
+ <div class="description">It is very close but Red should redouble. When things go well, he will be pleased to have redoubled. He even wins a gammon and the match 6% of the time.<br>
+If things go badly which they do most of the time, White will probably win a gammon and the match.<br>
+However, Red is not risking a huge amount by redoubling. Many players wouldn’t even think of redoubling here.<br>
+Naturally White has a trivial take of Red’s double. Passing would be a 20 times blunder!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/5 6/1*                     Eq.: -0.743
-       0.222 0.060 0.002 - 0.778 0.296 0.028
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/9 13/8                    Eq.: -0.764 (-0.021)
-       0.173 0.033 0.001 - 0.827 0.194 0.008
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/4 6/1*                     Eq.: -0.777 (-0.034)
-       0.191 0.050 0.002 - 0.809 0.256 0.020
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/9 6/1*                    Eq.: -0.794 (-0.051)
-       0.190 0.043 0.001 - 0.810 0.260 0.023
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    9/5 9/4                      Eq.: -0.804 (-0.061)
-       0.190 0.041 0.001 - 0.810 0.268 0.023
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity -0.804 (Money: -0.959)
+  0.235 0.063 0.004 - 0.765 0.493 0.002
+Cubeful equities:
+1. Double, take        -0.568
+2. Double, pass        +1.000  (+1.568)
+3. No double           -0.599  (-0.031)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--B-D-BC-abB--babbbb--B-:1:1:1:54:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--B-C-BaC-B--Ba----cbbcabA:1:1:1:00:2:6:0:9:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

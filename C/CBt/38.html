@@ -12,42 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBt  probnum=38)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 196</span>&ensp;
 <span>(CBt-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Score is tied 3-3 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=108 White=141</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">This is the most common error I see in match play backgammon - the application of money play thinking to match play.<br>
+<br>
+Red is too good to double by quite some margin and should play on for the undoubled gammon. The Jacoby Rule precludes this in money games and players forget this when playing matches. It is nearly a double blunder to offer the cube here.<br>
+<br>
+Of course, White should drop the double and be grateful.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +1.024 (Money: +0.881)
+  0.743 0.444 0.004 - 0.257 0.051 0.002
+Cubeful equities:
+1. No double           +1.136
+2. Double, take        +2.509  (+1.373)
+3. Double, pass        +1.000  (-0.136)
+Proper cube action: Too good to double, pass (9.0%)
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBt";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "CBt";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB-BABB-C---cBb--b-dc---A-:0:0:1:00:3:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

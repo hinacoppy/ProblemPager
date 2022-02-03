@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 203</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 182</span>&ensp;
 <span>(CBy-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=134 White=68</div></div>
+      <div class="pipinfo">pips Red=137 White=133</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a grossly premature redouble but at this score Red cannot afford to lose his market. Now not redoubling would be a massive blunder. <br>
+ <div class="description">Hitting on the 21-pt and then playing 13/9 with the four is a massive blunder, leaving Red with three vulnerable blots and giving White good sixes. Giving up the anchor by hitting with 22/21* is far too committal.<br>
 <br>
-Yet again the match score completely dominates the cube decision.<br>
+13/12*/8 is also a bad blunder - the only move that is not a blunder is the correct one: 13/12*, 8/4. This gains in the race with little risk, duplicates White’s fours and seeks to put the checkers where they belong. With luck Red will be able to build a five-point prime before he gives up his anchor in White’s board.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.265 (Money: +0.265)
-  0.645 0.097 0.002 - 0.355 0.123 0.001
-Cubeful equities:
-1. Double, take        +0.741
-2. Double, pass        +1.000  (+0.259)
-3. No double           +0.630  (-0.111)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/12* 8/4                   Eq.: +0.251
+       0.557 0.165 0.009 - 0.443 0.119 0.006
+    2. Cubeful 2-ply    13/12*/8                     Eq.: +0.150 (-0.101)
+       0.542 0.143 0.006 - 0.458 0.111 0.004
+    3. Cubeful 2-ply    13/12* 6/2                   Eq.: +0.118 (-0.133)
+       0.533 0.143 0.006 - 0.467 0.117 0.005
+    4. Cubeful 2-ply    22/21* 8/4                   Eq.: +0.052 (-0.199)
+       0.522 0.159 0.008 - 0.478 0.170 0.016
+    5. Cubeful 2-ply    22/21* 13/9                  Eq.: -0.008 (-0.259)
+       0.501 0.151 0.007 - 0.499 0.149 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aCABBB----AA----c-Cc-dd-:1:1:1:00:0:2:0:7:10");
-var categoryid = "CBy";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---b-BDBD---aA---cbdbaB---:0:0:1:41:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

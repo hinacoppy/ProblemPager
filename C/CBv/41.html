@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 60</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 41</span>&ensp;
 <span>(CBv-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=146 White=107</div></div>
+      <div class="pipinfo">pips Red=113 White=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For once the pip count is irrelevant. White is in a lot of trouble. He has a checker trapped behind a growing prime. He also has two stripped outer board points. Those spell danger as a bad entry from the bar at the wrong time could expose another blot.<br>
+ <div class="description">Clearly Red must double to activate his gammon threat. Not doubling is a triple blunder.<br>
 <br>
-White does win nearly 25% of the games but he loses nearly 15% gammons which means that this is a huge pass and taking is a blunder. On its initial evaluation XG has this as a borderline take but the rollout soon unearths the truth. White must let this one go. I hope everybody doubled as Red!<br>
+The question is can White take? White has two main ways to win: Red never manages to escape his rear checker and his home board crashes; White anchors on Red’s 5-pt and wins from there. Note also that for the moment Red’s sixes are duplicated. If you move the checker on Red’s 11-pt to his 10-pt the position becomes a borderline drop/take.<br>
+<br>
+The second of these two options is White’s best chance. Although he loses a gammon 40% of the time White actually has a very comfortable take of Red’s double and dropping is a blunder. He wins the game 38% of the time.<br>
+<br>
+This was not an easy problem so don’t worry if you got it wrong but do learn from it. Next time you will get it right.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.558
-  0.748 0.143 0.006 - 0.252 0.085 0.002
+2-ply cubeless equity +0.519
+  0.618 0.411 0.004 - 0.382 0.126 0.006
 Cubeful equities:
-1. Double, take        +0.944
-2. Double, pass        +1.000  (+0.056)
-3. No double           +0.807  (-0.136)
+1. Double, take        +0.787
+2. Double, pass        +1.000  (+0.213)
+3. No double           +0.584  (-0.203)
 Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BBBBA--AbB-A-b-ccBaba-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBv";
-var probnum = "41";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "41";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBBBaB----AcA---BbbbbbA--:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

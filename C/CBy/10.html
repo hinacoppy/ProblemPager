@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 225</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 160</span>&ensp;
 <span>(CBy-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trail 0-3 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=99 White=83</div></div>
+      <div class="pipinfo">pips Red=131 White=57</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic reference position:<br>
+ <div class="description">The match score doesn’t change the fundamentals of the position.<br>
 <br>
-Red will nearly certainly lose his market if he rolls a six. Even if he doesn’t White’s home board will deteriorate unless he rolls a 6. A volatile position so the redouble is correct.<br>
+White already has five checkers off and until that last checker is at least primed Red won’t have a double and White will still have a take. So, the position is not yet volatile.<br>
 <br>
-From White’s perspective, if Red doesn’t roll a six (25/36) and he does roll a 6 (11/36) he will have a strong position (but not yet a redouble). That scenario alone gives White nearly 25%. There are plenty of other winning variations for White and his gammon losses are less than 5% so he has a comfortable take.<br>
+Red is in the doubling window but not close enough to the top of that window to warrant a double here. Perhaps surprisingly White will win a gammon 7.5% of the time from here as Red still has a lot of work to do to bring the position home. <br>
+<br>
+No double and easy take. For money it would be a blunder to double this position.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.443
-  0.677 0.106 0.003 - 0.323 0.021 0.000
+2-ply cubeless equity +0.311 (Money: +0.343)
+  0.723 0.000 0.000 - 0.277 0.092 0.011
 Cubeful equities:
-1. No double           +0.697
-2. Double, pass        +1.000  (+0.303)
-3. Double, take        +0.673  (-0.024)
-Proper cube action: No redouble, take (7.4%)
+1. No double           +0.656
+2. Double, pass        +1.000  (+0.344)
+3. Double, take        +0.634  (-0.021)
+Proper cube action: No double, take (5.8%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BbCBCBB-----------cbbdbA:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBy";
-var probnum = "10";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a--BBBCBA----------AbcbbB-:0:0:1:00:0:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

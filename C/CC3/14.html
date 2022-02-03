@@ -12,58 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 164</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 114</span>&ensp;
 <span>(CC3-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 62?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=131 White=124</div></div>
+      <div class="pipinfo">pips Red=158 White=63</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">When I set this problem, I expected there to be significant disparity between the various plays but that turned out not to be the case after the rollout and coming out with 24/18, 9/7 is equal to some of the other plays.<br>
-12/6, 9/7 and 13/11, 12/6 and 24/18, 9/7 and 13/11, 13/7 are within 0.010 of each other so any of them is fine. Red will win about 77% of the time with 20% gammons whichever he choices. Always nice to have a few options!<br>
+ <div class="description">There are two things Red should not do:<br>
+1)  Break the five-point prime to hit with the 5.<br>
+2)  Slot the back of the prime with 17/9 – too many gammon losses.<br>
+Red should get good outer board coverage with two intentions.<br>
+1)  Making the 9-pt naturally<br>
+2)  Bringing a checker on to the top of five-point prime and then use that checker to hit on the 3-pt.<br>
+The two best plays are 20/15, 17/14 and 20/15, 13/10. Everything is at least a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 12/6                   Eq.: +0.636
-       0.782 0.211 0.013 - 0.218 0.074 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/18 12/10                  Eq.: +0.632 (-0.004)
-       0.804 0.168 0.009 - 0.196 0.082 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/11 13/7                   Eq.: +0.632 (-0.004)
-       0.781 0.213 0.014 - 0.219 0.078 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/7 12/10                   Eq.: +0.624 (-0.012)
-       0.779 0.210 0.014 - 0.221 0.079 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/5                         Eq.: +0.613 (-0.023)
-       0.776 0.209 0.013 - 0.224 0.078 0.005
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/15 17/14                  Eq.: +0.184
+       0.682 0.085 0.002 - 0.318 0.162 0.013
+    2. Cubeful 2-ply    20/15 13/10                  Eq.: +0.170 (-0.014)
+       0.677 0.085 0.002 - 0.323 0.159 0.013
+    3. Cubeful 2-ply    13/5                         Eq.: +0.142 (-0.041)
+       0.666 0.094 0.003 - 0.334 0.163 0.013
+    4. Cubeful 2-ply    20/12                        Eq.: +0.113 (-0.071)
+       0.659 0.081 0.002 - 0.341 0.174 0.015
+    5. Cubeful 2-ply    17/14 13/8                   Eq.: +0.103 (-0.081)
+       0.655 0.090 0.003 - 0.345 0.173 0.014
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b--BBBBBA--AB--bc-bbb-bA-:1:-1:1:62:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---aBBBBB----A---A--AdeeB-:1:-1:1:53:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

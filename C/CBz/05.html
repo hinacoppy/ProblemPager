@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 5</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 205</span>&ensp;
 <span>(CBz-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 52?</div>
+<article>
+<div class="doAction">Match Play. 2-2 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=101 White=82</div></div>
+      <div class="pipinfo">pips Red=90 White=103</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The correct plan here is to let White escape with a four in an attempt to separate his checkers so that they can be attacked and closed out.<br>
+ <div class="description">For money this is a narrow pass and most formulae get this right. At the match score it is a comfortable take because of the power of White’s redoubles to 4 which get him to the Crawford Game. <br>
 <br>
-All the best moves involve 7/2 and the best move takes advantage of White’s very weak home board. That best move is 7/2, 4/2, strengthening Red’s own home board. If the exposed checker on the bar-point is hit it can easily re-enter and then be used to hit White’s checkers as they come around the board.<br>
-<br>
-Any move that does not have 7/2 as part of it is at least an error and some are blunders.<br>
+Never ignore the strength of getting to Crawford.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/2 4/2                      Eq.: +0.916
-       0.863 0.233 0.008 - 0.137 0.005 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    7/5 7/2                      Eq.: +0.879 (-0.036)
-       0.859 0.205 0.007 - 0.141 0.003 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/11 7/2                    Eq.: +0.863 (-0.053)
-       0.852 0.212 0.007 - 0.148 0.010 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/1 4/2                      Eq.: +0.859 (-0.057)
-       0.859 0.188 0.005 - 0.141 0.004 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/11 6/1                    Eq.: +0.852 (-0.063)
-       0.859 0.183 0.004 - 0.141 0.004 0.000
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.581 (Money: +0.581)
+  0.791 0.000 0.000 - 0.209 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.948
+2. Double, pass        +1.000  (+0.052)
+3. No double           +0.857  (-0.091)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---cCCCBB----B---------dh-:1:-1:1:52:0:0:3:0:10");
-var categoryid = "CBz";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--C-A-EBC---A-b-acadbaa---:0:0:1:00:2:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 198</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 103</span>&ensp;
 <span>(CBx-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should play 32?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=70 White=116</div></div>
+      <div class="pipinfo">pips Red=70 White=143</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I wouldn’t blame anybody for holding the cube here but technically this a redouble and a take. <br>
+ <div class="description">A relatively easy one. Over the board it’s just too easy to play on automatic and move 7/2 but that leaves Red open to catastrophic rolls of 65 and 54 next turn.<br>
 <br>
-The take is very clear, but I think many would be surprised by the fact that this is a redouble. However, if Red is hit there will life after death in most instances.<br>
+Even if hit after 7/4, 7/5 Red is very unlikely to lose with the state of White’s home board. <br>
 <br>
-Move the spare checker on White’s 2-pt to his ace-point, giving White a four-point home board, then the position becomes a no double. Always remember to look at all four quadrants of the board when making doubling decisions.<br>
-<br>
-The key is to consider the redouble at all. Many would miss the opportunity.<br>
+7/5, 7/4 wins more games and more gammons. What more do you want? An remember, don’t play on automatic!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.442
-  0.659 0.183 0.001 - 0.341 0.059 0.001
-Cubeful equities:
-1. Double, take        +0.657
-2. Double, pass        +1.000  (+0.343)
-3. No double           +0.606  (-0.051)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 7/4                      Eq.: +0.802
+       0.766 0.334 0.029 - 0.234 0.013 0.000
+    2. Cubeful 2-ply    7/2                          Eq.: +0.722 (-0.080)
+       0.747 0.303 0.024 - 0.253 0.014 0.000
+    3. Cubeful 2-ply    5/2 4/2                      Eq.: +0.599 (-0.203)
+       0.714 0.267 0.017 - 0.286 0.017 0.000
+    4. Cubeful 0-ply    7/4 6/4                      Eq.: +0.575 (-0.227)
+       0.706 0.265 0.022 - 0.294 0.024 0.000
+    5. Cubeful 0-ply    6/4 5/2                      Eq.: +0.482 (-0.320)
+       0.681 0.241 0.017 - 0.319 0.030 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BCDa-D--b--bB-----bbb-ca-:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "03";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "03";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bCbDCBCa---a--------bbbc-:1:-1:1:32:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

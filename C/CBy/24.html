@@ -12,59 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 211</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 174</span>&ensp;
 <span>(CBy-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 41?</div>
+<article>
+<div class="doAction">Money game. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=150 White=151</div></div>
+      <div class="pipinfo">pips Red=121 White=130</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I got pinged by XG for playing 13/8. However, on rollout the difference between 13/8 and 8/3* is negligible. 8/3* both wins and loses more gammons.<br>
+ <div class="description">With those two blots in White’s home board this is not the time for 7/2, 6/3.<br>
 <br>
-So for money you can take your choice.  Different match scores would significantly affect the play.<br>
+Red must choose between 14/11, 14/9, clearing the most awkward point but leaving two blots and 13/10, 13/8, leaving only a single blot.<br>
+<br>
+On an initial evaluation XG likes 14/11, 14/9 but on a long rollout it prefers 13/10, 13/8.  It turns out the extra flexibility of 14/11, 14/9 is outweighed by having just a single blot. Red can play on for a long time with just the one blot but that is not the case if he leaves two blots. <br>
+<br>
+14/11, 14/9 is an error (just).<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3*                         Eq.: +0.158
-       0.525 0.209 0.010 - 0.475 0.145 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8                         Eq.: +0.099 (-0.058)
-       0.522 0.183 0.007 - 0.478 0.138 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/4 6/5                      Eq.: +0.006 (-0.152)
-       0.493 0.177 0.006 - 0.507 0.145 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    24/23 8/4                    Eq.: -0.037 (-0.195)
-       0.484 0.161 0.006 - 0.516 0.152 0.006
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/1*                         Eq.: -0.104 (-0.261)
-       0.467 0.169 0.006 - 0.533 0.172 0.013
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 13/8                   Eq.: +0.505
+       0.649 0.102 0.004 - 0.351 0.061 0.001
+    2. Cubeful 2-ply    14/11 14/9                   Eq.: +0.486 (-0.019)
+       0.648 0.096 0.003 - 0.352 0.077 0.003
+    3. Cubeful 2-ply    13/5                         Eq.: +0.464 (-0.041)
+       0.647 0.073 0.002 - 0.353 0.053 0.001
+    4. Cubeful 2-ply    14/11 7/2                    Eq.: +0.460 (-0.046)
+       0.651 0.066 0.002 - 0.349 0.052 0.001
+    5. Cubeful 2-ply    14/6                         Eq.: +0.456 (-0.049)
+       0.644 0.082 0.003 - 0.356 0.061 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-aBBD-A---cD---d-db---B-:0:0:1:41:0:0:1:0:10");
-var categoryid = "CBy";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--A-bBCCB---bBB--b-eba-a--:0:0:1:53:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

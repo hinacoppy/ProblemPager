@@ -12,63 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 12</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 212</span>&ensp;
 <span>(CBz-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 64?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-4 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=164</div></div>
+      <div class="pipinfo">pips Red=131 White=106</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Running off the anchor with 21/11 is the wrong idea.<br>
+ <div class="description">A position that is a perfectly correct beaver for money becomes redouble/pass because of the score and the value of the cube!<br>
 <br>
-The right idea is to strengthen the home board before attempting to run. ‘Put them where you want them’ is a useful backgammon maxim. Here that works beautifully and Red should play 10/4, 8/4.<br>
-<br>
-This creates a strong four-point prime and the blots left exposed are not in much danger, especially as White would have to give up Red’s bar-point to hit.<br>
-<br>
-Any play other than 10/4, 8/4 is a blunder or worse.<br>
+A gammon for Red wins him the match. If Red doesn’t redouble and loses the game, he will only have about 8% match winning chances so he is not giving up much by redoubling and the potential gains are huge. It is quite possible that White doubled prematurely here rather than playing for an undoubled gammon. We will never know!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/4 8/4                     Eq.: +0.568
-       0.619 0.224 0.007 - 0.381 0.067 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/11                        Eq.: +0.482 (-0.086)
-       0.623 0.163 0.006 - 0.377 0.074 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    10/6 10/4                    Eq.: +0.408 (-0.160)
-       0.593 0.192 0.006 - 0.407 0.073 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/3                         Eq.: +0.395 (-0.173)
-       0.597 0.188 0.005 - 0.403 0.080 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    21/15 10/6                   Eq.: +0.282 (-0.286)
-       0.570 0.181 0.008 - 0.430 0.099 0.004
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.194 (Money: +0.103)
+  0.530 0.204 0.009 - 0.470 0.164 0.006
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.115  (+0.115)
+3. No double           +0.658  (-0.342)
+Proper cube action: Redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B-BBbB-B-cCa--c-e-B----:0:0:1:64:0:0:3:0:10");
-var categoryid = "CBz";
-var probnum = "12";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--B-aCCC-a---A--AbbcbbBaa-:1:1:1:00:0:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

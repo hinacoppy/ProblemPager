@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 105</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 55</span>&ensp;
 <span>(CC2-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">(a)  Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=62 White=65</div></div>
+      <div class="pipinfo">pips Red=150 White=124</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">(b) Match Play. Red trails 0-2 to 13. Should Red redouble? If redoubled, should White take?<br>
+ <div class="description">Red needs his checkers working for him. Behind in the race and with White having 12 checkers in the attack zone this is not the time to split the rear checkers.<br>
 <br>
-For money this is not yet a redouble. Red should hold on to the cube and hope to use it more effectively later.<br>
-You might think that 0-2 to 13 wouldn’t influence the decision.  However, now Red should redouble and White should take. With the cube on 4 and with potential for it to get 8 or 16 the score has a significant influence. White will be slow to redouble to 8 because of the leverage it gives Red with that match-deciding 16-cube waiting in the wings.<br>
-Whenever a match cube gets to 4 and above things normally begin to get interesting!<br>
+Red needs to work on improving his forward position and so 15/13, 6/5 can be discarded. It is safe but that is not the priority here.<br>
+<br>
+The correct play by a long, long way is 13/10. The builder acts on the 4-pt and if the checker on the 15-pt is hit, White must sacrifice his mid-point to do so. All plays other than 13/10 are errors and in fact anything other than 15/14, 13/11 is at least a single blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.430 (Money: +0.430)
-  0.715 0.000 0.000 - 0.285 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.762
-2. Double, pass        +1.000  (+0.238)
-3. No double           +0.733  (-0.029)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10                        Eq.: -0.053
+       0.498 0.133 0.005 - 0.502 0.160 0.014
+    2. Cubeful 2-ply    15/14 13/11                  Eq.: -0.097 (-0.044)
+       0.485 0.131 0.005 - 0.515 0.163 0.015
+    3. Cubeful 2-ply    13/11 6/5                    Eq.: -0.104 (-0.051)
+       0.482 0.125 0.005 - 0.518 0.163 0.014
+    4. Cubeful 2-ply    15/13 6/5                    Eq.: -0.224 (-0.171)
+       0.444 0.114 0.004 - 0.556 0.148 0.011
+    5. Cubeful 2-ply    24/23 13/11                  Eq.: -0.256 (-0.203)
+       0.459 0.129 0.007 - 0.541 0.252 0.016
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBBCBAA---------cbadbba-:1:1:1:00:0:2:0:13:10");
-var categoryid = "CC2";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B-BCB----bC-A-cbe--b-B-:0:0:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

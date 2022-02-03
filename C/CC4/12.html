@@ -12,63 +12,57 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 212</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 162</span>&ensp;
 <span>(CC4-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 44?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=151</div></div>
+      <div class="pipinfo">pips Red=150 White=149</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is one of those positions where XG changes its mind the deeper it looks.<br>
-<br>
-Over the board I played 14/6, 13/5 which turns out to be the second-best play (just). On a 1-ply evaluation XG likes 14/2, 6/2 making another home board point even if somewhat impurely.<br>
-<br>
-On rollout that becomes the third best play, and the winner is 14/10, 8/4(3). Is the price of seven shots worth the gain from making the 4-pt? Apparently, but it is very close and who knows, maybe XG3 might have a different opinion. However, we are still some months away from being able to ask it!<br>
-<br>
-14/10, 8/4(3) wins 2% extra gammons and therein lies the difference.<br>
+ <div class="description">Red has threats but they are not overwhelming. The race is equal and all of White’s checkers are in play even if two of them are somewhat stranded.<br>
+The position is sufficiently volatile that Red can double but it is a borderline double and I wouldn’t blame anybody for waiting. White’s take is trivial and dropping would be nearly a triple blunder<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/10 8/4(3)                 Eq.: +0.065
-       0.504 0.177 0.007 - 0.496 0.119 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/9 8/4(3)                  Eq.: +0.057 (-0.008)
-       0.500 0.199 0.008 - 0.500 0.130 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    14/6 13/5                    Eq.: +0.039 (-0.026)
-       0.501 0.152 0.004 - 0.499 0.111 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    14/2 6/2                     Eq.: +0.038 (-0.027)
-       0.502 0.154 0.005 - 0.498 0.117 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    9/1*(2)                      Eq.: -0.029 (-0.094)
-       0.479 0.176 0.004 - 0.521 0.134 0.005
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.503
+  0.684 0.220 0.012 - 0.316 0.093 0.004
+Cubeful equities:
+1. Double, take        +0.790
+2. Double, pass        +1.000  (+0.210)
+3. No double           +0.747  (-0.044)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-a-BC-CB--cCA--cbcb---A-:0:0:1:44:0:0:3:0:10");
-var categoryid = "CC4";
-var probnum = "12";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b--BBBBA---bD--cb-d-bA-A-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

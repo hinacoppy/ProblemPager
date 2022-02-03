@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 145</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 95</span>&ensp;
 <span>(CC7-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited games. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=107 White=124</div></div>
+      <div class="pipinfo">pips Red=155 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">At first sight this looks like double/take. Red leads by 17 pips but has an awkward structure and his bear-in could be difficult. The position is highly volatile so Red must double now.<br>
+ <div class="description">This can’t be a blitz so making the ace-point with 7/1 must be wrong.<br>
 <br>
-If gammons didn’t count double then the take would be correct. As it is the 9% gammons that Red wins just push this into pass territory. However, it is only a drop by 0.018 so, in real terms, taking is perfectly acceptable. Your choice!<br>
+Red should play this as a prime-versus-prime game and therefore 13/7 is clear. 7/1 is a bad blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.520
-  0.731 0.082 0.001 - 0.269 0.025 0.001
-Cubeful equities:
-1. Double, take        +0.856
-2. Double, pass        +1.000  (+0.144)
-3. No double           +0.810  (-0.047)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7                         Eq.: -0.569
+       0.395 0.102 0.004 - 0.605 0.268 0.031
+    2. Cubeful 2-ply    7/1                          Eq.: -0.570 (-0.001)
+       0.375 0.110 0.003 - 0.625 0.252 0.019
+    3. Cubeful 0-ply    13/8 7/6                     Eq.: -0.860 (-0.292)
+       0.340 0.092 0.003 - 0.660 0.289 0.033
+    4. Cubeful 0-ply    17/11                        Eq.: -0.962 (-0.393)
+       0.339 0.087 0.003 - 0.661 0.312 0.052
+    5. Cubeful 0-ply    24/23 13/8                   Eq.: -1.000 (-0.431)
+       0.339 0.089 0.003 - 0.661 0.350 0.053
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aC--CbE-D-a----b-cb-b-b-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC7";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aA--cCBAB---bC---A-cbbb-B-:0:0:1:51:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

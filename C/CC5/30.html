@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 30</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 230</span>&ensp;
 <span>(CC5-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 4-4 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. 1-1 to 5. How should Red play 61?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=178</div></div>
+      <div class="pipinfo">pips Red=159 White=158</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A classic middle game double. Red’s lead in the race is substantial and he certainly has threats. <br>
+ <div class="description">Not an easy problem as I demonstrated over the board by playing 24/23, 13/7.<br>
 <br>
-Meanwhile White has good structure of his own and some counter-threats. Also, Red’s home-board checker distribution is not ideal and White has the security of an anchor.<br>
+That play is too pessimistic and allows White to take the initiative. 13/6 is also too passive. The bottom line is that Red must hit with the ace. This develops the unwieldy stack of checkers on the 6-pt and, importantly, takes a tempo from White. By keeping his checkers split in White’s home board Red increases his chances of making a useful anchor if the blot on the 5-pt is hit.<br>
 <br>
-The match score is not enough to change the doubling decision and so this is a clear double and a clear take. Not doubling is an error while dropping is a double blunder.<br>
+The other point about 13/7, 6/5* is most of White’s sixes, except 56, play poorly. Note that the double tiger play 8/2*, 6/5* is a massive overplay. With White having a three-point home board three extra blots is just too aggressive. 24/18, 6/5* is also wrong because it gives White good sixes.<br>
+<br>
+All plays except 13/7, 6/5* are blunders and some of them are whoppers, including my 24/23, 13/7.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.721 (Money: +0.554)
-  0.646 0.295 0.034 - 0.354 0.065 0.002
-Cubeful equities:
-1. Double, take        +0.930
-2. Double, pass        +1.000  (+0.070)
-3. No double           +0.832  (-0.098)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7 6/5*                    Eq.: -0.470
+       0.423 0.107 0.006 - 0.577 0.213 0.015
+    2. Cubeful 2-ply    24/23 13/7                   Eq.: -0.540 (-0.070)
+       0.390 0.091 0.003 - 0.610 0.176 0.007
+    3. Cubeful 2-ply    13/6                         Eq.: -0.553 (-0.082)
+       0.397 0.092 0.003 - 0.603 0.200 0.008
+    4. Cubeful 2-ply    24/18 6/5*                   Eq.: -0.563 (-0.093)
+       0.406 0.089 0.004 - 0.594 0.241 0.016
+    5. Cubeful 0-ply    8/2* 6/5*                    Eq.: -0.742 (-0.272)
+       0.386 0.103 0.006 - 0.614 0.267 0.041
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-ba--BEBCa--cB---c-cb---A-:0:0:1:00:4:4:0:7:10");
-var categoryid = "CC5";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CC5";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa--aEBB---cD---c-bb-bAA-:0:0:1:61:1:1:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

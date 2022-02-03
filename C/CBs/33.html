@@ -12,56 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 179</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 150</span>&ensp;
 <span>(CBs-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-3 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=74</div></div>
+      <div class="pipinfo">pips Red=125 White=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is another one from the RAC32 tournament. This time from the final.<br>
+ <div class="description">This is not the time to run with 21/12. This lets White attack the remaining rear checker while waiting to escape his rear checker.<br>
 <br>
-I was White, and Peter Bennet was Red. He doubled, I took, he rolled 42 which he had to play 11/5*. I hit with a 5 and won the game and match<br>
+Making the 4-pt with 9/4, 8/4 looks reasonable but that leaves White sixes to escape and only aces plus 65 to make the full prime.<br>
 <br>
-Despite trailing 1-3 the double is incorrect. Two points give White the match exactly so his take point is around 20% when there are few gammons as here.<br>
+Much better is 9/5, 9/4 which gives Red small numbers to make the full prime and large numbers to escape from behind White’s prime. White will also need a 2 followed by a 5 or a 6 to escape his rear checker.<br>
 <br>
-Red does better to hold the cube and use it more effectively later. Even after a sequence like 52 (10/5*/2) and a fan by White, Red still doesn’t have a double so the double in the original position is way off and technically it is a blunder.<br>
+Any move other than 9/5, 9/4 is a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.119 (Money: +0.161)
-  0.597 0.025 0.002 - 0.403 0.058 0.001
-Cubeful equities:
-1. No double           +0.343
-2. Double, pass        +1.000  (+0.657)
-3. Double, take        +0.165  (-0.177)
-Proper cube action: No double, take (21.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/5 9/4                      Eq.: +0.492
+       0.612 0.143 0.004 - 0.388 0.060 0.001
+    2. Cubeful 2-ply    9/4 8/4                      Eq.: +0.368 (-0.124)
+       0.577 0.154 0.004 - 0.423 0.069 0.002
+    3. Cubeful 2-ply    21/12                        Eq.: +0.319 (-0.173)
+       0.603 0.144 0.006 - 0.397 0.114 0.003
+    4. Cubeful 0-ply    9/4 7/3                      Eq.: +0.228 (-0.264)
+       0.567 0.129 0.005 - 0.433 0.093 0.004
+    5. Cubeful 0-ply    21/16 7/3                    Eq.: +0.211 (-0.281)
+       0.572 0.140 0.005 - 0.428 0.138 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BBaC-C-CB--a----bbbbbc-:0:0:1:00:1:3:0:5:10");
-var categoryid = "CBs";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--aB-BBCBB---c---bbbcB-b--:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

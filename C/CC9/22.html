@@ -12,50 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 222</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 172</span>&ensp;
 <span>(CC9-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-1 to 7. How should Red play 65?</div>
+<article>
+<div class="doAction">Match Play. Red trails 1-3 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=165 White=136</div></div>
+      <div class="pipinfo">pips Red=157 White=162</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">8/2, 6/1* splits Red’s army in half and there is no real value in making the 2-pt.<br>
+ <div class="description">A classic 4-away vs. 2-away position.<br>
 <br>
-Red needs an outfield presence. 24/18, 23/18 is wrong by a long way. Red needs to keep one of those checkers as a long-term goalkeeper.<br>
+For money this is nowhere near a double yet at this score White must drop Red’s double. Taking would be a double blunder. The 21% gammon losses are ruinous for White as he loses the match.<br>
 <br>
-Therefore the choice is between 23/12* and 24/13*. If Red does end up in back game then owning the 23-pt will be much better than the 24-pt in most variations.<br>
-<br>
-This gives the nod to 24/12* as the correct play.<br>
+You don’t need much excuse to double at 4-away vs. 2-away as this position clearly demonstrates. I have noticed players doubling earlier and earlier at this score and the bots happily support this aggressive strategy.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/12*                       Eq.: -0.381
-       0.428 0.135 0.008 - 0.572 0.199 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/13*                       Eq.: -0.400 (-0.019)
-       0.423 0.133 0.009 - 0.577 0.204 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/2 6/1*                     Eq.: -0.445 (-0.064)
-       0.404 0.152 0.008 - 0.596 0.191 0.009
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    24/18 23/18                  Eq.: -0.610 (-0.229)
-       0.368 0.086 0.004 - 0.632 0.180 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    21/10*                       Eq.: -0.618 (-0.238)
-       0.406 0.124 0.009 - 0.594 0.252 0.038
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.352
+  0.617 0.215 0.016 - 0.383 0.107 0.005
+Cubeful equities:
+1. No double           +0.499
+2. Double, pass        +1.000  (+0.501)
+3. Double, take        +0.444  (-0.055)
+Proper cube action: No double, take (9.9%)
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -67,8 +63,9 @@ const categoryid = "CC9";
 const probnum = "22";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aAB--D-C-a-aa--bc-dABbAA-:0:0:1:65:2:1:0:7:10");
+board.showBoard("XGID=-b---BDAB---cDaa-c-e----B-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

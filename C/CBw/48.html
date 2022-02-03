@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 103</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 98</span>&ensp;
 <span>(CBw-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should play 32?</div>
+<article>
+<div class="doAction">Match Play. Red trails 1-2 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=70 White=143</div></div>
+      <div class="pipinfo">pips Red=46 White=46</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A relatively easy one. Over the board it’s just too easy to play on automatic and move 7/2 but that leaves Red open to catastrophic rolls of 65 and 54 next turn.<br>
+ <div class="description">For money this would be a borderline redouble and a trivial take.<br>
 <br>
-Even if hit after 7/4, 7/5 Red is very unlikely to lose with the state of White’s home board. <br>
+At this score the redouble is much clearer because White cannot get full value from a later redouble to 8.<br>
 <br>
-7/5, 7/4 wins more games and more gammons. What more do you want? An remember, don’t play on automatic!<br>
+An innocuous position but even here the match score has a major influence. Not redoubling would be a very bad error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 7/4                      Eq.: +0.802
-       0.766 0.334 0.029 - 0.234 0.013 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    7/2                          Eq.: +0.722 (-0.080)
-       0.747 0.303 0.024 - 0.253 0.014 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    5/2 4/2                      Eq.: +0.599 (-0.203)
-       0.714 0.267 0.017 - 0.286 0.017 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    7/4 6/4                      Eq.: +0.575 (-0.227)
-       0.706 0.265 0.022 - 0.294 0.024 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/4 5/2                      Eq.: +0.482 (-0.320)
-       0.681 0.241 0.017 - 0.319 0.030 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.475 (Money: +0.475)
+  0.737 0.000 0.000 - 0.263 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.916
+2. Double, pass        +1.000  (+0.084)
+3. No double           +0.811  (-0.105)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-bCbDCBCa---a--------bbbc-:1:-1:1:32:0:0:3:0:10");
-var categoryid = "CBw";
-var probnum = "48";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "48";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BCDABB------------baccbd-:1:1:1:00:1:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

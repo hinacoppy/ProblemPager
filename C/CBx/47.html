@@ -12,59 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 154</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 147</span>&ensp;
 <span>(CBx-47)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 22?</div>
+<article>
+<div class="doAction">Match Play. Red trails 5-6 to 11. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=110 White=164</div></div>
+      <div class="pipinfo">pips Red=118 White=141</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">XG’s initial evaluation comes up with 14/12(2), 8/6, 3/1 but on rollout it finds the ‘correct’ 14/12 (2), 8/6(2). <br>
+ <div class="description">For money and with a fully active cube this would be a clear redouble and an equally clear take.<br>
 <br>
-The huge blunder here would be 14/10(2). Red wants to dismantle points, not give himself problems clearing them. Blocking points against a back game are good for while but eventually they have to be dismantled and in this position Red should be planning to dismantle, not build.<br>
+At this score the take is right on the borderline and the decision will be influenced by your knowledge of your opponent and how well he plays such positions.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/12(2) 8/6 3/1             Eq.: +0.887
-       0.710 0.161 0.001 - 0.290 0.038 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    14/12(2) 8/6(2)              Eq.: +0.870 (-0.016)
-       0.702 0.172 0.001 - 0.298 0.041 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    14/12(2) 3/1(2)              Eq.: +0.863 (-0.024)
-       0.705 0.164 0.001 - 0.295 0.040 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    14/10(2)                     Eq.: +0.798 (-0.089)
-       0.699 0.139 0.001 - 0.301 0.036 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    8/6(2) 3/1(2)                Eq.: +0.420 (-0.467)
-       0.614 0.169 0.002 - 0.386 0.075 0.000
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.574 (Money: +0.540)
+  0.660 0.301 0.009 - 0.340 0.087 0.003
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.030  (+0.030)
+3. No double           +0.842  (-0.158)
+Proper cube action: Redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---BbbEBDb----B-aaab-bb---:0:0:1:22:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "47";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "47";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB--b-DDBa---Ba-a--bbcAb--:1:1:1:00:5:6:0:11:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

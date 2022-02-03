@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 82</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 32</span>&ensp;
 <span>(CC1-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 42?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=134 White=106</div></div>
+      <div class="pipinfo">pips Red=16 White=20</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It might be tempting to hit with bar/23, 5/1* but trapping your own checker behind a broken prime is a very bad idea.<br>
+ <div class="description">This another position where Reichert’s formula works to perfection. Clear redouble, clear take.<br>
 <br>
-Red must play bar/21, 13/11 and hope he doesn’t get pointed on. Even that play wins only 34% of the time but it is far better than any other move.<br>
+Formulas take the hard work out of calculating positions like this one from first principles. They are correct a high percentage of the time and good players know how to make allowances for exceptional circumstances.<br>
+<br>
+It would be a 1.5 blunder not to double and and a double blunder to pass.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 13/11                 Eq.: -0.306
-       0.347 0.064 0.003 - 0.653 0.327 0.008
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/21 8/6                   Eq.: -0.335 (-0.029)
-       0.332 0.056 0.002 - 0.668 0.285 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/23 13/9                  Eq.: -0.346 (-0.040)
-       0.327 0.056 0.002 - 0.673 0.304 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/23 5/1*                  Eq.: -0.367 (-0.061)
-       0.317 0.061 0.003 - 0.683 0.330 0.011
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/23 8/4                   Eq.: -0.377 (-0.071)
-       0.311 0.059 0.003 - 0.689 0.351 0.010
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.432
+  0.716 0.000 0.000 - 0.284 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.818
+2. Double, pass        +1.000  (+0.182)
+3. No double           +0.693  (-0.125)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B-CB-C----D---cbcd-b--A:1:-1:1:42:5:5:0:7:10");
-var categoryid = "CC1";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-CBC----------------b-c-a-:1:1:1:00:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

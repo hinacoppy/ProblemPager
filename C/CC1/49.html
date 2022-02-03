@@ -12,52 +12,67 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 99</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 49</span>&ensp;
 <span>(CC1-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 2-0 to 7. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=151</div></div>
+      <div class="pipinfo">pips Red=127 White=124</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Clearly, Red must double.  There are a lot of gammons to be won here and it is difficult for White to construct a winning game plan. Meanwhile entering rolls such as 26 and 24 will do him no favours.<br>
+ <div class="description">This is a difficult problem that posted on the USBGF site a couple of months ago. Here is the solution that I posted there:<br>
 <br>
-The take decision is right on the borderline – your equity will be the same whichever decision you make. Partly the decision should be based on your assessments of Red’s skills. If he is likely to make mistakes in a position like this then that gives you more leeway to take, always assuming, of course, that you will play perfectly!<br>
+The two blots in White’s home board give Red the licence to make a bold play. The question is what is the right game plan?<br>
+<br>
+Red can attempt a blitz by hitting on the ace-point or play to prime White’s rear checker.<br>
+For the blitz Red can play 9/8, 6/1* or 6/5, 6/1*. Over the board it would be difficult to choose between the two moves, but the rollouts show that 6/5, 6/1* is the better play, partly because it doesn’t give White the super-joker of double fours!<br>
+<br>
+What about priming? Over the board 9/4, 6/5 was played but it turns out that 13/8, 6/5 is the stronger play. To hit on Red’s mid-point White must give up his/her mid-point while a hit on Red’s 8-pt or 9-pt will generate multiple return shots. 13/8, 6/5 is the play that takes advantage of White’s home board weakness better than any other move.<br>
+<br>
+This is not an easy problem, but the key is to see that priming is the better game plan, because of White’s home board weaknesses. A passive move such as 13/7 does not meet the demands of the position. Red can play aggressively here and should do so.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.580
-  0.674 0.289 0.006 - 0.326 0.062 0.001
-Cubeful equities:
-1. Double, take        +0.938
-2. Double, pass        +1.000  (+0.062)
-3. No double           +0.819  (-0.119)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 6/5                     Eq.: +0.335
+       0.593 0.205 0.007 - 0.407 0.078 0.003
+    2. Cubeful 2-ply    9/4 6/5                      Eq.: +0.280 (-0.056)
+       0.579 0.193 0.005 - 0.421 0.078 0.002
+    3. Cubeful 2-ply    13/8 9/8                     Eq.: +0.261 (-0.074)
+       0.572 0.173 0.005 - 0.428 0.065 0.001
+    4. Cubeful 2-ply    13/7                         Eq.: +0.249 (-0.086)
+       0.569 0.175 0.005 - 0.431 0.067 0.002
+    5. Cubeful 2-ply    9/8 6/1*                     Eq.: +0.192 (-0.143)
+       0.549 0.208 0.005 - 0.451 0.088 0.003
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a---BBC-B-A-fB---bBd-b-A--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC1";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aB--BDB-A--bBb---ccBbaa--:0:0:1:51:2:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

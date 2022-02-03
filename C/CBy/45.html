@@ -12,42 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBy  probnum=45)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 195</span>&ensp;
 <span>(CBy-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Red leads 11-10 to 13. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=58 White=52</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">This is a fairly simple problem. At this score the doubling window opens at 66.7% and closes at 75%. Red looks to be comfortably within that window (using the Trice adjusted Thorpe Count method) and White (using the same method) has a take. Naturally he will redouble to 4 and this game with decide the match.<br>
+<br>
+Red’s exact game-winning chances are 73.35% (from XG).<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.471 (Money: +0.471)
+  0.735 0.000 0.000 - 0.265 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.877
+2. Double, pass        +1.000  (+0.123)
+3. No double           +0.789  (-0.088)
+Proper cube action: Double, take
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBy";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "CBy";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBBCCBA-----aa------bdbe-:0:0:1:00:11:10:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

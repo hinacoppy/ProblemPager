@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 112</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 89</span>&ensp;
 <span>(CBw-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 3-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 3-4 to 7. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=101 White=67</div></div>
+      <div class="pipinfo">pips Red=97 White=74</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a big double but also very a clear take as White will win this position 33% of the time and the cube has huge value to him in the sequences where Red doesn’t roll a 4 and then White does roll a 6.<br>
+ <div class="description">In a money game it would be close between 9/5 and 20/17, 9/8 but at this score gammons are hugely valuable to Red and he must put pressure on White’s checkers on his mid-point so he gets a direct shot on most sixes. <br>
 <br>
-However, at this match score the cube is useless to White and unfortunately for him he loses a gammon and the match (with perfect efficiency for Red) 15% of the time.<br>
-<br>
-That is enough to turn a clear money take into a big drop for White. Taking would be a blunder (just). Once gain the match score has a huge influence on the cube decisions.<br>
+Either 20/16, or 20/17, 9/8 is OK. 9/5 is too passive and nearly a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.409 (Money: +0.457)
-  0.672 0.163 0.005 - 0.328 0.054 0.000
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.155  (+0.155)
-3. No double           +0.586  (-0.414)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/5                          Eq.: -0.563
+       0.320 0.022 0.000 - 0.680 0.019 0.000
+    2. Cubeful 2-ply    9/6 2/1                      Eq.: -0.574 (-0.011)
+       0.313 0.021 0.000 - 0.687 0.019 0.000
+    3. Cubeful 2-ply    9/8 7/4                      Eq.: -0.575 (-0.012)
+       0.314 0.021 0.000 - 0.686 0.019 0.000
+    4. Cubeful 2-ply    7/3                          Eq.: -0.603 (-0.040)
+       0.311 0.020 0.000 - 0.689 0.018 0.000
+    5. Cubeful 2-ply    9/8 4/1                      Eq.: -0.604 (-0.041)
+       0.308 0.020 0.000 - 0.692 0.022 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-aBBBBC-B-----A----bbabdcA:0:0:1:00:3:5:0:7:10");
-var categoryid = "CBw";
-var probnum = "39";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "39";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-ABBBBBA-A--b------eBabcb-:0:0:1:31:3:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

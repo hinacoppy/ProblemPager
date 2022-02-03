@@ -12,56 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 157</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 144</span>&ensp;
 <span>(CBx-44)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 4-5 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 6-4 to 7 (Crawford). How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=125 White=90</div></div>
+      <div class="pipinfo">pips Red=127 White=136</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a terrible double as Red has very few market-losing sequences. <br>
+ <div class="description">The key point about this position is not to give up the broken prime so 21/17*, 7/2 is virtually a blunder.<br>
 <br>
-At the match score it is only just a double and that is only because the percentage of gammons that Red wins (thus winning the match for him) is just sufficient to push this into doubling territory.<br>
-<br>
-White’s position is structurally poor, but he does have a huge racing lead and all of Red’s outer board points are stripped – something will have to give on the next roll. <br>
-<br>
-Dropping this double would be a quintuple blunder!<br>
+Between the other moves 21/17*, 21/16 edges out 21/17*, 9/4 by a whisker but either move is perfectly acceptable.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.134 (Money: +0.156)
-  0.546 0.155 0.003 - 0.454 0.094 0.002
-Cubeful equities:
-1. No double           +0.402
-2. Double, pass        +1.000  (+0.598)
-3. Double, take        +0.364  (-0.038)
-Proper cube action: No double, take (6.0%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/17* 9/4                   Eq.: +0.195
+       0.606 0.163 0.006 - 0.394 0.122 0.005
+    2. Cubeful 2-ply    21/17* 21/16                 Eq.: +0.186 (-0.010)
+       0.603 0.138 0.005 - 0.397 0.152 0.007
+    3. Cubeful 2-ply    9/4 6/2                      Eq.: +0.151 (-0.044)
+       0.580 0.116 0.002 - 0.420 0.096 0.002
+    4. Cubeful 2-ply    21/16 6/2                    Eq.: +0.139 (-0.056)
+       0.576 0.122 0.004 - 0.424 0.137 0.003
+    5. Cubeful 2-ply    21/17* 6/1                   Eq.: +0.085 (-0.110)
+       0.556 0.140 0.005 - 0.444 0.170 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--ACABBbB----B--ab-c--bBe-:0:0:1:00:4:5:0:7:10");
-var categoryid = "CBx";
-var probnum = "44";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "44";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--AbB-CBBC--d----a-bbBbb--:0:0:1:54:6:4:1:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,48 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 183</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 133</span>&ensp;
 <span>(CC8-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 6-5 (Crawford). How should Red play 42?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-2 to 9. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=149 White=151</div></div>
+      <div class="pipinfo">pips Red=124 White=141</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is not the time to put a checker out of play with 8/2.<br>
+ <div class="description">Given this as a quiz problem nearly everybody gets it right by playing 22/21, 9/7, 8/7, preventing White from escaping with a six. This will lead to a quick collapse of White’s home board.<br>
 <br>
-Because he owns White’s bar-point Red should be able to easily recirculate any hit checker. Therefore, he should keep all his checkers in play by moving 17/11. Any move other than 17/11 is a blunder.<br>
-<br>
-The moral of the story is to avoid killing checkers unnecessarily.<br>
+Over the board it is too easy to play 5/3, 4/3 and then look for a fourth ace. How did you do?<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/11                        Eq.: -0.486
-       0.436 0.102 0.004 - 0.564 0.179 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    17/15 6/2                    Eq.: -0.617 (-0.131)
-       0.411 0.095 0.004 - 0.589 0.220 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/2                          Eq.: -0.623 (-0.138)
-       0.406 0.094 0.003 - 0.594 0.217 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    17/13 8/6                    Eq.: -0.757 (-0.271)
-       0.356 0.075 0.004 - 0.644 0.234 0.011
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    5/3 5/1                      Eq.: -0.831 (-0.346)
-       0.351 0.079 0.004 - 0.649 0.266 0.015
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/21 9/7 8/7                Eq.: +0.637
+       0.772 0.266 0.016 - 0.228 0.046 0.001
+    2. Cubeful 2-ply    22/21 5/3 4/3                Eq.: +0.542 (-0.096)
+       0.745 0.264 0.016 - 0.255 0.054 0.001
+    3. Cubeful 2-ply    9/7 8/7 5/4                  Eq.: +0.440 (-0.198)
+       0.718 0.262 0.018 - 0.282 0.067 0.002
+    4. Cubeful 0-ply    9/8 5/3 4/3                  Eq.: +0.485 (-0.153)
+       0.726 0.260 0.018 - 0.274 0.058 0.001
+    5. Cubeful 0-ply    9/7 8/7 4/3                  Eq.: +0.479 (-0.158)
+       0.737 0.263 0.017 - 0.263 0.075 0.002
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -61,12 +59,13 @@ The moral of the story is to avoid killing checkers unnecessarily.<br>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----bBEaCa--c---BABbbbb---:0:0:1:42:6:5:1:7:10");
-var categoryid = "CC8";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-cB-CCB-AA-------bccbBAb--:1:-1:1:11:5:2:0:9:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

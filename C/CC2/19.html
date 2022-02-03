@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 119</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 69</span>&ensp;
 <span>(CC2-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 11-8 to 13. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-0 to 7. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=78 White=113</div></div>
+      <div class="pipinfo">pips Red=138 White=124</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is one I got wrong, but I also got lucky. As White I took and redoubled to 4. I then won the game and then won the Crawford Game to win the match.<br>
-However, I should have passed and accepted 15% match winning chances.  To get the same 15% after taking and redoubling White needs to win this game a fraction more than 21% of the time. He actually only wins just under 20% of the time so he should drop.<br>
-If White’s blot on his 8-pt was on his 4-pt, giving him a five-point home board, the correct actions would be double and take. The fact that an early hit for White doesn’t necessarily win the game for him considerably damages his game-winning chances.<br>
+ <div class="description">This is not the moment to play passively with 13/7, 6/4 and hope for better things later. White’s blots give Red the freedom to play aggressively with 20/18*, 20/14. This play is much better than 20/18*, 13/7 as Red should race for home once he has hit the blot.<br>
+<br>
+This play will pick up 10% gammons and enable Red to win the match without any further recourse to the doubling cube.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.721 (Money: +0.659)
-  0.797 0.075 0.003 - 0.203 0.013 0.000
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.190  (+0.190)
-3. No double           +0.857  (-0.143)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/18* 20/14                 Eq.: +0.020
+       0.576 0.104 0.005 - 0.424 0.147 0.004
+    2. Cubeful 2-ply    20/18* 13/7                  Eq.: -0.009 (-0.029)
+       0.564 0.108 0.005 - 0.436 0.141 0.004
+    3. Cubeful 2-ply    13/7 6/4                     Eq.: -0.157 (-0.177)
+       0.481 0.069 0.001 - 0.519 0.072 0.001
+    4. Cubeful 0-ply    13/7 3/1                     Eq.: -0.178 (-0.198)
+       0.474 0.062 0.001 - 0.526 0.073 0.001
+    5. Cubeful 0-ply    8/6 8/2                      Eq.: -0.181 (-0.200)
+       0.473 0.072 0.001 - 0.527 0.075 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BACbBD-B---b--A-a-bbabba-:0:0:1:00:11:8:0:13:10");
-var categoryid = "CC2";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---ABbCBB---bC---cacBaa-b-:0:0:1:62:5:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

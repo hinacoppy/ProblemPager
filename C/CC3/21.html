@@ -12,51 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 171</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 121</span>&ensp;
 <span>(CC3-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 61?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=164 White=169</div></div>
+      <div class="pipinfo">pips Red=96 White=101</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The position is too volatile to leave the cube in the centre. Red must double now as otherwise he runs the danger of losing his market.<br>
-The question is can White take? The 2-pt game is much better than the 1-pt game but White has already made his own 3-pt so his position is disjointed. However, he has an anchor and all his checkers are still in play so he can squeeze out a relatively comfortable take. Put Red’s checker on his 10pt onto his 8-pt and then the position becomes a massive pass.<br>
+ <div class="description">The play to avoid here is 13/6. That cedes the outer boards to White who can then run out with impunity with any six and get into an even race.<br>
+Red must cover those outer boards. 18/17,18/12 is the best move but it is virtually tied with 18/11. One move duplicates White’s threes and the other his fours. 18/12, 3/2 is also OK.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.573
-  0.705 0.219 0.013 - 0.295 0.066 0.002
-Cubeful equities:
-1. Double, take        +0.945
-2. Double, pass        +1.000  (+0.055)
-3. No double           +0.846  (-0.099)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/11                        Eq.: +0.504
+       0.744 0.154 0.007 - 0.256 0.056 0.002
+    2. Cubeful 2-ply    18/17 18/12                  Eq.: +0.500 (-0.004)
+       0.745 0.154 0.007 - 0.255 0.058 0.002
+    3. Cubeful 2-ply    18/12 13/12                  Eq.: +0.471 (-0.033)
+       0.739 0.113 0.004 - 0.261 0.033 0.001
+    4. Cubeful 2-ply    18/12 3/2                    Eq.: +0.466 (-0.038)
+       0.739 0.131 0.004 - 0.261 0.057 0.002
+    5. Cubeful 2-ply    18/12 4/3                    Eq.: +0.404 (-0.100)
+       0.719 0.116 0.004 - 0.281 0.055 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--c-BBB-A-A-dC-A-c-cABb---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC3";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBCCBB------Ab---Bcdd--a-:1:-1:1:61:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

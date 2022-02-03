@@ -12,53 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 113</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 63</span>&ensp;
 <span>(CC2-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-6 to 9. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=123 White=78</div></div>
+      <div class="pipinfo">pips Red=129 White=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">It is very close but Red should redouble. When things go well, he will be pleased to have redoubled. He even wins a gammon and the match 6% of the time.<br>
-If things go badly which they do most of the time, White will probably win a gammon and the match.<br>
-However, Red is not risking a huge amount by redoubling. Many players wouldn’t even think of redoubling here.<br>
-Naturally White has a trivial take of Red’s double. Passing would be a 20 times blunder!<br>
+ <div class="description">24/22, 23/22 looks tidy but doesn’t address the needs of the position as it gives White a free hand.<br>
+<br>
+Behind in the race Red needs to be more active which is why 8/7, 6/4 is only the second-best play.<br>
+<br>
+Correct is the active 7/5, 6/5, considerably strengthening Red’s board and putting pressure on White to resolve the problem of his rear checker while keeping Red’s rear checkers out of harm’s way.<br>
+<br>
+This is not an easy problem because making the 22-pt looks ‘obvious’ but once you look more deeply, then making the 5-pt becomes clear. Well done if you found that play, something I failed to do over the board!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.804 (Money: -0.959)
-  0.235 0.063 0.004 - 0.765 0.493 0.002
-Cubeful equities:
-1. Double, take        -0.568
-2. Double, pass        +1.000  (+1.568)
-3. No double           -0.599  (-0.031)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/7 6/4                      Eq.: -0.366
+       0.391 0.151 0.004 - 0.609 0.173 0.008
+    2. Cubeful 2-ply    7/5 6/5                      Eq.: -0.393 (-0.027)
+       0.382 0.173 0.005 - 0.618 0.180 0.013
+    3. Cubeful 2-ply    23/22 8/6                    Eq.: -0.418 (-0.052)
+       0.381 0.142 0.004 - 0.619 0.185 0.009
+    4. Cubeful 2-ply    24/22 8/7                    Eq.: -0.426 (-0.060)
+       0.379 0.139 0.004 - 0.621 0.185 0.008
+    5. Cubeful 2-ply    23/21 8/7                    Eq.: -0.437 (-0.071)
+       0.377 0.138 0.003 - 0.623 0.196 0.008
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--B-C-BaC-B--Ba----cbbcabA:1:1:1:00:2:6:0:9:10");
-var categoryid = "CC2";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-Ba-B-DBA---bBabab-db--AA-:0:0:1:21:0:0:1:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

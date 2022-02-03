@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 201</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 151</span>&ensp;
 <span>(CC4-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Double Match Point. How should Red play 21?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=151 White=145</div></div>
+      <div class="pipinfo">pips Red=147 White=137</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money there is virtually no difference between hitting two checkers or hitting one. The extra gammons balance the extra losses.<br>
-At DMP hitting one checker with bar/23/22* is clearly correct because it wins the most games which is all that Red is interested in. Hitting just the one checker means that White cannot make a second anchor and that reduces his winning chances.<br>
-At DMP hitting two checkers is an error (just).<br>
+ <div class="description">Red could run with 22/11 but that leaves an even race where White has 14 shots at the blot.<br>
+Red’s better game plan is a blitz and 13/7*, 6/1* is the best move to achieve that.<br>
+13/8, 13/7* is not unreasonable but it leaves White with many more return shots (including hitting loose on his 3-pt).<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22*                      Eq.: +0.482
-       0.741 0.300 0.031 - 0.259 0.055 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/24* 23/21                Eq.: +0.442 (-0.040)
-       0.721 0.314 0.036 - 0.279 0.055 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/24* 13/11                Eq.: +0.437 (-0.045)
-       0.718 0.333 0.043 - 0.282 0.058 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/24*/22*                  Eq.: +0.436 (-0.046)
-       0.718 0.374 0.056 - 0.282 0.045 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/24* 8/6                  Eq.: +0.397 (-0.084)
-       0.699 0.330 0.045 - 0.301 0.060 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7* 6/1*                   Eq.: +0.002
+       0.501 0.152 0.005 - 0.499 0.177 0.008
+    2. Cubeful 2-ply    13/8 13/7*                   Eq.: -0.010 (-0.012)
+       0.495 0.140 0.007 - 0.505 0.178 0.006
+    3. Cubeful 2-ply    22/11                        Eq.: -0.056 (-0.058)
+       0.472 0.052 0.001 - 0.528 0.110 0.002
+    4. Cubeful 2-ply    22/16 13/8                   Eq.: -0.065 (-0.067)
+       0.467 0.068 0.002 - 0.533 0.127 0.002
+    5. Cubeful 2-ply    13/7*/2                      Eq.: -0.085 (-0.087)
+       0.458 0.126 0.006 - 0.542 0.200 0.007
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b--BBB-C-A-cC---bbd--aAaA:0:0:1:21:4:4:0:5:10");
-var categoryid = "CC4";
-var probnum = "01";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a---BCaD---bE---bbdc-A---:0:0:1:65:0:0:0:1:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

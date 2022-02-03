@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 181</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 120</span>&ensp;
 <span>(CBx-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play.  Double Match Point. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=14 White=13</div></div>
+      <div class="pipinfo">pips Red=145 White=105</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This one is nice and easy!<br>
+ <div class="description">This is a lesson in back game technique.<br>
 <br>
-This could be a one, two or three roll (or even more!) position.<br>
+Red needs to make it as difficult as possible for White to clear his outer board points. He does that by exerting pressure on them and so 23/22(2) is an  essential part of the solution. If, in due course, he has to give up the 21-pt then he is left with a viable 3-pr holding game.<br>
 <br>
-Positions like this where there are no guarantees about the number of rolls and with virtually even pip counts are normally doubles and takes and this position is no exception. Not redoubling here is worse than a double blunder and dropping is a triple blunder.<br>
-<br>
-Axel Reichert’s formula gets this position right. See my paper on Backgammon Races in the ‘Downloads’ section of this website for more details.<br>
+The other two aces are less important but 7/5 is marginally better than anything else.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.417
-  0.708 0.000 0.000 - 0.292 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.757
-2. Double, pass        +1.000  (+0.243)
-3. No double           +0.554  (-0.204)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22(2) 7/5                 Eq.: -0.420
+       0.290 0.037 0.001 - 0.710 0.142 0.002
+    2. Cubeful 2-ply    23/22(2) 7/6 4/3             Eq.: -0.423 (-0.003)
+       0.289 0.038 0.001 - 0.711 0.149 0.002
+    3. Cubeful 2-ply    23/22(2) 8/6                 Eq.: -0.425 (-0.005)
+       0.288 0.037 0.001 - 0.712 0.145 0.002
+    4. Cubeful 2-ply    23/22(2) 7/6(2)              Eq.: -0.428 (-0.008)
+       0.286 0.037 0.001 - 0.714 0.145 0.002
+    5. Cubeful 2-ply    23/22(2) 5/3                 Eq.: -0.431 (-0.011)
+       0.284 0.036 0.001 - 0.716 0.150 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---A-AA-------------b-a---:1:1:1:00:0:0:1:0:10");
-var categoryid = "CBx";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--AABBBBA------bcc-ccB-Ba-:1:1:1:11:3:3:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

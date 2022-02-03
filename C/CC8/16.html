@@ -12,41 +12,50 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 166</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 116</span>&ensp;
 <span>(CC8-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-3 to 11. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 10-4 to 13. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=135 White=124</div></div>
+      <div class="pipinfo">pips Red=136 White=166</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a prime vs. prime position and the old adage goes that all PvP positions are doubles and takes. This position is not an exception to that rule.<br>
+ <div class="description">Not an easy problem. Over the board, bar/22, 11/8, 10/4* was played but turned out to be wrong.<br>
 <br>
-A very clear double and an equally clear take, despite the score. Dropping would be a blunder. White’s checker on his ace-point is a weakness but not enough to change the decision.<br>
+The plan is to make the best use of the checkers by putting them where they want to be. That means, after the forced bar/22, making the 3-pt with two of the threes, 6/3(2). That leaves a choice for the last three of 13/10 or 11/8.<br>
 <br>
-It is remarkable how often the old adage holds up under scrutiny.<br>
+In the rollout these two plays dead heat so take your choice. I have a mild preference for 13/10 because the 10-pt is so useful.<br>
+<br>
+I got this wrong over the board and I learnt something from the rollouts. Hitting is not always right and that is the case here, but I think it was hard to pass up 10/4* as my natural style is to hit. I didn’t even look at the two best plays – lesson learnt.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.508 (Money: +0.511)
-  0.707 0.163 0.006 - 0.293 0.071 0.002
-Cubeful equities:
-1. Double, take        +0.918
-2. Double, pass        +1.000  (+0.082)
-3. No double           +0.848  (-0.069)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 13/10 6/3(2)          Eq.: +0.558
+       0.701 0.297 0.034 - 0.299 0.064 0.003
+    2. Cubeful 2-ply    bar/22 8/5 6/3(2)            Eq.: +0.545 (-0.013)
+       0.698 0.300 0.034 - 0.302 0.069 0.002
+    3. Cubeful 2-ply    bar/22 11/8 6/3(2)           Eq.: +0.540 (-0.018)
+       0.699 0.277 0.028 - 0.301 0.065 0.002
+    4. Cubeful 2-ply    bar/22 10/7 6/3(2)           Eq.: +0.504 (-0.054)
+       0.688 0.297 0.030 - 0.312 0.073 0.003
+    5. Cubeful 2-ply    bar/22 13/10(2) 11/8         Eq.: +0.504 (-0.054)
+       0.690 0.244 0.019 - 0.310 0.060 0.002
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -54,12 +63,13 @@ Proper cube action: Double, take
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--bBBBB-B----C---ccbd-B-a-:0:0:1:00:0:3:0:11:10");
-var categoryid = "CC8";
-var probnum = "16";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b--aBE-C-AAbBb--c-d----aA:0:0:1:33:10:4:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

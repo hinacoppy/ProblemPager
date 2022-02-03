@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 70</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 31</span>&ensp;
 <span>(CBv-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-2 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=137 White=123</div></div>
+      <div class="pipinfo">pips Red=111 White=83</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a solid double and a trivial take.<br>
+ <div class="description">Red will need to take some risks to remake his 6-pt which is the crucial point on the board.<br>
 <br>
-Trailing in  match it would be a double blunder not to double, given the percentage of gammons that Red wins. White’s six outfield checkers, Red stronger home board, White’s seven checkers on his 6-pt and the volatility all combine to make this a powerhouse double.<br>
+In live play 14/8 was played with the idea of creating a broken prime but this turns out not to be aggressive enough.<br>
 <br>
-It is a take for White and dropping would be an error, but it is certainly a scary double to take. If you elected to wait a roll and not double, you need to re-examine your doubling criteria.<br>
+In a money game and holding a 2 cube Red should play17/13, 14/12, leaving only 3 shots and reducing the gammon risk. Here, however, gammons are irrelevant, and Red does best to spread his checkers while White is on the bar.<br>
+<br>
+17/11 is fine but best by a tiny margin is 17/15, 13/9. The specifics of this position are, of course, important but much more important is to learn the technique of spreading the checkers in such situations. High risk garners high reward.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.503 (Money: +0.483)
-  0.665 0.213 0.004 - 0.335 0.061 0.002
-Cubeful equities:
-1. Double, take        +0.874
-2. Double, pass        +1.000  (+0.126)
-3. No double           +0.750  (-0.124)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/15 13/9                   Eq.: +0.033
+       0.516 0.030 0.001 - 0.484 0.170 0.009
+    2. Cubeful 2-ply    17/11                        Eq.: +0.022 (-0.011)
+       0.511 0.029 0.001 - 0.489 0.143 0.003
+    3. Cubeful 2-ply    17/13 14/12                  Eq.: +0.009 (-0.023)
+       0.505 0.028 0.001 - 0.495 0.107 0.001
+    4. Cubeful 2-ply    17/15 14/10                  Eq.: +0.008 (-0.024)
+       0.504 0.029 0.001 - 0.496 0.134 0.002
+    5. Cubeful 2-ply    14/8                         Eq.: -0.031 (-0.064)
+       0.485 0.029 0.001 - 0.515 0.095 0.001
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a--B-BDAB--Ab----c-g-Cb---:0:0:1:00:1:2:0:7:10");
-var categoryid = "CBv";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a--CBC-BA----BA-bA-c-bbcb-:0:0:1:42:6:6:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

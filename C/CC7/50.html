@@ -12,52 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 150</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 100</span>&ensp;
 <span>(CC7-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-2 to 5.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 5. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=123 White=161</div></div>
+      <div class="pipinfo">pips Red=125 White=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">What is a trivially easy take in a money game becomes a big pass at this match score. If Red wins a gammon the match is over and that is a price that White cannot afford. He does better to drop and play from 2-2.<br>
+ <div class="description">This is not the time to give up the anchor. Red needs to strengthen his position before he does that.<br>
 <br>
-It takes discipline to drop positions like this but that is the way to winning match play backgammon.<br>
+His best plan is to improve his home board if possible. The correct move to do that is bar/20, 15/10(2), 8/3. Initially he hopes to make his 3-pt and then possibly his 6-pt. Only then should he give up his anchor in White’s home board and run for home.<br>
+<br>
+The second-best play is bar/10, 15/10 but that is still an error. Red is not the favourite in this position but he needs to make the most of what he has and the anchor in White’s home board provides his long-term equity.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.486 (Money: +0.497)
-  0.698 0.152 0.004 - 0.302 0.054 0.002
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.105  (+0.105)
-3. No double           +0.958  (-0.042)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/10 15/10                 Eq.: -0.428
+       0.420 0.093 0.001 - 0.580 0.128 0.007
+    2. Cubeful 2-ply    bar/20 15/10(2) 8/3          Eq.: -0.455 (-0.027)
+       0.411 0.091 0.000 - 0.589 0.130 0.009
+    3. Cubeful 2-ply    bar/15 20/15(2)              Eq.: -0.489 (-0.061)
+       0.420 0.099 0.000 - 0.580 0.212 0.005
+    4. Cubeful 2-ply    bar/10 8/3                   Eq.: -0.490 (-0.063)
+       0.405 0.099 0.001 - 0.595 0.159 0.007
+    5. Cubeful 0-ply    bar/15 20/15 8/3             Eq.: -0.600 (-0.172)
+       0.391 0.094 0.000 - 0.609 0.252 0.012
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-b-CD-D---dD---a-bc-b---:0:0:1:00:1:2:0:5:10");
-var categoryid = "CC7";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BD-Cb--A---c--Bbc-eB----A:1:-1:1:55:0:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

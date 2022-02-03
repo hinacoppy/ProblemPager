@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 62</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 12</span>&ensp;
 <span>(CC6-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 5-2 to 7. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=83 White=74</div></div>
+      <div class="pipinfo">pips Red=170 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Despite the ability for White to redouble to 4 this is a huge drop. The pip count is false because of White’s wastage. Furthermore, if he hits a shot, he is unlikely to be able to contain the hit blot.<br>
+ <div class="description">24/18, 6/4 duplicates sixes, and looks reasonable. <br>
 <br>
-White should drop and play from 2-6 down with 15% match winning chances.<br>
+However, slightly better is 24/22, 13/7 which starts two good points and, with Red holding an anchor has an acceptable level of risk, despite the lack of duplication. <br>
 <br>
-If takes, redoubles and wins he will be 6-5 ahead with 70% match winning chances but he wins from here only 21% of the time and that is not enough.<br>
+I think this is difficult to find over the board, but an extensive rollout has 24/22, 13/7 as the clear winner and 24/18, 6/4 is designated as a small error.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.729 (Money: +0.668)
-  0.798 0.074 0.002 - 0.202 0.004 0.000
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.235  (+0.235)
-3. No double           +0.948  (-0.052)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 13/7                   Eq.: -0.439
+       0.401 0.086 0.003 - 0.599 0.189 0.015
+    2. Cubeful 2-ply    24/18 6/4                    Eq.: -0.459 (-0.020)
+       0.399 0.079 0.002 - 0.601 0.196 0.014
+    3. Cubeful 2-ply    24/18 13/11                  Eq.: -0.467 (-0.029)
+       0.398 0.079 0.002 - 0.602 0.200 0.014
+    4. Cubeful 2-ply    24/16                        Eq.: -0.488 (-0.050)
+       0.389 0.074 0.002 - 0.611 0.188 0.012
+    5. Cubeful 2-ply    13/7 6/4                     Eq.: -0.499 (-0.061)
+       0.388 0.082 0.003 - 0.612 0.198 0.018
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-B-bCCB-CB-----------bdcd-:0:0:1:00:5:2:0:7:10");
-var categoryid = "CC6";
-var probnum = "12";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---B-bD-B---dD---c-d---bC-:0:0:1:62:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

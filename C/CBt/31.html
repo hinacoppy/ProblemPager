@@ -12,42 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBt  probnum=31)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 190</span>&ensp;
 <span>(CBt-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Red leads 4-2 to 7. How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=133 White=98</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">Despite the apparent risk the most direct route to victory (and a potential gammon) is 11/5*. Everything else gives White too many opportunities for counter-play.<br>
+<br>
+If White’s blot on his 3-pt were safe on his 5-pt it would be a toss-up between 18/12 and 11/5* but as it is that blot gives Red additional tactical options.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5*                        Eq.: +0.482
+       0.711 0.246 0.013 - 0.289 0.156 0.005
+    2. Cubeful 2-ply    18/12                        Eq.: +0.424 (-0.057)
+       0.649 0.168 0.008 - 0.351 0.083 0.001
+    3. Cubeful 2-ply    18/14 13/11                  Eq.: +0.410 (-0.072)
+       0.640 0.167 0.009 - 0.360 0.077 0.000
+    4. Cubeful 2-ply    18/14 16/14                  Eq.: +0.391 (-0.090)
+       0.639 0.157 0.008 - 0.361 0.088 0.001
+    5. Cubeful 2-ply    18/16 13/9                   Eq.: +0.321 (-0.161)
+       0.621 0.181 0.008 - 0.379 0.113 0.000
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBt";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CBt";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a--BBaC-B--B-A--BbAbc-abc-:1:1:1:42:4:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

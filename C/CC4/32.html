@@ -12,54 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 232</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 182</span>&ensp;
 <span>(CC4-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-1 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 4-10 to 13. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=90 White=97</div></div>
+      <div class="pipinfo">pips Red=136 White=165</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Interestingly this is a much stronger double at the is score than it is for money. That is because two points get Red to match point (Crawford) with his opponent on an odd number of points, which is ideal.<br>
-<br>
-For money this is only just a double but at the match score it is nearly a blunder not to double. As usual it is the score that dominates the doubling decision. <br>
-<br>
-It is an easy take for White, of course, because of his very powerful redoubles, when Red will need 40% winning chances to take.<br>
+ <div class="description">Fives don’t grow on trees! Red needs to release one of his checkers on White’s 2-pt with 23/18. After that the one is forced, 10/9. This may look risky because White can attack the remaining blot but White needs four 4s to escape his rear checkers.<br>
+It may look as if Red has plenty of time to escape his rear checkers but playing 23/18 more or less guarantees he can hold his forward structure. Anything other than 23/18, 10/9 is a triple blunder or worse.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.487 (Money: +0.471)
-  0.728 0.022 0.000 - 0.272 0.008 0.000
-Cubeful equities:
-1. Double, take        +0.832
-2. Double, pass        +1.000  (+0.168)
-3. No double           +0.780  (-0.051)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    23/18 10/9                   Eq.: +0.465
+       0.724 0.372 0.040 - 0.276 0.110 0.003
+    2. Cubeful 0-ply    10/4                         Eq.: +0.289 (-0.176)
+       0.648 0.314 0.036 - 0.352 0.113 0.002
+    3. Cubeful 0-ply    10/5 6/5                     Eq.: +0.230 (-0.235)
+       0.639 0.311 0.036 - 0.361 0.140 0.007
+    4. Cubeful 0-ply    18/13 10/9                   Eq.: +0.197 (-0.269)
+       0.639 0.326 0.037 - 0.361 0.164 0.012
+    5. Cubeful 0-ply    18/12                        Eq.: +0.153 (-0.312)
+       0.625 0.317 0.035 - 0.375 0.172 0.014
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBbBD-C--B-----aacb-bbb-:0:0:1:00:2:1:0:5:10");
-var categoryid = "CC4";
-var probnum = "32";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "32";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-dBBB-BBa-A------bBbbbbB--:1:1:1:51:10:4:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

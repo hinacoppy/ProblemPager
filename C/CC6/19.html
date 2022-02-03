@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 69</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 19</span>&ensp;
 <span>(CC6-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-1 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-3 to 5. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=127 White=89</div></div>
+      <div class="pipinfo">pips Red=116 White=114</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money, or at 0-0, this would not be a redouble. However, that single point by which Red trails makes a big difference and now not redoubling would nearly be a blunder. Yet again the match score has a heavy influence on the doubling decisions.<br>
+ <div class="description">For money this would be no double/beaver.<br>
 <br>
-White has a trivial take, of course.<br>
+At this score Red has far more reason to double but in fact it is not quite good enough although it is close. The fact that Red’s fours are duplicated doesn’t help. <br>
+<br>
+Note that White needs exactly two points to win the match and this is another reason for Red not to double. He may get a better chance to use the cube more effectively later.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.450 (Money: +0.445)
-  0.700 0.158 0.002 - 0.300 0.109 0.007
+2-ply cubeless equity -0.163 (Money: -0.019)
+  0.440 0.225 0.012 - 0.560 0.130 0.007
 Cubeful equities:
-1. Double, take        +0.966
-2. Double, pass        +1.000  (+0.034)
-3. No double           +0.774  (-0.192)
-Proper cube action: Redouble, take
+1. Double, take        -0.025
+2. Double, pass        +1.000  (+1.025)
+3. No double           -0.033  (-0.008)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBABBBB---------bA-b-dfBA-:1:1:1:00:0:1:0:7:10");
-var categoryid = "CC6";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BBaCC-C----a---cbdca--AA:0:0:1:00:0:3:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

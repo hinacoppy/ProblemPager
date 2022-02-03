@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 28</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 228</span>&ensp;
 <span>(CBz-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 8-11 to 13. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=122 White=114</div></div>
+      <div class="pipinfo">pips Red=134 White=34</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is an efficient double which if thing turn out well will give Red a gammon.<br>
+ <div class="description">On an initial evaluation XG rates this as a borderline redouble but it sensibly changes its mind on rollout that this is both a redouble and a take.<br>
 <br>
-Conversely this is an easy take as White has a broken prime with two Red checkers trapped behind it. If Red doesn’t roll a four very soon he may well crash home board.<br>
+This is logical. Red has 20 numbers to pick up the second checker and 33, 44 and 66 are also strong. Those rolls don’t necessarily win but most of them are market-losing rolls. <br>
 <br>
-Not doubling is a blunder while dropping is a triple blunder.<br>
+From White’s perspective his six checkers off give him an easy take. He only wins 21% of the time from here but nearly half those wins are gammons and that makes the take quite straightforward. <br>
+<br>
+Not redoubling is a blunder.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.283 (Money: +0.374)
-  0.650 0.151 0.004 - 0.350 0.078 0.003
+2-ply cubeless equity +0.447
+  0.768 0.000 0.000 - 0.232 0.084 0.004
 Cubeful equities:
-1. Double, take        +0.679
-2. Double, pass        +1.000  (+0.321)
-3. No double           +0.621  (-0.058)
-Proper cube action: Double, take
+1. No double           +0.779
+2. Double, pass        +1.000  (+0.221)
+3. Double, take        +0.737  (-0.043)
+Proper cube action: No redouble, take (16.2%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a--BBCBBA------Acb-dbcB---:0:0:1:00:8:11:0:13:10");
-var categoryid = "CBz";
-var probnum = "28";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "28";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BaB-BB-B----B---A---aAAg-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

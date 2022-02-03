@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 179</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2109 - Position 122</span>&ensp;
 <span>(CBx-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-6 to 13. Should Red redouble to 8? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=88 White=76</div></div>
+      <div class="pipinfo">pips Red=136 White=175</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money it would be nearly a double blunder to redouble this position but beware of high cubes in matches!<br>
+ <div class="description">For once making the 5-pt is not the right play – that leaves the rear checkers stranded.<br>
 <br>
-Also beware overage - eight points give White one more than he needs. Red only wins this position two-thirds of the time but if you plug that figure into the match equity calculation you will find that White has to pass this redouble and it is a blunder to take. The position is highly volatile - Red cannot afford to wait.<br>
+There are two plans. One is to make the 9-pt and the 20-pt with 24/20, 13/9(3). The other idea is to advance the rear checkers with 24/16, 20/16, 13/9. This keeps the checkers well connected but gives up on making the 9-pt immediately.<br>
 <br>
-Not redoubling as Red is worse than a double blunder. This is a classic demonstration of the power of the cube in a match play situation. As Red don’t worry that you might lose the match. From 2-10 down you are probably going to lose anyway. Instead, think of being 10-6 ahead. Even better, Red wins a gammon 1.5% from here!<br>
+It turns out that both plans are fine and the equity difference between the two plays Is tiny. The key is not to blindly make the 5-pt just because you can. It turns out that making the 5-pt is a blunder which somewhat surprised me.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.370
-  0.682 0.020 0.000 - 0.318 0.014 0.000
-Cubeful equities:
-1. No double           +0.637
-2. Double, pass        +1.000  (+0.363)
-3. Double, take        +0.531  (-0.106)
-Proper cube action: No redouble, take (22.7%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 13/9(3)                Eq.: -0.148
+       0.487 0.166 0.003 - 0.513 0.112 0.004
+    2. Cubeful 2-ply    24/16 20/16 13/9             Eq.: -0.166 (-0.018)
+       0.495 0.165 0.003 - 0.505 0.147 0.004
+    3. Cubeful 2-ply    24/20 13/9(2) 6/2            Eq.: -0.248 (-0.100)
+       0.454 0.164 0.003 - 0.546 0.134 0.004
+    4. Cubeful 2-ply    13/5(2)                      Eq.: -0.266 (-0.119)
+       0.439 0.197 0.004 - 0.561 0.145 0.005
+    5. Cubeful 2-ply    24/16 13/9(2)                Eq.: -0.314 (-0.166)
+       0.438 0.175 0.003 - 0.562 0.166 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aA-CB-DB--B-A-----bb-cbbc-:2:1:1:00:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "22";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBbb-C-B---cD---bbbAb--A-:1:-1:1:44:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

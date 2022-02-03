@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 18</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 218</span>&ensp;
 <span>(CC5-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 4-2 to 7. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=128 White=112</div></div>
+      <div class="pipinfo">pips Red=131 White=71</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The strength of the five-point prime gives Red enough of an advantage to double. Those blots will be considerably tidier after Red’s next roll.<br>
+ <div class="description">This one is not difficult but over the board Red played 24/21, 7/2 which is a huge blunder.  <br>
 <br>
-Meanwhile White leads in the race and has the advantage of holding Red’s 9-pt although that won’t last forever. White has twelve checkers in the attack zone so if he gets the chance, he might win with a blitz attack.<br>
+The correct play is 24/16, challenging the White blot in the outer board and also keeping a solid five-point prime on the other side of the board. <br>
 <br>
-The position is finely balance and very volatile. Red should double and White should take. Dropping would be a double blunder.<br>
+Of course, 7/2, 5/2 is even worse than 24/21, 7/2 as Red’s board may implode next turn.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.487
-  0.705 0.147 0.006 - 0.295 0.075 0.001
-Cubeful equities:
-1. Double, take        +0.773
-2. Double, pass        +1.000  (+0.227)
-3. No double           +0.747  (-0.026)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16                        Eq.: -0.878
+       0.318 0.023 0.001 - 0.682 0.165 0.011
+    2. Cubeful 2-ply    24/21 7/2                    Eq.: -0.996 (-0.118)
+       0.323 0.031 0.001 - 0.677 0.213 0.018
+    3. Cubeful 2-ply    7/2 5/2                      Eq.: -1.000 (-0.122)
+       0.240 0.009 0.000 - 0.760 0.208 0.014
+    4. Cubeful 2-ply    24/21 6/1                    Eq.: -1.000 (-0.122)
+       0.258 0.022 0.000 - 0.742 0.265 0.024
+    5. Cubeful 2-ply    7/2 4/1                      Eq.: -1.000 (-0.122)
+       0.231 0.010 0.000 - 0.769 0.224 0.017
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BBBBCb-A-A--A-bdAbc-a-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC5";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "CC5";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---BCCBB-a---------cd-cdC-:0:0:1:53:4:2:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

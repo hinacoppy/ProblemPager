@@ -12,43 +12,49 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 217</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 167</span>&ensp;
 <span>(CC9-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=157 White=153</div></div>
+      <div class="pipinfo">pips Red=92 White=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Quite a deceptive position. Red’s position looks stronger than it is.<br>
+ <div class="description">I got this horribly wrong over the board, playing 9/7, 8/7(2). That is worse than a double blunder!<br>
+The hardest point for Red to clear is his mid-point and so bringing those checkers within direct range of his home board takes priority.<br>
 <br>
-White has some bad entering numbers, e.g., 24 and 26 which are quite scary.<br>
+The only move that is not an outright blunder is 13/12(2), 9/8, 6/5.<br>
 <br>
-However, White has a sound structure with all his checkers in play and has both priming and blitzing game plans available. Meanwhile Red’s three rear checkers are a long way from the action.<br>
-<br>
-Red has the advantage and should double because he could lose his market and he will win plenty of gammons. Not doubling is an error, but only just. However, White’s take is very easy and dropping would be a double blunder.<br>
+I was surprised by just how bad every other move is in this position, so it is a good one to learn from.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.496
-  0.648 0.262 0.007 - 0.352 0.068 0.002
-Cubeful equities:
-1. Double, take        +0.752
-2. Double, pass        +1.000  (+0.248)
-3. No double           +0.722  (-0.030)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/12(2) 9/8 6/5             Eq.: +0.424
+       0.604 0.173 0.006 - 0.396 0.055 0.001
+    2. Cubeful 2-ply    13/9                         Eq.: +0.422 (-0.002)
+       0.596 0.184 0.008 - 0.404 0.060 0.002
+    3. Cubeful 2-ply    9/7 8/7(2)                   Eq.: +0.368 (-0.055)
+       0.589 0.170 0.005 - 0.411 0.055 0.001
+    4. Cubeful 2-ply    9/5                          Eq.: +0.310 (-0.113)
+       0.574 0.173 0.007 - 0.426 0.071 0.002
+    5. Cubeful 0-ply    13/11(2)                     Eq.: +0.173 (-0.251)
+       0.532 0.178 0.008 - 0.468 0.097 0.003
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -60,8 +66,9 @@ const categoryid = "CC9";
 const probnum = "17";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a---BBBB-B--dBb--c-e--AAA-:0:0:1:00:0:0:3:0:10");
+board.showBoard("XGID=-AbDbBC-BA---B-a-abbbba---:0:0:1:11:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

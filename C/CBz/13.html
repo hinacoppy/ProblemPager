@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position13</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 213</span>&ensp;
 <span>(CBz-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 1-2 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=161 White=154</div></div>
+      <div class="pipinfo">pips Red=22 White=29</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Once again, a perfectly timed double at the match score that would be premature for money. A doubled gammon gives Red the match exactly so now is precisely the time to double.<br>
+ <div class="description">This is one that Reichert’s formula gets wrong, deeming it to be a pass.<br>
 <br>
-White’s position is fundamentally sound and so he should take.<br>
+I think this is due to it not correctly assessing the weakness of Red’s 1s and 3s while he has an even number of checkers.<br>
 <br>
-Not doubling is a double blunder while dropping is merely a single blunder.<br>
+In essence this is very close to a four-vs-four bear-off which would be double and take.  In fact, this is a very big double but also a very easy take.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.257 (Money: +0.296)
-  0.579 0.249 0.018 - 0.421 0.122 0.008
+2-ply cubeless equity +0.460
+  0.730 0.000 0.000 - 0.270 0.000 0.000
 Cubeful equities:
-1. Double, take        +0.765
-2. Double, pass        +1.000  (+0.235)
-3. No double           +0.649  (-0.116)
-Proper cube action: Double, take
+1. Double, take        +0.830
+2. Double, pass        +1.000  (+0.170)
+3. No double           +0.729  (-0.101)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aa--BCB-A--AcCb--a-cbbB-A-:0:0:1:00:1:2:0:5:10");
-var categoryid = "CBz";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-ACAC--------------bbaa---:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

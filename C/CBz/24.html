@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 24</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 224</span>&ensp;
 <span>(CBz-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=11 White=12</div></div>
+      <div class="pipinfo">pips Red=121 White=66</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Apologies, I originally posted this one with the wrong player on roll.<br>
+ <div class="description">Now we see why not redoubling in Position 223 was correct. Red hit but White entered first time. A move later we have reached this position.<br>
 <br>
-With the revised diagram the answer that this is redouble and take. It is nearly a quadruple blunder not to redouble while merely a single blunder if you drop as White.<br>
+This type of position is well-known. Red’s total outfield coverage means that White does not escape often enough to give him a take. He wins about 21% of the time and that is not enough.<br>
 <br>
-Reichert’s formula works well for this position.<br>
+If Red had doubled in Position 223 and White had taken, White would now own the cube and therefore win 21% of the time. As it is, he will win 0% of the time. <br>
+<br>
+This concept of “Cube Future Value” is an important one. By holding the cube in position 223 Red can use it to win the game at precisely the right moment in Position 224.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.482
-  0.741 0.000 0.000 - 0.259 0.000 0.000
+2-ply cubeless equity +0.505
+  0.759 0.045 0.001 - 0.241 0.059 0.001
 Cubeful equities:
-1. Double, take        +0.891
-2. Double, pass        +1.000  (+0.109)
-3. No double           +0.605  (-0.285)
+1. Double, take        +0.846
+2. Double, pass        +1.000  (+0.154)
+3. No double           +0.839  (-0.007)
 Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--A-AA-------------a-a-a--:1:-1:-1:00:0:0:3:0:10");
-var categoryid = "CBz";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aBBBBB------AA--AAAbccea-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 131</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 81</span>&ensp;
 <span>(CC7-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-1 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=129 White=122</div></div>
+      <div class="pipinfo">pips Red=139 White=152</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Apologies for initially posting an inaccurate diagram (the score was wrong).<br>
+ <div class="description">Purity goes a long way in backgammon. The right idea here is to make the five-point prime with bar/23, 8/4, 6/4.<br>
 <br>
-Red’s position looks more threatening than it is, and he has a lot of work to do to win the game. His open 4-pt and the dilly builder on his 2-pt will make it difficult for him to close White out. Meanwhile, he has three rear checkers to worry about.<br>
+This puts tremendous pressure on White to roll a six. although a one is also useful.<br>
 <br>
-This all adds up to a clear no double and a very easy take despite that fact that four points would get him to Crawford.<br>
+Any move other than bar/23, 8/4, 6/4 is blunder.<br>
+<br>
+As Kent Goulding said, “put them where you want them”. This is a classic demonstration of that principle.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.246 (Money: +0.238)
-  0.552 0.248 0.005 - 0.448 0.112 0.008
-Cubeful equities:
-1. Double, take        +0.634
-2. Double, pass        +1.000  (+0.366)
-3. No double           +0.579  (-0.055)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 8/4 6/4               Eq.: +0.559
+       0.604 0.270 0.007 - 0.396 0.073 0.004
+    2. Cubeful 2-ply    bar/23 10/8 7/3*             Eq.: +0.543 (-0.015)
+       0.595 0.257 0.007 - 0.405 0.076 0.004
+    3. Cubeful 2-ply    bar/21 5/3*(2)               Eq.: +0.541 (-0.018)
+       0.597 0.245 0.006 - 0.403 0.073 0.003
+    4. Cubeful 2-ply    bar/23 7/3* 7/5              Eq.: +0.503 (-0.055)
+       0.592 0.275 0.008 - 0.408 0.086 0.006
+    5. Cubeful 2-ply    bar/21 7/3*                  Eq.: +0.480 (-0.078)
+       0.593 0.254 0.009 - 0.407 0.085 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-CB-CBa---A-A---cccbBb-A-:0:0:1:00:0:1:0:3:10");
-var categoryid = "CC7";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---a-BCDCaA-d----d-e----AA:0:0:1:22:0:0:2:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

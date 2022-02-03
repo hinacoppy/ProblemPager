@@ -12,46 +12,54 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 179</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 129</span>&ensp;
 <span>(CC8-29)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 4-4 to 7. How should Red play 33?</div>
+<article>
+<div class="doAction">Match Play. Red leads 2-1 to 5. How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=127 White=119</div></div>
+      <div class="pipinfo">pips Red=147 White=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The play to avoid here is 7/1(2)*. That leaves the rear checkers stranded with White favourite to enter next roll.<br>
+ <div class="description">This one is not obvious by any means. I played 22/17, 7/5 but that leaves Red with too much work to do and a 27-pip racing deficit.<br>
 <br>
-Red should play either 20/14(2) or 20/17(2) 13/10(2). There is no equity difference between the two plays. The key here is to maintain connectivity. Also, if White fails to escape his rear checker, then a blitz becomes more of a possibility on subsequent rolls.<br>
+13/11, 12/7 turns out to be a triple blunder which really surprised me while 22/17, 7/5 is merely a single blunder.<br>
+<br>
+Once again, the aggressive play wins the day and 12/7, 6/4* is easily the best move.  It puts pressure on White to roll an immediate 4, 22 or 11.<br>
+<br>
+On the other twenty-three rolls White is likely to have three checkers trapped behind a five -point prime. Even if he rolls one of the thirteen good numbers, he will still have three checkers trapped behind a four-point prime and if he doesn’t quickly roll a 5 or a 6 his home board could collapse. Even if Red is hit, an immediate 3 will maintain his good winning chances.<br>
+<br>
+12/7, 6/4* wins 5% more games than any other play but loses 7% more gammons so the risk is worth the reward.<br>
+<br>
+Not many people get this one right so don’t worry if you didn’t. The key is to learn from the solution.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/14(2)                     Eq.: +0.399
-       0.718 0.118 0.002 - 0.282 0.048 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/17(2) 13/10(2)            Eq.: +0.387 (-0.013)
-       0.698 0.160 0.003 - 0.302 0.049 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    20/17(2) 7/4(2)              Eq.: +0.316 (-0.083)
-       0.656 0.201 0.003 - 0.344 0.062 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    7/1*(2)                      Eq.: +0.313 (-0.086)
-       0.636 0.258 0.003 - 0.364 0.059 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    20/8                         Eq.: +0.294 (-0.105)
-       0.658 0.180 0.006 - 0.342 0.088 0.002
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/7 6/4*                    Eq.: +0.338
+       0.668 0.173 0.008 - 0.332 0.186 0.004
+    2. Cubeful 2-ply    22/17 7/5                    Eq.: +0.234 (-0.104)
+       0.606 0.112 0.006 - 0.394 0.133 0.001
+    3. Cubeful 2-ply    15/13 12/7                   Eq.: +0.124 (-0.214)
+       0.595 0.132 0.005 - 0.405 0.185 0.001
+    4. Cubeful 2-ply    13/11 12/7                   Eq.: +0.119 (-0.219)
+       0.616 0.152 0.007 - 0.384 0.223 0.005
+    5. Cubeful 0-ply    12/7 8/6                     Eq.: +0.179 (-0.158)
+       0.613 0.152 0.007 - 0.387 0.191 0.002
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -59,12 +67,13 @@ Red should play either 20/14(2) or 20/17(2) 13/10(2). There is no equity differe
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B-CCBA---cB----dcB-bb--:1:-1:1:33:4:4:0:7:10");
-var categoryid = "CC8";
-var probnum = "29";
-var showpipflg = true;
+const categoryid = "CC8";
+const probnum = "29";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=a--aaBCAC---AC-A---bccAbb-:1:1:1:52:2:1:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

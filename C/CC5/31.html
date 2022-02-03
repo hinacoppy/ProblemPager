@@ -12,59 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 31</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 231</span>&ensp;
 <span>(CC5-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 11?</div>
+<article>
+<div class="doAction">Match Play. Red trails 1-2 to 5. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=172 White=158</div></div>
+      <div class="pipinfo">pips Red=162 White=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is difficult because of the lack of Red checkers in his home board but also very easy because it turns out that all the plays are very close.<br>
+ <div class="description">When I set this problem, I hadn’t done a rollout and I thought that hitting with 21/18 *, 11/10 was probably, but not certainly, correct. That was the move played over the board.<br>
 <br>
-On a basic level XG likes bar/24, 6/5(3)* which looks a bit weird but, on a long rollout, bar/22, 6/5* wins by three milli-points over that other play. Also acceptable are bar/23, 8/7(2) and bar/24, 8/7(2), 6/5*.<br>
+It turns out that Falafel’s Law applies and that 8/5, 6/5 is correct.<br>
+<br>
+The other three plays: 21/18*, 11/10; 24/23, 21/18* and 24/21, 11/10 are tied in second place. <br>
+<br>
+I am sure Falafel would have played 8/5, 6/5 in a flash. He was one of the most naturally gifted backgammon players I have ever seen, and the backgammon world is the sadder for his passing this year.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 6/5*(3)               Eq.: -0.160
-       0.459 0.120 0.006 - 0.541 0.157 0.009
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/22 6/5*                  Eq.: -0.165 (-0.005)
-       0.464 0.120 0.007 - 0.536 0.173 0.010
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/24 6/5*/3                Eq.: -0.169 (-0.009)
-       0.456 0.120 0.006 - 0.544 0.156 0.008
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/23 8/7(2)                Eq.: -0.184 (-0.024)
-       0.457 0.109 0.005 - 0.543 0.160 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/23 6/5*/4                Eq.: -0.198 (-0.038)
-       0.456 0.119 0.007 - 0.544 0.179 0.010
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 21/18*                 Eq.: +0.004
+       0.487 0.126 0.007 - 0.513 0.160 0.007
+    2. Cubeful 2-ply    24/21 11/10                  Eq.: -0.032 (-0.036)
+       0.469 0.106 0.004 - 0.531 0.106 0.003
+    3. Cubeful 2-ply    21/18* 11/10                 Eq.: -0.034 (-0.038)
+       0.478 0.126 0.007 - 0.522 0.168 0.009
+    4. Cubeful 2-ply    8/5 6/5                      Eq.: -0.041 (-0.045)
+       0.474 0.141 0.009 - 0.526 0.186 0.010
+    5. Cubeful 2-ply    24/21 6/5                    Eq.: -0.064 (-0.068)
+       0.465 0.108 0.004 - 0.535 0.126 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B-aC-B---dE---dAe----AA:0:0:1:11:0:0:3:0:10");
-var categoryid = "CC5";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CC5";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b----E-C--AdD---badbA--A-:0:0:1:31:1:2:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

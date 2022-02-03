@@ -12,61 +12,63 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 65</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 15</span>&ensp;
 <span>(CC1-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 7. How should Red play 11?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 7. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=149 White=160</div></div>
+      <div class="pipinfo">pips Red=102 White=41</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">There are a number of plays here that are very close in equity terms.<br>
+ <div class="description">To slot or not to slot, that is the question.<br>
 <br>
-Technically best (according to XG) is 24/23(2), 9/8(2). 24/23, 9/7, 8/7, making the solid four-point prime is very close as is (4/2)*.<br>
+The answer is that this is a tie with your opponent having a three-point home board.<br>
+If it was two points you would definitely slot. If it was four points you definitely wouldn’t. At three points it is break even, 12/8, 6/5 and 20/16, 12/11 are tied for first place so take your pick.<br>
 <br>
-These three plays are so close to each other that picking one of them is partly a matter of style and partly a case of evaluating your opponent. Which play would he not want you to make?<br>
+The key here is to learn the break-even point of three home board points.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    4/2*(2)                      Eq.: +0.713
-       0.627 0.341 0.013 - 0.373 0.104 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/23 9/7 8/7                Eq.: +0.705 (-0.008)
-       0.645 0.259 0.013 - 0.355 0.091 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/23 9/8(2) 6/5             Eq.: +0.692 (-0.021)
-       0.642 0.259 0.011 - 0.358 0.090 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/23(2) 9/8(2)              Eq.: +0.676 (-0.037)
-       0.641 0.257 0.012 - 0.359 0.094 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/23 8/5                    Eq.: +0.649 (-0.064)
-       0.624 0.269 0.013 - 0.376 0.097 0.004
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/8 6/5                     Eq.: +0.212
+       0.596 0.000 0.000 - 0.404 0.186 0.013
+    2. Cubeful 2-ply    20/16 12/11                  Eq.: +0.166 (-0.046)
+       0.541 0.000 0.000 - 0.459 0.108 0.001
+    3. Cubeful 2-ply    21/17 12/11                  Eq.: +0.161 (-0.050)
+       0.542 0.000 0.000 - 0.458 0.115 0.001
+    4. Cubeful 2-ply    21/17 11/10                  Eq.: +0.141 (-0.071)
+       0.538 0.000 0.000 - 0.462 0.127 0.002
+    5. Cubeful 2-ply    20/16 6/5                    Eq.: +0.137 (-0.075)
+       0.577 0.000 0.000 - 0.423 0.202 0.012
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-a-BBC-AB--fC-----cb-b-B-:0:0:1:11:0:0:0:7:10");
-var categoryid = "CC1";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBBB-C----AA-------AAbcd-:1:1:1:41:0:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

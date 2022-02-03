@@ -12,51 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 176</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 126</span>&ensp;
 <span>(CC3-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 9-3 to 13. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play.  How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=85 White=83</div></div>
+      <div class="pipinfo">pips Red=89 White=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a huge double – not doubling is a quadruple blunder. A gammon (which happens 13% of the time) wins the match with perfect efficiency for Red. The position is hugely volatile and White is going to have to tiptoe through the tulips to avoid defeat.<br>
-It is also a clear take for White because of the possibility of redoubling to 4 and catching up in the match. Interestingly the match score has little influence; the doubling decisions and are exactly the same for money.<br>
+ <div class="description">My opponent here found the imaginative 16/12, 8/4, 6/2(2) here, hoping to buy time to escape his rear checker by hitting one of White’s loose blots.<br>
+That was completely the wrong idea by a long, long way. Giving your opponent the chance to enter, duplicating your own aces and not killing sixes are just some of the problems with the play! That play was a triple blunder.<br>
+Any play other than the simple 16/4, 8/4 is at least a double blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.579 (Money: +0.539)
-  0.693 0.152 0.003 - 0.307 0.004 0.000
-Cubeful equities:
-1. Double, take        +0.836
-2. Double, pass        +1.000  (+0.164)
-3. No double           +0.671  (-0.165)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    16/4 8/4                     Eq.: +0.365
+       0.494 0.246 0.002 - 0.506 0.040 0.001
+    2. Cubeful 0-ply    16/12 8/4 6/2(2)             Eq.: +0.084 (-0.281)
+       0.422 0.181 0.002 - 0.578 0.083 0.003
+    3. Cubeful 0-ply    16/8 6/2(2)                  Eq.: -0.001 (-0.366)
+       0.399 0.131 0.001 - 0.601 0.064 0.002
+    4. Cubeful 0-ply    16/12 8/4 5/1(2)             Eq.: -0.019 (-0.384)
+       0.390 0.161 0.002 - 0.610 0.092 0.003
+    5. Cubeful 0-ply    16/8 5/1(2)                  Eq.: -0.104 (-0.469)
+       0.364 0.117 0.001 - 0.636 0.073 0.002
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-C--CCE-b----aa---a---becA:0:0:1:00:9:3:0:13:10");
-var categoryid = "CC3";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "CC3";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBBBBBB-A-aa----Abbbbb-Ab-:2:1:1:44:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

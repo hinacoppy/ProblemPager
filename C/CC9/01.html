@@ -12,46 +12,44 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 201</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 151</span>&ensp;
 <span>(CC9-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play 0-0 to 5. How should Red play 54?</div>
+<article>
+<div class="doAction">Match Play. Red trails 1-3 to 5.  Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=123 White=156</div></div>
+      <div class="pipinfo">pips Red=120 White=66</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a lesson in connectivity. 23/18 is more or less forced. Then 17/13 for the four looks safer but it will be difficult to build landing points to help Red’s checkers reach home. 18/14 is riskier but keeps the external checkers much better connected. <br>
+ <div class="description">For money it would be a blunder to double this position. At this score it would be a quadruple blunder not to double(!) such is the power of the cube at 4-away vs. 2-away. A gammon wins the match for Red and the position is definitely gammonish.<br>
 <br>
-The connectivity turns out to be more important than the short-term risk. In fact, 23/18, 17/13 is very nearly a blunder!<br>
+White has a clear route to victory and two points give him the match. It is an easy take, dropping would be a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/14                        Eq.: +0.210
-       0.568 0.152 0.001 - 0.432 0.148 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/18 17/13                  Eq.: +0.165 (-0.045)
-       0.559 0.140 0.001 - 0.441 0.149 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/18 13/9                   Eq.: +0.034 (-0.176)
-       0.523 0.154 0.001 - 0.477 0.188 0.013
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    23/18 11/7                   Eq.: +0.070 (-0.140)
-       0.532 0.151 0.001 - 0.468 0.170 0.006
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    17/8                         Eq.: +0.047 (-0.163)
-       0.520 0.168 0.001 - 0.480 0.172 0.010
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.140 (Money: +0.226)
+  0.607 0.120 0.005 - 0.393 0.112 0.000
+Cubeful equities:
+1. Double, take        +0.654
+2. Double, pass        +1.000  (+0.346)
+3. No double           +0.466  (-0.187)
+Proper cube action: Double, take
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -63,8 +61,9 @@ const categoryid = "CC9";
 const probnum = "01";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBBBc-----AbD---A-dc-bA--:0:0:1:54:0:0:0:5:10");
+board.showBoard("XGID=--aBB-CCB----B-----bbbbaeA:0:0:1:00:1:3:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

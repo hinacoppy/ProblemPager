@@ -12,59 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 18</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 218</span>&ensp;
 <span>(CBz-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 62?</div>
+<article>
+<div class="doAction">Match Play. Red leads 5-4 to 13.  How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=118 White=195</div></div>
+      <div class="pipinfo">pips Red=150 White=133</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is a complex position, but it turns out that nearly any move is OK! The move to avoid is the one made over the board which was 10/8, 10/4. This creates an ugly stack on the 8-pt an makes White’s 55 much more comfortable.<br>
+ <div class="description">Quite simply, if Red does not hit he must pass White’s double. After a passive play such as bar/23,24/22(2), 8/6 he is behind in race, threat and position and being behind in all three elements normally always indicates a pass.<br>
 <br>
-The top three plays in the rollout are 13/11, 8/4, 8/6, 8/2 and 8/2, 6/4 in that order but they are all very close. Not many would pick 13/11, 8/2 as their top play and back games are not XG’s forte so one of the other plays may well be best!<br>
+After bar/23, 13/9*, the other 2 can be played 24/22 or 23/21. There is virtually no equity difference between the two plays. When in doubt, hit. That might just bring Red’s three-point home board into play.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7 6/4                     Eq.: +0.356
-       0.551 0.256 0.026 - 0.449 0.065 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/2 6/4                      Eq.: +0.342 (-0.014)
-       0.542 0.267 0.031 - 0.458 0.067 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/11 13/7                   Eq.: +0.329 (-0.027)
-       0.545 0.256 0.026 - 0.455 0.069 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/6 8/2                      Eq.: +0.299 (-0.057)
-       0.532 0.260 0.031 - 0.468 0.069 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/2 4/2                      Eq.: +0.299 (-0.058)
-       0.533 0.260 0.031 - 0.467 0.071 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 24/22 13/9*           Eq.: -0.794
+       0.337 0.136 0.007 - 0.663 0.264 0.036
+    2. Cubeful 2-ply    bar/21 13/9*                 Eq.: -0.881 (-0.087)
+       0.321 0.130 0.006 - 0.679 0.265 0.030
+    3. Cubeful 2-ply    bar/21 24/22(2)              Eq.: -0.920 (-0.126)
+       0.289 0.078 0.003 - 0.711 0.192 0.007
+    4. Cubeful 2-ply    bar/23 24/22(2) 6/4          Eq.: -0.950 (-0.156)
+       0.282 0.069 0.002 - 0.718 0.183 0.007
+    5. Cubeful 2-ply    bar/23 24/22(2) 8/6          Eq.: -1.000 (-0.206)
+       0.264 0.054 0.001 - 0.736 0.172 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-b-bBbD-E-B-bB---a-caa-a--:0:0:1:62:0:0:3:0:10");
-var categoryid = "CBz";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---C-BDbAa---B--acbdb---BA:0:0:1:22:5:4:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

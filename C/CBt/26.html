@@ -12,42 +12,74 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBt  probnum=26)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">Position of the Year</span>&ensp;
 <span>(CBt-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=78 White=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">I had this position in a match, but the result is the same for money, so I have posed it as a money game problem. My last outfield checker had been hit as I tried to bear it in. One roll later I was faced with this 21 to play as Black.<br>
+<br>
+It did not take me long to find what I believed to be the only sensible move, 22/21, 4/2. That is what I played, but to no avail, my opponent winning with a redouble to 8 a few moves later.<br>
+<br>
+As usual I analysed the game afterwards and was astounded to find that, according to XG, I had played the second-best move! Can you see the alternative? Even when given the position as a problem it is difficult to find 5/3, 4/3!<br>
+<br>
+Can this really be correct? As a check I put the position into both Snowie and gnubg and, lo and behold, they agreed with XG. So if all three bots agree then one must assume they are onto something. What are the advantages of 5/3, 4/3?<br>
+<br>
+Let us list them: it brings one of the checkers on the 4-pt into play instead of killing it with 4/2; black is in danger of crashing and this move gives him one less three to play later; if White points on Black then the 22-pt is better for Black than the 21-pt as then White’s prime will be broken rather than solid. <br>
+<br>
+Finally, if White does hit the blot exposed on Black’s 20-pt he will nearly certainly have to give up his anchor to do so. As Black has the stronger home board this will give him some counter-attacking chances.<br>
+<br>
+Needless to say, I saw none of this over the board. It is only in the calm of one’s study that such analysis is done. Even having listed the advantages of 5/3, 4/3 I am not sure I would have the courage to play the move over the board. Imagine trying to convince your chouette partners to make that play!<br>
+<br>
+Thirty years ago, in the pre-bot era, nobody in the world would have thought of playing 5/3, 4/3. It is only because we have the bots and can analyse all our matches that we unearth such games and can add the thinking behind them to our model of the game. They key is obviously to use such thought processes in future games. <br>
+<br>
+The equity difference between the two plays is only 0.0019 but that is not the point. The fact that 5/3, 4/3 is the correct play is truly remarkable, and demonstrates just how complex the game of backgammon really is.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/3 4/3                      Eq.: -0.466
+       0.359 0.168 0.016 - 0.641 0.122 0.005
+    2. Cubeful 2-ply    22/21 4/2                    Eq.: -0.495 (-0.029)
+       0.347 0.171 0.017 - 0.653 0.118 0.004
+    3. Cubeful 2-ply    6/5 4/2                      Eq.: -0.499 (-0.033)
+       0.346 0.163 0.016 - 0.654 0.119 0.004
+    4. Cubeful 2-ply    22/21 6/4                    Eq.: -0.546 (-0.080)
+       0.333 0.155 0.017 - 0.667 0.122 0.004
+    5. Cubeful 0-ply    4/3 4/2                      Eq.: -0.671 (-0.205)
+       0.292 0.146 0.013 - 0.708 0.166 0.008
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBt";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "CBt";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-bD-EBC---aa-----cccb-A---:2:-1:1:12:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

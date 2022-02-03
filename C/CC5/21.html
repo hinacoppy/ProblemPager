@@ -12,54 +12,64 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 21</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 221</span>&ensp;
 <span>(CC5-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. 0-0 to 3. How should Red play 33?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=143 White=179</div></div>
+      <div class="pipinfo">pips Red=132 White=179</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Clearly Red should double. He has long-term advantages and a lot of potential market-losing sequences.<br>
+ <div class="description">This is one of those positions where two game plans are equally valid.<br>
 <br>
-Can White take? He is the game forever because of his anchor but it will take him a long time to turn the game round. His main problem is that he loses a very high percentage of gammons.<br>
+13/4, 8/5 and the double tiger play 23/17*, 8/5, 6/3* have identical equities in the rollout.<br>
 <br>
-The rollout shows that this is the skinniest of takes but I would not criticise anybody for dropping this one.<br>
+13/10(2), 8/5, 6/3* is merely a bad error. All other plays are blunders or worse.<br>
+<br>
+Here you should choose the move that best suits your playing style. Personally, I wouldn’t be able to resist the double tiger play!<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.614
-  0.682 0.280 0.031 - 0.318 0.059 0.002
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.012  (+0.012)
-3. No double           +0.850  (-0.150)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/4 8/5                     Eq.: +0.700
+       0.679 0.452 0.054 - 0.321 0.052 0.001
+    2. Cubeful 2-ply    23/17* 8/5 6/3*              Eq.: +0.700 (-0.000)
+       0.684 0.456 0.051 - 0.316 0.064 0.002
+    3. Cubeful 2-ply    13/10(2) 8/5 6/3*            Eq.: +0.604 (-0.096)
+       0.665 0.425 0.049 - 0.335 0.083 0.004
+    4. Cubeful 2-ply    23/17* 13/10 8/5             Eq.: +0.547 (-0.153)
+       0.642 0.413 0.043 - 0.358 0.069 0.003
+    5. Cubeful 2-ply    13/7 8/5 6/3*                Eq.: +0.532 (-0.168)
+       0.647 0.422 0.049 - 0.353 0.104 0.009
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=ab-B-ADAA---dD---c-eAA----:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC5";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CC5";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aBbaAAC-C---cB-B-aad-b-A--:1:-1:1:33:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

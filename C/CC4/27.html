@@ -12,61 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 227</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 177</span>&ensp;
 <span>(CC4-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 42?</div>
+<article>
+<div class="doAction">Match Play. Red leads 12-10 to 13. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=127 White=48</div></div>
+      <div class="pipinfo">pips Red=137 White=104</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The bots have taught us to proceed quietly in such positions.<br>
-<br>
-13/7* is a double blunder. The only move that is not a blunder is the correct one, 11/7*/5. Red will have fourteen checkers in the attack zone and can quietly progress towards a very strong redouble. Leaving White six immediate shots with 13/7* that could potentially win a gammon is very wrong. <br>
-<br>
-Owning the cube is very powerful asset and here Red needs to prepare to use it wisely.<br>
+ <div class="description">Red’s game plan is to avoid losing a gammon and therefore the match. His best chance to do that is to get an anchor in White’s home board. To achieve that he needed to roll an ace but failed to do so.<br>
+His best choice is to hit the White the White checker in his own home board. That gives him two possibilities:<br>
+1)  White stays on the bar and then Red rolls the required ace.<br>
+2)  White hits the exposed Red checker on Red’s 3-pt and then Red rolls a 1 or a 2.<br>
+All three hitting plays have the same equity so I leave you to choose which one you like, but hit you must.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7*                        Eq.: +0.691
-       0.707 0.057 0.001 - 0.293 0.093 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    11/9 11/7*                   Eq.: +0.670 (-0.022)
-       0.728 0.053 0.001 - 0.272 0.122 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/7* 10/8                   Eq.: +0.669 (-0.022)
-       0.735 0.052 0.001 - 0.265 0.117 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    20/18 11/7*                  Eq.: +0.659 (-0.032)
-       0.729 0.051 0.001 - 0.271 0.110 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    11/7* 6/4                    Eq.: +0.656 (-0.036)
-       0.718 0.056 0.001 - 0.282 0.110 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 8/3*                    Eq.: -1.646
+       0.157 0.032 0.002 - 0.843 0.480 0.111
+    2. Cubeful 2-ply    10/6 8/3*                    Eq.: -1.656 (-0.009)
+       0.147 0.029 0.002 - 0.853 0.474 0.075
+    3. Cubeful 2-ply    8/4 8/3*                     Eq.: -1.671 (-0.025)
+       0.126 0.019 0.001 - 0.874 0.461 0.037
+    4. Cubeful 2-ply    13/4                         Eq.: -1.737 (-0.091)
+       0.127 0.025 0.001 - 0.873 0.495 0.027
+    5. Cubeful 2-ply    13/9 13/8                    Eq.: -1.776 (-0.130)
+       0.132 0.026 0.001 - 0.868 0.521 0.033
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=----BBCaB-BB-A------Acbcf-:1:1:1:42:0:0:3:0:10");
-var categoryid = "CC4";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--BaC-B-B-B--Ba--bbbcbbAA-:1:1:1:54:12:10:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

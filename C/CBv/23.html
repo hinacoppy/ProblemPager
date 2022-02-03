@@ -12,54 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 78</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 23</span>&ensp;
 <span>(CBv-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-3 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=140 White=140</div></div>
+      <div class="pipinfo">pips Red=155 White=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Once more a position that is no double for money becomes a very clear double at this match score.<br>
+ <div class="description">The hitting play bar/22*, 24/23 wins more gammons but that is irrelevant here. We are only concerned with game winning chances.<br>
 <br>
-Red wins a gammon nearly 30% of the time when the blitz succeeds and getting to 4-3(Crawford) gives him a very clear edge.<br>
-<br>
-Not doubling is a double blunder.<br>
+Making the 5-pt is correct with either 24/23 or 8/7 as the fourth ace. Taking the long-term asset, particularly with three White checkers trapped behind a growing prime, is the correct strategy here.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.255 (Money: +0.389)
-  0.601 0.288 0.005 - 0.399 0.101 0.006
-Cubeful equities:
-1. Double, take        +0.895
-2. Double, pass        +1.000  (+0.105)
-3. No double           +0.740  (-0.155)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 8/7 6/5(2)            Eq.: +0.335
+       0.667 0.248 0.017 - 0.333 0.117 0.011
+    2. Cubeful 2-ply    bar/23 6/5(2)                Eq.: +0.328 (-0.006)
+       0.664 0.240 0.016 - 0.336 0.124 0.006
+    3. Cubeful 2-ply    bar/24 11/10 6/5(2)          Eq.: +0.286 (-0.049)
+       0.643 0.233 0.015 - 0.357 0.118 0.008
+    4. Cubeful 2-ply    bar/22* 24/23                Eq.: +0.175 (-0.160)
+       0.587 0.223 0.017 - 0.413 0.119 0.005
+    5. Cubeful 2-ply    bar/22*/21                   Eq.: +0.168 (-0.167)
+       0.584 0.245 0.022 - 0.416 0.115 0.006
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-B--CB-BAA-cBb--c-d--b-B-:0:0:1:00:0:3:0:5:10");
-var categoryid = "CBv";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=--c-B-D-C--AbC---badb-a-AA:1:-1:1:11:5:5:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

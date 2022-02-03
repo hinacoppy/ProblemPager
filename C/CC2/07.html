@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 107</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 57</span>&ensp;
 <span>(CC2-07)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Double Match Point. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=115 White=121</div></div>
+      <div class="pipinfo">pips Red=167 White=161</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I included this position because it is fascinating to see just how massive the error is in taking.<br>
-In a money game it is worse than a sextuple blunder to take because you give up 0.5 equity points. The combination of the broken prime and White’s inflexibility (how does he play 42 for example?) makes this s truly terrible take. The position actually occurred with Red trailing 0-4 to 13 when the take was even more horrendous.<br>
-I was Red and won gammon very easily. In fact, a third of Red’s wins are gammons.<br>
+ <div class="description">At Double Match Point gammons are irrelevant and so the pure 13/3(2) is just fractionally better than the normal 8/3(2), 6/1(2)*.<br>
+<br>
+A lot of people know this and play 13/3(2) as standard but I thought I would post it here for those who were not aware of that fact.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.773
-  0.761 0.297 0.005 - 0.239 0.050 0.000
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.383  (+0.383)
-3. No double           +0.882  (-0.118)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8(2) 6/1*(2)              Eq.: +0.050
+       0.525 0.167 0.005 - 0.475 0.124 0.004
+    2. Cubeful 2-ply    13/3(2)                      Eq.: +0.049 (-0.000)
+       0.525 0.165 0.006 - 0.475 0.125 0.005
+    3. Cubeful 2-ply    8/3(2) 6/1*(2)               Eq.: +0.034 (-0.016)
+       0.517 0.192 0.004 - 0.483 0.131 0.006
+    4. Cubeful 2-ply    13/3 8/3 6/1*                Eq.: +0.028 (-0.022)
+       0.514 0.169 0.006 - 0.486 0.129 0.006
+    5. Cubeful 2-ply    13/3 6/1*(2)                 Eq.: -0.025 (-0.075)
+       0.487 0.155 0.004 - 0.513 0.142 0.007
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--aBB-CCB-A-e-----Bbb-bba-:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC2";
-var probnum = "07";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "07";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-aa---E-C---dE---d-e----B-:1:-1:1:55:5:5:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

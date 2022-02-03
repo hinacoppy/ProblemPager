@@ -12,29 +12,48 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CC9  probnum=24)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 174</span>&ensp;
 <span>(CC9-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Red leads 3-1 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=143 White=172</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">This is a double and a take for money and, perhaps surprisingly, the score doesn’t make that much difference in the match situation.<br>
+<br>
+Dropping would be a double blunder. White has an anchor and all his checkers in play. The position is not very volatile, so the double is based upon the overall strength of Red’s position.<br>
+<br>
+The double is clear but not doubling is only a small error, again due to the lack of volatility.<br>
+<br>
+Interestingly if you take the checker on White’s 23-pt and put it on his 24-pt the position becomes a massive pass. As Bill Robertie says, “everything matters”.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.620 (Money: +0.538)
+  0.660 0.267 0.027 - 0.340 0.074 0.003
+Cubeful equities:
+1. Double, take        +0.903
+2. Double, pass        +1.000  (+0.097)
+3. No double           +0.818  (-0.084)
+Proper cube action: Double, take
+</pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -46,8 +65,9 @@ const categoryid = "CC9";
 const probnum = "24";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
+board.showBoard("XGID=-baBBBB--A--dD----ccb-A-A-:0:0:1:00:3:1:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

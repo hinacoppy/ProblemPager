@@ -12,52 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 99</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 2</span>&ensp;
 <span>(CBv-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=74 White=48</div></div>
+      <div class="pipinfo">pips Red=152 White=161</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This is effectively a last roll problem. If Red hits he will nearly certainly win (and with a small percentage of gammons). If he misses then he will nearly certainly lose (bar a freak hit or a couple of large doubles).<br>
+ <div class="description">Two on the bar is normally a recipe for a strong double. However, in this position Red has a lot of work to do to win the game and there are just not enough market losing sequences to justify turning the cube.<br>
 <br>
-Twenty rolls hit and sixteen miss. Ergo, Red must redouble now to maximise his equity.  A trivial take for White of course. White will win with redouble to 8 unless Red has rolled 55 or 66.<br>
+To double here is a bad blunder. Red must respect White’s home board and seek to improves his position before doubling. Even after 31 (10/9, 6/3): Fan White will have a trivial take of Red’s double.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.283
-  0.609 0.064 0.001 - 0.391 0.001 0.000
+2-ply cubeless equity +0.356
+  0.605 0.244 0.008 - 0.395 0.100 0.005
 Cubeful equities:
-1. Double, take        +0.346
-2. Double, pass        +1.000  (+0.654)
-3. No double           +0.330  (-0.016)
-Proper cube action: Redouble, take
+1. No double           +0.507
+2. Double, pass        +1.000  (+0.493)
+3. Double, take        +0.444  (-0.064)
+Proper cube action: No double, take (11.4%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBBCBC-----------aabdAbe-:1:1:1:00:0:0:3:0:10");
-var categoryid = "CBv";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "CBv";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=b--A-BC-B-A-eCA--bAbbb--A-:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

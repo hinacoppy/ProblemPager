@@ -12,29 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CC9  probnum=49)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 199</span>&ensp;
 <span>(CC9-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match play. Red leads 2-1 to 5. How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=129 White=123</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">Red must hit 6/4* and make the 5-pt with 7/5(2). Any move involving picking and passing with 6/4*/2 is too weak and leaves Red with too much work to do.<br>
+<br>
+What about the fourth two? Escaping the rear checker takes priority over bringing down a new builder from the mid-point and so 24/22 it is.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 7/5(2) 6/4*            Eq.: -0.096
+       0.506 0.257 0.007 - 0.494 0.202 0.006
+    2. Cubeful 2-ply    7/5(2) 6/4*/2                Eq.: -0.108 (-0.012)
+       0.479 0.190 0.004 - 0.521 0.160 0.005
+    3. Cubeful 2-ply    13/11 7/5(2) 6/4*            Eq.: -0.137 (-0.042)
+       0.492 0.259 0.007 - 0.508 0.206 0.011
+    4. Cubeful 2-ply    7/5(2) 6/4*(2)               Eq.: -0.202 (-0.107)
+       0.469 0.223 0.005 - 0.531 0.205 0.008
+    5. Cubeful 0-ply    24/22 13/11 6/4*/2           Eq.: -0.288 (-0.192)
+       0.447 0.165 0.005 - 0.553 0.217 0.008
+</pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -46,8 +63,9 @@ const categoryid = "CC9";
 const probnum = "49";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
+board.showBoard("XGID=-BB-a-CB----cCBaa-bc-b-bA-:1:1:1:22:2:1:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 135</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 85</span>&ensp;
 <span>(CC7-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 2-2 to 7. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Unlimited Games. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=101 White=118</div></div>
+      <div class="pipinfo">pips Red=111 White=106</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Apologies for the cube in the wrong place in the diagram originally. <br>
+ <div class="description">Should Red make a run for it with 21/16, 5/1 or play safe?<br>
 <br>
-If the cube was in the middle this would be a double and a comfortable take.<br>
+There are times when you should just wait to see how things develop rather than try to force the issue and this position is one of them. 6/2, 6/1 is the best play. White may be forced to weaken his position on his next turn.<br>
 <br>
-The redouble is completely different. Four points get Red to the Crawford Game which is a huge advantage. Now a take by White is nearly a double blunder. He must let this one go, and play from 2-4 down.<br>
+21/16, 5/1 is not technically an error but it is the wrong idea.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.565 (Money: +0.567)
-  0.772 0.031 0.000 - 0.228 0.008 0.000
-Cubeful equities:
-1. Double, take        +0.917
-2. Double, pass        +1.000  (+0.083)
-3. No double           +0.877  (-0.040)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/2 6/1                      Eq.: -0.587
+       0.345 0.036 0.000 - 0.655 0.114 0.002
+    2. Cubeful 2-ply    6/1 5/1                      Eq.: -0.618 (-0.031)
+       0.341 0.029 0.000 - 0.659 0.111 0.001
+    3. Cubeful 2-ply    21/16 5/1                    Eq.: -0.633 (-0.045)
+       0.358 0.059 0.000 - 0.642 0.210 0.003
+    4. Cubeful 2-ply    13/4                         Eq.: -0.647 (-0.060)
+       0.311 0.044 0.001 - 0.689 0.095 0.002
+    5. Cubeful 2-ply    13/9 13/8                    Eq.: -0.735 (-0.147)
+       0.306 0.055 0.001 - 0.694 0.137 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--Ab-CD-CD--aaa----bbbb-b-:0:0:1:00:2:2:0:7:10");
-var categoryid = "CC7";
-var probnum = "35";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "35";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-B-BCACb-----B---bccbBa-b-:0:0:1:54:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

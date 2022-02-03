@@ -12,50 +12,46 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 214</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 164</span>&ensp;
 <span>(CC9-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 53?</div>
+<article>
+<div class="doAction">Match Play. 0-0 to 5. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=116 White=110</div></div>
+      <div class="pipinfo">pips Red=179 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">13/5 slots the better point and there will be more covers for it than for a slot on the 3-pt after 11/3. 13/5 leaves one more shot than 11/3.<br>
+ <div class="description">Over the board bar/24, 8/5 was played but that was the wrong game plan. Red is only 19 pips behind (fewer if he hits) so committing to a back game now is too negative.<br>
 <br>
-There is also the question of return shots for Red after a White. Unfortunately, that is difficult to calculate quickly because of the number of variations.<br>
-<br>
-I think the first factor is significant, but I hadn’t expected the rollout to show that 11/3 is a blunder which is actually the case. <br>
-<br>
-I am still working through the return hit possibilities for Red after the two possible moves, but a 1296 game rollout shows 11/3 as a blunder and I have no reason to doubt XG so for the moment, at least, that result stands.<br>
+The choice is between bar/24/21 and bar/24, 21/18*. A very long rollout produced an equity difference of 0.005 so for all intents and purposes the two plays are identical and you can take your choice. The key lesson here is not to steer for a back game too early. Here there is plenty of play for Red whichever of the other game plans he chooses.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/5                         Eq.: -0.406
-       0.386 0.052 0.001 - 0.614 0.115 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/3 6/1                      Eq.: -0.425 (-0.019)
-       0.394 0.041 0.000 - 0.606 0.128 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/3                         Eq.: -0.459 (-0.053)
-       0.366 0.053 0.000 - 0.634 0.137 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    6/1 4/1                      Eq.: -0.588 (-0.182)
-       0.341 0.029 0.000 - 0.659 0.121 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    18/13 6/3                    Eq.: -0.767 (-0.361)
-       0.329 0.052 0.000 - 0.671 0.201 0.003
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 21/18*                Eq.: -0.294
+       0.449 0.127 0.008 - 0.551 0.219 0.022
+    2. Cubeful 2-ply    bar/21                       Eq.: -0.306 (-0.012)
+       0.434 0.107 0.005 - 0.566 0.191 0.007
+    3. Cubeful 0-ply    bar/24 8/5                   Eq.: -0.474 (-0.180)
+       0.413 0.079 0.002 - 0.587 0.245 0.025
+    4. Cubeful 0-ply    bar/24 6/3                   Eq.: -0.489 (-0.195)
+       0.410 0.078 0.002 - 0.590 0.248 0.024
+    5. Cubeful 0-ply    bar/24 13/10                 Eq.: -0.762 (-0.468)
+       0.364 0.070 0.002 - 0.636 0.272 0.029
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -67,8 +63,9 @@ const categoryid = "CC9";
 const probnum = "14";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BB-B-C-b--B-B-b-cBbb-bb--:0:0:1:53:0:0:3:0:10");
+board.showBoard("XGID=-ba---E-Da---Bb---adbBb-AA:0:0:1:31:0:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,43 +12,44 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 204</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 154</span>&ensp;
 <span>(CC9-04)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 2-3 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-1 to 3. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=174 White=157</div></div>
+      <div class="pipinfo">pips Red=110 White=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">In a money game a double here would be grossly premature.<br>
+ <div class="description">What is only just a double and a trivial take for money becomes double/pass at 3-away vs 2-away because the gammons are ruinous for White.<br>
 <br>
-However, doubling kills the cube and Red’s gammons give him the match. So this becomes a classic 3-away vs 2-away double.<br>
-<br>
-Meanwhile White has problems: a poorly structured home board: the stack of checkers on the mid-point; the two checkers stranded on Red’s 2-pt behind a solid Red structure and finally the loose checker on Red’s 9-pt.<br>
-<br>
-All of these factors contribute to White losing a gammon 21% of the time and means the correct action for White is to drop the double, albeit not by much.<br>
+It takes discipline to drop these but drop you must.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.347 (Money: +0.346)
-  0.619 0.211 0.013 - 0.381 0.113 0.004
+2-ply cubeless equity +0.475 (Money: +0.462)
+  0.687 0.141 0.006 - 0.313 0.057 0.001
 Cubeful equities:
-1. Double, take        +0.901
-2. Double, pass        +1.000  (+0.099)
-3. No double           +0.810  (-0.091)
-Proper cube action: Double, take
+1. Double, pass        +1.000
+2. Double, take        +1.086  (+0.086)
+3. No double           +0.830  (-0.170)
+Proper cube action: Double, pass
 </pre>
+</article>
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
@@ -60,8 +61,9 @@ const categoryid = "CC9";
 const probnum = "04";
 const showpipflg = true;
 const board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=--bB-BB-Ba--eB---A-cbBAAb-:0:0:1:00:2:3:0:5:10");
+board.showBoard("XGID=-a-B-BE-B-bBaB----acabb-b-:0:0:1:00:0:1:0:3:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

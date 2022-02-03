@@ -12,54 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 76</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 26</span>&ensp;
 <span>(CC1-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 1-0 to 7. Should Red redouble? If, redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 2-6 to 7 (post-Crawford). Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=144 White=115</div></div>
+      <div class="pipinfo">pips Red=91 White=150</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this is a clear pass – too many gammons.<br>
+ <div class="description">Red forgot to double at the start of the game and is about to pay the penalty.<br>
 <br>
-However, that single point by which Red leads changes the decision at this score to a very trivial take for White. The potential for a redouble to 8 to put the match on the line (and with gammons no longer counting) is enough to move this is into comfortable take territory.<br>
-<br>
-If the cube was in the centre this would be a huge double and a huge drop.<br>
+He will double but White will drop because of the gammon threat. White loses a gammon 18% of the time from here and that is just a bit too much. It is not an error to take the double but White maximises his match equity by passing.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.625 (Money: +0.612)
-  0.717 0.253 0.006 - 0.283 0.078 0.002
+2-ply cubeless equity +0.772 (Money: +0.921)
+  0.878 0.172 0.001 - 0.122 0.009 0.000
 Cubeful equities:
-1. Double, take        +0.786
-2. Double, pass        +1.000  (+0.214)
-3. No double           +0.784  (-0.001)
-Proper cube action: Redouble, take
+1. Double, pass        +1.000
+2. Double, take        +1.030  (+0.030)
+3. No double           +0.976  (-0.024)
+Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=b--BCBBA-----A---bbbcDb-b-:1:1:1:00:1:0:0:7:10");
-var categoryid = "CC1";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "CC1";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---BCcE-BC--c---ab-b-bb---:0:0:1:00:2:6:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

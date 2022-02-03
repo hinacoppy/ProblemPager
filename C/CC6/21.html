@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 71</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 21</span>&ensp;
 <span>(CC6-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-0 to 5.  Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=101 White=121</div></div>
+      <div class="pipinfo">pips Red=143 White=179</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The question is not the double, which White should pass, but whether Red should play on for an undoubled gammon.<br>
+ <div class="description">Clearly Red should double. He has long-term advantages and a lot of potential market-losing sequences.<br>
 <br>
-The rollouts have the decision as right on the borderline. That implies that for practical purposes Red should double and give White the opportunity to make a mistake by taking.<br>
+Can White take? He is the game forever because of his anchor but it will take him a long time to turn the game round. His main problem is that he loses a very high percentage of gammons.<br>
+<br>
+The rollout shows that this is the skinniest of takes but I would not criticise anybody for dropping this one.<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.826 (Money: +0.785)
-  0.787 0.240 0.002 - 0.213 0.031 0.001
+2-ply cubeless equity +0.614
+  0.682 0.280 0.031 - 0.318 0.059 0.002
 Cubeful equities:
 1. Double, pass        +1.000
-2. Double, take        +1.340  (+0.340)
-3. No double           +0.987  (-0.013)
+2. Double, take        +1.012  (+0.012)
+3. No double           +0.850  (-0.150)
 Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-BB-CC-Bb---B--Abbbbb-b--:0:0:1:00:2:0:0:5:10");
-var categoryid = "CC6";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=ab-B-ADAA---dD---c-eAA----:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

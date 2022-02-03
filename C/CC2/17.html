@@ -12,53 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 117</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 67</span>&ensp;
 <span>(CC2-17)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 2-0 to 13. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 1-0 to 7. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=104 White=96</div></div>
+      <div class="pipinfo">pips Red=154 White=172</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">I had this position as Red and my opponent passed my redouble in a nanosecond. XG flagged that as a blunder.<br>
-For money the take would be borderline but once again the score proves to be a significant factor. With the cube now on 4 and with the potential go to 8, White has an easy take, which might surprise many.<br>
-Red fans on 9 rolls and then White is really in the game. If Red doesn’t hit the race is equal and although Red stands better there is still plenty of work to do. Only if Red hits (eleven rolls) does he have a significant advantage.<br>
-At first glance this looks a trivial pass but a longer look tells a different story.<br>
+ <div class="description">Red leads in the match and owns the cube. He has a solid advantage in this position and does not need to enter into a hitting battle when the home boards are equal. After the move he will be at least 25 pips ahead.<br>
+<br>
+The best plan is to consolidate his position with 24/21, 15/11. The hitting plays all lose more gammons while winning about the same percentage of games.<br>
+<br>
+In this case the risk is not worth the reward and for once, the passive play is correct.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.574 (Money: +0.576)
-  0.729 0.146 0.004 - 0.271 0.032 0.000
-Cubeful equities:
-1. Double, take        +0.816
-2. Double, pass        +1.000  (+0.184)
-3. No double           +0.789  (-0.028)
-Proper cube action: Redouble, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/21 8/4*                   Eq.: +0.589
+       0.650 0.233 0.019 - 0.350 0.101 0.006
+    2. Cubeful 2-ply    24/21 15/11                  Eq.: +0.587 (-0.001)
+       0.660 0.186 0.010 - 0.340 0.081 0.002
+    3. Cubeful 2-ply    13/10 8/4*                   Eq.: +0.565 (-0.024)
+       0.641 0.253 0.024 - 0.359 0.111 0.009
+    4. Cubeful 2-ply    11/4*                        Eq.: +0.563 (-0.025)
+       0.639 0.241 0.020 - 0.361 0.101 0.005
+    5. Cubeful 2-ply    8/4*/1*                      Eq.: +0.552 (-0.036)
+       0.632 0.252 0.017 - 0.368 0.102 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-B-bCCC-B-------Ab--d-dabA:1:1:1:00:2:0:0:13:10");
-var categoryid = "CC2";
-var probnum = "17";
-var showpipflg = true;
+const categoryid = "CC2";
+const probnum = "17";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aa-aaBC-C--AbD-A--beb---A-:1:1:1:43:1:0:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

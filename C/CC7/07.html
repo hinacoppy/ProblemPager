@@ -12,56 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 107</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 57</span>&ensp;
 <span>(CC7-07)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red leads 3-1 to 5. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=8 White=13</div></div>
+      <div class="pipinfo">pips Red=156 White=154</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A fairly straightforward ending very similar to a famous ending from the first ever World Cup featuring Joe Sylvester and Ray Glazer.<br>
+ <div class="description">Whichever play Red selects, at this score, he will be doubled. <br>
 <br>
-It is a three-roll ending where White has a take because he may only take only one or two rolls to bear off.<br>
+What he needs most is an anchor. Equally well he wants to strengthen his home board. 13/8, 6/5 attempts to achieve either one objective or the other. <br>
 <br>
-Not doubling is nearly a double blunder while dropping would be worse than a quintuple blunder! <br>
-<br>
-I had the World Cup position as a reference position so I knew the answer as soon as the position occurred. Reference positions are incredibly useful in providing shortcuts to the correct solutions.<br>
+The play also duplicates fours very nicely. Any play other than 13/8, 6/5 is an outright blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.358
-  0.679 0.000 0.000 - 0.321 0.000 0.000
-Cubeful equities:
-1. Double, take        +0.551
-2. Double, pass        +1.000  (+0.449)
-3. No double           +0.389  (-0.162)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 6/5                     Eq.: -0.771
+       0.452 0.111 0.006 - 0.548 0.204 0.008
+    2. Cubeful 2-ply    24/23 13/8                   Eq.: -0.873 (-0.103)
+       0.445 0.103 0.005 - 0.555 0.219 0.005
+    3. Cubeful 2-ply    13/7                         Eq.: -0.888 (-0.117)
+       0.430 0.103 0.004 - 0.570 0.208 0.007
+    4. Cubeful 2-ply    24/18                        Eq.: -1.000 (-0.229)
+       0.424 0.085 0.003 - 0.576 0.227 0.005
+    5. Cubeful 2-ply    8/2                          Eq.: -1.000 (-0.229)
+       0.385 0.095 0.004 - 0.615 0.260 0.010
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-BC-----------------aa-b--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CC7";
-var probnum = "07";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "07";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-b----E-C---dF--ab-ca-b-A-:0:0:1:51:3:1:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

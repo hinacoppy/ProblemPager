@@ -12,58 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 111</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 61</span>&ensp;
 <span>(CC7-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 3-2 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Match Play. Red trails 0-4 to 5 (Crawford). How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=129 White=93</div></div>
+      <div class="pipinfo">pips Red=145 White=125</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A score that is often misunderstood. If Red doubles, and White takes, White will redouble next turn and put the match on the line. If White drops the double he will have precisely 25% winning chances so the key question is can White win 25 % of the time from here? <br>
+ <div class="description">The key here is that two of the fours must be played 20/16(2). Red does not have the timing to stay back on White’s 5-pt, despite being four pips down in the race. After that there are a number of ways to play the other two fours.<br>
 <br>
-He has a 36-pip lead in the race and the stronger (for the moment) home board. Can he escape often enough to justify taking? Without computers it would be impossible to tell but Red has only three real builders for his 4-pt so White has some time.<br>
-<br>
-The answer is that White wins just under 27% of the time from here and therefore he should take but it is close.<br>
-<br>
-Of course, it is monster double because of the volatility. Note that if White cannot escape his rear checker his forward position will collapse very quickly.<br>
-<br>
-Clear double, skinny take.<br>
+Best is 20/16(2), 13/9, 8/4 but there are five other plays with virtually identical equity.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.671 (Money: +0.545)
-  0.722 0.167 0.008 - 0.278 0.073 0.001
-Cubeful equities:
-1. Double, take        +0.770
-2. Double, pass        +1.000  (+0.230)
-3. No double           +0.743  (-0.027)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16(2) 13/9 6/2            Eq.: -0.208
+       0.395 0.013 0.000 - 0.605 0.017 0.000
+    2. Cubeful 2-ply    20/16(2) 6/2(2)              Eq.: -0.218 (-0.010)
+       0.390 0.013 0.000 - 0.610 0.018 0.000
+    3. Cubeful 2-ply    20/16(2) 13/5                Eq.: -0.220 (-0.012)
+       0.389 0.014 0.000 - 0.611 0.016 0.000
+    4. Cubeful 2-ply    20/16(2) 13/9 8/4            Eq.: -0.220 (-0.012)
+       0.389 0.014 0.000 - 0.611 0.016 0.000
+    5. Cubeful 2-ply    13/5 8/4 6/2                 Eq.: -0.232 (-0.024)
+       0.383 0.027 0.000 - 0.617 0.026 0.000
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B-BCBB-AA----bb-bc-Bcb-:0:0:1:00:3:2:0:5:10");
-var categoryid = "CC7";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "CC7";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=---BA-C-B-bB-C-c-bcdBa----:0:0:1:44:0:4:1:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

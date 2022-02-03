@@ -12,56 +12,61 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 2</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 202</span>&ensp;
 <span>(CC5-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red trails 0-2 to 5. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=174 White=138</div></div>
+      <div class="pipinfo">pips Red=158 White=149</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Another demonstration of the power of the match score.<br>
-<br>
-For money this is a big double and an equally clear take. At this score taking the double would be nearly a triple blunder! Red is not too good double because Red still has a lot of work to do to win the game and you never know, your opponent might make a money game judgement and take the double. <br>
-<br>
-That is precisely what my opponent did, and I was very grateful as I won an easy gammon! Not doubling here is nearly a double blunder.<br>
-<br>
-Mental note for all matches in 2021: “Never forget the match score.”<br>
+ <div class="description">Never forget that backgammon is a race. After this roll Red will trail by 4 pips. In other words, the race is close.<br>
+Note also that White has a four-point prime with three Red checkers behind it and those checkers need to escape. That four-point prime is a powerful asset.<br>
+Awkward as it looks Red should play b/21, 6/5. This gives him plenty of spares to play with next turn and if he does roll a big double, he can free all his rear checkers at once. <br>
+All the other plays are too loose and don’t play to Red’s best game plan which is to race. All moves except bar/21, 6/5 are errors or worse.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.426 (Money: +0.493)
-  0.656 0.280 0.019 - 0.344 0.109 0.008
-Cubeful equities:
-1. Double, pass        +1.000
-2. Double, take        +1.042  (+0.042)
-3. No double           +0.788  (-0.212)
-Proper cube action: Double, pass
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 6/5                   Eq.: -0.307
+       0.395 0.090 0.003 - 0.605 0.088 0.002
+    2. Cubeful 2-ply    bar/24 13/9                  Eq.: -0.344 (-0.037)
+       0.388 0.114 0.004 - 0.612 0.119 0.004
+    3. Cubeful 2-ply    bar/24 5/1*                  Eq.: -0.372 (-0.064)
+       0.385 0.129 0.004 - 0.615 0.144 0.005
+    4. Cubeful 2-ply    bar/21 5/4                   Eq.: -0.397 (-0.090)
+       0.382 0.095 0.003 - 0.618 0.116 0.003
+    5. Cubeful 0-ply    bar/24 6/2                   Eq.: -0.470 (-0.163)
+       0.354 0.098 0.003 - 0.646 0.149 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a---ABCaC---bB--ac-e-AbAB-:0:0:1:00:0:2:0:5:10");
-var categoryid = "CC5";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "CC5";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-B-CC---a-dD---bbcbB---A:0:0:1:41:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

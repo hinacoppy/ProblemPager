@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 102</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 99</span>&ensp;
 <span>(CBw-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. Red leads 10-5 to 13. How should play 55?</div>
+<article>
+<div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=148 White=110</div></div>
+      <div class="pipinfo">pips Red=74 White=48</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This one is close. Over the board I played bar/20, 23/18(2), 10/5 but that turns out to be third best.<br>
+ <div class="description">This is effectively a last roll problem. If Red hits he will nearly certainly win (and with a small percentage of gammons). If he misses then he will nearly certainly lose (bar a freak hit or a couple of large doubles).<br>
 <br>
-It is very close call between bar/15, 8/3(2), neatly duplicating White’s aces and strengthening the home board and bar/15, 23/18(2), advancing the rear anchor and the checker from the bar.<br>
-<br>
-The former wins by a very short head but either play is OK. My o-t-b play is classified as a blunder because it allows White a blitz attack against the Red checker remaining on White’s 5-pt.<br>
+Twenty rolls hit and sixteen miss. Ergo, Red must redouble now to maximise his equity.  A trivial take for White of course. White will win with redouble to 8 unless Red has rolled 55 or 66.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/15 23/18(2)              Eq.: +0.427
-       0.705 0.144 0.007 - 0.295 0.115 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/15 8/3(2)                Eq.: +0.407 (-0.020)
-       0.693 0.195 0.010 - 0.307 0.107 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/20 10/5 8/3(2)           Eq.: +0.346 (-0.081)
-       0.660 0.216 0.013 - 0.340 0.100 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/5                        Eq.: +0.318 (-0.109)
-       0.660 0.166 0.007 - 0.340 0.095 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    bar/20 23/18(2) 10/5         Eq.: +0.314 (-0.114)
-       0.669 0.194 0.013 - 0.331 0.123 0.001
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.283
+  0.609 0.064 0.001 - 0.391 0.001 0.000
+Cubeful equities:
+1. Double, take        +0.346
+2. Double, pass        +1.000  (+0.654)
+3. No double           +0.330  (-0.016)
+Proper cube action: Redouble, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BBBCBaA-----bb-d-abBbA:0:0:1:55:10:5:0:13:10");
-var categoryid = "CBw";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "CBw";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBBCBC-----------aabdAbe-:1:1:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

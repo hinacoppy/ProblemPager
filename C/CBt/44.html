@@ -12,42 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBt  probnum=44)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 201</span>&ensp;
 <span>(CBt-44)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. 3-3 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=7 White=6</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">Position submitted by Peder Berkell<br>
+<br>
+For money with an active cube this would be a terrible redouble.<br>
+<br>
+However, at this match score it is easy to calculate that White will win 21/36 (Red doesn’t bear off) x 23/36 (White does bear off) = 37% of the time.<br>
+<br>
+If White drops the redouble he will win the match 33% of the time (from match equity tables). Therefore Red should double and White should take.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.252 (Money: +0.252)
+  0.626 0.000 0.000 - 0.374 0.000 0.000
+Cubeful equities:
+1. Double, take        +0.748
+2. Double, pass        +1.000  (+0.252)
+3. No double           +0.255  (-0.493)
+Proper cube action: Redouble, take
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBt";
-var probnum = "44";
-var showpipflg = true;
+const categoryid = "CBt";
+const probnum = "44";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-A----A--------------a-a--:1:1:1:00:3:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

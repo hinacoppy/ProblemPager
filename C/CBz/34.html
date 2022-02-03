@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 34</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 234</span>&ensp;
 <span>(CBz-34)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Match Play. 0-0 to 5. Should Red redouble? If redoubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 21?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=149 White=81</div></div>
+      <div class="pipinfo">pips Red=173 White=135</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">For money this would be a grossly premature redouble as Red has a lot of work to do.<br>
+ <div class="description">Trying to win by going forward is not the right idea. With White safely anchored on Red’s 5-pt that plan is very likely doomed to failure.<br>
 <br>
-However, once again the score has a huge influence on the cube action. With the cube on 4, White will not get full value on his gammons and he will also be very hesitant to redouble to 8 because of Red’s low take point (15%).<br>
+Red does not quite have the timing for a back game at the moment but he may be able to correct that in due course. His best chance lies in steering for a 2-4 back game by playing bar/23, 24/23.<br>
 <br>
-That turns a no double into a borderline double. White has a trivial take, of course, but I have seen positions like this dropped so you must give your opponent a chance to make a blunder. Redouble!<br>
+Bar/24, 13/11* is an error but not a blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.283 (Money: +0.288)
-  0.651 0.117 0.004 - 0.349 0.132 0.002
-Cubeful equities:
-1. No double           +0.609
-2. Double, pass        +1.000  (+0.391)
-3. Double, take        +0.560  (-0.049)
-Proper cube action: No redouble, take (11.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/23 24/23                 Eq.: -0.379
+       0.406 0.077 0.002 - 0.594 0.187 0.008
+    2. Cubeful 0-ply    bar/24 13/11*                Eq.: -0.583 (-0.204)
+       0.380 0.079 0.003 - 0.620 0.238 0.025
+    3. Cubeful 0-ply    bar/24 6/4                   Eq.: -0.586 (-0.207)
+       0.372 0.066 0.001 - 0.628 0.215 0.017
+    4. Cubeful 0-ply    bar/24 8/6                   Eq.: -0.633 (-0.254)
+       0.364 0.064 0.001 - 0.636 0.216 0.016
+    5. Cubeful 0-ply    bar/23 8/7                   Eq.: -0.762 (-0.383)
+       0.367 0.073 0.003 - 0.633 0.297 0.019
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=a-B-BBB-A---A-A-Ab--eBdAc-:1:1:1:00:0:0:0:5:10");
-var categoryid = "CBz";
-var probnum = "34";
-var showpipflg = true;
+const categoryid = "CBz";
+const probnum = "34";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=----BbD-C--abB-a---dcBb-AA:0:0:1:21:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

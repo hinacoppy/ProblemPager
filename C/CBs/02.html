@@ -12,54 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2018 - Position 205</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 124</span>&ensp;
 <span>(CBs-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red Play 11?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=120 White=111</div></div>
+      <div class="pipinfo">pips Red=168 White=166</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">This position is deceptive. At first glance you might question White’s ability to take but despite the fact that Red is a big favourite to cover the blot on his 4-pt that is only part of what he needs to do. <br>
+ <div class="description">This is a complex position and probably worthy of a longer article. Red has many thing he can do and wants to do but the key thing he needs to understand is that he needs to play this as a prime-versus-prime position. His best way to win and escape those three rear checkers is to crack White’s five-point prime.<br>
 <br>
-He must also escape three checkers from behind White’s four-point black. That takes time and meanwhile if White enters on Red’s 2-pt he will be in a good position.<br>
+The best move to achieve this 23/22, 12/11*, 8/7, 6/5*. If things go well Red will have five White checkers behind a four- or five-point prime and his forward position may collapse. The second-best move is 12/11*, 8/7(2), 6/5 with the same idea. It swaps potentially freeing a back checker with a  6 for the solid asset of the bar-point. This turns out to be an error but I wouldn’t criticise anyone for making the play.<br>
 <br>
-In fact, doubling in this position is a 2.5 times blunder and White’s take is trivial! Despite that I would still expect some players to drop from the White side because they would take an overly pessimistic view of the situation.<br>
+8/5*, 6/5* is a double blunder but one I would expect a lot of players to make over the board. However, Red will need both his bar-point and his 5-pt and so 23/22, 12/11*, 8/7, 6/5* is the correct play.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.170
-  0.564 0.125 0.001 - 0.436 0.082 0.003
-Cubeful equities:
-1. No double           +0.272
-2. Double, pass        +1.000  (+0.728)
-3. Double, take        +0.052  (-0.220)
-Proper cube action: No double, take (23.2%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22(2) 12/11* 6/5*         Eq.: +0.187
+       0.495 0.211 0.025 - 0.505 0.191 0.016
+    2. Cubeful 2-ply    8/5* 6/5                     Eq.: +0.151 (-0.036)
+       0.475 0.210 0.027 - 0.525 0.185 0.013
+    3. Cubeful 2-ply    23/22 12/11* 8/7(2)          Eq.: +0.123 (-0.064)
+       0.477 0.187 0.019 - 0.523 0.183 0.015
+    4. Cubeful 0-ply    12/11* 8/7(2) 6/5*           Eq.: +0.014 (-0.173)
+       0.455 0.190 0.021 - 0.545 0.236 0.026
+    5. Cubeful 0-ply    23/22 8/7(2) 6/5*            Eq.: +0.013 (-0.174)
+       0.460 0.188 0.023 - 0.540 0.243 0.030
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aB-BABCA--A----c--bccCc---:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBs";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "CBs";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aaa-BaC-D--aAA--Abbbbb-C--:1:1:1:11:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

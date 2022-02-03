@@ -12,52 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2019 - Position 170</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2019 - Position 131</span>&ensp;
 <span>(CBx-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
+<article>
+<div class="doAction">Money Play. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=103 White=142</div></div>
+      <div class="pipinfo">pips Red=161 White=210</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">The White checker on the bar makes just enough of a difference to push this into pass territory but it is very close. The number of extra gammons won is the key difference. The take is not an error in technical terms. Not doubling, however, is a double blunder.<br>
+ <div class="description">Red could try to be cute here by playing 23/15 without hitting but it is more important to get those checkers on his 6-pt on to the field of battle in what is likely to be a long game.<br>
 <br>
-However, the double/pass decision is based upon perfect play. If Red were a cautious enough player to move 10/2 with a 62, following double/take, then you should take as White.  (The correct play is 13/7, 10/8.)<br>
+23/17*, 6/4 is the right play. 23/15 is actually a blunder as it takes no tempo from White and fails to develop Red’s position.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.578
-  0.724 0.180 0.002 - 0.276 0.051 0.002
-Cubeful equities:
-1. Double, take        +0.967
-2. Double, pass        +1.000  (+0.033)
-3. No double           +0.833  (-0.135)
-Proper cube action: Double, take
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17* 6/4                   Eq.: +0.240
+       0.546 0.215 0.012 - 0.454 0.104 0.005
+    2. Cubeful 2-ply    23/17*/15                    Eq.: +0.201 (-0.039)
+       0.534 0.215 0.011 - 0.466 0.107 0.006
+    3. Cubeful 2-ply    23/15                        Eq.: +0.171 (-0.069)
+       0.535 0.185 0.007 - 0.465 0.110 0.005
+    4. Cubeful 2-ply    23/17* 13/11                 Eq.: +0.164 (-0.075)
+       0.523 0.210 0.011 - 0.477 0.107 0.005
+    5. Cubeful 2-ply    23/17* 18/16                 Eq.: +0.158 (-0.082)
+       0.522 0.215 0.011 - 0.478 0.115 0.005
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBB-bB---D-bC---b-cab-b--:0:0:1:00:0:0:3:0:10");
-var categoryid = "CBx";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "CBx";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-a-b-cE-C--BdB---aBbb--A--:0:0:1:62:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

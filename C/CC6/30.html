@@ -12,61 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2021 - Position 80</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2021 - Position 30</span>&ensp;
 <span>(CC6-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Unlimited Games. How should Red play 66?</div>
+<article>
+<div class="doAction">Match Play. 4-4 to 7. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=158</div></div>
+      <div class="pipinfo">pips Red=128 White=178</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">A lesson in connectivity and duplication. <br>
+ <div class="description">A classic middle game double. Red’s lead in the race is substantial and he certainly has threats. <br>
 <br>
-24/18, 21/9, 10/4 duplicates ones and sixes and keeps Red’s checkers nicely connected. Put the checkers where you want them, as the saying goes. Over the board, 21/9, 13/7(2) was played but that doesn’t meet the demands of the position and leaves the rear checker stranded.<br>
+Meanwhile White has good structure of his own and some counter-threats. Also, Red’s home-board checker distribution is not ideal and White has the security of an anchor.<br>
 <br>
-Once you see the right play it is obvious. The problem is in seeing it as a candidate play.<br>
+The match score is not enough to change the doubling decision and so this is a clear double and a clear take. Not doubling is an error while dropping is a double blunder.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/18 21/9 10/4              Eq.: +0.610
-       0.660 0.138 0.004 - 0.340 0.072 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/18 21/9 8/2               Eq.: +0.565 (-0.045)
-       0.656 0.132 0.004 - 0.344 0.073 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18 21/9 13/7              Eq.: +0.560 (-0.050)
-       0.646 0.140 0.004 - 0.354 0.076 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/9 13/7(2)                 Eq.: +0.538 (-0.072)
-       0.625 0.184 0.005 - 0.375 0.071 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/18 21/15 13/7(2)          Eq.: +0.504 (-0.105)
-       0.639 0.137 0.004 - 0.361 0.075 0.003
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.721 (Money: +0.554)
+  0.646 0.295 0.034 - 0.354 0.065 0.002
+Cubeful equities:
+1. Double, take        +0.930
+2. Double, pass        +1.000  (+0.070)
+3. No double           +0.832  (-0.098)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---b-BCBC-A-dB---d-e-A--A-:0:0:1:66:0:0:2:0:10");
-var categoryid = "CC6";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "CC6";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-ba--BEBCa--cB---c-cb---A-:0:0:1:00:4:4:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,61 +12,58 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">2020 - Position 224</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2020 - Position 174</span>&ensp;
 <span>(CC4-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">Money Play. How should Red play 66?</div>
+<article>
+<div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=178 White=142</div></div>
+      <div class="pipinfo">pips Red=114 White=126</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">Over the board 24/18, 21/3 was played but that is an error. <br>
-<br>
-The idea is to get more of those rear checkers moving to contest the outer boards. There are two candidate plays, 21/9(2) and 21/15, 21/3. They both expose the remaining checkers to attack but that is compensated for by the stronger forward position that Red establishes.<br>
-<br>
-This is not an easy problem because it looks as if Red should hold on to the 21-pt, but the rollouts show clearly that this is not the case. For once giving up an anchor is correct.<br>
+ <div class="description">This is clearly a massive double because of the volatility and the gammon threat.<br>
+Can White take? Red misses with 19 numbers and if White survives the first roll he will have very good winning chances himself and will win some gammons of his own. Even if hit he will re-enter first time 30% of the time and that gives him additional winning chances.<br>
+This is a very scary but correct take. Dropping is nearly a double blunder. Backgammon is not for the feint-hearted.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/9(2)                      Eq.: -0.219
-       0.441 0.133 0.006 - 0.559 0.155 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/3 21/15                   Eq.: -0.225 (-0.006)
-       0.437 0.131 0.006 - 0.563 0.153 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18 21/3                   Eq.: -0.249 (-0.030)
-       0.420 0.111 0.004 - 0.580 0.115 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/3 13/7                    Eq.: -0.278 (-0.059)
-       0.412 0.120 0.005 - 0.588 0.126 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    21/9 21/15(2)                Eq.: -0.313 (-0.094)
-       0.420 0.115 0.005 - 0.580 0.173 0.010
-        2-ply cubeful prune [world class]
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.537
+  0.630 0.348 0.004 - 0.370 0.072 0.003
+Cubeful equities:
+1. Double, take        +0.822
+2. Double, pass        +1.000  (+0.178)
+3. No double           +0.436  (-0.386)
+Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("XGID=---AaBCB----bBc--d-eAC--A-:0:0:1:66:0:0:3:0:10");
-var categoryid = "CC4";
-var probnum = "24";
-var showpipflg = true;
+const categoryid = "CC4";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=-BBB-BB-A-a-dB---c-ccA-a-A:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

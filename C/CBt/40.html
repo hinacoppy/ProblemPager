@@ -12,42 +12,60 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CBt  probnum=40)</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">2018 - Position 197</span>&ensp;
 <span>(CBt-40)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction"></div>
+<article>
+<div class="doAction">Match Play. Red leads 4-3 to 7. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips =0 =0</div></div>
+      <div class="pipinfo">pips Red=120 White=59</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description"><br>
+ <div class="description">A simple question for White. Can he win 18% of the time from here to justify taking?<br>
+<br>
+Incredibly difficult if not impossible to calculate accurately over the board but so many things have to go well for White that it looks unlikely. The rollout has him 1% shy of a take, so it is quite close. If White is the inferior player he should probably take .and let the dice decide. His position is easy to play as most of his moves will be forced.<br>
+<br>
+Technically, however, it is narrowly a blunder to take.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis"></pre>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.435 (Money: +0.487)
+  0.775 0.000 0.000 - 0.225 0.059 0.004
+Cubeful equities:
+1. Double, take        +0.808
+2. Double, pass        +1.000  (+0.192)
+3. No double           +0.774  (-0.034)
+Proper cube action: Redouble, take
+</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle2", "ccw");
-board.showBoard("");
-var categoryid = "CBt";
-var probnum = "40";
-var showpipflg = true;
+const categoryid = "CBt";
+const probnum = "40";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle2", "ccw");
+board.showBoard("XGID=aB-BBBBB----a------A-bcbAA:1:1:1:00:4:3:0:7:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>
