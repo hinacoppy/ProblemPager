@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南101</span>&ensp;
 <span>(HA1-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白番。キューブアクション</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=25 Brown=107</div></div>
+      <div class="pipinfo">pips White=25 Brown=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">セオリーとしての正解キューブアクション<br>
 白番でダブルをしますか?   ダブルをする<br>
@@ -55,19 +59,21 @@ Cubeful equities:
 3. Double, pass        +1.000  (+0.000)
 Proper cube action: Optional redouble, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA1";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-aa----a-----------bbbbbbA:1:1:1:00:0:0:3:0:10");
-var categoryid = "HA1";
-var probnum = "16";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

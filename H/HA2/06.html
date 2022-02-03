@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南121</span>&ensp;
 <span>(HA2-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白51</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=130 Brown=116</div></div>
+      <div class="pipinfo">pips White=130 Brown=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  13/7<br>
 (簡単な考え方・格言・セオリー: ビルダーの増やし方)<br>
@@ -47,33 +51,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7                         Eq.: +0.381
        0.688 0.173 0.006 - 0.312 0.067 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/12 13/8                   Eq.: +0.342 (-0.039)
        0.674 0.168 0.006 - 0.326 0.068 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/8 6/5                     Eq.: +0.332 (-0.049)
        0.671 0.167 0.006 - 0.329 0.070 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    8/7 8/3                      Eq.: +0.075 (-0.306)
        0.585 0.146 0.005 - 0.415 0.102 0.002
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/2                          Eq.: +0.035 (-0.346)
        0.572 0.134 0.004 - 0.428 0.099 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA2";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-bB--BCBB----B---bbcbBbb--:1:-1:1:51:0:0:3:0:10");
-var categoryid = "HA2";
-var probnum = "06";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

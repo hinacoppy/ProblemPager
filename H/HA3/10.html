@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南148</span>&ensp;
 <span>(HA3-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白44</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=104 Brown=80</div></div>
+      <div class="pipinfo">pips White=104 Brown=80</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  10/2* 6/2 5/1*<br>
 (簡単な考え方・格言・セオリー: アタッキングでギャモントライ)<br>
@@ -42,33 +46,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/2* 6/2 5/1*               Eq.: +1.195
        0.918 0.382 0.014 - 0.082 0.010 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    19/15 10/2* 6/2              Eq.: +1.063 (-0.132)
        0.909 0.274 0.010 - 0.091 0.008 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    19/15 10/2* 5/1*             Eq.: +1.050 (-0.145)
        0.881 0.339 0.015 - 0.119 0.025 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    7/3(2) 6/2* 5/1*             Eq.: +1.044 (-0.151)
        0.868 0.383 0.019 - 0.132 0.048 0.001
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    10/2* 7/3(2)                 Eq.: +1.038 (-0.157)
        0.876 0.332 0.013 - 0.124 0.018 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA3";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-aa-CCCBB-A--------Aabdbd-:1:-1:1:44:0:0:3:0:10");
-var categoryid = "HA3";
-var probnum = "10";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

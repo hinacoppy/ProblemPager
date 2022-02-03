@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南219</span>&ensp;
 <span>(HA5-40)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白62</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=52 Brown=92</div></div>
+      <div class="pipinfo">pips White=52 Brown=92</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  25/19* 19/17<br>
 (簡単な考え方・格言・セオリー: デュープリケーション)<br>
@@ -44,27 +48,26 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/19*/17                   Eq.: +0.827
        0.737 0.413 0.029 - 0.263 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/19* 3/1*                 Eq.: +0.515 (-0.312)
        0.629 0.370 0.014 - 0.371 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    bar/19* 4/2                  Eq.: -0.232 (-1.059)
        0.395 0.178 0.007 - 0.605 0.000 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA5";
+const probnum = "40";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-aECB------aa------acbbbbA:1:-1:1:62:0:0:3:0:10");
-var categoryid = "HA5";
-var probnum = "40";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南165</span>&ensp;
 <span>(HA3-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白31</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=42 Brown=47</div></div>
+      <div class="pipinfo">pips White=42 Brown=47</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  8/5* 6/5<br>
 (簡単な考え方・格言・セオリー: ラン勝てなければポイントオン)<br>
@@ -42,33 +46,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    8/5* 6/5                     Eq.: +0.627
        0.840 0.002 0.000 - 0.160 0.000 0.000
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    6/5*/2                       Eq.: +0.332 (-0.296)
        0.714 0.002 0.000 - 0.286 0.000 0.000
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    8/4                          Eq.: +0.221 (-0.407)
        0.667 0.000 0.000 - 0.333 0.000 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/5* 1/off                   Eq.: +0.152 (-0.475)
        0.636 0.004 0.000 - 0.364 0.000 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/5*/4                       Eq.: +0.069 (-0.559)
        0.601 0.002 0.000 - 0.399 0.001 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA3";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-FE--aC-A-------------dee-:1:-1:1:31:0:0:3:0:10");
-var categoryid = "HA3";
-var probnum = "42";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

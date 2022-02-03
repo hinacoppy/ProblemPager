@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南220</span>&ensp;
 <span>(HA5-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白61</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=184 Brown=117</div></div>
+      <div class="pipinfo">pips White=184 Brown=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  22/15<br>
 (簡単な考え方・格言・セオリー: タイミングコントロールのセミプラ脱出)<br>
@@ -43,33 +47,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/15                        Eq.: -0.091
        0.504 0.104 0.003 - 0.496 0.208 0.012
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/7 8/7                     Eq.: -0.268 (-0.177)
        0.466 0.104 0.003 - 0.534 0.239 0.014
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    22/21 13/7                   Eq.: -0.282 (-0.191)
        0.466 0.088 0.003 - 0.534 0.273 0.020
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    13/12 13/7                   Eq.: -0.344 (-0.253)
        0.442 0.078 0.002 - 0.558 0.259 0.016
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    22/21 8/2                    Eq.: -0.420 (-0.329)
        0.436 0.078 0.002 - 0.564 0.288 0.023
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA5";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-a--BBB-B----B--ccbbc-CBa-:0:0:1:61:0:0:3:0:10");
-var categoryid = "HA5";
-var probnum = "42";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号1903</span>&ensp;
 <span>(HA5-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白41</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=88 Brown=147</div></div>
+      <div class="pipinfo">pips White=88 Brown=147</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  24/20* 4/3<br>
 (簡単な考え方・格言・セオリー: ギャモントライのヒットアンドスロット)<br>
@@ -42,33 +46,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20* 4/3                   Eq.: +1.107
        0.772 0.543 0.113 - 0.228 0.016 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/20* 7/6                   Eq.: +1.058 (-0.048)
        0.747 0.541 0.116 - 0.253 0.008 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    7/3 4/3                      Eq.: +0.679 (-0.427)
        0.649 0.441 0.088 - 0.351 0.029 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    24/20* 6/5                   Eq.: +0.623 (-0.483)
        0.651 0.409 0.071 - 0.349 0.039 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    24/20* 5/4                   Eq.: +0.460 (-0.647)
        0.605 0.372 0.061 - 0.395 0.048 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA5";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=bbB-FBBB----------bbabbbA-:1:-1:1:41:0:0:3:0:10");
-var categoryid = "HA5";
-var probnum = "23";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

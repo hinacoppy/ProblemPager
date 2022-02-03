@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南187</span>&ensp;
 <span>(HA4-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白52</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=46 Brown=78</div></div>
+      <div class="pipinfo">pips White=46 Brown=78</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  5/0 5/3<br>
 (簡単な考え方・格言・セオリー: コンタクト、偶数・偶数、安全・安全)<br>
@@ -41,30 +45,28 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/3 5/off                    Eq.: +0.955
        0.974 0.015 0.000 - 0.026 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    5/off 2/off                  Eq.: +0.869 (-0.086)
        0.932 0.029 0.000 - 0.068 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    5/off 3/1                    Eq.: +0.778 (-0.177)
        0.897 0.018 0.000 - 0.103 0.000 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    5/off 4/2                    Eq.: +0.270 (-0.685)
        0.683 0.013 0.000 - 0.317 0.000 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA4";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=aCCCBD-------------ccbbbb-:1:-1:1:52:0:0:3:0:10");
-var categoryid = "HA4";
-var probnum = "26";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

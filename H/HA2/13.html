@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号1201</span>&ensp;
 <span>(HA2-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白41</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=130 Brown=71</div></div>
+      <div class="pipinfo">pips White=130 Brown=71</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  7/3* 7/6<br>
 (簡単な考え方・格言・セオリー: 相手のバックマンを逃がさない為のヒット)<br>
@@ -43,33 +47,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/6 7/3*                     Eq.: +0.316
        0.710 0.127 0.003 - 0.290 0.129 0.010
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/3*                         Eq.: +0.256 (-0.059)
        0.693 0.120 0.003 - 0.307 0.140 0.010
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    7/3*/2                       Eq.: +0.204 (-0.112)
        0.665 0.126 0.003 - 0.335 0.130 0.010
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    8/4 7/6                      Eq.: +0.031 (-0.285)
        0.597 0.103 0.001 - 0.403 0.124 0.006
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    7/3* 4/3                     Eq.: -0.044 (-0.360)
        0.597 0.094 0.002 - 0.403 0.180 0.016
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA2";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=---aBBBDC----------bbbceB-:1:-1:1:41:0:0:3:0:10");
-var categoryid = "HA2";
-var probnum = "13";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

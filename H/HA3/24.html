@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">問題番号 湘南155</span>&ensp;
 <span>(HA3-24)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">白53</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=68 Brown=74</div></div>
+      <div class="pipinfo">pips White=68 Brown=74</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">正解ムーブは  6/1* 5/2 <br>
 (簡単な考え方・格言・セオリー: プライムの前進2)<br>
@@ -43,33 +47,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1* 5/2                     Eq.: +0.912
        0.940 0.053 0.000 - 0.060 0.001 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    7/4 7/2                      Eq.: +0.773 (-0.139)
        0.895 0.018 0.000 - 0.105 0.000 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    7/4 6/1*                     Eq.: +0.455 (-0.456)
        0.764 0.043 0.001 - 0.236 0.035 0.001
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    7/2 6/3                      Eq.: +0.219 (-0.693)
        0.664 0.014 0.000 - 0.336 0.010 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    6/1* 4/1                     Eq.: +0.204 (-0.708)
        0.665 0.027 0.000 - 0.335 0.040 0.001
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle3", "cw");
+const categoryid = "HA3";
+const probnum = "24";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle3", "cw");
 board.showBoard("XGID=-aBCBCCB----------abbbbbc-:1:-1:1:53:0:0:3:0:10");
-var categoryid = "HA3";
-var probnum = "24";
-var showpipflg = true;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>
