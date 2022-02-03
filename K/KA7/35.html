@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">もう一つのキューブ</span>&ensp;
 <span>(KA7-35)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">さて緑の振り番でキューブアクションは？</div>
 <div class="gamesituation">白がオンザバーから46を振り、b/15と動かすと右図のような形になります。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=116 白=117</div></div>
+      <div class="pipinfo">pips 緑=116 白=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">西本さんの要望にお応えしてみました。<br>
 昨日はTMGにて、WOBCという大きなトーナメントが開かれました。そこで日本人のebitenさんが準優勝！　決勝はDMPにもつれ込む大熱戦でした。<br>
@@ -113,19 +117,21 @@ Cubeful equities:
 3. No double           +0.660  (-0.081)
 Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "35";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--bB-BDBBAa-aA-----bbbcbA-:0:0:1:00:2:3:0:7:10");
-var categoryid = "KA7";
-var probnum = "35";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

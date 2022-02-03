@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">キューブ　その13</span>&ensp;
 <span>(KA3-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">赤の振り番でキューブアクションは？</div>
 <div class="gamesituation">15ptマッチ、赤が1-3で負けている。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 赤=98 白=137</div></div>
+      <div class="pipinfo">pips 赤=98 白=137</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">WooMets＞<br>
 白から見れば、明らかにpassのキューブに思えます。理由は、pip大差、ボード強度負けている、ブロットたくさん。とすると、too goodかキャッシュか。any2(11通り), 43, 51, 53, 31, 64, 11, 33, 44で、ヒットまたはインナーメイクができます。でも、それ以外の目の場合、リターンヒット多そうで怖い。そうでなくても、4Pか5Pにブロット1個あるだけでも気持ち悪い。botの評価はtoo goodのような気がするが、私はキャッシュしちゃいますね。こういうポジション、勉強中です。<br>
@@ -64,19 +68,21 @@ Cubeful equities:
 3. Double, pass        +1.000  (-0.183)
 Proper cube action: Too good to double, pass (16.5%)
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA3";
+const probnum = "36";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=aBBB--D-B-Aac---abBbbc----:0:0:1:00:1:3:0:15:10");
-var categoryid = "KA3";
-var probnum = "36";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,69 +12,71 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">後ろで待つのはアンカー</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">レースと比べて</span>&ensp;
 <span>(KEa-04)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w0/3</div>
+<div class="gamesituation">b2-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=155 w=127</div></div>
+      <div class="pipinfo">pips Red=113 White=97</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">レースで負けているとはいえこのボードの強さの差でエンターしたチェッカーを相手のインナーに置いておくといいように攻め込まれるだけ。ギャモン負けにも気を付けなければいけないスコア状況ならなおさら飛び出して外で打たれるようにしておく。打たれなかった場合にはアウターブロット同士のコネクションも生きてくる。<br>
+ <div class="description">ここでただ飛び出すのはレース+αの勝率しかない。ピップは大差でこのポジションを単純レースとすると約23％しかない。<br>
 <br>
-1. bar/16         Eq.: -0.599<br>
-0.341 0.058 0.003 - 0.659 0.295 0.005 CL -0.599 CF -0.599<br>
+625.png<br>
+0.233 0.000 0.000 - 0.767 0.001 0.000<br>
 <br>
-2. bar/21 13/8 Eq.: -0.702 (-0.103)<br>
-0.321 0.062 0.003 - 0.679 0.361 0.005 CL -0.702 CF -0.702<br>
+そこでルースヒットしてダンスした場合の勝率を見てみると68％ほどある。<br>
 <br>
-3. bar/21 6/1*  Eq.: -0.707 (-0.108)<br>
-0.321 0.066 0.003 - 0.679 0.367 0.009 CL -0.707 CF -0.707<br>
+626.png<br>
+Cube analysis<br>
+Cubeless rollout equity +0.518 (Money: +0.534)<br>
+Cubeful equities:<br>
+1. No double           +0.604<br>
+  0.675 0.305 0.004 - 0.325 0.114 0.010<br>
+2. Double, pass        +1.000  (+0.396)<br>
+3. Double, take        +0.669  (-0.284)<br>
+  0.679 0.284 0.004 - 0.321 0.113 0.007<br>
+Proper cube action: No Redouble, take (41.8%)<br>
 <br>
-4. bar/21 11/6  Eq.: -0.717 (-0.118)<br>
-0.301 0.055 0.003 - 0.699 0.334 0.003 CL -0.717 CF -0.717<br>
+4/9でダンスするので68×4/9で約30％、すでにレース勝率を上回っている。これにリターンされても勝つ+αが加わると打ち込まないわけにはいかない。<br>
+<br>
+1. 21/16 6/5* Eq.: -0.309<br>
+0.396 0.155 0.002 - 0.604 0.271 0.010 CL -0.367 CF -0.309<br>
+<br>
+2. 21/15         Eq.: -0.443 ( -0.134)<br>
+0.294 0.031 0.000 - 0.706 0.119 0.003 CL -0.523 CF -0.443<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/16                       Eq.: -0.562
-       0.354 0.058 0.002 - 0.646 0.283 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/21 6/1*                  Eq.: -0.658 (-0.095)
-       0.345 0.081 0.004 - 0.655 0.365 0.010
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/21 13/8                  Eq.: -0.684 (-0.122)
-       0.335 0.071 0.003 - 0.665 0.373 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/21 11/6                  Eq.: -0.688 (-0.126)
-       0.320 0.062 0.003 - 0.680 0.345 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    bar/21 8/3                   Eq.: -0.794 (-0.231)
-       0.303 0.077 0.003 - 0.697 0.420 0.014
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-a--a-E-C--AbE---bbbb--abA:1:1:1:45:1:0:0:3:10");
-var categoryid = "KEa";
-var probnum = "04";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "04";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BBBAaC-B----a---bbbcCb-b-:1:1:1:15:2:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

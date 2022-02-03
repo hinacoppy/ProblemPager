@@ -12,72 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">相手もギャモン勝ちしたい</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">越えられない場合が大差</span>&ensp;
 <span>(KE5-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w3/7</div>
+<div class="gamesituation">b2-w3/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=143 w=140</div></div>
+      <div class="pipinfo">pips Red=80 White=75</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">キューブも打っておりスコアビハインドなのでギャモン勝ち欲しさにヒットしてしまったが、このプレーはむしろ相手のギャモン勝ちを増やしてしまっている。相手もあと４点でマッチ勝ちなのでギャモン勝ちの価値は相手のほうが高く、こちらはギャモンセーブも考えながらプレーしたいところ。打ち込んでもカバーが少なく、向こうのブロット間のコンタクトもはずれいいところがない。<br>
+ <div class="description">ピップで互角、この後打たれることまで考えるとレースでは不利な状況なので相手のバックマンがこちらのチェッカーを超えられない場合のヒットに期待したい。バックマンを１８ポイントから１７ポイントに進めてもショットを２通り減らしているだけだが、次に相手のバックマンがこれを超えられない場合が１７ポイントだと５通りのみに対して１８ポイントだと９通りもある。1.8倍も増えると考えるとこちらのプレーがよい。<br>
 <br>
-1. 21/15         Eq.: -0.174<br>
-0.489 0.063 0.002 - 0.511 0.094 0.002 CL -0.070 CF -0.174<br>
+1. 24/18 7/6 Eq.: -0.617<br>
+0.317 0.004 0.000 - 0.683 0.012 0.000 CL -0.366 CF -0.617<br>
 <br>
-2. 15/14 6/1* Eq.: -0.337 ( -0.163)<br>
-0.432 0.136 0.005 - 0.568 0.253 0.010 CL -0.310 CF -0.337<br>
+2. 24/18 4/3 Eq.: -0.680 ( -0.063)<br>
+0.307 0.004 0.000 - 0.693 0.019 0.000 CL -0.386 CF -0.680<br>
 <br>
-3. 15/10 6/5   Eq.: -0.352 ( -0.178)<br>
-0.428 0.113 0.005 - 0.572 0.227 0.006 CL -0.309 CF -0.352<br>
+3. 24/18 5/4 Eq.: -0.747 ( -0.130)<br>
+0.296 0.003 0.000 - 0.704 0.018 0.000 CL -0.407 CF -0.747<br>
 <br>
-4. 6/5 6/1*     Eq.: -0.368 ( -0.194)<br>
-0.426 0.128 0.005 - 0.574 0.261 0.011 CL -0.344 CF -0.368<br>
-<br>
-5. 15/9           Eq.: -0.373 ( -0.199)<br>
-0.423 0.108 0.005 - 0.577 0.232 0.006 CL -0.333 CF -0.373<br>
+4. 24/17        Eq.: -0.819 ( -0.202)<br>
+0.285 0.001 0.000 - 0.715 0.014 0.000 CL -0.430 CF -0.819<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15                        Eq.: -0.149
-       0.499 0.072 0.001 - 0.501 0.107 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    15/14 6/1*                   Eq.: -0.298 (-0.149)
-       0.437 0.134 0.004 - 0.563 0.246 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/5 6/1*                     Eq.: -0.322 (-0.173)
-       0.429 0.131 0.004 - 0.571 0.256 0.010
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    15/9                         Eq.: -0.321 (-0.172)
-       0.429 0.118 0.004 - 0.571 0.221 0.006
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    15/10 6/5                    Eq.: -0.323 (-0.174)
-       0.429 0.117 0.004 - 0.571 0.222 0.007
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-a--BBDb----bE-A-abcbA-b--:1:-1:1:15:1:3:0:7:10");
-var categoryid = "KE5";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "KE5";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BB-DCBA----a------ebcbbA-:1:-1:1:16:2:3:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

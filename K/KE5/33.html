@@ -12,66 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ベアインのテクニック　その１０</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">打たれる前に打つ</span>&ensp;
 <span>(KE5-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b5-w1/7</div>
+<div class="gamesituation">b3-w5/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=87 w=158</div></div>
+      <div class="pipinfo">pips Red=109 White=103</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">インナーにギャップがあると、この先ずっとブロット発生の危険を伴うため早急に３ポイントを埋めたい。相手インナーにブロットがある今、リスクを負ってでも３ポイントにスロットしておく。今作りにいかないと相手のボードが強くなってからではもうスロットできないため、最後まで３ポイントのギャップに苦しむことになる。<br>
+ <div class="description">まずこちらとしては３で出たい。しかし、セミプライムに捕まっている相手としては次に６を振れないと可能な限りインナーにアタックしてくる。そうなるとセミプラ維持で10/9などとしても３、４、６の目で打たれてしまう。１をほかで使って６でヒットされないようにしても相手の６は元々いい目なのであまり意味がない。ここは10/9とするよりショットの少ない腹切りプレーで勝負に出る。程よくカバーの目もあるし、アウターの相手の２枚のブロットも狙えることになる。<br>
 <br>
-1. 8/6 8/3  Eq.: +0.375<br>
-0.627 0.250 0.022 - 0.373 0.057 0.002 CL +0.503 CF +0.375<br>
+1. bar/22 4/3*  Eq.: +0.134<br>
+0.429 0.138 0.005 - 0.571 0.254 0.010 CL +0.134 CF +0.134<br>
 <br>
-2. 9/7 9/4  Eq.: +0.271 ( -0.104)<br>
-0.591 0.199 0.018 - 0.409 0.051 0.002 CL +0.391 CF +0.271<br>
+2. bar/22 10/9  Eq.: +0.063 ( -0.071)<br>
+0.403 0.128 0.008 - 0.597 0.226 0.007 CL +0.063 CF +0.063<br>
 <br>
-3. 7/2 4/2  Eq.: +0.130 ( -0.245)<br>
-0.554 0.206 0.016 - 0.446 0.070 0.003 CL +0.273 CF +0.130<br>
+3. bar/24 10/7  Eq.: -0.055 ( -0.189)<br>
+0.400 0.073 0.002 - 0.600 0.117 0.004 CL -0.055 CF -0.055<br>
+<br>
+4. bar/22 2/1    Eq.: -0.097 ( -0.231)<br>
+0.373 0.079 0.004 - 0.627 0.137 0.006 CL -0.097 CF -0.097<br>
+<br>
+5. bar/22 7/6    Eq.: -0.129 ( -0.263)<br>
+0.352 0.084 0.004 - 0.648 0.150 0.003 CL -0.129 CF -0.129<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/6 8/3                      Eq.: +0.416
-       0.632 0.241 0.021 - 0.368 0.053 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    9/7 9/4                      Eq.: +0.300 (-0.116)
-       0.597 0.202 0.018 - 0.403 0.053 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    8/6 7/2                      Eq.: +0.102 (-0.314)
-       0.547 0.225 0.023 - 0.453 0.083 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    7/2 4/2                      Eq.: +0.098 (-0.318)
-       0.545 0.196 0.013 - 0.455 0.075 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    9/2                          Eq.: +0.050 (-0.366)
-       0.535 0.210 0.020 - 0.465 0.088 0.002
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-bB-DbBCBB--a-a---acbba---:0:0:1:25:5:1:0:7:10");
-var categoryid = "KE5";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "KE5";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--BaBBBBB-B-aa----bcbb-c-A:1:-1:1:13:3:5:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

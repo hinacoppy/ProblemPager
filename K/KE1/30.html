@@ -12,72 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">この時を境に</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">埋めたいポイントがあります</span>&ensp;
 <span>(KE1-30)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w1/5</div>
+<div class="gamesituation">b4-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=147 w=113</div></div>
+      <div class="pipinfo">pips Red=124 White=167</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">今ボードのこちら側で耐えるとせっかくのブロックがどんどん薄くなる。一方、相手はノーボードで後ろのポイントにスペアがない。どうせいつかエスケープして打ち合いになるなら今がチャンスだ。<br>
+ <div class="description">バックゲームのタイミングが合いそう。プライムで対抗し、なおかつ相手にはもう少し進んでほしいのでここで作りたいポイントにスロット。相手は今ヒットしたくないだろうし、されたらこちらのタイミングが出来ておあつらえ向き。バックゲームに対してエースは作りたくないしヒットされてもいいつもりでこちらもスロット。<br>
 <br>
-1. 22/16       Eq.: +0.064<br>
-0.523 0.140 0.006 - 0.477 0.150 0.007 CL +0.028 CF +0.064<br>
+1. 10/5 7/1    Eq.: +0.553<br>
+0.636 0.254 0.015 - 0.364 0.078 0.002 CL +0.476 CF +0.553<br>
 <br>
-2. 7/2 6/5     Eq.: -0.007 ( -0.071)<br>
-0.491 0.135 0.005 - 0.509 0.126 0.005 CL -0.006 CF -0.007<br>
+2. 7/1 6/1       Eq.: +0.397 ( -0.156)<br>
+0.600 0.240 0.012 - 0.400 0.087 0.003 CL +0.377 CF +0.397<br>
 <br>
-3. 8/2            Eq.: -0.057 ( -0.121)<br>
-0.481 0.134 0.005 - 0.519 0.128 0.006 CL -0.029 CF -0.057<br>
+3. 18/7             Eq.: +0.343 ( -0.210)<br>
+0.583 0.246 0.018 - 0.417 0.087 0.003 CL +0.347 CF +0.343<br>
 <br>
-4. 24/23 7/2  Eq.: -0.060 ( -0.124)<br>
-0.478 0.132 0.005 - 0.522 0.127 0.005 CL -0.035 CF -0.060<br>
-<br>
-5. 24/23 6/1  Eq.: -0.077 ( -0.141)<br>
-0.471 0.131 0.004 - 0.529 0.127 0.005 CL -0.048 CF -0.077<br>
+4. 18/13 10/4 Eq.: +0.287 ( -0.266)<br>
+0.574 0.235 0.017 - 0.426 0.093 0.003 CL +0.306 CF +0.287<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/16                        Eq.: +0.276
-       0.634 0.000 0.000 - 0.366 0.082 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    22/21 7/2                    Eq.: +0.112 (-0.164)
-       0.587 0.000 0.000 - 0.413 0.100 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    22/21 6/1                    Eq.: +0.072 (-0.204)
-       0.575 0.000 0.000 - 0.425 0.101 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    7/2 6/5                      Eq.: -0.159 (-0.435)
-       0.504 0.000 0.000 - 0.496 0.117 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/2                          Eq.: -0.189 (-0.465)
-       0.495 0.000 0.000 - 0.505 0.120 0.005
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---b-BDCC------b-bcb--B-A-:0:0:1:15:1:1:0:5:10");
-var categoryid = "KE1";
-var probnum = "30";
-var showpipflg = true;
+const categoryid = "KE1";
+const probnum = "30";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--bbB-CDC-A-b----cBbab-a--:0:0:1:56:4:2:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

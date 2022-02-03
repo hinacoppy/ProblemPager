@@ -12,72 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">置いていかないで</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">出すもの出してから</span>&ensp;
 <span>(KEa-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/5</div>
+<div class="gamesituation">b0-w1/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=145 w=160</div></div>
+      <div class="pipinfo">pips Red=172 White=142</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手チェッカーをたくさん戻していて、こちらの攻め駒はこれ以上進めると進みすぎになってしまう。向こう側のブロックを見ると２の目でエンターしてしまうのは飛び出しにくくなっていかにも危険。ここは攻めはいったんおいておいてバックマンを２枚とも飛び出しやすい位置に持ってきておく。アウターにあるポイントにことごとくスペアがないため後ろのチェッカーの自由を失うと強制的にブロットを作らされる恐れがある。<br>
+ <div class="description">ここでヒットしてもバックマンの数で大差で負けていて相手のプライムの方が強く、結局身軽な相手バックマンよりもこちらが先に捕まってしまう。ここは弾数の多い相手ミッドポイントからの攻撃をブロックしながらプライムを分断し将来のヒットチャンスを待つ。相手は次に確実にブロットを隠せるわけではなく、平らなポイントとスタックしかないためそのチャンスはすぐにでも来る。<br>
 <br>
-1. bar/21 24/22 Eq.: -0.026<br>
-0.505 0.110 0.004 - 0.495 0.143 0.005 CL -0.026 CF -0.026<br>
+1. 24/18 23/18 Eq.: -0.252<br>
+0.428 0.103 0.003 - 0.572 0.116 0.004 CL -0.166 CF -0.252<br>
 <br>
-2. bar/21 6/4    Eq.: -0.162 (-0.136)<br>
-0.469 0.117 0.004 - 0.531 0.160 0.007 CL -0.113 CF -0.162<br>
+2. 23/18 13/7*  Eq.: -0.396 ( -0.144)<br>
+0.406 0.124 0.004 - 0.594 0.190 0.015 CL -0.280 CF -0.396<br>
 <br>
-3. bar/21 4/2    Eq.: -0.187 (-0.161)<br>
-0.466 0.115 0.004 - 0.534 0.165 0.007 CL -0.130 CF -0.187<br>
-<br>
-4. bar/23 13/9* Eq.: -0.189 (-0.163)<br>
-0.460 0.139 0.005 - 0.540 0.174 0.011 CL -0.128 CF -0.189<br>
-<br>
-5. bar/23 6/2     Eq.: -0.204 (-0.178)<br>
-0.465 0.109 0.003 - 0.535 0.169 0.007 CL -0.144 CF -0.204<br>
+3. 13/8 13/7*    Eq.: -0.472 ( -0.220)<br>
+0.387 0.126 0.004 - 0.613 0.204 0.016 CL -0.329 CF -0.472<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 24/22                 Eq.: -0.019
-       0.505 0.119 0.004 - 0.495 0.145 0.005
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/23 13/9*                 Eq.: -0.123 (-0.104)
-       0.471 0.143 0.005 - 0.529 0.162 0.012
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/21 4/2                   Eq.: -0.135 (-0.116)
-       0.474 0.118 0.004 - 0.526 0.157 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/21 6/4                   Eq.: -0.157 (-0.138)
-       0.467 0.118 0.004 - 0.533 0.157 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    bar/23 6/2                   Eq.: -0.100 (-0.081)
-       0.482 0.118 0.003 - 0.518 0.155 0.007
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---aCcDB-aB--B----ddb---AA:0:0:1:24:0:0:0:5:10");
-var categoryid = "KEa";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=----BBCa----fE---b-bbb-AB-:0:0:1:56:0:1:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

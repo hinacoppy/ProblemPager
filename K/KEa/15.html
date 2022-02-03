@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ヒットされたその先に</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">どうぞそのまま</span>&ensp;
 <span>(KEa-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w3/9</div>
+<div class="gamesituation">b0-w1/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=83 w=83</div></div>
+      <div class="pipinfo">pips Red=133 White=103</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ヒットは当然としてその後どうまとめるか。４の目でヒットした後バーポイントを作らないプレー２つが１６のデュプリケーションになっていて最もリターンヒットが少ない。しかし、ベストは上位の中で最もリターンの多いバーメイクとなっている。相手のインナーを見てもリターンヒットが致命傷になるわけではないのでヒットされた後の強さが大事になってくる。アウターを打たれることに関しては大差ないとして、１の目でヒットされた時のポジションを考えるとバーを抑えておけば相手を穴あきプライムに閉じ込めていることになる。さらにバーを作らないプレーのみ相手にダブルヒットのチャンスを与えている。これだけリターンヒットそのもののリスクが違えば２通りのショット数の多さは吹き飛んでしまう。<br>
+ <div class="description">１ポイントのブロットはセミプライムをわざわざ崩してまでカバーする必要はない。１と２、どちらでエンターされてもスペアのないポイントだらけの相手はどこか崩さないといけなくなるし、それならばセミプライムを維持して相手の飛び出しを困難にしておいた方がいい。その隙にこちらのバックマン脱出という大仕事に手を付けて後ろが取り残されないようにするのがベスト。<br>
 <br>
-1. 12/8*/7      Eq.: +0.455<br>
-0.646 0.049 0.001 - 0.354 0.075 0.003 CL +0.260 CF +0.455<br>
+1. 23/13   Eq.: +0.124<br>
+0.568 0.133 0.004 - 0.432 0.218 0.006 CL +0.016 CF +0.124<br>
 <br>
-2. 12/8* 9/8   Eq.: +0.379 (-0.076)<br>
-0.626 0.049 0.001 - 0.374 0.113 0.006 CL +0.167 CF +0.379<br>
+2. 7/3 7/1 Eq.: -0.038 ( -0.161)<br>
+0.493 0.125 0.002 - 0.507 0.166 0.006 CL -0.089 CF -0.038<br>
 <br>
-3. 12/8* 10/9 Eq.: +0.364 (-0.092)<br>
-0.621 0.047 0.001 - 0.379 0.112 0.006 CL +0.157 CF +0.364<br>
-<br>
-4. 9/8*/4        Eq.: +0.342 (-0.113)<br>
-0.621 0.053 0.001 - 0.379 0.138 0.011 CL +0.124 CF +0.342<br>
+3. 18/8     Eq.: -0.137 ( -0.260)<br>
+0.501 0.117 0.002 - 0.499 0.247 0.015 CL -0.200 CF -0.137<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/8*/7                      Eq.: +0.442
-       0.643 0.056 0.001 - 0.357 0.084 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    12/8* 9/8                    Eq.: +0.377 (-0.066)
-       0.624 0.053 0.001 - 0.376 0.119 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    12/8* 10/9                   Eq.: +0.356 (-0.087)
-       0.616 0.051 0.001 - 0.384 0.121 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    9/8*/4                       Eq.: +0.346 (-0.096)
-       0.622 0.054 0.001 - 0.378 0.144 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    9/8* 7/3                     Eq.: +0.190 (-0.253)
-       0.566 0.050 0.001 - 0.434 0.180 0.013
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-ABCBB-AaAA-AA-b---c-eb-b-:1:1:1:41:4:3:0:9:10");
-var categoryid = "KEa";
-var probnum = "15";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "15";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=aA-BBBBB------b-b-BbbbbBb-:0:0:1:46:0:1:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

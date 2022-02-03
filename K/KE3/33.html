@@ -12,66 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">相手のブロットが鍵</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">外してほしいアンカーの前に</span>&ensp;
 <span>(KE3-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w4/9</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=125 w=106</div></div>
+      <div class="pipinfo">pips Red=135 White=165</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">６の目で１枚飛び出すことでアウターのブロットに対してにらみがきいているし、インナーにもブロットがあることを利用してここで打ち込む。ギャモン負けが多く非常に危険な手だが、リターンされてもスコアリードの相手からすぐにキューブが来るわけでなく、相手のダンスはすべてダブルパスとなりこの手を後押ししている。<br>
+ <div class="description">相手にアンカーを２か所とられてしまい、タイミングを合わされたくないところ。ここでバーメイクすることによってアンカーを外してヒットしてくれるなら向こうのタイミングがなくなるし、飛び出してほしくはない１ポイントのアンカーの動きを止める役割にもなっている。<br>
 <br>
-1. 21/15 7/5* Eq.: -0.263<br>
-0.406 0.164 0.006 - 0.594 0.280 0.013 CL -0.297 CF -0.263<br>
+1. 11/7(2)                 Eq.: +0.669<br>
+0.645 0.226 0.017 - 0.355 0.092 0.003 CL +0.449 CF +0.669<br>
 <br>
-2. 21/15 6/4   Eq.: -0.371 ( -0.108)<br>
-0.369 0.089 0.003 - 0.631 0.084 0.003 CL -0.253 CF -0.371<br>
+2. 11/9(3) 10/8         Eq.: +0.603 ( -0.066)<br>
+0.640 0.188 0.008 - 0.360 0.079 0.003 CL +0.401 CF +0.603<br>
 <br>
-3. 21/13         Eq.: -0.593 ( -0.329)<br>
-0.308 0.053 0.002 - 0.692 0.093 0.004 CL -0.424 CF -0.593<br>
+3. 18/16(2) 11/9(2)   Eq.: +0.569 ( -0.100)<br>
+0.634 0.196 0.014 - 0.366 0.094 0.004 CL +0.388 CF +0.569<br>
+<br>
+4. 18/14(2)                Eq.: +0.564 ( -0.104)<br>
+0.629 0.177 0.014 - 0.371 0.085 0.003 CL +0.369 CF +0.564<br>
+<br>
+5. 18/16(2) 11/9 10/8 Eq.: +0.503 ( -0.166)<br>
+0.615 0.190 0.012 - 0.385 0.097 0.003 CL +0.339 CF +0.503<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15 7/5*                   Eq.: -0.267
-       0.401 0.163 0.007 - 0.599 0.283 0.014
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/15 6/4                    Eq.: -0.335 (-0.069)
-       0.373 0.076 0.003 - 0.627 0.086 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    21/13                        Eq.: -0.489 (-0.222)
-       0.327 0.046 0.001 - 0.673 0.081 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    21/15 4/2                    Eq.: -0.577 (-0.310)
-       0.303 0.041 0.001 - 0.697 0.090 0.002
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    21/15 8/6                    Eq.: -0.730 (-0.464)
-       0.285 0.045 0.001 - 0.715 0.138 0.006
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--BBAaCBB--a-----bccbCab--:0:0:1:26:2:4:0:9:10");
-var categoryid = "KE3";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "KE3";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-b--bBE-B-ACb----bBcaab---:0:0:1:22:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

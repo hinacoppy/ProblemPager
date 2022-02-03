@@ -12,69 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ダイレクトショットは大きい</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ギャモン勝ちしたいところですが</span>&ensp;
 <span>(KE4-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w5/7</div>
+<div class="gamesituation">b0-w4/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=97 w=68</div></div>
+      <div class="pipinfo">pips Red=143 White=156</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ミッドポイントを外してしまっては相手を楽にしてしまう。完璧なボードを作ったのだから打たれなかった時のダイレクトショットをもらいに行く。１のデュプリケーションにもなっているし、ギャモンが薄いので打たれてもダブルパスになりやすく、ここでマッチ負けをあまり怖がることはない。<br>
+ <div class="description">この瞬間に向こうのバーを外してしまうのが勝率が一番高い。しかし、スコア状況からギャモン勝ちも欲しいところ。ポイントオンすれば確かにギャモン勝ちを増やすがバーに打たれやすいブロットを残してしまい勝率を大きく下げてしまう。そもそもシングル負け自体が痛いスコアなのでこちらのギャモンバリューもGNU Backgammonによると0.57とアンリミテッドとそれほど変わらない。無理をしてギャモンを取りにいく必要はなさそうだ。<br>
 <br>
-1. bar/21 13/1           Eq.: -0.483<br>
-0.337 0.031 0.001 - 0.663 0.049 0.001 CL -0.381 CF -0.483<br>
+1. 18/14 18/13  Eq.: +0.378<br>
+0.657 0.106 0.005 - 0.343 0.068 0.002 CL +0.397 CF +0.378<br>
 <br>
-2. bar/21 13/9(2) 5/1 Eq.: -0.573 ( -0.090)<br>
-0.319 0.029 0.001 - 0.681 0.011 0.000 CL -0.339 CF -0.573<br>
+2. 7/2* 6/2        Eq.: +0.278 ( -0.100)<br>
+0.578 0.173 0.007 - 0.422 0.098 0.004 CL +0.296 CF +0.278<br>
 <br>
-3. bar/21 6/2(2) 5/1   Eq.: -0.594 ( -0.111)<br>
-0.300 0.030 0.000 - 0.700 0.045 0.000 CL -0.400 CF -0.594<br>
+3. 13/8 6/2*      Eq.: +0.221 ( -0.157)<br>
+0.570 0.141 0.005 - 0.430 0.098 0.004 CL +0.240 CF +0.221<br>
 <br>
-4. bar/21 5/1(3)         Eq.: -0.677 ( -0.194)<br>
-0.290 0.029 0.001 - 0.710 0.046 0.000 CL -0.420 CF -0.677<br>
+4. 13/9 6/1*      Eq.: +0.220 ( -0.158)<br>
+0.571 0.140 0.004 - 0.429 0.099 0.004 CL +0.238 CF +0.220<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 13/1                  Eq.: -0.479
-       0.343 0.032 0.001 - 0.657 0.058 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/21 13/9(2) 5/1           Eq.: -0.553 (-0.074)
-       0.320 0.023 0.000 - 0.680 0.009 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/21 13/5 13/9             Eq.: -0.638 (-0.159)
-       0.295 0.030 0.001 - 0.705 0.014 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/21 6/2(2) 5/1            Eq.: -0.987 (-0.508)
-       0.278 0.015 0.000 - 0.722 0.049 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/21 13/9(2) 6/2           Eq.: -1.000 (-0.521)
-       0.256 0.021 0.000 - 0.744 0.020 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-ABBBCB-----bB-----bc-bccA:0:0:1:44:4:5:0:7:10");
-var categoryid = "KE4";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-aa---EBC---cC--bcBd-a----:1:-1:1:45:0:4:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

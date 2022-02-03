@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">援護のいらないバックマン</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">６でカバーされるとしても</span>&ensp;
 <span>(KE6-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w0/7</div>
+<div class="gamesituation">b5-w0/9</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=114 w=104</div></div>
+      <div class="pipinfo">pips Red=150 White=152</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">インナーの状態や相手の捕まえ方を見てもこちらが圧倒している局面。スコアもリードしているため相手のギャモンチャンスにはしたくない。ここで打ち込んでしまうとブロットを大量にばらまき、リターンのあと相手からキューブが来てしまう展開になりそう。ここはそのような展開を避けるべく、おとなしくアウターのブロットを片付けておく。残されたバックマンが攻撃されても、自らエースポイントを作りバックマンが初期配置の相手の攻めはそう続くものではない。<br>
+ <div class="description">相手のインナーのほうが強いが、今なら１７ポイントにスペアがないためカバーするにしてもルースヒットするにしても新たなブロットができる。２４ポイントにエンターしてしまうとその弱みをダイレクトで狙えなくなり相手を助けてしまう。ここは後ろに３枚取り残され攻め駒が少ない今、ハイアンカー狙いで２０ポイントまで進めておく。<br>
 <br>
-1. bar/20 16/15  Eq.: +0.745<br>
-0.743 0.227 0.019 - 0.257 0.067 0.001 CL +0.611 CF +0.745<br>
+1. bar/20         Eq.: +0.112<br>
+0.559 0.213 0.016 - 0.441 0.157 0.007 CL +0.201 CF +0.112<br>
 <br>
-2. bar/20 7/6*    Eq.: +0.563 ( -0.182)<br>
-0.698 0.356 0.052 - 0.302 0.145 0.023 CL +0.634 CF +0.563<br>
+2. bar/24 6/2* Eq.: -0.009 ( -0.121)<br>
+0.533 0.211 0.016 - 0.467 0.167 0.013 CL +0.123 CF -0.009<br>
 <br>
-3. bar/20 15/14  Eq.: +0.521 ( -0.225)<br>
-0.697 0.240 0.026 - 0.303 0.116 0.006 CL +0.508 CF +0.521<br>
+3. bar/24 5/1* Eq.: -0.084 ( -0.196)<br>
+0.517 0.194 0.011 - 0.483 0.171 0.013 CL +0.064 CF -0.084<br>
+<br>
+4. bar/24 10/6 Eq.: -0.142 ( -0.253)<br>
+0.499 0.198 0.013 - 0.501 0.172 0.012 CL +0.039 CF -0.142<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 16/15                 Eq.: +0.772
-       0.787 0.000 0.000 - 0.213 0.039 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20 15/14                 Eq.: +0.667 (-0.105)
-       0.769 0.000 0.000 - 0.231 0.050 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/20 7/6*                  Eq.: +0.569 (-0.203)
-       0.799 0.000 0.000 - 0.201 0.085 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/20 8/7                   Eq.: +0.504 (-0.267)
-       0.741 0.000 0.000 - 0.259 0.074 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/20 3/2                   Eq.: +0.164 (-0.608)
-       0.642 0.000 0.000 - 0.358 0.113 0.004
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-bBBBBaBB------AAaab-b--bA:0:0:1:15:4:0:0:7:10");
-var categoryid = "KE6";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "KE6";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-aaa-CD-B-B-cB---b-b-bbaAA:0:0:1:41:5:0:0:9:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

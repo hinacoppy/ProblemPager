@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">どこを作るか？</span>&ensp;
 <span>(KA1-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒に4ゾロが出ました。いろんな所を作れますねえ。</div>
 <div class="gamesituation">マネーゲーム。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=172 白=146</div></div>
+      <div class="pipinfo">pips 黒=172 白=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">みろり＞<br>
 まず24/20(2)は確定。残りは良いムーブが見当たりませんが、安全策＋インナー2ポイントボードに強化＋6ptスタック解消で6/2(2)とします。<br>
@@ -62,33 +66,30 @@ miyukichi＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20(2) 6/2(2)              Eq.: -0.218
        0.426 0.103 0.004 - 0.574 0.102 0.003
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/20(2) 8/4(2)              Eq.: -0.220 (-0.002)
        0.425 0.112 0.004 - 0.575 0.109 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/16(2)                     Eq.: -0.232 (-0.014)
        0.444 0.090 0.003 - 0.556 0.151 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/20(2) 13/9 8/4            Eq.: -0.251 (-0.033)
        0.423 0.101 0.004 - 0.577 0.125 0.004
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/20(2) 13/9 6/2            Eq.: -0.264 (-0.046)
        0.420 0.096 0.004 - 0.580 0.125 0.004
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA1";
+const probnum = "45";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-a----E-CAa-cC---cbe--A-B-:0:0:1:44:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "45";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

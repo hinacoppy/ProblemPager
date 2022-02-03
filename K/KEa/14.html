@@ -12,63 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">敵が通り過ぎた後</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">そこは安全地帯</span>&ensp;
 <span>(KEa-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/7</div>
+<div class="gamesituation">b0-w3/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=108 w=94</div></div>
+      <div class="pipinfo">pips Red=103 White=81</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ヒットされることを恐れるとバックマンを逃がしてしまいそうだがレースで遅れているので居残る手を考慮したい。インナーボードの強さも互角で相手のビルダー群が通り過ぎてローポイントに積み上がってしまっているため３でルースヒットされることがそれほど痛くはない。一方、アウターのブロットを相手バックマンからのインダイレクトで当てられるとリターンも少なくもう１枚ブロットが残る。ここは逃げながらヒットという都合のいい攻撃を防ぎながら相手バックマンを抑えつけるべくブロットをスペアマンに変えておく。<br>
+ <div class="description">ショットを打たないと勝てないような状況に追い込まれている。ここで１０ポイントを外してしまうとヒットされた時のリターンヒットチャンスがほぼなく、相手はこちら側のアウターで安全なプレーができてしまう。そこでインナーの強さを盾に２０ポイントを割ってショットチャンスを作りにいく。相手の３４、４５、４６、５６でダイレクトショットがもらえるだけでなく、ヒットされた時のリターンショットも多く１３や３６ならシングルショット以上のリターンヒットがある。<br>
 <br>
-1. 12/10 4/1 Eq.: +0.246<br>
-0.565 0.118 0.005 - 0.435 0.080 0.002 CL +0.174 CF +0.246<br>
+1. 20/15 5/4 Eq.: -0.177<br>
+0.436 0.100 0.005 - 0.564 0.066 0.000 CL -0.085 CF -0.177<br>
 <br>
-2. 20/15       Eq.: +0.141 (-0.105)<br>
-0.541 0.061 0.002 - 0.459 0.058 0.001 CL +0.086 CF +0.141<br>
+2. 10/4         Eq.: -0.262 ( -0.085)<br>
+0.412 0.050 0.001 - 0.588 0.032 0.000 CL -0.152 CF -0.262<br>
+<br>
+3. 10/9 10/5 Eq.: -0.269 ( -0.092)<br>
+0.412 0.046 0.001 - 0.588 0.027 0.000 CL -0.154 CF -0.269<br>
+<br>
+4. 6/1 5/4     Eq.: -0.316 ( -0.139)<br>
+0.402 0.033 0.001 - 0.598 0.032 0.001 CL -0.197 CF -0.316<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/10 4/1                    Eq.: +0.150
-       0.542 0.094 0.001 - 0.458 0.070 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/15                        Eq.: +0.122 (-0.029)
-       0.539 0.069 0.001 - 0.461 0.066 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    20/18 4/1                    Eq.: -0.071 (-0.221)
-       0.495 0.084 0.001 - 0.505 0.131 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    12/7                         Eq.: -0.094 (-0.244)
-       0.485 0.102 0.001 - 0.515 0.143 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    4/1 3/1                      Eq.: -0.099 (-0.249)
-       0.487 0.101 0.001 - 0.513 0.152 0.002
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--BBCbB---BBA----b-bAcbd--:0:0:1:23:0:0:0:7:10");
-var categoryid = "KEa";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-B-BBCBa--B--ab----bB-cbd-:1:-1:1:15:0:3:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

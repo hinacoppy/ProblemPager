@@ -12,63 +12,65 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">時間の貯金</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">安全とは</span>&ensp;
 <span>(KE9-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/5</div>
+<div class="gamesituation">b0-w2/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=92 w=121</div></div>
+      <div class="pipinfo">pips Red=96 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">こちらはいかに安全な状態で６を振るかにかかっている。せっかくのスペアマンを使ってフルプラを作ってもアウターの３枚しか使えず、１をすぐに降られると８ポイントの１枚しか自由にできない苦しい状況に陥る。ポイントオンしておけばスペアマンを含めた外側の４枚ばかりか、２枚ともエンターするまではインナーを崩してでも時間が稼げるため圧倒的にバックマンの脱出は楽になる。<br>
+ <div class="description">相手のインナーは今が一番弱く、一手進むだけで一気に強くなる。それならばミッドを外すタイミングは後になるほどなくなり、危険な状態でショットを与えることになるため今クリアしておく。ボードの強さに差があるため相手は当たっている目すべてでヒットできるわけではない。<br>
 <br>
-1. 4/1* 2/1 Eq.: +0.584<br>
-0.734 0.428 0.003 - 0.266 0.039 0.002 CL +0.653 CF +0.584<br>
+1. 13/9 10/9 Eq.: +0.464<br>
+0.720 0.071 0.002 - 0.280 0.025 0.001 CL +0.526 CF +0.464<br>
 <br>
-2. 6/3 4/3   Eq.: +0.410 ( -0.173)<br>
-0.682 0.320 0.009 - 0.318 0.046 0.002 CL +0.497 CF +0.410<br>
+2. 10/9 8/4   Eq.: +0.382 ( -0.083)<br>
+0.710 0.025 0.001 - 0.290 0.017 0.000 CL +0.443 CF +0.382<br>
+<br>
+3. 10/6 2/1   Eq.: +0.376 ( -0.088)<br>
+0.701 0.035 0.003 - 0.299 0.022 0.001 CL +0.438 CF +0.376<br>
+<br>
+4. 8/4 2/1     Eq.: +0.370 ( -0.094)<br>
+0.702 0.029 0.002 - 0.298 0.020 0.001 CL +0.432 CF +0.370<br>
+<br>
+5. 10/6 5/4   Eq.: +0.362 ( -0.102)<br>
+0.703 0.021 0.001 - 0.297 0.016 0.000 CL +0.423 CF +0.362<br>
+<br>
+6. 10/5         Eq.: +0.359 ( -0.106)<br>
+0.701 0.022 0.001 - 0.299 0.018 0.000 CL +0.421 CF +0.359<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    4/1* 2/1                     Eq.: +0.595
-       0.734 0.459 0.006 - 0.266 0.049 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/3 4/3                      Eq.: +0.417 (-0.178)
-       0.681 0.331 0.009 - 0.319 0.056 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    8/5 2/1*                     Eq.: +0.312 (-0.283)
-       0.631 0.373 0.009 - 0.369 0.102 0.005
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    8/7 4/1*                     Eq.: +0.140 (-0.455)
-       0.572 0.294 0.005 - 0.428 0.116 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/5 4/1*                     Eq.: +0.138 (-0.456)
-       0.568 0.319 0.007 - 0.432 0.145 0.009
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=aaC-CBCBA---b------cbbbbA-:2:-1:1:13:0:0:0:5:10");
-var categoryid = "KE9";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "KE9";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--BBABBbC-A-bB----bccaa-a-:1:-1:1:41:0:2:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

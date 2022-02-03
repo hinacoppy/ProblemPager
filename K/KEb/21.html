@@ -12,69 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">エッジに寄ってないのをいいことに</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">相手を待たない</span>&ensp;
 <span>(KEb-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w4/7</div>
+<div class="gamesituation">b2-w1/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=189 w=141</div></div>
+      <div class="pipinfo">pips Red=100 White=119</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ダブルアンカーを持っていてタイミング的にも進みすぎているのでパーのブロットをヒットされるリスクはあまりない。そこでバーのブロットを放置して９ポイントメイクでセミプラにリーチをかける。ヒットされなければエッジに寄っていないセミプライムが見えて一気に優勢になる。今４プラを作っても発展性に乏しく、２ポイントボードしか持っていないため相手に簡単に飛び出しをトライされる。<br>
+ <div class="description">ピップで大きくリードしているがバーポイントの２枚が分断されてしまっているので外す時にどうしてもショットを与えてしまう。ボードの強さを見ると後になればなるほど相手のインナーは強くなるのでブロットをばらまいている今外して今後の動きを楽にする。４の目はこちらのボードをより強くするために使い相手にヒットすることを躊躇させる。<br>
 <br>
-1. 13/9(2)      Eq.: +0.339<br>
-0.563 0.142 0.005 - 0.437 0.206 0.023 CL +0.066 CF +0.339<br>
+1. 18/15 6/2    Eq.: +0.505<br>
+0.692 0.279 0.016 - 0.308 0.073 0.003 CL +0.644 CF +0.505<br>
 <br>
-2. 13/7 13/11 Eq.: +0.223 (-0.116)<br>
-0.537 0.131 0.005 - 0.463 0.208 0.020 CL -0.009 CF +0.223<br>
+2. 6/3 6/2        Eq.: +0.376 (-0.129)<br>
+0.680 0.161 0.003 - 0.320 0.037 0.001 CL +0.508 CF +0.376<br>
 <br>
-3. 24/22 13/7 Eq.: +0.195 (-0.143)<br>
-0.525 0.133 0.005 - 0.475 0.197 0.009 CL -0.008 CF +0.195<br>
+3. 18/14 6/3     Eq.: +0.296 (-0.209)<br>
+0.638 0.239 0.014 - 0.362 0.113 0.009 CL +0.427 CF +0.296<br>
 <br>
-4. 24/20(2)     Eq.: +0.165 (-0.173)<br>
-0.521 0.123 0.004 - 0.479 0.190 0.007 CL -0.037 CF +0.165<br>
+4. 18/15 18/14 Eq.: +0.272 (-0.233)<br>
+0.603 0.321 0.022 - 0.397 0.148 0.012 CL +0.418 CF +0.272<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9(2)                      Eq.: +0.264
-       0.554 0.138 0.005 - 0.446 0.207 0.025
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/20(2)                     Eq.: +0.200 (-0.064)
-       0.534 0.129 0.006 - 0.466 0.180 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/7 13/11                   Eq.: +0.185 (-0.079)
-       0.536 0.133 0.005 - 0.464 0.206 0.020
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    24/22 13/7                   Eq.: +0.173 (-0.090)
-       0.527 0.135 0.005 - 0.473 0.197 0.010
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    22/20(2) 13/11(2)            Eq.: +0.056 (-0.208)
-       0.503 0.115 0.005 - 0.497 0.205 0.019
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---b-BBAB---cD-b-a-c-bBbB-:0:0:1:22:1:4:0:7:10");
-var categoryid = "KEb";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "KEb";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--ABBBEaA---d----aBdaaba--:1:-1:1:43:2:1:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">手強い2ゾロ</span>&ensp;
 <span>(KA9-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マネーゲームで黒に2ゾロが出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=152 白=161</div></div>
+      <div class="pipinfo">pips 黒=152 白=161</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">アンカー外しをひとまず終わり、今日は単発のポジションを。<br>
 やや珍しい形ですが、どちらもエラーを犯していません。どんな目を振ってこうなったかを考えると面白いかも。<br>
@@ -534,33 +538,30 @@ primingとはまた違ったpureさが要求されているのですね。ピン
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 6/4(2)                 Eq.: +0.471
        0.614 0.161 0.006 - 0.386 0.063 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    11/9 8/4 6/4                 Eq.: +0.405 (-0.067)
        0.596 0.193 0.009 - 0.404 0.099 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    20/18 11/9 6/4(2)            Eq.: +0.398 (-0.073)
        0.602 0.179 0.009 - 0.398 0.100 0.003
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/22 11/9 6/4(2)            Eq.: +0.360 (-0.111)
        0.590 0.179 0.009 - 0.410 0.101 0.003
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/20 11/9 8/6               Eq.: +0.357 (-0.114)
        0.597 0.148 0.004 - 0.403 0.066 0.002
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA9";
+const probnum = "05";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-aa---E-DA-AdB---d-eA---A-:0:0:1:22:0:0:3:0:10");
-var categoryid = "KA9";
-var probnum = "05";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

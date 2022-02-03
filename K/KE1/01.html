@@ -12,66 +12,57 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">これはチャンスなのか</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ベアインのテクニック</span>&ensp;
 <span>(KE1-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w0/5</div>
+<div class="gamesituation">b5-w1/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=143 w=122</div></div>
+      <div class="pipinfo">pips Red=74 White=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">セミプラにつかまっているこちらが今ヒットしたところで弱いインナーでリターンヒットもされずに攻め続けるのは困難。ここはじっくりボード作りに専念し、相手がバーアンカーを外すタイミングにアタックできる態勢を作っておきたい。<br>
+ <div class="description">ダブルアンカーを取られると非常に割れやすい。平たい形より高く積んだ形のほうが割れにくい。<br>
+8/7(2) 6/5(2)とすると次に青の割れる目はないのに対して、 8/6(2)とすると １０通りもブロットが発生する。<br>
 <br>
-1. 24/22 6/5        Eq.: -0.785<br>
-0.279 0.038 0.001 - 0.721 0.080 0.002 CL -0.527 CF -0.785<br>
+1. 8/7(2) 6/5(2) Eq.: +0.410<br>
+0.617 0.226 0.007 - 0.383 0.033 0.001 CL +0.486 CF +0.410<br>
 <br>
-2. 24/22 13/12*   Eq.: -0.941 ( -0.155)<br>
-0.274 0.041 0.001 - 0.726 0.127 0.004 CL -0.604 CF -0.941<br>
+2. 8/6(2)            Eq.: +0.224 ( -0.186)<br>
+0.567 0.248 0.013 - 0.433 0.054 0.002 CL +0.379 CF +0.224<br>
 <br>
-3. 24/22 2/1        Eq.: -1.015 ( -0.230)<br>
-0.226 0.023 0.001 - 0.774 0.073 0.002 CL -0.638 CF -1.015<br>
+3. 7/5(2)            Eq.: +0.179 ( -0.231)<br>
+0.561 0.234 0.012 - 0.439 0.051 0.002 CL +0.347 CF +0.179<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 6/5                    Eq.: -0.780
-       0.288 0.043 0.001 - 0.712 0.094 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/22 13/12*                 Eq.: -0.981 (-0.201)
-       0.279 0.050 0.001 - 0.721 0.150 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    24/22 2/1                    Eq.: -1.000 (-0.220)
-       0.249 0.029 0.000 - 0.751 0.108 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    13/12*/10                    Eq.: -1.013 (-0.232)
-       0.224 0.051 0.001 - 0.776 0.317 0.018
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/12* 8/6                   Eq.: -1.021 (-0.240)
-       0.217 0.049 0.001 - 0.783 0.318 0.017
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--B---EbC---aC---bccbbA-A-:0:0:1:12:2:0:0:5:10");
-var categoryid = "KE1";
-var probnum = "01";
-var showpipflg = true;
+const categoryid = "KE1";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BbbEBBBBa---------bbcba--:0:0:1:11:5:1:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

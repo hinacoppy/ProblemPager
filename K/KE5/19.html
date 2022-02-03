@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">せっかくの６を台無しにする</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ヒットするにも覚悟が要ります</span>&ensp;
 <span>(KE5-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w2/7</div>
+<div class="gamesituation">b4-w1/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=105 w=156</div></div>
+      <div class="pipinfo">pips Red=68 White=126</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手のインナーに注目すると、７ポイントへのスロットが相手を苦しめることになると気付く。エースに３枚積んでる相手は、とにかく６が出たら１枚は飛び出しておきたい。スロットしなければ比較的安全にそれを許してしまうため、大抵の６の目でスロットしておいた方がこちらの期待値は高くなっている。打たれなかった場合もプライムを作りかけている分こちらのプレーが勝る。<br>
+ <div class="description">ミッドをクリアしたいところでアンカーにブロックされてしまっている。しかし、インナーを崩さずにいればこちらは強い５ポイントボードを持ったまま相手のヒットを迎え撃つことができる。こちらにとって本当に苦しいのはヒットアンドカバーの目ぐらいなのでここでミッドから２枚下ろして打たれなかった時に最も楽にクリアできるようにしておく。危険を先送りしていると相手のインナーの傷がなくなってしまう。<br>
 <br>
-1. 8/7 8/2 Eq.: +0.909<br>
-0.784 0.336 0.039 - 0.216 0.036 0.002 CL +0.965 CF +0.909<br>
+1. 13/9 13/8 Eq.: +0.116<br>
+0.644 0.272 0.005 - 0.356 0.084 0.002 CL +0.356 CF +0.116<br>
 <br>
-2. 8/2 6/5 Eq.: +0.840 ( -0.069)<br>
-0.771 0.306 0.035 - 0.229 0.033 0.002 CL +0.903 CF +0.840<br>
+2. 13/8 5/1   Eq.: -0.051 ( -0.167)<br>
+0.603 0.298 0.005 - 0.397 0.102 0.003 CL +0.070 CF -0.051<br>
 <br>
-3. 9/2       Eq.: +0.834 ( -0.075)<br>
-0.772 0.297 0.033 - 0.228 0.027 0.001 CL +0.899 CF +0.834<br>
-<br>
-4. 9/3 8/7 Eq.: +0.782 ( -0.127)<br>
-0.732 0.334 0.045 - 0.268 0.059 0.003 CL +0.842 CF +0.782<br>
+3. 6/2 6/1     Eq.: -0.062 ( -0.178)<br>
+0.609 0.216 0.001 - 0.391 0.083 0.002 CL +0.178 CF -0.062<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/7 8/2                      Eq.: +0.916
-       0.785 0.344 0.034 - 0.215 0.032 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/2 6/5                      Eq.: +0.827 (-0.089)
-       0.765 0.310 0.030 - 0.235 0.031 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    9/2                          Eq.: +0.814 (-0.102)
-       0.764 0.299 0.029 - 0.236 0.026 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    9/3 8/7                      Eq.: +0.751 (-0.164)
-       0.725 0.335 0.037 - 0.275 0.056 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    9/3 6/5                      Eq.: +0.726 (-0.190)
-       0.726 0.307 0.031 - 0.274 0.040 0.001
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-cABBBC-BA--c----bBbaaba--:1:-1:1:16:0:2:0:7:10");
-var categoryid = "KE5";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "KE5";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-CCBcCB-----bB-----bbbaab-:1:-1:1:45:4:1:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

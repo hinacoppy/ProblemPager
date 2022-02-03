@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">壊すものを作らない</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ざるを網に変える</span>&ensp;
 <span>(KE7-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w0/9</div>
+<div class="gamesituation">b1-w2/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=84 w=125</div></div>
+      <div class="pipinfo">pips Red=192 White=62</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">こちらはもう安全にベアイン、ベアオフを済ませばいいところ。相手をより長く捕まえたいわけではないので新たなポイントを作る必要もない。直後にリターンヒットのある手や外すときに危険が待ち構えているバーポイントメイクなどせず、当たらないところにブロットを置いて２枚ともベアインする。<br>
+ <div class="description">相手のバックマンにベアインされたら終わりという局面。インナーを作る準備とかできるだけ後ろで待とうとか考えず、この１枚を確実に捕まえるために１９ポイントを作る。大きなゾロ目はすでに止めているため両目を使えれば大抵ヒットできるが、２４ポイントに残したままだと打たれるのを嫌う相手に片目を奪うためのルースヒットをされる。<br>
 <br>
-1. 11/6 7/3  Eq.: +0.965<br>
-0.898 0.195 0.002 - 0.102 0.002 0.000 CL +1.005 CF +0.965<br>
+1. bar/19 24/19  Eq.: -0.419<br>
+0.450 0.027 0.001 - 0.550 0.410 0.005 CL -0.416 CF -0.419<br>
 <br>
-2. 11/7 11/6 Eq.: +0.869 ( -0.095)<br>
-0.864 0.190 0.002 - 0.136 0.008 0.000 CL +0.924 CF +0.869<br>
+2. bar/19 11/6   Eq.: -0.548 ( -0.129)<br>
+0.397 0.036 0.001 - 0.603 0.451 0.011 CL -0.540 CF -0.548<br>
 <br>
-3. 6/1 5/1    Eq.: +0.853 ( -0.112)<br>
-0.844 0.219 0.001 - 0.156 0.011 0.000 CL +0.913 CF +0.853<br>
+3. bar/20 24/18 Eq.: -0.680 ( -0.260)<br>
+0.368 0.022 0.001 - 0.632 0.506 0.006 CL -0.675 CF -0.680<br>
+<br>
+4. bar/20 11/5    Eq.: -0.738 ( -0.319)<br>
+0.342 0.029 0.001 - 0.658 0.540 0.010 CL -0.743 CF -0.738<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/6 7/3                     Eq.: +0.943
-       0.882 0.210 0.002 - 0.118 0.003 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    11/7 11/6                    Eq.: +0.874 (-0.070)
-       0.864 0.190 0.002 - 0.136 0.005 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    6/1 5/1                      Eq.: +0.807 (-0.136)
-       0.819 0.239 0.001 - 0.181 0.013 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    7/2 6/2                      Eq.: +0.591 (-0.352)
-       0.761 0.167 0.002 - 0.239 0.015 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    11/2                         Eq.: +0.525 (-0.418)
-       0.732 0.184 0.003 - 0.268 0.027 0.001
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=a-BBbCEA---B-a-----cbbbb--:1:-1:1:45:1:0:0:9:10");
-var categoryid = "KE7";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "KE7";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=---BB-B-a--A---B--B-BgcdAA:1:-1:1:56:1:2:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

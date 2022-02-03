@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">三手目</span>&ensp;
 <span>(KA7-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">緑に43が出ました。やけに選択肢が多くないでしょうか。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=160 白=160</div></div>
+      <div class="pipinfo">pips 緑=160 白=160</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">キューブのリファレンスポジションを、毎日1個作っているのですが、だんだん難しくなってきました。あまり見ないポジションだと、そもそもリファレンスにならないよなあ。<br>
 <br>
@@ -73,33 +77,30 @@ theworldさんが書いているように、3ptはそれほど魅力的ではあ
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/3* 6/3                     Eq.: +0.187
        0.534 0.182 0.009 - 0.466 0.122 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/21 24/20                  Eq.: +0.100 (-0.086)
        0.528 0.136 0.005 - 0.472 0.125 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/20 6/3*                   Eq.: +0.092 (-0.095)
        0.522 0.139 0.006 - 0.478 0.119 0.006
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/9 6/3*                    Eq.: +0.083 (-0.104)
        0.520 0.160 0.008 - 0.480 0.141 0.010
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/20 13/10                  Eq.: +0.063 (-0.124)
        0.517 0.139 0.005 - 0.483 0.128 0.006
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "25";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-a-a--EBB---dD---d-e----B-:0:0:1:43:1:1:0:7:10");
-var categoryid = "KA7";
-var probnum = "25";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

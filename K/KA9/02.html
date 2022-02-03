@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">アンカー外し その3</span>&ensp;
 <span>(KA9-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マネーゲームで黒に62が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=104 白=97</div></div>
+      <div class="pipinfo">pips 黒=104 白=97</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">大阪オープンまであと一週間となりました。今年はどんなドラマが生まれるのでしょうか。<br>
 <br>
@@ -148,33 +152,30 @@ http://www.bkgm.com/rgb/rgb.cgi?view+1227<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17 5/3*                   Eq.: -0.326
        0.373 0.134 0.004 - 0.627 0.338 0.029
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    23/15                        Eq.: -0.433 (-0.108)
        0.299 0.090 0.003 - 0.701 0.213 0.007
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    23/17 6/4                    Eq.: -0.470 (-0.145)
        0.293 0.093 0.004 - 0.707 0.239 0.007
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    8/6 8/2                      Eq.: -0.538 (-0.212)
        0.237 0.025 0.000 - 0.763 0.116 0.003
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/2 6/4                      Eq.: -0.655 (-0.329)
        0.205 0.025 0.000 - 0.795 0.153 0.006
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA9";
+const probnum = "02";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-BBaBBC-B--a------bbcbdB--:1:1:1:62:0:0:3:0:10");
-var categoryid = "KA9";
-var probnum = "02";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

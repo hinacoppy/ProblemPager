@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ベアイン　その2</span>&ensp;
 <span>(KA3-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">フルプライムを作ったので、ほぼ必勝形。ただ、最善手を指さないと、勝率を落とす。</div>
 <div class="gamesituation">マネーゲーム。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=87 白=57</div></div>
+      <div class="pipinfo">pips 黒=87 白=57</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">miyukichi＞<br>
 8/2*、7/2<br>
@@ -47,33 +51,30 @@ miyukichi さんの書いている通りで、2通りのジョーカーで済む
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2* 7/2                     Eq.: +0.803
        0.902 0.035 0.001 - 0.098 0.008 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    10/4 6/1                     Eq.: +0.763 (-0.040)
        0.884 0.039 0.001 - 0.116 0.007 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    8/3 8/2*                     Eq.: +0.640 (-0.162)
        0.835 0.045 0.002 - 0.165 0.020 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    10/5 8/2*                    Eq.: +0.617 (-0.186)
        0.825 0.042 0.002 - 0.175 0.018 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    10/4 7/2*                    Eq.: +0.473 (-0.329)
        0.768 0.041 0.002 - 0.232 0.026 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA3";
+const probnum = "20";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--aBBCCBB-A----------bedc-:1:-1:1:65:0:0:3:0:10");
-var categoryid = "KA3";
-var probnum = "20";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

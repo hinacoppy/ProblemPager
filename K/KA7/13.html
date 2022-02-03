@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">にらみ合い</span>&ensp;
 <span>(KA7-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">緑に43が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=80 白=68</div></div>
+      <div class="pipinfo">pips 緑=80 白=68</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">6のお見合いの最中ですね。<br>
 TMG(バックギャモンを遊べるサーバー)にて、優勝すると世界選手権に招待してもらえるトーナメントが、今日から20回ほど行われます。<br>
@@ -81,33 +85,30 @@ theworld-2006-＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/6 7/3                      Eq.: -0.866
        0.228 0.001 0.000 - 0.772 0.004 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    9/5 7/4                      Eq.: -0.898 (-0.032)
        0.227 0.002 0.000 - 0.773 0.019 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    9/2                          Eq.: -0.962 (-0.095)
        0.209 0.001 0.000 - 0.791 0.008 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    9/5 6/3                      Eq.: -0.950 (-0.084)
        0.213 0.001 0.000 - 0.787 0.013 0.000
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    7/3 6/3                      Eq.: -0.959 (-0.092)
        0.212 0.001 0.000 - 0.788 0.015 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "13";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-DCB--BA-A--a-----Bccc-e--:0:0:1:43:0:2:0:7:10");
-var categoryid = "KA7";
-var probnum = "13";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

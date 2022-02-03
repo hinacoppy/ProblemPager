@@ -12,70 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">動かしたくないチェッカーをそのままに</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">完成と同時に</span>&ensp;
 <span>(KE8-26)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w3/7</div>
+<div class="gamesituation">b2-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=144 w=106</div></div>
+      <div class="pipinfo">pips Red=154 White=171</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">２の目で１１ポイントをカバーするのは自然な手で、残りの１は？という選択。バックマンを相手スタックの前に進めたくないし５ポイントを進めるとダイレクトカバーのコネクションが切れる。インナーブロットがいつまでもカバーできないと打ち合ったときにギャモン負けが増えてしまうため、結局この２枚は動かしたくない。<br>
-そこで６ポイントをスイッチしてこの場をしのぐ。６ポイントが修復できるのか不安になるが、直後にカバーできる出目は５ポイントカバーより２通りも多い。<br>
+ <div class="description">この目でフルプライムを作れるが、こちらのバックマンが４プラに捕まっていて飛び出すタイミングが厳しくなっている。せっかくのフルプラも次に飛び出せなければ崩さなければならず、そうなると２ポイントのギャップが埋められる可能性も低くあまりにもチェッカーに遊びの時間がない。ここはミッドポイントを維持したままインナーを埋め、インナーから遠くのチェッカーを増やしておく。こうしておけば時間が稼げるだけでなくアウターのブロットも狙える。<br>
 <br>
-５ポイントカバー・・・any6、15、24、22、35、44の１９通り<br>
-６ポイントカバー・・・any5、14、23、16、34、46の２１通り<br>
+1. 8/3(2) 7/2(2)  Eq.: +0.219<br>
+0.644 0.403 0.071 - 0.356 0.066 0.003 CL +0.509 CF +0.219<br>
 <br>
-1. 13/11 6/5     Eq.: -0.804<br>
-0.377 0.096 0.003 - 0.623 0.188 0.004 CL -0.523 CF -0.804<br>
+2. 13/3(2)           Eq.: -0.006 ( -0.225)<br>
+0.603 0.330 0.055 - 0.397 0.090 0.004 CL +0.327 CF -0.006<br>
 <br>
-2. 24/23 13/11 Eq.: -0.917 ( -0.113)<br>
-0.375 0.093 0.003 - 0.625 0.208 0.006 CL -0.571 CF -0.917<br>
-<br>
-3. 13/11 5/4     Eq.: -0.934 ( -0.130)<br>
-0.367 0.091 0.002 - 0.633 0.202 0.006 CL -0.577 CF -0.934<br>
+3. 13/3 8/3(2)     Eq.: -0.141 ( -0.360)<br>
+0.572 0.312 0.052 - 0.428 0.103 0.004 CL +0.226 CF -0.141<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 6/5                    Eq.: -0.208
-       0.498 0.000 0.000 - 0.502 0.124 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/23 13/11                  Eq.: -0.241 (-0.033)
-       0.486 0.000 0.000 - 0.514 0.122 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/11 5/4                    Eq.: -0.241 (-0.034)
-       0.490 0.000 0.000 - 0.510 0.129 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/10                        Eq.: -0.325 (-0.117)
-       0.484 0.000 0.000 - 0.516 0.154 0.008
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    24/22 11/10                  Eq.: -0.343 (-0.135)
-       0.468 0.000 0.000 - 0.532 0.142 0.005
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-B-B-AB-b--AbD--Bc-bb---A-:0:0:1:12:4:3:0:7:10");
-var categoryid = "KE8";
-var probnum = "26";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "26";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=ab--BBBBB--abB---bbcb-B-A-:1:-1:1:55:2:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

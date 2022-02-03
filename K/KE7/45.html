@@ -12,69 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">捕まる恐れがあります</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">貪欲に</span>&ensp;
 <span>(KE7-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w5/7</div>
+<div class="gamesituation">b0-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=108 w=148</div></div>
+      <div class="pipinfo">pips Red=81 White=128</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ブロットを２枚隠して安心していると、バックマンが飛び出せない目を振った時にこちらのセミプライムの維持が怪しくなる。３枚をセミプライムに捕まえている時点で十分強力なので、ブロットを減らさずエスケープを優先させる。バックマンを飛び出したい相手にとって６の目でのヒットはあまりうれしくない。<br>
+ <div class="description">お互いのインナーを比べればヒット合戦は望むところ。大人しく勝ちだけを狙うのではなく、少しでも多くブロットを拾う確率を上げてギャモン勝ちを狙う。インナーをカバーしてしまって一番後ろで待つことによりコンタクトを増やす。２枚目を戻されることもショットを与えたくない相手にとっては脅威になる。<br>
 <br>
-1. 23/18 6/4 Eq.: +0.462<br>
-0.666 0.136 0.004 - 0.334 0.060 0.002 CL +0.462 CF +0.462<br>
+1. bar/22 8/3 Eq.: +1.198<br>
+0.900 0.338 0.004 - 0.100 0.002 0.000 CL +1.244 CF +1.198<br>
 <br>
-2. 13/8 6/4   Eq.: +0.369 ( -0.093)<br>
-0.618 0.138 0.003 - 0.382 0.054 0.002 CL +0.369 CF +0.369<br>
+2. bar/20 6/3 Eq.: +1.116 ( -0.083)<br>
+0.895 0.286 0.002 - 0.105 0.003 0.000 CL +1.163 CF +1.116<br>
 <br>
-3. 23/16       Eq.: +0.282 ( -0.179)<br>
-0.584 0.120 0.004 - 0.416 0.124 0.007 CL +0.282 CF +0.282<br>
+3. bar/20 8/5 Eq.: +1.101 ( -0.098)<br>
+0.884 0.295 0.004 - 0.116 0.006 0.000 CL +1.152 CF +1.101<br>
 <br>
-4. 6/4 6/1     Eq.: +0.268 ( -0.194)<br>
-0.566 0.143 0.003 - 0.434 0.088 0.004 CL +0.268 CF +0.268<br>
+4. bar/17       Eq.: +1.087 ( -0.112)<br>
+0.893 0.267 0.002 - 0.107 0.003 0.000 CL +1.134 CF +1.087<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/18 6/4                    Eq.: +0.847
-       0.661 0.151 0.005 - 0.339 0.066 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/8 6/4                     Eq.: +0.837 (-0.010)
-       0.628 0.147 0.004 - 0.372 0.052 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/4 6/1                      Eq.: +0.604 (-0.244)
-       0.587 0.164 0.004 - 0.413 0.100 0.004
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    23/16                        Eq.: +0.561 (-0.287)
-       0.575 0.125 0.004 - 0.425 0.123 0.006
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    23/18 13/11                  Eq.: +0.523 (-0.324)
-       0.560 0.134 0.004 - 0.440 0.130 0.008
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--BcABDBB---bA---c-c-bbA--:1:0:1:25:4:5:0:7:10");
-var categoryid = "KE7";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "KE7";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-CCAbBC-Bbaa--a------a-cdA:1:-1:1:35:0:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

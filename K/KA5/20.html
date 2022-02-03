@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">デュプリケーション</span>&ensp;
 <span>(KA5-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=148 白=130</div></div>
+      <div class="pipinfo">pips 緑=148 白=130</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">こういう形でもデュプリケーションが使える。<br>
 13/10 で、相手のヒットする目9が重複するのだ。<br>
@@ -47,33 +51,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10                        Eq.: -0.666
        0.408 0.096 0.004 - 0.592 0.280 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    21/20 13/11                  Eq.: -0.819 (-0.153)
        0.395 0.089 0.004 - 0.605 0.292 0.004
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    21/18                        Eq.: -0.905 (-0.239)
        0.377 0.078 0.003 - 0.623 0.281 0.002
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    21/20 8/6                    Eq.: -0.925 (-0.259)
        0.376 0.094 0.003 - 0.624 0.291 0.002
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    6/3                          Eq.: -0.943 (-0.277)
        0.382 0.099 0.004 - 0.618 0.311 0.003
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA5";
+const probnum = "20";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-b----E-D---dE-----c-Abbb-:0:0:1:21:1:1:0:5:10");
-var categoryid = "KA5";
-var probnum = "20";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

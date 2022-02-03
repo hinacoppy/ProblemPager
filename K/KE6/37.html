@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">先手を取れる手があります</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">相手にフリーロールを与える</span>&ensp;
 <span>(KE6-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b3-w6/7</div>
+<div class="gamesituation">b4-w8/11</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=158 w=113</div></div>
+      <div class="pipinfo">pips Red=163 White=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">３の目で困るがこちらだけギャモン勝ちの価値があってアウターに相手のブロットが転がっている今、腹切りプレーで先手を取る。オンザバーにすることにより相手にブロットをまとめる隙を与えず、ダンスすれば相当強い攻撃が続けられる。打ち返されてもアンカーを持っているので十分戦える。<br>
+ <div class="description">元々６の目が使いづらい相手がさらにバックマンを寄せてしまっていてこれも６でブロックされている。インナーのギャップを見ても相手は動かせば動かすほどポジションを悪くしてしまいそうな状態。ここでヒットしてしまうと進みすぎたくない相手を逆に助けてしまう。片目を奪われてもなお体勢を立て直す時間があるし、何より５ポイントを打ち返されるのは痛い。<br>
 <br>
-1. bar/23 5/2*   Eq.: -0.106<br>
-0.345 0.097 0.003 - 0.655 0.351 0.051 CL -0.106 CF -0.106<br>
+1. 13/5              Eq.: +0.443<br>
+0.565 0.151 0.006 - 0.435 0.170 0.008 CL +0.161 CF +0.443<br>
 <br>
-2. bar/23 7/4     Eq.: -0.270 ( -0.164)<br>
-0.315 0.048 0.001 - 0.685 0.315 0.035 CL -0.270 CF -0.270<br>
+2. 23/17*/15     Eq.: +0.346 ( -0.097)<br>
+0.540 0.153 0.006 - 0.460 0.221 0.011 CL +0.048 CF +0.346<br>
 <br>
-3. bar/23 24/21  Eq.: -0.328 ( -0.223)<br>
-0.281 0.052 0.001 - 0.719 0.364 0.021 CL -0.328 CF -0.328<br>
+3. 23/17* 13/11 Eq.: +0.327 ( -0.116)<br>
+0.541 0.156 0.007 - 0.459 0.242 0.015 CL +0.034 CF +0.327<br>
+<br>
+4. 23/17* 8/6     Eq.: +0.248 ( -0.194)<br>
+0.516 0.149 0.006 - 0.484 0.230 0.012 CL +0.008 CF +0.248<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 5/2*                  Eq.: -0.121
-       0.344 0.091 0.003 - 0.656 0.338 0.045
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/23 7/4                   Eq.: -0.246 (-0.125)
-       0.314 0.060 0.001 - 0.686 0.310 0.033
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/23 24/21                 Eq.: -0.309 (-0.188)
-       0.283 0.059 0.002 - 0.717 0.366 0.022
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/23 6/3                   Eq.: -0.342 (-0.221)
-       0.278 0.049 0.001 - 0.722 0.328 0.034
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    bar/23 21/18                 Eq.: -0.347 (-0.226)
-       0.276 0.048 0.000 - 0.724 0.454 0.097
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BaB-BCA------ab-a-ecBb-BA:1:-1:1:23:3:6:0:7:10");
-var categoryid = "KE6";
-var probnum = "37";
-var showpipflg = true;
+const categoryid = "KE6";
+const probnum = "37";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--a-BAC-C---bC---abd-c-Cb-:0:0:1:26:4:8:0:11:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

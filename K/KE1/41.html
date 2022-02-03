@@ -12,73 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">勝率とギャモン負け率</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ベアインのテクニック　その３</span>&ensp;
 <span>(KE1-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w0/5</div>
+<div class="gamesituation">b3-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=130 w=71</div></div>
+      <div class="pipinfo">pips Red=63 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">居残るほうが勝率が低い場合は、ピップで遅れている側がランに持ち込むことはよくある。<br>
-しかし、この場合は居残るほうが勝率が高いのにギャモン負けを増やし過ぎているためエスケープが正解となる。<br>
-これがスコアが逆となると、ギャモン負けの４点のうち１点無駄になるためギャモン負けのリスクが減り居残りも悪くなくなる。<br>
+ <div class="description">スイッチは魅力的だが直後に５通りのショットを与える。セーフティーしても次のターンで割れるのは４通りのみ。直後にショットを与えないならなおさらこちらがよい。<br>
 <br>
-上記のスコア<br>
-1. 23/16        Eq.: -0.717<br>
-0.127 0.000 0.000 - 0.873 0.001 0.000 CL -0.747 CF -0.717<br>
+1. 7/5(3) 2/off     Eq.: +0.833<br>
+0.861 0.147 0.004 - 0.139 0.000 0.000 CL +0.895 CF +0.833<br>
 <br>
-2. 13/11 8/3  Eq.: -0.817 ( -0.100)<br>
-0.161 0.013 0.000 - 0.839 0.126 0.002 CL -0.852 CF -0.817<br>
-<br>
-スコアのみ逆<br>
-1. 23/16        Eq.: -0.662<br>
-0.127 0.000 0.000 - 0.873 0.001 0.000 CL -0.747 CF -0.662<br>
-<br>
-2. 13/11 8/3  Eq.: -0.683 ( -0.021)<br>
-0.158 0.010 0.000 - 0.842 0.120 0.001 CL -0.781 CF -0.683<br>
+2. 7/5(2) 6/4*(2) Eq.: +0.732 ( -0.101)<br>
+0.787 0.251 0.009 - 0.213 0.014 0.000 CL +0.842 CF +0.732<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11 8/3                    Eq.: -1.079
-       0.212 0.000 0.000 - 0.788 0.220 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/16                        Eq.: -1.087 (-0.008)
-       0.002 0.000 0.000 - 0.998 0.060 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/6 8/3                      Eq.: -1.099 (-0.020)
-       0.204 0.000 0.000 - 0.796 0.227 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/6                         Eq.: -1.113 (-0.034)
-       0.184 0.000 0.000 - 0.816 0.216 0.004
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/11 13/8                   Eq.: -1.127 (-0.049)
-       0.187 0.000 0.000 - 0.813 0.229 0.005
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--AAB-C-C----D---bcdb--A--:1:0:1:25:2:0:0:5:10");
-var categoryid = "KE1";
-var probnum = "41";
-var showpipflg = true;
+const categoryid = "KE1";
+const probnum = "41";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BDbaDBC------a----bbbbba-:1:-1:1:22:3:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

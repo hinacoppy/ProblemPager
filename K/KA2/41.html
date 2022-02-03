@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">どこを外すか</span>&ensp;
 <span>(KA2-41)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">ショットを与えねばならない。</div>
 <div class="gamesituation">11ptマッチ、スコア8-6でリード。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=118 白=109</div></div>
+      <div class="pipinfo">pips 黒=118 白=109</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">nori＞<br>
 アンカーをはずすのは論外。<br>
@@ -55,33 +59,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/11                        Eq.: -0.146
        0.461 0.089 0.001 - 0.539 0.121 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/4 8/2                      Eq.: -0.234 (-0.088)
        0.428 0.062 0.000 - 0.572 0.086 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/3                         Eq.: -0.408 (-0.262)
        0.375 0.058 0.001 - 0.625 0.063 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    21/15 8/4                    Eq.: -0.389 (-0.243)
        0.405 0.103 0.001 - 0.595 0.221 0.006
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/2 5/1                      Eq.: -0.495 (-0.349)
        0.348 0.053 0.000 - 0.652 0.111 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA2";
+const probnum = "41";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--CB-BBbB----Ba--bdb-B-bb-:0:0:1:46:0:0:3:0:10");
-var categoryid = "KA2";
-var probnum = "41";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

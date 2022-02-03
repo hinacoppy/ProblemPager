@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">普通？</span>&ensp;
 <span>(KA4-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">でも普通っていう言葉には毒があるぞ。</div>
 <div class="gamesituation">このムーブは普通なのか？</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 赤=124 白=126</div></div>
+      <div class="pipinfo">pips 赤=124 白=126</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">nori＞<br>
 ＞このムーブは普通なのか？<br>
@@ -74,33 +78,30 @@ played 2-ply (medium),<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 6/5                      Eq.: -0.222
        0.420 0.090 0.003 - 0.580 0.140 0.005
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/23 4/2                    Eq.: -0.360 (-0.137)
        0.392 0.091 0.003 - 0.608 0.190 0.005
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/23 6/4                    Eq.: -0.362 (-0.140)
        0.398 0.075 0.002 - 0.602 0.172 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    24/23 8/6                    Eq.: -0.374 (-0.152)
        0.394 0.078 0.002 - 0.606 0.176 0.005
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/23 13/11                  Eq.: -0.375 (-0.153)
        0.396 0.079 0.002 - 0.604 0.188 0.007
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA4";
+const probnum = "36";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=---bC-DBC----B-aabcb-bb-A-:0:0:1:12:4:5:0:7:10");
-var categoryid = "KA4";
-var probnum = "36";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

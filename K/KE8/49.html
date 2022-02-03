@@ -12,72 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">打たれないチェッカーをアンカーとする</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">行き止まり</span>&ensp;
 <span>(KE8-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b2-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=117 w=73</div></div>
+      <div class="pipinfo">pips Red=150 White=171</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">１の目でカバーして強いボードを作れたので、あとはショットが来るのを待ちたいところ。ここは相手のインナーブロットを利用してアンカーを割って手広く構える。バックゲームのようにダブルアンカーを取ると相手からショットをもらいやすいが、このポジションのようにリスクを負ってまでヒットしてこないのならポイントになってなくともこちらのバックマンはダブルアンカーの役目を果たしている。<br>
+ <div class="description">プライムがダブルアンカーで止められている状況。これ以上アンカーの後ろに送り込んでもタイミングがなくなるだけで、せっかくの４プラを崩してしまう。ここは相手の攻め駒が少ないうちにエスケープしてプライムの崩壊を避ける。ヒットされても相手のプレー時間が増えればそれだけアンカーを保持しにくくなり、こちらも攻めやすくなる。<br>
 <br>
-1. 22/20 6/5     Eq.: -0.138<br>
-0.444 0.087 0.001 - 0.556 0.046 0.001 CL -0.057 CF -0.138<br>
+1. 21/17 21/15  Eq.: -0.081<br>
+0.517 0.140 0.006 - 0.483 0.154 0.009 CL +0.014 CF -0.081<br>
 <br>
-2. 22/21 13/11 Eq.: -0.222 ( -0.084)<br>
-0.427 0.095 0.002 - 0.573 0.064 0.002 CL -0.099 CF -0.222<br>
+2. 21/17 9/3      Eq.: -0.192 ( -0.111)<br>
+0.479 0.162 0.007 - 0.521 0.154 0.008 CL -0.043 CF -0.192<br>
 <br>
-3. 13/11 6/5     Eq.: -0.228 ( -0.090)<br>
-0.431 0.067 0.001 - 0.569 0.033 0.001 CL -0.089 CF -0.228<br>
-<br>
-4. 6/5 6/4         Eq.: -0.230 ( -0.092)<br>
-0.430 0.065 0.001 - 0.570 0.033 0.001 CL -0.093 CF -0.230<br>
-<br>
-5. 22/21 6/4      Eq.: -0.255 ( -0.117)<br>
-0.420 0.086 0.002 - 0.580 0.066 0.002 CL -0.124 CF -0.255<br>
+3. 9/3 6/2*        Eq.: -0.228 ( -0.148)<br>
+0.463 0.135 0.004 - 0.537 0.137 0.006 CL -0.080 CF -0.228<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/20 6/5                    Eq.: +0.019
-       0.552 0.000 0.000 - 0.448 0.083 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/11 6/5                    Eq.: -0.061 (-0.080)
-       0.521 0.000 0.000 - 0.479 0.079 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/10                        Eq.: -0.156 (-0.176)
-       0.485 0.000 0.000 - 0.515 0.085 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    22/21 13/11                  Eq.: -0.138 (-0.157)
-       0.506 0.000 0.000 - 0.494 0.114 0.007
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/5 6/4                      Eq.: -0.157 (-0.176)
-       0.479 0.000 0.000 - 0.521 0.079 0.002
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--BBBAD-----bB---d-b--Baa-:0:0:1:12:2:0:0:5:10");
-var categoryid = "KE8";
-var probnum = "49";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--aAbbDBBC------b-cbcB--A-:0:0:1:46:2:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

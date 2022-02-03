@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ショットを与えるか？</span>&ensp;
 <span>(KA2-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">昨日の続き。</div>
 <div class="gamesituation">11ptマッチ、黒が6-4でリード。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=95 白=92</div></div>
+      <div class="pipinfo">pips 黒=95 白=92</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">nori＞<br>
 b/23 16/13<br>
@@ -55,27 +59,26 @@ noriさん、正解！<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 16/13                 Eq.: -0.739
        0.191 0.022 0.000 - 0.809 0.201 0.007
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/23 6/3                   Eq.: -0.879 (-0.140)
        0.159 0.018 0.000 - 0.841 0.263 0.005
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/23 4/1                   Eq.: -0.896 (-0.157)
        0.156 0.018 0.000 - 0.844 0.274 0.006
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA2";
+const probnum = "27";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-BBDB-B-------c-Bb-bbcc--A:1:1:1:32:0:0:3:0:10");
-var categoryid = "KA2";
-var probnum = "27";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">アンカーを外すのか？</span>&ensp;
 <span>(KA6-32)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">6通りのショットを得る　4通り(14 56)</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=94 白=88</div></div>
+      <div class="pipinfo">pips 緑=94 白=88</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">普通に動かせば、あれに決まっています。<br>
 でもまさか、こんなムーブが成立するのでしょうか？<br>
@@ -68,33 +72,30 @@ vinさんのコメントが的確でした。<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/5 6/1                      Eq.: -0.671
        0.169 0.005 0.000 - 0.831 0.075 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/1 5/4                      Eq.: -0.688 (-0.017)
        0.164 0.005 0.000 - 0.836 0.081 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    6/1 2/1                      Eq.: -0.699 (-0.028)
        0.159 0.004 0.000 - 0.841 0.079 0.002
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    6/1 4/3                      Eq.: -0.702 (-0.031)
        0.160 0.005 0.000 - 0.840 0.084 0.002
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/1 3/2                      Eq.: -0.704 (-0.033)
        0.160 0.005 0.000 - 0.840 0.083 0.002
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA6";
+const probnum = "32";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-BBBBBC------b---b-bcccB--:1:1:1:15:0:1:0:7:10");
-var categoryid = "KA6";
-var probnum = "32";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

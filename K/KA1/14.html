@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">プライムを超えろ！</span>&ensp;
 <span>(KA1-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の振り番でキューブアクションは？</div>
 <div class="gamesituation">13ptマッチ0対0。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=63 白=131</div></div>
+      <div class="pipinfo">pips 黒=63 白=131</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">望月さんの記事で有名になった言葉ですね。<br>
 <br>
@@ -47,27 +51,29 @@
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.448
+2-ply cubeless equity +0.456 (Money: +0.448)
   0.564 0.348 0.003 - 0.436 0.031 0.000
 Cubeful equities:
-1. Double, take        +0.606
-2. Double, pass        +1.000  (+0.394)
-3. No double           +0.256  (-0.351)
+1. Double, take        +0.602
+2. Double, pass        +1.000  (+0.398)
+3. No double           +0.437  (-0.165)
 Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
-board.showBoard("XGID=aCCBDB--a----aa--bbcbbA---:0:0:1:00:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "14";
-var showpipflg = false;
+const categoryid = "KA1";
+const probnum = "14";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
+board.showBoard("XGID=aCCBDB--a----aa--bbcbbA---:0:0:1:00:0:0:0:13:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

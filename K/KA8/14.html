@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ヒットするのか？ その12</span>&ensp;
 <span>(KA8-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の54をどないしますか。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=125 白=105</div></div>
+      <div class="pipinfo">pips 黒=125 白=105</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">早い時間ですが、アップしておきます。<br>
 実戦は25ポイントマッチの序盤だったので、マネーゲームという設定で差し支えないでしょう。<br>
@@ -117,33 +121,30 @@ cool water、vinさんが13個、H.Sさん12個、たれだんなさん10個と�
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/15*/11                    Eq.: +0.165
        0.528 0.139 0.006 - 0.472 0.241 0.007
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/3 5/1                      Eq.: +0.034 (-0.131)
        0.456 0.097 0.002 - 0.544 0.129 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    6/2 6/1                      Eq.: -0.028 (-0.193)
        0.433 0.069 0.001 - 0.567 0.110 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    20/16 20/15*                 Eq.: -0.099 (-0.264)
        0.480 0.121 0.010 - 0.520 0.342 0.012
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/9 13/8                    Eq.: -0.102 (-0.267)
        0.416 0.064 0.002 - 0.584 0.139 0.002
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA8";
+const probnum = "14";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--ABbCB-C-a--B-a---cBbbbb-:1:1:1:54:0:0:3:0:10");
-var categoryid = "KA8";
-var probnum = "14";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

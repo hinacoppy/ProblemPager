@@ -12,69 +12,66 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">魔の手を遠ざける</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">狙う獲物はあの１枚</span>&ensp;
 <span>(KEc-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w4/9</div>
+<div class="gamesituation">b3-w2/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=154 w=126</div></div>
+      <div class="pipinfo">pips Red=147 White=116</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ここで５ポイントをカバーしても残るブロットに対して敵は３箇所から狙える位置にある。こちら側のブロットを放置してでもバックマンをひき逃げでエスケープさせたほうがショット数も少なく相手のボードメイクのビルダーを１枚取り除くメリットもある。オンザバーにしてしまえばリターンできない相手の６がらみの目で一気に優位に立てる。<br>
+ <div class="description">ピップで大きく遅れ、アンカーをとっている。相手のボードもスカスカでヒットされるリスクのない今１の目でスロットする。<br>
+ラストチェッカーに対して大きな目はすでに止めているのでヒットされない場合のメリットがとても大きく、ミッドポイントをヒットする３の目が重複している。<br>
 <br>
-1. 21/18*/13 Eq.: -0.365<br>
-0.408 0.098 0.005 - 0.592 0.376 0.006 CL -0.554 CF -0.365<br>
+1. 15/9 6/5    Eq.: -0.250<br>
+0.491 0.107 0.005 - 0.509 0.168 0.003 CL -0.088 CF -0.250<br>
 <br>
-2. 6/1* 4/1    Eq.: -0.453 (-0.088)<br>
-0.367 0.103 0.004 - 0.633 0.358 0.007 CL -0.618 CF -0.453<br>
+2. 13/7 6/5    Eq.: -0.340 (-0.090)<br>
+0.472 0.103 0.004 - 0.528 0.164 0.003 CL -0.138 CF -0.340<br>
 <br>
-3. 11/6 8/5    Eq.: -0.571 (-0.206)<br>
-0.365 0.105 0.006 - 0.635 0.444 0.016 CL -0.735 CF -0.571<br>
+3. 15/9 8/7    Eq.: -0.404 (-0.154)<br>
+0.444 0.095 0.004 - 0.556 0.131 0.002 CL -0.156 CF -0.404<br>
 <br>
-4. 8/5 6/1*    Eq.: -0.571 (-0.206)<br>
-0.360 0.101 0.004 - 0.640 0.440 0.011 CL -0.742 CF -0.571<br>
+4. 15/9 13/12 Eq.: -0.409 (-0.159)<br>
+0.442 0.092 0.004 - 0.558 0.125 0.002 CL -0.170 CF -0.409<br>
+<br>
+5. 15/14 13/7 Eq.: -0.423 (-0.172)<br>
+0.438 0.093 0.004 - 0.562 0.120 0.002 CL -0.155 CF -0.423<br>
+<br>
+6. 13/7 8/7     Eq.: -0.425 (-0.175)<br>
+0.436 0.089 0.004 - 0.564 0.115 0.002 CL -0.165 CF -0.425<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/18*/13                    Eq.: -0.318
-       0.414 0.101 0.006 - 0.586 0.355 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/1* 4/1                     Eq.: -0.431 (-0.113)
-       0.369 0.108 0.005 - 0.631 0.354 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/5 6/1*                     Eq.: -0.513 (-0.195)
-       0.371 0.111 0.007 - 0.629 0.429 0.014
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    11/6 8/5                     Eq.: -0.602 (-0.284)
-       0.358 0.108 0.008 - 0.642 0.474 0.023
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    21/18* 6/1*                  Eq.: -0.615 (-0.297)
-       0.336 0.087 0.007 - 0.664 0.411 0.032
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aa-AAC-C--BbB--bBabbA-bb-:1:1:1:35:4:4:0:9:10");
-var categoryid = "KEc";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "KEc";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--a---DCD-a--A-Abd-d-B-ab-:0:0:1:16:3:2:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

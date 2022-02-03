@@ -12,68 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ショットが少なければいいのか</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">欲張ったばっかりに</span>&ensp;
 <span>(KE1-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/7</div>
+<div class="gamesituation">b1-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=87 w=102</div></div>
+      <div class="pipinfo">pips Red=152 White=124</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">打たれればほぼ負けでしょう。そんな局面ですがショットの多いムーブのほうが期待値が高くなっている。<br>
-９ポイントを動かすムーブだと次にミッドポイントを崩す時にまたショットを与える可能性が高い。つまりこれを外してくれても全く楽にならない。ミッドを今外すと打たれなかった場合かなり楽になる。相手に１枚バックマンがいるせいで次にバーアンカーを崩さずに済む場合があるのも大きい。<br>
-もう一つの理由はこちらのギャモン負け。ミッドから１枚持ってきておくとギャモン負けが半分になっている。<br>
+ <div class="description">オンザバーに２枚上げるのは魅力的だが、カバーする駒も少なくそもそもインナーの強度で負けている。ただでさえ多いこちらのバックマンの数をさらに増やすことになるならショットは少なくしておきたい。7/4とすることで５プラへの布石となっている。<br>
 <br>
-1. 13/6    Eq.: -0.132<br>
-0.462 0.051 0.001 - 0.538 0.056 0.000 CL -0.082 CF -0.132<br>
+1. 20/15 7/4    Eq.: +0.637<br>
+0.658 0.200 0.009 - 0.342 0.106 0.002 CL +0.400 CF +0.637<br>
 <br>
-2. 9/2       Eq.: -0.232 ( -0.100)<br>
-0.446 0.043 0.000 - 0.554 0.107 0.001 CL -0.176 CF -0.232<br>
+2. 20/15 4/1*   Eq.: +0.559 ( -0.078)<br>
+0.627 0.188 0.008 - 0.373 0.111 0.002 CL +0.362 CF +0.559<br>
 <br>
-3. 9/8 9/3 Eq.: -0.253 ( -0.120)<br>
-0.439 0.036 0.000 - 0.561 0.109 0.001 CL -0.201 CF -0.253<br>
+3. 20/12           Eq.: +0.497 ( -0.141)<br>
+0.623 0.151 0.006 - 0.377 0.130 0.002 CL +0.260 CF +0.497<br>
+<br>
+4. 20/15 8/5     Eq.: +0.483 ( -0.154)<br>
+0.631 0.161 0.007 - 0.369 0.147 0.002 CL +0.257 CF +0.483<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/6                         Eq.: -0.137
-       0.475 0.055 0.000 - 0.525 0.061 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    9/2                          Eq.: -0.225 (-0.088)
-       0.466 0.049 0.000 - 0.534 0.105 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    9/8 9/3                      Eq.: -0.254 (-0.116)
-       0.458 0.041 0.000 - 0.542 0.109 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    9/3 4/3                      Eq.: -0.304 (-0.167)
-       0.439 0.037 0.000 - 0.561 0.114 0.001
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    9/3 6/5                      Eq.: -1.000 (-0.863)
-       0.274 0.051 0.001 - 0.726 0.371 0.009
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aBCC-Cb-B---B-----bbbbbb-:1:-1:1:16:0:0:0:7:10");
-var categoryid = "KE1";
-var probnum = "33";
-var showpipflg = true;
+const categoryid = "KE1";
+const probnum = "33";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=aa--ABBBD----a---bccD-b-b-:1:1:1:35:1:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

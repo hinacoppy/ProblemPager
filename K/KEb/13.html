@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">手番２回分の動き</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ベアインのテクニック　その１３</span>&ensp;
 <span>(KEb-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b5-w5/9</div>
+<div class="gamesituation">b0-w4/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=149 w=143</div></div>
+      <div class="pipinfo">pips Red=103 White=87</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">このヒットでピップのリードを広げボードも強い状況。後は後ろのチェッカーを戻してくるだけなのでここでアンカーを取らずに相手がオンザバーの今飛び出しておく。相手の攻めが弱い今、一歩先に動かしておくことで次の手番でブロットを片付けたりまとめたりしやすくなる。<br>
+ <div class="description">レースで大きく負けていて相手のボードにも傷があるのでセーフティプレーでレースにするのではなくインナー強化からのヒットを狙いたい。インナーカバーで６の目を使って残りの３の目でショット最小の10/7とせずにブロットを１０ポイントに置いたままのプレーがベストになっている。どうせ５の目を振られて飛び出されるのは痛いのでそこにブロットを置くリスクが少ないのとせっかくの飛び出せないはずの出目１２、２２、２４でヒットされてしまうのがもったいない。<br>
 <br>
-1. bar/20*/16      Eq.: +0.868<br>
-0.686 0.147 0.005 - 0.314 0.054 0.002 CL +0.528 CF +0.868<br>
+1. 10/4 6/3  Eq.: -0.215<br>
+0.396 0.024 0.001 - 0.604 0.086 0.001 CL -0.268 CF -0.215<br>
 <br>
-2. bar/20* 24/20 Eq.: +0.741 (-0.127)<br>
-0.683 0.103 0.003 - 0.317 0.049 0.001 CL +0.466 CF +0.741<br>
+2. 9/6 9/3    Eq.: -0.333 (-0.118)<br>
+0.372 0.007 0.000 - 0.628 0.032 0.001 CL -0.280 CF -0.333<br>
 <br>
-3. bar/20* 13/9   Eq.: +0.736 (-0.132)<br>
-0.646 0.173 0.006 - 0.354 0.073 0.003 CL +0.458 CF +0.736<br>
-<br>
-4. bar/20* 11/7    Eq.: +0.719 (-0.149)<br>
-0.644 0.164 0.005 - 0.356 0.071 0.003 CL +0.443 CF +0.719<br>
+3. 10/7 10/4 Eq.: -0.383 (-0.168)<br>
+0.348 0.016 0.001 - 0.652 0.072 0.001 CL -0.359 CF -0.383<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20*/16                   Eq.: +0.859
-       0.685 0.154 0.005 - 0.315 0.056 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20* 13/9                 Eq.: +0.764 (-0.095)
-       0.650 0.182 0.007 - 0.350 0.070 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/20* 24/20                Eq.: +0.742 (-0.117)
-       0.673 0.129 0.004 - 0.327 0.049 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    bar/20* 11/7                 Eq.: +0.722 (-0.137)
-       0.651 0.169 0.006 - 0.349 0.066 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    bar/20* 6/2                  Eq.: +0.491 (-0.368)
-       0.617 0.158 0.005 - 0.383 0.085 0.004
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---BbBC-B--AbC---e-ea---AA:0:0:1:45:5:5:0:9:10");
-var categoryid = "KEb";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "KEb";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=---CAaE--BBBa----a-cc-cab-:0:0:1:36:0:4:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

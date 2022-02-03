@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">よく分からない</span>&ensp;
 <span>(KA6-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=144 白=148</div></div>
+      <div class="pipinfo">pips 緑=144 白=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">第56回サタデートーナメントの決勝戦より。<br>
 私のムーブは0.069のエラーだった。<br>
@@ -63,33 +67,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 11/7 6/2(2)           Eq.: +0.075
        0.490 0.182 0.005 - 0.510 0.089 0.003
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/21 11/7 8/4(2)           Eq.: +0.027 (-0.048)
        0.480 0.158 0.004 - 0.520 0.084 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    bar/21 8/4(2) 6/2            Eq.: -0.190 (-0.265)
        0.425 0.152 0.005 - 0.575 0.123 0.004
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    bar/21 8/4(2) 7/3            Eq.: -0.231 (-0.306)
        0.415 0.145 0.004 - 0.585 0.123 0.006
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    bar/21 6/2(3)                Eq.: -0.308 (-0.383)
        0.394 0.130 0.003 - 0.606 0.123 0.004
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA6";
+const probnum = "02";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=a--B-aEBB--Ac----bbdbB---A:0:0:1:44:0:0:0:7:10");
-var categoryid = "KA6";
-var probnum = "02";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

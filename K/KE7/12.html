@@ -12,69 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">出たら出れない</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">打たれ強い形です</span>&ensp;
 <span>(KE7-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/7</div>
+<div class="gamesituation">b1-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=151 w=92</div></div>
+      <div class="pipinfo">pips Red=128 White=132</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">プライム戦で有利なピップの遅れを利用して９ポイントメイクすることにより、相手の穴あきプライムの崩壊を狙う。ヒットしながら飛び出してしまうと残されたバックマンが攻撃の対象となりプライムやブリッツの的になってしまう。ボードの強さでも負けていてピップでも逆転しない状況でのヒットは割に合わない。<br>
+ <div class="description">インダイレクトショットを含めて相手のバックマンに飛び出されると、こちらもアンカーの外し時が悩ましい展開になる。ここはインナーの強さが大差で相手もエンターと同時に大したことができないためルースヒットで一気に決めに行く。打たれてもアンカーを利用してこちらは自由に動けるし、何よりダンスでさらにボードを強くできる。<br>
 <br>
-1. 15/9 11/9  Eq.: +0.607<br>
-0.679 0.148 0.006 - 0.321 0.125 0.004 CL +0.388 CF +0.607<br>
+1. 10/1*        Eq.: +0.297<br>
+0.609 0.246 0.004 - 0.391 0.070 0.003 CL +0.425 CF +0.297<br>
 <br>
-2. 23/21*/15  Eq.: +0.283 ( -0.325)<br>
-0.599 0.147 0.006 - 0.401 0.209 0.011 CL +0.132 CF +0.283<br>
+2. 8/2 5/2     Eq.: +0.209 ( -0.088)<br>
+0.591 0.201 0.004 - 0.409 0.060 0.003 CL +0.349 CF +0.209<br>
 <br>
-3. 11/5 7/5    Eq.: +0.167 ( -0.440)<br>
-0.575 0.133 0.006 - 0.425 0.205 0.011 CL +0.071 CF +0.167<br>
+3. 11/8 10/4 Eq.: +0.191 ( -0.106)<br>
+0.593 0.170 0.003 - 0.407 0.050 0.002 CL +0.329 CF +0.191<br>
 <br>
-4. 11/3*         Eq.: +0.154 ( -0.453)<br>
-0.573 0.135 0.005 - 0.427 0.224 0.013 CL +0.048 CF +0.154<br>
+4. 11/2          Eq.: +0.113 ( -0.185)<br>
+0.567 0.167 0.004 - 0.433 0.062 0.003 CL +0.259 CF +0.113<br>
+<br>
+5. 10/7 10/4 Eq.: +0.106 ( -0.191)<br>
+0.560 0.183 0.004 - 0.440 0.063 0.002 CL +0.268 CF +0.106<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    15/9 11/9                    Eq.: +0.613
-       0.688 0.156 0.003 - 0.312 0.117 0.002
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    23/21*/15                    Eq.: +0.293 (-0.320)
-       0.615 0.162 0.008 - 0.385 0.212 0.006
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    11/3*                        Eq.: +0.104 (-0.508)
-       0.564 0.143 0.006 - 0.436 0.215 0.013
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    15/13 11/5                   Eq.: +0.086 (-0.527)
-       0.556 0.121 0.004 - 0.444 0.190 0.008
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    11/5 7/5                     Eq.: +0.076 (-0.536)
-       0.559 0.127 0.004 - 0.441 0.208 0.012
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---aB-CBB-AA-A-A-bcc-acBb-:0:0:1:26:0:0:0:7:10");
-var categoryid = "KE7";
-var probnum = "12";
-var showpipflg = true;
+const categoryid = "KE7";
+const probnum = "12";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a--BCC-B-BAb-b--c-dBc----:1:-1:1:36:1:2:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

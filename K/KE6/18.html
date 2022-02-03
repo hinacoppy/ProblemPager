@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">プライムを迎え撃つ</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">夢を諦めて</span>&ensp;
 <span>(KE6-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/7</div>
+<div class="gamesituation">b0-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=168 w=120</div></div>
+      <div class="pipinfo">pips Red=55 White=27</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">２ゾロで前進も考えられるが、そうすると行き場を失った相手のチェッカーを安全に後ろに送りまれてしまう。エースポイントを作り、攻め駒の足りない相手にプライムで捕まってしまう心配をするより、遅れていることを利用して９ポイントを抑えプライム戦を受けて立つ。弱点であるインナーを作るビルダーにもなっている。<br>
+ <div class="description">キューブを受けていてギャモン負けが現実的な局面。無理にヒットしても何も起こらないのでブロットを１枚隠す。１回打たれるだけでギャモンになりそうなので、ラストチェッカーにさえ手を付けず打たれないことを優先させる。<br>
 <br>
-1. 13/9(2)                 Eq.: -0.016<br>
-0.511 0.133 0.005 - 0.489 0.192 0.008 CL -0.042 CF -0.016<br>
+1. 10/1           Eq.: -1.059<br>
+0.015 0.000 0.000 - 0.985 0.084 0.001 CL -1.064 CF -1.059<br>
 <br>
-2. 23/21(3) 13/11     Eq.: -0.164 ( -0.147)<br>
-0.465 0.112 0.004 - 0.535 0.174 0.003 CL -0.132 CF -0.164<br>
+2. 10/5*/1      Eq.: -1.114 ( -0.055)<br>
+0.026 0.000 0.000 - 0.974 0.157 0.003 CL -1.124 CF -1.114<br>
 <br>
-3. 23/21(2) 13/11(2) Eq.: -0.272 ( -0.255)<br>
-0.451 0.113 0.005 - 0.549 0.225 0.004 CL -0.216 CF -0.272<br>
+3. 20/15 10/6  Eq.: -1.146 ( -0.087)<br>
+0.012 0.000 0.000 - 0.988 0.154 0.005 CL -1.151 CF -1.146<br>
+<br>
+4. 20/16 10/5* Eq.: -1.195 ( -0.136)<br>
+0.030 0.000 0.000 - 0.970 0.235 0.010 CL -1.206 CF -1.195<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9(2)                      Eq.: -0.121
-       0.487 0.124 0.004 - 0.513 0.187 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/21(3) 13/11               Eq.: -0.177 (-0.056)
-       0.467 0.112 0.005 - 0.533 0.172 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/21(2) 13/11(2)            Eq.: -0.225 (-0.104)
-       0.460 0.118 0.006 - 0.540 0.207 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    23/21(3) 6/4                 Eq.: -0.300 (-0.179)
-       0.445 0.112 0.003 - 0.555 0.229 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/11(4)                     Eq.: -0.326 (-0.205)
-       0.431 0.096 0.002 - 0.569 0.196 0.006
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---b-CCB----bD----bcb-bCb-:0:0:1:22:0:0:0:7:10");
-var categoryid = "KE6";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "KE6";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-EEBAa----A---------A--bc-:1:1:1:45:0:2:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,63 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">餌を与えないでください</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">一人の敵の前に</span>&ensp;
 <span>(KEa-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w1/5</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=112 w=133</div></div>
+      <div class="pipinfo">pips Red=160 White=121</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">こちらが５ポイントボードを持っているため相手は危険を伴うヒットはしたくない。ここで１枚だけ飛び出してしまうとせっかく捕まえているバックマンにノーリスクでヒットされながら飛び出されてしまう。今なら２枚とも出したところで相手のいい目は都合のよいポイントオンぐらいでそれ以外の目の多くがこちらのキューブを受けられない。<br>
+ <div class="description">相手の強いインナーと多くのビルダーの前にブロットが２枚もある非常に危険な状況。ピップが遅れているためアンカーなら残りたいところだが、このまま放置していると叩き潰されてしまう。そこで後ろで残るのは１枚だけにして１枚をアウターに飛び出す。一転して１０ポイントにある相手のブロットが安全にできない場合に迎撃するチャンスが増え、その後の相手アンカーの飛び出しに対するけん制要員を１枚増やすことができる。<br>
 <br>
-1. 20/15 20/14 Eq.: +0.728<br>
-0.707 0.163 0.004 - 0.293 0.073 0.003 CL +0.559 CF +0.728<br>
+1. 22/15       Eq.: -0.722<br>
+0.278 0.052 0.002 - 0.722 0.403 0.012 CL -0.833 CF -0.722<br>
 <br>
-2. 20/9             Eq.: +0.541 (-0.187)<br>
-0.645 0.158 0.004 - 0.355 0.061 0.002 CL +0.415 CF +0.541<br>
+2. 24/18 6/5 Eq.: -0.812 ( -0.090)<br>
+0.269 0.054 0.002 - 0.731 0.467 0.013 CL -0.921 CF -0.812<br>
+<br>
+3. 24/18 8/7 Eq.: -0.831 ( -0.110)<br>
+0.258 0.050 0.002 - 0.742 0.456 0.013 CL -0.933 CF -0.831<br>
+<br>
+4. 13/7 8/7   Eq.: -0.838 ( -0.116)<br>
+0.259 0.052 0.002 - 0.741 0.453 0.027 CL -0.944 CF -0.838<br>
+<br>
+5. 24/18 2/1 Eq.: -0.873 ( -0.152)<br>
+0.229 0.045 0.001 - 0.771 0.428 0.009 CL -0.962 CF -0.873<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/15 20/14                  Eq.: +0.762
-       0.711 0.172 0.003 - 0.289 0.067 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/9                         Eq.: +0.617 (-0.145)
-       0.658 0.149 0.002 - 0.342 0.053 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    20/15 8/2                    Eq.: +0.299 (-0.463)
-       0.588 0.144 0.002 - 0.412 0.081 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    20/14 6/1                    Eq.: +0.163 (-0.599)
-       0.561 0.128 0.002 - 0.439 0.101 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/2 6/1                      Eq.: -0.781 (-1.543)
-       0.371 0.080 0.001 - 0.629 0.176 0.006
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BBcBBB-B-------bc-bC-cb--:0:0:1:56:2:1:0:5:10");
-var categoryid = "KEa";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--B-b-D-C-a--B---cBcbbAbA-:1:1:1:16:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

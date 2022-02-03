@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">え！スロットするの？</span>&ensp;
 <span>(KA6-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=117 白=115</div></div>
+      <div class="pipinfo">pips 緑=117 白=115</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">ace-pointに2枚死んでいるため、flexibilityに乏しい。<br>
 3pt作りでは、次に6が出ないと大変なことになってしまう。<br>
@@ -41,33 +45,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    6/3 5/4                      Eq.: -0.128
        0.429 0.094 0.002 - 0.571 0.193 0.011
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    6/3 4/3                      Eq.: -0.318 (-0.190)
        0.366 0.087 0.002 - 0.634 0.194 0.006
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    7/6 7/4                      Eq.: -0.486 (-0.358)
        0.311 0.081 0.001 - 0.689 0.194 0.009
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/4                          Eq.: -0.618 (-0.490)
        0.287 0.071 0.001 - 0.713 0.251 0.019
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    7/4 5/4                      Eq.: -0.657 (-0.530)
        0.277 0.068 0.001 - 0.723 0.260 0.020
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA6";
+const probnum = "10";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-Bb-ACCBB---a----b-bbbbbB-:0:0:1:31:0:4:0:7:10");
-var categoryid = "KA6";
-var probnum = "10";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

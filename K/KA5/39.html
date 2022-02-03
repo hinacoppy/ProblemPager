@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Hit or not?</span>&ensp;
 <span>(KA5-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=87 白=134</div></div>
+      <div class="pipinfo">pips 緑=87 白=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">・ヒットすればギャモン率が上がる<br>
 ・勝率はヒットしない方が高い<br>
@@ -52,33 +56,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 3/1*                     Eq.: +1.042
        0.785 0.579 0.004 - 0.215 0.037 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/6 8/4                      Eq.: +0.942 (-0.100)
        0.807 0.417 0.003 - 0.193 0.027 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/4 6/4                      Eq.: +0.872 (-0.169)
        0.801 0.368 0.002 - 0.199 0.030 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    13/11 8/4                    Eq.: +0.671 (-0.370)
        0.728 0.342 0.007 - 0.272 0.042 0.001
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/9 6/4                     Eq.: +0.613 (-0.429)
        0.719 0.301 0.006 - 0.281 0.035 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA5";
+const probnum = "39";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-aBCABC-B---dB---abcbb----:1:-1:1:42:0:0:3:0:10");
-var categoryid = "KA5";
-var probnum = "39";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

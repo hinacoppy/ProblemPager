@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Hit or not?</span>&ensp;
 <span>(KA7-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">緑に54が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=156 白=148</div></div>
+      <div class="pipinfo">pips 緑=156 白=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">ヒットするかしないのかは、バックギャモン最大の課題と言ってよいかもしれませんね。<br>
 昨日は西本さんとJoe-Guyにて遊びました～　私の記した携帯番号が間違っていて、迷惑を掛けてしまいました。ごめんなさい！<br>
@@ -99,33 +103,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 12/7                   Eq.: +0.827
        0.678 0.235 0.011 - 0.322 0.081 0.003
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/15                        Eq.: +0.823 (-0.004)
        0.681 0.253 0.013 - 0.319 0.100 0.007
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    7/2* 6/2                     Eq.: +0.776 (-0.051)
        0.656 0.276 0.012 - 0.344 0.100 0.006
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    20/15 6/2*                   Eq.: +0.703 (-0.125)
        0.650 0.246 0.011 - 0.350 0.129 0.013
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    20/11                        Eq.: +0.699 (-0.128)
        0.642 0.240 0.013 - 0.358 0.115 0.009
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "10";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=a-abCBCB----A-----ccAbcBA-:1:1:1:45:2:2:0:7:10");
-var categoryid = "KA7";
-var probnum = "10";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

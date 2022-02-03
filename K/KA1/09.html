@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">キューブアクション</span>&ensp;
 <span>(KA1-09)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒の振り番でキューブアクションは？</div>
 <div class="gamesituation">5ポイントマッチ、黒が1-0でリードしています。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=122 白=106</div></div>
+      <div class="pipinfo">pips 黒=122 白=106</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">まず、マネーゲームとして考えます。<br>
 黒が理想的な4ポイントボードを作っており、これを見ただけでダブルしたくなります。<br>
@@ -48,27 +52,29 @@
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.444
-  0.665 0.191 0.005 - 0.335 0.080 0.002
+2-ply cubeless equity +0.504 (Money: +0.445)
+  0.666 0.190 0.005 - 0.334 0.080 0.002
 Cubeful equities:
-1. Double, take        +0.662
-2. Double, pass        +1.000  (+0.338)
-3. No double           +0.611  (-0.052)
+1. Double, take        +0.851
+2. Double, pass        +1.000  (+0.149)
+3. No double           +0.675  (-0.176)
 Proper cube action: Double, take
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
-board.showBoard("XGID=-a-BBCB-AB--bA---b-ccB-ca-:0:0:1:00:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "09";
-var showpipflg = false;
+const categoryid = "KA1";
+const probnum = "09";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
+board.showBoard("XGID=-a-BBCB-AB--bA---b-ccB-ca-:0:0:1:00:1:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

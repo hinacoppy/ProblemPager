@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">どこを作るのか</span>&ensp;
 <span>(KA7-29)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">緑に2ゾロが出ました。良い目ですね～　さて、どこを作りましょうか。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=120 白=129</div></div>
+      <div class="pipinfo">pips 緑=120 白=129</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">スカイプ勉強会っていうのをやります。みんなでポジションを持ち寄り、スカイプを使ってあれこれ話しましょう。5名限定でおます。<br>
 <br>
@@ -77,33 +81,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9(2)                      Eq.: +0.895
        0.724 0.101 0.003 - 0.276 0.059 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/5                         Eq.: +0.645 (-0.250)
        0.666 0.075 0.002 - 0.334 0.061 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    13/11(3) 7/5                 Eq.: +0.549 (-0.346)
        0.661 0.077 0.002 - 0.339 0.058 0.001
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    8/4(2)                       Eq.: +0.513 (-0.382)
        0.650 0.076 0.002 - 0.350 0.061 0.001
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/11 7/5 6/2                Eq.: +0.507 (-0.388)
        0.653 0.075 0.001 - 0.347 0.075 0.001
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "29";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--Ab-BCCB---bCA--cac--bb--:0:0:1:22:1:2:0:7:10");
-var categoryid = "KA7";
-var probnum = "29";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

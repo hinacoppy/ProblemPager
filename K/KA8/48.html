@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">望月戦 その2</span>&ensp;
 <span>(KA8-48)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">9ポイントマッチのスコア0-1で、黒に31が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=91 白=106</div></div>
+      <div class="pipinfo">pips 黒=91 白=106</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">これは簡単なのでしょうか。<br>
 <br>
@@ -139,27 +143,26 @@ nice site. for more information you can check this one http://www.vsbot.com<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 4/1                   Eq.: -0.767
        0.175 0.039 0.000 - 0.825 0.212 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/24 9/6                   Eq.: -0.831 (-0.063)
        0.179 0.040 0.000 - 0.821 0.281 0.008
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    bar/24 6/3                   Eq.: -1.011 (-0.244)
        0.141 0.031 0.000 - 0.859 0.359 0.013
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA8";
+const probnum = "48";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-C-CBbB-BB-a------abcbbb-A:1:1:1:13:0:0:3:0:10");
-var categoryid = "KA8";
-var probnum = "48";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

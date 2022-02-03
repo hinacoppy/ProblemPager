@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">Pay now or later?</span>&ensp;
 <span>(KA5-33)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=99 白=101</div></div>
+      <div class="pipinfo">pips 緑=99 白=101</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">以前も使用した「4つのチェックポイント」にあてはめる。<br>
 <br>
@@ -130,33 +134,30 @@ DASHさんの考え通り、0.17という大差にはなりませんでした。
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 7/1                      Eq.: +0.137
        0.543 0.059 0.000 - 0.457 0.021 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    7/1 6/1                      Eq.: +0.126 (-0.011)
        0.541 0.048 0.000 - 0.459 0.022 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    8/3 8/2                      Eq.: +0.122 (-0.014)
        0.540 0.055 0.000 - 0.460 0.020 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    8/2 7/2                      Eq.: +0.081 (-0.056)
        0.529 0.046 0.000 - 0.471 0.022 0.000
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    8/2 6/1                      Eq.: +0.072 (-0.064)
        0.528 0.040 0.000 - 0.472 0.024 0.001
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA5";
+const probnum = "33";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--BBBBBAB--bb----bBb-bbba-:0:0:1:56:2:0:0:11:10");
-var categoryid = "KA5";
-var probnum = "33";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">打つべきか打たざるべきか？</span>&ensp;
 <span>(KA6-49)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">オンザバーから42が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=129 白=138</div></div>
+      <div class="pipinfo">pips 緑=129 白=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">打つべきか打たざるべきか、それが問題ですね～<br>
 昨日のJoe-Guyシュエットは、あっさりとmassieさんに仕上げられてしまいました。<br>
@@ -87,33 +91,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/21 13/11                 Eq.: +0.422
        0.647 0.178 0.010 - 0.353 0.086 0.003
-        0-ply cubeful prune [expert]
     2. Cubeful 0-ply    bar/21 7/5*                  Eq.: +0.240 (-0.182)
        0.601 0.199 0.016 - 0.399 0.121 0.006
-        0-ply cubeful prune [expert]
     3. Cubeful 0-ply    bar/21 4/2                   Eq.: -0.239 (-0.661)
        0.467 0.103 0.005 - 0.533 0.127 0.004
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    bar/23 13/9                  Eq.: -0.318 (-0.739)
        0.485 0.166 0.013 - 0.515 0.231 0.014
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    bar/21 6/4                   Eq.: -0.456 (-0.878)
        0.411 0.089 0.005 - 0.589 0.152 0.005
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA6";
+const probnum = "49";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-bBBBaBB-----C---bbdbAb--A:0:0:1:24:4:1:0:7:10");
-var categoryid = "KA6";
-var probnum = "49";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

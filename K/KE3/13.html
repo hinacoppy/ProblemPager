@@ -12,60 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">もう少し休んでくれたなら</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">インナーに注目</span>&ensp;
 <span>(KE3-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w2/7</div>
+<div class="gamesituation">b3-w4/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=66 w=133</div></div>
+      <div class="pipinfo">pips Red=77 White=60</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">５の目は確定で、２の目を動かすと４ポイントボードになってしまう局面。リターンヒットはもとより、ただエンターされるだけで痛いのだからダンスした時のメリットを最大にするためもう１枚バーに送る。ブロットが増えるのはギャモン負けが怖いが、ほかのポイントを崩しても抵抗力のないボードなのでどちらにせよギャモン負けは多い。<br>
+ <div class="description">相手のインナーのブロットが二つ、６を振るとバーを崩すことになる、これらを踏まえて最大限の罠を広げて待ち構える。解析は割愛しますが、あのブロットがなければ普通に9/4です。<br>
 <br>
-1. 6/4* 6/1 Eq.: -0.591<br>
-0.303 0.148 0.000 - 0.697 0.225 0.013 CL -0.608 CF -0.591<br>
+1. 13/8              Eq.: +0.581<br>
+0.693 0.145 0.013 - 0.307 0.004 0.000 CL +0.663 CF +0.581<br>
 <br>
-2. 6/1 5/3   Eq.: -0.704 ( -0.114)<br>
-0.253 0.103 0.000 - 0.747 0.212 0.010 CL -0.727 CF -0.704<br>
+2. 13/11 9/6      Eq.: +0.488 ( -0.093)<br>
+0.690 0.101 0.003 - 0.310 0.003 0.000 CL +0.573 CF +0.488<br>
 <br>
-3. 6/1 3/1    Eq.: -0.740 ( -0.150)<br>
-0.247 0.099 0.000 - 0.753 0.225 0.010 CL -0.767 CF -0.740<br>
+3. 13/11 13/10  Eq.: +0.458 ( -0.123)<br>
+0.697 0.075 0.001 - 0.303 0.002 0.000 CL +0.538 CF +0.458<br>
+<br>
+4. 6/1                Eq.: +0.446 ( -0.134)<br>
+0.683 0.090 0.004 - 0.317 0.007 0.000 CL +0.536 CF +0.446<br>
+<br>
+5. 13/10 4/2      Eq.: +0.443 ( -0.137)<br>
+0.667 0.110 0.006 - 0.333 0.022 0.000 CL +0.530 CF +0.443<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/4* 6/1                     Eq.: -0.563
-       0.310 0.154 0.001 - 0.690 0.209 0.011
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/1 5/3                      Eq.: -0.680 (-0.117)
-       0.256 0.102 0.001 - 0.744 0.195 0.008
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/1 3/1                      Eq.: -0.792 (-0.229)
-       0.225 0.094 0.001 - 0.775 0.223 0.010
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=aDCBaBC--a-------bbccbA---:1:1:1:25:4:2:0:7:10");
-var categoryid = "KE3";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "KE3";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BBBBBBb-A---B-----a--adg-:1:-1:1:23:3:4:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

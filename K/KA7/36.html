@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">最後の粘り？</span>&ensp;
 <span>(KA7-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">緑に65が出ました。すぱっとあきらめるか、まだ粘るのか。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=70 白=37</div></div>
+      <div class="pipinfo">pips 緑=70 白=37</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">キューブのリファレンスポジションが40個を超えました。そろそろ記憶が怪しくなってきてます。<br>
 <br>
@@ -67,30 +71,28 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/5                         Eq.: -0.925
        0.037 0.000 0.000 - 0.963 0.010 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    23/12                        Eq.: -0.978 (-0.053)
        0.010 0.000 0.000 - 0.990 0.002 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    23/18 16/10                  Eq.: -0.979 (-0.054)
        0.010 0.000 0.000 - 0.990 0.002 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    23/17 16/11                  Eq.: -0.979 (-0.054)
        0.010 0.000 0.000 - 0.990 0.002 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "36";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-DBEB-----------A---bdbAe-:1:1:1:65:3:2:0:7:10");
-var categoryid = "KA7";
-var probnum = "36";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">エースアンカーを崩せ</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">痛みは一瞬で消える</span>&ensp;
 <span>(KE9-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w2/5</div>
+<div class="gamesituation">b3-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=116 w=144</div></div>
+      <div class="pipinfo">pips Red=150 White=140</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">４プラがしばらく維持されるため、飛び出しやすさを考えて３の目でエンターしたい。こちらの陣形はもうプライムで対抗できる状態ではなく、ボードの強さで勝負するべくインナーにスロットしておく。エースアンカーのままならプライムの目も出てくるし、打たれるのなら逆にアタッキングゲームのチャンスとなる。<br>
+ <div class="description">セミプライムを持っていてブロットをカバーすれば一安心というところ。しかし、相手インナーに残ったプロットを片付けておかないとポイントオンをしながらプライムを伸ばされてこちらも捕まってしまう。何手も相手にチャンスを与えるならここでバックマンをまとめておいてヒットチャンスをこの一回だけに追い込む。打たれなければ必勝形、打たれてもまだ相手は６を振らなければならない。<br>
 <br>
-1. bar/22 6/4  Eq.: -0.109<br>
-0.472 0.190 0.020 - 0.528 0.176 0.009 CL -0.011 CF -0.109<br>
+1. 23/20 22/20 Eq.: +0.487<br>
+0.621 0.145 0.004 - 0.379 0.080 0.002 CL +0.326 CF +0.487<br>
 <br>
-2. bar/22 8/6  Eq.: -0.260 ( -0.150)<br>
-0.443 0.168 0.018 - 0.557 0.179 0.008 CL -0.119 CF -0.260<br>
+2. 23/20 11/9  Eq.: +0.346 ( -0.141)<br>
+0.597 0.146 0.005 - 0.403 0.093 0.003 CL +0.261 CF +0.346<br>
 <br>
-3. bar/23 6/3  Eq.: -0.289 ( -0.180)<br>
-0.437 0.161 0.016 - 0.563 0.165 0.006 CL -0.114 CF -0.289<br>
+3. 22/20 11/8  Eq.: +0.324 ( -0.163)<br>
+0.593 0.151 0.005 - 0.407 0.099 0.003 CL +0.257 CF +0.324<br>
+<br>
+4. 9/4               Eq.: +0.296 ( -0.191)<br>
+0.599 0.177 0.009 - 0.401 0.132 0.010 CL +0.261 CF +0.296<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/22 6/4                   Eq.: -0.109
-       0.467 0.192 0.019 - 0.533 0.174 0.009
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/22 8/6                   Eq.: -0.191 (-0.082)
-       0.446 0.180 0.017 - 0.554 0.167 0.008
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/23 6/3                   Eq.: -0.243 (-0.134)
-       0.439 0.167 0.014 - 0.561 0.161 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    bar/23 8/5                   Eq.: -0.396 (-0.287)
-       0.410 0.160 0.013 - 0.590 0.212 0.018
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/22 7/5                   Eq.: -0.583 (-0.475)
-       0.380 0.145 0.011 - 0.620 0.245 0.022
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-bBB--EBB---b-a--bbcbA--aA:0:0:1:23:2:2:0:5:10");
-var categoryid = "KE9";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "KE9";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a--ABBBBB-Ac----dcdA-AA--:0:0:1:23:3:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

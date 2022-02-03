@@ -12,66 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">成長するブロックとしないブロック</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">作り合いっこ</span>&ensp;
 <span>(KE7-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w6*/7</div>
+<div class="gamesituation">b0-w1/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=129 w=122</div></div>
+      <div class="pipinfo">pips Red=150 White=136</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手はビルダーも豊富でプライムでもブリッツでも攻める態勢ができているのに対して、こちらのプライムには全くスペアもなく動かせば動かすほど弱いブロックになりそう。ここは相手の攻めを止めながらアタッキングゲームに移行するべくルースヒットする。相手のボードもまだ３ポイントボードでエスケープに必要な目も重複していないためリターンされても対応できる目も多い。<br>
+ <div class="description">お互いあと一手で３ポイントボードができる状況。先に強いボードを作られてはアンカーの位置で有利な相手を楽にしてしまう。ショットを得てヒットを狙わないと苦しいピップ差なのでブロットを撒いてでも４ポイントをカバーする。アンカーを外しながらのヒットはこちらのチャンスとも言える。<br>
 <br>
-1. bar/22 7/2*   Eq.: -0.198<br>
-0.365 0.209 0.037 - 0.635 0.310 0.042 CL -0.198 CF -0.198<br>
+1. 8/7 8/4  Eq.: -0.708<br>
+0.350 0.070 0.002 - 0.650 0.149 0.006 CL -0.433 CF -0.708<br>
 <br>
-2. bar/22 11/6   Eq.: -0.355 ( -0.157)<br>
-0.313 0.105 0.007 - 0.687 0.246 0.014 CL -0.355 CF -0.355<br>
+2. 13/8       Eq.: -0.772 ( -0.063)<br>
+0.335 0.062 0.002 - 0.665 0.146 0.006 CL -0.469 CF -0.772<br>
 <br>
-3. bar/22 23/18 Eq.: -0.380 ( -0.182)<br>
-0.295 0.098 0.015 - 0.705 0.333 0.021 CL -0.380 CF -0.380<br>
+3. 8/4 3/2  Eq.: -0.822 ( -0.114)<br>
+0.325 0.066 0.002 - 0.675 0.159 0.008 CL -0.509 CF -0.822<br>
+<br>
+4. 13/9 8/7 Eq.: -0.824 ( -0.116)<br>
+0.336 0.072 0.003 - 0.664 0.186 0.012 CL -0.520 CF -0.824<br>
+<br>
+5. 8/3         Eq.: -0.906 ( -0.197)<br>
+0.315 0.061 0.002 - 0.685 0.163 0.007 CL -0.542 CF -0.906<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/22 7/2*                  Eq.: -0.133
-       0.404 0.248 0.024 - 0.596 0.303 0.043
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    bar/22 11/6                  Eq.: -0.334 (-0.201)
-       0.322 0.123 0.007 - 0.678 0.273 0.012
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    bar/22 23/18                 Eq.: -0.340 (-0.207)
-       0.320 0.116 0.006 - 0.680 0.361 0.026
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/22 9/4                   Eq.: -0.446 (-0.313)
-       0.268 0.103 0.005 - 0.732 0.375 0.041
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/22 8/3                   Eq.: -0.556 (-0.423)
-       0.215 0.076 0.004 - 0.785 0.484 0.080
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-Ba-B-BBBB-Aa-aaab-cbc-A-A:0:0:1:35:0:6:1:7:10");
-var categoryid = "KE7";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "KE7";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=---BAbC-C---bD--ad-ca-bB--:0:0:1:41:0:1:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

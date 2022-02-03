@@ -12,72 +12,65 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ここで待ちます</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">まずは網を広げておいて</span>&ensp;
 <span>(KE8-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/1</div>
+<div class="gamesituation">b3-w3/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=109 w=92</div></div>
+      <div class="pipinfo">pips Red=149 White=132</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">５ゾロを振ったがランで勝つには心もとないピップ差。相手のインナーも崩れてしまっているのでセットで動かす必要もないことに気付けば最高の着地地点があった。<br>
+ <div class="description">ピップで遅れ、相手陣は進みすぎている状態でこちらはアンカーを取っている。そこでアウターを支配しながらプライム戦に持ち込むべくダブルダウンする。バックマンの前にブロックを作りたいところでヒットしてしまうと駒の位置が逆転してしまい死に駒を作ることになる。<br>
 <br>
-1. 21/1                    Eq.: +0.368<br>
-0.684 0.220 0.004 - 0.316 0.009 0.000 CL +0.368 CF +0.368<br>
+1. 13/11 13/9 Eq.: +0.091<br>
+0.516 0.152 0.006 - 0.484 0.154 0.005 CL +0.032 CF +0.091<br>
 <br>
-2. 21/16(2) 13/8(2) Eq.: +0.284 ( -0.084)<br>
-0.642 0.105 0.002 - 0.358 0.017 0.000 CL +0.284 CF +0.284<br>
+2. 13/9 8/6    Eq.: -0.001 ( -0.092)<br>
+0.500 0.146 0.005 - 0.500 0.141 0.004 CL -0.000 CF -0.001<br>
 <br>
-3. 21/6 21/16           Eq.: +0.220 ( -0.148)<br>
-0.610 0.142 0.003 - 0.390 0.021 0.000 CL +0.220 CF +0.220<br>
+3. 13/7          Eq.: -0.013 ( -0.104)<br>
+0.498 0.145 0.007 - 0.502 0.157 0.005 CL -0.005 CF -0.013<br>
 <br>
-4. 21/11(2)              Eq.: +0.198 ( -0.170)<br>
-0.599 0.060 0.003 - 0.401 0.011 0.000 CL +0.198 CF +0.198<br>
+4. 13/11 8/4  Eq.: -0.035 ( -0.126)<br>
+0.494 0.152 0.005 - 0.506 0.141 0.005 CL -0.013 CF -0.035<br>
 <br>
-5. 21/16(2) 6/1(2)   Eq.: +0.192 ( -0.176)<br>
-0.596 0.087 0.002 - 0.404 0.026 0.000 CL +0.192 CF +0.192<br>
+5. 13/9 3/1*  Eq.: -0.057 ( -0.148)<br>
+0.490 0.153 0.005 - 0.510 0.147 0.005 CL -0.020 CF -0.057<br>
+<br>
+6. 13/9 6/4    Eq.: -0.101 ( -0.192)<br>
+0.482 0.134 0.005 - 0.518 0.147 0.005 CL -0.036 CF -0.101<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/1                         Eq.: +0.377
-       0.688 0.223 0.002 - 0.312 0.017 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/16(2) 13/8(2)             Eq.: +0.290 (-0.087)
-       0.645 0.106 0.001 - 0.355 0.014 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/6 21/16                   Eq.: +0.209 (-0.168)
-       0.604 0.144 0.001 - 0.396 0.026 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    21/11(2)                     Eq.: +0.189 (-0.188)
-       0.594 0.056 0.000 - 0.406 0.016 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/8(2) 6/1(2)               Eq.: +0.187 (-0.190)
-       0.594 0.106 0.000 - 0.406 0.038 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-ABBBBBb----bB------cBbcc-:0:0:1:55:0:0:0:1:10");
-var categoryid = "KE8";
-var probnum = "16";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a-AB-C-C---dD---d-c-aB-b-:0:0:1:24:3:3:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

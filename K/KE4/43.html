@@ -12,60 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ベアオフのテクニック　その６</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">見かけだけのピップリード</span>&ensp;
 <span>(KE4-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b7-w8/9</div>
+<div class="gamesituation">b1-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=16 w=8</div></div>
+      <div class="pipinfo">pips Red=123 White=126</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手のチェッカーがもっと多ければ注意しただろうけど、まあ２回で上がれるしこちらはゾロ目に合わせておけばいいかと考えて、それならどう上がっても次は４ゾロ以上しか上がれないのだからと適当にプレーしてしまった。しかし、よく見ると相手は２回で上がれるとは限らない。１３や１ゾロの後に１２を振った場合と１２の後に１ゾロ、１２、１３、２３を振った場合は３回かかる。そうなるとこちらはゾロ目を振らずとも勝つチャンスができるため、次に何を振っても４枚中２枚上がれるようにプレーしておくべきだ。6/1 2/offとしてしまうと２ゾロ以外の２の目を振ると３枚残してしまう。<br>
+ <div class="description">形は悪いがピップで互角だからといってショットを与える手をためらっていると、向こう側のチェッカーを止められてしまい、こちら側ばかり動かしてピップをロスするパターンや、飛び出したのを打たれるなど決してランに頼れる局面ではない。弱いポジションを改善すべくここで５ポイントを作る。エースへの打ち込みはビルダーもないしインナーにお荷物を残してしまう。<br>
 <br>
-1. 6/off       Eq.: -0.828<br>
-0.086 0.000 0.000 - 0.914 0.000 0.000 CL -0.828 CF -0.828<br>
+1. 8/5 7/5    Eq.: -0.081<br>
+0.457 0.143 0.003 - 0.543 0.083 0.003 CL -0.016 CF -0.081<br>
 <br>
-2. 6/1 2/off Eq.: -0.832 ( -0.004)<br>
-0.084 0.000 0.000 - 0.916 0.000 0.000 CL -0.832 CF -0.832<br>
+2. 8/5 3/1*  Eq.: -0.212 ( -0.131)<br>
+0.432 0.166 0.004 - 0.568 0.128 0.004 CL -0.090 CF -0.212<br>
+<br>
+3. 8/6 8/5    Eq.: -0.222 ( -0.141)<br>
+0.427 0.110 0.002 - 0.573 0.096 0.003 CL -0.127 CF -0.222<br>
+<br>
+4. 8/3          Eq.: -0.253 ( -0.172)<br>
+0.422 0.079 0.001 - 0.578 0.079 0.002 CL -0.152 CF -0.253<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/off                        Eq.: -0.828
-       0.086 0.000 0.000 - 0.914 0.000 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/1 2/off                    Eq.: -0.832 (-0.004)
-       0.084 0.000 0.000 - 0.916 0.000 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/1 3/1                      Eq.: -0.991 (-0.163)
-       0.005 0.000 0.000 - 0.995 0.000 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    6/1 4/2                      Eq.: -0.991 (-0.163)
-       0.004 0.000 0.000 - 0.996 0.000 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-AAAA-A--------------aa-a-:1:-1:1:25:7:8:0:9:10");
-var categoryid = "KE4";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-aBC--BBC-a---b--bccCb-a--:0:0:1:23:1:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

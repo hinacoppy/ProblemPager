@@ -12,72 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">足の踏み場のない部屋</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">長持ちボード</span>&ensp;
 <span>(KE9-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w2/5</div>
+<div class="gamesituation">b7-w4/9</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=126 w=72</div></div>
+      <div class="pipinfo">pips Red=89 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">１０ポイントにある相手のラストチェッカーを簡単に敵陣に帰したくない状況。２の目でインナーを強くしたら相手インナーの２ブロットを盾に５の目で飛び出す。１０ポイントをダイレクトで狙える位置にチェッカーを置いて相手が着地できなかった場合に攻勢に転じる。相手にしてみればこちらのアウターチェッカーを飛び越えられないからといってインナーを打ち込むわけにもいかない。<br>
+ <div class="description">この目で５ポイントボードができるのでこちらのバックマンがエスケープできるまでボードを崩さないことが優先される。スイッチしてアウターに遊び駒を残すことで４以下のいくつかの目でボードを壊す危険を回避できるし、もし相手にオンザバーからルースヒットされてもエンターしながらボードを壊す目に合わなくて済む。<br>
 <br>
-1. 21/16 6/4    Eq.: -0.209<br>
-0.303 0.061 0.002 - 0.697 0.099 0.003 CL -0.386 CF -0.209<br>
+1. 8/4(2) 6/2(2)  Eq.: +0.413<br>
+0.723 0.337 0.004 - 0.277 0.023 0.001 CL +0.413 CF +0.413<br>
 <br>
-2. 13/8 6/4      Eq.: -0.323 ( -0.114)<br>
-0.254 0.030 0.001 - 0.746 0.027 0.001 CL -0.474 CF -0.323<br>
+2. 8/4(2) 7/3(2)  Eq.: +0.300 ( -0.113)<br>
+0.681 0.337 0.008 - 0.319 0.043 0.002 CL +0.300 CF +0.300<br>
 <br>
-3. 21/16 13/11 Eq.: -0.345 ( -0.136)<br>
-0.274 0.065 0.002 - 0.726 0.172 0.014 CL -0.486 CF -0.345<br>
-<br>
-4. 8/3 6/4        Eq.: -0.360 ( -0.151)<br>
-0.241 0.024 0.001 - 0.759 0.030 0.001 CL -0.512 CF -0.360<br>
-<br>
-5. 13/6            Eq.: -0.375 ( -0.166)<br>
-0.238 0.022 0.001 - 0.762 0.032 0.001 CL -0.518 CF -0.375<br>
+3. 8/4(2) 7/3 5/1 Eq.: +0.237 ( -0.177)<br>
+0.661 0.348 0.008 - 0.339 0.059 0.002 CL +0.237 CF +0.237<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/16 6/4                    Eq.: -0.302
-       0.303 0.000 0.000 - 0.697 0.151 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/16 13/11                  Eq.: -0.343 (-0.041)
-       0.297 0.000 0.000 - 0.703 0.187 0.009
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/14                        Eq.: -0.464 (-0.161)
-       0.255 0.000 0.000 - 0.745 0.186 0.007
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/8 6/4                     Eq.: -0.521 (-0.218)
-       0.216 0.000 0.000 - 0.784 0.116 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/11 13/8                   Eq.: -0.563 (-0.260)
-       0.206 0.000 0.000 - 0.794 0.139 0.005
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--BBAAC-A-a--C---bbbbBaa--:1:1:1:25:0:2:0:5:10");
-var categoryid = "KE9";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "KE9";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=aB-C-CBBB--a----abbccAb---:1:1:1:44:7:4:0:9:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

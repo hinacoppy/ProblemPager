@@ -12,72 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">１と２と３と４</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ヒット一択？いえ二択です</span>&ensp;
 <span>(KE8-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w5/7</div>
+<div class="gamesituation">b0-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=146 w=78</div></div>
+      <div class="pipinfo">pips Red=124 White=168</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手にしてみればこちらのインナーが崩れるのを待っていればいいだけで、こちらとしてはこの最後の１枚を捕まえている間に不幸な目を振ってほしいところ。相手のインナーだけを見ると３４と３ゾロでブロットが発生するのと、１から４の目で動かせるという事が分かる。そこで、これらの目を確実に向こうで使わせるために６ポイントをずらしてバックマンから１から４の目を完全にブロックする。元々インナーに手を付ける必要のない５と６の目は相手にとっていい目なのでそれで飛び出されるリスクは少なく、強制的にヒットさせることによりこちらのタイミングを稼がせてもらう。ギャモン負けのリスクがないスコアであることも後押しする。<br>
+ <div class="description">アウターのチェッカーをヒットして相手のバックマンを３枚にして満足しても、４を振られただけでアンカーを取られ１でのリターンも痛い。ここは６ポイントを崩してでもポイントオンでアンカーの足掛かりを潰す。ブロットに対するカバーも増え、これで６ポイントをヒットされることだけが痛くダンスならより攻め続けやすい形となる。<br>
 <br>
-1. 7/2 6/4   Eq.: -0.538<br>
-0.222 0.019 0.000 - 0.778 0.517 0.092 CL -0.538 CF -0.538<br>
+1. 6/4*/1 Eq.: +0.848<br>
+0.724 0.445 0.016 - 0.276 0.059 0.003 CL +0.908 CF +0.848<br>
 <br>
-2. 6/4 6/1* Eq.: -0.599 ( -0.061)<br>
-0.195 0.011 0.000 - 0.805 0.466 0.063 CL -0.599 CF -0.599<br>
-<br>
-3. 7/5 7/2   Eq.: -0.621 ( -0.083)<br>
-0.184 0.011 0.000 - 0.816 0.478 0.066 CL -0.621 CF -0.621<br>
-<br>
-4. 7/5 6/1*  Eq.: -0.693 ( -0.154)<br>
-0.153 0.002 0.000 - 0.847 0.626 0.167 CL -0.693 CF -0.693<br>
-<br>
-5. 7/2 3/1*  Eq.: -0.694 ( -0.156)<br>
-0.152 0.002 0.000 - 0.848 0.625 0.157 CL -0.694 CF -0.694<br>
+2. 14/9*   Eq.: +0.748 ( -0.100)<br>
+0.717 0.369 0.016 - 0.283 0.056 0.002 CL +0.812 CF +0.748<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/2 6/4                      Eq.: -0.541
-       0.220 0.020 0.000 - 0.780 0.510 0.088
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/4 6/1*                     Eq.: -0.588 (-0.047)
-       0.200 0.013 0.000 - 0.800 0.454 0.060
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    7/5 7/2                      Eq.: -0.601 (-0.060)
-       0.193 0.014 0.000 - 0.807 0.462 0.062
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    7/5 6/1*                     Eq.: -0.671 (-0.130)
-       0.163 0.004 0.000 - 0.837 0.604 0.150
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    7/2 3/1*                     Eq.: -0.681 (-0.140)
-       0.157 0.005 0.000 - 0.843 0.607 0.144
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aBBABBB-----------cbcbdD-:1:-1:1:25:4:5:0:7:10");
-var categoryid = "KE8";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=aAB-aBB-Ca--dCA--c-eA-----:1:-1:1:23:0:2:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

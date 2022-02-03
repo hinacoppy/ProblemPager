@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">尺取虫のように　</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ボードの強さが大きく違いますが</span>&ensp;
 <span>(KE2-19)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/5</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=104 w=134</div></div>
+      <div class="pipinfo">pips Red=142 White=122</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ピップで勝っていてインナーも勝っているので後は安全にチェッカーをこちらに戻してくることに集中する。ブロックを作ってそれを足場にすることになるが、その足場自体を最後にクリアするわけだから相手のアウターよりこちらのアウターに作った方がクリアしやすくなる。相手のミッドポイントにスペアがないし、今ヒットされることはそれほど恐れなくてもいいので積極的なチェッカー移動が行える。<br>
+ <div class="description">ピップで遅れていて４プラができるのだからアウターのプロットは放置していい。もともと遅れているのだから打たれるリスクが少ないのと、相手のミッドポイントはスペアがないため残したブロットがむしろ相手の動きをけん制することになる。<br>
 <br>
-1. 21/17 16/11  Eq.: -0.049<br>
-0.538 0.162 0.003 - 0.462 0.133 0.004 CL +0.135 CF -0.049<br>
+1. 8/7(2) 6/5(2)  Eq.: -0.052<br>
+0.524 0.084 0.004 - 0.476 0.219 0.003 CL -0.090 CF -0.052<br>
 <br>
-2. 21/16 11/7    Eq.: -0.126 ( -0.077)<br>
-0.522 0.138 0.002 - 0.478 0.139 0.004 CL +0.056 CF -0.126<br>
+2. 15/13 6/5(2)   Eq.: -0.213 ( -0.161)<br>
+0.441 0.044 0.002 - 0.559 0.107 0.001 CL -0.185 CF -0.213<br>
 <br>
-3. 11/2               Eq.: -0.217 ( -0.168)<br>
-0.485 0.133 0.002 - 0.515 0.115 0.004 CL +0.014 CF -0.217<br>
-<br>
-4. 21/17 21/16   Eq.: -0.260 ( -0.211)<br>
-0.487 0.137 0.002 - 0.513 0.185 0.006 CL -0.057 CF -0.260<br>
+3. 6/4*(2)            Eq.: -0.246 ( -0.194)<br>
+0.459 0.069 0.003 - 0.541 0.205 0.003 CL -0.224 CF -0.246<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/17 16/11                  Eq.: -0.079
-       0.532 0.154 0.002 - 0.468 0.134 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/16 11/7                   Eq.: -0.124 (-0.045)
-       0.527 0.128 0.001 - 0.473 0.138 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/2                         Eq.: -0.226 (-0.147)
-       0.485 0.110 0.001 - 0.515 0.112 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/17 21/16                  Eq.: -0.271 (-0.192)
-       0.484 0.124 0.001 - 0.516 0.173 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    16/7                         Eq.: -0.378 (-0.299)
-       0.438 0.099 0.001 - 0.562 0.135 0.005
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BBCBcB----Ab---A--dcBc---:1:-1:1:45:0:0:0:5:10");
-var categoryid = "KE2";
-var probnum = "19";
-var showpipflg = true;
+const categoryid = "KE2";
+const probnum = "19";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a--a-E-D---bE-A-a-bcc-b--:0:0:1:11:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

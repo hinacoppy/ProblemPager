@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ヒットするの？</span>&ensp;
 <span>(KA1-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マネーゲームで黒に51が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=126 白=126</div></div>
+      <div class="pipinfo">pips 黒=126 白=126</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">私はヒットなど考えもせず、9/4 6/5 と進めました。<br>
 かなり悪い形ですが、仕方ないなあと。<br>
@@ -44,33 +48,30 @@ https://pds.exblog.jp/pds/1/200410/04/71/b0028671_1373137.jpg<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/8 6/1*                     Eq.: +0.146
        0.524 0.170 0.005 - 0.476 0.089 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    9/8 9/4                      Eq.: +0.106 (-0.040)
        0.516 0.134 0.004 - 0.484 0.063 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    9/4 6/5                      Eq.: +0.095 (-0.051)
        0.515 0.134 0.004 - 0.485 0.072 0.002
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    9/4 5/4                      Eq.: +0.087 (-0.059)
        0.512 0.132 0.004 - 0.488 0.071 0.002
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/1* 5/4                     Eq.: +0.084 (-0.062)
        0.509 0.165 0.005 - 0.491 0.097 0.003
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA1";
+const probnum = "16";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-a--BCC-BCb-----bb-dbB-b--:0:0:1:51:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "16";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

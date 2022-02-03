@@ -12,72 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ターゲットはこいつ</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">１箇所より２箇所</span>&ensp;
 <span>(KE9-14)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=125 w=193</div></div>
+      <div class="pipinfo">pips Red=99 White=63</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">一見たくさん捕まえているがノーボード。簡単に生き返れる状態でアタックしても相手は動かすチェッカーに困らないし、バックゲームに持ち込まれるとタイミングが合ってしまう。ここは４ポイントに作られたアンカーを穴あきプライムに閉じ込めることを狙って９ポイントをカバーしながらエスケープする。３ポイントのブロットはプライムに参加していないし進みすぎたこちらにとってそれほど守る必要もない。<br>
+ <div class="description">ピップで大きく負けているためヒットして勝ちたい。この目でミッドポイントがクリアできるが、そうなるとショットをもらえたところで１５ポイントからしか狙えない。相手ボードは６ポイントが空いているため、５か６を振ればショットが来るので２箇所から狙うべく１枚残しながら走る。元々のピップの負け方、相手インナーの崩れ方を見ると打たれるリスクもあまりない。<br>
 <br>
-1. 21/15 10/9 Eq.: +0.057<br>
-0.555 0.211 0.009 - 0.445 0.103 0.004 CL +0.232 CF +0.057<br>
+1. 13/3        Eq.: -0.174<br>
+0.444 0.040 0.001 - 0.556 0.020 0.000 CL -0.089 CF -0.174<br>
 <br>
-2. 8/2* 3/2     Eq.: -0.079 ( -0.136)<br>
-0.494 0.240 0.014 - 0.506 0.114 0.004 CL +0.137 CF -0.079<br>
+2. 13/9 13/7 Eq.: -0.292 ( -0.117)<br>
+0.397 0.030 0.001 - 0.603 0.005 0.000 CL -0.179 CF -0.292<br>
 <br>
-3. 10/9 8/2*   Eq.: -0.080 ( -0.137)<br>
-0.512 0.204 0.010 - 0.488 0.126 0.006 CL +0.113 CF -0.080<br>
-<br>
-4. 9/3 6/5      Eq.: -0.098 ( -0.155)<br>
-0.501 0.204 0.010 - 0.499 0.115 0.005 CL +0.104 CF -0.098<br>
-<br>
-5. 8/2*/1*      Eq.: -0.113 ( -0.170)<br>
-0.496 0.211 0.007 - 0.504 0.128 0.007 CL +0.086 CF -0.113<br>
+3. 13/7 6/2  Eq.: -0.372 ( -0.197)<br>
+0.372 0.033 0.001 - 0.628 0.058 0.000 CL -0.280 CF -0.372<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/15 10/9                   Eq.: +0.052
-       0.552 0.208 0.007 - 0.448 0.104 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/2* 3/2                     Eq.: -0.035 (-0.087)
-       0.504 0.240 0.013 - 0.496 0.105 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    9/3 6/5                      Eq.: -0.059 (-0.111)
-       0.513 0.196 0.008 - 0.487 0.109 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/2*/1*                      Eq.: -0.086 (-0.138)
-       0.502 0.209 0.006 - 0.498 0.120 0.006
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    10/9 8/2*                    Eq.: -0.095 (-0.147)
-       0.504 0.194 0.009 - 0.496 0.121 0.005
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aaAc-E-DAC-c----b-cbA----:1:-1:1:16:0:0:0:7:10");
-var categoryid = "KE9";
-var probnum = "14";
-var showpipflg = true;
+const categoryid = "KE9";
+const probnum = "14";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--BCBBB---b--B-B----bc-ce-:0:0:1:46:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ミッドポイントを外させない</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">消したいポイント</span>&ensp;
 <span>(KE9-39)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w2/9</div>
+<div class="gamesituation">b0-w4*/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=96 w=98</div></div>
+      <div class="pipinfo">pips Red=104 White=137</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">レースでややリードしているとはいえ安易にブロットを隠して楽になっている場合ではない。インナー状況がこの大差ならほっとするのは相手の方で、ミッドポイントをノーリスクで外すことができてしまう。ここはどうしてもポイントを外さなければいけない６の目でヒットされないよう１７ポイントで待ちかまえることで相手の６がらみでショットをもらいギャモン勝ちを増やし、３４や２５などミッドを外せる目で外させずインナーのムーブで耐えさせることでレース勝率も上げる。<br>
+ <div class="description">ヒットは絶対でここでは３ポイントメイクはいらない。大量のピップリードで相手のインナーが固いのでとにかく早くすれ違うことが先決。スペアのないポイントを作るよりスペアを補充しながらアウターポイントをクリアして今後の安全なベアイン環境を整える。<br>
 <br>
-1. 18/17 10/6 Eq.: +0.401<br>
-0.618 0.167 0.005 - 0.382 0.052 0.001 CL +0.352 CF +0.401<br>
+1. 13/10*(2) 11/8(2) Eq.: +0.511<br>
+0.744 0.231 0.003 - 0.256 0.033 0.001 CL +0.511 CF +0.511<br>
 <br>
-2. 10/9 10/6  Eq.: +0.328 ( -0.073)<br>
-0.603 0.156 0.004 - 0.397 0.049 0.000 CL +0.310 CF +0.328<br>
+2. 13/10*(2) 6/3(2)   Eq.: +0.344 ( -0.167)<br>
+0.660 0.222 0.005 - 0.340 0.051 0.002 CL +0.344 CF +0.344<br>
 <br>
-3. 10/5           Eq.: +0.260 ( -0.141)<br>
-0.592 0.206 0.007 - 0.408 0.089 0.002 CL +0.297 CF +0.260<br>
-<br>
-4. 18/13         Eq.: +0.255 ( -0.146)<br>
-0.591 0.029 0.001 - 0.409 0.011 0.000 CL +0.202 CF +0.255<br>
+3. 11/8(2) 6/3 4/1     Eq.: +0.333 ( -0.177)<br>
+0.661 0.130 0.001 - 0.339 0.043 0.001 CL +0.333 CF +0.333<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/17 10/6                   Eq.: +0.438
-       0.627 0.149 0.001 - 0.373 0.044 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    10/9 10/6                    Eq.: +0.373 (-0.065)
-       0.614 0.171 0.002 - 0.386 0.052 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    10/5                         Eq.: +0.367 (-0.071)
-       0.616 0.193 0.002 - 0.384 0.070 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/13                        Eq.: +0.252 (-0.187)
-       0.591 0.044 0.000 - 0.409 0.017 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    18/14 10/9                   Eq.: +0.243 (-0.195)
-       0.583 0.156 0.003 - 0.417 0.090 0.002
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BBBB-Bb--B-bB----Aaabdba-:0:0:1:41:4:2:0:9:10");
-var categoryid = "KE9";
-var probnum = "39";
-var showpipflg = true;
+const categoryid = "KE9";
+const probnum = "39";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--B-CbDbB-aB-B---a-bbbba--:0:0:1:33:0:4:1:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

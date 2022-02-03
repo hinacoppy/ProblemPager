@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ハイアンカー</span>&ensp;
 <span>(KA2-15)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">いったんハイアンカーを確保したら、簡単に外してはいけないのですが…</div>
 <div class="gamesituation">アンリミティドマッチ。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=151 白=151</div></div>
+      <div class="pipinfo">pips 黒=151 白=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">michihito_k＞<br>
 ハイアンカーを外したくないと考えると候補は次の2つ<br>
@@ -46,33 +50,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/9                         Eq.: +0.150
        0.554 0.124 0.004 - 0.446 0.126 0.003
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/2                         Eq.: +0.085 (-0.066)
        0.518 0.121 0.004 - 0.482 0.087 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    9/3 8/3                      Eq.: +0.057 (-0.093)
        0.506 0.127 0.004 - 0.494 0.083 0.002
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/7 6/1*                    Eq.: +0.043 (-0.107)
        0.507 0.121 0.004 - 0.493 0.099 0.003
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    20/15 20/14                  Eq.: -0.017 (-0.167)
        0.516 0.098 0.003 - 0.484 0.148 0.005
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA2";
+const probnum = "15";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-a--a-E-CB--dC---c-dB-b---:0:0:1:65:0:0:3:0:10");
-var categoryid = "KA2";
-var probnum = "15";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

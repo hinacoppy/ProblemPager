@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">カバーはできないがヒットはできる</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">どうすれば負けるのか</span>&ensp;
 <span>(KE4-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/7</div>
+<div class="gamesituation">b3-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=123 w=150</div></div>
+      <div class="pipinfo">pips Red=89 White=160</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">おとなしくプレーするより打ち込んだほうがリターンヒットが少ない。なおかつ２枚をバーに上げており断然ギャモン率が高くなっている。少しボードを弱くしているが３ポイントボードには違いない。<br>
+ <div class="description">プライムのできる目を振ったがミッドポイントにブロットができる。相手側は程よくプライムの準備ができているため、このブロットを打たれるとプライム戦のタイミングで負けてしまう。少しのチャンスも与えることなく安全にベアインすることを目指す。期待値を見るとこのプレーの後ほぼダブルパスのようだ。<br>
 <br>
-1. 4/2 4/1*   Eq.: +0.384<br>
-0.634 0.363 0.016 - 0.366 0.139 0.010 CL +0.521 CF +0.384<br>
+1. 11/3         Eq.: +0.994<br>
+0.727 0.274 0.007 - 0.273 0.025 0.000 CL +0.793 CF +0.994<br>
 <br>
-2. 15/10       Eq.: +0.270 ( -0.114)<br>
-0.634 0.237 0.013 - 0.366 0.119 0.005 CL +0.408 CF +0.270<br>
+2. 11/6 7/4   Eq.: +0.831 ( -0.162)<br>
+0.666 0.300 0.012 - 0.334 0.042 0.001 CL +0.688 CF +0.831<br>
 <br>
-3. 15/13 8/5 Eq.: +0.166 ( -0.218)<br>
-0.600 0.251 0.014 - 0.400 0.146 0.006 CL +0.329 CF +0.166<br>
-<br>
-4. 6/1*           Eq.: +0.163 ( -0.221)<br>
-0.590 0.302 0.015 - 0.410 0.180 0.013 CL +0.322 CF +0.163<br>
+3. 13/8 11/8 Eq.: +0.753 ( -0.241)<br>
+0.670 0.256 0.008 - 0.330 0.043 0.001 CL +0.630 CF +0.753<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    4/2 4/1*                     Eq.: +0.409
-       0.640 0.361 0.021 - 0.360 0.129 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    15/10                        Eq.: +0.261 (-0.148)
-       0.628 0.238 0.014 - 0.372 0.121 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    15/13 8/5                    Eq.: +0.222 (-0.187)
-       0.615 0.240 0.015 - 0.385 0.127 0.005
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    8/6 8/5                      Eq.: +0.171 (-0.238)
-       0.596 0.247 0.016 - 0.404 0.138 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/1*                         Eq.: +0.156 (-0.254)
-       0.583 0.298 0.019 - 0.417 0.168 0.009
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=aaA-BBCaB---bBBA-b-ccb----:1:-1:1:23:0:0:0:7:10");
-var categoryid = "KE4";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BcBBBBB---AbB--abbc-b----:0:0:1:35:3:2:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ポイントオン</span>&ensp;
 <span>(KA5-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=159 白=135</div></div>
+      <div class="pipinfo">pips 緑=159 白=135</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">ポイントオンはたいへん強力な攻めであり、通常は喜んでやりたい。<br>
 しかし、ここでは 8/3* 6/3 が0.040のエラーとなる。<br>
@@ -43,33 +47,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/8                         Eq.: +0.258
        0.523 0.165 0.007 - 0.477 0.141 0.005
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/3* 6/3                     Eq.: +0.249 (-0.009)
        0.526 0.193 0.010 - 0.474 0.178 0.009
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    16/11 6/3*                   Eq.: +0.182 (-0.076)
        0.509 0.159 0.008 - 0.491 0.175 0.008
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    16/13 11/6                   Eq.: +0.152 (-0.106)
        0.491 0.156 0.007 - 0.509 0.156 0.006
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    16/11 5/2*                   Eq.: +0.140 (-0.118)
        0.495 0.150 0.007 - 0.505 0.172 0.007
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA5";
+const probnum = "31";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--aa-CC-B--BbBb-Ab-c--bBb-:1:1:1:53:6:6:0:11:10");
-var categoryid = "KA5";
-var probnum = "31";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

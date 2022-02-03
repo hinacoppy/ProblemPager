@@ -12,60 +12,63 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">５なのか６なのか</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">教えてください</span>&ensp;
 <span>(KEa-38)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">unlimited</div>
+<div class="gamesituation">b0-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=147 w=149</div></div>
+      <div class="pipinfo">pips Red=93 White=91</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">１でエンター、６の目の選択で打ち込むのはさすがにボードの強さとリターンの多さを考えれば危険すぎる。相手はアウターにある２枚のブロットをまとめるなり逃がすなりしないと落ち着かないところ。ここで１７ポイントに飛び出しておけば２箇所のヒットとまとめる目の５がデュプリケーションになっていて相手のいい目を比較的限定することができる。相手は６を振ってもアンカーを優先させたいためミッドのブロットをどうすることもできず大きな弱点となってしまうが、１８ポイントに飛び出してしまえばそのブロットにヒットという仕事を与えてしまう。そもそものショット数の多さも相まってここでは１８ポイントに出る手は悪い手となっている。<br>
+ <div class="description">いきなり解析結果とダイスマップを載せます。なぜかというとこれだという理由が分からないからです。いくつか思いつく理由はあるのですがそれがすべてという気がしないので、あえてなにも示さずにまっさらな状態でいろんな人の意見を聞いてみることにしました。コメント欄から皆様の考え方を教えてください。<br>
 <br>
-1. bar/24 23/17 Eq.: -0.413<br>
-0.423 0.122 0.007 - 0.577 0.280 0.009 CL -0.315 CF -0.413<br>
+1. 8/6 8/2 Eq.: +0.229<br>
+0.653 0.064 0.002 - 0.347 0.034 0.001 CL +0.349 CF +0.229<br>
 <br>
-2. bar/24 13/7*  Eq.: -0.518 ( -0.105)<br>
-0.385 0.133 0.009 - 0.615 0.288 0.022 CL -0.397 CF -0.518<br>
+2. 7/5 7/1 Eq.: +0.135 (-0.094)<br>
+0.628 0.030 0.001 - 0.372 0.027 0.000 CL +0.260 CF +0.135<br>
 <br>
-3. bar/18            Eq.: -0.523 ( -0.109)<br>
-0.397 0.116 0.008 - 0.603 0.320 0.010 CL -0.412 CF -0.523<br>
+672.png<br>
+<br>
+===コメント===<br>
+プライムはつながっている方が強い、2ポイントの方が１ポイントより価値が高いとかですかね。あと７ポイントを崩すと相手の4が使えるようになってしまうとか。まぁそういうのは既に主さんは考えているのでしょうけど。<br>
+<br>
+上の方がコメントされていることに加えて、直後の相手番でバックマンがプライムから抜けられなかった場合に次の自分の番での4の目が勝率・ギャモン率の点でかなり得することも影響しているのかなと思いました。<br>
+<br>
+お二方コメントありがとうございました。つながっているプライムの強さが見えていませんでした。単に遠い方を残して止めておきたいと考えてしまい内側をクリアしたのですが、これではもうフルプライムになる望みはほぼないし８があるのに１を作るのもダメですね。<br>
+仮に相手バックマンが居残り続けたとしたら７ポイントにギャップがあるよりないベアインの方が安全な点もいいなと思いました。<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 23/17                 Eq.: -0.412
-       0.420 0.120 0.006 - 0.580 0.274 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/24 13/7*                 Eq.: -0.510 (-0.098)
-       0.391 0.130 0.008 - 0.609 0.285 0.020
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    bar/18                       Eq.: -0.515 (-0.103)
-       0.399 0.121 0.008 - 0.601 0.309 0.010
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-ab-C-DaC---aC-----dbbbA-A:0:0:1:16:0:0:3:0:10");
-var categoryid = "KEa";
-var probnum = "38";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "38";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-AAaCBBBBa---B----abcbbba-:1:-1:1:26:0:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

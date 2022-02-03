@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">どう考えるのか？</span>&ensp;
 <span>(KA1-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒に31が出ました。どんな風に考えたらよいのでしょう。</div>
 <div class="gamesituation">マネーゲーム。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=154 白=124</div></div>
+      <div class="pipinfo">pips 黒=154 白=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">みろり＞<br>
 6/3 22/21<br>
@@ -89,35 +93,32 @@ random seed, with race database.<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    8/5* 6/5                     Eq.: -0.212
-       0.464 0.000 0.000 - 0.536 0.115 0.002
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    13/10 6/5*                   Eq.: -0.517 (-0.306)
-       0.393 0.000 0.000 - 0.607 0.172 0.007
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    22/21 8/5*                   Eq.: -0.735 (-0.523)
-       0.346 0.000 0.000 - 0.654 0.173 0.005
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    8/5*/4                       Eq.: -0.758 (-0.546)
-       0.345 0.000 0.000 - 0.655 0.181 0.006
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/5*/2                       Eq.: -0.766 (-0.554)
-       0.342 0.000 0.000 - 0.658 0.180 0.005
-        0-ply cubeful prune [expert]
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9                         Eq.: -0.559
+       0.372 0.056 0.001 - 0.628 0.193 0.005
+    2. Cubeful 2-ply    8/4                          Eq.: -0.600 (-0.041)
+       0.367 0.049 0.001 - 0.633 0.203 0.004
+    3. Cubeful 2-ply    22/21 6/3                    Eq.: -0.631 (-0.071)
+       0.364 0.050 0.001 - 0.636 0.213 0.004
+    4. Cubeful 2-ply    22/21 13/10                  Eq.: -0.652 (-0.092)
+       0.359 0.056 0.001 - 0.641 0.218 0.005
+    5. Cubeful 2-ply    6/2                          Eq.: -0.658 (-0.098)
+       0.360 0.048 0.001 - 0.640 0.215 0.004
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
-board.showBoard("XGID=-----aE-C---bF-a-cbe--A---:0:0:1:31:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "43";
-var showpipflg = false;
+const categoryid = "KA1";
+const probnum = "43";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
+board.showBoard("XGID=-----bE-C---bF-a-cbe--A---:0:0:1:31:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

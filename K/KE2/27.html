@@ -12,66 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ヒットは人のためならず</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">耐え難きを耐え</span>&ensp;
 <span>(KE2-27)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w6*/7</div>
+<div class="gamesituation">b1-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=93 w=141</div></div>
+      <div class="pipinfo">pips Red=96 White=128</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手のインナー状態は決して強いとは言えず、ダブルアンカーを保持したいためここでヒットするのは相手にタイミングを与えてしまうだけでいいことはない。また、２０ポイントにエンターしておかないとこちらのバックマンが飛び出せずボードを壊してしまいかねない。さらに7/6は8/7と違ってインナーに対するビルダーを増やしており、次の相手の出目４で両方のバックマンが、６で深い方のバックマンがブロックされているのが大きい。<br>
+ <div class="description">相手にプライムを作られてはまずいという一心でヒットしてしまったがそこから勝つのも大変。まずセミプラのエッジにもう１枚寄らないといけないし、インナーブロットができてしまいギャモン負けも増やしている。４プラでも十分強いし、５も６も振られない場合に相手はクラッシュしたり、なおかつインナーブロットを隠せないパターンもある。あっさりジョーカーを振られる怖さもあるが、勝つまでの道のりを考えるとインナーで耐えた方がスマートに勝てる。<br>
 <br>
-1. bar/20 7/6    Eq.: +0.245<br>
-0.602 0.291 0.017 - 0.398 0.100 0.003 CL +0.245 CF +0.245<br>
+1. 6/5 6/4       Eq.: -0.543<br>
+0.265 0.075 0.005 - 0.735 0.188 0.007 CL -0.604 CF -0.543<br>
 <br>
-2. bar/20 8/7    Eq.: +0.097 ( -0.148)<br>
-0.527 0.279 0.019 - 0.473 0.145 0.004 CL +0.097 CF +0.097<br>
+2. 24/23* 6/4  Eq.: -0.657 ( -0.114)<br>
+0.247 0.101 0.011 - 0.753 0.265 0.013 CL -0.698 CF -0.657<br>
 <br>
-3. bar/24* 8/3  Eq.: +0.066 ( -0.179)<br>
-0.511 0.313 0.017 - 0.489 0.104 0.005 CL +0.066 CF +0.066<br>
+3. 6/4 3/2        Eq.: -0.713 ( -0.170)<br>
+0.226 0.062 0.004 - 0.774 0.250 0.013 CL -0.769 CF -0.713<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 7/6                   Eq.: +0.273
-       0.618 0.284 0.013 - 0.382 0.097 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/20 8/7                   Eq.: +0.156 (-0.117)
-       0.560 0.264 0.013 - 0.440 0.126 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    bar/24* 8/3                  Eq.: +0.088 (-0.185)
-       0.525 0.307 0.012 - 0.475 0.101 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/20 6/5                   Eq.: +0.047 (-0.226)
-       0.513 0.188 0.006 - 0.487 0.164 0.005
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/24* 6/1                  Eq.: -0.048 (-0.322)
-       0.463 0.220 0.007 - 0.537 0.146 0.005
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BbCbCBBB--a-----a-b-bbbaA:0:0:1:15:2:6:1:7:10");
-var categoryid = "KE2";
-var probnum = "27";
-var showpipflg = true;
+const categoryid = "KE2";
+const probnum = "27";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-cCDBBB-----------bbbcbaB-:1:1:1:12:1:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

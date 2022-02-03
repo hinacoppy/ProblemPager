@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ダブルヒットは虎</span>&ensp;
 <span>(KA7-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">緑に21が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=153 白=151</div></div>
+      <div class="pipinfo">pips 緑=153 白=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">「ダブルヒットは虎」とは、ダブルヒットがたいへん強力な攻めであることを表わす格言なんです。<br>
 昨日は例会後に洋食屋「八幡亭」でシュエットを。<br>
@@ -92,33 +96,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/4*/3*                      Eq.: -0.093
        0.540 0.168 0.005 - 0.460 0.136 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/22 14/13                  Eq.: -0.203 (-0.111)
        0.486 0.093 0.002 - 0.514 0.139 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    14/13 6/4*                   Eq.: -0.213 (-0.121)
        0.492 0.125 0.003 - 0.508 0.155 0.007
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    14/11                        Eq.: -0.250 (-0.157)
        0.470 0.106 0.003 - 0.530 0.149 0.005
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    24/23 6/4*                   Eq.: -0.256 (-0.163)
        0.486 0.126 0.005 - 0.514 0.179 0.009
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "01";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=---aaBD-B---dEA--b-eb---A-:0:0:1:21:6:1:1:7:10");
-var categoryid = "KA7";
-var probnum = "01";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

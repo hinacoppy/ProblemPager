@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">焼け石にプライム</span>&ensp;
 <span>(KEa-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b3-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=110 w=219</div></div>
+      <div class="pipinfo">pips Red=110 White=219</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">大量の相手チェッカーを戻していてこのままだとバックゲームをされる可能性が高い。そこで５ポイントを作ってプライム模様で攻めようとしてもまだオンザバーに３枚もあればタイミングがありすぎて相手インナーが先に崩れる公算は低く、２つ目３つ目のアンカーを取られてこちらの進みすぎによるバックゲームが決まってしまいかねない。そこで少しでも次のアンカーを取られないようポイントオンする。５ポイントのブロットを放置しても打たれて困るような相手インナーではないし、何よりこちらの進みすぎ解消になる。<br>
 <br>
@@ -40,35 +44,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1* 3/1                     Eq.: +1.097
-       0.726 0.603 0.094 - 0.274 0.037 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    12/5                         Eq.: +0.924 (-0.173)
-       0.687 0.549 0.100 - 0.313 0.026 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/1* 5/3                     Eq.: +0.814 (-0.284)
-       0.673 0.518 0.079 - 0.327 0.041 0.001
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    17/12 3/1*                   Eq.: +0.761 (-0.337)
-       0.663 0.484 0.073 - 0.337 0.044 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/11 6/1*                   Eq.: +0.732 (-0.365)
-       0.657 0.493 0.079 - 0.343 0.053 0.001
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "KEa";
+const probnum = "25";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=caaCcAE-C---AA---A-cb-b---:0:0:1:25:3:0:0:5:10");
-var categoryid = "KEa";
-var probnum = "25";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

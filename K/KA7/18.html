@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">レスポンス</span>&ensp;
 <span>(KA7-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">レスポンスで緑に52が出ました。でも注意して下さい。最善手はただ一つですよ。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=167 白=160</div></div>
+      <div class="pipinfo">pips 緑=167 白=160</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">昨日の試合では、あろうことかショットを見落とすということをやってしまいました。どうしてなのか？　どういうパターンが苦手なのかを分析しております。ぐすん。<br>
 <br>
@@ -58,33 +62,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22 13/8                   Eq.: -0.224
        0.453 0.116 0.005 - 0.547 0.163 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/11 13/8                   Eq.: -0.284 (-0.060)
        0.437 0.125 0.006 - 0.563 0.171 0.010
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/8 6/4                     Eq.: -0.318 (-0.094)
        0.429 0.112 0.005 - 0.571 0.168 0.010
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/6                         Eq.: -0.373 (-0.148)
        0.416 0.112 0.005 - 0.584 0.178 0.009
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    24/22 8/3                    Eq.: -0.390 (-0.166)
        0.418 0.104 0.006 - 0.582 0.197 0.011
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "18";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-b----E-C---dE---bbe----B-:0:0:1:52:1:0:0:7:10");
-var categoryid = "KA7";
-var probnum = "18";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

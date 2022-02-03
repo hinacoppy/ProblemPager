@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">最後の砦</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">迎えに行かない</span>&ensp;
 <span>(KEa-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w4/7</div>
+<div class="gamesituation">b0-w0/3</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=128 w=79</div></div>
+      <div class="pipinfo">pips Red=133 White=119</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ショットを外したが今後も相手からのショットが期待できるポジション。その時のためにこちらのインナーには手を付けたくない。ここで２４ポイントを外さず残しておけば長期的に相手のショットを待つことができるし、何よりポイントオンなどで潰されずに済む。アウターに２ブロット出すのは一見危険だが５や６がフォーストの相手からそれだけたくさんショットをもらえると考えると悪くない。<br>
+ <div class="description">お互いミッドポイントの遊びがなくなり、ピップで勝っている相手はバックマンを早く逃がしたいところ。ここでこちらがミッドの保持を諦めると、飛び出したバックマンに対する対応ができないばかりか相手ミッドポイントの動きも自由になってしまう。逃げたい相手に対してこちらからすれ違いに行くようなプレーより、ここはミッドは保持して８ポイントからインナーへ次回のためのビルダーを送り込む。ショットを与えるリスクはあるが、スタックを形のいいビルダーに変化させアウター支配継続と見返りも多い。<br>
 <br>
-1. 18/16 18/14 Eq.: +0.258<br>
-0.536 0.132 0.008 - 0.464 0.132 0.010 CL +0.101 CF +0.258<br>
+1. 8/4 8/3    Eq.: +0.280<br>
+0.550 0.169 0.005 - 0.450 0.093 0.003 CL +0.197 CF +0.280<br>
 <br>
-2. 18/14 4/2      Eq.: +0.189 ( -0.069)<br>
-0.514 0.107 0.005 - 0.486 0.130 0.009 CL +0.024 CF +0.189<br>
+2. 13/9 8/3   Eq.: +0.160 (-0.120)<br>
+0.531 0.150 0.005 - 0.469 0.119 0.004 CL +0.096 CF +0.160<br>
 <br>
-3. 24/18            Eq.: +0.171 ( -0.087)<br>
-0.533 0.123 0.004 - 0.467 0.126 0.001 CL +0.085 CF +0.171<br>
+3. 13/4         Eq.: +0.124 (-0.156)<br>
+0.514 0.135 0.005 - 0.486 0.073 0.002 CL +0.115 CF +0.124<br>
+<br>
+4. 13/9 13/8 Eq.: +0.093 (-0.187)<br>
+0.508 0.112 0.003 - 0.492 0.064 0.002 CL +0.081 CF +0.093<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/16 18/14                  Eq.: +0.255
-       0.530 0.131 0.007 - 0.470 0.134 0.012
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    18/14 4/2                    Eq.: +0.158 (-0.097)
-       0.499 0.120 0.006 - 0.501 0.143 0.012
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/18                        Eq.: +0.154 (-0.101)
-       0.522 0.123 0.005 - 0.478 0.135 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    24/22 18/14                  Eq.: -0.137 (-0.393)
-       0.439 0.094 0.004 - 0.561 0.263 0.016
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    18/14 3/1                    Eq.: -0.215 (-0.471)
-       0.424 0.055 0.000 - 0.576 0.190 0.019
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--BBCBB-----b-----Bdca-eB-:0:0:1:24:0:4:0:7:10");
-var categoryid = "KEa";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--a-BCB-D---bB-b-c-bBabb--:0:0:1:45:0:0:0:3:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

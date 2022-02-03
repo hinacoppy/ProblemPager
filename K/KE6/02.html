@@ -12,66 +12,65 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ピップのリードにつられて</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">そのまま突っ立っていてもらいたい</span>&ensp;
 <span>(KE6-02)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w0/7</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=95 w=98</div></div>
+      <div class="pipinfo">pips Red=140 White=149</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">インナーの強さで一見互角だが、こちらにはブロットがありエスケープした際にルースヒットしやすくなっている。アウターにある相手のポイントがすべてスペアのないポイントのため、ここで強いボードを作り待っているとランニングだけでなくショットを当てて勝つパターンが追加されるし、打てなくとも新たなブロックは作りにくい形なのでそのあとエスケープすれば相手にとってルースヒットもよりリスクを負うことになる。<br>
+ <div class="description">セミプラを作れる目を振ったが、相手はまだアウターにたくさんのチェッカーを置いてるためギャモン勝ちも狙いたいところ。ポイントオンして相手の片目を奪えば、どこかに別のブロットを出してくれることもあり余計にギャモン率を上げている。ピップに大差がないため、打ち込まないプレーだと相手にプレーさせればさせるほどギャモン率が下がってしまう。<br>
 <br>
-1. 8/3 8/2  Eq.: -0.097<br>
-0.496 0.043 0.001 - 0.504 0.036 0.001 CL -0.005 CF -0.097<br>
+1. 7/3*(2)                  Eq.: +0.639<br>
+0.727 0.306 0.008 - 0.273 0.047 0.002 CL +0.742 CF +0.639<br>
 <br>
-2. 20/9      Eq.: -0.256 ( -0.159)<br>
-0.430 0.096 0.002 - 0.570 0.053 0.001 CL -0.101 CF -0.256<br>
+2. 13/9 11/9 10/8      Eq.: +0.571 ( -0.067)<br>
+0.729 0.241 0.009 - 0.271 0.051 0.002 CL +0.671 CF +0.571<br>
 <br>
-3. 8/2 6/1  Eq.: -0.260 ( -0.163)<br>
-0.448 0.030 0.000 - 0.552 0.063 0.003 CL -0.147 CF -0.260<br>
+3. 22/20 13/9 11/9     Eq.: +0.553 ( -0.085)<br>
+0.731 0.220 0.008 - 0.269 0.053 0.002 CL +0.650 CF +0.553<br>
+<br>
+4. 13/9(2)                   Eq.: +0.531 ( -0.108)<br>
+0.717 0.239 0.010 - 0.283 0.062 0.003 CL +0.633 CF +0.531<br>
+<br>
+5. 13/11 10/8 5/3*(2) Eq.: +0.489 ( -0.150)<br>
+0.703 0.228 0.007 - 0.297 0.054 0.002 CL +0.600 CF +0.489<br>
+<br>
+6. 10/4 6/4                  Eq.: +0.462 ( -0.177)<br>
+0.688 0.231 0.006 - 0.312 0.046 0.002 CL +0.581 CF +0.462<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 8/2                      Eq.: -0.111
-       0.483 0.038 0.000 - 0.517 0.035 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    20/9                         Eq.: -0.225 (-0.114)
-       0.434 0.094 0.002 - 0.566 0.052 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/2 6/1                      Eq.: -0.277 (-0.166)
-       0.439 0.031 0.000 - 0.561 0.060 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    20/14 8/3                    Eq.: -0.571 (-0.460)
-       0.364 0.071 0.001 - 0.636 0.133 0.004
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    20/15 20/14                  Eq.: -0.681 (-0.570)
-       0.347 0.040 0.001 - 0.653 0.135 0.002
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BBAC-C-B---bb---b-cBb-bb-:0:0:1:56:2:0:0:7:10");
-var categoryid = "KE6";
-var probnum = "02";
-var showpipflg = true;
+const categoryid = "KE6";
+const probnum = "02";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=---a-BCBB-AAeC---d-e--A---:1:-1:1:22:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">アンカー外し その4</span>&ensp;
 <span>(KA9-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マネーゲームで黒に52が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=134 白=161</div></div>
+      <div class="pipinfo">pips 黒=134 白=161</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">大阪オープンでは、王位戦交通費カップも行います。3000円×8名で優勝者は交通費として29000円を獲得。めっちゃお得でっせー<br>
 <br>
@@ -144,33 +148,30 @@ nice site. for more information you can check this one http://www.vsbot.com<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/14                        Eq.: +0.212
        0.610 0.218 0.018 - 0.390 0.108 0.003
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    10/3                         Eq.: +0.140 (-0.072)
        0.579 0.218 0.013 - 0.421 0.103 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    6/1* 5/3                     Eq.: +0.117 (-0.095)
        0.574 0.218 0.012 - 0.426 0.112 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    10/8 10/5                    Eq.: +0.059 (-0.153)
        0.555 0.202 0.013 - 0.445 0.109 0.004
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    14/9 5/3                     Eq.: +0.049 (-0.163)
        0.554 0.204 0.013 - 0.446 0.118 0.005
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA9";
+const probnum = "03";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-abB-DC---Bbb-B----ccB-b--:1:-1:1:52:0:0:3:0:10");
-var categoryid = "KA9";
-var probnum = "03";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

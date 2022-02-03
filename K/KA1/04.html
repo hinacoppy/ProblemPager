@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">今日はちょっとマニアックかも。</span>&ensp;
 <span>(KA1-04)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マネーゲームで黒に41が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=150 白=136</div></div>
+      <div class="pipinfo">pips 黒=150 白=136</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">このようなタイプのゲームを「ミューチュアルホールディングゲーム」と呼びます。<br>
 安全なムーブ 13/8 があるのですが、実戦で私は 13/9 6/5 を選びました。<br>
@@ -62,33 +66,30 @@
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8                         Eq.: +0.202
        0.551 0.116 0.002 - 0.449 0.070 0.001
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    8/4 6/5                      Eq.: +0.154 (-0.048)
        0.536 0.130 0.004 - 0.464 0.089 0.002
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    6/5 6/2                      Eq.: +0.144 (-0.058)
        0.532 0.119 0.002 - 0.468 0.075 0.001
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/9 6/5                     Eq.: +0.137 (-0.065)
        0.533 0.124 0.004 - 0.467 0.090 0.001
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    6/1                          Eq.: +0.082 (-0.120)
        0.511 0.124 0.003 - 0.489 0.083 0.001
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA1";
+const probnum = "04";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=---b-BD-C---bD---dbcB---b-:0:0:1:41:0:0:0:0:10");
-var categoryid = "KA1";
-var probnum = "04";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

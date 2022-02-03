@@ -12,69 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">スコアを見ると</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">補充する必要がない</span>&ensp;
 <span>(KEa-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b3-w4*/5</div>
+<div class="gamesituation">b3-w5/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=135 w=120</div></div>
+      <div class="pipinfo">pips Red=122 White=100</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">３の目でインナーをカバーすると強いボードもできてアンカーもあり穏やかな展開が期待できる。しかし、このスコアではギャモン負けを怖がらず、勝率やギャモン率を優先してプレーしてもいいので５の目で打ち込んで勝負に出る。相手アウターにもダイレクトで当てているが、同じ理由でこちらの都合のいい展開だけ期待している。<br>
+ <div class="description">ピップで遅れていて８ポイントがスタックしている。今捕まえている相手のラストチェッカーを逃がさないことを考えて、よりビルダーを増やしておきたい。崩したいスタックにわざわざ乗っけるプレーは無駄が多く、６ポイントにスペアを乗せる手もビルダーを１箇所増やしてはいるがアウターに無駄なブロットを残す。ここは８ポイントから２枚下ろしあわよくば４ポイントメイクも狙うプレーがベストになっている。この４ポイントのスロットは打たれなければメイクを狙うだけでなく１の目で３ポイントをヒットするビルダーを増やしたことにもなっている。<br>
 <br>
-1. 21/18 7/2* Eq.: +0.089<br>
-0.366 0.179 0.007 - 0.634 0.335 0.026 CL +0.089 CF +0.089<br>
+1. 8/6 8/4    Eq.: +0.122<br>
+0.463 0.098 0.003 - 0.537 0.126 0.003 CL +0.122 CF +0.122<br>
 <br>
-2. 23/18 7/4   Eq.: -0.070 ( -0.159)<br>
-0.339 0.126 0.007 - 0.661 0.224 0.007 CL -0.070 CF -0.070<br>
+2. 10/6 8/6 Eq.: +0.012 (-0.111)<br>
+0.427 0.079 0.002 - 0.573 0.111 0.002 CL +0.012 CF +0.012<br>
 <br>
-3. 7/2* 5/2     Eq.: -0.079 ( -0.168)<br>
-0.323 0.138 0.005 - 0.677 0.276 0.013 CL -0.079 CF -0.079<br>
+3. 8/2          Eq.: -0.011 (-0.134)<br>
+0.426 0.068 0.002 - 0.574 0.097 0.002 CL -0.011 CF -0.011<br>
 <br>
-4. 7/2* 6/3     Eq.: -0.110 ( -0.199)<br>
-0.315 0.130 0.004 - 0.685 0.288 0.015 CL -0.110 CF -0.110<br>
+4. 8/4 6/4    Eq.: -0.034 (-0.157)<br>
+0.402 0.081 0.002 - 0.598 0.153 0.003 CL -0.034 CF -0.034<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/18 7/2*                   Eq.: +0.132
-       0.374 0.192 0.006 - 0.626 0.332 0.026
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/18 7/4                    Eq.: -0.024 (-0.156)
-       0.354 0.134 0.005 - 0.646 0.231 0.007
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    21/16 7/4                    Eq.: -0.042 (-0.174)
-       0.348 0.131 0.003 - 0.652 0.230 0.010
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    7/2* 5/2                     Eq.: -0.098 (-0.230)
-       0.318 0.133 0.003 - 0.682 0.267 0.012
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    7/2* 4/1                     Eq.: -0.143 (-0.275)
-       0.313 0.116 0.002 - 0.687 0.238 0.008
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BaBABCA-a--a-b--b-bbBbBb-:0:0:1:35:3:4:1:5:10");
-var categoryid = "KEa";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--Ba-BB-E-B-b---b-Bb-bd-b-:1:-1:1:24:3:5:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

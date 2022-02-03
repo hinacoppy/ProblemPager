@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">どこのブロットを守るのか</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">後から作り、先に出る</span>&ensp;
 <span>(KEa-13)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4*-w2/5</div>
+<div class="gamesituation">b2-w0/9</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=109 w=118</div></div>
+      <div class="pipinfo">pips Red=132 White=117</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">セミプライムに１枚閉じ込めている中、あわててエースのブロットを隠さなくてもエッジでヒットされるわけではないのでまだ強い力で閉じ込めている。それよりアウターにばらまいたブロットを打たれるほうが痛いし、プライム伸ばしのためのスペアマンを無駄遣いすることなくプライムを歩かせる３ポイントメイクがベストになっている。<br>
+ <div class="description">１の目でヒットせずまずは穴あきプライムを作る。フリーロールを与えても相手は穴が２箇所のプライムでこちらより弱く、ピップの進んだ相手にただで手番を渡すのはプライム戦としては決して悪くはない。ヒットしてしまうと相手にボードを壊すことなく手番を消化されてしまいこちらが逃げ遅れる。<br>
 <br>
-1. 8/3 7/3        Eq.: +0.369<br>
-0.691 0.277 0.004 - 0.309 0.097 0.004 CL +0.369 CF +0.369<br>
+1. 24/18 4/3       Eq.: +0.308<br>
+0.610 0.190 0.011 - 0.390 0.176 0.004 CL +0.225 CF +0.308<br>
 <br>
-2. 18/13 5/1    Eq.: +0.276 (-0.093)<br>
-0.643 0.180 0.004 - 0.357 0.078 0.003 CL +0.276 CF +0.276<br>
+2. 24/18 13/12* Eq.: +0.217 ( -0.092)<br>
+0.604 0.193 0.011 - 0.396 0.238 0.039 CL +0.131 CF +0.217<br>
 <br>
-3. 7/2 5/1        Eq.: +0.260 (-0.109)<br>
-0.637 0.249 0.002 - 0.363 0.106 0.005 CL +0.260 CF +0.260<br>
-<br>
-4. 18/14 18/13 Eq.: +0.248 (-0.121)<br>
-0.634 0.093 0.004 - 0.366 0.124 0.006 CL +0.248 CF +0.248<br>
+3. 13/12*/6        Eq.: +0.169 ( -0.139)<br>
+0.577 0.180 0.009 - 0.423 0.162 0.015 CL +0.148 CF +0.169<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 7/3                      Eq.: +0.357
-       0.684 0.300 0.006 - 0.316 0.099 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    7/2 5/1                      Eq.: +0.261 (-0.096)
-       0.637 0.280 0.004 - 0.363 0.105 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    18/13 5/1                    Eq.: +0.256 (-0.102)
-       0.633 0.210 0.004 - 0.367 0.093 0.003
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    18/14 18/13                  Eq.: +0.247 (-0.110)
-       0.634 0.116 0.003 - 0.366 0.134 0.007
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    8/3 5/1                      Eq.: +0.109 (-0.248)
-       0.565 0.248 0.005 - 0.435 0.159 0.006
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=aA--BCBCB---b--a-bBbcbb---:0:0:1:45:4:2:1:5:10");
-var categoryid = "KEa";
-var probnum = "13";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "13";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--bACCB-B---aB---b-cbb-cB-:0:0:1:16:2:0:0:9:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

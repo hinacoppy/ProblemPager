@@ -12,69 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">お後に作らさせていただきます</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">ブロット３枚の瞬間に</span>&ensp;
 <span>(KE8-40)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w3/7</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=167 w=116</div></div>
+      <div class="pipinfo">pips Red=143 White=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">４プラとおまけが１枚、これだけの攻め駒でバックマンたちの脱出時間を稼げるわけもないのでピップの遅れを受け入れてプライム戦で勝負する。このまま９ポイントを作れることのメリットが大きく、打たれても４プラに手を付けていない分タイミングは残っている。<br>
+ <div class="description">相手のバックマンを４プラに捕まえている瞬間にエスケープする手が勝率では優っているし、アウターのブロットがなければそれでいいが、この瞬間にポイントオンしてしまってギャモンを取りに行く手がベストとなっている。３ポイントボードとはいえ相手のインナーは高い所が空いていて弱いため、今すぐエスケープする価値はそれほどない。むしろフリーロールを与えるとアウターブロットがその４、５ポイントを作るビルダーとして活躍されてしまうため尚のことポイントオンが有効になる<br>
 <br>
-1. 21/10         Eq.: -0.145<br>
-0.492 0.081 0.003 - 0.508 0.209 0.011 CL -0.199 CF -0.145<br>
+1. 7/1* 5/1   Eq.: +0.307<br>
+0.539 0.277 0.008 - 0.461 0.135 0.009 CL +0.220 CF +0.307<br>
 <br>
-2. 9/3* 8/3     Eq.: -0.330 ( -0.185)<br>
-0.437 0.101 0.004 - 0.563 0.217 0.013 CL -0.299 CF -0.330<br>
+2. 24/14       Eq.: +0.187 ( -0.120)<br>
+0.556 0.162 0.008 - 0.444 0.152 0.006 CL +0.124 CF +0.187<br>
 <br>
-3. 21/15 13/8 Eq.: -0.344 ( -0.199)<br>
-0.455 0.081 0.003 - 0.545 0.268 0.017 CL -0.350 CF -0.344<br>
+3. 13/9 13/7 Eq.: +0.122 ( -0.185)<br>
+0.521 0.198 0.009 - 0.479 0.138 0.009 CL +0.105 CF +0.122<br>
 <br>
-4. 21/16 9/3*  Eq.: -0.348 ( -0.203)<br>
-0.450 0.093 0.004 - 0.550 0.249 0.017 CL -0.316 CF -0.348<br>
+4. 8/2 6/2     Eq.: +0.119 ( -0.188)<br>
+0.514 0.216 0.006 - 0.486 0.147 0.010 CL +0.096 CF +0.119<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/10                        Eq.: -0.211
-       0.483 0.084 0.003 - 0.517 0.208 0.011
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    9/3* 8/3                     Eq.: -0.314 (-0.103)
-       0.441 0.100 0.004 - 0.559 0.212 0.014
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/16 9/3*                   Eq.: -0.361 (-0.150)
-       0.450 0.093 0.004 - 0.550 0.246 0.018
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    21/15 13/8                   Eq.: -0.363 (-0.152)
-       0.455 0.081 0.003 - 0.545 0.257 0.017
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    13/8 9/3*                    Eq.: -0.385 (-0.174)
-       0.439 0.089 0.003 - 0.561 0.253 0.020
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---a-BBBBA--bC---c-cdAbB--:0:0:1:56:1:3:0:7:10");
-var categoryid = "KE8";
-var probnum = "40";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "40";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a---CDBB---eB--aa-c--bbB-:0:0:1:46:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">プライミングスロット再び</span>&ensp;
 <span>(KE5-25)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b2-w4/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=120 w=89</div></div>
+      <div class="pipinfo">pips Red=120 White=89</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">プライム戦で遅れている側としてはできるだけ相手側の陣地のクラッシュを狙いたいところ。エースポイントに釘付けにしたい相手のバックマンをわざわざヒットして動かしてあげる必要もなく、プライム伸ばしのダブルスロットをしておけば打たれなかった時に強いキューブが打てる。相手のバックマンに飛び出された時には必ずヒットされている点がポイントで、これでこちらはボードを崩さずタイミングが取れるため次のチャンスを待つことができる。<br>
 <br>
@@ -49,35 +53,21 @@
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2 4/3                      Eq.: +0.143
-       0.540 0.099 0.003 - 0.460 0.156 0.006
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/2 6/5                      Eq.: +0.036 (-0.106)
-       0.515 0.084 0.003 - 0.485 0.113 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    8/2 7/6                      Eq.: +0.034 (-0.108)
-       0.514 0.088 0.003 - 0.486 0.116 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/2 5/4                      Eq.: +0.008 (-0.135)
-       0.506 0.083 0.003 - 0.494 0.116 0.003
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/1*                         Eq.: -0.068 (-0.210)
-       0.483 0.075 0.002 - 0.517 0.113 0.004
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
+const categoryid = "KE5";
+const probnum = "25";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
 board.showBoard("XGID=-a--CCCCA--------b-cd-cBb-:0:0:1:16:2:4:0:7:10");
-var categoryid = "KE5";
-var probnum = "25";
-var showpipflg = true;
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

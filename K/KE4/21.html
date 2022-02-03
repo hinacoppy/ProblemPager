@@ -12,69 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">今度は捨てないです</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">プライム戦を諦めると決めたら</span>&ensp;
 <span>(KE4-21)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w2/9</div>
+<div class="gamesituation">b0-w2/3</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=166 w=153</div></div>
+      <div class="pipinfo">pips Red=126 White=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">前回と違ってバックゲームのタイミングはないのでアウターでの勝負に持ち込む。向こう側の２箇所のポイントを足掛かりに将来のヒットチャンスを待つ。バーのブロットは打たれてもリターンが多い。<br>
+ <div class="description">お互いのバックマンをプライムで捕まえようとしていたところ、この目でピップリードしてしまいプライム戦で不利になってしまった局面。ここは戦略を変更してブリッツで攻めてバックマンの脱出を助ける。どっちつかずの攻め方よりも方針がはっきりしているほうが今後のプレーも楽になる。<br>
 <br>
-1. 22/18 21/15 Eq.: -0.273<br>
-0.337 0.070 0.002 - 0.663 0.189 0.008 CL -0.444 CF -0.273<br>
+1. 7/2(2) 6/1*(2)   Eq.: -0.117<br>
+0.436 0.132 0.002 - 0.564 0.110 0.004 CL -0.117 CF -0.117<br>
 <br>
-2. 21/15 8/4     Eq.: -0.431 ( -0.158)<br>
-0.288 0.057 0.001 - 0.712 0.205 0.008 CL -0.575 CF -0.431<br>
+2. 10/5 8/3 7/2(2) Eq.: -0.188 ( -0.071)<br>
+0.401 0.104 0.002 - 0.599 0.124 0.006 CL -0.188 CF -0.188<br>
 <br>
-3. 21/11           Eq.: -0.440 ( -0.167)<br>
-0.287 0.059 0.002 - 0.713 0.218 0.008 CL -0.586 CF -0.440<br>
+3. 13/3 13/8 10/5  Eq.: -0.189 ( -0.071)<br>
+0.400 0.102 0.003 - 0.600 0.119 0.005 CL -0.189 CF -0.189<br>
 <br>
-4. 21/15 6/2     Eq.: -0.517 ( -0.244)<br>
-0.267 0.049 0.001 - 0.733 0.229 0.009 CL -0.652 CF -0.517<br>
+4. 13/3(2)              Eq.: -0.232 ( -0.115)<br>
+0.377 0.097 0.004 - 0.623 0.147 0.006 CL -0.232 CF -0.232<br>
+<br>
+5. 10/5 8/3 6/1*(2) Eq.: -0.274 ( -0.157)<br>
+0.359 0.078 0.002 - 0.641 0.135 0.006 CL -0.274 CF -0.274<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/18 21/15                  Eq.: -0.293
-       0.331 0.070 0.002 - 0.669 0.189 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    21/15 8/4                    Eq.: -0.408 (-0.114)
-       0.294 0.059 0.001 - 0.706 0.199 0.006
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    21/11                        Eq.: -0.409 (-0.115)
-       0.296 0.060 0.002 - 0.704 0.206 0.006
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    22/16 15/11                  Eq.: -0.456 (-0.162)
-       0.288 0.058 0.001 - 0.712 0.230 0.012
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    22/18 15/9                   Eq.: -0.478 (-0.185)
-       0.281 0.056 0.001 - 0.719 0.233 0.011
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--B-CbB-B---c-bA-c-cbCB---:1:1:1:46:0:2:0:9:10");
-var categoryid = "KE4";
-var probnum = "21";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "21";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a-B-BBBC-A-bB-a--bdbc--A-:0:0:1:55:0:2:0:3:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

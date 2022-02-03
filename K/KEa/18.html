@@ -12,63 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">急所を外す</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">３兎を追わず</span>&ensp;
 <span>(KEa-18)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w0/7</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=88 w=150</div></div>
+      <div class="pipinfo">pips Red=106 White=148</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">逃げるかインナーメイクの二択。インナーを作ると多少は打たれてからの抵抗力が上がるがバーポイントで打たれるという点で相手にプライム作りも同時に進められてしまうマイナス点もある。打たれなかった場合の戦いやすさに大きな差がないのでショット数が２４通りと１４通りの大差なら逃げてしまった方がいい。<br>
+ <div class="description">こちらはバックマンを安全に逃がせばいいだけだが前途は多難。ピップの遅れている相手はアンカーも保持していることだしルースヒットも厭わず敢行してくることが予想されるためこちらも相手のバックマンを自由にさせないプレーが必要。ここで１０ポイントを外してしまうと後ろの３枚すべての動きが楽になってしまい捕まえておくのが困難になる。ここで４ポイントを作るとアンカーの２枚にとっては何でもないがエースの１枚に対して強い穴あきプライムができる。重ねる４、ヒットの３の目が向こう側のヒットの目とデュプリケーションになっていて相手のいい目を限定的にしている点も大きい。<br>
 <br>
-1. 18/11    Eq.: -0.283<br>
-0.476 0.110 0.002 - 0.524 0.107 0.004 CL -0.061 CF -0.283<br>
+1. 8/4 7/4    Eq.: +0.244<br>
+0.542 0.202 0.008 - 0.458 0.095 0.003 CL +0.201 CF +0.244<br>
 <br>
-2. 8/4 7/4 Eq.: -0.408 (-0.125)<br>
-0.430 0.141 0.003 - 0.570 0.094 0.003 CL -0.105 CF -0.408<br>
+2. 10/7 10/6 Eq.: +0.020 ( -0.224)<br>
+0.489 0.179 0.006 - 0.511 0.085 0.003 CL +0.078 CF +0.020<br>
+<br>
+3. 7/3 6/3     Eq.: -0.088 ( -0.331)<br>
+0.462 0.169 0.006 - 0.538 0.131 0.005 CL -0.037 CF -0.088<br>
+<br>
+4. 8/1*         Eq.: -0.153 ( -0.397)<br>
+0.456 0.150 0.003 - 0.544 0.148 0.007 CL -0.090 CF -0.153<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/11                        Eq.: -0.243
-       0.486 0.114 0.002 - 0.514 0.095 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/4 7/4                      Eq.: -0.412 (-0.170)
-       0.429 0.138 0.004 - 0.571 0.087 0.002
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    18/15 8/4                    Eq.: -0.608 (-0.365)
-       0.369 0.128 0.003 - 0.631 0.149 0.004
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    18/14 8/5                    Eq.: -0.673 (-0.430)
-       0.360 0.127 0.003 - 0.640 0.160 0.004
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    8/1                          Eq.: -0.750 (-0.507)
-       0.337 0.112 0.002 - 0.663 0.140 0.004
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-CbB--CEA---d----bAcbb----:1:-1:1:43:1:0:0:7:10");
-var categoryid = "KEa";
-var probnum = "18";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "18";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-aBB-bCCB-B-b----bbbbAb---:0:0:1:43:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

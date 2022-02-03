@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">三手目</span>&ensp;
 <span>(KA7-37)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">三手目で緑に54が出ました。特にどうと言うことのない目に思えますが…</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=156 白=159</div></div>
+      <div class="pipinfo">pips 緑=156 白=159</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">最近は早朝のTMGトーナメントと深夜のシュエットが混在して、生活リズムをつかめずにいます。<br>
 <br>
@@ -66,33 +70,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 13/8                    Eq.: +0.137
        0.515 0.135 0.005 - 0.485 0.141 0.004
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/15                        Eq.: +0.072 (-0.064)
        0.519 0.090 0.002 - 0.481 0.130 0.003
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    24/20 13/8                   Eq.: +0.056 (-0.081)
        0.507 0.114 0.005 - 0.493 0.157 0.004
-        2-ply cubeful prune [world class]
     4. Cubeful 0-ply    13/4                         Eq.: -0.067 (-0.204)
        0.472 0.118 0.005 - 0.528 0.167 0.006
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    13/8 6/2                     Eq.: -0.083 (-0.219)
        0.471 0.113 0.004 - 0.529 0.172 0.005
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "37";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-b----E-C---eF---b-d--b-A-:0:0:1:45:3:4:0:7:10");
-var categoryid = "KA7";
-var probnum = "37";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -12,91 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">次に動かせるチェッカーを確保する</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">死に駒とは言いますが</span>&ensp;
 <span>(KE4-20)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w1/7</div>
+<div class="gamesituation">b0-w0/3</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=145 w=158</div></div>
+      <div class="pipinfo">pips Red=115 White=127</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">こちらはバックマンをすべて逃がし、ミッドポイントにスタックしている。ここで３ポイントメイクをすると、相手がスプリットしているため８ポイントにスペアがないのが響いて次に手を付けるチェッカーがミッドポイントからのみになってしまい不自由になる。８ポイントにスペアがあれば３ポイントメイクで十分となる。<br>
+ <div class="description">ピップで大幅にリードできる局面。ここで死に駒を作ってでもミッドポイントをキープしておくことによって１１ポイントのブロットに対するプレッシャーを与え、バックマンの脱出を邪魔するようなプレーをしにくくする。また、着地地点としてもミッドポイントは残しておきたい。<br>
 <br>
-上記のポジション<br>
-1. 13/10 13/8 Eq.: +0.392<br>
-0.623 0.114 0.004 - 0.377 0.082 0.002 CL +0.278 CF +0.392<br>
+1. 8/2(2) 7/1(2)   Eq.: -0.185<br>
+0.460 0.137 0.001 - 0.540 0.081 0.004 CL -0.004 CF -0.185<br>
 <br>
-2. 8/3 6/3        Eq.: +0.303 ( -0.089)<br>
-0.602 0.116 0.005 - 0.398 0.099 0.003 CL +0.221 CF +0.303<br>
+2. 13/1 13/7 8/2  Eq.: -0.337 ( -0.152)<br>
+0.425 0.111 0.002 - 0.575 0.053 0.003 CL -0.069 CF -0.337<br>
 <br>
-3. 13/10 6/1* Eq.: +0.184 ( -0.208)<br>
-0.577 0.101 0.004 - 0.423 0.106 0.003 CL +0.141 CF +0.184<br>
+3. 13/7(2) 8/2(2) Eq.: -0.338 ( -0.153)<br>
+0.425 0.100 0.002 - 0.575 0.047 0.002 CL -0.075 CF -0.338<br>
 <br>
-ミッドから８ポイントに１枚移動したポジション<br>
-b2-w1/7<br>
-<pre>   +24-23-22-21-20-19------18-17-16-15-14-13-+
-   |             O  O |   |    O           X |
-   |                O |   |    O           X |
-   |                O |   |    O           X |
-   |                O |   |                X |
-   |                O |   |                6 |
-   |                  |BAR|      3 5         | (Cube: 1)
-   |                X |   |                  |
-   |                X |   |    X           O |
-   |                X |   |    X           O |
-   |                X |   |    X           O |
-   | O  O           X |   |    X           O |
-   +-1--2--3--4--5--6-------7--8--9-10-11-12-+
-</pre>
-pips b=140 w=158<br>
-<br>
-1. 8/3 6/3        Eq.: +0.513<br>
-0.652 0.124 0.005 - 0.348 0.074 0.002 CL +0.359 CF +0.513<br>
-<br>
-2. 13/10 13/8   Eq.: +0.448 ( -0.065)<br>
-0.638 0.121 0.005 - 0.362 0.079 0.003 CL +0.318 CF +0.448<br>
+4. 13/1(2)             Eq.: -0.354 ( -0.169)<br>
+0.421 0.102 0.002 - 0.579 0.052 0.002 CL -0.086 CF -0.354<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 13/8                   Eq.: +0.347
-       0.623 0.109 0.002 - 0.377 0.080 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/3 6/3                      Eq.: +0.286 (-0.061)
-       0.606 0.111 0.002 - 0.394 0.091 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/10 6/1*                   Eq.: +0.185 (-0.162)
-       0.582 0.104 0.002 - 0.418 0.104 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    13/5                         Eq.: +0.023 (-0.324)
-       0.529 0.105 0.002 - 0.471 0.112 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/8 6/3                     Eq.: +0.018 (-0.329)
-       0.530 0.105 0.002 - 0.470 0.118 0.002
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aa---E-C---dG---c-ea-----:0:0:1:35:2:1:0:7:10");
-var categoryid = "KE4";
-var probnum = "20";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "20";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-A-AB-DBB--acB-b-c-d--bA--:0:0:1:66:0:0:0:3:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

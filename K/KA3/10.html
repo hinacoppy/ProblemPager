@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ベアオフその2</span>&ensp;
 <span>(KA3-10)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">昨日のポジションと比較すると…</div>
 <div class="gamesituation">マネーゲーム。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=61 白=107</div></div>
+      <div class="pipinfo">pips 黒=61 白=107</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">WooMets＞<br>
 5Pは6Pをクリアする際の着地点に思えます。先に5Pをベアオフしても、バーからエンターする目を増やすので、ギャモン率が大幅に上昇するようにも感じられません。6/1(4)を選択します。<br>
@@ -49,27 +53,26 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1(2) 5/off(2)              Eq.: +1.141
        0.952 0.252 0.001 - 0.048 0.000 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/1(4)                       Eq.: +1.087 (-0.054)
        0.948 0.209 0.000 - 0.052 0.001 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    6/1(3) 5/off                 Eq.: +0.574 (-0.567)
        0.743 0.175 0.001 - 0.257 0.000 0.000
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA3";
+const probnum = "10";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=aBBC-BF-------c-b--b-bc-b-:1:-1:1:55:0:0:3:0:10");
-var categoryid = "KA3";
-var probnum = "10";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

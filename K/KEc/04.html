@@ -12,75 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">暴れることを許された時</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">プライムは伸ばすもの</span>&ensp;
 <span>(KEc-04)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/3</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=124 w=112</div></div>
+      <div class="pipinfo">pips Red=151 White=134</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ピップで負けている中おとなしく前に進めるだけではそれほど有利にはならない。幸い相手のインナーにはブロットがありこちらのボードは強い。ここはリスクを取ってバーや５ポイントメイクを狙いながらアウターで手広く待ち伏せる手がベストになっている。３のデュプリケーションが利いているし打たれなかった時により強いポジションを作ることができる<br>
+ <div class="description">自分のバックマンが穴あきプライムに捕まっている。ピップも遅れているしここはプライムで対抗する場面。ここでターゲットになるのは１ポイントに残っているチェッカーで５ポイントに割っているチェッカーに逃げられるのは仕方ない。１枚逃げられてももう１枚を同じ穴あきプライムに捕まえるべく後ろ側にスロットする。インナーに放り込んでしまってはプライムの材料にならない。<br>
 <br>
-1. 16/14 13/10 Eq.: +0.185<br>
-0.546 0.078 0.005 - 0.454 0.093 0.002 CL +0.076 CF +0.185<br>
+1. 13/9 13/8 Eq.: -0.753<br>
+0.349 0.093 0.005 - 0.651 0.213 0.014 CL -0.434 CF -0.753<br>
 <br>
-2. 13/10 8/6     Eq.: +0.072 (-0.112)<br>
-0.523 0.069 0.003 - 0.477 0.110 0.002 CL -0.014 CF +0.072<br>
-<br>
-3. 16/14 8/5     Eq.: +0.050 (-0.134)<br>
-0.518 0.103 0.007 - 0.482 0.146 0.003 CL -0.031 CF +0.050<br>
-<br>
-4. 13/8             Eq.: +0.015 (-0.170)<br>
-0.505 0.058 0.002 - 0.495 0.089 0.001 CL -0.035 CF +0.015<br>
-<br>
-5. 16/13 8/6     Eq.: +0.010 (-0.175)<br>
-0.497 0.052 0.002 - 0.503 0.057 0.001 CL -0.013 CF +0.010<br>
-<br>
-6. 13/10 6/4     Eq.: +0.007 (-0.177)<br>
-0.505 0.063 0.003 - 0.495 0.108 0.002 CL -0.054 CF +0.007<br>
+2. 13/4         Eq.: -0.920 (-0.167)<br>
+0.307 0.078 0.003 - 0.693 0.162 0.009 CL -0.474 CF -0.920<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/14 13/10                  Eq.: +0.116
-       0.542 0.062 0.002 - 0.458 0.082 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/10 8/6                    Eq.: +0.043 (-0.073)
-       0.524 0.070 0.002 - 0.476 0.100 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    16/14 8/5                    Eq.: +0.029 (-0.087)
-       0.523 0.093 0.002 - 0.477 0.144 0.002
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    16/13 8/6                    Eq.: +0.009 (-0.107)
-       0.504 0.050 0.001 - 0.496 0.049 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/8                         Eq.: -0.020 (-0.136)
-       0.504 0.063 0.002 - 0.496 0.092 0.001
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--aBB-C-C--b-D--Aa-fb-ab--:0:0:1:23:0:0:0:3:10");
-var categoryid = "KEc";
-var probnum = "04";
-var showpipflg = true;
+const categoryid = "KEc";
+const probnum = "04";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a-BBaBB----bE---bbcb-bB--:0:0:1:45:0:0:0:3:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

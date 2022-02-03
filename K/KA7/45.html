@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">アップ・トゥー・ユー</span>&ensp;
 <span>(KA7-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=112 白=139</div></div>
+      <div class="pipinfo">pips 緑=112 白=139</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">緑に63が出ました。良い目ですね。どう使うかはあなた次第です。<br>
 今朝のモンテカルロトーナメントで、ベスト4まで進みましたが、準決勝で敗退。またもやDMPでした。この借りはモナコでたっぷりと返させてもらいます。<br>
@@ -106,33 +110,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/21* 8/2*                  Eq.: +1.556
        0.809 0.469 0.023 - 0.191 0.036 0.002
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    24/21* 10/4                  Eq.: +1.500 (-0.055)
        0.820 0.430 0.022 - 0.180 0.016 0.000
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    24/21*/15                    Eq.: +1.431 (-0.125)
        0.832 0.383 0.023 - 0.168 0.014 0.000
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    24/21* 7/1                   Eq.: +1.407 (-0.149)
        0.809 0.394 0.023 - 0.191 0.030 0.001
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/2* 5/2                     Eq.: +1.265 (-0.291)
        0.784 0.348 0.014 - 0.216 0.036 0.001
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "45";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=--abBCCCB-A-ba-----c-abcA-:1:-1:1:63:3:5:0:7:10");
-var categoryid = "KA7";
-var probnum = "45";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

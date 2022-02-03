@@ -12,66 +12,71 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">プライムもどき同士のせめぎあい</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">わずか３pips動かすだけで</span>&ensp;
 <span>(KE1-16)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w2/7</div>
+<div class="gamesituation">b5-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=158 w=126</div></div>
+      <div class="pipinfo">pips Red=103 White=122</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">１枚逃げた場合のフレキシビリティーの無さを嫌ってバーメイクしたが、プライム戦と考えるとタイミングはあるのだから相手のアウターのポイントは先に崩れることが期待できる。バーを作ると残されたブロットがあだとなりダブルヒットもあるし、こちらは２ポイントボードなのでポイントオン以外でもヒットされる。ミッドに乗せたスペアを利用してタイミングを保てば十分な状況。<br>
+ <div class="description">まずは解析結果から。どれがいい手かという問題ではなく、なぜこんなに大差なのか。<br>
 <br>
-1. 24/13            Eq.: -0.081<br>
-0.429 0.090 0.004 - 0.571 0.189 0.010 CL -0.287 CF -0.081<br>
+1. 8/5   Eq.: +0.952<br>
+0.770 0.046 0.001 - 0.230 0.011 0.000 CL +0.590 CF +0.952<br>
 <br>
-2. 24/18 23/18  Eq.: -0.274 ( -0.193)<br>
-0.411 0.095 0.005 - 0.589 0.307 0.011 CL -0.469 CF -0.274<br>
+2. 6/3   Eq.: +0.868 ( -0.084)<br>
+0.757 0.043 0.001 - 0.243 0.018 0.001 CL +0.569 CF +0.868<br>
 <br>
-3. 13/8 13/7      Eq.: -0.406 ( -0.325)<br>
-0.350 0.086 0.005 - 0.650 0.272 0.018 CL -0.569 CF -0.406<br>
+3. 11/8 Eq.: +0.846 ( -0.106)<br>
+0.749 0.041 0.001 - 0.251 0.017 0.001 CL +0.545 CF +0.846<br>
+<br>
+キューブレスエクイティはそれほど差はない。つまりキューブが関係している。<br>
+１位の期待値がかなり1.0に近い。つまりダブルパスに近いためほかの手の期待値に差をつけている。<br>
+こちらからダブルがしにくくテイクしやすいスコアであることもあって、キューブポジションに近づく価値が高くなっている。<br>
+もう少しダブルパスになりやすいスコアにしてみると、３つのムーブにそれほど差がなくなる。<br>
+<br>
+スコアb4-w5/7の場合<br>
+1. 8/5  Eq.: +0.971<br>
+0.752 0.051 0.001 - 0.248 0.016 0.001 CL +0.547 CF +0.971<br>
+<br>
+2. 6/3  Eq.: +0.967 ( -0.003)<br>
+0.741 0.050 0.001 - 0.259 0.024 0.001 CL +0.509 CF +0.967<br>
+<br>
+3. 11/8 Eq.: +0.967 ( -0.004)<br>
+0.737 0.048 0.001 - 0.263 0.022 0.001 CL +0.502 CF +0.967<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/13                        Eq.: -0.105
-       0.427 0.088 0.003 - 0.573 0.187 0.010
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/18 23/18                  Eq.: -0.211 (-0.106)
-       0.430 0.100 0.005 - 0.570 0.298 0.011
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    13/8 13/7                    Eq.: -0.438 (-0.333)
-       0.339 0.072 0.003 - 0.661 0.259 0.019
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    24/18 13/8                   Eq.: -0.448 (-0.343)
-       0.361 0.075 0.004 - 0.639 0.315 0.029
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    24/18 6/1*                   Eq.: -0.606 (-0.501)
-       0.314 0.064 0.002 - 0.686 0.333 0.030
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-a--ABCBB---bB--bb-dbb-BA-:1:1:1:56:2:2:0:7:10");
-var categoryid = "KE1";
-var probnum = "16";
-var showpipflg = true;
+const categoryid = "KE1";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-a-B-BE-C--C-b--abbbcb----:0:0:1:12:5:2:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

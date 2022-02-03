@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">お見合いを望む</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">１２発の弾と１発の弾</span>&ensp;
 <span>(KE5-43)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b6-w6/7</div>
+<div class="gamesituation">b1-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=106 w=132</div></div>
+      <div class="pipinfo">pips Red=127 White=102</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ヒットしてしまうとリターンも多く、バックマンが相手インナーに取り残されてしまう。ピップで十分リードしているのでここはアウターに重ねて安全に行く。相手はこのポイントをクリアする際のショットを狙って９ポイントに居残るかもしれないが、こちらは多くの目でインナーメイクに精を出せるし時間が稼げる。仮に打たれたとしてもエースアンカーに対してバーを抑えているのでエスケープはこちらが容易だ。<br>
+ <div class="description">６の目でヒットすると１枚エスケープすることになる。インナーにブロットを残してしまうと、エンターと同時に相手はボードの強さを生かして前に並んだ１２枚のチェッカーでここぞとばかりに責めてくる。７、８ポイントにスペアがなく、リターンされなければ必勝かと言うとそうでもない。ここは２枚飛び出すことによりターゲットになるブロットを１枚にしてギャモン負けを大きく減らしながら勝率も上げる。１０ポイントのブロットがヒットされなければ飛び出した２枚のチェッカーも打たれることはなく、こちらの方がはるかにショット数が少ない。<br>
 <br>
-1. 21/14       Eq.: +0.619<br>
-0.810 0.204 0.012 - 0.190 0.025 0.001 CL +0.619 CF +0.619<br>
+1. 21/16 21/15 Eq.: -0.107<br>
+0.465 0.034 0.001 - 0.535 0.155 0.005 CL -0.200 CF -0.107<br>
 <br>
-2. 14/9* 8/6 Eq.: +0.489 ( -0.130)<br>
-0.745 0.272 0.025 - 0.255 0.045 0.002 CL +0.489 CF +0.489<br>
+2. 21/16 10/4* Eq.: -0.285 ( -0.178)<br>
+0.442 0.064 0.002 - 0.558 0.228 0.010 CL -0.296 CF -0.285<br>
 <br>
-3. 14/9*/7    Eq.: +0.479 ( -0.141)<br>
-0.739 0.272 0.024 - 0.261 0.051 0.002 CL +0.479 CF +0.479<br>
-<br>
-4. 21/16 8/6 Eq.: +0.442 ( -0.177)<br>
-0.721 0.207 0.014 - 0.279 0.061 0.002 CL +0.442 CF +0.442<br>
+3. 10/4* 6/1     Eq.: -0.385 ( -0.278)<br>
+0.402 0.057 0.002 - 0.598 0.149 0.004 CL -0.295 CF -0.385<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    21/14                        Eq.: +0.632
-       0.816 0.174 0.010 - 0.184 0.025 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    14/9* 8/6                    Eq.: +0.506 (-0.125)
-       0.753 0.249 0.025 - 0.247 0.044 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    14/9*/7                      Eq.: +0.491 (-0.141)
-       0.745 0.237 0.022 - 0.255 0.049 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    14/9* 7/5                    Eq.: +0.428 (-0.203)
-       0.714 0.257 0.027 - 0.286 0.065 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    21/16 14/12                  Eq.: +0.416 (-0.215)
-       0.708 0.173 0.014 - 0.292 0.086 0.004
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-b-C-CCCAa----A--c-ebA-b--:0:0:1:25:6:6:0:7:10");
-var categoryid = "KE5";
-var probnum = "43";
-var showpipflg = true;
+const categoryid = "KE5";
+const probnum = "43";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=----aCEBB-A------cbdcB-b--:0:0:1:56:1:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,36 +12,38 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">キューブアクション</span>&ensp;
 <span>(KA1-12)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">白の振り番です。キューブアクションは？</div>
+<article>
+<div class="doAction">黒の振り番です。キューブアクションは？</div>
 <div class="gamesituation">マネーゲーム。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=146 白=128</div></div>
+      <div class="pipinfo">pips 黒=128 白=146</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">※白番であることに注意<br>
-<br>
-白のダブルは当然でしょう。<br>
-実戦で、黒の私はテイクしました。次の理由から<br>
-1)白の5ポイントが空いている<br>
-2)黒の陣地も強い<br>
+ <div class="description">黒のダブルは当然でしょう。<br>
+実戦で、白の私はテイクしました。次の理由から<br>
+1)黒の5ポイントが空いている<br>
+2)白の陣地も強い<br>
 <br>
 しかし、あらためて考えてみると<br>
-1)白は多くの目で3ポイントを埋める。そうなると4ポイントボードで非常に強い。<br>
-　黒はすぐにアンカーを確保しなければ、危険な状態。<br>
-2)黒の陣地が強いといっても、インナーは二箇所しか埋まっていない。<br>
-　ヒット合戦になれば、明らかに白よりも劣る。<br>
+1)黒は多くの目で3ポイントを埋める。そうなると4ポイントボードで非常に強い。<br>
+　白はすぐにアンカーを確保しなければ、危険な状態。<br>
+2)白の陣地が強いといっても、インナーは二箇所しか埋まっていない。<br>
+　ヒット合戦になれば、明らかに黒よりも劣る。<br>
 <br>
 以上からパスが正解となります。<br>
 ※ テイクは 0.120 ものエラー<br>
@@ -57,19 +59,21 @@ Cubeful equities:
 3. No double           +0.776  (-0.224)
 Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
-board.showBoard("XGID=----BbCCC---cB---b-c-babAA:0:0:-1:00:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "12";
-var showpipflg = false;
+const categoryid = "KA1";
+const probnum = "12";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
+board.showBoard("XGID=aaBAB-C-B---bC---cccBb----:0:0:1:00:0:0:3:0:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

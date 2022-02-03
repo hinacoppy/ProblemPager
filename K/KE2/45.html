@@ -12,66 +12,65 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ベアオフのテクニック　その２</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">似たようなポジションがありました</span>&ensp;
 <span>(KE2-45)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=64 w=65</div></div>
+      <div class="pipinfo">pips Red=132 White=204</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">打ち込まなくてもまず勝てるが相手側のインナーを見ると打ち込んでリターンヒットされたところでそれほど勝率は落ちない。ならばギャモン勝ち率が格段に上がる打ち込みをするべきだ。<br>
+ <div class="description">セミプライムがあるのでそれを崩さずプレーしても十分かと思いきや、ここで何か所もアンカーを取られると途端に勝率を落としてしまう。こちらは相手の弱いボードに対してアンカーもあるので、４プラにしてでも複数アンカー阻止のダブルヒットがいい手となる。以前登場したこのポジションと同じ考え方のポジションなのでしょう。<br>
 <br>
-1. 5/3* 5/1  Eq.: +1.054<br>
-0.904 0.219 0.002 - 0.096 0.001 0.000 CL +1.096 CF +1.054<br>
+1. 8/3* 8/2*  Eq.: +1.032<br>
+0.733 0.491 0.112 - 0.267 0.032 0.001 CL +1.184 CF +1.032<br>
 <br>
-2. 6/2 5/3*  Eq.: +0.894 ( -0.161)<br>
-0.839 0.214 0.007 - 0.161 0.003 0.000 CL +0.964 CF +0.894<br>
+2. 8/2* 7/2    Eq.: +0.956 ( -0.076)<br>
+0.699 0.494 0.117 - 0.301 0.024 0.001 CL +1.139 CF +0.956<br>
 <br>
-3. 5/1 2/off  Eq.: +0.860 ( -0.195)<br>
-0.926 0.026 0.000 - 0.074 0.000 0.000 CL +0.886 CF +0.860<br>
+3. 11/5 8/3*  Eq.: +0.915 ( -0.117)<br>
+0.706 0.458 0.106 - 0.294 0.032 0.001 CL +1.082 CF +0.915<br>
+<br>
+4. 13/2*         Eq.: +0.897 ( -0.135)<br>
+0.705 0.451 0.095 - 0.295 0.027 0.001 CL +1.067 CF +0.897<br>
+<br>
+5. 13/7 8/3*   Eq.: +0.896 ( -0.136)<br>
+0.701 0.452 0.106 - 0.299 0.027 0.001 CL +1.071 CF +0.896<br>
+<br>
+6. 21/15 8/3* Eq.: +0.859 ( -0.173)<br>
+0.698 0.441 0.100 - 0.302 0.039 0.003 CL +1.031 CF +0.859<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    5/3* 5/1                     Eq.: +1.139
-       0.935 0.230 0.001 - 0.065 0.000 0.000
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    6/2 5/3*                     Eq.: +0.960 (-0.179)
-       0.871 0.215 0.001 - 0.129 0.001 0.000
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    5/1 2/off                    Eq.: +0.845 (-0.294)
-       0.919 0.033 0.000 - 0.081 0.000 0.000
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    6/off                        Eq.: +0.840 (-0.298)
-       0.919 0.029 0.000 - 0.081 0.000 0.000
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/4 5/1                      Eq.: +0.801 (-0.338)
-       0.907 0.021 0.000 - 0.093 0.000 0.000
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-ACaBED-----b---------ach-:1:-1:1:24:0:0:0:5:10");
-var categoryid = "KE2";
-var probnum = "45";
-var showpipflg = true;
+const categoryid = "KE2";
+const probnum = "45";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=abaaBBCBB--AdA-----dbB----:1:-1:1:56:0:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

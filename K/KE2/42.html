@@ -12,72 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">相手に唯一負けてる点</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">６を振られても問題ない</span>&ensp;
 <span>(KE2-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b3-w4/7</div>
+<div class="gamesituation">b8*-w4/9</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=131 w=156</div></div>
+      <div class="pipinfo">pips Red=142 White=24</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ピップのリードは十分、ブロットも同じだけばらまいているがこちらはノーボード。インナー強度で負けているときに５ポイントが作れる目を振れたのだから喜んで作るべき。ヒットしたところでギャモン勝ちすら増えていない。<br>
+ <div class="description">21/19としてヒットチャンスを最大にする手が良い手となっている。６を振られるのを嫌がって別の手を打っても３６、４６、５６、６６は打たれなくても飛び越えられてしまうので結局６がらみの目で損をするのは１６と２６のみ。それならば相手のバックマンが手前で止まってしまった時のショットを多く残しておく方がいい。<br>
 <br>
-1. 11/5 7/5       Eq.: +0.502<br>
-0.627 0.218 0.013 - 0.373 0.097 0.004 CL +0.592 CF +0.502<br>
+1. bar/20 21/19  Eq.: -0.401<br>
+0.320 0.012 0.000 - 0.680 0.502 0.001 CL -0.401 CF -0.401<br>
 <br>
-2. 14/8 11/9*    Eq.: +0.401 ( -0.101)<br>
-0.607 0.189 0.010 - 0.393 0.084 0.003 CL +0.504 CF +0.401<br>
+2. bar/20 6/4     Eq.: -0.469 ( -0.068)<br>
+0.286 0.011 0.000 - 0.714 0.492 0.000 CL -0.469 CF -0.469<br>
 <br>
-3. 11/9* 7/1*    Eq.: +0.358 ( -0.144)<br>
-0.574 0.213 0.010 - 0.426 0.119 0.007 CL +0.455 CF +0.358<br>
-<br>
-4. 11/9* 8/2*    Eq.: +0.346 ( -0.156)<br>
-0.569 0.214 0.014 - 0.431 0.125 0.007 CL +0.442 CF +0.346<br>
-<br>
-5. 24/18 11/9*  Eq.: +0.207 ( -0.296)<br>
-0.552 0.163 0.010 - 0.448 0.132 0.006 CL +0.303 CF +0.207<br>
+3. bar/20 7/5     Eq.: -0.512 ( -0.111)<br>
+0.264 0.010 0.000 - 0.736 0.489 0.000 CL -0.512 CF -0.512<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5 7/5                     Eq.: +0.517
-       0.629 0.228 0.012 - 0.371 0.098 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    14/8 11/9*                   Eq.: +0.407 (-0.109)
-       0.605 0.199 0.008 - 0.395 0.091 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    11/9* 8/2*                   Eq.: +0.341 (-0.175)
-       0.563 0.226 0.012 - 0.437 0.120 0.009
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    11/9* 7/1*                   Eq.: +0.328 (-0.189)
-       0.560 0.222 0.010 - 0.440 0.119 0.009
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    24/18 11/9*                  Eq.: +0.253 (-0.263)
-       0.563 0.177 0.010 - 0.437 0.133 0.009
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aa---EDCa-Ac-A--c-d--b-A-:1:-1:1:26:3:4:0:7:10");
-var categoryid = "KE2";
-var probnum = "42";
-var showpipflg = true;
+const categoryid = "KE2";
+const probnum = "42";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--B-BBCB-----a-------CbbbA:0:0:1:25:8:4:1:9:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,72 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">背に腹は代えられぬ</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">勝ち方の２段構え</span>&ensp;
 <span>(KE1-06)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w3/7</div>
+<div class="gamesituation">b0-w1/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=151 w=156</div></div>
+      <div class="pipinfo">pips Red=150 White=138</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手の狙いは早めにキューブを打ってギャモン勝ちしたいところ。ここでアンカーをとらないと十分な攻め駒でアタックされてしまう。プライムで勝てない局面でビルダーを持ってきても攻めが弱いのでエースへ打ち込む。リターンされてもボード自体は弱く、今アンカーをとったのだから恐れることはない。<br>
+ <div class="description">こちらは不利であるが、相手もエースにポイントを作ってしまっている。<br>
+ブロットを２枚作りながらもテンポヒットすることにより、打たれなければ<br>
+一気にプライム戦で有利に、打たれてもバックゲームなど何通りかの<br>
+勝ち方ができる。のんびりしていては不利な状況が打破できない。<br>
 <br>
-1. 23/22 4/1*     Eq.: -0.718<br>
-0.366 0.073 0.002 - 0.634 0.141 0.005 CL -0.409 CF -0.718<br>
+1. 13/7 6/5*     Eq.: -0.207<br>
+0.445 0.115 0.003 - 0.555 0.130 0.003 CL -0.132 CF -0.207<br>
 <br>
-2. 23/22 6/3       Eq.: -0.762 ( -0.044)<br>
-0.347 0.066 0.002 - 0.653 0.136 0.005 CL -0.510 CF -0.762<br>
+2. 13/7 4/3       Eq.: -0.300 ( -0.092)<br>
+0.411 0.067 0.001 - 0.589 0.057 0.001 CL -0.168 CF -0.300<br>
 <br>
-3. 23/22 13/10    Eq.: -0.767 ( -0.049)<br>
-0.348 0.080 0.003 - 0.652 0.141 0.006 CL -0.507 CF -0.767<br>
+3. 21/20 13/7   Eq.: -0.301 ( -0.094)<br>
+0.414 0.076 0.002 - 0.586 0.069 0.002 CL -0.167 CF -0.301<br>
 <br>
-4. 6/3 4/3           Eq.: -0.838 ( -0.120)<br>
-0.380 0.090 0.004 - 0.620 0.198 0.006 CL -0.544 CF -0.838<br>
-<br>
-5. 22/21 4/1*      Eq.: -0.954 ( -0.236)<br>
-0.360 0.086 0.003 - 0.640 0.199 0.009 CL -0.587 CF -0.954<br>
+4. 13/7 8/7       Eq.: -0.305 ( -0.098)<br>
+0.411 0.068 0.002 - 0.589 0.061 0.001 CL -0.172 CF -0.305<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22 4/1*                   Eq.: -0.682
-       0.368 0.069 0.002 - 0.632 0.142 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    23/22 6/3                    Eq.: -0.735 (-0.053)
-       0.355 0.065 0.002 - 0.645 0.141 0.004
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    23/22 13/10                  Eq.: -0.746 (-0.064)
-       0.353 0.076 0.003 - 0.647 0.143 0.004
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    6/3 4/3                      Eq.: -0.792 (-0.110)
-       0.375 0.079 0.002 - 0.625 0.184 0.005
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    22/21 4/1*                   Eq.: -0.945 (-0.263)
-       0.357 0.071 0.002 - 0.643 0.194 0.009
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-a--CbC-C---bD---cbcb-AA--:0:0:1:13:4:3:0:7:10");
-var categoryid = "KE1";
-var probnum = "06";
-var showpipflg = true;
+const categoryid = "KE1";
+const probnum = "06";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=----AaDBD--adA---d-c-C--b-:0:0:1:16:0:1:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

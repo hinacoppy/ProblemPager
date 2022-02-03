@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">落とし穴</span>&ensp;
 <span>(KA5-22)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=127 白=113</div></div>
+      <div class="pipinfo">pips 緑=127 白=113</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">実戦ではノータイムで3ptを作り、ダイスをピックアップ。<br>
 それが0.190のエラーとは！<br>
@@ -46,33 +50,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1*                         Eq.: +0.322
        0.531 0.245 0.011 - 0.469 0.175 0.019
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    6/3 5/3                      Eq.: +0.169 (-0.153)
        0.520 0.136 0.005 - 0.480 0.142 0.011
-        2-ply cubeful prune [world class]
     3. Cubeful 0-ply    13/8                         Eq.: -0.187 (-0.509)
        0.414 0.106 0.004 - 0.586 0.154 0.012
-        0-ply cubeful prune [expert]
     4. Cubeful 0-ply    13/11 8/5                    Eq.: -0.205 (-0.527)
        0.412 0.101 0.003 - 0.588 0.156 0.016
-        0-ply cubeful prune [expert]
     5. Cubeful 0-ply    8/3                          Eq.: -0.224 (-0.546)
        0.410 0.110 0.003 - 0.590 0.190 0.018
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA5";
+const probnum = "22";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-aB-BCC-A----B-aac-eb-b-B-:0:0:1:23:4:8:0:13:10");
-var categoryid = "KA5";
-var probnum = "22";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

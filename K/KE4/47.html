@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">逃げたいのは相手の方　その２</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">そこにアンカーはいらない</span>&ensp;
 <span>(KE4-47)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w0/7</div>
+<div class="gamesituation">b6*-w2/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=107 w=81</div></div>
+      <div class="pipinfo">pips Red=92 White=137</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">アウターのブロットに目が行くが、ピップで遅れているこちらが逃げ回るのは方針としておかしい。ショットを減らしてみても結局最後のバックマンに逃げられるとつらくなる。どうやってもショットを与えるなら、５ポイントを作っておけばリターンした時などまだ抵抗する余地がある。こちら側にブロットを作ってしまうと相手はヒットとエスケープを同時にしてしまい、仮に打たれなくとも今度は逃がさないようにしたいためにカバーとヒットという二つの仕事を負わされてしまう。<br>
+ <div class="description">相手のインナーはスカスカで打ち込まれてもそんなに痛くはない。ここで相手のバックマンの飛び出しをけん制すべくアウターに１枚飛び出しておく。ピップで勝っていて逃げたいところでアンカーをとってしまうとブロックに捕まってしまいこちらの動きが不自由になるし、相手のバックマンをノーリスクで飛び出させてしまう。<br>
 <br>
-1. 11/5 6/5       Eq.: -0.143<br>
-0.456 0.038 0.001 - 0.544 0.116 0.001 CL -0.197 CF -0.143<br>
+1. 20/12       Eq.: +0.026<br>
+0.519 0.202 0.002 - 0.481 0.095 0.004 CL +0.026 CF +0.026<br>
 <br>
-2. 16/10 11/10 Eq.: -0.255 ( -0.111)<br>
-0.380 0.025 0.001 - 0.620 0.065 0.000 CL -0.298 CF -0.255<br>
+2. 20/18 8/2 Eq.: -0.081 ( -0.108)<br>
+0.467 0.201 0.003 - 0.533 0.131 0.004 CL -0.081 CF -0.081<br>
 <br>
-3. 16/15 11/5   Eq.: -0.279 ( -0.135)<br>
-0.393 0.035 0.001 - 0.607 0.112 0.000 CL -0.320 CF -0.279<br>
-<br>
-4. 16/15 8/2     Eq.: -0.378 ( -0.235)<br>
-0.374 0.029 0.001 - 0.626 0.163 0.002 CL -0.420 CF -0.378<br>
+3. 22/20 8/2 Eq.: -0.100 ( -0.126)<br>
+0.457 0.154 0.002 - 0.543 0.116 0.003 CL -0.100 CF -0.100<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5 6/5                     Eq.: -0.175
-       0.447 0.047 0.002 - 0.553 0.131 0.001
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    16/10 11/10                  Eq.: -0.271 (-0.095)
-       0.372 0.027 0.001 - 0.628 0.066 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    16/15 11/5                   Eq.: -0.287 (-0.111)
-       0.396 0.040 0.002 - 0.604 0.129 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 0-ply    16/15 8/2                    Eq.: -0.349 (-0.173)
-       0.387 0.032 0.001 - 0.613 0.166 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    15/8                         Eq.: -0.377 (-0.202)
-       0.356 0.022 0.002 - 0.644 0.129 0.001
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-a-CB-D-C--Aa--AA--bc-ccb-:1:1:1:16:4:0:0:7:10");
-var categoryid = "KE4";
-var probnum = "47";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "47";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-BCBbBC-A-----c-bc-cA-A-b-:0:0:1:26:6:2:1:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

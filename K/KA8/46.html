@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">ブリッツ その5</span>&ensp;
 <span>(KA8-46)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マネーゲームで黒に32が出ました。これをブリッツに分類することは無茶やなあ。「ベアイン」が妥当か。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=81 白=96</div></div>
+      <div class="pipinfo">pips 黒=81 白=96</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">おかげさまで『Crowns Cup』のスポンサーが120口になりました。あと20口で締め切らせて頂きます。<br>
 <br>
@@ -213,33 +217,30 @@ nice site. for more information you can check this one http://www.vsbot.com<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/6 7/5                      Eq.: +0.796
        0.865 0.119 0.001 - 0.135 0.008 0.000
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    13/11 9/6                    Eq.: +0.756 (-0.041)
        0.845 0.139 0.001 - 0.155 0.024 0.001
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    13/10 9/7                    Eq.: +0.740 (-0.056)
        0.839 0.136 0.001 - 0.161 0.018 0.000
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    13/11 13/10                  Eq.: +0.704 (-0.092)
        0.817 0.158 0.001 - 0.183 0.030 0.001
-        2-ply cubeful prune [world class]
     5. Cubeful 2-ply    9/6 5/3                      Eq.: +0.693 (-0.103)
        0.828 0.108 0.000 - 0.172 0.013 0.000
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA8";
+const probnum = "46";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=aBBB-CBA-A--bB-----c-ccc--:1:-1:1:32:0:0:3:0:10");
-var categoryid = "KA8";
-var probnum = "46";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

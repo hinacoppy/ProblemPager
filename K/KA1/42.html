@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">三手目</span>&ensp;
 <span>(KA1-42)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">黒がオンザバーから61を振りました。</div>
 <div class="gamesituation">マネーゲームです。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=166 白=158</div></div>
+      <div class="pipinfo">pips 黒=166 白=158</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">黒の出目が 62 63 64 65 の場合も考えてみて下さい。<br>
 <br>
@@ -68,30 +72,28 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 11/5                  Eq.: -0.156
        0.464 0.130 0.007 - 0.536 0.167 0.011
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    bar/18                       Eq.: -0.184 (-0.027)
        0.463 0.117 0.006 - 0.537 0.184 0.009
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    bar/24 13/7                  Eq.: -0.185 (-0.029)
        0.457 0.128 0.007 - 0.543 0.174 0.013
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    bar/24 8/2                   Eq.: -0.326 (-0.170)
        0.422 0.118 0.006 - 0.578 0.196 0.014
-        2-ply cubeful prune [world class]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA1";
+const probnum = "42";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=-b----E-C--AdD---c-e-a--AA:0:0:1:61:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "42";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

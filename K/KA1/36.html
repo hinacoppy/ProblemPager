@@ -12,71 +12,77 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">キューブの時間</span>&ensp;
 <span>(KA1-36)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
-<div class="doAction">白の振り番でキューブアクションは？</div>
-<div class="gamesituation">5ポイントマッチ。0-2で黒が負けています。</div>
+<article>
+<div class="doAction">黒の振り番でキューブアクションは？</div>
+<div class="gamesituation">5ポイントマッチ。2-0で黒が勝っています。</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=151 白=138</div></div>
+      <div class="pipinfo">pips 黒=138 白=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">まず、マネーゲームで考えましょう。<br>
 「4つのエレメント」を使います。<br>
 <br>
-(1) レース　白が13ピップリードで丸1つ<br>
-(2) 陣地　どちらも3ポイントボードですが、質では白が圧倒的に優っています。<br>
-　　　　　　　(白は理想的。黒は大切な4，5ptが空いている)<br>
+(1) レース　黒が13ピップリードで丸1つ<br>
+(2) 陣地　どちらも3ポイントボードですが、質では黒が圧倒的に優っています。<br>
+　　　　　　　(黒は理想的。白は大切な4，5ptが空いている)<br>
 　　　　　　　丸1つ半<br>
-(3) バックマン　白は1枚の脱出がほぼ確定。残った1枚の脱出も容易に思えます。<br>
-　　　　　　　　　黒は3枚もあって、1枚はバーの上。<br>
+(3) バックマン　黒は1枚の脱出がほぼ確定。残った1枚の脱出も容易に思えます。<br>
+　　　　　　　　　白は3枚もあって、1枚はバーの上。<br>
 　　　　　　　　　びっくりするほどの差なので丸2つ<br>
-(4) チャンス　白には特に大きなチャンスはありません。<br>
+(4) チャンス　黒には特に大きなチャンスはありません。<br>
 　　　　　　　　　丸なし<br>
 <br>
 合計で丸が4つ半<br>
 ダブル＆パスが正しいアクションとなります。<br>
 <br>
 ではこのマッチスコアではどうなのか？<br>
-白が3awayなので、白の勝率が高いかどうかに注目します。<br>
-バックマンの脱出が簡単そうで、白はかなり勝てるでしょう。<br>
-また、黒は有効なリダブルを返せそうにありません。<br>
+黒が3awayなので、黒の勝率が高いかどうかに注目します。<br>
+バックマンの脱出が簡単そうで、黒はかなり勝てるでしょう。<br>
+また、白は有効なリダブルを返せそうにありません。<br>
 つまりこのマッチスコアでもパスとなります。<br>
 正解　ダブル＆パス<br>
 </div>
 </div>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.741
-  0.751 0.274 0.023 - 0.249 0.057 0.002
+2-ply cubeless equity +0.811 (Money: +0.743)
+  0.751 0.276 0.023 - 0.249 0.058 0.002
 Cubeful equities:
 1. Double, pass        +1.000
-2. Double, take        +1.313  (+0.313)
-3. No double           +0.966  (-0.034)
+2. Double, take        +1.121  (+0.121)
+3. No double           +0.944  (-0.056)
 Proper cube action: Double, pass
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
-board.showBoard("XGID=-aBB--C-C-a-cB--b--dbb--BA:0:0:-1:00:0:0:3:0:10");
-var categoryid = "KA1";
-var probnum = "36";
-var showpipflg = false;
+const categoryid = "KA1";
+const probnum = "36";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
+board.showBoard("XGID=ab--BBD--B--bC-A-c-c--bbA-:0:0:1:00:2:0:0:5:10");
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>

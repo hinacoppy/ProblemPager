@@ -12,66 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">入り口でチェッカーの大渋滞</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">何回も休ませたところで</span>&ensp;
 <span>(KE3-01)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w0/7</div>
+<div class="gamesituation">b4*-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=109 w=104</div></div>
+      <div class="pipinfo">pips Red=120 White=86</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">セミプライムを持っていてピップでも少しリードするため走るだけでも有利ですが、６を振られると途端に雲行きが怪しくなる。十分なビルダーがあり着地地点も多いためここでスイッチして少しでも差を広げる。ダンスはダブルパスになるようです。<br>
+ <div class="description">インナーを強くした方が相手を休ませる確率が上がるが、これだけピップが離れていると何度休ませても単純に追いつくのは夢物語。５ポイントが空いてしまってる以上、簡単にエスケープされてしまうためまずはその５ポイントを埋めるビルダーを持ってくることや、アウターで待ち構えるチェッカーの配置が重要になってくる。<br>
 <br>
-1. 13/10(2) 6/3*(2) Eq.: +0.754<br>
-0.736 0.057 0.001 - 0.264 0.010 0.000 CL +0.507 CF +0.754<br>
+1. 21/10             Eq.: +0.110<br>
+0.561 0.066 0.001 - 0.439 0.108 0.002 CL +0.110 CF +0.110<br>
 <br>
-2. 13/10(2) 8/5 7/4 Eq.: +0.671 ( -0.083)<br>
-0.703 0.047 0.001 - 0.297 0.010 0.000 CL +0.431 CF +0.671<br>
+2. 21/16 21/15   Eq.: +0.051 ( -0.059)<br>
+0.538 0.072 0.002 - 0.462 0.176 0.010 CL +0.051 CF +0.051<br>
 <br>
-3. 13/10(2) 8/5(2)   Eq.: +0.591 ( -0.164)<br>
-0.688 0.039 0.001 - 0.312 0.008 0.000 CL +0.395 CF +0.591<br>
+3. 21/16 11/5     Eq.: +0.008 ( -0.103)<br>
+0.512 0.063 0.002 - 0.488 0.176 0.003 CL +0.008 CF +0.008<br>
+<br>
+4. 21/15 7/2       Eq.: -0.020 ( -0.131)<br>
+0.495 0.041 0.001 - 0.505 0.097 0.002 CL -0.020 CF -0.020<br>
+<br>
+5. 7/1 6/1           Eq.: -0.023 ( -0.134)<br>
+0.492 0.029 0.000 - 0.508 0.074 0.001 CL -0.023 CF -0.023<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10(2) 6/3*(2)             Eq.: +0.748
-       0.744 0.060 0.001 - 0.256 0.015 0.000
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    13/10(2) 8/5 7/4             Eq.: +0.647 (-0.101)
-       0.709 0.054 0.001 - 0.291 0.010 0.000
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    13/10(2) 8/5(2)              Eq.: +0.574 (-0.174)
-       0.693 0.048 0.001 - 0.307 0.009 0.000
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    8/2(2)                       Eq.: +0.478 (-0.270)
-       0.677 0.090 0.001 - 0.323 0.026 0.000
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/2 8/5 7/4                  Eq.: +0.464 (-0.284)
-       0.674 0.082 0.001 - 0.326 0.023 0.000
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---aBBBCDb---B----abbbcb--:0:0:1:33:4:0:0:7:10");
-var categoryid = "KE3";
-var probnum = "01";
-var showpipflg = true;
+const categoryid = "KE3";
+const probnum = "01";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=a-BCB-CA---A-----c-cbC-cc-:0:0:1:56:4:0:1:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

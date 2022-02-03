@@ -12,66 +12,59 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">プライムに守られて　その２</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">待っていても出られないのなら</span>&ensp;
 <span>(KE6-05)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w0/7</div>
+<div class="gamesituation">b0-w0/9</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=148 w=116</div></div>
+      <div class="pipinfo">pips Red=103 White=153</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ヒットしたところでブロックが弱いとすぐに逃げられてピップの差を埋めるには至らない。インナーの強い相手に攻撃は続けられないため、じっくり穴あきプライムを作り相手がポジションを弱くするのを待つ方針で行く。<br>
+ <div class="description">バックマンから６の位置のポイントにたっぷりスペアがあるため、向こうが先に崩れるのを期待できない。１の目で割っておけば１枚は６で出ることができて時間が稼げる。７ポイントにブロットを残すのに抵抗があるが、相手に６を振られるのならヒットされなくても痛いし、打たれてもエンター時にハイアンカーをとれたりするなどむしろタイミングを稼げることになる。<br>
 <br>
-1. 11/10(2) 6/5(2)  Eq.: +0.291<br>
-0.593 0.140 0.005 - 0.407 0.175 0.003 CL +0.152 CF +0.291<br>
+1. 23/22 7/4 Eq.: -0.386<br>
+0.420 0.171 0.018 - 0.580 0.157 0.007 CL -0.132 CF -0.386<br>
 <br>
-2. 6/5(2) 3/2*/1*    Eq.: +0.052 ( -0.239)<br>
-0.519 0.138 0.004 - 0.481 0.165 0.004 CL +0.011 CF +0.052<br>
+2. 7/6 7/4    Eq.: -0.466 ( -0.080)<br>
+0.392 0.148 0.015 - 0.608 0.142 0.005 CL -0.198 CF -0.466<br>
 <br>
-3. 6/5(3) 3/2*         Eq.: -0.013 ( -0.304)<br>
-0.513 0.119 0.004 - 0.487 0.180 0.004 CL -0.037 CF -0.013<br>
+3. 23/22 5/2 Eq.: -0.509 ( -0.123)<br>
+0.390 0.142 0.014 - 0.610 0.195 0.010 CL -0.272 CF -0.509<br>
+<br>
+4. 23/22 6/3 Eq.: -0.549 ( -0.162)<br>
+0.378 0.134 0.012 - 0.622 0.188 0.009 CL -0.298 CF -0.549<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/10(2) 6/5(2)              Eq.: +0.291
-       0.594 0.151 0.007 - 0.406 0.171 0.004
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    6/5(2) 3/2*/1*               Eq.: +0.081 (-0.210)
-       0.534 0.137 0.005 - 0.466 0.157 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    6/5(3) 3/2*                  Eq.: +0.062 (-0.228)
-       0.540 0.129 0.007 - 0.460 0.181 0.006
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    11/10 6/5(2) 3/2*            Eq.: +0.007 (-0.284)
-       0.541 0.129 0.007 - 0.459 0.226 0.014
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    6/4(2)                       Eq.: -0.042 (-0.332)
-       0.518 0.122 0.005 - 0.482 0.205 0.006
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-aaA--EBB--B---b---dcCbb--:0:0:1:11:0:0:0:7:10");
-var categoryid = "KE6";
-var probnum = "05";
-var showpipflg = true;
+const categoryid = "KE6";
+const probnum = "05";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-cBCBBBB---------dccb--B--:1:-1:1:13:0:0:0:9:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

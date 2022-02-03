@@ -12,72 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">包み込むように</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">エンターする目を見てみると</span>&ensp;
 <span>(KE7-31)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b1-w5/7</div>
+<div class="gamesituation">b2-w4/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=161 w=98</div></div>
+      <div class="pipinfo">pips Red=103 White=88</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">インナーの強さでもピップでも大きく負けている局面。打ち返された時点でギャモン負けが見えるし、そもそもピップで追いつくわけでもない。ここはショット数を抑えながらアウターで待ちかまえ、インナーやアウターのポイントを相手が崩すのを待つ19/11が最善となっている。相手のバックマンの動きはこのままでも十分止めていると言える。<br>
+ <div class="description">相手をオンザバーに追いやりもう１枚拾うなりボードをふさいだりしていきたい局面。ブロットの多さに惑わされず手広く構えても２と５のデュプリケーションが利いていてリターンは４通りと22/13とともに最少となっている。それならこちらのアウターにもビルダーを送りながら２枚目をヒットする確率も上がるムーブを選んだ方がいい。<br>
 <br>
-1. 19/11           Eq.: +0.385<br>
-0.564 0.097 0.003 - 0.436 0.176 0.002 CL +0.125 CF +0.385<br>
+1. 22/17 14/10 Eq.: +0.665<br>
+0.722 0.213 0.004 - 0.278 0.063 0.002 CL +0.705 CF +0.665<br>
 <br>
-2. 19/16 18/13 Eq.: +0.208 ( -0.177)<br>
-0.528 0.087 0.003 - 0.472 0.220 0.002 CL -0.052 CF +0.208<br>
+2. 22/17 8/4     Eq.: +0.557 ( -0.108)<br>
+0.683 0.202 0.003 - 0.317 0.068 0.002 CL +0.606 CF +0.557<br>
 <br>
-3. 18/10           Eq.: +0.146 ( -0.239)<br>
-0.519 0.098 0.004 - 0.481 0.263 0.004 CL -0.078 CF +0.146<br>
-<br>
-4. 13/10 13/8   Eq.: +0.015 ( -0.370)<br>
-0.484 0.096 0.004 - 0.516 0.288 0.003 CL -0.221 CF +0.015<br>
-<br>
-5. 8/3* 6/3       Eq.: -0.010 ( -0.395)<br>
-0.473 0.111 0.004 - 0.527 0.287 0.004 CL -0.225 CF -0.010<br>
+3. 22/13           Eq.: +0.486 ( -0.179)<br>
+0.683 0.143 0.002 - 0.317 0.034 0.001 CL +0.548 CF +0.486<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    19/11                        Eq.: +0.336
-       0.575 0.091 0.006 - 0.425 0.147 0.001
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    18/10                        Eq.: +0.145 (-0.191)
-       0.519 0.115 0.005 - 0.481 0.267 0.002
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    19/16 18/13                  Eq.: +0.126 (-0.210)
-       0.517 0.092 0.005 - 0.483 0.219 0.002
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    8/3* 6/3                     Eq.: -0.011 (-0.347)
-       0.467 0.107 0.005 - 0.533 0.239 0.001
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/10 13/8                   Eq.: -0.020 (-0.356)
-       0.470 0.108 0.007 - 0.530 0.285 0.002
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=---a-BC-BB--bB---bCAcbc-b-:0:0:1:35:1:5:0:7:10");
-var categoryid = "KE7";
-var probnum = "31";
-var showpipflg = true;
+const categoryid = "KE7";
+const probnum = "31";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=aB-CB-C-B---a-B---bc-bAdb-:1:-1:1:45:2:4:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

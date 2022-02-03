@@ -12,69 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">つんのめってもらいましょう</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">拠点をアウターへ</span>&ensp;
 <span>(KE6-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b0-w4/9</div>
+<div class="gamesituation">b6-w6/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=175 w=94</div></div>
+      <div class="pipinfo">pips Red=135 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">大きく遅れてはいるがプライム戦で優位に立てそうな局面。ここでアンカーをとってしまうと行き場のなくなった相手の死に駒に仕事をさせてしまう。１７ポイントのチェッカーをより安全な位置に持ってきてできるだけこちらのアウターをにらむビルダーを増やしておき、相手のバックマンに対してプレッシャーをかけるのがいい攻めとなっている。ヒットされることにより何枚かバックマンが増えるリスクはあるが、エースアンカーを軸にできるだけ後ろで待っていた方が相手がボードを崩した時のダメージが大きい。<br>
+ <div class="description">せっかくのボードの強さも６ポイントを触ってしまうと威力が半減してしまう。ここでアンカーを外し１６ポイントを作っておくと、ミッドポイントに対するけん制を含め相手のバックチェッカーの動きに制限をかけることができる。打ち込まれたとしても再度アンカーを取り直すなど状況を改善することができる。<br>
 <br>
-1. bar/21 17/14  Eq.: +0.677<br>
-0.584 0.113 0.005 - 0.416 0.243 0.035 CL +0.202 CF +0.677<br>
+1. bar/23 20/16  Eq.: -0.083<br>
+0.458 0.158 0.004 - 0.542 0.172 0.007 CL -0.083 CF -0.083<br>
 <br>
-2. bar/18            Eq.: +0.508 ( -0.169)<br>
-0.551 0.095 0.004 - 0.449 0.272 0.038 CL +0.119 CF +0.508<br>
+2. bar/23 6/2     Eq.: -0.180 ( -0.096)<br>
+0.410 0.136 0.003 - 0.590 0.159 0.008 CL -0.180 CF -0.180<br>
 <br>
-3. bar/21 13/10  Eq.: +0.410 ( -0.267)<br>
-0.532 0.097 0.004 - 0.468 0.301 0.057 CL +0.044 CF +0.410<br>
-<br>
-4. bar/21 24/21  Eq.: +0.372 ( -0.305)<br>
-0.524 0.092 0.004 - 0.476 0.322 0.006 CL +0.029 CF +0.372<br>
+3. bar/23 9/5      Eq.: -0.252 ( -0.168)<br>
+0.374 0.138 0.006 - 0.626 0.168 0.007 CL -0.252 CF -0.252<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 17/14                 Eq.: +0.538
-       0.562 0.099 0.002 - 0.438 0.256 0.031
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    bar/18                       Eq.: +0.374 (-0.164)
-       0.531 0.085 0.002 - 0.469 0.290 0.034
-        2-ply cubeful prune [world class]
-    3. Cubeful 0-ply    bar/21 13/10                 Eq.: +0.166 (-0.373)
-       0.501 0.078 0.002 - 0.499 0.320 0.056
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/21 24/21                 Eq.: +0.162 (-0.376)
-       0.488 0.092 0.005 - 0.512 0.347 0.008
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/21 7/4                   Eq.: +0.096 (-0.442)
-       0.483 0.076 0.002 - 0.517 0.341 0.056
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--a--BBCB---aB--aA-db-ccBA:1:1:1:43:0:4:0:9:10");
-var categoryid = "KE6";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "KE6";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-B-BbBC-aB--b---AbbcBba--A:0:0:1:24:6:6:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

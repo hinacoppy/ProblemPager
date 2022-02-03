@@ -12,63 +12,65 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">相手の５の目はいい目ですか</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">暴れることを許された時</span>&ensp;
 <span>(KEc-03)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b2-w1/5</div>
+<div class="gamesituation">b0-w0/3</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=119 w=125</div></div>
+      <div class="pipinfo">pips Red=124 White=112</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">１の目でエッジをヒットするのか４ポイントメイクするのかの実質二択。カバーされるとフルプライムなのでヒットして阻止したいが、４ポイントメイクしておけば「足して５」か５６以外では安全にカバーできない。むしろヒットしてしまうとオンザバーからの４５でのアウターヒットや５の目でインナールースヒットなど相手の５の目が生きてしまう。ただでさえ脱出しにくいセミプライムに２枚目を戻されるリスクの大きいプレーよりも相手のクラッシュを狙った４ポイントメイクがベストになっている。<br>
+ <div class="description">ピップで負けている中おとなしく前に進めるだけではそれほど有利にはならない。幸い相手のインナーにはブロットがありこちらのボードは強い。ここはリスクを取ってバーや５ポイントメイクを狙いながらアウターで手広く待ち伏せる手がベストになっている。３のデュプリケーションが利いているし打たれなかった時により強いポジションを作ることができる<br>
 <br>
-1. 8/4 5/4        Eq.: +0.300<br>
-0.600 0.149 0.004 - 0.400 0.083 0.002 CL +0.155 CF +0.300<br>
+1. 16/14 13/10 Eq.: +0.185<br>
+0.546 0.078 0.005 - 0.454 0.093 0.002 CL +0.076 CF +0.185<br>
 <br>
-2. 24/23* 13/9 Eq.: +0.071 (-0.229)<br>
-0.551 0.196 0.008 - 0.449 0.150 0.008 CL -0.034 CF +0.071<br>
+2. 13/10 8/6     Eq.: +0.072 (-0.112)<br>
+0.523 0.069 0.003 - 0.477 0.110 0.002 CL -0.014 CF +0.072<br>
+<br>
+3. 16/14 8/5     Eq.: +0.050 (-0.134)<br>
+0.518 0.103 0.007 - 0.482 0.146 0.003 CL -0.031 CF +0.050<br>
+<br>
+4. 13/8             Eq.: +0.015 (-0.170)<br>
+0.505 0.058 0.002 - 0.495 0.089 0.001 CL -0.035 CF +0.015<br>
+<br>
+5. 16/13 8/6     Eq.: +0.010 (-0.175)<br>
+0.497 0.052 0.002 - 0.503 0.057 0.001 CL -0.013 CF +0.010<br>
+<br>
+6. 13/10 6/4     Eq.: +0.007 (-0.177)<br>
+0.505 0.063 0.003 - 0.495 0.108 0.002 CL -0.054 CF +0.007<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    8/4 5/4                      Eq.: +0.364
-       0.625 0.159 0.005 - 0.375 0.087 0.001
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    24/23* 8/4                   Eq.: +0.142 (-0.221)
-       0.565 0.178 0.007 - 0.435 0.138 0.006
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    24/23* 13/9                  Eq.: +0.139 (-0.225)
-       0.563 0.167 0.005 - 0.437 0.135 0.008
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    24/23* 5/1                   Eq.: +0.068 (-0.295)
-       0.539 0.163 0.005 - 0.461 0.142 0.004
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    13/8                         Eq.: -0.157 (-0.521)
-       0.466 0.110 0.003 - 0.534 0.158 0.004
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=--Bc-CBBC----B----cbbbbaA-:1:1:1:41:2:1:0:5:10");
-var categoryid = "KEc";
-var probnum = "03";
-var showpipflg = true;
+const categoryid = "KEc";
+const probnum = "03";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=--aBB-C-C--b-D--Aa-fb-ab--:0:0:1:23:0:0:0:3:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

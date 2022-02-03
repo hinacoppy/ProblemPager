@@ -12,75 +12,56 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">空腹を満たす</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">エースアンカーを崩せ</span>&ensp;
 <span>(KE8-50)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b5-w6*/7</div>
+<div class="gamesituation">b2-w2/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=92 w=140</div></div>
+      <div class="pipinfo">pips Red=116 White=144</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">大事なポイントにギャップがあり２本のスタックがそびえている。この目で何もしなければ更にブロットを発生しやすいポジションになってしまう。幸いこちらだけにギャモン勝ちの価値があるスコアで、相手インナーにはブロットがあるというこのチャンスにインナーに２枚スロットして勝負をかける。ヒットした瞬間相手は盤面全体にブロットをばらまいていることになるため、スコア的にヒットできる目は限られている。<br>
+ <div class="description">４プラがしばらく維持されるため、飛び出しやすさを考えて３の目でエンターしたい。こちらの陣形はもうプライムで対抗できる状態ではなく、ボードの強さで勝負するべくインナーにスロットしておく。エースアンカーのままならプライムの目も出てくるし、打たれるのなら逆にアタッキングゲームのチャンスとなる。<br>
 <br>
-1. 8/5 8/4    Eq.: +0.601<br>
-0.669 0.131 0.007 - 0.331 0.061 0.003 CL +0.601 CF +0.601<br>
+1. bar/22 6/4  Eq.: -0.109<br>
+0.472 0.190 0.020 - 0.528 0.176 0.009 CL -0.011 CF -0.109<br>
 <br>
-2. 8/5 6/2    Eq.: +0.503 ( -0.097)<br>
-0.665 0.087 0.003 - 0.335 0.044 0.002 CL +0.503 CF +0.503<br>
+2. bar/22 8/6  Eq.: -0.260 ( -0.150)<br>
+0.443 0.168 0.018 - 0.557 0.179 0.008 CL -0.119 CF -0.260<br>
 <br>
-3. 11/7 8/5   Eq.: +0.486 ( -0.115)<br>
-0.639 0.104 0.005 - 0.361 0.065 0.003 CL +0.486 CF +0.486<br>
-<br>
-4. 11/4         Eq.: +0.485 ( -0.116)<br>
-0.651 0.092 0.003 - 0.349 0.048 0.002 CL +0.485 CF +0.485<br>
-<br>
-5. 8/1           Eq.: +0.424 ( -0.176)<br>
-0.644 0.068 0.001 - 0.356 0.043 0.001 CL +0.424 CF +0.424<br>
-<br>
-6. 11/8 11/7 Eq.: +0.378 ( -0.223)<br>
-0.625 0.064 0.001 - 0.375 0.048 0.001 CL +0.378 CF +0.378<br>
+3. bar/23 6/3  Eq.: -0.289 ( -0.180)<br>
+0.437 0.161 0.016 - 0.563 0.165 0.006 CL -0.114 CF -0.289<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/5 8/4                      Eq.: +0.620
-       0.659 0.151 0.003 - 0.341 0.070 0.002
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    8/5 6/2                      Eq.: +0.563 (-0.057)
-       0.672 0.109 0.001 - 0.328 0.047 0.001
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    11/4                         Eq.: +0.548 (-0.072)
-       0.659 0.115 0.002 - 0.341 0.054 0.001
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/7 8/5                     Eq.: +0.541 (-0.079)
-       0.661 0.110 0.002 - 0.339 0.065 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    8/1                          Eq.: +0.519 (-0.101)
-       0.675 0.085 0.000 - 0.325 0.039 0.000
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-BBb--D-E--Ba-ab-d-b-a-b--:0:0:1:43:5:6:1:7:10");
-var categoryid = "KE8";
-var probnum = "50";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "50";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-bBB--EBB---b-a--bbcbA--aA:0:0:1:23:2:2:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

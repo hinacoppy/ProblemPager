@@ -12,72 +12,62 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">ポイントオンはポイントオン</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">アウターはもう捨てる</span>&ensp;
 <span>(KE4-28)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w6*/7</div>
+<div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=120 w=99</div></div>
+      <div class="pipinfo">pips Red=171 White=93</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ギャモン負けを気にしなくていい状況で相手インナーにはブロットが転がっている。ここはボードの強さを盾にポイントオンする。もともとピップで遅れていてブリッツに入るのだからブロットが６ポイントにできてもあまり気にする必要はない。向こう側でブロックされている５の目でカバーできるのも大きい。<br>
+ <div class="description">バックゲームのタイミングはまだあるがもう少し遅れてもいいところ。死に駒を作らずにバーを外して打たれても良しとする。後ろのバックマンを外してもこちらのインナーが弱いためアウターでの勝負は分が悪い。<br>
 <br>
-1. 6/3*/1       Eq.: -0.022<br>
-0.484 0.113 0.002 - 0.516 0.209 0.008 CL -0.022 CF -0.022<br>
+1. 18/11      Eq.: -0.276<br>
+0.392 0.036 0.001 - 0.608 0.321 0.043 CL -0.476 CF -0.276<br>
 <br>
-2. 18/13         Eq.: -0.099 ( -0.077)<br>
-0.446 0.081 0.002 - 0.554 0.126 0.005 CL -0.099 CF -0.099<br>
+2. 10/4 6/5  Eq.: -0.388 ( -0.112)<br>
+0.357 0.036 0.001 - 0.643 0.339 0.048 CL -0.564 CF -0.388<br>
 <br>
-3. 18/15 11/9 Eq.: -0.114 ( -0.091)<br>
-0.439 0.086 0.002 - 0.561 0.157 0.004 CL -0.114 CF -0.114<br>
+3. 10/3        Eq.: -0.408 ( -0.132)<br>
+0.350 0.032 0.001 - 0.650 0.340 0.048 CL -0.581 CF -0.408<br>
 <br>
-4. 11/6           Eq.: -0.182 ( -0.159)<br>
-0.405 0.073 0.002 - 0.595 0.094 0.002 CL -0.182 CF -0.182<br>
+4. 21/14      Eq.: -0.483 ( -0.208)<br>
+0.342 0.043 0.001 - 0.658 0.410 0.074 CL -0.653 CF -0.483<br>
 <br>
-5. 7/5 7/4       Eq.: -0.216 ( -0.193)<br>
-0.388 0.081 0.002 - 0.612 0.150 0.004 CL -0.216 CF -0.216<br>
+5. 10/4 3/2  E q.: -0.484 ( -0.208)<br>
+0.333 0.026 0.001 - 0.667 0.372 0.058 CL -0.651 CF -0.484<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3*/1                       Eq.: -0.038
-       0.476 0.109 0.002 - 0.524 0.195 0.007
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    18/13                        Eq.: -0.088 (-0.050)
-       0.452 0.083 0.002 - 0.548 0.117 0.005
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    18/15 11/9                   Eq.: -0.107 (-0.069)
-       0.442 0.088 0.002 - 0.558 0.152 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    11/6                         Eq.: -0.184 (-0.146)
-       0.404 0.076 0.002 - 0.596 0.093 0.002
-        2-ply cubeful prune [world class]
-    5. Cubeful 0-ply    18/15 5/3*                   Eq.: -0.217 (-0.179)
-       0.386 0.090 0.003 - 0.614 0.303 0.021
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-ABaBBBB---A----bcAcbB-ca-:0:0:1:23:4:6:1:7:10");
-var categoryid = "KE4";
-var probnum = "28";
-var showpipflg = true;
+const categoryid = "KE4";
+const probnum = "28";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=---BCAB---A-b---c-BcbBbcB-:2:1:1:16:0:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

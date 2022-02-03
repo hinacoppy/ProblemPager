@@ -12,75 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">後ろには伸びない</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">簡単に点を取る</span>&ensp;
 <span>(KE8-11)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
-<div class="gamesituation">b4-w5/7</div>
+<div class="gamesituation">b3-w0/7</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=150 w=126</div></div>
+      <div class="pipinfo">pips Red=142 White=160</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">相手の４プライムはスペアもバランスよくあり、このまま前に伸ばすのは容易な状況。後になればなるほどこちらのバックマンは飛び出せなくなる展開が見えるためダブルショットを与えてもここで飛び出す。ヒットされるかもしれないが、ここでヒットされているうちは相手はプライムを伸ばせていないためもう一度体勢を立て直すことができる。相手のブロットへのけん制やバックマンの着地地点としても使える１５ポイントを隠すムーブは大差で悪くなっている点にも注目したい。<br>
+ <div class="description">ヒットする手も大きいが、４がらみのリターンを与えている。ここで安全に乗っかっておけば、次にたいていの場合ダブルできてパスも多い。勝率関係を見るだけでは僅差に見える両ムーブだが、キューブで降ろしてしまう威力が加わって大差となっている。<br>
 <br>
-1. 24/16           Eq.: -0.520<br>
-0.343 0.038 0.001 - 0.657 0.151 0.003 CL -0.542 CF -0.520<br>
+1. 21/16 13/7  Eq.: +0.962<br>
+0.724 0.165 0.008 - 0.276 0.052 0.001 CL +0.593 CF +0.962<br>
 <br>
-2. 24/21 15/10 Eq.: -0.619 ( -0.099)<br>
-0.326 0.037 0.001 - 0.674 0.193 0.003 CL -0.656 CF -0.619<br>
-<br>
-3. 24/21 13/8   Eq.: -0.639 ( -0.119)<br>
-0.329 0.050 0.002 - 0.671 0.232 0.005 CL -0.709 CF -0.639<br>
-<br>
-4. 13/10 13/8    Eq.: -0.657 ( -0.137)<br>
-0.323 0.060 0.002 - 0.677 0.241 0.008 CL -0.694 CF -0.657<br>
-<br>
-5. 13/5              Eq.: -0.658 ( -0.139)<br>
-0.318 0.059 0.002 - 0.682 0.217 0.005 CL -0.656 CF -0.658<br>
-<br>
-6. 15/10 13/10  Eq.: -0.660 ( -0.140)<br>
-0.311 0.046 0.002 - 0.689 0.198 0.003 CL -0.658 CF -0.660<br>
+2. 21/10*        Eq.: +0.846 ( -0.116)<br>
+0.700 0.201 0.015 - 0.300 0.065 0.002 CL +0.599 CF +0.846<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16                        Eq.: -0.561
-       0.344 0.039 0.000 - 0.656 0.148 0.003
-        2-ply cubeful prune [world class]
-    2. Cubeful 2-ply    24/21 15/10                  Eq.: -0.666 (-0.105)
-       0.326 0.042 0.000 - 0.674 0.195 0.003
-        2-ply cubeful prune [world class]
-    3. Cubeful 2-ply    24/21 13/8                   Eq.: -0.673 (-0.112)
-       0.328 0.055 0.001 - 0.672 0.242 0.005
-        2-ply cubeful prune [world class]
-    4. Cubeful 2-ply    13/10 13/8                   Eq.: -0.676 (-0.115)
-       0.325 0.067 0.001 - 0.675 0.242 0.008
-        2-ply cubeful prune [world class]
-    5. Cubeful 2-ply    13/5                         Eq.: -0.678 (-0.118)
-       0.322 0.064 0.001 - 0.678 0.218 0.006
-        2-ply cubeful prune [world class]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=----BBBbB----EaA-ccdb---A-:0:0:1:35:4:5:0:7:10");
-var categoryid = "KE8";
-var probnum = "11";
-var showpipflg = true;
+const categoryid = "KE8";
+const probnum = "11";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=-b---CDB--a-cD--Ac-dbA----:0:0:1:56:3:0:0:7:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,72 +12,53 @@
 </head>
 
 <body>
-<nav class="nav">
-<span id="sectionTitle" class="sectionTitle">遠い戦場</span>&ensp;
+<header>
+<span id="sectionTitle" class="sectionTitle">プライムリーチ</span>&ensp;
 <span>(KEa-23)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/5</div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=175 w=113</div></div>
+      <div class="pipinfo">pips Red=126 White=89</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
- <div class="description">ヒットしてもなおピップが大差で負けていてインナーの強さにも差がある。攻めたい相手のチェッカーが盤面のこちら側にあるが、積み重なったアンカーから遠すぎて援軍が間に合わない。ここはボードを強くして将来のチャンスを待つ。相手インナーにはギャップもあるし、そもそも次のターンで２枚のブロットが片づけられないこともある。<br>
+ <div class="description">ポイントオンできる目を振ったがピップで追いつくには程遠く、ブロットを２枚さらしてしまう。相手のインナーも強いのでリターンされるとかなり痛い。ここでミッドポイントから２枚下ろしておくと穴あきプライムに対して相手バックマンがエッジに寄っていないという強いポジションができる。ショット数が増えるがこちらはブロット１枚で危険度が軽減され、なんといっても打たれなければ強力なキューブが打てる。相手がインナー強化の目を振っていなければこのキューブを相手が受けられずパスになるが、ここでポイントオンしてたとえダンスでもパスにはならず弱いキューブしか打てない。勝率関係に大差はなくともこのキューブの作用で２つのムーブに大差がついている。<br>
 <br>
-1. bar/22 8/5 6/3(2)     Eq.: -0.213<br>
-0.391 0.087 0.003 - 0.609 0.207 0.004 CL -0.386 CF -0.213<br>
+1. 13/10 13/9 Eq.: +0.323<br>
+0.568 0.044 0.002 - 0.432 0.121 0.001 CL +0.069 CF +0.323<br>
 <br>
-2. bar/22 13/10(2) 6/3 Eq.: -0.361 (-0.148)<br>
-0.339 0.063 0.002 - 0.661 0.201 0.003 CL -0.509 CF -0.361<br>
-<br>
-3. bar/22 13/7* 13/10  Eq.: -0.386 (-0.172)<br>
-0.365 0.082 0.003 - 0.635 0.291 0.007 CL -0.557 CF -0.386<br>
-<br>
-4. bar/22 13/10(2) 8/5 Eq.: -0.388 (-0.175)<br>
-0.325 0.058 0.002 - 0.675 0.191 0.003 CL -0.529 CF -0.388<br>
-<br>
-5. bar/22 8/2 6/3          Eq.: -0.408 (-0.195)<br>
-0.329 0.063 0.002 - 0.671 0.217 0.005 CL -0.552 CF -0.408<br>
+2. 7/3* 6/3     Eq.: +0.221 ( -0.102)<br>
+0.571 0.046 0.002 - 0.429 0.141 0.001 CL +0.050 CF +0.221<br>
 </div>
 </div>
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/22 8/5 6/3(2)            Eq.: -0.185
-       0.396 0.086 0.002 - 0.604 0.190 0.003
-        0-ply cubeful prune [expert]
-    2. Cubeful 0-ply    bar/22 13/10(2) 6/3          Eq.: -0.353 (-0.168)
-       0.339 0.059 0.002 - 0.661 0.191 0.003
-        0-ply cubeful prune [expert]
-    3. Cubeful 0-ply    bar/22 8/2 6/3               Eq.: -0.381 (-0.196)
-       0.341 0.067 0.002 - 0.659 0.223 0.005
-        0-ply cubeful prune [expert]
-    4. Cubeful 0-ply    bar/22 13/10(2) 8/5          Eq.: -0.397 (-0.211)
-       0.323 0.056 0.001 - 0.677 0.189 0.003
-        0-ply cubeful prune [expert]
-    5. Cubeful 0-ply    bar/22 13/7* 13/10           Eq.: -0.398 (-0.213)
-       0.370 0.092 0.003 - 0.630 0.315 0.014
-        0-ply cubeful prune [expert]
-</pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle1", "cw");
-board.showBoard("XGID=-----BDaCa--cB----bb-bCbbA:1:1:1:33:0:0:0:5:10");
-var categoryid = "KEa";
-var probnum = "23";
-var showpipflg = true;
+const categoryid = "KEa";
+const probnum = "23";
+const showpipflg = true;
+const board = new BgBoard("problemPager", "boardStyle1", "cw");
+board.showBoard("XGID=---a-BDBB-A--D---bcc--bbb-:0:0:1:43:0:0:0:5:10");
 </script>
-<script src="../../js/problempager.js"></script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -12,23 +12,27 @@
 </head>
 
 <body>
-<nav class="nav">
+<header>
 <span id="sectionTitle" class="sectionTitle">普通が一番</span>&ensp;
 <span>(KA7-46)</span>&ensp;
+</header>
+<nav>
 <button id="selectfirst">&lt;&lt;</button>&ensp;
 <button id="selectprev">&lt;</button></button>&ensp;
 <button id="return2menu">Idx</button>&ensp;
 <button id="selectnext">&gt;</button>&ensp;
 <button id="selectlast">&gt;&gt;</button>&ensp;
 <button id="showanswer">Desc</button>&ensp;
-<button id="analyse">Anly</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
 </nav>
 
+<article>
 <div class="doAction">マッチも大詰めを迎えています。緑に52が出ました。何事も普通が一番かな。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
  <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=116 白=120</div></div>
+      <div class="pipinfo">pips 緑=116 白=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
  <div class="answertable"></div>
  <div class="description">今夏のツアーの予定は次の通り。<br>
 7月10-16日　世界選手権<br>
@@ -79,33 +83,30 @@ michihito_k＞<br>
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/11                        Eq.: +0.152
        0.576 0.233 0.005 - 0.424 0.157 0.006
-        2-ply cubeful prune [world class]
     2. Cubeful 2-ply    18/16 18/13                  Eq.: +0.097 (-0.056)
        0.548 0.226 0.005 - 0.452 0.214 0.012
-        2-ply cubeful prune [world class]
     3. Cubeful 2-ply    18/13 5/3                    Eq.: +0.087 (-0.065)
        0.544 0.209 0.004 - 0.456 0.187 0.008
-        2-ply cubeful prune [world class]
     4. Cubeful 2-ply    18/13 4/2                    Eq.: +0.034 (-0.118)
        0.517 0.200 0.003 - 0.483 0.201 0.008
-        2-ply cubeful prune [world class]
     5. Cubeful 0-ply    18/13 3/1                    Eq.: -0.008 (-0.160)
        0.496 0.194 0.003 - 0.504 0.205 0.010
-        0-ply cubeful prune [expert]
 </pre>
+</article>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgBoard_class.js"></script>
 <script>
-var board = new BgBoard("problemPager", "boardStyle5", "ccw");
+const categoryid = "KA7";
+const probnum = "46";
+const showpipflg = false;
+const board = new BgBoard("problemPager", "boardStyle5", "ccw");
 board.showBoard("XGID=aAABBCB-----c----bDc-db---:1:1:1:52:5:5:0:7:10");
-var categoryid = "KA7";
-var probnum = "46";
-var showpipflg = false;
 </script>
+<script src="../../js/examscore.js"></script>
 <script src="../../js/problempager.js"></script>
 </body>
 </html>
