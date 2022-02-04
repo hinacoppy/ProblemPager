@@ -72,7 +72,7 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  const [errscore, choicedflg] = get_errscore(deschtml);
+  const [errscore, choicedflg] = get_errscore(descout);
   if (choicedflg) {
     calc_next_score(errscore);
     $("#scr").text(getScoreStr());
