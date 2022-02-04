@@ -72,9 +72,11 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  const errscore = get_errscore(descout);
-  calc_next_score(errscore);
-  $("#scr").text(getScoreStr());
+  const [errscore, choicedflg] = get_errscore(deschtml);
+  if (choicedflg) {
+    calc_next_score(errscore);
+    $("#scr").text(getScoreStr());
+  }
 
   switch (action) {
   case "show":
@@ -101,7 +103,6 @@ function is_cubeaction(deschtml) {
 
 function mark_choiced(deschtml) {
   const choice = $('[name=uchoice]:checked').val();
-//  const choice2 = is_cubeaction(deschtml) ? choice + ":" : choice;
   const descout = deschtml.replace(choice, '<input type="radio" checked>' + choice + "·"); //mark choiced
   return descout;
 }
@@ -112,13 +113,14 @@ function get_errscore(deschtml) {
   const temp3 = deschtml.substr(temp1, temp2 - temp1);
   const temp  = temp3.indexOf("(");
 
+  const choicedflg = (temp1 !== -1);
   let eq = 0;
   if (temp > 1){ //最善手でないとき
     eq = parseFloat(temp3.substr(temp +2, 5));
     if (Number.isNaN(eq)) { alert(eq); return 0; }
   }
   eq = Math.trunc(eq * 1000); //eqを千倍して整数化
-  return eq;
+  return [eq, choicedflg];
 }
 
 function make_answerlist(deschtml) {

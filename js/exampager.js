@@ -66,9 +66,11 @@ function move_page(probnum, delta) {
 }
 
 function description(action) {
-  const errscore = get_errscore();
-  calc_next_score(errscore);
-  $("#scr").text(getScoreStr());
+  const [errscore, choicedflg] = get_errscore(deschtml);
+  if (choicedflg) {
+    calc_next_score(errscore);
+    $("#scr").text(getScoreStr());
+  }
 
   switch (action) {
   case "show":
@@ -91,5 +93,7 @@ function description(action) {
 
 function get_errscore() {
   const scoreval = $('[name=uchoice]:checked').val();
-  return (scoreval === undefined) ? 0 : parseInt(scoreval); //undefined：ラジオボタンが選択されていないとき
+  const choicedflg = (scoreval !== undefined);
+  const eq = (choicedflg) ? parseInt(scoreval) : 0; //false：ラジオボタンが選択されていないとき
+  return [eq, choicedflg];
 }

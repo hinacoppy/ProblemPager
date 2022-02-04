@@ -72,9 +72,11 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  const errscore = get_errscore(deschtml);
-  calc_next_score(errscore);
-  $("#scr").text(getScoreStr());
+  const [errscore, choicedflg] = get_errscore(deschtml);
+  if (choicedflg) {
+    calc_next_score(errscore);
+    $("#scr").text(getScoreStr());
+  }
 
   switch (action) {
   case "show":
@@ -116,10 +118,12 @@ function get_errscore(deschtml) {
   const choice = $('[name=uchoice]:checked').val();
 
   let scstr;
+  let choicedflg = false;
   for (const line of deschtml.split("\n")) {
     if (line.indexOf(choice) !== -1) {
       const regex = cubeactionflg ? new RegExp("\\((.+?)\\)", "i") : new RegExp("eq.*? \\((.+?)\\)", "i");
       scstr = line.match(regex); //ex. (-0.123) -> -0.123
+      choicedflg = true;
       break;
     }
   }
@@ -130,7 +134,7 @@ function get_errscore(deschtml) {
     if (Number.isNaN(eq)) { eq = 0; } //チェッカーアクションで最善手のとき (ex. G:10.97% B:0.42%)
   }
   eq = Math.trunc(Math.abs(eq) * 1000); //eqを千倍して整数化
-  return eq;
+  return [eq, choicedflg];
 }
 
 function make_answerlist(deschtml) {
