@@ -86,7 +86,7 @@ function move_page(probnm, delta) {
 }
 
 function draw_iframe(categoryid, probnum) {
-  const pphtml = "/ProblemPager/" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html";
+  const pphtml = "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html";
   $("#iframe").prop("src", pphtml); //iframeにHTMLファイルを読み込む
 
   setTimeout(() => {
