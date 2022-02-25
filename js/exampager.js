@@ -13,6 +13,8 @@ $("#scr").text(getScoreStr()); //localStorageからPRを取り出して表示
 $("#selectfirst, #selectprev").prop('disabled', (probnum == "01"));
 $("#selectlast,  #selectnext").prop('disabled', (probnum == "50"));
 
+var iframemodeflg = (window != window.parent); //iframeで呼ばれているときはtrue
+
 $(function() {
 
   //ナビゲーションボタンがクリックされたときは、ボタンIDで処理を振り分け
@@ -36,7 +38,7 @@ $(function() {
   //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
   $('#showanswer, #board, #answer').on('click', () => {
     description("toggle");
-    if(window != window.parent) {
+    if (iframemodeflg) {
       window.parent.resize_iframe(); //iframeで呼ばれているときは親画面の関数を実行する
     }
   });
@@ -66,8 +68,8 @@ function move_page(probnum, delta) {
 }
 
 function description(action) {
-  const [errscore, choicedflg] = get_errscore(deschtml);
-  if (choicedflg) {
+  const [errscore, choicedflg] = get_errscore();
+  if (choicedflg && !iframemodeflg) { //iframeで呼ばれているときはここでスコアを計算しない
     calc_next_score(errscore);
     $("#scr").text(getScoreStr());
   }

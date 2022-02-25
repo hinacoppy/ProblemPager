@@ -16,6 +16,8 @@ $("#scr").text(getScoreStr()); //localStorageからPRを取り出して表示
 $("#selectfirst, #selectprev").prop('disabled', (probnum == "01"));
 $("#selectlast,  #selectnext").prop('disabled', (probnum == "50"));
 
+var iframemodeflg = (window != window.parent); //iframeで呼ばれているときはtrue
+
 $(function() {
 
   //ナビゲーションボタンがクリックされたときは、ボタンIDで処理を振り分け
@@ -39,7 +41,7 @@ $(function() {
   //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
   $('#showanswer, #board, #answer').on('click', () => {
     description("toggle");
-    if (window != window.parent) {
+    if (iframemodeflg) {
       window.parent.resize_iframe(); //iframeで呼ばれているときは親画面の関数を実行する
     }
   });
@@ -72,8 +74,8 @@ function description(action) {
   const descout = mark_choiced(deschtml);
   $(".description").html(descout);
 
-  const [errscore, choicedflg] = get_errscore(deschtml);
-  if (choicedflg) {
+  const [errscore, choicedflg] = get_errscore();
+  if (choicedflg && !iframemodeflg) { //iframeで呼ばれているときはここでスコアを計算しない
     calc_next_score(errscore);
     $("#scr").text(getScoreStr());
   }
@@ -98,14 +100,19 @@ function description(action) {
 }
 
 function is_cubeaction(deschtml) {
-  return (deschtml.match(/cube action/i) != null);
+  return (deschtml.match(/cube action/i) !== null);
 }
 
 function mark_choiced(deschtml) {
-  const choice = $('[name=uchoice]:checked').val();
+  const ansval = $('[name=uchoice]:checked').val();
+  const [choice, eqstr] = (ansval !== undefined) ? ansval.split("#") : [null, "0"];
   let descout = "";
+  let srchflg = true;
   for (const line of deschtml.split("\n")) {
-    if (line.indexOf(choice) !== -1 && line.match(/eq/i) != null) {
+    if (line.indexOf("<pre>   +24-23-22-21-20-19-") !== -1) { //解説に複数ポジションがある場合は、最初の解析結果のみにマーク
+      srchflg = false;
+    }
+    if (line.indexOf(choice) !== -1 && line.match(/eqstr/i) != null && srchflg) {
       const line2 = line.slice(0, -1 * "<br>".length); //delete <br>
       descout += line2 + "★" + "<br>\n"; //insert ★ before <br>
     } else {
@@ -115,56 +122,47 @@ function mark_choiced(deschtml) {
   return descout;
 }
 
-function get_errscore(deschtml) {
-  const choice = $('[name=uchoice]:checked').val();
+function get_errscore() {
+  const ansval = $('[name=uchoice]:checked').val();
+  const choicedflg = (ansval !== undefined);
+  const [choice, eqstr] = (choicedflg) ? ansval.split("#") : [null, "0"];
+  const eq = Number(eqstr);
+  return [eq, choicedflg];
+}
 
-  let scstr;
-  let choicedflg = false;
-  for (const line of deschtml.split("\n")) {
-    if (line.indexOf(choice) !== -1 && line.match(/eq/i) != null) {
-      const regex = cubeactionflg ? new RegExp("\\((.+?)\\)", "i") : new RegExp("eq.*? \\((.+?)\\)", "i");
-      scstr = line.match(regex); //ex. (-0.123) -> -0.123
-      choicedflg = true;
-      break;
-    }
-  }
-
+function get_eq(eqstr) {
   let eq = 0;
+  const scstr = eqstr.match(/\((.+?)\)/); //ex. (-0.123) -> -0.123
   if (scstr != null){ //キューブアクションで最善手でない or チェッカーアクションのとき
     eq = parseFloat(scstr[1]); //"-0.123" -> -0.123
     if (Number.isNaN(eq)) { eq = 0; } //チェッカーアクションで最善手のとき (ex. G:10.97% B:0.42%)
   }
   eq = Math.trunc(Math.abs(eq) * 1000); //eqを千倍して整数化
-  return [eq, choicedflg];
+  return eq;
 }
 
 function make_answerlist(deschtml) {
   let answers = [];
-  if (cubeactionflg) {
-    const choices = ["No double:", "Double/Take:", "Double/Beaver:", "Double/Pass:",
-                     "No redouble:", "Redouble/Take:", "Redouble/Beaver:", "Redouble/Pass:"];
-    for (const choice of choices) {
-      if (deschtml.indexOf(choice) !== -1) {
-        answers.push(choice);
-      }
+  const regex = cubeactionflg ? new RegExp("\\d\\. +(.+?)  +(.*)", "i") //keeaeにはキューブアクションはないため、適当
+                              : new RegExp(".*\\d\\. +(.+?) +eq(.*)", "i");
+
+  for (const line of deschtml.split("\n")) {
+    if (line.indexOf("<pre>   +24-23-22-21-20-19-") !== -1) { //解説に複数ポジションがある場合は、最初の解析結果のみを使う
+      break;
     }
-  } else {
-    for (const line of deschtml.split("\n")) {
-      if (line.indexOf("<pre>   +24-23-22-21-20-19-") !== -1) { //解説に複数ポジションがある場合は、最初の解析結果のみを使う
-        break;
-      }
-      const movestrregx = line.match(/\d\. (.+) eq/i); //ex. 2. 8/6 8/3    eq: +0.156 (-0.094) ... -> 8/6 8/3
-      if (movestrregx != null) {
-        const movstr = movestrregx[1].trim();
-        answers.push(movstr);
-      }
+    const matchary = line.match(regex); //\1=action, \2=equity
+    if (matchary != null) {
+      const action = matchary[1].trim();
+      const eq = get_eq(matchary[2]);
+      const ansval = action + "#" + eq;
+      answers.push(ansval);
     }
-    answers = sort_answerlist(answers);
   }
+  answers = sort_answerlist(answers);
 
   let answerlist = "";
   for (const ansval of answers) {
-    const anstext = cubeactionflg ? ansval.slice(0, -1) : ansval; // delte ":" when cubeaction
+    const [anstext, eq] = ansval.split("#");
     answerlist += '<label><input type="radio" name="uchoice" value="' + ansval + '"> ' + anstext + '</label><br>';
   }
   answerlist += '<br><button id="answer">Answer</button>';
@@ -173,6 +171,28 @@ function make_answerlist(deschtml) {
 
 //回答選択肢を文字列ソートして並べる
 function sort_answerlist(answers) {
+  if (cubeactionflg) {
+    return sort_answerlist_cube(answers);
+  } else {
+    return sort_answerlist_checker(answers);
+  }
+}
+
+function sort_answerlist_cube(answers) {
+  const choices = ["No double","Double, take","Double, pass","Too good to double, pass"];
+  let answersout = [];
+  for (const choice of choices) {
+    for (const ans of answers) {
+      const [action, eq] = ans.split("#");
+      if (choice == action) {
+        answersout.push(ans);
+      }
+    }
+  }
+  return answersout;
+}
+
+function sort_answerlist_checker(answers) {
   let answork = [];
   for (const item of answers) {
     let array = item.match(/[0-9]+/g); //数字部分を抽出

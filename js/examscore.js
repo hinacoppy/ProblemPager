@@ -28,7 +28,7 @@ function resetScore() {
 }
 
 function getStorage() {
-  const today = get_today();
+  const today = get_todaytime();
   const exampager = JSON.parse(localStorage.getItem("exampager")) || [];
   const findobj = exampager.find(elem =>  (elem.categoryid === categoryid && elem.date.substring(0,10) === today.substring(0,10)));
 
@@ -43,7 +43,7 @@ function getStorage() {
 }
 
 function setStorage(response, correct, errorsum) {
-  const today = get_today();
+  const today = get_todaytime();
   const newobj = {"categoryid":categoryid,
                   "response": response,
                   "correct": correct,
@@ -57,7 +57,7 @@ function setStorage(response, correct, errorsum) {
   localStorage.setItem("exampager", JSON.stringify(exampager));
 }
 
-function get_today() {
+function get_todaytime() {
   const date = new Date();
   const year = date.getFullYear();
   const month = ("00" + (date.getMonth() + 1)).slice(-2);
