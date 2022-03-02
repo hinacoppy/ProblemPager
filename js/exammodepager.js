@@ -115,7 +115,8 @@ function check_selectedanswer() {
     $("#iframe").contents().find('[name=uchoice]').val([score]);
     //Known bug:同スコアの選択肢を選択した時は複数チェックされた状態になる★
   } else {
-    $("#iframe").contents().find('[name=uchoice]').val([answerstr]);
+    const ansval = answerstr + "#" + score;
+    $("#iframe").contents().find('[name=uchoice]').val([ansval]);
   }
 }
 
