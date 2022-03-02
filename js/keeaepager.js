@@ -108,11 +108,12 @@ function mark_choiced(deschtml) {
   const [choice, eqstr] = (ansval !== undefined) ? ansval.split("#") : [null, "0"];
   let descout = "";
   let srchflg = true;
+  const regex = new RegExp(eqstr, "i");
   for (const line of deschtml.split("\n")) {
     if (line.indexOf("<pre>   +24-23-22-21-20-19-") !== -1) { //解説に複数ポジションがある場合は、最初の解析結果のみにマーク
       srchflg = false;
     }
-    if (line.indexOf(choice) !== -1 && line.match(/eqstr/i) != null && srchflg) {
+    if (line.indexOf(choice) !== -1 && line.match(regex) != null && srchflg) {
       const line2 = line.slice(0, -1 * "<br>".length); //delete <br>
       descout += line2 + "★" + "<br>\n"; //insert ★ before <br>
     } else {
