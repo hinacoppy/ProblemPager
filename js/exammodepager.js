@@ -102,6 +102,11 @@ function draw_iframe(categoryid, probnum) {
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
   }, 200); //iframeが表示されて200ms後にボタンを非表示
+
+  setTimeout(() => {
+    $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
+    $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
+  }, 500); //500ms後にもう一度実行して確実に非表示させる
 }
 
 //iframeのサイズ変更
@@ -111,25 +116,13 @@ function resize_iframe() {
 
 function check_selectedanswer() {
   const [answerstr, score] = getStorageExam(categoryid, probnum);
-  if (categoryid.substring(0, 1) == "E") { //category == バックギャモン検定.
-    $("#iframe").contents().find('[name=uchoice]').val([score]);
-    //Known bug:同スコアの選択肢を選択した時は複数チェックされた状態になる★
-  } else {
-    const ansval = answerstr + "#" + score;
-    $("#iframe").contents().find('[name=uchoice]').val([ansval]);
-  }
+  const ansval = answerstr + "#" + score;
+  $("#iframe").contents().find('[name=uchoice]').val([ansval]);
 }
 
 function get_answerstr() {
   const checkedval  = $("#iframe").contents().find('[name=uchoice]:checked').val();
-  const checkedtext = $("#iframe").contents().find('[name=uchoice]:checked').parent().text(); //<label>内の文字列取得
-  if (checkedval === undefined) {
-    return undefined;
-  } else if (categoryid.substring(0, 1) == "E") { //category == バックギャモン検定
-    return checkedtext + "#" + checkedval;
-  } else {
-    return checkedval;
-  }
+  return checkedval;
 }
 
 function getStorageExam(categoryid, probnm) {

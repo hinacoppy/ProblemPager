@@ -94,8 +94,9 @@ function description(action) {
 }
 
 function get_errscore() {
-  const scoreval = $('[name=uchoice]:checked').val();
-  const choicedflg = (scoreval !== undefined);
-  const eq = (choicedflg) ? parseInt(scoreval) : 0; //false：ラジオボタンが選択されていないとき
+  const ansval = $('[name=uchoice]:checked').val();
+  const choicedflg = (ansval !== undefined);
+  const [choice, eqstr] = (choicedflg) ? ansval.split("#") : [null, "0"];
+  const eq = Number(eqstr);
   return [eq, choicedflg];
 }
