@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>ChrisBray</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">2022 - Position 16</span>&ensp;
+<span>(CCb-16)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">Unlimited Games. How should Red play 63?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Red=129 White=151</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">The choices are 8/5, 8/2 and 8/2, 5/2. Very surprisingly the latter turns out to be a blunder!<br>
+<br>
+The problem is that holding the 2-pt and the 8-pt together is not good (they can’t both be part of the same prime) and after all, the 5-pt is the 5-pt. While Red holds White’s bar-point as an escape route if hit the risk of playing 8/5, 8/2 is not that high and so the reward is well worth the risk.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/5 8/2                      Eq.: +0.373
+       0.596 0.185 0.008 - 0.404 0.108 0.003
+    2. Cubeful 2-ply    8/2 5/2                      Eq.: +0.291 (-0.082)
+       0.582 0.156 0.007 - 0.418 0.103 0.002
+    3. Cubeful 2-ply    13/7 8/5                     Eq.: +0.277 (-0.096)
+       0.563 0.164 0.008 - 0.437 0.126 0.003
+    4. Cubeful 0-ply    8/2 6/3                      Eq.: -0.166 (-0.539)
+       0.459 0.133 0.007 - 0.541 0.184 0.007
+    5. Cubeful 0-ply    13/10 13/7                   Eq.: -0.266 (-0.639)
+       0.438 0.124 0.007 - 0.562 0.210 0.015
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "CCb";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle2", "ccw");
+board.showBoard("XGID=-b-B-AD-D---dB---bBbcb----:0:0:1:63:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
