@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Backgammon Exam 2022</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">Problem 27</span>&ensp;
+<span>(E22-27)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白番。最善のキューブアクションを選べ</div>
+<div class="gamesituation">11 ポイントマッチ 白 0-0 黒</div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=164 Black=120</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"><table><tbody>
+<tr><td><label><input type='radio' name='uchoice' value='No double/Take#0'>1. No double/Take</label></td><td class='answerscore'>0</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Double/Take#100'>2. Double/Take</label></td><td class='answerscore'>100</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Double/Pass#758'>3. Double/Pass</label></td><td class='answerscore'>758</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Too good to double/Pass#758'>4. Too good to double/Pass</label></td><td class='answerscore'>758</td></tr>
+</tbody></table>
+<br><button id='answer'>Answer</button>
+</div>
+ <div class="description">白は 18 通りで 23 ポイントのブロットをヒットできるために思わずダブルしたくなりますが、言い換えると残り 18 通りではヒットできません。実際にどのくらい勝てるかを冷静に考えてみましょう。<br>
+<br>
+まず、18 通りでヒットできた場合。白の勝ちは確定でしょうか？ そうではありません。白の陣地は非常に強いのですが、攻め駒が 8 枚しかない点を考慮すると、白は3 分の 2 くらいを勝つと予想できます。つまり 18 回のうち 12 勝（18×66.7％）すると見込めます。<br>
+<br>
+次に、18 通りでヒットできなかった場合。いくら黒の形が悪いとはいえ、黒はバックマンをすべて逃がした上、レースでも大きくリードしています。形勢は互角でしょう。白は 18 回のうち 9 勝（18×50％）します。合計で白は 36 回のうち 12 勝＋9 勝＝21 勝すると見込めるので、21÷36＝58％くらいで勝つことができます（正確な勝率は58.6％）。白はこれだけ低い勝率ではダブルできませんし、黒はダブルされたらもちろんテイクします。<br>
+<br>
+参考図のように白の攻め駒が自陣近くに10 枚あれば、白はダブルするかどうかの境界線上となります。<br>
+<br>
+（参考図）<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X           O    |   | O  X        O  X |   
+|             O    |   | O  X             |   
+|             O    |   | O                |   
+|                  |   | O                |   
+|                  | X | 7                |   
+|                  |BAR|                  | (Cube: 1)
+|                  |   |                  |   
+| O                |   |                  |   
+| O                |   | X  X             |   
+| O                |   | X  X  X  X       |   
+| O                |   | X  X  X  X       |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
+</div>
+</div>
+<hr>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "E22";
+const probnum = "27";
+const showpipflg = false;
+const board = new BgBoard("#board", "boardStyle4", "ccw");
+board.showBoard("XGID=---BBBB-----dC---c-gB--aAA:0:0:1:00:0:0:0:11:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/exampager.js"></script>
+</body>
+</html>

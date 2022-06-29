@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Backgammon Exam 2022</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">Problem 50</span>&ensp;
+<span>(E22-50)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白番。最善のキューブアクションを選べ</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=19 Black=11</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"><table><tbody>
+<tr><td><label><input type='radio' name='uchoice' value='No double/Take#0'>1. No double/Take</label></td><td class='answerscore'>0</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Double/Take#96'>2. Double/Take</label></td><td class='answerscore'>96</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Double/Pass#457'>3. Double/Pass</label></td><td class='answerscore'>457</td></tr>
+</tbody></table>
+<br><button id='answer'>Answer</button>
+</div>
+ <div class="description">白は 1 ポイントと 2 ポイントに 2 枚ずつしかないため、1や2の目を振りたくありません。仮に白がとても良い目65を振り、黒が平凡な目32を振ったとしましょう（参考図 1）。これは白にとってかなり嬉しい展開ですが、ここでリダブルしてもまだ黒はテイクします。黒がゾロ目を振って逆転する可能性に加えて、白が 1 の目を 3 回続けて振るなど、3 ロールでも上がれない可能性があるためです。したがって現状で白はリダブルしてはいけません。参考図 1 の状態になってからリダブルしましょう。なお参考図 2 のように、白の 1 ポイントに駒がたくさんあれば、白はほとんど 3 ロールで上がり終えるため、白はリダブルするべきです。<br>
+<br>
+（参考図 1）<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+|                  |   |             O  O |OO 
+|                  |   |                O |OO 
+|                  |   |                O |OO 
+|                  |   |                O |OO 
+|                  |   |                O |O  
+|                  |BAR|                  |
+|                  |   |                  |X  
+|                  |   |                  |XX 
+|                  |   |                  |XX 
+|                  |   |          X  X  X |XX 
+|                  |   |          X  X  X |XX 
++12-11-10--9--8--7-------6--5--4--3--2--1-+ (Cube: 2)
+</pre>
+（参考図 2）<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+|                  |   |             O  O |OO 
+|                  |   |             O  O |OO 
+|                  |   |             O  O |O  
+|                  |   |                O |O  
+|                  |   |                O |O  
+|                  |BAR|                  |
+|                  |   |                  |X  
+|                  |   |                X |X  
+|                  |   |                X |X  
+|                  |   |          X  X  X |XX 
+|                  |   |          X  X  X |XX 
++12-11-10--9--8--7-------6--5--4--3--2--1-+ (Cube: 2)
+</pre>
+</div>
+</div>
+<hr>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "E22";
+const probnum = "50";
+const showpipflg = false;
+const board = new BgBoard("#board", "boardStyle4", "ccw");
+board.showBoard("XGID=-BBCA------------------ce-:1:1:1:00:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/exampager.js"></script>
+</body>
+</html>

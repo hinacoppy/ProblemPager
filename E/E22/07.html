@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Backgammon Exam 2022</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">Problem 7</span>&ensp;
+<span>(E22-07)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白番。出目21の最善手を選べ</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=160 Black=157</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"><table><tbody>
+<tr><td><label><input type='radio' name='uchoice' value='24/23 13/11#204'>1. 24/23 13/11</label></td><td class='answerscore'>204</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='24/21#199'>2. 24/21</label></td><td class='answerscore'>199</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='13/11 6/5#92'>3. 13/11 6/5</label></td><td class='answerscore'>92</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='7/5 6/5#0'>4. 7/5 6/5</label></td><td class='answerscore'>0</td></tr>
+</tbody></table>
+<br><button id='answer'>Answer</button>
+</div>
+ <div class="description">序盤の61でバーポイントを作った後の21はたいてい 7/5 6/5 が正解になります。バーポイントを 5 ポイントにアップグレードしつつ、6 ポイントにスタックした駒を効率よく使えるからです。この局面では仮にバーポイントのブロットが打たれても 20 ポイントのブロットに対してリターンヒットが期待できますし、打たれなければ次に6 の目でバーポイントを作り直すことで非常に強力な 4 プライムになります。なお、7/5 6/5 のムーブ後にバーポイントのブロットがダブルショットで狙われる場合は例外となり、その場合は 7/5 6/5 は不正解となります。同じ発想から、6 ポイントのスタックを解消しつつスロットする 13/11 6/5 も有力候補となりますが、黒がヒットできる4 の目と、5 ポイントをカバーできる1，3，6の目が分散しており、黒の良い目が増える点で劣ります。24/23 13/11 では陣地作りが遅くなりますし、黒に 5 ポイントを作られた後に 2 つのバックマンが攻撃されそうです。<br>
+<br>
+ちなみに参考図のように黒が6の目の代わりに4の目で 5 ポイントをカバーできる場合は、13/11 6/5 が同等の最善手となります。<br>
+<br>
+（参考図）<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X        O  O    |   | O  O           X |   
+| X           O    |   | O              X |   
+| X           O    |   | O                |   
+| X                |   | O                |   
+|                  |   | O                |   
+|                  |BAR|      1 2         | (Cube: 1)
+|                  |   | X                |   
+|                  |   | X                |   
+| O                |   | X                |   
+| O           X  X |   | X              O |   
+| O           X  X |   | X              O |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+
+</pre>
+</div>
+</div>
+<hr>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "E22";
+const probnum = "07";
+const showpipflg = false;
+const board = new BgBoard("#board", "boardStyle4", "ccw");
+board.showBoard("XGID=-b----EBB---cDa--c-ea---B-:0:0:1:21:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/exampager.js"></script>
+</body>
+</html>
