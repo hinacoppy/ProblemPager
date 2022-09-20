@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title></title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CCd  probnum=01)</span>&ensp;
+<span>(CCd-01)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">Match Play. Red trails 1-4 to 7. Should Red redouble? If redoubled, should White take?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Red=6 White=5</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">A problem that lends itself to direct calculation.<br>
+Red will win this position 5/36 (when he rolls 22, 33, 44, 55 or 66) plus 31/36 x 11/36.<br>
+5/36 = 13.9 and 31/36 x 11/36 = 341/1296 = 26.5. the total is 40.4% so for working purposes let’s use 40%.<br>
+If Red doesn’t redouble then 40% of the time he will win and trail 3-4 (40% winning chances from match equity tables). That gives 40% x 40% = 16%. 60% of the time he will lose and trail 1-6 (10% winning chances). 60% x 10% = 6%.  Total winning chances = 16% + 6% = 22%<br>
+If Red does redouble then 40% of the time, he will lead 5-4 (60% winning chances). 40% x 60% = 24%<br>
+Ergo, by a small margin (2%) Red increases his winning chances by redoubling.<br>
+An XG rollout confirms that Red should redouble but it is very, very close. Obviously White must take the redouble.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity -0.196 (Money: -0.196)
+  0.402 0.000 0.000 - 0.598 0.000 0.000
+Cubeful equities:
+1. Double, take        -0.187
+2. Double, pass        +1.000  (+1.187)
+3. No double           -0.196  (-0.009)
+Proper cube action: Redouble, take
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "CCd";
+const probnum = "01";
+const showpipflg = false;
+const board = new BgBoard("#board", "", "");
+board.showBoard("XGID=-AAA------------------aa--:1:1:1:00:1:4:0:7:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

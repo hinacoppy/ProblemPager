@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title></title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">ERROR: No such data (categoryid=CCd  probnum=12)</span>&ensp;
+<span>(CCd-12)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">Match Play. 1-1 to 7. Should Red redouble? If redoubled should White take?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Red=75 White=155</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">For money this is a big redouble and an easy take as Red has few spare pips to play before his board crashes if he cannot escape the rear checker.<br>
+At this match score Red should hold on to the cube. There are two reasons for this:  a) if he redoubles and wins a gammon he will have nine points – two points more than he needs. This is called overage and should be avoided; b) holding a four cube White will be redoubling much earlier than usual. For example, If Red rolls 55 (12/2, 6/1(2) White already has a borderline redouble to 8 (while it would be a beaver for money).<br>
+Once again, the match score heavily influences the correct cube action.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.582 (Money: +0.549)
+  0.606 0.397 0.002 - 0.394 0.059 0.002
+Cubeful equities:
+1. No double           +0.671
+2. Double, pass        +1.000  (+0.329)
+3. Double, take        +0.629  (-0.042)
+Proper cube action: No redouble, take (11.3%)
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "CCd";
+const probnum = "12";
+const showpipflg = false;
+const board = new BgBoard("#board", "", "");
+board.showBoard("XGID=aCCCcBB-----A---b-bbcb-A--:1:1:1:00:1:1:0:7:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
