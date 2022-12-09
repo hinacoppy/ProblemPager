@@ -19,7 +19,8 @@
 <img src="icon/android-chrome-96x96.png">
 <span class="sectionTitle">Problem Pager</span> &emsp;&emsp;
 <label><input type="radio" name="mode" value="oneonone" checked>One-on-one</label> &ensp;
-<label><input type="radio" name="mode" value="exam">Exam</label> &emsp;&emsp;
+<label><input type="radio" name="mode" value="exam">Exam</label> &ensp;
+<label><input type="radio" name="mode" value="db">DB</label> &emsp;&emsp;
 <a href="/index.html"><button class="operationbtn">HOME</button></a> &emsp;&emsp;
 <a href="/ProblemPager/examhistory.html" target="examhistory"><button class="operationbtn">Exam History</button></a> &emsp;&emsp;
 <a href="/ProblemPager/help.html" target="help"><button class="operationbtn">Help</button></a>
@@ -260,7 +261,7 @@
 </table>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/jquery-3.6.1.min.js"></script>
 <script>
 //Problem Pager Table of Contents
 'use strict';
@@ -270,11 +271,19 @@ $(".contents").on("click", (e) => {
   const query = e.target.id;
   const [categoryid, probnm] = query.split("#");
   const probnum = probnm ? probnm : "01";
+  const newquery = categoryid + "#" + probnum;
 
   const mode = $("[name=mode]:checked").val();
-  const hrefto = (mode == "exam") ? "./exammodePager.html?c=" + query
-                                  : "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html";
+  const hrefto = (mode == "exam") ? "./exammodePager.html?c=" + query : (
+                 (mode == "db")   ? "./dbmodePager.html?c=" + newquery
+                 /* oneonone */   : "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html");
   window.location.href = hrefto;
+});
+
+$(function() {
+  const search = location.search.substring(6); //delete "mode="
+  const mode = search ? search : "oneonone";
+  $('input[name=mode]').val([mode]);
 });
 </script>
 </body>
