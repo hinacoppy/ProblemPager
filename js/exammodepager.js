@@ -101,12 +101,12 @@ function draw_iframe(categoryid, probnum) {
     }
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
-  }, 200); //iframeが表示されて200ms後にボタンを非表示
+  }, 500); //iframeが表示されて200ms後にボタンを非表示
 
   setTimeout(() => {
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
-  }, 500); //500ms後にもう一度実行して確実に非表示させる
+  }, 800); //500ms後にもう一度実行して確実に非表示させる
 }
 
 //iframeのサイズ変更
