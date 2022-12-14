@@ -17,10 +17,13 @@
 <body>
 <nav class="nav">
 <img src="icon/android-chrome-96x96.png">
-<span class="sectionTitle">Problem Pager</span> &emsp;&emsp;
+<span class="sectionTitle">Problem Pager &emsp;&emsp;
+<label class="ongithub"><input type="radio" name="disp" value="static" checked>Static</label> &ensp;
+<label class="ongithub"><input type="radio" name="disp" value="xg">XGfont</label> &ensp;
+<label class="ongithub"><input type="radio" name="disp" value="db">DB</label>
+</span> &emsp; &emsp;
 <label><input type="radio" name="mode" value="oneonone" checked>One-on-one</label> &ensp;
-<label><input type="radio" name="mode" value="exam">Exam</label> &ensp;
-<label><input type="radio" name="mode" value="db">DB</label> &emsp;&emsp;
+<label><input type="radio" name="mode" value="exam">Exam</label> &emsp;&emsp;
 <a href="/index.html"><button class="operationbtn">HOME</button></a> &emsp;&emsp;
 <a href="/ProblemPager/examhistory.html" target="examhistory"><button class="operationbtn">Exam History</button></a> &emsp;&emsp;
 <a href="/ProblemPager/help.html" target="help"><button class="operationbtn">Help</button></a>
@@ -264,26 +267,59 @@
 <script src="/js/jquery-3.6.1.min.js"></script>
 <script>
 //Problem Pager Table of Contents
-'use strict';
-
-//カテゴリーを選択
-$(".contents").on("click", (e) => {
-  const query = e.target.id;
-  const [categoryid, probnm] = query.split("#");
-  const probnum = probnm ? probnm : "01";
-  const newquery = categoryid + "#" + probnum;
-
-  const mode = $("[name=mode]:checked").val();
-  const hrefto = (mode == "exam") ? "./exammodePager.html?c=" + query : (
-                 (mode == "db")   ? "./dbmodePager.html?c=" + newquery
-                 /* oneonone */   : "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html");
-  window.location.href = hrefto;
-});
+"use strict";
 
 $(function() {
-  const search = location.search.substring(6); //delete "mode="
-  const mode = search ? search : "oneonone";
-  $('input[name=mode]').val([mode]);
+  //指定されたクエリによりラジオボタンを選択
+  const disp = location.search.substring(6); //ignore "disp="
+  if (disp == "xg" || disp == "db") {
+    $("input[name=disp]").val([disp]);
+    $("input[name=mode]").val(["oneonone"]);
+    document.cookie = "disp=" + $("[name=disp]:checked").val();
+    document.cookie = "mode=" + $("[name=mode]:checked").val();
+  } else {
+    //クエリが設定されていないときはcookieを読み、ラジオボタンに反映
+    //cookieを使うのはindex.htmlに返ってきたときにラジオボタンの状態を覚えておくため
+    const eachcookie = document.cookie.split(";");
+    eachcookie.forEach( (v) => {
+      const [key, value] = v.trim().split("="); //cookieをkeyとvalueに分ける
+      if (key == "disp") { $("input[name=disp]").val([value]); }
+      if (key == "mode") { $("input[name=mode]").val([value]); }
+    });
+  }
+  //クエリもcookieもないときは、デフォルト(checked)を使う
+
+  //ラジオボタンが変更されたときにcookieをセット
+  $("input").on("change", () => {
+    document.cookie = "disp=" + $("[name=disp]:checked").val();
+    document.cookie = "mode=" + $("[name=mode]:checked").val();
+  });
+
+  //GitHubで動いているときはdispのラジオボタンは非表示
+  if (location.host == "hinacoppy.github.io") {
+    $(".ongithub").hide();
+  }
+
+  //カテゴリーを選択
+  $(".contents").on("click", (e) => {
+    const query = e.target.id;
+    const [categoryid, probnm] = query.split("#");
+    const probnum = probnm ? probnm : "01";
+    const newquery = categoryid + "#" + probnum;
+
+    const disp = $("[name=disp]:checked").val();
+    const mode = $("[name=mode]:checked").val();
+
+    let hrefto;
+    if      (disp == "db")       { hrefto = "./dbmodePager.html?c=" + newquery; }
+    else if (disp == "xg")       { hrefto = "./xg-" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html"; }
+    /* else if (disp == "static") */ //oneonone、examモードの選択が有効なのは disp==static のときのみ
+    else if (mode == "oneonone") { hrefto = "./"    + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html"; }
+    else if (mode == "exam")     { hrefto = "./exammodePager.html?c=" + query; }
+
+    window.location.href = hrefto;
+  });
+
 });
 </script>
 </body>
