@@ -113,7 +113,7 @@ $(function() {
       move_page($("#probnum").val(), -1);
       break;
     case "return2menu":
-      window.location.href = "index.html?mode=db";
+      window.location.href = "index.html";
       break;
     case "jumpbtn":
       tocfloatwindow.show();
