@@ -20,8 +20,8 @@ $(function() {
   move_page(probnm, 0);
 
   //ナビゲーションボタンがクリックされたときは、ボタンIDで処理を振り分け
-  $("button").on("click",  function(e){
-    button_action(this.id);
+  $("button").on("click",  (e) => {
+    button_action(e.currentTarget.id);
   });
 
   //問題番号を選択
@@ -36,29 +36,35 @@ $(function() {
     exammode = ($('[name=mode]:checked').val() == "Exam");
     if (!exammode) {
       set_examscore();
-    } else {
-      put_nextbutton();
     }
-    $("#nextbutton").toggle(exammode);
-    $("#iframe").contents().find('#showanswer').click();　//showanswerボタンを押下し解説を表示
+    $("#iframe").contents().find('#showanswer').click(); //showanswerボタンを押下し解説を表示
     $("#iframe").contents().find("#scr").text(getScoreStr()).toggle(!exammode); //exammodeの時は非表示
   });
 
+  //Debounce 関数(参考：https://www.webdesignleaves.com/pr/jquery/debounce-and-throttle.html)
+  const debounce = (func, timeout) => {
+    let timer;
+    // 引数に受け取った関数 func を拡張して返す
+    return function (...args) {
+      clearTimeout(timer);
+      // timeout で指定された時間後に呼び出しをスケジュール
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    }
+  }
+
+  $(window).on("resize", debounce(() => {
+    resize_iframe();
+//    navmenu = false;
+//    put_navmenu();
+  }, 100));
 });
 
 //ナビゲーションボタンがクリックされたときの処理
 function button_action(buttonid) {
   switch ( buttonid ) {
-  case "selectfirst":
-    setStorageExam(categoryid, probnum);
-    move_page("01", 0);
-    break;
-  case "selectlast":
-    setStorageExam(categoryid, probnum);
-    move_page("50", 0);
-    break;
   case "selectnext":
-  case "nextbutton":
     setStorageExam(categoryid, probnum);
     move_page(probnum, +1);
     break;
@@ -66,8 +72,11 @@ function button_action(buttonid) {
     setStorageExam(categoryid, probnum);
     move_page(probnum, -1);
     break;
-  case "jumpbtn":   //Jumpボタンを押したとき
+  case "jumpbtn":
     tocfloatwindow.show();
+    break;
+  case "homebtn":
+    location.href = "index.html";
     break;
   default:
     return;
@@ -87,26 +96,18 @@ function move_page(probnm, delta) {
 
 function draw_iframe(categoryid, probnum) {
   const pphtml = "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html";
-  $("#iframe").prop("src", pphtml); //iframeにHTMLファイルを読み込む
-
-  setTimeout(() => {
+  const iframe = document.getElementById('iframe');
+  iframe.src = pphtml; //iframeにHTMLファイルを読み込む
+  iframe.onload = () => {
     resize_iframe();
     check_selectedanswer();
     put_navmenu();
-    if (exammode) {
-      put_nextbutton();
-    } else {
+    if (!exammode) {
       $("#iframe").contents().find('#showanswer').click();
-      $("#nextbutton").hide();
     }
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
-  }, 500); //iframeが表示されて200ms後にボタンを非表示
-
-  setTimeout(() => {
-    $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
-    $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
-  }, 800); //500ms後にもう一度実行して確実に非表示させる
+  };
 }
 
 //iframeのサイズ変更
@@ -207,14 +208,27 @@ function get_today() {
   return datestr;
 }
 
-function createFloatWindow() {
-  $("#floatWindow").show();
+function put_navmenu() {
+  if (navmenu) { return; } //一度表示されれば、二度とこのルーチンは動かない
+  navmenu = true;
 
-  const jumpbtnpos = $("#jumpbtn").offset();
+  //Navigationモーダルウィンドウを準備
+  const buttonoffset = $("#iframe").contents().find("#selectfirst").offset(); //子画面の[selectfirst]ボタンの位置に配置
+  const navwindow = new FloatWindow({
+    hoverid:  '#nav', //擬似ウィンドウのID
+    headid:   '#navheader', //ドラッグ移動可能な要素のID
+    bodyid:   '#navbody', //最小化(非表示)される部分
+    left:     buttonoffset.left, //子画面の[selectfirst]ボタンの位置に表示
+    top:      1, //上端に表示したいが、0はfalsyなので、画面中央に計算されてしまう。あえて1をセット
+    width:    $("#nav").width(), //ウィンドウサイズ
+    height:   $("#nav").height(),
+    initshow: true,
+  });
 
   //[Jump]で開くモーダルウィンドウを準備
-  const tocfloatwindow = new FloatWindow({
-    hoverid:  '#floatWindow',    //擬似ウィンドウのID
+  const jumpbtnpos = $("#jumpbtn").offset(); //FloatWindowの位置はjumpボタンの位置決定後
+  tocfloatwindow = new FloatWindow({ //tocfloatwindowは広域変数
+    hoverid:  '#tocWindow',    //擬似ウィンドウのID
     headid:   '#toctableheader', //ドラッグ移動可能な要素のID
     bodyid:   '#toctable',       //最小化(非表示)される部分
     maxbtn:   '#maxBtn',         //擬似ウィンドウ最大化(再表示)
@@ -223,29 +237,7 @@ function createFloatWindow() {
     left:     jumpbtnpos.left,   //表示位置
     top:      jumpbtnpos.top + 50,
     width:    $("#toctable").width(), //ウィンドウサイズ
-    height:   $("#toctable").height() + $("#toctableheader").height()
+    height:   $("#toctable").height() + $("#toctableheader").height(),
+    initshow: false,
   });
-  return tocfloatwindow;
-}
-
-function put_nextbutton() {
-  const iframeoffset = $("#iframe").offset(); //子画面の位置を取得
-  const buttonoffset = $("#iframe").contents().find("#answer").offset(); //子画面の[Answer]ボタンの位置を取得
-  const nextbtntop = buttonoffset.top + iframeoffset.top;
-  const nextbtnleft = buttonoffset.left + iframeoffset.left;
-  const nextbtnpos = {top: nextbtntop, left: nextbtnleft};
-  $("#nextbutton").offset(nextbtnpos).show();
-}
-
-function put_navmenu() {
-  if (navmenu) { return; } //一度表示されれば、二度とこのルーチンは動かない
-  const iframeoffset = $("#iframe").offset(); //子画面の位置を取得
-  const buttonoffset = $("#iframe").contents().find("#selectfirst").offset(); //子画面の[selectfirst]ボタンの位置を取得
-  const navmenutop = buttonoffset.top + iframeoffset.top;
-  const navmenuleft = buttonoffset.left + iframeoffset.left;
-  const navmenupos = {top: navmenutop, left: navmenuleft};
-  $("#nav").offset(navmenupos).show();
-  navmenu = true;
-
-  tocfloatwindow = createFloatWindow(); //FloatWindowの位置はjumpボタンの位置決定後
 }

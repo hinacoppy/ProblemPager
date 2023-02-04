@@ -5,12 +5,15 @@
 html{
   height:100%;
   overflow:auto;
-  overscroll-behavior:none; /* バウンススクロールを抑止(only for Android) */
+  overscroll-behavior:none; /* バウンススクロールを抑止(only for Android and iOS>=16) */
+  height:-webkit-fill-available; /* iOSで100%表示されない事態を回避 */
 }
 body{
   margin:10px;
   padding:0;
   background:#efe;
+  -webkit-text-size-adjust:100%; /* iPhoneで文字サイズが勝手に大きくならないように */
+  text-size-adjust:100%;
 }
 a{
   text-decoration:none;
@@ -154,16 +157,23 @@ pre{
   width:100%;
   border-width:0px;
 }
-.on_iframe{
-  position:absolute;
+/* dbmodePager.html decoration ----------------------------------------*/
+.bgboard{
+  line-height: 1px;  /* ボード画像部品を上下詰めて表示 */
+  width: 328px;
+  page-break-inside: avoid;
 }
-.toctablecontainer{
-  display:none; /* 初期状態は非表示 */
-  position:absolute; /* 位置決めの際、上下スクロールバーが出現しないようにするため */
-  top:0;
+.bgid{
+  background: #eef;
+  border: 1px solid #06c;
+  line-height: 1.3em;
+  padding: 10px;
+  width: 600px;
+  white-space: pre;
+  font-family: monospace, monospace;
 }
+/* toctable decoration (used in exammodePager and dbmodePager) ---------*/
 .toctable{
-  display:none; /* 初期状態は非表示 */
   border-collapse:collapse;
   border:solid 3px #0aa;
   overflow:visible;
@@ -195,44 +205,4 @@ pre{
 }
 .paragraph {
   padding-left: 20px;
-}
-/* dbmodePager.html decoration ----------------------------------------*/
-.bgboard{
-  line-height: 1px;  /* ボード画像部品を上下詰めて表示 */
-  width: 328px;
-  page-break-inside: avoid;
-}
-.bgid{
-  background: #eef;
-  border: 1px solid #06c;
-  line-height: 1.3em;
-  padding: 10px;
-  width: 600px;
-  white-space: pre;
-  font-family: monospace, monospace;
-}
-/* floatWindow decoration ----------------------------------------- */
-#floatWindow{
-  display:none; /* 初期状態は非表示 */
-  position:absolute; /* 位置決めの際、上下スクロールバーが出現しないようにするため */
-  top:0;
-}
-.toctable{
-  display:none; /* 初期状態は非表示 */
-  border-collapse:collapse;
-  border:solid 3px #0aa;
-  overflow:visible;
-}
-.toctable td{
-  font-size:1.5vw;
-  height:4vh;
-  line-height:4vh; /* 上下中央寄せ */
-  text-align:center; /* 左右中央寄せ */
-  background-color:#fee;
-  border:solid 2px #aa0;
-  padding:0.7vh 1.5vw;
-  cursor:pointer;
-}
-.toctable td:hover{
-  background-color:#eef;
 }
