@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
 <style>
 body{
   background: #efe;
@@ -17,70 +17,21 @@ button{
 
 <body>
 <h2>Exam History</h2>
-
-<hr>
-<table id='historylist' class="compact cell-border"></table>
+<div id="historylist"></div>
 <br>
 <button id="deletebtn">Delete Checked Data</button>
 
 <!-- scripts -->
-<script src="/js/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
 <script>
-'use strict';
+"use strict";
 
-var lskey = "exampager"; //key of localStorage
-var exampager = JSON.parse(localStorage.getItem(lskey));
-
-//DataTables定義
-const dtSetting = {
-    data: exampager, //表示するデータ
-    paging: true, // デフォルトでtrueなのでなくてもOK
-    pageLength: 10, // 初期表示件数
-    lengthMenu: [ [10, 20, 50, -1], [10, 20, 50, "All"] ], // 表示件数メニュー
-    order: [[ 0, "desc" ]] , // 初期表示はDateの降順
-    language: {},
-    columnDefs: [
-      { width: "5em", targets: "_all" },
-      { className: "dt-body-center", targets: "_all" }], //データ表示は中央寄せ
-    columns: [
-      { title: "実施日",     data: "date"},
-      { title: "番号",       data: "categoryid"},
-      { title: "名称",       render: getTitle},
-      { title: "回答数",     data: "response"},
-      { title: "正答数",     data: "correct"},
-      { title: "エラー合計", data: "errorsum"},
-      { title: "削除",       render: makeCheckbox,
-        width: "1em",
-        searchable: false,
-        orderable: false,
-      }],
-  };
-
-//テーブル表示
-$('#historylist').DataTable(dtSetting);
-
-$('#deletebtn').on('click', () => {
-  $('input[name="check"]:checked').each( (idx, elem) => {
-    const [date, categoryid] = $(elem).val().split("%");
-    exampager = exampager.filter( (d) => !(d.date == date && d.categoryid == categoryid) );
-    //選択行を削除して(選択行以外のデータで)データを再作成
-  });
-
-  localStorage.setItem(lskey, JSON.stringify(exampager));
-  location.reload(); //ページを再表示(テーブルデータを更新)
-});
-
-function makeCheckbox(data, type, row, meta) {
-  const val = row.date + "%" + row.categoryid;
-  return "<input type='checkbox' name='check' value='" + val + "'>";
-}
-
-function getTitle(data, type, row, meta) {
+function getTitle(row) {
   const titlelist = {
     E11:"バックギャモン検定 2011", E12:"バックギャモン検定 2012", E13:"バックギャモン検定 2013",
     E14:"バックギャモン検定 2014", E15:"バックギャモン検定 2015", E16:"バックギャモン検定 2016",
     E17:"バックギャモン検定 2017", E18:"バックギャモン検定 2018", E19:"バックギャモン検定 2019",
+    E22:"バックギャモン検定 2022",
     ZP1:"Problem of Week 1", ZP2:"Problem of Week 2", ZP3:"Problem of Week 3", ZP4:"Problem of Week 4",
     ZP5:"Problem of Week 5", ZP6:"Problem of Week 6", ZP7:"Problem of Week 7",
     ZH1:"Human vs XG 1", ZH2:"Human vs XG 2", ZH3:"Human vs XG 3", ZH4:"Human vs XG 4", ZH5:"Human vs XG 5",
@@ -114,8 +65,9 @@ function getTitle(data, type, row, meta) {
     CBv:"ChrisBray 2019 1", CBw:"ChrisBray 2019 2", CBx:"ChrisBray 2019 3", CBy:"ChrisBray 2019 4", CBz:"ChrisBray 2019 5",
     CC1:"ChrisBray 2020 1", CC2:"ChrisBray 2020 2", CC3:"ChrisBray 2020 3", CC4:"ChrisBray 2020 4", CC5:"ChrisBray 2020 5",
     CC6:"ChrisBray 2021 1", CC7:"ChrisBray 2021 2", CC8:"ChrisBray 2021 3", CC9:"ChrisBray 2021 4", CCa:"ChrisBray 2021 5",
+    CCb:"ChrisBray 2022 1", CCc:"ChrisBray 2022 2", CCd:"ChrisBray 2022 3", CCe:"ChrisBray 2022 4", CCf:"ChrisBray 2022 5",
     QZ1:"Othello Quiz 2000 - 2004", QZ2:"Othello Quiz 2005 - 2009", QZ3:"Othello Quiz 2010 - 2014",
-    QZ4:"Othello Quiz 2015 - 2019", QZ5:"Othello Quiz 202x - 20xx",
+    QZ4:"Othello Quiz 2015 - 2019", QZ5:"Othello Quiz 2022 - 20xx",
     QZ6:"Osaka Quiz 2014, 06 - 03", QZ7:"Sapporo Quiz 2010 - 2008", QZ8:"Sapporo Quiz 2007 - 2005",
     QZ9:"Nagoya Quiz 2004 - 2005", QZa:"peever Quiz 2005, 2013",
     TC1:"Timothy Chow",
@@ -123,14 +75,84 @@ function getTitle(data, type, row, meta) {
     GP4:"Gammon Minami Aoyama 4", GP5:"Gammon Minami Aoyama 5",
     GP6:"Gammon Platform Square 1", GP7:"Gammon Platform Square 2", GP8:"Gammon Platform Square 3",
     GP9:"Gammon Platform Square 4",
-    KE1:"バックギャモンのお勉強 1", KE2:"バックギャモンのお勉強 2", KE3:"バックギャモンのお勉強 3", KE4:"バックギャモンのお勉強 4",
-    KE5:"バックギャモンのお勉強 5", KE6:"バックギャモンのお勉強 6", KE7:"バックギャモンのお勉強 7", KE8:"バックギャモンのお勉強 8",
-    KE9:"バックギャモンのお勉強 9", KEa:"バックギャモンのお勉強 10",KEb:"バックギャモンのお勉強 11",KEc:"バックギャモンのお勉強 12",
+    KE1:"バックギャモンのお勉強 1", KE2:"バックギャモンのお勉強 2", KE3:"バックギャモンのお勉強 3",
+    KE4:"バックギャモンのお勉強 4", KE5:"バックギャモンのお勉強 5", KE6:"バックギャモンのお勉強 6",
+    KE7:"バックギャモンのお勉強 7", KE8:"バックギャモンのお勉強 8", KE9:"バックギャモンのお勉強 9",
+    KEa:"バックギャモンのお勉強 10",KEb:"バックギャモンのお勉強 11",KEc:"バックギャモンのお勉強 12",
     BR1:"501 1", BR2:"501 2", BR3:"501 3", BR4:"501 4", BR5:"501 5", BR6:"501 6",
     BR7:"501 7", BR8:"501 8", BR9:"501 9", BRa:"501 10", BRb:"501 11",
   };
-  return titlelist[row.categoryid] ? titlelist[row.categoryid] : row.categoryid;
+  const categoryid = row.cells[1].data;
+  return titlelist[categoryid] ? titlelist[categoryid] : categoryid;
 }
+
+function makeCheckbox(row) {
+  const val = row.cells[0].data + "%" + row.cells[1].data;
+  return "<input type='checkbox' name='check' value='" + val + "'>";
+}
+
+function getDataFromStorage() {
+  return JSON.parse(localStorage.getItem("exampager"));
+}
+
+function setDataToStorage(exampager) {
+  localStorage.setItem("exampager", JSON.stringify(exampager));
+}
+
+function actionDeleteButton() {
+  let exampager = getDataFromStorage();
+  let dirty = false;
+  for (const elem of document.getElementsByName("check")) {
+    if (elem.checked === true) {
+      dirty = true;
+      const [date, categoryid] = elem.value.split("%");
+      exampager = exampager.filter( (d) => !(d.date == date && d.categoryid == categoryid) );
+      //選択行を削除して(選択行以外のデータで)データを再作成
+    }
+  }
+
+  if (dirty) { //checkが入っていてデータ編集が必要なら
+    setDataToStorage(exampager); //ローカルストレージを更新して
+    location.reload(); //ページを再表示(テーブルを最新データで再表示)
+  }
+}
+
+function getGridJsSettingObject() {
+  const settings = { //GridJS config
+    data: getDataFromStorage(), //表示データ
+    pagination: {limit: 10}, //ページネーション設定
+    search: true, //検索フィールドあり
+    sort: true, //ソートあり
+    columns: [
+      { name: "実施日",     id: "date" },
+      { name: "番号",       id: "categoryid" },
+      { name: "名称",       formatter: (_, row) => getTitle(row) },
+      { name: "回答数",     id: "response" },
+      { name: "正答数",     id: "correct" },
+      { name: "エラー合計", id: "errorsum" },
+      { name: "削除",       formatter: (_, row) => gridjs.html(makeCheckbox(row)), sort: false },
+    ],
+    style: {
+      th: {
+        "text-align": "center",
+      },
+      td: {
+        "text-align": "center",
+        "padding": "6px",
+      },
+    },
+  };
+  return settings;
+}
+
+//処理実行
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#deletebtn").addEventListener("click", () => {
+    actionDeleteButton(); //Deleteボタンが押下されたときの処理
+  });
+  const table = new gridjs.Grid(getGridJsSettingObject()); //テーブル表示
+  table.render(document.querySelector("#historylist"));
+});
 </script>
 </body>
 </html>
