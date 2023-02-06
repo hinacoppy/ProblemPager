@@ -103,7 +103,9 @@ function draw_iframe(categoryid, probnum) {
     check_selectedanswer();
     put_navmenu();
     if (!exammode) {
-      $("#iframe").contents().find('#showanswer').click();
+      setTimeout(() => {
+        $("#iframe").contents().find('#showanswer').click();
+      }, 300); //確実にクリックさせるため、300msの待ちを入れる
     }
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
@@ -112,7 +114,15 @@ function draw_iframe(categoryid, probnum) {
 
 //iframeのサイズ変更
 function resize_iframe() {
-  $("#iframe").height($('body').height() - 10); //メイン側の縦スクロールバーを消す。10=縦スクロールバーを出さないため
+//  $("#iframe").height($('body').height() - 10); //メイン側の縦スクロールバーを消す。10=縦スクロールバーを出さないため
+  const iframe = document.getElementById("iframe");
+//  iframe.style.width  = iframe.contentWindow.document.body.scrollWidth + "px";
+//  iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
+  iframe.style.width  = (document.body.scrollWidth     )+ "px";
+  iframe.style.height = (document.body.scrollHeight -10)+ "px";
+//  iframe.contentWindow.document.body.width = iframe.style.width;
+//  iframe.contentWindow.document.body.height = iframe.style.height;
+//console.log("resize_iframe", iframe.style.width, iframe.style.height, $('body').height(), document.body.scrollHeight);
 }
 
 function check_selectedanswer() {
