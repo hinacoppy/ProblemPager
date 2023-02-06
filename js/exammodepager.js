@@ -118,11 +118,14 @@ function resize_iframe() {
   const iframe = document.getElementById("iframe");
 //  iframe.style.width  = iframe.contentWindow.document.body.scrollWidth + "px";
 //  iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
+document.getElementById("debug").value += "resize_iframe bf "+ iframe.clientWidth+ iframe.clientHeight + "\n";
   iframe.style.width  = (document.body.scrollWidth     )+ "px";
   iframe.style.height = (document.body.scrollHeight -10)+ "px";
 //  iframe.contentWindow.document.body.width = iframe.style.width;
 //  iframe.contentWindow.document.body.height = iframe.style.height;
 //console.log("resize_iframe", iframe.style.width, iframe.style.height, $('body').height(), document.body.scrollHeight);
+document.getElementById("debug").value += "resize_iframe af "+ iframe.style.width+ iframe.style.height + "\n";
+document.getElementById("debug").value += "resize_iframe af "+ iframe.clientWidth+ iframe.clientHeight + "\n";
 }
 
 function check_selectedanswer() {
