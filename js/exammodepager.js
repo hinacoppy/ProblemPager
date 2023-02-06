@@ -55,7 +55,9 @@ $(function() {
   }
 
   $(window).on("resize", debounce(() => {
-    resize_iframe();
+document.getElementById("debug").value += "resize event" + categoryid+ probnum + "\n";
+    draw_iframe(categoryid, probnum);
+//    resize_iframe();
 //    navmenu = false;
 //    put_navmenu();
   }, 100));
