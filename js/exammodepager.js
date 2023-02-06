@@ -98,7 +98,9 @@ function draw_iframe(categoryid, probnum) {
   const pphtml = "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html";
   const iframe = document.getElementById('iframe');
   iframe.src = pphtml; //iframeにHTMLファイルを読み込む
+document.getElementById("debug").value += "draw_iframe\n";
   iframe.onload = () => {
+document.getElementById("debug").value += "draw_iframe onload\n";
     resize_iframe();
     check_selectedanswer();
     put_navmenu();
@@ -114,6 +116,7 @@ function draw_iframe(categoryid, probnum) {
 
 //iframeのサイズ変更
 function resize_iframe() {
+document.getElementById("debug").value += "resize_iframe in \n";
 //  $("#iframe").height($('body').height() - 10); //メイン側の縦スクロールバーを消す。10=縦スクロールバーを出さないため
   const iframe = document.getElementById("iframe");
 //  iframe.style.width  = iframe.contentWindow.document.body.scrollWidth + "px";
