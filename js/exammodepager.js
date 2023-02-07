@@ -41,26 +41,6 @@ $(function() {
     $("#iframe").contents().find("#scr").text(getScoreStr()).toggle(!exammode); //exammodeの時は非表示
   });
 
-  //Debounce 関数(参考：https://www.webdesignleaves.com/pr/jquery/debounce-and-throttle.html)
-  const debounce = (func, timeout) => {
-    let timer;
-    // 引数に受け取った関数 func を拡張して返す
-    return function (...args) {
-      clearTimeout(timer);
-      // timeout で指定された時間後に呼び出しをスケジュール
-      timer = setTimeout(() => {
-        func.apply(this, args);
-      }, timeout);
-    }
-  }
-
-  $(window).on("resize", debounce(() => {
-logout( "resize event" , categoryid, probnum);
-    draw_iframe(categoryid, probnum);
-//    resize_iframe();
-//    navmenu = false;
-//    put_navmenu();
-  }, 100));
 });
 
 //ナビゲーションボタンがクリックされたときの処理
@@ -100,10 +80,7 @@ function draw_iframe(categoryid, probnum) {
   const pphtml = "./" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html";
   const iframe = document.getElementById('iframe');
   iframe.src = pphtml; //iframeにHTMLファイルを読み込む
-//logout( "draw_iframe");
   iframe.onload = () => {
-logout( "draw_iframe onload");
-    resize_iframe();
     check_selectedanswer();
     put_navmenu();
     if (!exammode) {
@@ -114,24 +91,6 @@ logout( "draw_iframe onload");
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
   };
-}
-
-//iframeのサイズ変更
-function resize_iframe() {
-//logout( "resize_iframe in");
-//  $("#iframe").height($('body').height() - 10); //メイン側の縦スクロールバーを消す。10=縦スクロールバーを出さないため
-  const iframe = document.getElementById("iframe");
-//  iframe.style.width  = iframe.contentWindow.document.body.scrollWidth + "px";
-//  iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
-logout( "resize_iframe bf", iframe.clientWidth, iframe.clientHeight);
-logout( "resize_iframe body", document.body.scrollWidth, document.body.scrollHeight);
-  iframe.style.width  = (document.body.scrollWidth     )+ "px";
-  iframe.style.height = (document.body.scrollHeight -10)+ "px";
-//  iframe.contentWindow.document.body.width = iframe.style.width;
-//  iframe.contentWindow.document.body.height = iframe.style.height;
-//console.log("resize_iframe", iframe.style.width, iframe.style.height, $('body').height(), document.body.scrollHeight);
-logout( "resize_iframe af", iframe.style.width, iframe.style.height);
-logout( "resize_iframe af", iframe.clientWidth, iframe.clientHeight);
 }
 
 function check_selectedanswer() {
@@ -259,14 +218,4 @@ function put_navmenu() {
     height:   $("#toctable").height() + $("#toctableheader").height(),
     initshow: false,
   });
-}
-
-function logout(...args) {
-  let log = "";
-  for (let arg of args) {
-    log += arg + " ";
-  }
-  log += "\n";
-  const elem = document.getElementById("debug");
-  elem.value = log +elem.value ;
 }

@@ -36,11 +36,14 @@ $(function() {
   });
 
   //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
-  $('#showanswer, #board, #answer').on('click', () => {
+  $('#showanswer').on('click', () => {
     description("toggle");
-    if (iframemodeflg) {
-      window.parent.resize_iframe(); //iframeで呼ばれているときは親画面の関数を実行する
-    }
+  });
+
+  //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
+  $('#answer, #board').on('click', () => {
+    if (iframemodeflg) { return; } //iframeで呼ばれているときは何もしない
+    description("toggle");
   });
 
   //[Home]ボタンで、メニューに遷移
@@ -54,10 +57,24 @@ $(function() {
     $("#scr").text(getScoreStr());
   });
 
+  //Debounce 関数(参考：https://www.webdesignleaves.com/pr/jquery/debounce-and-throttle.html)
+  const debounce = (func, timeout) => {
+    let timer;
+    // 引数に受け取った関数 func を拡張して返す
+    return function (...args) {
+      clearTimeout(timer);
+      // timeout で指定された時間後に呼び出しをスケジュール
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    }
+  }
+
   //画面の大きさが変わったときはボードを再描画
-  $(window).on('resize', () => {
+  $(window).on("resize", debounce(() => {
     board.redraw();
-  });
+  }, 100));
+
 });
 
 function move_page(probnum, delta) {

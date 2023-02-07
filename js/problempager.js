@@ -40,11 +40,14 @@ $(function() {
   });
 
   //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
-  $('#showanswer, #board, #answer').on('click', () => {
+  $('#showanswer').on('click', () => {
     description("toggle");
-    if (iframemodeflg) {
-      window.parent.resize_iframe(); //iframeで呼ばれているときは親画面の関数を実行する
-    }
+  });
+
+  //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
+  $('#answer, #board').on('click', () => {
+    if (iframemodeflg) { return; } //iframeで呼ばれているときは何もしない
+    description("toggle");
   });
 
   //[Analysis Result]ボタンで、解析結果を表示/非表示を切替え
