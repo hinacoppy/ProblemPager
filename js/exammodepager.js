@@ -15,7 +15,7 @@ $(function() {
   //最初の問題を表示する
   const query = $(location).attr("search"); //ex. ?c=QZ1#31 --> ?c=QZ1
   const hash = $(location).attr("hash"); //ex. ?c=QZ1#31 --> #31
-  categoryid = query ? query.slice(3, 6) : "E19"; //広域変数
+  categoryid = query ? query.slice(3, 6) : "E22"; //広域変数
   const probnm = hash ? hash.slice(1, 4) : "01";
   move_page(probnm, 0);
 
@@ -206,12 +206,12 @@ function put_navmenu() {
   navmenu = true;
 
   //Navigationモーダルウィンドウを準備
-  const buttonoffset = $("#iframe").contents().find("#selectfirst").offset(); //子画面の[selectfirst]ボタンの位置に配置
+  const modalleft = window.innerWidth * 0.6;
   const navwindow = new FloatWindow({
     hoverid:  '#nav', //擬似ウィンドウのID
     headid:   '#navheader', //ドラッグ移動可能な要素のID
     bodyid:   '#navbody', //最小化(非表示)される部分
-    left:     buttonoffset.left, //子画面の[selectfirst]ボタンの位置に表示
+    left:     modalleft,
     top:      1, //上端に表示したいが、0はfalsyなので、画面中央に計算されてしまう。あえて1をセット
     width:    $("#nav").width(), //ウィンドウサイズ
     height:   $("#nav").height(),
@@ -219,16 +219,15 @@ function put_navmenu() {
   });
 
   //[Jump]で開くモーダルウィンドウを準備
-  const jumpbtnpos = $("#jumpbtn").offset(); //FloatWindowの位置はjumpボタンの位置決定後
   tocfloatwindow = new FloatWindow({ //tocfloatwindowは広域変数
-    hoverid:  '#tocWindow',    //擬似ウィンドウのID
+    hoverid:  '#tocWindow',      //擬似ウィンドウのID
     headid:   '#toctableheader', //ドラッグ移動可能な要素のID
     bodyid:   '#toctable',       //最小化(非表示)される部分
     maxbtn:   '#maxBtn',         //擬似ウィンドウ最大化(再表示)
     minbtn:   '#minBtn',         //擬似ウィンドウ最小化
     closebtn: '#closeBtn',       //擬似ウィンドウを閉じる要素のID
-    left:     jumpbtnpos.left,   //表示位置
-    top:      jumpbtnpos.top + 50,
+    left:     modalleft,         //表示位置
+    top:      $("#nav").height() + 10,
     width:    $("#toctable").width(), //ウィンドウサイズ
     height:   $("#toctable").height() + $("#toctableheader").height(),
     initshow: false,
