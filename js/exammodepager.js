@@ -106,6 +106,9 @@ function resize_iframe() {
   const iframe = document.getElementById("iframe");
   const iframeheight = iframe.contentWindow.document.body.scrollHeight;
   iframecontainer.style.paddingTop = (iframeheight + 30) + "px"; //30は余裕分
+  if (window.innerWidth < 1024) {
+    iframe.contentWindow.document.body.style.fontSize = "larger";
+  }
 }
 
 function check_selectedanswer() {
