@@ -34,9 +34,6 @@ $(function() {
   //モードの変更
   $("[name=mode]").on("change", (e) => {
     exammode = ($('[name=mode]:checked').val() == "Exam");
-    if (!exammode) {
-      set_examscore();
-    }
     $("#iframe").contents().find('#showanswer').click(); //showanswerボタンを押下し解説を表示
     $("#iframe").contents().find("#scr").text(getScoreStr()).toggle(!exammode); //exammodeの時は非表示
     setTimeout(() => {
@@ -166,7 +163,8 @@ function setStorageExam(categoryid, probnm) {
     exampager.splice(idx, 1, newobj); //更新は以前のデータを置換え
   }
 
-  localStorage.setItem("exammodepager", JSON.stringify(exampager)); //ローカルストレージに書込み
+  localStorage.setItem("exammodepager", JSON.stringify(exampager)); //ローカルストレージのexammodepagerに書込み
+  set_examscore(); //ローカルストレージのexampagerに登録
 }
 
 function set_examscore() {
