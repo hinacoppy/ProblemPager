@@ -39,6 +39,9 @@ $(function() {
     }
     $("#iframe").contents().find('#showanswer').click(); //showanswerボタンを押下し解説を表示
     $("#iframe").contents().find("#scr").text(getScoreStr()).toggle(!exammode); //exammodeの時は非表示
+    setTimeout(() => {
+      resize_iframe();
+    }, 200); //クリック後の描画を少し待つ
   });
 
 });
@@ -90,7 +93,19 @@ function draw_iframe(categoryid, probnum) {
     }
     $("#iframe").contents().find("button").hide(); //子画面のボタンを非表示
     $("#iframe").contents().find("#scr").toggle(!exammode); //exammodeの時は非表示
+    const wait = exammode ? 200 : 500;
+    setTimeout(() => {
+      resize_iframe();
+    }, wait); //コンテンツのサイズが変更になった後、少し待ってiframeのサイズを修正する
   };
+}
+
+//iframeのサイズ変更
+function resize_iframe() {
+  const iframecontainer = document.getElementById("iframe_container");
+  const iframe = document.getElementById("iframe");
+  const iframeheight = iframe.contentWindow.document.body.scrollHeight;
+  iframecontainer.style.paddingTop = (iframeheight + 30) + "px"; //30は余裕分
 }
 
 function check_selectedanswer() {

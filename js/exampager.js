@@ -73,6 +73,9 @@ $(function() {
   //画面の大きさが変わったときはボードを再描画
   $(window).on("resize", debounce(() => {
     board.redraw();
+    if (iframemodeflg) {
+      window.parent.resize_iframe(); //iframeで呼ばれているときは親画面の関数を実行する
+    }
   }, 100));
 
 });
