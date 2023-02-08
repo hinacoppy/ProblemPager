@@ -103,12 +103,9 @@ function draw_iframe(categoryid, probnum) {
 //iframeのサイズ変更
 function resize_iframe() {
   const iframecontainer = document.getElementById("iframe_container");
-  const iframe = document.getElementById("iframe");
-  const iframeheight = iframe.contentWindow.document.body.scrollHeight;
-  iframecontainer.style.paddingTop = (iframeheight + 30) + "px"; //30は余裕分
-  if (window.innerWidth < 1024) {
-    iframe.contentWindow.document.body.style.fontSize = "larger";
-  }
+  const iframebody = document.getElementById("iframe").contentWindow.document.body;
+  iframecontainer.style.paddingTop = (iframebody.scrollHeight + 30) + "px"; //30は余裕分
+  iframebody.style.fontSize = (window.innerWidth < 1024) ? "x-large" : "medium"; //スマホのときは文字を大きく
 }
 
 function check_selectedanswer() {
