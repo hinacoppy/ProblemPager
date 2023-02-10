@@ -46,11 +46,11 @@ $(function() {
 //ナビゲーションボタンがクリックされたときの処理
 function button_action(buttonid) {
   switch ( buttonid ) {
-  case "selectnext":
+  case "exammodenext":
     setStorageExam(categoryid, probnum);
     move_page(probnum, +1);
     break;
-  case "selectprev":
+  case "exammodeprev":
     setStorageExam(categoryid, probnum);
     move_page(probnum, -1);
     break;
@@ -72,8 +72,8 @@ function move_page(probnm, delta) {
   draw_iframe(categoryid, probnum);
 
   //範囲を超えて移動できないようにする
-  $("#selectfirst, #selectprev").prop("disabled", (probnum == "01"));
-  $("#selectlast,  #selectnext").prop("disabled", (probnum == "50"));
+  $("#exammodeprev").prop("disabled", (probnum == "01"));
+  $("#exammodenext").prop("disabled", (probnum == "50"));
 }
 
 function draw_iframe(categoryid, probnum) {
