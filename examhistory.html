@@ -21,7 +21,7 @@ body{
 <h2>Exam History</h2>
 <div id="historylist"></div>
 <br>
-<button id="deletebtn">Delete Checked Data</button>
+<button id="deletebtn" onclick="actionDeleteButton();">Delete Checked Data</button>
 <button id="close" onclick="window.close();">CLOSE</button>
 
 <!-- scripts -->
@@ -95,13 +95,18 @@ function makeCheckbox(row) {
 }
 
 function getDataFromStorage() {
-  return JSON.parse(localStorage.getItem("exampager"));
+  const compare = (a, b) => { return (a.date < b.date) ? 1 : -1; } //実施日の降順に並べるためのソート関数
+
+  let jsondata = JSON.parse(localStorage.getItem("exampager"));
+  jsondata.sort(compare);
+  return jsondata;
 }
 
 function setDataToStorage(exampager) {
   localStorage.setItem("exampager", JSON.stringify(exampager));
 }
 
+//Deleteボタンが押下されたときの処理
 function actionDeleteButton() {
   let exampager = getDataFromStorage();
   let dirty = false;
@@ -150,9 +155,6 @@ function getGridJsSettingObject() {
 
 //処理実行
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#deletebtn").addEventListener("click", () => {
-    actionDeleteButton(); //Deleteボタンが押下されたときの処理
-  });
   const table = new gridjs.Grid(getGridJsSettingObject()); //テーブル表示
   table.render(document.querySelector("#historylist"));
 });
