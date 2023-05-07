@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Hayashi Problem</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">問題番号 湘南226</span>&ensp;
+<span>(HA6-04)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白11</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=58 Brown=125</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">正解ムーブは  10/9 6/4 6/5<br>
+(簡単な考え方・格言・セオリー: 安全なベアリングインのテクニック)<br>
+解説<br>
+白は相手の駒を2駒ヒットしてクローズアウト(1～6ポイントにブロックポイント(プライム)を作っている状態)しているので非常に有利で、ほとんど勝でしょう。60%くらいギャモン勝ちも期待出来そうな局面。<br>
+白は 11 の目を振ったところです。<br>
+10/6と10ポイントの駒をインナーボード(1～6ポイント)に入れるのは、次の白の 66、65、55 の目(4通り)でブロット(ブロックポイントになっていない1個の駒)が発生します。そのブロットをヒットされると逆転してしまいます。<br>
+ここでは、「10/9 6/4 6/5」とムーブするのが安全で、すれ違い易くする正解です。6ポイントをあけるテクニックもあるのです。9ポイントに動かす駒は、相手の2駒がバーの上にのっているので安全です。ベアリングイン、ベアリングオフでは、66 などで次にブロットが出来ないか考える事が必要です。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/6                         Eq.: +1.580
+       0.923 0.679 0.014 - 0.077 0.000 0.000
+    2. Cubeful 2-ply    10/7 2/1                     Eq.: +1.559 (-0.021)
+       0.923 0.660 0.011 - 0.077 0.000 0.000
+    3. Cubeful 2-ply    10/8 4/3 2/1                 Eq.: +1.540 (-0.040)
+       0.912 0.657 0.011 - 0.088 0.000 0.000
+    4. Cubeful 2-ply    10/9 6/4 6/5                 Eq.: +1.540 (-0.040)
+       0.957 0.594 0.006 - 0.043 0.000 0.000
+    5. Cubeful 2-ply    10/7 4/3                     Eq.: +1.532 (-0.049)
+       0.911 0.651 0.011 - 0.089 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "HA6";
+const probnum = "04";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle3", "cw");
+board.showBoard("XGID=bBCBCBB---A---a--abcbbb---:1:1:1:11:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

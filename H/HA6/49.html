@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Hayashi Problem</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">問題番号2205</span>&ensp;
+<span>(HA6-49)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白番。キューブアクション</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=4 Brown=3</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">セオリーとしての正解キューブアクション<br>
+白番でダブルをしますか?   ダブルをする<br>
+赤側でダブルがきたら?     降りる(Drop)<br>
+解説<br>
+このポジションは白も相手も完全2ロールポジション(ゾロ目が出なくても2回の振り番で必ず上がれる局面)です。<br>
+お互いが完全2ロールポジションでは、先の振り番がダブルをすべきで、後の振り番はダブルを降りるのが正解。<br>
+ダブルをすれば相手はおりるので勝率は100%ですが、そのまま振れば下記の勝率で損をしてしまいます。<br>
+ただし相手にも13.9%の勝率があるため、頭が熱くなっているスチーマー(ギャモン用語で一般的に負けがこんで熱くなっている人を指す)や何も考えていないおばかさんにはテイクされることがあるので、そのつもりでキューブを使って下さい。<br>
+勝率     G/BG率   BG率<br>
+白 86.1%  0.0%    0.0%<br>
+赤 13.9%  0.0%    0.0%<br>
+期待値 0.722<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.722
+  0.861 0.000 0.000 - 0.139 0.000 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.444  (+0.444)
+3. No double           +0.722  (-0.278)
+Proper cube action: Double, pass
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "HA6";
+const probnum = "49";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle3", "cw");
+board.showBoard("XGID=-D----------------------c-:0:0:1:00:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

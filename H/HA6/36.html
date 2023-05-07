@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Hayashi Problem</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">問題番号 湘南242</span>&ensp;
+<span>(HA6-36)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白62</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=51 Brown=158</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">正解ムーブは  6/0 5/3<br>
+(簡単な考え方・格言・セオリー: ベアリングオフのセオリー)<br>
+解説<br>
+ベアリングオフ(駒の上げ方)で相手が4ポイントにブロックポイントをもっている、コンタクト(まだすれ違っていない状態)のある形です。<br>
+まだ、白は1駒も上がってません。<br>
+6の目は 6/0 のフォーストムーブ(強制されたムーブ)。<br>
+2の目をどうするかが問題です。どれを選んでも6ポイントにブロットが残ります。(1).2/0と上がる。(2).3/1と進める。(3).5/3と進める。セオリーとしては正解は(3)です。なぜなら、ここでは1駒上がりも、2駒あがりも、6ポイントの白のブロットがヒットされれば、ほとんど負けになります。<br>
+1駒が相手に生け捕られて、上がっている枚数が5駒未満ではほとんど勝てないと覚えて下さい。<br>
+それではどう考えるか?<br>
+もしヒットされなかったとして、どうムーブすれば良いのかを考えます。<br>
+5/3 と動かすと5ポイントと6ポイントの駒の合計が偶数となり、次の2ゾロだけしかブロットは残りません。それ以外の(1)や(2)ですと、2ゾロ、4ゾロ、5ゾロ、6ゾロ でブロットが残るのです。<br>
+先の形を考えてムーブするのも、大事なことです。DEBUG(4 2)<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/off 2/off                  Eq.: +1.085
+       0.759 0.651 0.002 - 0.241 0.000 0.000
+    2. Cubeful 2-ply    6/off 5/3                    Eq.: +1.064 (-0.021)
+       0.757 0.640 0.001 - 0.243 0.000 0.000
+    3. Cubeful 2-ply    6/off 3/1                    Eq.: +1.013 (-0.072)
+       0.742 0.623 0.001 - 0.258 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "HA6";
+const probnum = "36";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle3", "cw");
+board.showBoard("XGID=-BDCbDBaaa--a----abbbb----:1:-1:1:62:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Hayashi Problem</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">問題番号 湘南235</span>&ensp;
+<span>(HA6-22)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白51</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=13 Brown=83</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">正解ムーブは  4/3* 3/0<br>
+(簡単な考え方・格言・セオリー: ギャモントライは偶数枚でロール数を減らせ)<br>
+解説<br>
+これは白がギャモン勝ちするためにはどうしたら良いかが問題です。<br>
+4/0 1/0とすれば絶対に負けることはありません。<br>
+しかし何とか白はギャモンで勝ちしたいので4/3* 3/0として相手の駒を少しでも遅らせるムーブがベストムーブです。<br>
+このムーブで白は偶数枚の6駒残りとなり、後3ロールでは必ず上がれます。<br>
+仮に相手のヒットした駒がバーの上に残り( 22、21、11 の場合)、白にブロットが発生して相手にヒットされたりしても、白は11駒上がりの形になるので、ほとんど負けることはありません。<br>
+「ギャモントライは偶数枚でロール数を減らせ」と覚えて下さい。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    4/3*/off                     Eq.: +1.787
+       0.996 0.785 0.010 - 0.004 0.000 0.000
+    2. Cubeful 2-ply    4/off 1/off                  Eq.: +1.599 (-0.188)
+       1.000 0.596 0.003 - 0.000 0.000 0.000
+    3. Cubeful 2-ply    4/off 2/1                    Eq.: +1.596 (-0.190)
+       1.000 0.593 0.003 - 0.000 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "HA6";
+const probnum = "22";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle3", "cw");
+board.showBoard("XGID=-CCaA-------------bcbbbba-:1:-1:1:51:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>

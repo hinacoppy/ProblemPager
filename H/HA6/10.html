@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Hayashi Problem</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">問題番号 湘南229</span>&ensp;
+<span>(HA6-10)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白61</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=77 Brown=93</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">正解ムーブは  16/9<br>
+(簡単な考え方・格言・セオリー: デュープリケーション(重複))<br>
+解説<br>
+このポジションは相手の駒をヒットしてバーの上にのせているので白が非常に有利な局面です。但し、相手にヒットされたら負けてしまう可能性があります。<br>
+6 の目は16/10しかありません。 1 の目をどうするか?。<br>
+3/2 または 4/3 だと、相手に 54、55 の3通りでヒットます。<br>
+16/10 16/15 だと 53、55 の3通りでヒットされます。<br>
+正解の16/9 だと 54 の2通りしかヒットされません。<br>
+このポジションは 54 の目の「デュープリケーション」でした。<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/15 16/10                  Eq.: +0.563
+       0.785 0.078 0.000 - 0.215 0.037 0.000
+    2. Cubeful 2-ply    16/9                         Eq.: +0.532 (-0.031)
+       0.775 0.075 0.000 - 0.225 0.033 0.000
+    3. Cubeful 2-ply    16/10 3/2                    Eq.: +0.489 (-0.073)
+       0.758 0.072 0.000 - 0.242 0.040 0.000
+    4. Cubeful 2-ply    16/10 4/3                    Eq.: +0.483 (-0.080)
+       0.757 0.068 0.000 - 0.243 0.041 0.001
+    5. Cubeful 0-ply    16/10 6/5                    Eq.: -0.075 (-0.638)
+       0.579 0.090 0.000 - 0.421 0.174 0.007
+</pre>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "HA6";
+const probnum = "10";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle3", "cw");
+board.showBoard("XGID=aBBCC-C-----b---B--bbbbbb-:1:-1:1:61:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
