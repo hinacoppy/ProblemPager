@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Backgammon Exam 2024</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">Problem 48</span>&ensp;
+<span>(E24-48)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白番。白の勝率はおおよそ何パーセントか</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=4 Black=8</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"><table><tbody>
+<tr><td><label><input type='radio' name='uchoice' value='60%#55'>1. 60%</label></td><td class='answerscore'>55</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='65%#55'>2. 65%</label></td><td class='answerscore'>55</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='70%#0'>3. 70%</label></td><td class='answerscore'>0</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='75%#55'>4. 75%</label></td><td class='answerscore'>55</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='80%#55'>5. 80%</label></td><td class='answerscore'>55</td></tr>
+</tbody></table>
+<br><button id='answer'>Answer</button>
+</div>
+ <div class="description">おおよその勝率を選ぶ問題です。白から数えて3手以内に必ず決着がつくことを考えると、黒が勝つには「白が1手目にゾロ目を振らず、黒が2手目に2枚を上がる」パターンしかないことがわかります。<br>
+<br>
+白が1手目にゾロ目を振らない確率は、30/36です。黒が2手目に上がれる確率は、ゾロ目は2ゾロ以上の5通り、ゾロ目以外は62, 63, 64, 65の8通りで、足して13通り。つまり、13/36になります。(30/36)×(13/36)を計算すると、0.30092…となるので約70%が答えだとわかります。<br>
+<br>
+余談ですが、この局面がアンリミテッドマッチだった場合、勝率70%であることが分かると、ダブル-テイクであると判断を下しやすくなります。さらに余談ですが、(30/36)×(13/36)を計算するとき、まずは 65/216 まで計算しましょう。筆者の場合は 64/216 とほぼ同値であると考え、64/216=8/27 と簡略化して計算しやすくします。<br>
+</div>
+</div>
+<hr>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "E24";
+const probnum = "48";
+const showpipflg = false;
+const board = new BgBoard("#board", "boardStyle4", "ccw");
+board.showBoard("XGID=-D-----------------a---a--:0:0:1:00:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/exampager.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>Backgammon Exam 2024</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">Problem 45</span>&ensp;
+<span>(E24-45)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">白番。最善のキューブアクションを選ベ</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips White=57 Black=63</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"><table><tbody>
+<tr><td><label><input type='radio' name='uchoice' value='No redouble/Take#84'>1. No redouble/Take</label></td><td class='answerscore'>84</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Redouble/Take#0'>2. Redouble/Take</label></td><td class='answerscore'>0</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Redouble/Pass#189'>3. Redouble/Pass</label></td><td class='answerscore'>189</td></tr>
+<tr><td><label><input type='radio' name='uchoice' value='Too good to redouble/Pass#273'>4. Too good to redouble/Pass</label></td><td class='answerscore'>273</td></tr>
+</tbody></table>
+<br><button id='answer'>Answer</button>
+</div>
+ <div class="description">白が最後の1枚をヒットして迎えた終盤戦。似たような局面を見ることも多いかと思います。知識がないと判断が難しいのですが、筆者はリファレンスポジションとして下図を覚えています。<br>
+<br>
+(参考図)<br>
+<pre>+13-14-15-16-17-18------19-20-21-22-23-24-+
+| X                |   |    O  O  O  O  O |   
+|                  |   |    O  O  O  O  O |   
+|                  |   |       O  O  O  O |   
+|                  |   |                  |   
+|                  |   |                  |   
+|                  |BAR|                  |
+|                  | O |                  |   
+|                  |   |                X |   
+|                  |   |       X  X  X  X |   
+|                  |   |       X  X  X  X |   
+|    X             |   |       X  X  X  X |   
++12-11-10--9--8--7-------6--5--4--3--2--1-+ (Cube: 2)
+</pre>
+<br>
+大事な点は白のボードは1から4ができている4ポイントボード、黒は1から5ができている5ポイントボード、黒はオンザバー、白は13ポイントと11ポイントに1枚ずつ駒がいるという点です。この局面がテイクとパスの境界線となるポジションで、これ以上少しでも白の駒が進んでいればパスになりますし、戻っていればテイクになります。<br>
+<br>
+問題図は、上のリファレンスポジションと比較すると、白の駒が1つずつ後ろに戻っています。これは明らかに黒にとって有利な変更ですので、リファレンスポジションがテイクとパスの境界線ならば、問題図はダブル-テイクとなります(なお、黒のインナーボードも若干違いますが、そこは些細な点なので気にしなくても大丈夫です)。<br>
+</div>
+</div>
+<hr>
+</article>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "E24";
+const probnum = "45";
+const showpipflg = false;
+const board = new BgBoard("#board", "boardStyle4", "ccw");
+board.showBoard("XGID=aDCCC-------A-A-----bbcdc-:1:1:1:00:0:0:3:0:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/exampager.js"></script>
+</body>
+</html>
