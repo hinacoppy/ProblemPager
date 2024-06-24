@@ -279,63 +279,6 @@
 </table>
 </article>
 
-<script src="/js/jquery-3.7.1.min.js"></script>
-<script>
-//Problem Pager Table of Contents
-"use strict";
-
-$(function() {
-  //指定されたクエリによりラジオボタンを選択
-  const disp = location.search.substring(6); //ignore "disp="
-  if (disp == "xg" || disp == "db") {
-    $("input[name=disp]").val([disp]);
-    $("input[name=mode]").val(["oneonone"]);
-    document.cookie = "disp=" + $("[name=disp]:checked").val();
-    document.cookie = "mode=" + $("[name=mode]:checked").val();
-  } else {
-    //クエリが設定されていないときはcookieを読み、ラジオボタンに反映
-    //cookieを使うのはindex.htmlに返ってきたときにラジオボタンの状態を覚えておくため
-    const eachcookie = document.cookie.split(";");
-    eachcookie.forEach( (v) => {
-      const [key, value] = v.trim().split("="); //cookieをkeyとvalueに分ける
-      if (key == "disp") { $("input[name=disp]").val([value]); }
-      if (key == "mode") { $("input[name=mode]").val([value]); }
-    });
-  }
-  //クエリもcookieもないときは、デフォルト(checked)を使う
-
-  //ラジオボタンが変更されたときにcookieをセット
-  $("input").on("change", () => {
-    document.cookie = "disp=" + $("[name=disp]:checked").val();
-    document.cookie = "mode=" + $("[name=mode]:checked").val();
-  });
-
-  //GitHubで動いているときはdispのラジオボタンは非表示
-  if (location.host == "hinacoppy.github.io") {
-    $(".ongithub").hide();
-  }
-
-  //カテゴリーを選択
-  $(".contents").on("click", (e) => {
-    const query = e.target.id;
-    const [categoryid, probnm] = query.split("#");
-    const probnum = probnm ? probnm : "01";
-    const newquery = categoryid + "#" + probnum;
-
-    const disp = $("[name=disp]:checked").val();
-    const mode = $("[name=mode]:checked").val();
-
-    let hrefto;
-    if      (disp == "db")       { hrefto = "./dbmodePager.html?c=" + newquery; }
-    else if (disp == "xg")       { hrefto = "./xg-" + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html"; }
-    /* else if (disp == "static") */ //oneonone、examモードの選択が有効なのは disp==static のときのみ
-    else if (mode == "oneonone") { hrefto = "./"    + categoryid.slice(0, 1) + "/" + categoryid + "/" + probnum + ".html"; }
-    else if (mode == "exam")     { hrefto = "./exammodePager.html?c=" + query; }
-
-    window.location.href = hrefto;
-  });
-
-});
-</script>
+<script src="js/tableofcontents.js"></script>
 </body>
 </html>
