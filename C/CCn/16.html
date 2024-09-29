@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../../css/problempager.css">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<title>ChrisBray</title>
+</head>
+
+<body>
+<header>
+<span id="sectionTitle" class="sectionTitle">2024 - Position 116</span>&ensp;
+<span>(CCn-16)</span>&ensp;
+</header>
+<nav>
+<button id="selectfirst">&lt;&lt;</button>&ensp;
+<button id="selectprev">&lt;</button></button>&ensp;
+<button id="return2menu">Idx</button>&ensp;
+<button id="selectnext">&gt;</button>&ensp;
+<button id="selectlast">&gt;&gt;</button>&ensp;
+<button id="showanswer">Desc</button>&ensp;
+<button id="resetscr">Rst SCR</button>&ensp;
+</nav>
+
+<article>
+<div class="doAction">Match Play. Red trails 1-5 to 9. Should Red double? If doubled, should White take?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div><div id="board" class="board"></div>
+      <div class="pipinfo">pips Red=115 White=118</div>
+      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div class="answertable"></div>
+ <div class="description">Interestingly XG’s initial evaluation’s of this position that it is a clear double for Red but once it looks deeper (via a rollout) it completely reverses its original decision.<br>
+<br>
+The problem is that Red loses as many gammons as White and a gammon loss is the end of the match.<br>
+<br>
+Giving White perfect cube efficiency is not a good idea and so Red should not double. Doubling is a bad error but not a blunder.<br>
+</div>
+</div>
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.040 (Money: +0.092)
+  0.525 0.247 0.009 - 0.475 0.208 0.007
+Cubeful equities:
+1. Double, take        +0.266
+2. Double, pass        +1.000  (+0.734)
+3. No double           +0.217  (-0.049)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script>
+const categoryid = "CCn";
+const probnum = "16";
+const showpipflg = true;
+const board = new BgBoard("#board", "boardStyle2", "ccw");
+board.showBoard("XGID=-aB-BCC-A--AdB-----cbabb-A:0:0:1:00:1:5:0:9:10");
+</script>
+<script src="../../js/examscore.js"></script>
+<script src="../../js/problempager.js"></script>
+</body>
+</html>
