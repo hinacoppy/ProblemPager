@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 76</span>&ensp;
-<span>(CB2-26)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB2-26) &ensp; 2014 - Position 76</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=163</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=147 White=163</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I thought it was time for a reference position.  Positions of this genre can be found in Kit Woolsey's “The Backgammon Encyclopedia” Chapter 1. <br>
+</div>
+
+<div class="description"><hr>
+I thought it was time for a reference position.  Positions of this genre can be found in Kit Woolsey's “The Backgammon Encyclopedia” Chapter 1. <br>
 <br>
 This one is no double (only just) and easy take. If White's blot on Red's 2-pt were on Red's 4-pt it would be double/take because the blot is easier to attack there and when the point is made it is a better point than the 2-pt.<br>
 <br>
 Anyone not familiar with these early blitz reference positions should get a copy of Woolsey's book  - it is gold dust.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.503 (Money: +0.512)
-  0.711 0.140 0.004 - 0.289 0.051 0.001
+2-ply cubeless equity +0.423
+  0.609 0.299 0.012 - 0.391 0.100 0.005
 Cubeful equities:
-1. Double, take        +0.756
-2. Double, pass        +1.000  (+0.244)
-3. No double           +0.729  (-0.027)
+1. Double, take        +0.579
+2. Double, pass        +1.000  (+0.421)
+3. No double           +0.565  (-0.014)
 Proper cube action: Double, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB2";
-const probnum = "26";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aBaB--C-A---dE--ac-e----B-:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CB2",
+    probnum: "26",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aBaB--C-A---dE--ac-e----B-:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

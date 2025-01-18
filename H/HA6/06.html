@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Hayashi Problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">問題番号 湘南227</span>&ensp;
-<span>(HA6-06)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(HA6-06) &ensp; 問題番号 湘南227</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白41</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=138 Brown=136</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=138 Brown=136</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">正解ムーブは  13/9 6/5<br>
+</div>
+
+<div class="description"><hr>
+正解ムーブは  13/9 6/5<br>
 (簡単な考え方・格言・セオリー: なにはなくともセミプライム)<br>
 解説<br>
 9/5 6/5のムーブも目に付き、このムーブはブロットを作らずに4ポイントプライム(4ヶ所が連続したブロックポイント)を作るので、悪い手では無い。<br>
@@ -42,34 +47,42 @@
 もし、13ポイントのブロットをヒットされたとしても、相手のインナーボードは弱く、相手の1ポイント(24ポイント)のブロットも、弱みとなっている。<br>
 相手の駒を生け捕るには「なにはなくともセミプライム」と覚えて下さい。<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 6/5                     Eq.: +0.636
-       0.770 0.218 0.009 - 0.230 0.051 0.001
-    2. Cubeful 2-ply    9/5 6/5                      Eq.: +0.518 (-0.117)
-       0.727 0.209 0.008 - 0.273 0.059 0.001
-    3. Cubeful 0-ply    9/5 8/7                      Eq.: +0.452 (-0.183)
-       0.707 0.195 0.007 - 0.293 0.064 0.000
-    4. Cubeful 0-ply    8/4 5/4                      Eq.: +0.363 (-0.273)
-       0.679 0.192 0.007 - 0.321 0.084 0.001
-    5. Cubeful 0-ply    8/4 6/5                      Eq.: +0.280 (-0.356)
-       0.657 0.205 0.011 - 0.343 0.129 0.004
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 6/5                     Eq.: +0.635
+       0.769 0.217 0.009 - 0.231 0.050 0.001
+    2. Cubeful 2-ply    9/5 6/5                      Eq.: +0.519 (-0.116)
+       0.728 0.209 0.008 - 0.272 0.059 0.001
+    3. Cubeful 0-ply    9/5 8/7                      Eq.: +0.453 (-0.182)
+       0.708 0.196 0.007 - 0.292 0.065 0.000
+    4. Cubeful 0-ply    8/4 5/4                      Eq.: +0.364 (-0.272)
+       0.679 0.193 0.007 - 0.321 0.085 0.001
+    5. Cubeful 0-ply    8/4 6/5                      Eq.: +0.291 (-0.344)
+       0.660 0.205 0.011 - 0.340 0.124 0.004
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "HA6";
-const probnum = "06";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle3", "cw");
-board.showBoard("XGID=-aa--ADBCA--bB---bBfb---a-:1:-1:1:41:0:0:3:0:10");
+  const problem = {
+    categoryid: "HA6",
+    probnum: "06",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle3",
+    rotation: "cw",
+    xgid: "XGID=-aa--ADBCA--bB---bBfb---a-:1:-1:1:41:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

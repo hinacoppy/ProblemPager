@@ -3,44 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2020 - Position 84</span>&ensp;
-<span>(CC2-34)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CC2-34) &ensp; 2020 - Position 84</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red leads 6-5 (Crawford). How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=118 White=105</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=118 White=105</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I must admit I would play 11/5 or 12/6 here. XG has a tiny preference (0.014) for 12/7, 11/10, attempting to make the game a one roll proposition.<br>
+</div>
+
+<div class="description"><hr>
+I must admit I would play 11/5 or 12/6 here. XG has a tiny preference (0.014) for 12/7, 11/10, attempting to make the game a one roll proposition.<br>
 <br>
 12/7, 11/10 increases the gammon losses by 5% but wins 5% more games. In a money game slotting the bar would be clearer but it is much harder to do it at 1-away vs 2-away (Crawford) even if technically it is the correct play. Computers have the advantage of playing emotionless backgammon!<br>
 <br>
 I’ll stick with 11/5 but applaud anybody who slotted the bar.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/5                         Eq.: +0.170
        0.647 0.124 0.003 - 0.353 0.062 0.002
@@ -48,26 +53,34 @@ I’ll stick with 11/5 but applaud anybody who slotted the bar.<br>
        0.645 0.124 0.003 - 0.355 0.062 0.002
     3. Cubeful 2-ply    13/12 11/6                   Eq.: +0.131 (-0.039)
        0.622 0.112 0.002 - 0.378 0.056 0.001
-    4. Cubeful 2-ply    13/8 12/11                   Eq.: +0.130 (-0.040)
-       0.615 0.106 0.002 - 0.385 0.050 0.001
+    4. Cubeful 2-ply    13/8 12/11                   Eq.: +0.129 (-0.040)
+       0.615 0.105 0.002 - 0.385 0.051 0.001
     5. Cubeful 2-ply    13/8 11/10                   Eq.: +0.113 (-0.057)
-       0.624 0.108 0.002 - 0.376 0.067 0.002
+       0.623 0.108 0.002 - 0.377 0.067 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CC2";
-const probnum = "34";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-aBBBBB----AAA-d---cbBcb--:0:0:1:51:6:5:1:7:10");
+  const problem = {
+    categoryid: "CC2",
+    probnum: "34",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-aBBBBB----AAA-d---cbBcb--:0:0:1:51:6:5:1:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

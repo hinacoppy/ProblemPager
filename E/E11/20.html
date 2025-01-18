@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2011</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 20</span>&ensp;
-<span>(E11-20)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E11-20) &ensp; Problem 20</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">B to play 64</div>
 <div class="gamesituation">7pマッチ 黒0-0白</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=152 White=139</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=152 White=139</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='11/7* 7/1*#226'>1. 11/7* 7/1*</label></td><td class='answerscore'>226</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='13/7* 11/7#0'>2. 13/7* 11/7</label></td><td class='answerscore'>0</td></tr>
@@ -41,25 +43,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">24/14*の場合、メリットはヒットしてバックマンを1枚逃がしています。デメリットはany2any4でリターンヒットされます。13/7* 11/7の場合、ヒットしてポイントを一つ作っています。エースポイントの駒もしっかり閉じ込めています。デメリットはありません。よって13/7* 11/7が正解です。<br>
 </div>
+
+<div class="description"><hr>
+24/14*の場合、メリットはヒットしてバックマンを1枚逃がしています。デメリットはany2any4でリターンヒットされます。13/7* 11/7の場合、ヒットしてポイントを一つ作っています。エースポイントの駒もしっかり閉じ込めています。デメリットはありません。よって13/7* 11/7が正解です。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E11";
-const probnum = "20";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-a-B--DaC--AbCa--c-e--b-B-:0:0:1:64:0:0:0:7:8");
+  const problem = {
+    categoryid: "E11",
+    probnum: "20",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-a-B--DaC--AbCa--c-e--b-B-:0:0:1:64:0:0:0:7:8",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

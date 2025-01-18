@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2016 - Position 165</span>&ensp;
-<span>(CBg-16)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBg-16) &ensp; 2016 - Position 165</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 61?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=131 White=154</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=131 White=154</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">What is surprising about this position is the equity difference between the two best plays.<br>
+</div>
+
+<div class="description"><hr>
+What is surprising about this position is the equity difference between the two best plays.<br>
 <br>
 10/4*, 2/1 is the correct play. 10/9*, 8/2, the second best play, is a triple blunder! When blitzing always try to take away the possibility of the opponent anchoring, hence 10/4*. The duplication (triplication) of fours is also relevant to the equity swing.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    10/4* 2/1                    Eq.: +0.167
        0.528 0.261 0.011 - 0.472 0.165 0.013
-    2. Cubeful 0-ply    10/9* 8/2                    Eq.: -0.003 (-0.170)
+    2. Cubeful 0-ply    10/9* 8/2                    Eq.: -0.001 (-0.168)
        0.490 0.202 0.010 - 0.510 0.170 0.012
-    3. Cubeful 0-ply    22/21 8/2                    Eq.: -0.080 (-0.247)
-       0.474 0.160 0.005 - 0.526 0.166 0.005
-    4. Cubeful 0-ply    8/1                          Eq.: -0.158 (-0.325)
-       0.453 0.151 0.004 - 0.547 0.175 0.006
+    3. Cubeful 0-ply    22/21 8/2                    Eq.: -0.078 (-0.246)
+       0.475 0.160 0.005 - 0.525 0.166 0.005
+    4. Cubeful 0-ply    8/1                          Eq.: -0.156 (-0.323)
+       0.454 0.151 0.004 - 0.546 0.175 0.006
     5. Cubeful 0-ply    10/9* 10/4*                  Eq.: -0.283 (-0.451)
        0.430 0.150 0.008 - 0.570 0.220 0.026
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBg";
-const probnum = "16";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aAA-a-E-AaBBbB--b-bdb-A---:0:0:1:61:0:0:1:0:10");
+  const problem = {
+    categoryid: "CBg",
+    probnum: "16",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aAA-a-E-AaBBbB--b-bdb-A---:0:0:1:61:0:0:1:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

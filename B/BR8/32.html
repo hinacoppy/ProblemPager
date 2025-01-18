@@ -3,67 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
-<span>(BR8-32)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR8-32) &ensp; 22. バックゲーム</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.364 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=140 w=190</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=140 w=190</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:問題364で、白は多くの問題を抱えている。白は2-3バックゲームだけれど、後ろの予備の駒を逃がすのが困難で、青はプライムを長い間保てる。(1枚オンザバーで、ミッドポイントに3枚いる)。青は白が動く間、プライムを維持し続けられるのだ。白のタイミングは非常に疑わしく、それはバックゲームを諦める良い理由だ。ダブル・パスだ。<br>
+</div>
+
+<div class="description"><hr>
+501:問題364で、白は多くの問題を抱えている。白は2-3バックゲームだけれど、後ろの予備の駒を逃がすのが困難で、青はプライムを長い間保てる。(1枚オンザバーで、ミッドポイントに3枚いる)。青は白が動く間、プライムを維持し続けられるのだ。白のタイミングは非常に疑わしく、それはバックゲームを諦める良い理由だ。ダブル・パスだ。<br>
 <br>
 kinchan:<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
 2-ply cubeless equity +0.683
-  0.688 0.331 0.025 - 0.312 0.047 0.002
+  0.687 0.332 0.025 - 0.313 0.047 0.002
 Cubeful equities:
 1. Double, pass        +1.000
-2. Double, take        +1.154  (+0.154)
+2. Double, take        +1.153  (+0.153)
 3. No double           +0.956  (-0.044)
 Proper cube action: Double, pass
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR8";
-const probnum = "32";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--cb-BCBBB--bC--ab-bba---A:0:0:1:00:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR8",
+    probnum: "32",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--cb-BCBBB--bC--ab-bba---A:0:0:1:00:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

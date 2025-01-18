@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Sapporo Open Quiz2</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 4 (初中級クラス問題 2007)</span>&ensp;
-<span>(QZ8-14)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(QZ8-14) &ensp; Problem 4 (初中級クラス問題 2007)</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Black to Play 32</div>
 <div class="gamesituation">b1-w1/5</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=116 White=82</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=116 White=82</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description"><pre>
+</div>
+
+<div class="description"><hr>
+<pre>
 1. 15/13 5/2 eq:-0.642           39.16% (G:5.44% B:0.08%)  60.84% (G:10.71% B:0.19%)
 2. 5/2 3/1   eq:-0.744 (-0.101)  37.45% (G:3.44% B:0.07%)  62.55% (G: 8.95% B:0.05%)
 3. 4/2 4/1   eq:-0.823 (-0.181)  36.11% (G:3.73% B:0.04%)  63.89% (G: 7.23% B:0.03%)
@@ -42,23 +47,31 @@
 5. 6/4 5/2   eq:-0.905 (-0.263)  34.73% (G:4.02% B:0.10%)  65.27% (G: 6.23% B:0.08%)
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "QZ8";
-const probnum = "14";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-AABBCB-----b--B-b-d-Bcca-:1:-1:1:32:1:1:0:5:10");
+  const problem = {
+    categoryid: "QZ8",
+    probnum: "14",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-AABBCB-----b--B-b-d-Bcca-:1:-1:1:32:1:1:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "quiz");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/quizpager.js"></script>
 </body>
 </html>

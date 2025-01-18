@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 203</span>&ensp;
-<span>(CB5-03)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB5-03) &ensp; 2014 - Position 203</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money game. How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=79 White=165</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=79 White=165</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Only two legal moves, 10/2 and 9/1 and yet most people get this one wrong.<br>
+</div>
+
+<div class="description"><hr>
+Only two legal moves, 10/2 and 9/1 and yet most people get this one wrong.<br>
 <br>
 The most difficult point to clear is the 9-pt because it held by both of White's anchors and so Red should clear that point now before White's board improves any more. <br>
 <br>
@@ -42,28 +47,36 @@ It is perhaps surprising that 10/2 is worse than a blunder giving up 0.114 equit
 <br>
 The devil is in the detail!<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/1                          Eq.: -0.111
-       0.464 0.255 0.005 - 0.536 0.114 0.002
+       0.465 0.254 0.004 - 0.535 0.114 0.002
     2. Cubeful 2-ply    10/2                         Eq.: -0.149 (-0.038)
-       0.451 0.249 0.004 - 0.549 0.113 0.002
+       0.452 0.248 0.004 - 0.548 0.114 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB5";
-const probnum = "03";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BCbcCC--BB---a--a-cbba---:1:-1:1:62:0:0:3:0:10");
+  const problem = {
+    categoryid: "CB5",
+    probnum: "03",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BCbcCC--BB---a--a-cbba---:1:-1:1:62:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

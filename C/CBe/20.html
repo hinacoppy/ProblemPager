@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2016 - Position 69</span>&ensp;
-<span>(CBe-20)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBe-20) &ensp; 2016 - Position 69</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. Should Red redouble? If redoubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=76</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=138 White=76</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">The position is highly volatile and by next turn White might be passing so Red should redouble now, although it is close.<br>
+</div>
+
+<div class="description"><hr>
+The position is highly volatile and by next turn White might be passing so Red should redouble now, although it is close.<br>
 <br>
 White has plenty of ways to win this. He has a massive racing lead and a five-point home board which is effectively a five-point prime. Red has work to do but there are enough market losing sequences to make this a redouble.<br>
 <br>
@@ -42,32 +47,40 @@ If White’s two checkers on his 6-pt were redistributed to his 5-pt and 4-pt th
 <br>
 In practical terms this is a great redouble – not everybody would take this despite the fact that it is a double blunder to pass the redouble.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.393
-  0.701 0.102 0.003 - 0.299 0.106 0.009
+2-ply cubeless equity +0.391
+  0.700 0.103 0.003 - 0.300 0.106 0.009
 Cubeful equities:
-1. No double           +0.649
-2. Double, pass        +1.000  (+0.351)
-3. Double, take        +0.596  (-0.053)
-Proper cube action: No redouble, take (13.1%)
+1. No double           +0.646
+2. Double, pass        +1.000  (+0.354)
+3. Double, take        +0.590  (-0.056)
+Proper cube action: No redouble, take (13.6%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBe";
-const probnum = "20";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B-CBBBA--------AbbbfbB-:1:1:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBe",
+    probnum: "20",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a-B-CBBBA--------AbbbfbB-:1:1:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

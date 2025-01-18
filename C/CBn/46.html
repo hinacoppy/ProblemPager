@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Out of the Box Reprise</span>&ensp;
-<span>(CBn-46)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBn-46) &ensp; Out of the Box Reprise</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=111 White=127</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=111 White=127</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">In “Backgammon in the Wind” one of the long articles was entitled “out of the Box”. The theme of the article was how computer programs such as Extreme Gammon (XG) have broadened our thinking in the last twenty-five years.<br>
+</div>
+
+<div class="description"><hr>
+In “Backgammon in the Wind” one of the long articles was entitled “out of the Box”. The theme of the article was how computer programs such as Extreme Gammon (XG) have broadened our thinking in the last twenty-five years.<br>
 <br>
 Before the bots we were reliant on manual rollouts. Although they could help they could not give definitive answers because they were statistically unreliable. Theory development was very slow.<br>
 <br>
@@ -51,34 +56,42 @@ Imagine trying to make this play in the pre-bot era in a chouette. You would hav
 <br>
 Thus we develop our backgammon knowledge and our ability to think about such positions. Solving these “Out of the Box’ problems helps us to improve our overall level of play and it is why today’s masters are so much stronger than the top players of the 1970s and 1980s.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/11 16/10                  Eq.: +0.071
-       0.531 0.105 0.005 - 0.469 0.119 0.005
+       0.531 0.104 0.005 - 0.469 0.120 0.005
     2. Cubeful 2-ply    16/11 8/2                    Eq.: -0.056 (-0.127)
-       0.489 0.100 0.003 - 0.511 0.128 0.003
-    3. Cubeful 2-ply    8/2 6/1                      Eq.: -0.093 (-0.164)
-       0.491 0.073 0.000 - 0.509 0.128 0.001
-    4. Cubeful 2-ply    16/5                         Eq.: -0.096 (-0.167)
+       0.489 0.100 0.003 - 0.511 0.129 0.003
+    3. Cubeful 2-ply    8/2 6/1                      Eq.: -0.088 (-0.159)
+       0.493 0.072 0.000 - 0.507 0.128 0.001
+    4. Cubeful 2-ply    16/5                         Eq.: -0.095 (-0.166)
        0.477 0.104 0.003 - 0.523 0.116 0.003
-    5. Cubeful 2-ply    16/10 8/3                    Eq.: -0.118 (-0.189)
+    5. Cubeful 2-ply    16/10 8/3                    Eq.: -0.117 (-0.188)
        0.466 0.119 0.005 - 0.534 0.142 0.004
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBn";
-const probnum = "46";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=---BCCBbA---cB--Baacabb---:0:0:1:65:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBn",
+    probnum: "46",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=---BCCBbA---cB--Baacabb---:0:0:1:65:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

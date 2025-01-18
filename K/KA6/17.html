@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>michy problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ヒットするか？</span>&ensp;
-<span>(KA6-17)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KA6-17) &ensp; ヒットするか？</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 緑=170 白=145</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=170 白=145</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">【実戦の考え】<br>
+</div>
+
+<div class="description"><hr>
+【実戦の考え】<br>
 ほぼノータイムでヒットを選ぶ。<br>
 <br>
 【実際は？】<br>
@@ -46,34 +51,42 @@ Ace-pointに2枚居座って、たいへん不利ではないか？<br>
 このムーブを選んでもdoubleするかどうか際どくて、easy takeの形勢だ。<br>
 最善手：b/24 18/14<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 6/5*                  Eq.: -0.795
-       0.385 0.091 0.005 - 0.615 0.293 0.031
-    2. Cubeful 2-ply    bar/24 18/14                 Eq.: -0.801 (-0.006)
-       0.354 0.086 0.003 - 0.646 0.233 0.021
-    3. Cubeful 2-ply    bar/21 24/23                 Eq.: -0.851 (-0.056)
-       0.368 0.085 0.004 - 0.632 0.289 0.018
-    4. Cubeful 0-ply    bar/24 13/9                  Eq.: -1.000 (-0.205)
-       0.338 0.080 0.003 - 0.662 0.298 0.032
-    5. Cubeful 0-ply    bar/24 6/2                   Eq.: -1.000 (-0.205)
-       0.323 0.071 0.003 - 0.677 0.268 0.028
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 6/5*                  Eq.: -0.796
+       0.385 0.091 0.005 - 0.615 0.294 0.032
+    2. Cubeful 2-ply    bar/24 18/14                 Eq.: -0.799 (-0.003)
+       0.355 0.086 0.003 - 0.645 0.234 0.021
+    3. Cubeful 2-ply    bar/21 24/23                 Eq.: -0.852 (-0.056)
+       0.369 0.085 0.004 - 0.631 0.290 0.018
+    4. Cubeful 0-ply    bar/24 13/9                  Eq.: -1.000 (-0.204)
+       0.339 0.079 0.003 - 0.661 0.298 0.032
+    5. Cubeful 0-ply    bar/24 6/2                   Eq.: -1.000 (-0.204)
+       0.324 0.071 0.003 - 0.676 0.268 0.028
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KA6";
-const probnum = "17";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "ccw");
-board.showBoard("XGID=----BaCbB--BcC---bAcb-b-AA:0:0:1:14:4:3:0:11:10");
+  const problem = {
+    categoryid: "KA6",
+    probnum: "17",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=----BaCbB--BcC---bAcb-b-AA:0:0:1:14:4:3:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

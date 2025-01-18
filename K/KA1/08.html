@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>michy problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ダブルマッチポイント</span>&ensp;
-<span>(KA1-08)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KA1-08) &ensp; ダブルマッチポイント</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">黒の53でどんな風に動かしましょう？</div>
 <div class="gamesituation">5ポイントマッチでスコア1-1です。</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=127 白=29</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=127 白=29</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">キューブが4倍なので、ダブルマッチポイントですね。<br>
+</div>
+
+<div class="description"><hr>
+キューブが4倍なので、ダブルマッチポイントですね。<br>
 <br>
 アウターを手厚くして、65のジョーカーを避けるために 21/13 と私は進めました。<br>
 次に8ポイント作りを目指します。<br>
@@ -50,34 +55,42 @@
 <br>
 ※ くれぐれも、相手がワンポイントボードだから成立することをお忘れなく。<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/11 7/2*                   Eq.: -0.143
-       0.428 0.000 0.000 - 0.572 0.129 0.021
-    2. Cubeful 2-ply    23/20 7/2*                   Eq.: -0.146 (-0.003)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/11 7/2*                   Eq.: -0.142
+       0.429 0.000 0.000 - 0.571 0.130 0.021
+    2. Cubeful 2-ply    23/20 7/2*                   Eq.: -0.145 (-0.003)
        0.427 0.000 0.000 - 0.573 0.130 0.016
-    3. Cubeful 2-ply    13/10 7/2*                   Eq.: -0.149 (-0.006)
-       0.425 0.000 0.000 - 0.575 0.132 0.021
-    4. Cubeful 2-ply    7/4 7/2*                     Eq.: -0.157 (-0.014)
-       0.421 0.000 0.000 - 0.579 0.137 0.013
-    5. Cubeful 2-ply    23/15                        Eq.: -0.161 (-0.018)
-       0.419 0.000 0.000 - 0.581 0.131 0.005
+    3. Cubeful 2-ply    13/10 7/2*                   Eq.: -0.148 (-0.007)
+       0.426 0.000 0.000 - 0.574 0.132 0.021
+    4. Cubeful 2-ply    21/18 7/2*                   Eq.: -0.150 (-0.008)
+       0.425 0.000 0.000 - 0.575 0.133 0.016
+    5. Cubeful 2-ply    7/4 7/2*                     Eq.: -0.157 (-0.015)
+       0.421 0.000 0.000 - 0.579 0.136 0.013
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KA1";
-const probnum = "08";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "ccw");
-board.showBoard("XGID=--aBBBCB-----AA------A-Af-:2:-1:1:53:1:1:0:5:10");
+  const problem = {
+    categoryid: "KA1",
+    probnum: "08",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--aBBBCB-----AA------A-Af-:2:-1:1:53:1:1:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,72 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2015 - Position 45</span>&ensp;
-<span>(CB7-45)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB7-45) &ensp; 2015 - Position 45</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Double Match Point. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=179 White=64</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=179 White=64</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">When I had this position in a Gridgammon match I’ll be the first to admit I had no idea of the correct play and given the speed of online play I didn’t have enough time to work it out from first principles. In my extensive library of positions I don’t have one like this.<br>
+</div>
+
+<div class="description"><hr>
+When I had this position in a Gridgammon match I’ll be the first to admit I had no idea of the correct play and given the speed of online play I didn’t have enough time to work it out from first principles. In my extensive library of positions I don’t have one like this.<br>
 <br>
 With the cube in play I would have just built my board with 12/6, 8/5 as that play undoubtedly loses fewer gammons but does one of the hitting plays win more games at DMP? I just didn’t know so I applied the principle of when in doubt, hit and went gung-ho with the double hit 22/17*, 21/18*.<br>
 <br>
 This turns out to be a double blunder – it loses more games and more gammons! The single hit 22/17*, 8/5 is much better but virtually any non-hitting play is better and 12/6, 8/5 best of all. It turns out that waiting is the correct policy here.<br>
 In the actual game I was very lucky and in about 8 moves, including a great 66, I had three of my opponents checkers closed out on the bar. Such is backgammon!<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/2* 6/2                     Eq.: -0.062
-       0.478 0.199 0.009 - 0.522 0.172 0.012
-    2. Cubeful 2-ply    13/9 13/8                    Eq.: -0.111 (-0.049)
-       0.472 0.153 0.007 - 0.528 0.166 0.010
-    3. Cubeful 0-ply    13/8 6/2*                    Eq.: -0.227 (-0.165)
-       0.443 0.144 0.008 - 0.557 0.201 0.019
-    4. Cubeful 0-ply    6/2* 6/1*                    Eq.: -0.241 (-0.179)
-       0.439 0.160 0.006 - 0.561 0.213 0.021
-    5. Cubeful 0-ply    8/3 6/2*                     Eq.: -0.273 (-0.211)
-       0.438 0.141 0.008 - 0.562 0.228 0.025
+<pre id="gnuanalysis" class="gnuanalysis">You cannot double.
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB7";
-const probnum = "45";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-ABB-A--A--AA----aaddBBBe-:1:-1:1:00:5:6:0:7:10");
+  const problem = {
+    categoryid: "CB7",
+    probnum: "45",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-ABB-A--A--AA----aaddBBBe-:1:-1:1:00:5:6:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

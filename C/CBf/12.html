@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2016 - Position 111</span>&ensp;
-<span>(CBf-12)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBf-12) &ensp; 2016 - Position 111</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 66?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=139</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=145 White=139</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This position is a balance between escaping checkers from behind a prime and attacking aggressively.<br>
+</div>
+
+<div class="description"><hr>
+This position is a balance between escaping checkers from behind a prime and attacking aggressively.<br>
 <br>
 If Gammons were vital Red could try 13/1, 8/2(2)*, but in fact Red’s strongest play is 24/12*, 22/16(2), resolving the issues of the clearing the back checkers immediately. This play gives Red strong command of the outer boards and hopefully puts him in a position to offer a strong redouble shortly.<br>
 <br>
 I think this a very instructive position as it teaches us just how important it is to clear the rear checkers from behind a prime. Over the board I played 24/12*, 8/2(2)*, which turns out to be quite a big error but not a blunder.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/12* 22/16(2)              Eq.: +0.393
-       0.594 0.129 0.004 - 0.406 0.127 0.003
-    2. Cubeful 2-ply    24/12* 8/2*(2)               Eq.: +0.382 (-0.010)
-       0.558 0.213 0.005 - 0.442 0.134 0.007
-    3. Cubeful 2-ply    24/12* 13/1                  Eq.: +0.374 (-0.018)
-       0.556 0.192 0.005 - 0.444 0.117 0.004
-    4. Cubeful 2-ply    13/1 8/2*(2)                 Eq.: +0.341 (-0.051)
-       0.529 0.254 0.004 - 0.471 0.140 0.007
+       0.595 0.130 0.004 - 0.405 0.127 0.003
+    2. Cubeful 2-ply    24/12* 8/2*(2)               Eq.: +0.383 (-0.010)
+       0.559 0.213 0.005 - 0.441 0.134 0.007
+    3. Cubeful 2-ply    24/12* 13/1                  Eq.: +0.374 (-0.019)
+       0.556 0.192 0.005 - 0.444 0.118 0.004
+    4. Cubeful 2-ply    13/1 8/2*(2)                 Eq.: +0.341 (-0.052)
+       0.529 0.254 0.004 - 0.471 0.141 0.007
     5. Cubeful 0-ply    24/12* 13/7(2)               Eq.: +0.237 (-0.156)
        0.518 0.150 0.006 - 0.482 0.127 0.005
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBf";
-const probnum = "12";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-AaBBbB-C---aB---c-bccB-A-:1:1:1:66:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBf",
+    probnum: "12",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-AaBBbB-C---aB---c-bccB-A-:1:1:1:66:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

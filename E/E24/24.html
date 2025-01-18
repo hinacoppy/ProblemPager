@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2024</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 24</span>&ensp;
-<span>(E24-24)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E24-24) &ensp; Problem 24</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白番。出目21の最善手を選ベ</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=112 Black=110</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=112 Black=110</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='24/23 10/8#152'>1. 24/23 10/8</label></td><td class='answerscore'>152</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='24/23 8/6#0'>2. 24/23 8/6</label></td><td class='answerscore'>0</td></tr>
@@ -42,25 +44,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">バックギャモンの基本はレースであり、一般に早く進んでいるほど良いわけですが、双方がプライムを作って相手のバックマンを捕まえていれば異なった考え方が要求されます。このような場合は早く進んでいる方のプライム前のめりとなり、やがて駒が1ポイントヘ到達して崩れてしまいます。そのため遅れている方が優勢であり、その状態を「タイミングがある」「タイミングが良い」などと表現します。問題図ではバックマンを 24/23 と動かしてみましょう。黒はプライムを伸ばすためにこのバックマンをヒットするしかありません。ヒットされた白は半分弱(44%)でダンスします。すると白は労せずして自分のタイミングを良くすることができます。このようにバックマンを相手ブライムのエッジ(端っこ)へ運び、出目に頼らずにタイミングを良くするテクニックがプライム対ブライムの戦いで頻繁に使用されます。2の目では 8/6 と動かして、4ポイントヘのビルダーを増やしましょう。<br>
 </div>
+
+<div class="description"><hr>
+バックギャモンの基本はレースであり、一般に早く進んでいるほど良いわけですが、双方がプライムを作って相手のバックマンを捕まえていれば異なった考え方が要求されます。このような場合は早く進んでいる方のプライム前のめりとなり、やがて駒が1ポイントヘ到達して崩れてしまいます。そのため遅れている方が優勢であり、その状態を「タイミングがある」「タイミングが良い」などと表現します。問題図ではバックマンを 24/23 と動かしてみましょう。黒はプライムを伸ばすためにこのバックマンをヒットするしかありません。ヒットされた白は半分弱(44%)でダンスします。すると白は労せずして自分のタイミングを良くすることができます。このようにバックマンを相手ブライムのエッジ(端っこ)へ運び、出目に頼らずにタイミングを良くするテクニックがプライム対ブライムの戦いで頻繁に使用されます。2の目では 8/6 と動かして、4ポイントヘのビルダーを増やしましょう。<br>
 </div>
+
 <hr>
 </article>
 
+<script src="/js/fontawesome-inuse.min.js" defer></script>
 <script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E24";
-const probnum = "24";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-a-B-CBCC-A-a----bcbbbb-A-:0:0:1:21:0:0:3:0:10");
+  const problem = {
+    categoryid: "E24",
+    probnum: "24",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-a-B-CBCC-A-a----bcbbbb-A-:0:0:1:21:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

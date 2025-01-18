@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2016 - Position 112</span>&ensp;
-<span>(CBf-13)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBf-13) &ensp; 2016 - Position 112</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=83 White=89</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=83 White=89</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">So do we keep the full prime for one more roll with 7/3, 4/1 (not the really ugly 7/3, 6/3) or bear-in with a very smooth distribution by playing 8/5, 8/4, which allows White to escape with a 6 and makes his 66 a great roll?<br>
+</div>
+
+<div class="description"><hr>
+So do we keep the full prime for one more roll with 7/3, 4/1 (not the really ugly 7/3, 6/3) or bear-in with a very smooth distribution by playing 8/5, 8/4, which allows White to escape with a 6 and makes his 66 a great roll?<br>
 <br>
 The answer is that both plans are the same in terms of equity so the gains and disadvantages from both plays trade equally and there is no best play in this particular position.<br>
 <br>
 Move White’s spare checker on his 1-pt to his 6-pt and then 8/5, 8/4 becomes very clear because of the racing lead and the future safety.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/3 4/1                      Eq.: +0.759
-       0.872 0.060 0.001 - 0.128 0.003 0.000
-    2. Cubeful 2-ply    8/5 8/4                      Eq.: +0.748 (-0.011)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/3 4/1                      Eq.: +0.760
+       0.873 0.060 0.001 - 0.127 0.003 0.000
+    2. Cubeful 2-ply    8/5 8/4                      Eq.: +0.749 (-0.011)
        0.869 0.055 0.001 - 0.131 0.002 0.000
-    3. Cubeful 2-ply    7/3 6/3                      Eq.: +0.701 (-0.058)
-       0.854 0.047 0.001 - 0.146 0.005 0.000
-    4. Cubeful 0-ply    8/5 7/3                      Eq.: +0.444 (-0.315)
-       0.747 0.055 0.001 - 0.253 0.021 0.000
-    5. Cubeful 0-ply    8/1                          Eq.: +0.387 (-0.372)
+    3. Cubeful 2-ply    7/3 6/3                      Eq.: +0.702 (-0.058)
+       0.855 0.047 0.001 - 0.145 0.005 0.000
+    4. Cubeful 0-ply    8/5 7/3                      Eq.: +0.445 (-0.315)
+       0.748 0.055 0.001 - 0.252 0.021 0.000
+    5. Cubeful 0-ply    8/1                          Eq.: +0.388 (-0.372)
        0.728 0.051 0.001 - 0.272 0.028 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBf";
-const probnum = "13";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--bBCBCCB----------bbbbbc-:1:-1:1:34:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBf",
+    probnum: "13",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--bBCBCCB----------bbbbbc-:1:-1:1:34:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

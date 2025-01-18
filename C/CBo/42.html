@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">New Year Hunt</span>&ensp;
-<span>(CBo-42)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBo-42) &ensp; New Year Hunt</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=122 White=136</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=122 White=136</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Outside on the gravelled drive and surrounding areas the local hunt had gathered for its traditional New Year’s Day event. Graves and his colleagues had been busy serving hot toddies to the participants. The Dowager Duchess (DD) had done the rounds and wished the huntsmen well but one could sense that she was eager to return to the warmth of the library and the hustle of the chouette. <br>
+</div>
+
+<div class="description"><hr>
+Outside on the gravelled drive and surrounding areas the local hunt had gathered for its traditional New Year’s Day event. Graves and his colleagues had been busy serving hot toddies to the participants. The Dowager Duchess (DD) had done the rounds and wished the huntsmen well but one could sense that she was eager to return to the warmth of the library and the hustle of the chouette. <br>
 <br>
 No sooner had the riders, horses and hounds set off than she was back in her favoured environment just in time to see this double two tumble out of the dice-cup held by Cautious Cuthbert. Facing him in the box was the Tempestuous Turk.<br>
 <br>
@@ -52,34 +57,42 @@ The Enigmatic Englishman, as was his wont, had kept silent during the above exch
 <br>
 “Good Lord,’ exclaimed DD. “I didn’t even consider that play. I wonder if perhaps I had one too many hot toddies with The Hunt? Graves, a glass of your very best mineral water if you would be so kind?”<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/11(4)                     Eq.: +0.392
-       0.636 0.060 0.001 - 0.364 0.059 0.000
-    2. Cubeful 2-ply    8/4(2)                       Eq.: +0.390 (-0.002)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4(2)                       Eq.: +0.390
        0.629 0.080 0.001 - 0.371 0.063 0.000
-    3. Cubeful 2-ply    6/4(2) 3/1*(2)               Eq.: +0.366 (-0.026)
+    2. Cubeful 2-ply    13/11(4)                     Eq.: +0.390 (-0.001)
+       0.635 0.059 0.001 - 0.365 0.060 0.000
+    3. Cubeful 2-ply    6/4(2) 3/1*(2)               Eq.: +0.367 (-0.023)
        0.621 0.091 0.001 - 0.379 0.073 0.000
-    4. Cubeful 2-ply    13/11(2) 3/1*(2)             Eq.: +0.344 (-0.048)
+    4. Cubeful 2-ply    13/11(2) 3/1*(2)             Eq.: +0.346 (-0.044)
        0.616 0.085 0.001 - 0.384 0.075 0.000
-    5. Cubeful 2-ply    8/4 6/4(2)                   Eq.: +0.298 (-0.094)
-       0.602 0.072 0.001 - 0.398 0.071 0.000
+    5. Cubeful 2-ply    13/11(2) 6/4(2)              Eq.: +0.300 (-0.091)
+       0.601 0.089 0.002 - 0.399 0.084 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBo";
-const probnum = "42";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B--DbE---bD--a--cbbaa--:0:0:1:22:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBo",
+    probnum: "42",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a-B--DbE---bD--a--cbbaa--:0:0:1:22:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

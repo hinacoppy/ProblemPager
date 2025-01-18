@@ -3,69 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 228</span>&ensp;
-<span>(CB5-28)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB5-28) &ensp; 2014 - Position 228</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money play. Should Red double? If doubled, should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=85 White=79</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=85 White=79</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Red's position is not as strong as it looks. Most of the time, as he is trailing in the race, he is going to be hitting loose on his 3-pt and White will return hit 30% of the time. When that happens Red will lose a few gammons because he is likely to have additional blots that White can pick up.<br>
+</div>
+
+<div class="description"><hr>
+Red's position is not as strong as it looks. Most of the time, as he is trailing in the race, he is going to be hitting loose on his 3-pt and White will return hit 30% of the time. When that happens Red will lose a few gammons because he is likely to have additional blots that White can pick up.<br>
 <br>
 All of this adds up to no double/take. To double, thus activating gammons for both players, is a 0.05 error. Red should wait and (hopefully) cash next turn.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/3 4/3                      Eq.: +0.198
-       0.655 0.040 0.001 - 0.345 0.002 0.000
-    2. Cubeful 2-ply    13/11 2/1                    Eq.: +0.195 (-0.003)
-       0.650 0.057 0.002 - 0.350 0.004 0.000
-    3. Cubeful 2-ply    13/10                        Eq.: +0.142 (-0.056)
-       0.636 0.037 0.001 - 0.364 0.003 0.000
-    4. Cubeful 2-ply    13/12 6/4                    Eq.: +0.141 (-0.057)
-       0.636 0.036 0.001 - 0.364 0.003 0.000
-    5. Cubeful 2-ply    13/12 5/3                    Eq.: +0.139 (-0.059)
-       0.633 0.049 0.001 - 0.367 0.006 0.000
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.309
+  0.663 0.028 0.001 - 0.337 0.044 0.001
+Cubeful equities:
+1. No double           +0.517
+2. Double, pass        +1.000  (+0.483)
+3. Double, take        +0.445  (-0.073)
+Proper cube action: No double, take (13.1%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB5";
-const probnum = "28";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBaBBB--BBA-a-----bbbcbb-:0:0:1:00:0:0:1:0:10");
+  const problem = {
+    categoryid: "CB5",
+    probnum: "28",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BBaBBB--BBA-a-----bbbcbb-:0:0:1:00:0:0:1:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

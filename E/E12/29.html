@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2012</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 29</span>&ensp;
-<span>(E12-29)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E12-29) &ensp; Problem 29</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">黒からのキューブアクション</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=138 White=156</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=138 White=156</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='NoDouble/Take#117'>1. NoDouble/Take</label></td><td class='answerscore'>117</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='Double/Take#0'>2. Double/Take</label></td><td class='answerscore'>0</td></tr>
@@ -40,27 +42,38 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">一見非常に怖い局面だが、白は4ポイントを持っているためイージーテイクである。(4ポイントを持たない状態では0.300のビックパス)<br>
+</div>
+
+<div class="description"><hr>
+一見非常に怖い局面だが、白は4ポイントを持っているためイージーテイクである。(4ポイントを持たない状態では0.300のビックパス)<br>
 ブリッツに対して4ポイントや5ポイントを持つ形(プライム形)は、強い抵抗力を持つ。1度リターンヒットできれば相手は戻された駒を前線へ送るのに時間がかかるし、アンカーを取れればプライムバトルですぐに優勢になる。(ブリッツサイドは大抵駒が前のめりになっているのでプライムバトルに非常に弱い)<br>
 なお、黒のバックマンが4でスプリットしているか、黒の8ポイントができていればパスになる。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E12";
-const probnum = "29";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "cw");
-board.showBoard("XGID=aBaB-BB-A---dD---c-d-b--B-:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "E12",
+    probnum: "29",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "cw",
+    xgid: "XGID=aBaB-BB-A---dD---c-d-b--B-:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

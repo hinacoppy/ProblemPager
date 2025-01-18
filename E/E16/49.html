@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2016</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 49</span>&ensp;
-<span>(E16-49)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E16-49) &ensp; Problem 49</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白51</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=23 Black=69</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=23 Black=69</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='5/4 5/Off#41'>1. 5/4 5/Off</label></td><td class='answerscore'>41</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='5/Off 2/1#100'>2. 5/Off 2/1</label></td><td class='answerscore'>100</td></tr>
@@ -40,7 +42,10 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">正解は5/Off 1/Offです。5/4 5/Offの方が黒に与えるショットは1通り少ないのですが(12通りから11通りになる)、ヒットされたときに5枚しか上がれておらず、黒から効果的なリダブルが早晩返ってきそうです。5/Off 1/Offであれば6枚上がっているので黒はなかなかリダブルが打てません。このような形では、一般的に、6枚以上上がれるのであれば1通り増やしてでも上がった方が良いのです。5枚以下であれば1通り少ない方が優ります。参考図は1通り増やしても5枚しか上がれないので、5/4 5/Offと安全なプレイが優ります。<br>
+</div>
+
+<div class="description"><hr>
+正解は5/Off 1/Offです。5/4 5/Offの方が黒に与えるショットは1通り少ないのですが(12通りから11通りになる)、ヒットされたときに5枚しか上がれておらず、黒から効果的なリダブルが早晩返ってきそうです。5/Off 1/Offであれば6枚上がっているので黒はなかなかリダブルが打てません。このような形では、一般的に、6枚以上上がれるのであれば1通り増やしてでも上がった方が良いのです。5枚以下であれば1通り少ない方が優ります。参考図は1通り増やしても5枚しか上がれないので、5/4 5/Offと安全なプレイが優ります。<br>
 <pre>
 (参考図)
 +13-14-15-16-17-18------19-20-21-22-23-24-+
@@ -58,23 +63,31 @@
 +12-11-10--9--8--7-------6--5--4--3--2--1-+
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E16";
-const probnum = "49";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-EDa-B-------------bcbbbb-:1:-1:1:51:0:0:3:0:10");
+  const problem = {
+    categoryid: "E16",
+    probnum: "49",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-EDa-B-------------bcbbbb-:1:-1:1:51:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

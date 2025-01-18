@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Timothy Chow</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 3-4 Variant 1</span>&ensp;
-<span>(TC1-36)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(TC1-36) &ensp; Problem 3-4 Variant 1</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Black to play 22</div>
 <div class="gamesituation">Unlimited game, centered cube</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=124 White=142</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=124 White=142</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description"><pre>
+</div>
+
+<div class="description"><hr>
+<pre>
 1. 9/7(2) 6/4(2)  eq: +0.967          75.46% (G:10.05% B:0.18&)  24.54% (G:2.07% B:0.07%)
 2. 10/8(2) 6/4(2) eq: +0.950 (-0.017) 73.53% (G:10.70% B:0.30&)  26.47% (G:3.08% B:0.11%)
 3. 13/9 6/4(2)    eq: +0.946 (-0.021) 73.48% (G:13.33% B:0.30&)  26.52% (G:3.49% B:0.13%)
@@ -42,23 +47,31 @@
 5. 9/5* 5/3* 3/1  eq: +0.913 (-0.053) 70.96% (G:26.23% B:0.34&)  29.04% (G:5.26% B:0.20%)
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "TC1";
-const probnum = "36";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle5", "cw");
-board.showBoard("XGID=-A-a-aE-BBB-dC---b-c-bb---:0:0:1:22:0:0:0:0:10");
+  const problem = {
+    categoryid: "TC1",
+    probnum: "36",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "cw",
+    xgid: "XGID=-A-a-aE-BBB-dC---b-c-bb---:0:0:1:22:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "quiz");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/quizpager.js"></script>
 </body>
 </html>

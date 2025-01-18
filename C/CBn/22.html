@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Prime Versus Prime Plus Blitz</span>&ensp;
-<span>(CBn-22)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBn-22) &ensp; Prime Versus Prime Plus Blitz</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=140 White=139</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=140 White=139</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This position occurred in the online match between Neil Kazaross and the USBGF online readers. Black, the team, were leading 3-1 to 11 and when Neil doubled, the readers dropped. Most of the online comments indicated that the readers thought this was a very clear pass. Were they correct?<br>
+</div>
+
+<div class="description"><hr>
+This position occurred in the online match between Neil Kazaross and the USBGF online readers. Black, the team, were leading 3-1 to 11 and when Neil doubled, the readers dropped. Most of the online comments indicated that the readers thought this was a very clear pass. Were they correct?<br>
 <br>
 The first reference point is to consider what the correct action is for money in any given position. Once that has been done the score should be factored in and the decision refined. So, let us start with the money decision.<br>
 <br>
@@ -48,32 +53,40 @@ What about the match score? As we have seen frequently in recent articles even a
 <br>
 This constraint changes the situation sufficiently that Black should drop the double and in fact taking now becomes a blunder.  The readers were correctly to drop Neil’s double. The theory of match play doubling continues to evolve and positions like this one should be added to everybody’s reference library.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.035
-  0.507 0.164 0.010 - 0.493 0.209 0.013
+2-ply cubeless equity -0.036
+  0.506 0.164 0.010 - 0.494 0.209 0.013
 Cubeful equities:
-1. No double           -0.036
-2. Double, pass        +1.000  (+1.036)
-3. Double, take        -0.420  (-0.384)
+1. No double           -0.038
+2. Double, pass        +1.000  (+1.038)
+3. Double, take        -0.423  (-0.385)
 Proper cube action: No double, beaver (27.1%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBn";
-const probnum = "22";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-b--BADBB---cB---b-bbbbAA-:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBn",
+    probnum: "22",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-b--BADBB---cB---b-bbbbAA-:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

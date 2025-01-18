@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>michy problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">キューブ　その43</span>&ensp;
-<span>(KA4-19)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KA4-19) &ensp; キューブ　その43</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">赤の振り番でキューブアクションは？</div>
 <div class="gamesituation">7ptマッチ、赤が4-2でリードしている。</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 赤=118 白=156</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 赤=118 白=156</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">WooMets＞<br>
+</div>
+
+<div class="description"><hr>
+WooMets＞<br>
 なーんかどこかで見たことのあるようなポジション。<br>
 今後の展開は、赤は5Pアタックできればやる。でもポイントメイクには普通2ターン必要。その間にリターンをくらう場合もあり、そのときは弾の数が足りず結構寒い。<br>
 スコア面からも赤はキューブを使うギャンブルしなくてよい。キューブアクションはノーダブルテイクだが、ムーブはギャモントライする感じで振ります。<br>
@@ -51,32 +56,40 @@ michihito_k＞<br>
 正解：too good to double - pass<br>
 ※ money cubeless equityは0.980<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +1.051 (Money: +0.962)
+2-ply cubeless equity +1.051 (Money: +0.961)
   0.747 0.526 0.006 - 0.253 0.062 0.003
 Cubeful equities:
-1. No double           +1.041
-2. Double, take        +1.498  (+0.458)
-3. Double, pass        +1.000  (-0.041)
+1. No double           +1.040
+2. Double, take        +1.497  (+0.457)
+3. Double, pass        +1.000  (-0.040)
 Proper cube action: Too good to double, pass (8.1%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KA4";
-const probnum = "19";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "ccw");
-board.showBoard("XGID=aBBB-aC-B---eA---bBd--bA--:0:0:1:00:4:2:0:7:10");
+  const problem = {
+    categoryid: "KA4",
+    probnum: "19",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=aBBB-aC-B---eA---bBd--bA--:0:0:1:00:4:2:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

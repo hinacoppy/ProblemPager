@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Failing the Test</span>&ensp;
-<span>(CBp-34)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBp-34) &ensp; Failing the Test</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=130 White=138</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=130 White=138</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I spent last weekend at the delightful Cotswolds Invitational Backgammon tournament. Hosted annually by Richard Biddle and his wife Caroline, who offers complimentary yoga classes, at The Bear at Rodborough, the tournament provides the opportunity for some relaxed backgammon in wonderful surroundings and a chance to get away from the city for a long weekend. <br>
+</div>
+
+<div class="description"><hr>
+I spent last weekend at the delightful Cotswolds Invitational Backgammon tournament. Hosted annually by Richard Biddle and his wife Caroline, who offers complimentary yoga classes, at The Bear at Rodborough, the tournament provides the opportunity for some relaxed backgammon in wonderful surroundings and a chance to get away from the city for a long weekend. <br>
 <br>
 This year the tournament was won by Sean Clennell who defeated Wayne Felton in the final. The Consolation was won by Carmel Botwright who narrowly defeated Vicky Gilbert in the final.<br>
 <br>
@@ -50,34 +55,42 @@ By now you will have spotted the wide open 8/1*. Leaving four blots when your op
 <br>
 The dice Gods for once did not complain about my blunder and kindly let me close out three of Phil's checkers and win a very easy gammon and the match. I will, however, long remember the position and the lesson it has taught me.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/1*                         Eq.: +0.909
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/1*                         Eq.: +0.910
        0.608 0.347 0.027 - 0.392 0.194 0.018
     2. Cubeful 2-ply    11/10 11/5                   Eq.: +0.798 (-0.112)
        0.632 0.267 0.020 - 0.368 0.121 0.003
-    3. Cubeful 2-ply    10/4 5/4                     Eq.: +0.785 (-0.124)
+    3. Cubeful 2-ply    10/4 5/4                     Eq.: +0.786 (-0.125)
        0.624 0.269 0.021 - 0.376 0.129 0.003
-    4. Cubeful 2-ply    11/4                         Eq.: +0.741 (-0.169)
-       0.593 0.278 0.024 - 0.407 0.193 0.014
-    5. Cubeful 0-ply    11/5 10/9                    Eq.: +0.692 (-0.218)
-       0.593 0.253 0.021 - 0.407 0.177 0.009
+    4. Cubeful 0-ply    11/4                         Eq.: +0.758 (-0.153)
+       0.616 0.263 0.021 - 0.384 0.162 0.008
+    5. Cubeful 0-ply    11/5 10/9                    Eq.: +0.695 (-0.216)
+       0.594 0.253 0.021 - 0.406 0.177 0.009
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBp";
-const probnum = "34";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aa--BCBbB-AB-B---aacbAbb--:2:-1:1:61:4:8:0:11:10");
+  const problem = {
+    categoryid: "CBp",
+    probnum: "34",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aa--BCBbB-AB-B---aacbAbb--:2:-1:1:61:4:8:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

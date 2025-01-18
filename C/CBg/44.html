@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Backgammon in the Wind - Erratum</span>&ensp;
-<span>(CBg-44)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBg-44) &ensp; Backgammon in the Wind - Erratum</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=55 White=151</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=55 White=151</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This position occurs on page 190 of my latest book, “Backgammon in the Wind”, in the article entitled “Out of the Box”.<br>
+</div>
+
+<div class="description"><hr>
+This position occurs on page 190 of my latest book, “Backgammon in the Wind”, in the article entitled “Out of the Box”.<br>
 <br>
 It is one of the most analysed back game positions of all time as it led to the 17-point match being decided in one game with the cube on 32! I have analysed it many times over the years, first by hand and then using various software programs. In preparing the book for publication this is the one position I did not roll out again but relied on an old rollout.<br>
 <br>
@@ -42,32 +47,40 @@ That was a mistake! What was a double a few years ago has now becaome a clear no
 <br>
 On the last roll of the game Sammis held a 16-cube and needed to roll 66 to win. Recognising that being down 16-0 to 17 was hopeless he redoubled to 32 and promptly rolled 66. The match thus entered the history books!<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.570 (Money: +0.559)
-  0.566 0.338 0.089 - 0.434 0.000 0.000
+2-ply cubeless equity +0.569 (Money: +0.557)
+  0.565 0.338 0.089 - 0.435 0.000 0.000
 Cubeful equities:
-1. Double, take        +0.799
-2. Double, pass        +1.000  (+0.201)
-3. No double           +0.764  (-0.034)
+1. Double, take        +0.795
+2. Double, pass        +1.000  (+0.205)
+3. No double           +0.762  (-0.033)
 Proper cube action: Double, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBg";
-const probnum = "44";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-bbDDCB----------aacbbb---:0:0:1:00:0:0:0:17:10");
+  const problem = {
+    categoryid: "CBg",
+    probnum: "44",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-bbDDCB----------aacbbb---:0:0:1:00:0:0:0:17:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

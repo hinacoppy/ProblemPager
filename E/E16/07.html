@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2016</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 7</span>&ensp;
-<span>(E16-07)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E16-07) &ensp; Problem 7</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白21</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=160 Black=155</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=160 Black=155</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='24/23 13/11#158'>1. 24/23 13/11</label></td><td class='answerscore'>158</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='24/21#130'>2. 24/21</label></td><td class='answerscore'>130</td></tr>
@@ -41,29 +43,40 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">黒は9ポイントにビルダーがあるので、次に多くの出目で新たなポイントを作ることができます。<br>
+</div>
+
+<div class="description"><hr>
+黒は9ポイントにビルダーがあるので、次に多くの出目で新たなポイントを作ることができます。<br>
 それを阻止するために、6/3*のテンポヒットが有効に見えます。しかし、16通りでリターンヒット(53はヒットせずにアンカーメイク)されてしまいますし、もしヒットされずにカバーできたとしても、3ポイントはあまり価値が高いポイントではありません。<br>
 また、黒は攻め駒が10枚あり、6ポイントと8ポイントがスタックしているので、バックマンをスプリットすれば黒が一気に攻撃を仕掛けてきます。スプリットをするのはやめましょう。<br>
 7/5 6/5と5ポイントを作ると、次の黒番の4と5でバーポイントのブロットをヒットされますが、13,14,24,34,25,35,45,46,56の18通りは、ヒットする出目とインナーポイントをメイクする出目がデュプリケートしています。黒にバーポイントのブロットをヒットされると、インナーポイントを作られずに済みますし、黒にインナーポイントを作られると、白はバーポイントをカバーするチャンスをもらえます。よって、7/5 6/5が正解となります。<br>
 この考え方は、オープニング54,52,43,32でツーメンダウンされた後、レスポンスで51,41,21を振ったときに6/5とスロットする考え方に似ています。黒の仕事を増やすことによって、白も対価を得るのです。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E16";
-const probnum = "07";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=--aa--EBB---cD--ad-e----B-:0:0:1:21:0:0:3:0:10");
+  const problem = {
+    categoryid: "E16",
+    probnum: "07",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=--aa--EBB---cD--ad-e----B-:0:0:1:21:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

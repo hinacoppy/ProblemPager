@@ -3,67 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
-<span>(BR4-07)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR4-07) &ensp; 7. ゲーム中盤</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.154 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=128 w=138</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=128 w=138</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:青は両方のバックマンを脱出させた。白はまだ一つ残っている。これはよくあることなので正確に検証しよう。二つの基本的なルールがある。(1)レースがクロースなとき、片方がよほど良いプライムを持っていない限り、普通はテイクだ。(2)10ピップ以上レースで遅れている場合、勝っている側の格好がよほど悪くない限りパスすべきだ。これから簡単に分かる。白は16ピップ遅れているし(図では10ピップ)、青の格好は悪くない。もし、白が脱出しようとしたら、負けているレースになる。もし居残ったら、青がビルダーを持ってきてアタックしてくるだろう。青はダブルすべきで、白はパスすべきだ。<br>
+</div>
+
+<div class="description"><hr>
+501:青は両方のバックマンを脱出させた。白はまだ一つ残っている。これはよくあることなので正確に検証しよう。二つの基本的なルールがある。(1)レースがクロースなとき、片方がよほど良いプライムを持っていない限り、普通はテイクだ。(2)10ピップ以上レースで遅れている場合、勝っている側の格好がよほど悪くない限りパスすべきだ。これから簡単に分かる。白は16ピップ遅れているし(図では10ピップ)、青の格好は悪くない。もし、白が脱出しようとしたら、負けているレースになる。もし居残ったら、青がビルダーを持ってきてアタックしてくるだろう。青はダブルすべきで、白はパスすべきだ。<br>
 <br>
 kinchan:これはイージーテイクだとおもう。ロールアウト結果もそれを裏付ける。ただ、クリアダブルかどうかはぼくは悩んだ。<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.501
+2-ply cubeless equity +0.500
   0.708 0.124 0.001 - 0.292 0.039 0.001
 Cubeful equities:
-1. Double, take        +0.804
-2. Double, pass        +1.000  (+0.196)
-3. No double           +0.776  (-0.027)
+1. Double, take        +0.801
+2. Double, pass        +1.000  (+0.199)
+3. No double           +0.775  (-0.026)
 Proper cube action: Double, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR4";
-const probnum = "07";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--aB-BC-B---eF---b-cb-b---:0:0:1:00:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR4",
+    probnum: "07",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--aB-BC-B---eF---b-cb-b---:0:0:1:00:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

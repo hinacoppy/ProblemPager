@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">New Year's Eve Chouette</span>&ensp;
-<span>(CBi-23)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBi-23) &ensp; New Year's Eve Chouette</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=148 White=141</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=148 White=141</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Preparations for the New Year’s Ball were well advanced and all day the guests had been arriving at Harbinger Hall. The grounds were blanketed in snow and only a few hardy souls could be seen taking a walk as the light began to fade.<br>
+</div>
+
+<div class="description"><hr>
+Preparations for the New Year’s Ball were well advanced and all day the guests had been arriving at Harbinger Hall. The grounds were blanketed in snow and only a few hardy souls could be seen taking a walk as the light began to fade.<br>
 <br>
 No thought of exercise had crossed the minds of those engaged in the last chouette of the year in the library. With a roaring fire in the grate and Graves dispensing hot toddies the combatants were lost in their own world. As the alcohol consumption increased so the discussions became more vociferous. <br>
 <br>
@@ -54,34 +59,42 @@ As we join them Quentin Quickcube has the box as White. The team captain is the 
 <br>
 “An erudite explanation, EE, and having heard it I must agree with you. 23/22, 5/3 it is. Graves, I think perhaps another round of drinks is called for. Would you be so kind?”<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/22 5/3                    Eq.: -0.153
-       0.510 0.092 0.003 - 0.490 0.100 0.003
-    2. Cubeful 2-ply    10/9*/7                      Eq.: -0.173 (-0.019)
-       0.500 0.107 0.004 - 0.500 0.110 0.004
-    3. Cubeful 2-ply    10/9* 10/8                   Eq.: -0.184 (-0.030)
-       0.496 0.110 0.004 - 0.504 0.115 0.004
-    4. Cubeful 2-ply    23/21 10/9*                  Eq.: -0.197 (-0.043)
-       0.496 0.112 0.004 - 0.504 0.127 0.005
+       0.511 0.092 0.003 - 0.489 0.100 0.003
+    2. Cubeful 2-ply    10/9*/7                      Eq.: -0.175 (-0.022)
+       0.500 0.106 0.004 - 0.500 0.110 0.004
+    3. Cubeful 2-ply    10/9* 10/8                   Eq.: -0.185 (-0.032)
+       0.496 0.110 0.004 - 0.504 0.116 0.004
+    4. Cubeful 2-ply    23/21 10/9*                  Eq.: -0.198 (-0.045)
+       0.496 0.111 0.004 - 0.504 0.127 0.005
     5. Cubeful 2-ply    23/21 6/5                    Eq.: -0.209 (-0.056)
        0.486 0.085 0.002 - 0.514 0.090 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBi";
-const probnum = "23";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=----bCCBBaB----b-c-dcB-A--:1:-1:1:21:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBi",
+    probnum: "23",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=----bCCBBaB----b-c-dcB-A--:1:-1:1:21:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

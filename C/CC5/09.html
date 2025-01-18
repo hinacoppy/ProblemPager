@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2020 - Position 209</span>&ensp;
-<span>(CC5-09)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CC5-09) &ensp; 2020 - Position 209</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=68 White=114</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=68 White=114</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">The ultimate pay-me-now, pay-me-later problem.  I have seen many such problems over the years and paying later when your opponent has such a strong board is usually correct.<br>
+</div>
+
+<div class="description"><hr>
+The ultimate pay-me-now, pay-me-later problem.  I have seen many such problems over the years and paying later when your opponent has such a strong board is usually correct.<br>
 <br>
 However, Red’s structure is so weak after 6/1, 5/1 that paying now might be correct. If this was Double Match Point 6/1, 5/1 would be tied with 8/4, 8/3. However, the cube is in play and in this version 8/4, 8/3 is best. Why?<br>
 <br>
@@ -42,32 +47,40 @@ Quite simply both plays win the same amount of the time but 8/4, 8/3 wins many m
 <br>
 Be honest, did you consider about the gammon factor?<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 8/3                      Eq.: +0.202
        0.623 0.085 0.003 - 0.377 0.033 0.001
-    2. Cubeful 2-ply    6/1 5/1                      Eq.: +0.125 (-0.078)
+    2. Cubeful 2-ply    6/1 5/1                      Eq.: +0.126 (-0.076)
        0.620 0.044 0.001 - 0.380 0.030 0.000
-    3. Cubeful 0-ply    8/4 6/1                      Eq.: +0.001 (-0.201)
-       0.559 0.068 0.003 - 0.441 0.038 0.001
-    4. Cubeful 0-ply    8/3 5/1                      Eq.: -0.392 (-0.594)
-       0.424 0.067 0.003 - 0.576 0.112 0.003
+    3. Cubeful 0-ply    8/4 6/1                      Eq.: +0.004 (-0.198)
+       0.561 0.068 0.003 - 0.439 0.038 0.001
+    4. Cubeful 0-ply    8/3 5/1                      Eq.: -0.390 (-0.592)
+       0.425 0.067 0.003 - 0.575 0.112 0.003
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CC5";
-const probnum = "09";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-Cb-DCC-B------a--bcbbba--:1:-1:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "CC5",
+    probnum: "09",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-Cb-DCC-B------a--bcbbba--:1:-1:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Back Game Doubling Theory</span>&ensp;
-<span>(CBm-05)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBm-05) &ensp; Back Game Doubling Theory</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=170 White=44</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=170 White=44</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Doubling theory in back games is still evolving, largely because the bots now play back games so well. Early versions of the TD-Gammon and JellyFish did not play back games particularly well and even Snowie had its problems.<br>
+</div>
+
+<div class="description"><hr>
+Doubling theory in back games is still evolving, largely because the bots now play back games so well. Early versions of the TD-Gammon and JellyFish did not play back games particularly well and even Snowie had its problems.<br>
 <br>
 Player like Bill Robertie and Kent Goulding did a lot of work in this area while developing and publishing their landmark magazine, “Inside Backgammon”. The early publication years coincided with the emergence of the bots and when computer rollouts replaced hand rollouts back game theory began to evolve quite quickly.<br>
 <br>
@@ -48,32 +53,40 @@ The answer is yes and in fact not redoubling is a clear blunder. It is a redoubl
 <br>
 This position just begins to touch on some of the key elements involved in redoubling in back games. There is a long way to go before we really understand the topic.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.095
-  0.665 0.000 0.000 - 0.335 0.225 0.011
+2-ply cubeless equity +0.097
+  0.666 0.000 0.000 - 0.334 0.224 0.011
 Cubeful equities:
-1. No double           +0.350
-2. Double, pass        +1.000  (+0.650)
-3. Double, take        -0.037  (-0.387)
-Proper cube action: No redouble, beaver (37.3%)
+1. No double           +0.351
+2. Double, pass        +1.000  (+0.649)
+3. Double, take        -0.033  (-0.385)
+Proper cube action: No redouble, beaver (37.2%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBm";
-const probnum = "05";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-----BBACC--------ad-bBBe-:1:1:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBm",
+    probnum: "05",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-----BBACC--------ad-bBBe-:1:1:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

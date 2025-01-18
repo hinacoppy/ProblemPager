@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2018</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 17</span>&ensp;
-<span>(E18-17)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E18-17) &ensp; Problem 17</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白43</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=158 Black=126</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=158 Black=126</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='16/9*#133'>1. 16/9*</label></td><td class='answerscore'>133</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='13/10 13/9*#0'>2. 13/10 13/9*</label></td><td class='answerscore'>0</td></tr>
@@ -41,25 +43,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">まず13/9*とヒットしましょう。残った3の目で16/13とブロットを隠す必要はありません。相手はその駒をヒットするとミッドポイントを崩す犠牲を払うからです。9/6は6ポイントヘスペアチェッカーを乗せますが、それ以上に13/10ともう一枚ビルダーを配備する手が効果的であり、次に新しいポイントを作る可能性を最大にします。白はレースで遅れているため、ヒットされることを過剰に恐れる必要はありません。<br>
 </div>
+
+<div class="description"><hr>
+まず13/9*とヒットしましょう。残った3の目で16/13とブロットを隠す必要はありません。相手はその駒をヒットするとミッドポイントを崩す犠牲を払うからです。9/6は6ポイントヘスペアチェッカーを乗せますが、それ以上に13/10ともう一枚ビルダーを配備する手が効果的であり、次に新しいポイントを作る可能性を最大にします。白はレースで遅れているため、ヒットされることを過剰に恐れる必要はありません。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E18";
-const probnum = "17";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-----CBC-a--bD--Aebe-B----:0:0:1:43:0:0:3:0:10");
+  const problem = {
+    categoryid: "E18",
+    probnum: "17",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-----CBC-a--bD--Aebe-B----:0:0:1:43:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

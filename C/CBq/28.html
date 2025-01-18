@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">How Full is Your Glass?</span>&ensp;
-<span>(CBq-28)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBq-28) &ensp; How Full is Your Glass?</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=105 White=77</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=105 White=77</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This position came up in the Battersea chouette and left Jon Barnes (White) with a difficult decision. Black was on his own as the other team members had dropped Jon’s original double. Black had turned the game around and now offered a redouble to Jon in this week’s position? What would you do? Is your glass half full or half empty?<br>
+</div>
+
+<div class="description"><hr>
+This position came up in the Battersea chouette and left Jon Barnes (White) with a difficult decision. Black was on his own as the other team members had dropped Jon’s original double. Black had turned the game around and now offered a redouble to Jon in this week’s position? What would you do? Is your glass half full or half empty?<br>
 <br>
 Many players would drop very quickly but Jon did what every good player should do and took his time over the decision. First, he counted Black’s cover numbers of which there are 18. Unless Black rolls a succession of small doubles and crashes his home board after covering he will win those 18 games. <br>
 <br>
@@ -46,32 +51,40 @@ After long thought, Jon decided that his gammon wins would compensate for the fa
 <br>
 A long XG rollout confirms that the take is correct but only by 0.012 equity points! So an excellent piece of analysis by Jon and he was rewarded for having a half full glass!<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.395
+2-ply cubeless equity +0.394
   0.721 0.038 0.000 - 0.279 0.082 0.003
 Cubeful equities:
-1. Double, take        +0.641
-2. Double, pass        +1.000  (+0.359)
-3. No double           +0.579  (-0.062)
+1. Double, take        +0.640
+2. Double, pass        +1.000  (+0.360)
+3. No double           +0.579  (-0.061)
 Proper cube action: Redouble, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBq";
-const probnum = "28";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aBBBBBA---A----A---cccBbc-:1:1:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBq",
+    probnum: "28",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aBBBBBA---A----A---cccBbc-:1:1:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

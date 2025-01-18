@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2019</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 8</span>&ensp;
-<span>(E19-08)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E19-08) &ensp; Problem 8</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白54</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=158 Black=148</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=158 Black=148</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='24/20 13/8#0'>1. 24/20 13/8</label></td><td class='answerscore'>0</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='24/20 11/6#41'>2. 24/20 11/6</label></td><td class='answerscore'>41</td></tr>
@@ -42,25 +44,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">問6と同じく、相手に22を振られた後の形です。黒は5ポイントヘのビルダーがたくさんあるので、まずは4の目でアンカーを確保します。5の目では13/8とプレイし、アウトフィールドのビルダーを残しておきます。11/6とプレイしても得するのは64を振られたときだけですし、形が非常に悪くなってしまいます。6/1*と1ポイントをヒットするのは、16通りものリターンショットを与えるうえ、その後も1ポイントのブロットに悩まされます。6/1*とヒットするのは、相手に良い目が多いときに相手の手を止めるための緊急避難と考えてください。このように相手に良い目が多くないときには打たないようにしましょう。<br>
 </div>
+
+<div class="description"><hr>
+問6と同じく、相手に22を振られた後の形です。黒は5ポイントヘのビルダーがたくさんあるので、まずは4の目でアンカーを確保します。5の目では13/8とプレイし、アウトフィールドのビルダーを残しておきます。11/6とプレイしても得するのは64を振られたときだけですし、形が非常に悪くなってしまいます。6/1*と1ポイントをヒットするのは、16通りものリターンショットを与えるうえ、その後も1ポイントのブロットに悩まされます。6/1*とヒットするのは、相手に良い目が多いときに相手の手を止めるための緊急避難と考えてください。このように相手に良い目が多くないときには打たないようにしましょう。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E19";
-const probnum = "08";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-a----E-C-AAdCb--c-cAb--A-:0:0:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "E19",
+    probnum: "08",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-a----E-C-AAdCb--c-cAb--A-:0:0:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

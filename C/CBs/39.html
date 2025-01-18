@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">An End-Game Enigma</span>&ensp;
-<span>(CBs-39)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBs-39) &ensp; An End-Game Enigma</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=96 White=110</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=96 White=110</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Raj Jansari posted this position on Facebook and had trouble understanding XG’s recommendation. I had the same problem when I studied it so let us try to make sense of the bot’s suggestion.<br>
+</div>
+
+<div class="description"><hr>
+Raj Jansari posted this position on Facebook and had trouble understanding XG’s recommendation. I had the same problem when I studied it so let us try to make sense of the bot’s suggestion.<br>
 <br>
 Before we come to that suggestion let us eliminate a few other plays. 13/6 leaves Black vulnerable to rolling 61 next turn so that cannot be right. 8/5, 8/5 eliminates the 61 problem but now Black will have more trouble clearing his mid-point. In certain variations he will want to keep his 8-pt so that he can play a roll of 5x by moving 13/x, 13/8, giving White a single shot. Moving 8/5, 8/4 eliminates those variations so again that cannot be right.<br>
 <br>
@@ -48,34 +53,42 @@ I performed a long rollout of this position and 6/3, 5/1 comes out top by a long
 <br>
 Can we be sure that XG has got this one right. I believe so. This Is a relatively simple position to play (except of course getting the first move right!) and I would not expect a neural net program to make any mistakes from here. That means that we need to learn to think more about the ideas and analysis that I have gone through above. These ideas are perhaps more important than I would have thought, and I have certainly learnt something by analysing this position so my thanks to Raj for posting it in the first place.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/6                         Eq.: +0.484
-       0.670 0.015 0.000 - 0.330 0.014 0.000
-    2. Cubeful 2-ply    5/1 4/1                      Eq.: +0.470 (-0.015)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/6                         Eq.: +0.486
+       0.671 0.015 0.000 - 0.329 0.014 0.000
+    2. Cubeful 2-ply    6/2 4/1                      Eq.: +0.472 (-0.014)
+       0.667 0.013 0.000 - 0.333 0.016 0.000
+    3. Cubeful 2-ply    5/1 4/1                      Eq.: +0.471 (-0.014)
        0.666 0.013 0.000 - 0.334 0.016 0.000
-    3. Cubeful 2-ply    6/2 4/1                      Eq.: +0.469 (-0.015)
-       0.666 0.013 0.000 - 0.334 0.016 0.000
-    4. Cubeful 2-ply    5/2 5/1                      Eq.: +0.460 (-0.024)
-       0.663 0.011 0.000 - 0.337 0.015 0.000
-    5. Cubeful 2-ply    6/2 5/2                      Eq.: +0.442 (-0.043)
+    4. Cubeful 2-ply    5/2 5/1                      Eq.: +0.462 (-0.024)
+       0.664 0.011 0.000 - 0.336 0.015 0.000
+    5. Cubeful 2-ply    6/2 5/2                      Eq.: +0.442 (-0.044)
        0.657 0.011 0.000 - 0.343 0.017 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBs";
-const probnum = "39";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--ACBBBbB----C-aa-adbbb---:0:0:1:43:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBs",
+    probnum: "39",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--ACBBBbB----C-aa-adbbb---:0:0:1:43:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

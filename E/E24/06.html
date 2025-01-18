@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2024</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 6</span>&ensp;
-<span>(E24-06)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E24-06) &ensp; Problem 6</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白番。出目42の最善手を選ベ</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=158 Black=147</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=158 Black=147</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='23/21 13/9#0'>1. 23/21 13/9</label></td><td class='answerscore'>0</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='23/17*#37'>2. 23/17*</label></td><td class='answerscore'>37</td></tr>
@@ -41,27 +43,38 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">ヒットするか、アンカーを作るか、4ポイントを作るかの3択問題です。ここで最も重視すべきは陣地の強さです。黒は強い3ポイントボードなのに対し、白はノーボードです。相手のボードが優れている場合は、ヒット合戦に持ち込むとダンスする確率に差が出るので、不利になりやすいです。このポジションだと21/17のヒットは黒に分がある戦いになるので、候補から外しましょう。<br>
+</div>
+
+<div class="description"><hr>
+ヒットするか、アンカーを作るか、4ポイントを作るかの3択問題です。ここで最も重視すべきは陣地の強さです。黒は強い3ポイントボードなのに対し、白はノーボードです。相手のボードが優れている場合は、ヒット合戦に持ち込むとダンスする確率に差が出るので、不利になりやすいです。このポジションだと21/17のヒットは黒に分がある戦いになるので、候補から外しましょう。<br>
 <br>
 では、4ポイントを作るか、アンカーを作るかの比較をしていきます。4ポイントを作る手は自陣を強化する良い手ですが、4ポイントを作っても黒よリボードが弱いですし、何よりこちらのバックマンがバラバラで攻められやすい状況です。一方で21ポイントのアンカーを作ると攻められにくく、黒の強いボードに対抗できます。ここではアンカーを作るのが最も重要なムーブになります。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
+<script src="/js/fontawesome-inuse.min.js" defer></script>
 <script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E24";
-const probnum = "06";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-aa---E-D---dD---a-dbAbA--:0:0:1:42:0:0:3:0:10");
+  const problem = {
+    categoryid: "E24",
+    probnum: "06",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-aa---E-D---dD---a-dbAbA--:0:0:1:42:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

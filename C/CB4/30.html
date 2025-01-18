@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 180</span>&ensp;
-<span>(CB4-30)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB4-30) &ensp; 2014 - Position 180</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red leads 1-0 to 9. Should Red redouble? If redoubled should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=77 White=129</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=77 White=129</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Position submitted by Gary Brooker<br>
+</div>
+
+<div class="description"><hr>
+Position submitted by Gary Brooker<br>
 <br>
 Firstly this is not too good to redouble. Two small numbers from Red and an entering number from White and Red would be sweating. Once the home board goes, as here, your opponent gets more counter-chances than you would think.<br>
 <br>
@@ -42,32 +47,40 @@ For money or if your opponent was leading this would be very clear drop because 
 <br>
 BUT once the cube gets high in a short match strange things happen. Here White gets huge leverage because of his potential redouble to 8. Were he to win an 8 game he would lead 8-1 which means he would have reached the Crawford game and Red would be on an odd number which is an ideal scenario for White (of course if he wins a gammon with the cube on 8 he wins the match) and note that once the cube reaches 8 Red's gammons are valueless as 8 points win the match for him. This peculiar set of circumstances gives White just enough equity to take the redouble - but it's still no bargain. Note that if white was the stronger player he should probably drop anyway. Whoever said backgammon was easy!<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.701 (Money: +0.681)
+2-ply cubeless equity +0.699 (Money: +0.679)
   0.705 0.329 0.001 - 0.295 0.058 0.001
 Cubeful equities:
 1. Double, pass        +1.000
-2. Double, take        +1.046  (+0.046)
-3. No double           +0.850  (-0.150)
+2. Double, take        +1.042  (+0.042)
+3. No double           +0.848  (-0.152)
 Proper cube action: Redouble, pass
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB4";
-const probnum = "30";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=bDBDB-----Ab-----AbbcbA-b-:1:1:1:00:1:0:0:9:10");
+  const problem = {
+    categoryid: "CB4",
+    probnum: "30",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=bDBDB-----Ab-----AbbcbA-b-:1:1:1:00:1:0:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

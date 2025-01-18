@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">The Empty Square Sacrifice</span>&ensp;
-<span>(CBj-44)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBj-44) &ensp; The Empty Square Sacrifice</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=142 White=134</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=142 White=134</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Those of you have played chess will know that the most difficult type of sacrifice to find is the one where you place a piece en prise (where it can be captured) on an empty square. This week’s position is the backgammon equivalent of chess’s empty square sacrifice.<br>
+</div>
+
+<div class="description"><hr>
+Those of you have played chess will know that the most difficult type of sacrifice to find is the one where you place a piece en prise (where it can be captured) on an empty square. This week’s position is the backgammon equivalent of chess’s empty square sacrifice.<br>
 <br>
 Black is in trouble in this position where White is ahead in race, threat and position, particularly after Black’s roll of 53 which really doesn't do him any favours. The automatic play is 13/10, 13/8. The problem with that move is that it puts no pressure whatsoever on White. Coupled with that, the play concedes control of the outer boards to White. Is there anything better?<br>
 <br>
@@ -44,34 +49,42 @@ I first saw this idea discussed in Marty Storer’s excellent book, “Backgammo
 <br>
 Once you have learnt the technique it can be reuse, as happened with myself. I am not sure I would have found the play without having read about the idea in Marty’s book. You have now been introduced to the concept so hopefully one day you can make use of it in your own games.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/10 13/8                   Eq.: -0.341
-       0.320 0.084 0.002 - 0.680 0.168 0.009
-    2. Cubeful 2-ply    8/5 6/1*                     Eq.: -0.344 (-0.003)
-       0.335 0.107 0.003 - 0.665 0.219 0.019
+       0.321 0.084 0.002 - 0.679 0.168 0.009
+    2. Cubeful 2-ply    8/5 6/1*                     Eq.: -0.343 (-0.003)
+       0.336 0.107 0.003 - 0.664 0.220 0.019
     3. Cubeful 2-ply    13/10 6/1*                   Eq.: -0.402 (-0.061)
        0.314 0.098 0.003 - 0.686 0.217 0.020
-    4. Cubeful 2-ply    8/5 8/3                      Eq.: -0.410 (-0.069)
-       0.310 0.091 0.003 - 0.690 0.210 0.018
-    5. Cubeful 2-ply    6/3 6/1*                     Eq.: -0.410 (-0.069)
-       0.307 0.087 0.002 - 0.693 0.203 0.014
+    4. Cubeful 2-ply    6/3 6/1*                     Eq.: -0.410 (-0.069)
+       0.307 0.087 0.002 - 0.693 0.204 0.014
+    5. Cubeful 2-ply    8/5 8/3                      Eq.: -0.414 (-0.073)
+       0.308 0.093 0.003 - 0.692 0.212 0.019
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBj";
-const probnum = "44";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-B--DBC--abB---cbd-b--B-:1:1:1:53:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBj",
+    probnum: "44",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a-B--DBC--abB---cbd-b--B-:1:1:1:53:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

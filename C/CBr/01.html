@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Match Play Mentality II</span>&ensp;
-<span>(CBr-01)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBr-01) &ensp; Match Play Mentality II</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=113 White=153</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=113 White=153</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Fear can do terrible things to players in match play, particularly towards the end of a match when one error can cost the whole match. This week’s position is a classic example of how fear can affect even the best players.<br>
+</div>
+
+<div class="description"><hr>
+Fear can do terrible things to players in match play, particularly towards the end of a match when one error can cost the whole match. This week’s position is a classic example of how fear can affect even the best players.<br>
 <br>
 Black led 6-4 to 7, post-Crawford. He has just rolled 54 and must decide how to play it. Unfortunately, he failed the test dramatically by choosing the ‘obvious’ 7/2, 6/2. This does make a fourth home board point but leaves Black stripped on all his outfield points. His (erroneous) thinking was that if he did not have to leave any shots so why should he do so. He didn’t want to expose multiple blots because of the fear (that word again) of losing a gammon.<br>
 <br>
@@ -50,34 +55,42 @@ Looked at in the cold light of day the correct move is very clear, but the probl
 <br>
 In technical terms 7/2, 6/2 is a blunder, costing Black 4% in game-winning chances. Yes, 15/11, 15/10 does lose more gammons but not nearly enough to compensate for the error in moving 7/2, 6/2.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/11 15/10                  Eq.: +0.889
-       0.725 0.122 0.001 - 0.275 0.039 0.001
-    2. Cubeful 2-ply    13/9 13/8                    Eq.: +0.711 (-0.178)
-       0.673 0.130 0.002 - 0.327 0.049 0.001
-    3. Cubeful 2-ply    15/11 7/2                    Eq.: +0.679 (-0.210)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/11 15/10                  Eq.: +0.890
+       0.725 0.123 0.001 - 0.275 0.039 0.001
+    2. Cubeful 2-ply    13/9 13/8                    Eq.: +0.713 (-0.177)
+       0.674 0.130 0.002 - 0.326 0.049 0.001
+    3. Cubeful 2-ply    15/11 7/2                    Eq.: +0.681 (-0.209)
        0.671 0.132 0.002 - 0.329 0.054 0.001
-    4. Cubeful 2-ply    7/2 6/2                      Eq.: +0.670 (-0.219)
-       0.680 0.113 0.001 - 0.320 0.046 0.001
-    5. Cubeful 2-ply    15/6                         Eq.: +0.668 (-0.221)
+    4. Cubeful 2-ply    7/2 6/2                      Eq.: +0.672 (-0.218)
+       0.681 0.113 0.001 - 0.319 0.047 0.001
+    5. Cubeful 2-ply    15/6                         Eq.: +0.670 (-0.220)
        0.660 0.146 0.002 - 0.340 0.056 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBr";
-const probnum = "01";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-B-bB-DAB---cB-B-e-e------:1:1:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBr",
+    probnum: "01",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-B-bB-DAB---cB-B-e-e------:1:1:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

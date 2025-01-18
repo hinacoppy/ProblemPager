@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">敵が通り過ぎた後</span>&ensp;
-<span>(KEa-36)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KEa-36) &ensp; 敵が通り過ぎた後</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=108 w=94</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=108 w=94</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">ヒットされることを恐れるとバックマンを逃がしてしまいそうだがレースで遅れているので居残る手を考慮したい。インナーボードの強さも互角で相手のビルダー群が通り過ぎてローポイントに積み上がってしまっているため３でルースヒットされることがそれほど痛くはない。一方、アウターのブロットを相手バックマンからのインダイレクトで当てられるとリターンも少なくもう１枚ブロットが残る。ここは逃げながらヒットという都合のいい攻撃を防ぎながら相手バックマンを抑えつけるべくブロットをスペアマンに変えておく。<br>
+</div>
+
+<div class="description"><hr>
+ヒットされることを恐れるとバックマンを逃がしてしまいそうだがレースで遅れているので居残る手を考慮したい。インナーボードの強さも互角で相手のビルダー群が通り過ぎてローポイントに積み上がってしまっているため３でルースヒットされることがそれほど痛くはない。一方、アウターのブロットを相手バックマンからのインダイレクトで当てられるとリターンも少なくもう１枚ブロットが残る。ここは逃げながらヒットという都合のいい攻撃を防ぎながら相手バックマンを抑えつけるべくブロットをスペアマンに変えておく。<br>
 <br>
 1. 12/10 4/1 Eq.: +0.246<br>
 0.565 0.118 0.005 - 0.435 0.080 0.002 CL +0.174 CF +0.246<br>
@@ -42,23 +47,31 @@
 2. 20/15       Eq.: +0.141 (-0.105)<br>
 0.541 0.061 0.002 - 0.459 0.058 0.001 CL +0.086 CF +0.141<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KEa";
-const probnum = "36";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--BBCbB---BBA----b-bAcbd--:0:0:1:23:0:0:0:7:10");
+  const problem = {
+    categoryid: "KEa",
+    probnum: "36",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--BBCbB---BBA----b-bAcbd--:0:0:1:23:0:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

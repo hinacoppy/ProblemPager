@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">More on Back Games</span>&ensp;
-<span>(CBm-10)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBm-10) &ensp; More on Back Games</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=153 White=106</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=153 White=106</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Last week we looked at a position where the player of the back game should double before actually hitting a shot. This week we have a position where Black was playing a back game but now has two White checkers on his own side of the board, one of them on the bar. White has just made the mistake of fanning - is Black strong enough to double?<br>
+</div>
+
+<div class="description"><hr>
+Last week we looked at a position where the player of the back game should double before actually hitting a shot. This week we have a position where Black was playing a back game but now has two White checkers on his own side of the board, one of them on the bar. White has just made the mistake of fanning - is Black strong enough to double?<br>
 <br>
 If Black had a direct cover for the blot on his 5-pt I think most players would double but by then Black would have lost his market by a wide margin. In the actual position, Black has eight covering numbers but more importantly he is threatening to reach a position where White will have drop the double next turn. For example, if Black rolls 63 he will play 17/11, 13/10 and if White fans again or enters with an awkward number such as 13 then the position will be double and pass.<br>
 <br>
@@ -46,32 +51,40 @@ As I have written before our knowledge of match-play doubling is really still in
 <br>
 The key to winning backgammon, as Kit Woolsey pointed out long ago, is to consistently win two points or four points and not settle for one. Yes, there is more risk in doubling positions like this one but then the game is all about understanding risk and reward and balancing the two. Here, the reward fully justifies the risk.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.310
+2-ply cubeless equity +0.311
   0.641 0.207 0.006 - 0.359 0.174 0.010
 Cubeful equities:
 1. No double           +0.441
 2. Double, pass        +1.000  (+0.559)
-3. Double, take        +0.376  (-0.064)
-Proper cube action: No double, take (10.3%)
+3. Double, take        +0.377  (-0.065)
+Proper cube action: No double, take (10.4%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBm";
-const probnum = "10";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aaBBBAB------A---AbbdBcBb-:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBm",
+    probnum: "10",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aaBBBAB------A---AbbdBcBb-:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

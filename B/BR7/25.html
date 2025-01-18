@@ -3,67 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">20. Too Good to Double ?</span>&ensp;
-<span>(BR7-25)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR7-25) &ensp; 20. Too Good to Double ?</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.309 Blue on roll. Should he double?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=82 w=69</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=82 w=69</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:前の問題より青の状況が悪く見える。青は白の2枚目をヒットできないし、白はクローズアウトしている。青はダブルして2ポイントを得るべきか？(明らかに白はパスする)。(前問と同様に)答えはノーだ!。青のギャモン勝ちのチャンスは前問と同じくらいだけれど、負ける可能性はほとんどゼロだ(何があっても、青は次の手番でダブルすれば白はパスすべきだから)。青のチェッカープレイ戦略は次の問題でご覧に入れる。<br>
+</div>
+
+<div class="description"><hr>
+501:前の問題より青の状況が悪く見える。青は白の2枚目をヒットできないし、白はクローズアウトしている。青はダブルして2ポイントを得るべきか？(明らかに白はパスする)。(前問と同様に)答えはノーだ!。青のギャモン勝ちのチャンスは前問と同じくらいだけれど、負ける可能性はほとんどゼロだ(何があっても、青は次の手番でダブルすれば白はパスすべきだから)。青のチェッカープレイ戦略は次の問題でご覧に入れる。<br>
 <br>
 kinchan:<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.931
+2-ply cubeless equity +0.930
   0.939 0.053 0.002 - 0.061 0.003 0.000
 Cubeful equities:
 1. No double           +1.016
-2. Double, take        +1.820  (+0.804)
+2. Double, take        +1.819  (+0.803)
 3. Double, pass        +1.000  (-0.016)
 Proper cube action: Too good to redouble, pass (1.9%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR7";
-const probnum = "25";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-aBBBBCB-A---A-----bbbbcc-:1:1:1:00:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR7",
+    probnum: "25",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-aBBBBCB-A---A-----bbbbcc-:1:1:1:00:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

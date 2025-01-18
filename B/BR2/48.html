@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
-<span>(BR2-48)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR2-48) &ensp; 7. ゲーム中盤</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.95 Blue to play 16</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=152 w=168</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=152 w=168</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:攻撃するときは、正しいポイントを攻撃しよう。青は6で間違いなく23/17とするだろう。そして、最善の1を捜す。攻撃は5/4*と3/2*だ。4ポイントの攻撃はよく見える。とても価値があるところだから。しかし、注意しよう。もし、青が4ポイントをヒットすると、白は18通りでヒットできるが、(ヒットしないときは)青は17通りしかカバーできない。2ポイントをヒットすると、白は14通りでヒットできるが、青は24通りカバーできる。2ポイントはより安全でより多くカバーできる。これが正しいプレイだ。<br>
+</div>
+
+<div class="description"><hr>
+501:攻撃するときは、正しいポイントを攻撃しよう。青は6で間違いなく23/17とするだろう。そして、最善の1を捜す。攻撃は5/4*と3/2*だ。4ポイントの攻撃はよく見える。とても価値があるところだから。しかし、注意しよう。もし、青が4ポイントをヒットすると、白は18通りでヒットできるが、(ヒットしないときは)青は17通りしかカバーできない。2ポイントをヒットすると、白は14通りでヒットできるが、青は24通りカバーできる。2ポイントはより安全でより多くカバーできる。これが正しいプレイだ。<br>
 <br>
 kinchan:感覚的に2ポイントを攻撃するけど、理論的に説明するとこうなるね。<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/17 3/2*                   Eq.: -0.154
-       0.488 0.175 0.010 - 0.512 0.136 0.004
-    2. Cubeful 2-ply    23/17 22/21                  Eq.: -0.164 (-0.009)
-       0.495 0.166 0.009 - 0.505 0.150 0.005
+       0.488 0.175 0.010 - 0.512 0.137 0.004
+    2. Cubeful 2-ply    23/17 22/21                  Eq.: -0.165 (-0.011)
+       0.495 0.165 0.009 - 0.505 0.150 0.005
     3. Cubeful 2-ply    23/17 5/4*                   Eq.: -0.174 (-0.020)
-       0.479 0.181 0.013 - 0.521 0.145 0.005
+       0.480 0.181 0.013 - 0.520 0.145 0.005
     4. Cubeful 2-ply    17/11 3/2*                   Eq.: -0.289 (-0.135)
-       0.443 0.171 0.011 - 0.557 0.159 0.007
-    5. Cubeful 0-ply    17/11 5/4*                   Eq.: -0.302 (-0.148)
-       0.438 0.175 0.016 - 0.562 0.170 0.008
+       0.444 0.170 0.011 - 0.556 0.159 0.007
+    5. Cubeful 0-ply    17/11 5/4*                   Eq.: -0.304 (-0.150)
+       0.438 0.175 0.016 - 0.562 0.171 0.009
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR2";
-const probnum = "48";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-aaCaCC-----cB--bAcbb-BA--:1:-1:1:16:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR2",
+    probnum: "48",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-aaCaCC-----cB--bAcbb-BA--:1:-1:1:16:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

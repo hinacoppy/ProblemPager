@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2019</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 36</span>&ensp;
-<span>(E19-36)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E19-36) &ensp; Problem 36</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白65</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=137 Black=48</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=137 Black=48</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='24/19 24/18#0'>1. 24/19 24/18</label></td><td class='answerscore'>0</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='24/19 16/10#458'>2. 24/19 16/10</label></td><td class='answerscore'>458</td></tr>
@@ -41,25 +43,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">逃げ帰ろうとする相手の1枚の駒をヒットしたい場合、次に相手が足して6, 7, 8になる目を振ると想定します。この3つが最も可能性の高い出目だからです。黒が次にこのいずれかの目を振れば、図の13, 14, 15ポイントのいずれかに黒は着地します。その際のヒットチャンスを最大化する手は24/19 24/18です。こうしておけば次に3箇所または4箇所からヒットすることができます。このように相手のエースポイントを確保して、最後の最後まで粘ると考えるよりも、次のロールでヒットする目を最大化しましょう。<br>
 </div>
+
+<div class="description"><hr>
+逃げ帰ろうとする相手の1枚の駒をヒットしたい場合、次に相手が足して6, 7, 8になる目を振ると想定します。この3つが最も可能性の高い出目だからです。黒が次にこのいずれかの目を振れば、図の13, 14, 15ポイントのいずれかに黒は着地します。その際のヒットチャンスを最大化する手は24/19 24/18です。こうしておけば次に3箇所または4箇所からヒットすることができます。このように相手のエースポイントを確保して、最後の最後まで粘ると考えるよりも、次のロールでヒットする目を最大化しましょう。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E19";
-const probnum = "36";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-BBB-BBa--------A--AAcdcB-:1:1:1:65:0:0:3:0:10");
+  const problem = {
+    categoryid: "E19",
+    probnum: "36",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-BBB-BBa--------A--AAcdcB-:1:1:1:65:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

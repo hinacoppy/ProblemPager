@@ -9,7 +9,7 @@ html{
   height:-webkit-fill-available; /* iOSで100%表示されない事態を回避 */
 }
 body{
-  margin:10px;
+/*  margin:10px;*/
   padding:0;
   background:#efe;
   -webkit-text-size-adjust:100%; /* iPhoneで文字サイズが勝手に大きくならないように */
@@ -33,13 +33,10 @@ button{
   border-radius:10px; /* 角丸表示 */
   vertical-align:middle;
   text-align:center;
-  padding:10px;
+  padding:0.5em 1em;
 }
 header{
-  display:inline-block; /* navボタンを横並びに */
-}
-nav{
-  display:inline-block;
+  /*display:inline-block; /* navボタンを横並びに */
 }
 pre{
   font-size:120%;
@@ -47,6 +44,13 @@ pre{
 }
 
 /* Article decoration ----------------------------------------*/
+.navpopup{
+  position: absolute;
+  display: none;
+  top: 8px;
+  left: 3em;
+  z-index: 9;
+}
 .sectionTitle{
   display:inline-block;
   width:45vw;
@@ -64,11 +68,11 @@ pre{
   font-weight:bold;
 }
 .bgcontainer{
-  display:flex; /* コンテンツを横並びに */
+  display:flex; /* landscapeのとき、ボードとAnswerTableは横並びに */
   flex-wrap:wrap;
 }
 .board{
-  cursor:pointer;
+/*  cursor:pointer;*/
 }
 .answertable{
   margin-left:20px;
@@ -83,7 +87,7 @@ pre{
   right:10px;
 }
 .description{
-  margin-left:20px;
+/*  margin-left:20px;*/
 }
 .gnuanalysis{
   font-size:120%;
@@ -92,42 +96,18 @@ pre{
 }
 
 /* Constant definision for bgStaticBoard.css ---------------------- */
-:rootDouble{ /* for Smart Phone (NoUse) */
-  --boardHeightNum: 48;
-  --boardWidthNum: 60;
-  --pointWidthNum: 4;
-  --cubeSizeNum: 3.4;
-  --frameSizeNum: 2.6;
-  --offtrayMarginNum: 10;
-  --offtrayHeightNum: 48;
-  --cubeFontSizeNum: 2;
-  --labelFontSizeNum: 1.4;
-  --stackFontSizeNum: 2.0;
-}
-:root{ /* for Smart Phone */
-  --boardHeightNum: 36;
-  --boardWidthNum: 45;
-  --pointWidthNum: 3;
-  --cubeSizeNum: 2.5;
-  --frameSizeNum: 2.0;
-  --offtrayMarginNum: 7;
-  --offtrayHeightNum: 36;
-  --cubeFontSizeNum: 1.5;
-  --labelFontSizeNum: 1.0;
-  --stackFontSizeNum: 1.5;
-}
 @media screen and (min-width:1024px) { /* for PC */
 :root{
-  --boardHeightNum: 24; /* =boardHeightNum * 0.8 */
-  --boardWidthNum: 30;
-  --pointWidthNum: 2; /* =boardHeightNum / 15 */
-  --cubeSizeNum: 1.7;
-  --frameSizeNum: 1.3;
+  --boardWidthNum: 60; /* < 100 and 15*n */
+  --boardHeightNum: 45; /* = boardWidthNum * 3/4 */
+  --pointWidthNum: 4; /* = boardWidthNum / 15 */
+  --cubeSizeNum: 3.6; /* = pointWidthum * 0.9 */
+  --frameSizeNum: 1.5;
   --offtrayMarginNum: 5;
-  --offtrayHeightNum: 24; /* =boardHeightNum */
-  --cubeFontSizeNum: 1;
-  --labelFontSizeNum: 0.7;
-  --stackFontSizeNum: 1.0;
+  --offtrayHeightNum: 45; /* = boardHeightNum */
+  --cubeFontSizeNum: 2.5;
+  --labelFontSizeNum: 1.2;
+  --stackFontSizeNum: 2.0;
 }}
 
 /* XG Font Board ---------------------------------------------*/
@@ -139,7 +119,7 @@ pre{
 }
 .xgfont {
   font-family:'XGFont';
-  font-size:2em;
+  font-size:x-large;
 }
 
 /* index.html decoration ----------------------------------------*/
@@ -198,7 +178,7 @@ pre{
 }
 .prevnext{
   position:absolute;
-  font-size:x-large;
+  font-size:xx-large;
   top:40vh;
   min-width:0;
   opacity:0.7;

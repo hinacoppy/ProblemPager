@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>michy problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ベアイン その1</span>&ensp;
-<span>(KA8-31)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KA8-31) &ensp; ベアイン その1</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">今日からミニシリーズ「ベアイン」の始まりです。マネーゲームで黒に61が出ました。</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=82 白=89</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=82 白=89</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">昨日の「偽」 Joe-Guy杯では tam777yokohama さんが優勝して、大阪オープンのオープンクラスへのエントリーフィーを獲得しました。<br>
+</div>
+
+<div class="description"><hr>
+昨日の「偽」 Joe-Guy杯では tam777yokohama さんが優勝して、大阪オープンのオープンクラスへのエントリーフィーを獲得しました。<br>
 私がコンソレ優勝で獲得した「シャンパンとグラスのセット」は、大阪オープンの賞品とさせて頂きます。<br>
 <br>
 nori＞<br>
@@ -132,34 +137,42 @@ michihito_k＞<br>
 <br>
 ブログの持ち主だけに見える非公開コメントです。<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/15                        Eq.: +0.036
-       0.523 0.129 0.004 - 0.477 0.130 0.002
-    2. Cubeful 2-ply    9/6 9/5                      Eq.: -0.014 (-0.050)
-       0.496 0.097 0.001 - 0.504 0.084 0.001
-    3. Cubeful 0-ply    5/2 5/1                      Eq.: -0.218 (-0.254)
-       0.395 0.051 0.000 - 0.605 0.115 0.001
-    4. Cubeful 0-ply    9/2                          Eq.: -0.307 (-0.343)
-       0.352 0.054 0.000 - 0.648 0.147 0.002
-    5. Cubeful 0-ply    22/18 9/6                    Eq.: -0.403 (-0.439)
-       0.319 0.081 0.001 - 0.681 0.322 0.012
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/6 7/1                      Eq.: +0.361
+       0.723 0.013 0.000 - 0.277 0.005 0.000
+    2. Cubeful 2-ply    9/8 9/3                      Eq.: +0.320 (-0.041)
+       0.706 0.010 0.000 - 0.294 0.003 0.000
+    3. Cubeful 2-ply    8/7 8/2                      Eq.: +0.315 (-0.046)
+       0.705 0.012 0.000 - 0.295 0.006 0.000
+    4. Cubeful 0-ply    8/2 4/3                      Eq.: -0.180 (-0.541)
+       0.510 0.018 0.000 - 0.490 0.050 0.000
+    5. Cubeful 0-ply    8/1                          Eq.: -0.184 (-0.546)
+       0.509 0.018 0.000 - 0.491 0.053 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KA8";
-const probnum = "31";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "ccw");
-board.showBoard("XGID=--BBCbBBBB--------abbbbbb-:1:-1:1:61:0:0:3:0:10");
+  const problem = {
+    categoryid: "KA8",
+    probnum: "31",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--BBCbBBBB--------abbbbbb-:1:-1:1:61:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

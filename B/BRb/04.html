@@ -3,42 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">30. ベアオフ</span>&ensp;
-<span>(BRb-04)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BRb-04) &ensp; 30. ベアオフ</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.478 Blue to play 11</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=11 w=4</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=11 w=4</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:ベアオフの第一の法則：上がれるなら上がりなさい。違う言葉で言えば、もし1を振って、1ポイントに駒があれば、それを上がりにしなさい。もし3を振ったら、3ポイントの駒を上がりにしなさい(この法則の例外はあるが、極めて希で、一生の間一度お目にかかれるかどうかだ)。問題478では、青はこの法則に則り、とりあえず、1ポイントの2枚の駒を上がりにする。1の目が二つ残り、どうすればよいか考える。3/1, 6/5, 3/2, 6/4？？？？？？問題471, 472, 473を覚えていれば簡単だ。残り7ピップで2駒では、青が優勢なのは問題471のポジション、5ポイントと2ポイントに1枚ずつだ。青はこのポジションになるよう、残りの二つの1の目で3/2, 6/5とプレイすべきだ。<br>
+</div>
+
+<div class="description"><hr>
+501:ベアオフの第一の法則：上がれるなら上がりなさい。違う言葉で言えば、もし1を振って、1ポイントに駒があれば、それを上がりにしなさい。もし3を振ったら、3ポイントの駒を上がりにしなさい(この法則の例外はあるが、極めて希で、一生の間一度お目にかかれるかどうかだ)。問題478では、青はこの法則に則り、とりあえず、1ポイントの2枚の駒を上がりにする。1の目が二つ残り、どうすればよいか考える。3/1, 6/5, 3/2, 6/4？？？？？？問題471, 472, 473を覚えていれば簡単だ。残り7ピップで2駒では、青が優勢なのは問題471のポジション、5ポイントと2ポイントに1枚ずつだ。青はこのポジションになるよう、残りの二つの1の目で3/2, 6/5とプレイすべきだ。<br>
 <br>
 kinchan:矢澤が教えてくれた「最後にしろ」-> 3, 1, 5, 2, 4, 6の語呂合わせを使っている。残り2チェッカーにおいて、2枚のチェッカーのギャップ数を3, 1, 5, 2, 4, 6の優先順位で決めれば最善(他にも同等のプレイがある場合があるが)なのだ。この場合、3ポイントと6ポイントのチェッカーをそれぞれ1動かすことで3ギャップが保てるので、少なくともこれは最善の一つであるというわけ。結構役立ちます。<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/5 3/2 1/off(2)             Eq.: -0.074
        0.440 0.000 0.000 - 0.560 0.000 0.000
@@ -48,24 +53,32 @@ kinchan:矢澤が教えてくれた「最後にしろ」-> 3, 1, 5, 2, 4, 6の�
        0.347 0.000 0.000 - 0.653 0.000 0.000
     4. Cubeful 0-ply    6/4 3/2 1/off                Eq.: -0.768 (-0.694)
        0.116 0.000 0.000 - 0.884 0.000 0.000
-    5. Cubeful 0-ply    6/5 3/off                    Eq.: -0.815 (-0.741)
+    5. Cubeful 0-ply    6/3 1/off                    Eq.: -0.815 (-0.741)
        0.093 0.000 0.000 - 0.907 0.000 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BRb";
-const probnum = "04";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-B-A--A-----------------d-:1:1:1:11:0:0:0:0:10");
+  const problem = {
+    categoryid: "BRb",
+    probnum: "04",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-B-A--A-----------------d-:1:1:1:11:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

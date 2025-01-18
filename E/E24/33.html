@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2024</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 33</span>&ensp;
-<span>(E24-33)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E24-33) &ensp; Problem 33</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白番。出目32の最善手を選ベ</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=92 Black=144</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=92 Black=144</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='17/15 9/6#45'>1. 17/15 9/6</label></td><td class='answerscore'>45</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='17/14 8/6#0'>2. 17/14 8/6</label></td><td class='answerscore'>0</td></tr>
@@ -42,7 +44,10 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">終盤戦で、5ポイントや4ポイントが空いたままでベアインを目指すという局面はたくさん出てきます。このような場合、3つの要素のバランスを考えないといけません。<br>
+</div>
+
+<div class="description"><hr>
+終盤戦で、5ポイントや4ポイントが空いたままでベアインを目指すという局面はたくさん出てきます。このような場合、3つの要素のバランスを考えないといけません。<br>
 <br>
 1) フライショット(リターンショット)で打たれる目を減らす。<br>
 2) ビルダーの数を増やす。<br>
@@ -58,23 +63,31 @@
 <br>
 17/15 9/6 と 17/14 8/6 は似たようなブレイです。どちらもブロットの数を1枚減らしながら、5ポイントヘのビルダー2つを保っています。しかし両者を比較してみると、打たれる目の数で 17/14 8/6 の方が優ります。具体的には、17/15 9/6 は51, 53, 55の5通りでヒットされます(52も18ポイントに逃げられてしまう)が、17/14 8/6 は52, 54の4通りのみです。したがって、17/14 8/6 がベストプレイになります。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
+<script src="/js/fontawesome-inuse.min.js" defer></script>
 <script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E24";
-const probnum = "33";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=aBBBB-BbAA--cB---A-cd-b---:1:-1:1:32:0:0:3:0:10");
+  const problem = {
+    categoryid: "E24",
+    probnum: "33",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=aBBBB-BbAA--cB---A-cd-b---:1:-1:1:32:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

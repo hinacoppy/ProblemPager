@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Luck of the Devil</span>&ensp;
-<span>(CBm-40)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBm-40) &ensp; Luck of the Devil</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=145 White=133</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=145 White=133</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">The game of backgammon is 5,000 years old, twice as old as any other game in the world. As far as my research goes the far-eastern game of Go is about half as old as backgammon and chess is a mere fledgling as it did not make its debut until 400 AD. Card games do not figure in the longevity stakes as paper did not arrive in Europe until 1000 AD, although the Chinese had it a lot earlier than that. Contract Bridge was invented in 1926 so it is not even a hundred years old.<br>
+</div>
+
+<div class="description"><hr>
+The game of backgammon is 5,000 years old, twice as old as any other game in the world. As far as my research goes the far-eastern game of Go is about half as old as backgammon and chess is a mere fledgling as it did not make its debut until 400 AD. Card games do not figure in the longevity stakes as paper did not arrive in Europe until 1000 AD, although the Chinese had it a lot earlier than that. Contract Bridge was invented in 1926 so it is not even a hundred years old.<br>
 <br>
 It is remarkable that the game has survived for 5,000 years with so few changes. Having said that backgammon may not have survived the 20th Century without the invention of doubling in 1926 which both speeded up the game and made it more exciting. However, even before that I suspect that part of its appeal and a strong contributor to its survival was the huge changes in fortune that can occur in a short space of time. In no other game do such swings of fortune occur so regularly, creating huge adrenalin surges for the players involved.<br>
 <br>
@@ -51,7 +56,7 @@ This was undoubtedly the pivotal sequence of rolls in the match and both players
 <br>
 It was great theatre for the spectators, both live and online, and, in my opinion, it is excitement such as this that has helped to maintain backgammon’s appeal over five millennia. Long may<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
 2-ply cubeless equity +0.141
@@ -64,19 +69,27 @@ Proper cube action: No double, take (25.9%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBm";
-const probnum = "40";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--aB-BBCA---eC---aad--b-AA:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBm",
+    probnum: "40",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--aB-BBCA---eC---aad--b-AA:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

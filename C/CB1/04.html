@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 4</span>&ensp;
-<span>(CB1-04)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB1-04) &ensp; 2014 - Position 4</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=155 White=117</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=155 White=117</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">It will surprise many that 8/3, 6/3 and 24/16 are virtually equal in equity with the pure play of making the 3-pt coming out fractionally ahead! <br>
+</div>
+
+<div class="description"><hr>
+It will surprise many that 8/3, 6/3 and 24/16 are virtually equal in equity with the pure play of making the 3-pt coming out fractionally ahead! <br>
 <br>
 This is the second position in the last few weeks where purity has outweighed a tactical hit. The hit gives white some chances to play against Red's blots as Red no longer has an anchor and consequently Red will lose quite a few gammons. If Red makes the pure play he should not have too many problems escaping White's home board.<br>
 <br>
@@ -42,34 +47,42 @@ I admit that when I saw this position my instinct was to hit. This is the sort o
 <br>
 If the play occurred in a ‘Gammon Go' situation then hitting would be correct by a big margin.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16*                       Eq.: +0.267
-       0.592 0.211 0.015 - 0.408 0.210 0.022
-    2. Cubeful 2-ply    8/3 6/3                      Eq.: +0.237 (-0.031)
-       0.587 0.151 0.007 - 0.413 0.173 0.016
-    3. Cubeful 0-ply    13/10 13/8                   Eq.: +0.065 (-0.202)
-       0.550 0.123 0.006 - 0.450 0.193 0.024
-    4. Cubeful 0-ply    23/15                        Eq.: -0.017 (-0.285)
-       0.529 0.123 0.005 - 0.471 0.212 0.027
-    5. Cubeful 0-ply    24/21 13/8                   Eq.: -0.107 (-0.374)
-       0.517 0.127 0.008 - 0.483 0.277 0.031
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/16*                       Eq.: +0.265
+       0.591 0.210 0.015 - 0.409 0.211 0.022
+    2. Cubeful 2-ply    8/3 6/3                      Eq.: +0.233 (-0.032)
+       0.586 0.154 0.008 - 0.414 0.175 0.017
+    3. Cubeful 0-ply    13/10 13/8                   Eq.: +0.063 (-0.202)
+       0.550 0.122 0.006 - 0.450 0.194 0.024
+    4. Cubeful 0-ply    23/15                        Eq.: -0.015 (-0.280)
+       0.530 0.123 0.005 - 0.470 0.212 0.027
+    5. Cubeful 0-ply    24/21 13/8                   Eq.: -0.115 (-0.381)
+       0.515 0.126 0.008 - 0.485 0.281 0.031
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB1";
-const probnum = "04";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--BBCBA---bB--ab-cc-cAB-:0:0:1:53:0:0:3:0:10");
+  const problem = {
+    categoryid: "CB1",
+    probnum: "04",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a--BBCBA---bB--ab-cc-cAB-:0:0:1:53:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2015 - Position 18</span>&ensp;
-<span>(CB7-18)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB7-18) &ensp; 2015 - Position 18</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 55?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=150 White=147</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=150 White=147</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Addition Trivia Question: How many times do you need to roll the dice before you become favourite to roll a specific double, e.g. 66? (This came up in relation to Position 17).<br>
+</div>
+
+<div class="description"><hr>
+Addition Trivia Question: How many times do you need to roll the dice before you become favourite to roll a specific double, e.g. 66? (This came up in relation to Position 17).<br>
 <br>
 I had this position in a match and played 11/1(2)*. My opponent fanned a couple of times and I won an easy gammon.<br>
 <br>
@@ -44,34 +49,42 @@ XG rates 11/1(2)* as an error but only just and at certain match scores, i.e. wh
 <br>
 The answer to the rolls question is 25 (see Alastair's comment for the necessary equaton). A few hundred years ago a french gambler did the maths wrong and came up with 24. That small error lost him a lot of money over the years!<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/1*(2)                     Eq.: +0.401
-       0.590 0.207 0.006 - 0.410 0.113 0.003
-    2. Cubeful 2-ply    13/3(2)                      Eq.: +0.392 (-0.009)
-       0.606 0.184 0.009 - 0.394 0.114 0.003
-    3. Cubeful 2-ply    13/8 11/1* 6/1               Eq.: +0.354 (-0.047)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/1*(2)                     Eq.: +0.402
+       0.591 0.207 0.006 - 0.409 0.113 0.003
+    2. Cubeful 2-ply    13/3(2)                      Eq.: +0.393 (-0.009)
+       0.607 0.184 0.009 - 0.393 0.114 0.003
+    3. Cubeful 2-ply    13/8 11/1* 6/1               Eq.: +0.355 (-0.047)
        0.583 0.199 0.007 - 0.417 0.120 0.003
-    4. Cubeful 2-ply    13/3 11/6 8/3                Eq.: +0.276 (-0.125)
-       0.577 0.183 0.009 - 0.423 0.132 0.004
-    5. Cubeful 0-ply    13/3 8/3 6/1*                Eq.: +0.152 (-0.249)
+    4. Cubeful 2-ply    13/3 11/6 8/3                Eq.: +0.277 (-0.125)
+       0.578 0.183 0.009 - 0.422 0.132 0.004
+    5. Cubeful 0-ply    13/3 8/3 6/1*                Eq.: +0.151 (-0.251)
        0.538 0.191 0.009 - 0.462 0.151 0.006
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB7";
-const probnum = "18";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-aa--BC-C--BdD---a-db-b-A-:0:0:1:55:0:0:3:0:10");
+  const problem = {
+    categoryid: "CB7",
+    probnum: "18",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-aa--BC-C--BdD---a-db-b-A-:0:0:1:55:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

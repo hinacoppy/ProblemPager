@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">22. バックゲーム</span>&ensp;
-<span>(BR8-12)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR8-12) &ensp; 22. バックゲーム</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.344 Blue to play 23</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=79 w=145</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=79 w=145</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:これは前のルールの例外だ。青は8ポイントより7ポイントをクリアするべきだ。7/4, 7/5だ。何故？どちらかのポイントをこの手番でクリアして、残ったポイントも次の手番で同様に簡単にクリアできることに注意しよう。(どちらの場合も4つの着地地点がある)。しかしながら、この手番で8ポイントをクリアして、次の手番に7ポイントにブロットが残るとそのブロットはダブルショットになる。もし7ポイントを先にクリアして、次の手番で8ポイントにブロットが残ったとしたら、そのブロットはシングルショットだ。最善は、7ポイントをクリアすることだ。<br>
+</div>
+
+<div class="description"><hr>
+501:これは前のルールの例外だ。青は8ポイントより7ポイントをクリアするべきだ。7/4, 7/5だ。何故？どちらかのポイントをこの手番でクリアして、残ったポイントも次の手番で同様に簡単にクリアできることに注意しよう。(どちらの場合も4つの着地地点がある)。しかしながら、この手番で8ポイントをクリアして、次の手番に7ポイントにブロットが残るとそのブロットはダブルショットになる。もし7ポイントを先にクリアして、次の手番で8ポイントにブロットが残ったとしたら、そのブロットはシングルショットだ。最善は、7ポイントをクリアすることだ。<br>
 <br>
 kinchan:重要な概念。念のためロールアウト。<br>
 <pre>
@@ -45,34 +50,42 @@ kinchan:重要な概念。念のためロールアウト。<br>
 </pre>
 0.04 のエラーなんてしょっちゅうやっている訳だが、これは考えれば分かる問題だから、例え0.01 だろうとエラーをしないようにしたいものだ。(偉そう)<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 7/4                      Eq.: +0.551
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/5 7/4                      Eq.: +0.552
        0.688 0.268 0.027 - 0.312 0.013 0.000
-    2. Cubeful 2-ply    8/6 8/5                      Eq.: +0.547 (-0.004)
-       0.692 0.258 0.025 - 0.308 0.014 0.000
-    3. Cubeful 0-ply    6/4 5/2                      Eq.: +0.301 (-0.250)
+    2. Cubeful 2-ply    8/6 8/5                      Eq.: +0.548 (-0.004)
+       0.692 0.257 0.025 - 0.308 0.014 0.000
+    3. Cubeful 0-ply    6/4 5/2                      Eq.: +0.302 (-0.250)
        0.600 0.242 0.019 - 0.400 0.024 0.000
-    4. Cubeful 0-ply    5/2 4/2                      Eq.: +0.281 (-0.271)
-       0.597 0.233 0.016 - 0.403 0.025 0.000
-    5. Cubeful 0-ply    8/5 6/4                      Eq.: +0.260 (-0.291)
-       0.586 0.238 0.027 - 0.414 0.035 0.000
+    4. Cubeful 0-ply    5/2 4/2                      Eq.: +0.287 (-0.265)
+       0.600 0.232 0.016 - 0.400 0.025 0.000
+    5. Cubeful 0-ply    8/5 6/4                      Eq.: +0.263 (-0.289)
+       0.587 0.239 0.027 - 0.413 0.035 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR8";
-const probnum = "12";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-bBbCCCBB--------aabbbba--:1:-1:1:23:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR8",
+    probnum: "12",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-bBbCCCBB--------aabbbba--:1:-1:1:23:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2018 - Position 100</span>&ensp;
-<span>(CBr-22)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBr-22) &ensp; 2018 - Position 100</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play.  How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=105 White=97</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=105 White=97</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">8/7/2 is way too passive, despite’s White’s strong board. With a close race, allowing White to run with 4’s and 6’s is far too meek.<br>
+</div>
+
+<div class="description"><hr>
+8/7/2 is way too passive, despite’s White’s strong board. With a close race, allowing White to run with 4’s and 6’s is far too meek.<br>
 <br>
 The other factor is the gammon percentage. When Red hits and White fans, Red’s gammon percentage increases significantly. 8/3*, 2/1 is very clear here. Even 8/3*/2 (with no direct covers for the blot) is better than 8/7/2.<br>
 <br>
 As I have mentioned countless times before, aggression is a necessary attribute of any strong backgammon player! Your cup should always be half-full, not half-empty.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3* 2/1                     Eq.: +0.038
-       0.580 0.154 0.003 - 0.420 0.160 0.001
-    2. Cubeful 2-ply    8/3*/2                       Eq.: +0.005 (-0.033)
-       0.576 0.137 0.003 - 0.424 0.139 0.001
-    3. Cubeful 2-ply    8/2                          Eq.: -0.054 (-0.092)
-       0.538 0.060 0.001 - 0.462 0.035 0.000
-    4. Cubeful 0-ply    6/5 6/1                      Eq.: -0.192 (-0.230)
-       0.496 0.042 0.000 - 0.504 0.056 0.000
-    5. Cubeful 0-ply    11/6 2/1                     Eq.: -0.229 (-0.267)
-       0.487 0.086 0.001 - 0.513 0.116 0.001
+       0.581 0.154 0.003 - 0.419 0.161 0.001
+    2. Cubeful 2-ply    8/3*/2                       Eq.: +0.006 (-0.033)
+       0.577 0.136 0.003 - 0.423 0.139 0.001
+    3. Cubeful 2-ply    8/2                          Eq.: -0.055 (-0.093)
+       0.538 0.060 0.001 - 0.462 0.036 0.000
+    4. Cubeful 0-ply    6/5 6/1                      Eq.: -0.191 (-0.229)
+       0.497 0.042 0.000 - 0.503 0.056 0.000
+    5. Cubeful 0-ply    11/6 2/1                     Eq.: -0.228 (-0.267)
+       0.488 0.085 0.001 - 0.512 0.116 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBr";
-const probnum = "22";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-AAaBBB-Cb-B-B-----bbbbca-:1:-1:1:51:0:0:1:0:10");
+  const problem = {
+    categoryid: "CBr",
+    probnum: "22",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-AAaBBB-Cb-B-B-----bbbbca-:1:-1:1:51:0:0:1:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

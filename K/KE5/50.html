@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">つんのめってもらいましょう</span>&ensp;
-<span>(KE5-50)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KE5-50) &ensp; つんのめってもらいましょう</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w4/9</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=175 w=94</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=175 w=94</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">大きく遅れてはいるがプライム戦で優位に立てそうな局面。ここでアンカーをとってしまうと行き場のなくなった相手の死に駒に仕事をさせてしまう。１７ポイントのチェッカーをより安全な位置に持ってきてできるだけこちらのアウターをにらむビルダーを増やしておき、相手のバックマンに対してプレッシャーをかけるのがいい攻めとなっている。ヒットされることにより何枚かバックマンが増えるリスクはあるが、エースアンカーを軸にできるだけ後ろで待っていた方が相手がボードを崩した時のダメージが大きい。<br>
+</div>
+
+<div class="description"><hr>
+大きく遅れてはいるがプライム戦で優位に立てそうな局面。ここでアンカーをとってしまうと行き場のなくなった相手の死に駒に仕事をさせてしまう。１７ポイントのチェッカーをより安全な位置に持ってきてできるだけこちらのアウターをにらむビルダーを増やしておき、相手のバックマンに対してプレッシャーをかけるのがいい攻めとなっている。ヒットされることにより何枚かバックマンが増えるリスクはあるが、エースアンカーを軸にできるだけ後ろで待っていた方が相手がボードを崩した時のダメージが大きい。<br>
 <br>
 1. bar/21 17/14  Eq.: +0.677<br>
 0.584 0.113 0.005 - 0.416 0.243 0.035 CL +0.202 CF +0.677<br>
@@ -48,23 +53,31 @@
 4. bar/21 24/21  Eq.: +0.372 ( -0.305)<br>
 0.524 0.092 0.004 - 0.476 0.322 0.006 CL +0.029 CF +0.372<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KE5";
-const probnum = "50";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--a--BBCB---aB--aA-db-ccBA:1:1:1:43:0:4:0:9:10");
+  const problem = {
+    categoryid: "KE5",
+    probnum: "50",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--a--BBCB---aB--aA-db-ccBA:1:1:1:43:0:4:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

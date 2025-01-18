@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">23. The Containment Game</span>&ensp;
-<span>(BR8-42)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR8-42) &ensp; 23. The Containment Game</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.373 Blue to play 34</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=120 w=74</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=120 w=74</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:相手があなたのプライムの端にいるときは、それをヒットしなければならない。白は5ポイントボードでヒットは危険だが、青は6/2*とヒットすべきだ。これで白は最初に2を振って次に脱出するのに6を振らなければならない。3は17/14とするのが最善で決定的な8ポイントに狙いを定めている。<br>
+</div>
+
+<div class="description"><hr>
+501:相手があなたのプライムの端にいるときは、それをヒットしなければならない。白は5ポイントボードでヒットは危険だが、青は6/2*とヒットすべきだ。これで白は最初に2を振って次に脱出するのに6を振らなければならない。3は17/14とするのが最善で決定的な8ポイントに狙いを定めている。<br>
 <br>
 kinchan:一目、よくわからない。6/2*が絶対に見えるけれど、相手が66, 65を出さないと決めると、17/14, 17/13なんてのも悪くなさそう。6/2*の4の目とディバーシファイできるムーブを探せばいいのかな。。。なんて考える。というわけで、ロールアウト。<br>
 <pre>
@@ -61,34 +66,42 @@ kinchan:一目、よくわからない。6/2*が絶対に見えるけれど、�
 </pre>
 ヒットはブランダーとロールアウトは言っている。501の中でも屈指の間違いとなるのだが、、、、その理由をきちんと述べられない。<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/14 15/11                  Eq.: +0.314
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/14 15/11                  Eq.: +0.315
        0.715 0.059 0.002 - 0.285 0.097 0.001
     2. Cubeful 2-ply    17/14 17/13                  Eq.: +0.308 (-0.007)
        0.708 0.060 0.002 - 0.292 0.087 0.001
     3. Cubeful 2-ply    17/14 6/2*                   Eq.: +0.234 (-0.081)
        0.712 0.064 0.002 - 0.288 0.162 0.001
-    4. Cubeful 2-ply    17/10                        Eq.: +0.230 (-0.085)
+    4. Cubeful 2-ply    17/10                        Eq.: +0.231 (-0.084)
        0.673 0.058 0.002 - 0.327 0.084 0.000
     5. Cubeful 2-ply    17/13 15/12                  Eq.: +0.221 (-0.094)
-       0.680 0.058 0.002 - 0.320 0.117 0.002
+       0.680 0.059 0.002 - 0.320 0.117 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR8";
-const probnum = "42";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--aBBBCB-------B-B-ccbb-d-:1:-1:1:34:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR8",
+    probnum: "42",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--aBBBCB-------B-B-ccbb-d-:1:-1:1:34:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

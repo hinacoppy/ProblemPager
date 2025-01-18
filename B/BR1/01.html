@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">5. オープニング (THE OPENING)</span>&ensp;
-<span>(BR1-01)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR1-01) &ensp; 5. オープニング (THE OPENING)</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=0 w=0</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=0 w=0</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">オープニングでは来たる戦いに備えて戦力を準備する。6ポイントとミッドポイントの大きなスタックをブロッキング要員に変えよう。24ポイントにある最後尾の駒を前進させ、後方の戦力(普通はミッドポイント)とコネクションをとろう。常に相手のブロットをヒットできないか探そう。<br>
+</div>
+
+<div class="description"><hr>
+オープニングでは来たる戦いに備えて戦力を準備する。6ポイントとミッドポイントの大きなスタックをブロッキング要員に変えよう。24ポイントにある最後尾の駒を前進させ、後方の戦力(普通はミッドポイント)とコネクションをとろう。常に相手のブロットをヒットできないか探そう。<br>
 オープニングはゲームにおいて最も難しく、重要なフェーズだ。なぜならたくさんの選択が可能だからだ。もし、安全にプレイしすぎるとゲームの中盤に少しのポイントと発展性のない形になるだろう。攻撃的にやりすぎるとレースで大幅に遅れているのに気がつくだろう。<br>
 オープニングで成功する鍵はバランスだ。攻撃と防御、リスクと利点、大胆と慎重のバランスに気をつけよう。この章ではどのようにやるかを見せる。オープニングプレイにおけるいくつかの良い一般的なガイドラインは次の通りだ。<br>
 <br>
@@ -50,24 +55,32 @@
 ・ミッドポイントをストリップにしない。<br>
 ・プライム2チェッカー、アタック1チェッカー<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis"></pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR1";
-const probnum = "01";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--------------------------:0:0:0:00:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR1",
+    probnum: "01",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--------------------------:0:0:0:00:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

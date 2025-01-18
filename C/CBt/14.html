@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Back to Basics</span>&ensp;
-<span>(CBt-14)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBt-14) &ensp; Back to Basics</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=135 White=174</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=135 White=174</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Back to Basics<br>
+</div>
+
+<div class="description"><hr>
+Back to Basics<br>
 <br>
 Black studied this 42 for quite some time. He was agonising over whether to choose 24/20, 10/8 or 24/22, 10/6. In doing so he was trying to preserve his 43-pip lead while at the same time preparing to escape his lone rear checker. <br>
 <br>
@@ -48,34 +53,42 @@ Once you play 8/4, 6/4 its strengths become obvious. The problem is in making su
 <br>
 This week’s position is a classic demonstration of that principle. It also shows that you cannot play backgammon by just making moves, your need to have a plan that meets the demands of the position. Black failed to think things through and just ended up choosing a move, 24/20, 10/8 that was, in XG terms, a bad error.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 6/4                      Eq.: +0.209
-       0.554 0.164 0.006 - 0.446 0.109 0.003
-    2. Cubeful 2-ply    24/22 10/6                   Eq.: +0.206 (-0.003)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 6/4                      Eq.: +0.210
+       0.555 0.164 0.006 - 0.445 0.109 0.003
+    2. Cubeful 2-ply    24/22 10/6                   Eq.: +0.207 (-0.003)
        0.551 0.181 0.006 - 0.449 0.120 0.003
-    3. Cubeful 2-ply    24/20 10/8                   Eq.: +0.189 (-0.021)
-       0.548 0.177 0.006 - 0.452 0.125 0.003
-    4. Cubeful 0-ply    10/4                         Eq.: +0.072 (-0.138)
+    3. Cubeful 2-ply    24/20 10/8                   Eq.: +0.190 (-0.020)
+       0.549 0.176 0.006 - 0.451 0.125 0.003
+    4. Cubeful 0-ply    10/4                         Eq.: +0.070 (-0.139)
        0.517 0.148 0.004 - 0.483 0.123 0.004
-    5. Cubeful 0-ply    10/8 6/2                     Eq.: +0.066 (-0.143)
-       0.516 0.145 0.003 - 0.484 0.124 0.004
+    5. Cubeful 0-ply    10/8 6/2                     Eq.: +0.067 (-0.142)
+       0.517 0.145 0.003 - 0.483 0.125 0.004
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBt";
-const probnum = "14";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a---bECCaA-dB---b-c-b--A-:0:0:1:42:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBt",
+    probnum: "14",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a---bECCaA-dB---b-c-b--A-:0:0:1:42:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

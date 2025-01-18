@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>michy problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ベアイン　その2</span>&ensp;
-<span>(KA3-20)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KA3-20) &ensp; ベアイン　その2</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">フルプライムを作ったので、ほぼ必勝形。ただ、最善手を指さないと、勝率を落とす。</div>
 <div class="gamesituation">マネーゲーム。</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=87 白=57</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=87 白=57</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">miyukichi＞<br>
+</div>
+
+<div class="description"><hr>
+miyukichi＞<br>
 8/2*、7/2<br>
 <br>
 迷わずポイントオンしちゃいます。　<br>
@@ -47,34 +52,42 @@ miyukichi さんの書いている通りで、2通りのジョーカーで済む
 最善手：8/2* 7/2<br>
 ※ なお、正解手を選んでもギャモン勝ちはまったく増えない。ご注意を。<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    11/1*                        Eq.: +0.846
-       0.899 0.087 0.002 - 0.101 0.007 0.000
-    2. Cubeful 2-ply    11/5 6/2                     Eq.: +0.839 (-0.007)
-       0.916 0.038 0.000 - 0.084 0.002 0.000
-    3. Cubeful 0-ply    7/3 7/1*                     Eq.: +0.602 (-0.245)
-       0.812 0.064 0.001 - 0.188 0.023 0.001
-    4. Cubeful 0-ply    11/5 7/3                     Eq.: +0.536 (-0.310)
-       0.792 0.030 0.001 - 0.208 0.007 0.000
-    5. Cubeful 0-ply    7/1* 6/2                     Eq.: +0.529 (-0.317)
-       0.790 0.060 0.001 - 0.210 0.038 0.002
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/2* 7/2                     Eq.: +0.803
+       0.902 0.035 0.001 - 0.098 0.008 0.000
+    2. Cubeful 2-ply    10/4 6/1                     Eq.: +0.763 (-0.040)
+       0.885 0.039 0.001 - 0.115 0.007 0.000
+    3. Cubeful 0-ply    8/3 8/2*                     Eq.: +0.640 (-0.162)
+       0.835 0.045 0.002 - 0.165 0.020 0.000
+    4. Cubeful 0-ply    10/5 8/2*                    Eq.: +0.618 (-0.185)
+       0.826 0.042 0.002 - 0.174 0.018 0.000
+    5. Cubeful 0-ply    10/4 7/2*                    Eq.: +0.477 (-0.325)
+       0.769 0.041 0.002 - 0.231 0.026 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KA3";
-const probnum = "20";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "ccw");
-board.showBoard("XGID=--aBBCCBB-A----------bedc-:1:-1:1:65:0:0:3:0:10");
+  const problem = {
+    categoryid: "KA3",
+    probnum: "20",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--aBBCCBB-A----------bedc-:1:-1:1:65:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

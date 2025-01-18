@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2015 - Position 254</span>&ensp;
-<span>(CBc-05)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBc-05) &ensp; 2015 - Position 254</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Double Match Point. How should Red play 53?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=108 White=133</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=108 White=133</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Should Red make the five-point prime with 10/5, 8/5 (which is what I did over the board) or take a tempo with a hit to reduce White’s chances of making a full prime?<br>
+</div>
+
+<div class="description"><hr>
+Should Red make the five-point prime with 10/5, 8/5 (which is what I did over the board) or take a tempo with a hit to reduce White’s chances of making a full prime?<br>
 <br>
 It turns out that both games plans are viable. Either of the hits, 10/7*, 8/3 or the apparently risky 10/7*, 10/5 (this is double match point so put them where you want them) have identical equities and the priming play 10/5, 8/5 is a mere 0.014 behind.<br>
 <br>
 Virtually impossible to figure out over the board but I think I should have hit on principle!<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/7* 8/3                    Eq.: -0.470
-       0.265 0.094 0.005 - 0.735 0.209 0.012
-    2. Cubeful 2-ply    10/7* 10/5                   Eq.: -0.488 (-0.019)
-       0.256 0.088 0.005 - 0.744 0.264 0.015
-    3. Cubeful 2-ply    10/5 8/5                     Eq.: -0.512 (-0.042)
-       0.244 0.072 0.003 - 0.756 0.135 0.005
-    4. Cubeful 2-ply    10/7* 6/1                    Eq.: -0.519 (-0.049)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/7* 8/3                    Eq.: -0.468
+       0.266 0.094 0.005 - 0.734 0.209 0.012
+    2. Cubeful 2-ply    10/7* 10/5                   Eq.: -0.487 (-0.019)
+       0.256 0.088 0.005 - 0.744 0.265 0.015
+    3. Cubeful 2-ply    10/5 8/5                     Eq.: -0.507 (-0.039)
+       0.246 0.073 0.004 - 0.754 0.141 0.005
+    4. Cubeful 2-ply    10/7* 6/1                    Eq.: -0.518 (-0.049)
        0.241 0.082 0.004 - 0.759 0.285 0.027
-    5. Cubeful 2-ply    6/1 4/1                      Eq.: -0.584 (-0.115)
-       0.208 0.065 0.002 - 0.792 0.176 0.007
+    5. Cubeful 2-ply    6/1 4/1                      Eq.: -0.583 (-0.114)
+       0.209 0.065 0.002 - 0.791 0.177 0.007
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBc";
-const probnum = "05";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--bBD-CaC-B---a--abbbbb-A-:1:1:1:53:5:5:0:7:10");
+  const problem = {
+    categoryid: "CBc",
+    probnum: "05",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--bBD-CaC-B---a--abbbbb-A-:1:1:1:53:5:5:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

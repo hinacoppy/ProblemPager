@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2015</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 46</span>&ensp;
-<span>(E15-46)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E15-46) &ensp; Problem 46</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白からのキューブアクション</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=44 Black=128</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=44 Black=128</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='No redouble/Take#514'>1. No redouble/Take</label></td><td class='answerscore'>514</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='Redouble/Take#283'>2. Redouble/Take</label></td><td class='answerscore'>283</td></tr>
@@ -41,7 +43,10 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">白は最後の1枚が逃げ切れば勝ち、ヒットされれば負け、という局面です。この1、2手での展開が局面の帰趨を決しそうです。キューブアクションを考えるにあたって、白に平均的な目(仮に62とします)を与え、どうなるのか見てみましょう。平均的な目を与えた結果パスなら、元の局面もパスなはずです。<br>
+</div>
+
+<div class="description"><hr>
+白は最後の1枚が逃げ切れば勝ち、ヒットされれば負け、という局面です。この1、2手での展開が局面の帰趨を決しそうです。キューブアクションを考えるにあたって、白に平均的な目(仮に62とします)を与え、どうなるのか見てみましょう。平均的な目を与えた結果パスなら、元の局面もパスなはずです。<br>
 <pre>
 +13-14-15-16-17-18------19-20-21-22-23-24-+
 |                  |   | O  O  O  O  O    |
@@ -60,23 +65,31 @@
 白が62を振った後の図です。黒は13通りでヒットすることができます(64,63,61,54,51,41,44)。この13通りはまず勝つことができるでしょう。黒がキューブを持っていれば、すぐダブルパスになりそうです。では、外れる23通りはどうでしょうか。この23通りは負けるだけではなく、かなりギャモン負けしてしまいそうです。黒はダンスする可能性もありますから、少なくとも60%ぐらいギャモンで負けると思います。そうすると23通り×60%=約13通りもギャモン負けします。まとめると、白は23通り勝ち(内13通りはギャモン勝ち)、13通り負ける局面と言えます。黒は13通り勝てるとは言え、13通りギャモン負けするので、13-(13÷2)から実質的には6.5通りしか勝てません(ギャモンの価値は普通勝ちの半分)。従ってテイクに必要な9通りを大きく下回り、大パスになります。<br>
 Too Goodではないかと考えた方もいるかもしれませんが、勝率が13通りもある局面でToo Goodになることはまずありません。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E15";
-const probnum = "46";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=aEED-a--a---b----A-bbbbb--:1:1:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "E15",
+    probnum: "46",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=aEED-a--a---b----A-bbbbb--:1:1:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

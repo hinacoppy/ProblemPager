@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Patience</span>&ensp;
-<span>(CBl-49)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBl-49) &ensp; Patience</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=70 White=148</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=70 White=148</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This position was originally posted by Bill Davies. It is Double Match Point and Black has double ones to play.<br>
+</div>
+
+<div class="description"><hr>
+This position was originally posted by Bill Davies. It is Double Match Point and Black has double ones to play.<br>
 <br>
 One thing that is in short supply in the modern world is patience. We live in a society where the desire for instant gratification is the norm rather than the exception. The modern child, in the main, does not understand the concept of quietly waiting for something rather than insisting upon having it now. <br>
 <br>
@@ -50,34 +55,42 @@ Sometimes you have to accept the fact that you cannot win the game by brute forc
 <br>
 Patience is indeed a virtue.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 5/4*(2)               Eq.: -0.561
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 5/4*(2)               Eq.: -0.560
        0.277 0.122 0.010 - 0.723 0.000 0.000
-    2. Cubeful 2-ply    bar/24 5/4*(3)               Eq.: -0.577 (-0.016)
+    2. Cubeful 2-ply    bar/24 5/4*(3)               Eq.: -0.577 (-0.017)
        0.276 0.117 0.010 - 0.724 0.000 0.000
-    3. Cubeful 2-ply    bar/22 5/4*                  Eq.: -0.579 (-0.018)
-       0.270 0.121 0.013 - 0.730 0.000 0.000
-    4. Cubeful 2-ply    bar/24 5/4*(2) 3/2           Eq.: -0.587 (-0.026)
+    3. Cubeful 2-ply    bar/22 5/4*                  Eq.: -0.579 (-0.019)
+       0.271 0.121 0.013 - 0.729 0.000 0.000
+    4. Cubeful 2-ply    bar/24 5/4*(2) 3/2           Eq.: -0.587 (-0.027)
        0.267 0.124 0.010 - 0.733 0.000 0.000
-    5. Cubeful 2-ply    bar/22 3/2                   Eq.: -0.605 (-0.044)
-       0.265 0.116 0.011 - 0.735 0.000 0.000
+    5. Cubeful 2-ply    bar/22 3/2                   Eq.: -0.602 (-0.042)
+       0.266 0.116 0.011 - 0.734 0.000 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBl";
-const probnum = "49";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-bDDaE------a----bbcbb---A:0:0:1:11:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBl",
+    probnum: "49",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-bDDaE------a----bbcbb---A:0:0:1:11:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

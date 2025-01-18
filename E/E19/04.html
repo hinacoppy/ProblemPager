@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2019</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 4</span>&ensp;
-<span>(E19-04)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E19-04) &ensp; Problem 4</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白52</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=164 Black=159</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=164 Black=159</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='23/21 13/8#101'>1. 23/21 13/8</label></td><td class='answerscore'>101</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='23/18 13/11#48'>2. 23/18 13/11</label></td><td class='answerscore'>48</td></tr>
@@ -41,25 +43,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">初手から21で24/23 13/11、53で8/3 6/3と進んだ3手目の問題です。まずは2の目で11ポイントを作りましょう。自分のアウターポイント(11, 10, 9ポイント)は低く評価されがちですが、実はとても意味があり、作れる場合は大抵作る方が優ります。5の目は13/8と進め、23ポイントの駒は18ポイントに飛び出さないようにしましょう。黒はミッドポイントに駒が5枚もスタックしており、そこにいけにえを差し出してはいけません。黒の形は白を捕まえる形にはなっておらず、23ポイントに控えていてもいつでも逃げ出すことができます。<br>
 </div>
+
+<div class="description"><hr>
+初手から21で24/23 13/11、53で8/3 6/3と進んだ3手目の問題です。まずは2の目で11ポイントを作りましょう。自分のアウターポイント(11, 10, 9ポイント)は低く評価されがちですが、実はとても意味があり、作れる場合は大抵作る方が優ります。5の目は13/8と進め、23ポイントの駒は18ポイントに飛び出さないようにしましょう。黒はミッドポイントに駒が5枚もスタックしており、そこにいけにえを差し出してはいけません。黒の形は白を捕まえる形にはなっておらず、23ポイントに控えていてもいつでも逃げ出すことができます。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E19";
-const probnum = "04";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-b----E-C--AeD---b-d--bAA-:0:0:1:52:0:0:3:0:10");
+  const problem = {
+    categoryid: "E19",
+    probnum: "04",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-b----E-C--AeD---b-d--bAA-:0:0:1:52:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

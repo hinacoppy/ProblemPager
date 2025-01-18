@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Playing on Automatic</span>&ensp;
-<span>(CBj-11)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBj-11) &ensp; Playing on Automatic</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=97 White=132</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=97 White=132</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Sadly it is very easy to play without thinking at backgammon. Over time we learn the patterns of the game and then when we see a position that enables us to use one of those patterns we do so. The key is to ask yourself whether the pattern truly applies to the position in question.<br>
+</div>
+
+<div class="description"><hr>
+Sadly it is very easy to play without thinking at backgammon. Over time we learn the patterns of the game and then when we see a position that enables us to use one of those patterns we do so. The key is to ask yourself whether the pattern truly applies to the position in question.<br>
 <br>
 Black failed the test in this week’s position. When 43 tumbled out of the cup we can at least be grateful that he managed to reject 9/6, 9/5 but it would take a very weak player to make that move!<br>
 <br>
@@ -50,34 +55,42 @@ Such is the strength of Black’s position that even if you move the spare check
 <br>
 The key is never to stop thinking about your game plan and to be prepared to make adjustments when opportunities present themselves. 5/2, 5/1* may look like bravado but actually it is simply the way for Black to maximize both his game-winning and gammon-winning percentages.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/2 5/1*                     Eq.: +0.869
-       0.845 0.243 0.007 - 0.155 0.018 0.000
-    2. Cubeful 2-ply    6/2 5/2                      Eq.: +0.838 (-0.031)
-       0.842 0.217 0.004 - 0.158 0.013 0.000
-    3. Cubeful 0-ply    9/6 9/5                      Eq.: +0.623 (-0.246)
-       0.766 0.188 0.006 - 0.234 0.023 0.000
-    4. Cubeful 0-ply    9/6 5/1*                     Eq.: +0.444 (-0.425)
-       0.705 0.200 0.008 - 0.295 0.071 0.002
-    5. Cubeful 0-ply    9/2                          Eq.: +0.370 (-0.500)
-       0.678 0.197 0.009 - 0.322 0.080 0.003
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/2 5/1*                     Eq.: +0.868
+       0.845 0.242 0.007 - 0.155 0.018 0.000
+    2. Cubeful 2-ply    6/2 5/2                      Eq.: +0.839 (-0.029)
+       0.843 0.217 0.004 - 0.157 0.013 0.000
+    3. Cubeful 0-ply    9/6 9/5                      Eq.: +0.625 (-0.243)
+       0.767 0.188 0.006 - 0.233 0.023 0.000
+    4. Cubeful 0-ply    9/6 5/1*                     Eq.: +0.448 (-0.420)
+       0.707 0.200 0.008 - 0.293 0.071 0.002
+    5. Cubeful 0-ply    9/2                          Eq.: +0.360 (-0.508)
+       0.676 0.196 0.008 - 0.324 0.083 0.003
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBj";
-const probnum = "11";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-c-EDBBB---------cbabab-:1:-1:1:43:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBj",
+    probnum: "11",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a-c-EDBBB---------cbabab-:1:-1:1:43:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

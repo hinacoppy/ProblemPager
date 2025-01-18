@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">A Backgammon Lesson from Mochy</span>&ensp;
-<span>(CBt-33)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBt-33) &ensp; A Backgammon Lesson from Mochy</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=141 White=150</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=141 White=150</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I spent last week at the Cyprus Open tournament. It was a wonderful event with over 580 players in attendance. In an all-French Franck Stepler edged out Aurelien Bonnet in two hard-fought and very exciting matches. You can watch the first match with commentary by myself and others at: <br>
+</div>
+
+<div class="description"><hr>
+I spent last week at the Cyprus Open tournament. It was a wonderful event with over 580 players in attendance. In an all-French Franck Stepler edged out Aurelien Bonnet in two hard-fought and very exciting matches. You can watch the first match with commentary by myself and others at: <br>
 https://www.youtube.com/watch?v=busY6ywUM2s&amp;fbclid=IwAR1m38izHZrPZRWzGcp_qvafuazC8WCYRTHltFjf6VNPXxIzSLMqA4PcB9k<br>
 <br>
 It was a double elimination event. I lost in the first round without ever getting going. I then won two matches in the Fighters bracket and that left me facing the world number 1, Mochy, in the next round. After each winning an early point Mochy doubled me early in the next game. I slowly turned it around until we reached this week’s position.<br>
@@ -49,7 +54,7 @@ I think that given the skill disparity between the two players my redouble was p
 <br>
 This was also an object lesson in time management. When you have a difficult decision to make, TAKE YOUR TIME. Mochy needed the time to correctly evaluate the position as a take rather than dropping, which would be many player’s (including your columnist) instinctive decision.  As I have mentioned many times backgammon is a very complex game and only the very best can avoid making bad errors and blunders. By using his time and doing the necessary analysis Mochy avoided a bad mistake, something he does consistently, and hence his Number 1 world ranking.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
 2-ply cubeless equity +0.492 (Money: +0.480)
@@ -57,24 +62,32 @@ This was also an object lesson in time management. When you have a difficult dec
 Cubeful equities:
 1. No double           +0.767
 2. Double, pass        +1.000  (+0.233)
-3. Double, take        +0.758  (-0.009)
-Proper cube action: No redouble, take (3.7%)
+3. Double, take        +0.757  (-0.010)
+Proper cube action: No redouble, take (4.1%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBt";
-const probnum = "33";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=----cBCBCB-a-Aa--bbdAb--A-:1:1:1:00:1:1:0:9:10");
+  const problem = {
+    categoryid: "CBt",
+    probnum: "33",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=----cBCBCB-a-Aa--bbdAb--A-:1:1:1:00:1:1:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

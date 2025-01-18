@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2024 - Position 70</span>&ensp;
-<span>(CCm-20)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CCm-20) &ensp; 2024 - Position 70</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red trails 3-4 to 5 (Crawford). How should Red play 52?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=77 White=149</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=77 White=149</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">For a change here is a full-length article taken from one of my Times newspaper articles in 2023. My column appears every Friday morning.<br>
+</div>
+
+<div class="description"><hr>
+For a change here is a full-length article taken from one of my Times newspaper articles in 2023. My column appears every Friday morning.<br>
 <br>
 Probably the most common mistake in backgammon is to agonise over two ways to play a dice roll, call them Play A and Play B, without ever realising that there is a third choice, Play C. That move turns out to be not only viable but actually stronger than either A or B.<br>
 <br>
@@ -50,34 +55,42 @@ Meanwhile 8/3, 6/4 gives Black a much better distribution for the bear-off. 8/6,
 <br>
 None of my students has ever got this problem right because 8/3, 6/4 never makes it into their list of candidate plays. To state the obvious, if you do not see a move, you cannot play it. This problem should encourage you to consider all aspects of a position before choosing your move.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 6/4                      Eq.: +1.349
-       0.832 0.342 0.012 - 0.168 0.009 0.000
-    2. Cubeful 2-ply    8/6 8/3                      Eq.: +1.348 (-0.000)
-       0.851 0.323 0.011 - 0.149 0.002 0.000
-    3. Cubeful 2-ply    11/6 8/6                     Eq.: +1.316 (-0.033)
-       0.838 0.320 0.012 - 0.162 0.002 0.000
-    4. Cubeful 0-ply    11/9 8/3                     Eq.: +1.192 (-0.157)
-       0.752 0.344 0.013 - 0.248 0.022 0.000
-    5. Cubeful 0-ply    11/4                         Eq.: +1.171 (-0.177)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/3 6/4                      Eq.: +1.351
+       0.833 0.343 0.012 - 0.167 0.010 0.000
+    2. Cubeful 2-ply    8/6 8/3                      Eq.: +1.351 (-0.000)
+       0.852 0.324 0.011 - 0.148 0.002 0.000
+    3. Cubeful 2-ply    11/6 8/6                     Eq.: +1.318 (-0.032)
+       0.838 0.321 0.011 - 0.162 0.002 0.000
+    4. Cubeful 0-ply    11/9 8/3                     Eq.: +1.190 (-0.161)
+       0.752 0.343 0.012 - 0.248 0.023 0.000
+    5. Cubeful 0-ply    11/4                         Eq.: +1.170 (-0.181)
        0.821 0.264 0.007 - 0.179 0.006 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CCm";
-const probnum = "20";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BbBBBD-B--Ad----aacc-a---:0:0:1:52:3:4:1:5:10");
+  const problem = {
+    categoryid: "CCm",
+    probnum: "20",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BbBBBD-B--Ad----aacc-a---:0:0:1:52:3:4:1:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,42 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">29. レース</span>&ensp;
-<span>(BRa-39)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BRa-39) &ensp; 29. レース</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.464 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=77 w=87</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=77 w=87</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:レースで青は77ピップ、白は87ピップだ。青は10/77リードしている。定石ではピップ差が12%以内なら白はテイクだ。77の12%は？素早く計算する方法として、近似値を利用するのがある。77は80に近いから、77の12%は80の12%より少し小さい。80の12%は9.6だ。経験に基づく推測では、77の12%は大体9.3だ。10は9.3より大きい。白はテイクには少し遠いようだ。加えて二つの考察がある。青の駒の分布が白より少し良いし、白は4クロスオーバーだが、青は3クロスオーバーだ。この両方の要素が更にパスと主張する。<br>
+</div>
+
+<div class="description"><hr>
+501:レースで青は77ピップ、白は87ピップだ。青は10/77リードしている。定石ではピップ差が12%以内なら白はテイクだ。77の12%は？素早く計算する方法として、近似値を利用するのがある。77は80に近いから、77の12%は80の12%より少し小さい。80の12%は9.6だ。経験に基づく推測では、77の12%は大体9.3だ。10は9.3より大きい。白はテイクには少し遠いようだ。加えて二つの考察がある。青の駒の分布が白より少し良いし、白は4クロスオーバーだが、青は3クロスオーバーだ。この両方の要素が更にパスと主張する。<br>
 <br>
 kinchan:<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
 2-ply cubeless equity +0.598
@@ -51,19 +56,27 @@ Proper cube action: Double, pass
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BRa";
-const probnum = "39";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-AAABCDAAA----b-aa-dbabb--:0:0:1:00:0:0:0:0:10");
+  const problem = {
+    categoryid: "BRa",
+    probnum: "39",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-AAABCDAAA----b-aa-dbabb--:0:0:1:00:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

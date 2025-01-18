@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2021 - Position 196</span>&ensp;
-<span>(CC9-46)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CC9-46) &ensp; 2021 - Position 196</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Unlimited Games. How should Red play 54?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=134 White=189</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=134 White=189</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">A classic back game position. Red must use the five to leap White’s prime (four is more than you think). The question is how to play the four?<br>
+</div>
+
+<div class="description"><hr>
+A classic back game position. Red must use the five to leap White’s prime (four is more than you think). The question is how to play the four?<br>
 <br>
 Backgammon is a representation of war and in war all the soldiers need to contribute to the battle. The spare Red checker on the 6-pt is idle and needs to be put to work by playing 6/2*.  The idea behind the play is to be hit and thus slow down Red because, at the moment, White has good timing.<br>
 <br>
@@ -42,34 +47,42 @@ Backgammon is a representation of war and in war all the soldiers need to contri
 <br>
 The recirculation play 22/17, 6/2* is now standard technique against back games. Once learnt, hopefully never forgotten.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    22/13                        Eq.: +0.921
-       0.774 0.422 0.050 - 0.226 0.022 0.001
+       0.774 0.421 0.050 - 0.226 0.022 0.001
     2. Cubeful 2-ply    22/17 11/7                   Eq.: +0.906 (-0.015)
-       0.767 0.422 0.055 - 0.233 0.026 0.001
-    3. Cubeful 2-ply    22/17 6/2*                   Eq.: +0.890 (-0.031)
-       0.764 0.427 0.053 - 0.236 0.036 0.002
-    4. Cubeful 2-ply    22/17 13/9                   Eq.: +0.878 (-0.044)
-       0.766 0.416 0.050 - 0.234 0.038 0.002
-    5. Cubeful 2-ply    13/8 11/7                    Eq.: +0.863 (-0.059)
-       0.753 0.413 0.055 - 0.247 0.028 0.001
+       0.768 0.422 0.055 - 0.232 0.026 0.001
+    3. Cubeful 2-ply    22/17 6/2*                   Eq.: +0.889 (-0.032)
+       0.764 0.426 0.053 - 0.236 0.037 0.002
+    4. Cubeful 2-ply    22/17 13/9                   Eq.: +0.876 (-0.045)
+       0.766 0.414 0.050 - 0.234 0.038 0.002
+    5. Cubeful 2-ply    13/8 11/7                    Eq.: +0.861 (-0.061)
+       0.753 0.412 0.055 - 0.247 0.028 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CC9";
-const probnum = "46";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-cabBBCBB--A-A----bcbbB---:1:-1:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "CC9",
+    probnum: "46",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-cabBBCBB--A-A----bcbbB---:1:-1:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

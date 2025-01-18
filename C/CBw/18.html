@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2019 - Position 68</span>&ensp;
-<span>(CBw-18)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBw-18) &ensp; 2019 - Position 68</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red leads 6-3 (post-Crawford). How should Red play 62?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=76 White=125</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=76 White=125</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Timidity doesn’t win much at backgammon. Red must play 13/5*. If not hit he should be able to win the game and the match. Occasionally he will lose a gammon and the match but White only has a three point board and if hit he will nearly certainly have return shots.<br>
+</div>
+
+<div class="description"><hr>
+Timidity doesn’t win much at backgammon. Red must play 13/5*. If not hit he should be able to win the game and the match. Occasionally he will lose a gammon and the match but White only has a three point board and if hit he will nearly certainly have return shots.<br>
 <br>
 10/2 costs Red 7% game-winning chances and that is too much. 13/5* only loses a gammon 8% of the time. 10/12 is a bad error but not quite a blunder.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    13/5*                        Eq.: +0.366
-       0.748 0.511 0.003 - 0.252 0.062 0.002
-    2. Cubeful 0-ply    10/2                         Eq.: +0.204 (-0.162)
-       0.648 0.163 0.000 - 0.352 0.044 0.000
-    3. Cubeful 0-ply    10/4 6/4                     Eq.: +0.134 (-0.232)
-       0.621 0.167 0.000 - 0.379 0.052 0.000
-    4. Cubeful 0-ply    10/4 3/1                     Eq.: +0.082 (-0.284)
-       0.601 0.141 0.000 - 0.399 0.057 0.000
-    5. Cubeful 0-ply    13/11 13/7                   Eq.: -0.507 (-0.873)
-       0.398 0.114 0.001 - 0.602 0.144 0.004
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    13/5*                        Eq.: +0.367
+       0.748 0.510 0.003 - 0.252 0.062 0.002
+    2. Cubeful 0-ply    10/2                         Eq.: +0.203 (-0.164)
+       0.648 0.162 0.000 - 0.352 0.044 0.000
+    3. Cubeful 0-ply    10/4 6/4                     Eq.: +0.138 (-0.229)
+       0.623 0.166 0.000 - 0.377 0.051 0.000
+    4. Cubeful 0-ply    10/4 3/1                     Eq.: +0.082 (-0.286)
+       0.600 0.140 0.000 - 0.400 0.057 0.000
+    5. Cubeful 0-ply    13/11 13/7                   Eq.: -0.507 (-0.875)
+       0.398 0.113 0.001 - 0.602 0.145 0.004
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBw";
-const probnum = "18";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BCBBaC--bA-aB----ccc-b---:1:1:1:62:6:3:0:7:10");
+  const problem = {
+    categoryid: "CBw",
+    probnum: "18",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BCBBaC--bA-aB----ccc-b---:1:1:1:62:6:3:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

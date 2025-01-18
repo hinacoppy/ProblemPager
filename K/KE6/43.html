@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ゾロ目はセットと思っていると</span>&ensp;
-<span>(KE6-43)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KE6-43) &ensp; ゾロ目はセットと思っていると</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w1/7</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=113 w=87</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=113 w=87</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">相手のアウターポイントからヒットチャンスをもらうためにはできるだけ近づかずに待っていたい。相手のインナーにはすでにブロットがあるため、アンカーを外したところを打ち込まれてもその時点でブロットは２枚。きれいにまとめることが困難なためインナーの強さを武器に１枚残して１枚帰ってくる。これで最初の状態から１歩も動かないポイントで相手が割れるのを待つことができる。<br>
+</div>
+
+<div class="description"><hr>
+相手のアウターポイントからヒットチャンスをもらうためにはできるだけ近づかずに待っていたい。相手のインナーにはすでにブロットがあるため、アンカーを外したところを打ち込まれてもその時点でブロットは２枚。きれいにまとめることが困難なためインナーの強さを武器に１枚残して１枚帰ってくる。これで最初の状態から１歩も動かないポイントで相手が割れるのを待つことができる。<br>
 <br>
 1. 20/4                   Eq.: +0.218<br>
 0.497 0.077 0.002 - 0.503 0.033 0.000 CL +0.045 CF +0.218<br>
@@ -51,23 +56,31 @@
 5. 20/16(2) 13/5      Eq.: +0.042 ( -0.176)<br>
 0.435 0.061 0.002 - 0.565 0.039 0.000 CL -0.102 CF +0.042<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KE6";
-const probnum = "43";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=---CDBBb-----B-b---bBabcc-:1:1:1:44:0:1:0:7:10");
+  const problem = {
+    categoryid: "KE6",
+    probnum: "43",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=---CDBBb-----B-b---bBabcc-:1:1:1:44:0:1:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

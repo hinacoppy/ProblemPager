@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2021 - Position 105</span>&ensp;
-<span>(CC8-05)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CC8-05) &ensp; 2021 - Position 105</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Double Match Point. How should Red play 66?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=143 White=155</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=143 White=155</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">It is important in positions like this to keep the 8-pt as a landing point for the other checkers as they make their way around the board. Therefore 8/2(2), 7/1(2)* is too committal.<br>
+</div>
+
+<div class="description"><hr>
+It is important in positions like this to keep the 8-pt as a landing point for the other checkers as they make their way around the board. Therefore 8/2(2), 7/1(2)* is too committal.<br>
 <br>
 The only two real choices are 13/7(2), 13/1* and 13/1(2)*. XG has a mild preference for 13/1(2)*, building a second home-board point and leaving only eight return shots. Every other move is a bad error or worse.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/1*(2)                     Eq.: +0.183
-       0.592 0.179 0.004 - 0.408 0.080 0.002
-    2. Cubeful 2-ply    13/1* 13/7(2)                Eq.: +0.156 (-0.027)
-       0.578 0.134 0.002 - 0.422 0.075 0.001
+       0.591 0.180 0.003 - 0.409 0.080 0.002
+    2. Cubeful 2-ply    13/1* 13/7(2)                Eq.: +0.153 (-0.030)
+       0.576 0.133 0.002 - 0.424 0.076 0.001
     3. Cubeful 2-ply    8/2(2) 7/1*(2)               Eq.: +0.123 (-0.060)
-       0.561 0.217 0.003 - 0.439 0.109 0.003
-    4. Cubeful 2-ply    13/7(3) 8/2                  Eq.: +0.109 (-0.074)
-       0.554 0.138 0.003 - 0.446 0.086 0.002
-    5. Cubeful 2-ply    13/7 8/2(3)                  Eq.: +0.109 (-0.075)
-       0.554 0.139 0.003 - 0.446 0.100 0.002
+       0.562 0.216 0.003 - 0.438 0.109 0.003
+    4. Cubeful 2-ply    13/7 8/2(3)                  Eq.: +0.109 (-0.074)
+       0.554 0.139 0.003 - 0.446 0.101 0.002
+    5. Cubeful 2-ply    13/7(3) 8/2                  Eq.: +0.106 (-0.077)
+       0.553 0.138 0.003 - 0.447 0.087 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CC8";
-const probnum = "05";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a--a-EBC---dC---cBdb-----:0:0:1:66:2:2:0:3:10");
+  const problem = {
+    categoryid: "CC8",
+    probnum: "05",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a--a-EBC---dC---cBdb-----:0:0:1:66:2:2:0:3:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

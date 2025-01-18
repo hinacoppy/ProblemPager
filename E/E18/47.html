@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2018</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 47</span>&ensp;
-<span>(E18-47)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E18-47) &ensp; Problem 47</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白からのキューブアクション</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=41 Black=126</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=41 Black=126</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='No redouble/Take#109'>1. No redouble/Take</label></td><td class='answerscore'>109</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='Redouble/Take#0'>2. Redouble/Take</label></td><td class='answerscore'>0</td></tr>
@@ -41,7 +43,10 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">一見するとかなリヒットされてしまいそうです。では直後にどのくらいの確率でヒットされるのか、次の出目を分類して考えてみましょう。<br>
+</div>
+
+<div class="description"><hr>
+一見するとかなリヒットされてしまいそうです。では直後にどのくらいの確率でヒットされるのか、次の出目を分類して考えてみましょう。<br>
 素晴らしい目(65,64,55):5通り・・・これらの目はヒットチャンスを与えません。<br>
 良い目(21,11,22,66,33):6通り・・・これらの目はヒットチャンスを与えないか、与えたとしても11通りで、かつそれが最後のチャンスになりそうです。<br>
 普通の目:残りの25通り・・・多くのヒットチャンスを与えてしまいます。53のように28通りのショットを与えるものもあれば、63や54のように17通りしか与えないものもあります。平均すれば22通りほどのショットを与えます。 1,2が絡む目(例えば61)などは1ポイントをヒットできることも忘れずに。<br>
@@ -50,23 +55,31 @@
 <br>
 しかし、ヒットされなければかなり(70%程度)ギャモン勝ちできそうなので、白の期待値は相当高そうです。次の一振りでゲームが決まる重要な局面で、有利なのですからダブルも正解です。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E18";
-const probnum = "47";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-aEFab-------A-----bbbbba-:1:1:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "E18",
+    probnum: "47",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-aEFab-------A-----bbbbba-:1:1:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

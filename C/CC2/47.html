@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2020 - Position 97</span>&ensp;
-<span>(CC2-47)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CC2-47) &ensp; 2020 - Position 97</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 31?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=136 White=210</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=136 White=210</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">23/20, 21/20 is too passive. It allows White to make Red’s bar-point most of the time, from which he could go forward or backward.<br>
+</div>
+
+<div class="description"><hr>
+23/20, 21/20 is too passive. It allows White to make Red’s bar-point most of the time, from which he could go forward or backward.<br>
 <br>
 Red needs White to commit to a back game and therefore 8/7* will be part of the answer. After that there is very little difference between 23/20 and 12/9 for the 3. The key is to hit with 8/7* to attempt to force White into a back game. If things go well Red can build a prime and force White to crunch his home board but that is only one of very many possible outcomes from the starting position!<br>
 <br>
 Not an easy problem by any means.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/20 8/7*                   Eq.: +0.469
-       0.612 0.360 0.084 - 0.388 0.065 0.004
-    2. Cubeful 2-ply    12/9 8/7*                    Eq.: +0.458 (-0.011)
-       0.605 0.364 0.082 - 0.395 0.062 0.002
-    3. Cubeful 2-ply    23/20 21/20                  Eq.: +0.403 (-0.066)
-       0.609 0.326 0.048 - 0.391 0.053 0.001
-    4. Cubeful 2-ply    23/22 12/9                   Eq.: +0.378 (-0.091)
-       0.590 0.342 0.057 - 0.410 0.060 0.002
-    5. Cubeful 2-ply    12/9 6/5                     Eq.: +0.376 (-0.093)
-       0.589 0.343 0.057 - 0.411 0.061 0.002
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/20 8/7*                   Eq.: +0.468
+       0.613 0.360 0.083 - 0.387 0.065 0.004
+    2. Cubeful 2-ply    12/9 8/7*                    Eq.: +0.459 (-0.010)
+       0.606 0.364 0.081 - 0.394 0.062 0.002
+    3. Cubeful 2-ply    23/20 21/20                  Eq.: +0.401 (-0.067)
+       0.608 0.325 0.048 - 0.392 0.053 0.001
+    4. Cubeful 2-ply    23/22 12/9                   Eq.: +0.377 (-0.092)
+       0.591 0.340 0.056 - 0.409 0.060 0.002
+    5. Cubeful 2-ply    12/9 6/5                     Eq.: +0.375 (-0.094)
+       0.589 0.342 0.057 - 0.411 0.062 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CC2";
-const probnum = "47";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-bbbBBDaBA--AA---bbd-A-A--:1:-1:1:31:0:0:3:0:10");
+  const problem = {
+    categoryid: "CC2",
+    probnum: "47",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-bbbBBDaBA--AA---bbd-A-A--:1:-1:1:31:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

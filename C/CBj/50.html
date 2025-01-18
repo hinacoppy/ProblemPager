@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Deyong's Theory of Dice</span>&ensp;
-<span>(CBj-50)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBj-50) &ensp; Deyong's Theory of Dice</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=147 White=133</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=147 White=133</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Lewis Deyong was the Master of Ceremonies at the Monte Carlo World Championships for many years and he did an excellent job. He is also the author of “Backgammon – Learning to Win” which, as well as being highly entertaining, is also a very instructive book.<br>
+</div>
+
+<div class="description"><hr>
+Lewis Deyong was the Master of Ceremonies at the Monte Carlo World Championships for many years and he did an excellent job. He is also the author of “Backgammon – Learning to Win” which, as well as being highly entertaining, is also a very instructive book.<br>
 <br>
 One of the things he talks about in the book is his theory of dice. Basically there are three types: (a) very lucky dice where every number you want arrives promptly; (b) very unlucky dice, the exact opposite of (a) where you just cannot seem to roll anything useful; (c) middle of the road dice where the dice do not particularly favour either player.<br>
 <br>
@@ -49,34 +54,42 @@ Perhaps surprisingly the best play of all is the seemingly wide open 20/16, 13/8
 <br>
 Problems like this are at the heart of Deyong’s Dice Theory. You have to be good enough to recognise a poor roll for what it is but then have the skill to turn the poor roll into a reasonable one by the way you elect to play it. I’ll wager not many people would find 20/16, 13/8 over the board and even fewer would have the courage the make the move in live play.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16 13/8                   Eq.: +0.184
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16 13/8                   Eq.: +0.185
        0.585 0.264 0.010 - 0.415 0.114 0.004
-    2. Cubeful 2-ply    20/11                        Eq.: +0.155 (-0.029)
+    2. Cubeful 2-ply    20/11                        Eq.: +0.155 (-0.030)
        0.575 0.241 0.008 - 0.425 0.095 0.002
-    3. Cubeful 2-ply    21/16 20/16                  Eq.: +0.151 (-0.032)
+    3. Cubeful 2-ply    21/16 20/16                  Eq.: +0.152 (-0.033)
        0.586 0.230 0.008 - 0.414 0.114 0.003
-    4. Cubeful 2-ply    20/15 10/6                   Eq.: +0.136 (-0.048)
-       0.568 0.226 0.006 - 0.432 0.083 0.002
-    5. Cubeful 2-ply    20/15 13/9                   Eq.: +0.121 (-0.062)
-       0.569 0.241 0.008 - 0.431 0.111 0.003
+    4. Cubeful 2-ply    20/15 10/6                   Eq.: +0.136 (-0.049)
+       0.568 0.226 0.006 - 0.432 0.084 0.002
+    5. Cubeful 2-ply    20/15 13/9                   Eq.: +0.122 (-0.063)
+       0.569 0.241 0.008 - 0.431 0.112 0.003
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBj";
-const probnum = "50";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=a-B-B-Da--A-bC---d-eAB--b-:1:-1:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBj",
+    probnum: "50",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=a-B-B-Da--A-bC---d-eAB--b-:1:-1:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

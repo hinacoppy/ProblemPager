@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Triple Tiger</span>&ensp;
-<span>(CBq-01)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBq-01) &ensp; Triple Tiger</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=144 White=143</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=144 White=143</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">One of the topics addressed by Michihito Kageyama and Roland Herrera in their excellent book, “Opening Concepts” is that of the 'Double Tiger'. A Double Tiger occurs when you hit twice in your home board and leave two blots. The ideas behind this type of play are twofold: to make the best use of your own checkers; to take tempo away from your opponent. <br>
+</div>
+
+<div class="description"><hr>
+One of the topics addressed by Michihito Kageyama and Roland Herrera in their excellent book, “Opening Concepts” is that of the 'Double Tiger'. A Double Tiger occurs when you hit twice in your home board and leave two blots. The ideas behind this type of play are twofold: to make the best use of your own checkers; to take tempo away from your opponent. <br>
 <br>
 The latter is particularly important. A lot of top-class backgammon is about preventing your opponent from carrying out his threats. A Double Tiger play means that your opponent will have to use the whole of his next roll (unless he rolls a double) to enter his checkers from the bar. He will be the favourite (just) to hit one of your exposed checkers but you would be unlucky if he hit both of them.<br>
 <br>
@@ -50,34 +55,42 @@ I think this position demonstrates just how far backgammon theory has evolved si
 <br>
 Double and Triple Tiger plays are now part of the armoury of modern day experts so you can expect to see backgammon become an even more aggressive game over the coming years as we really begin to understand just how important tempo is within the theory of the game.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    7/2* 6/5*                    Eq.: -0.386
-       0.404 0.127 0.005 - 0.596 0.227 0.023
-    2. Cubeful 0-ply    13/8 6/5*                    Eq.: -0.598 (-0.212)
-       0.368 0.094 0.005 - 0.632 0.235 0.024
-    3. Cubeful 0-ply    7/2* 4/3                     Eq.: -0.602 (-0.215)
+       0.404 0.126 0.005 - 0.596 0.227 0.023
+    2. Cubeful 0-ply    7/2* 4/3                     Eq.: -0.601 (-0.215)
        0.347 0.084 0.003 - 0.653 0.188 0.012
-    4. Cubeful 0-ply    23/18 7/6                    Eq.: -0.610 (-0.224)
+    3. Cubeful 0-ply    13/8 6/5*                    Eq.: -0.603 (-0.216)
+       0.367 0.095 0.004 - 0.633 0.236 0.022
+    4. Cubeful 0-ply    23/18 7/6                    Eq.: -0.611 (-0.225)
        0.372 0.095 0.003 - 0.628 0.260 0.015
-    5. Cubeful 0-ply    23/18 4/3                    Eq.: -0.615 (-0.228)
-       0.371 0.093 0.003 - 0.629 0.259 0.013
+    5. Cubeful 0-ply    23/18 4/3                    Eq.: -0.616 (-0.229)
+       0.372 0.092 0.003 - 0.628 0.260 0.013
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBq";
-const probnum = "01";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--a-AaDDB---bB--bc-d-b-B--:0:0:1:51:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBq",
+    probnum: "01",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--a-AaDDB---bB--bc-d-b-B--:0:0:1:51:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

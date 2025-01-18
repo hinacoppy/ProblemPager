@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Martin Birkhan RIP</span>&ensp;
-<span>(CBj-29)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBj-29) &ensp; Martin Birkhan RIP</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=129 White=122</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=129 White=122</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Along with the rest of the backgammon world I was deeply saddened at the weekend to hear of the death of Martin Birkhan at the very young age of 47. I got to know Martin when he played in some of the London Open tournaments. He was a true gentlemen and an excellent player. We also did some commentary togther at one of the tournaments and after an interesting incident i wrote a couple of articles. In tribute  to Martin the first of those articles is posted today. See if you can solve the problem - the second article with the solution will be published tomorrow.<br>
+</div>
+
+<div class="description"><hr>
+Along with the rest of the backgammon world I was deeply saddened at the weekend to hear of the death of Martin Birkhan at the very young age of 47. I got to know Martin when he played in some of the London Open tournaments. He was a true gentlemen and an excellent player. We also did some commentary togther at one of the tournaments and after an interesting incident i wrote a couple of articles. In tribute  to Martin the first of those articles is posted today. See if you can solve the problem - the second article with the solution will be published tomorrow.<br>
 <br>
 Congratulations to Fabio Gullotta for winning the London Open Professionals Tournament for the second year in succession. He came from 2-9 down in a match to 13 to beat Raj Jansari. Raj had a great weekend because he won the London Open title and with it a superb Geoffrey Parker board. The whole tournament was a huge success and my congratulations to all involved in running it so well, especially Sean Williams, Zoe Cunningham and Mike Main.<br>
 <br>
@@ -44,32 +49,40 @@ The cube was then set to 1 in the centre, Julian doubled and Nick passed. The in
 <br>
 Was Julian’s double to 2 correct? Should Nick have passed or taken? If the cube had been on 2 on Julian’s side of the board what would the correct cube actions have been?<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.425 (Money: +0.401)
-  0.649 0.164 0.002 - 0.351 0.063 0.001
+2-ply cubeless equity +0.423 (Money: +0.400)
+  0.649 0.165 0.002 - 0.351 0.063 0.001
 Cubeful equities:
-1. Double, take        +0.973
-2. Double, pass        +1.000  (+0.027)
-3. No double           +0.888  (-0.086)
+1. Double, take        +0.971
+2. Double, pass        +1.000  (+0.029)
+3. No double           +0.886  (-0.085)
 Proper cube action: Redouble, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBj";
-const probnum = "29";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-Aa-BBBBB----Bc--e-bbB-b--:1:1:1:00:3:5:0:11:10");
+  const problem = {
+    categoryid: "CBj",
+    probnum: "29",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-Aa-BBBBB----Bc--e-bbB-b--:1:1:1:00:3:5:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

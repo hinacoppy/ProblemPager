@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2015</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 41</span>&ensp;
-<span>(E15-41)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E15-41) &ensp; Problem 41</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白31</div>
 <div class="gamesituation">5pマッチ 白0-0黒</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=22 Black=93</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=22 Black=93</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='4/3* 4/1#127'>1. 4/3* 4/1</label></td><td class='answerscore'>127</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='4/3* 3/Off#0'>2. 4/3* 3/Off</label></td><td class='answerscore'>0</td></tr>
@@ -40,26 +42,37 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">単純に勝つことだけ考えれば、4/Offがベストムーブになります。 1枚上がることができ、最小限の11ショットしか与えません。しかしここでは、白はギャモン勝ちすることも考えないといけません。4/3* 3/Offは、4/Offに比べてショット数は13通りと2通り多くなりますが、その代わり3ピップと1クロスオーバーを奪うことができます。 3ピップというとたいしたことが無いように思えますが、黒がギャモンをセーブするために必要なピップ数は16ピップ(22ポイントから6ポイント)+12ピップ(18ポイントから6ポイント)+2ピップ(最後に1枚上がるための最小ピップ)の30ピップ。ギャモンセーブをレースと考えると、残りたった30ピップのレースで3ピップも奪えるのはとても大きなことです。(擬似的に30ピップのレースポジションを作って3ピップ増やしたところ、7.5%-8%も勝率が下がりました。)<br>
+</div>
+
+<div class="description"><hr>
+単純に勝つことだけ考えれば、4/Offがベストムーブになります。 1枚上がることができ、最小限の11ショットしか与えません。しかしここでは、白はギャモン勝ちすることも考えないといけません。4/3* 3/Offは、4/Offに比べてショット数は13通りと2通り多くなりますが、その代わり3ピップと1クロスオーバーを奪うことができます。 3ピップというとたいしたことが無いように思えますが、黒がギャモンをセーブするために必要なピップ数は16ピップ(22ポイントから6ポイント)+12ピップ(18ポイントから6ポイント)+2ピップ(最後に1枚上がるための最小ピップ)の30ピップ。ギャモンセーブをレースと考えると、残りたった30ピップのレースで3ピップも奪えるのはとても大きなことです。(擬似的に30ピップのレースポジションを作って3ピップ増やしたところ、7.5%-8%も勝率が下がりました。)<br>
 ここではこのギャモン勝ちのゲインが負けるリスクを上回り、4/3* 3/Offがベストになります。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E15";
-const probnum = "41";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-DEaB--a-----------bbeca--:1:-1:1:31:0:0:0:5:10");
+  const problem = {
+    categoryid: "E15",
+    probnum: "41",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-DEaB--a-----------bbeca--:1:-1:1:31:0:0:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2018 - Position 136</span>&ensp;
-<span>(CBs-16)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBs-16) &ensp; 2018 - Position 136</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red leads 10-6 to 11 (post-Crawford). How should Red play 43?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=87 White=61</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=87 White=61</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Red needs to distribute his attackers in case White enters. !4/10, 13/10, blocking 55 is the wrong idea as that ties up two checkers on a single point.  Note that a single checker left on the 10-pt will give Red a return shot if White rolls 55.<br>
+</div>
+
+<div class="description"><hr>
+Red needs to distribute his attackers in case White enters. !4/10, 13/10, blocking 55 is the wrong idea as that ties up two checkers on a single point.  Note that a single checker left on the 10-pt will give Red a return shot if White rolls 55.<br>
 <br>
 20/17, 14/10 is fractionally better than 20/16, 13/10 but the difference is minute.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/17 14/10                  Eq.: +0.322
        0.670 0.009 0.000 - 0.330 0.016 0.000
-    2. Cubeful 2-ply    20/16 13/10                  Eq.: +0.309 (-0.013)
-       0.663 0.009 0.000 - 0.337 0.016 0.000
-    3. Cubeful 2-ply    20/16 14/11                  Eq.: +0.277 (-0.044)
+    2. Cubeful 2-ply    20/16 13/10                  Eq.: +0.310 (-0.012)
+       0.664 0.009 0.000 - 0.336 0.016 0.000
+    3. Cubeful 2-ply    20/16 14/11                  Eq.: +0.278 (-0.044)
        0.651 0.010 0.000 - 0.349 0.022 0.000
-    4. Cubeful 2-ply    20/13                        Eq.: +0.273 (-0.048)
+    4. Cubeful 2-ply    20/13                        Eq.: +0.274 (-0.048)
        0.644 0.009 0.000 - 0.356 0.013 0.000
-    5. Cubeful 2-ply    14/10 13/10                  Eq.: +0.268 (-0.053)
-       0.639 0.008 0.000 - 0.361 0.009 0.000
+    5. Cubeful 2-ply    14/10 13/10                  Eq.: +0.269 (-0.053)
+       0.640 0.008 0.000 - 0.360 0.009 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBs";
-const probnum = "16";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aBCBB-C------AA-----Acecc-:1:1:1:43:10:6:0:11:10");
+  const problem = {
+    categoryid: "CBs",
+    probnum: "16",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aBCBB-C------AA-----Acecc-:1:1:1:43:10:6:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

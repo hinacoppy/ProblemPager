@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2012</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 39</span>&ensp;
-<span>(E12-39)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E12-39) &ensp; Problem 39</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">黒61</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=33 White=76</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=33 White=76</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='6/5 6/Off#68'>1. 6/5 6/Off</label></td><td class='answerscore'>68</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='6/Off 4/3#592'>2. 6/Off 4/3</label></td><td class='answerscore'>592</td></tr>
@@ -41,30 +43,41 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">1の目で6/5だと13通りのショットしか与えないが5枚しか上がれず、1/offだと14通りのショットを与えるが6枚上がりとなる。こういった形では上がり枚数と与えるショット数のトレードオフを考えなければいけない。<br>
+</div>
+
+<div class="description"><hr>
+1の目で6/5だと13通りのショットしか与えないが5枚しか上がれず、1/offだと14通りのショットを与えるが6枚上がりとなる。こういった形では上がり枚数と与えるショット数のトレードオフを考えなければいけない。<br>
 下記のルールは多くの場合に当てはまる。<br>
 1)上がれる枚数が5枚まではショットは最小にした方がよい。<br>
 2) 5枚上がり (以上)から6枚上がり(以上)になるならば、1通リショットを増やしても上がったほうがよい。<br>
 3)7枚上がり(以上)から8枚上がり(以上)になるなら2通リショットを増やしても上がった方がよい。<br>
 ここでは2)のパターンなので上がった方が勝率が高い。また、僅かであるが2枚上がる方がギャモン率も上がるし、ヒットされた後のキューブの力も全然違う(5枚上がりだと即ダブルが来てパス)ので、2枚上がりが大差で正解となる。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E12";
-const probnum = "39";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "cw");
-board.showBoard("XGID=aCC-C-B------------cbbcbb-:1:-1:1:61:0:0:3:0:10");
+  const problem = {
+    categoryid: "E12",
+    probnum: "39",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "cw",
+    xgid: "XGID=aCC-C-B------------cbbcbb-:1:-1:1:61:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

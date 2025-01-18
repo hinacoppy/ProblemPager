@@ -3,68 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2020 - Position 116</span>&ensp;
-<span>(CC3-16)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CC3-16) &ensp; 2020 - Position 116</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play. How should Red play 44?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=123 White=139</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=123 White=139</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Ahead in the race, Red should race. Keeping the mid-point is the wrong idea here. Red should play 18/14(2), 13/9(2).  That will make it much easier to clear his outer board points.<br>
+</div>
+
+<div class="description"><hr>
+Ahead in the race, Red should race. Keeping the mid-point is the wrong idea here. Red should play 18/14(2), 13/9(2).  That will make it much easier to clear his outer board points.<br>
 18/10(2) leaves Red with problems on sixes and XG rates it as a blunder.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/14(2) 13/9(2)             Eq.: +0.811
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/14(2) 13/9(2)             Eq.: +0.812
        0.737 0.041 0.000 - 0.263 0.020 0.000
-    2. Cubeful 2-ply    18/10(2)                     Eq.: +0.792 (-0.019)
-       0.733 0.041 0.000 - 0.267 0.021 0.000
-    3. Cubeful 0-ply    18/14(2) 6/2 5/1             Eq.: +0.310 (-0.501)
-       0.610 0.055 0.000 - 0.390 0.067 0.000
-    4. Cubeful 0-ply    18/6 18/14                   Eq.: +0.298 (-0.513)
+    2. Cubeful 2-ply    18/10(2)                     Eq.: +0.794 (-0.019)
+       0.734 0.041 0.000 - 0.266 0.022 0.000
+    3. Cubeful 0-ply    18/14(2) 6/2 5/1             Eq.: +0.312 (-0.501)
+       0.611 0.056 0.000 - 0.389 0.067 0.000
+    4. Cubeful 0-ply    18/6 18/14                   Eq.: +0.298 (-0.514)
        0.603 0.064 0.001 - 0.397 0.065 0.000
-    5. Cubeful 0-ply    18/14(2) 13/5                Eq.: +0.226 (-0.585)
-       0.579 0.069 0.001 - 0.421 0.072 0.001
+    5. Cubeful 0-ply    18/14(2) 13/5                Eq.: +0.226 (-0.586)
+       0.579 0.069 0.001 - 0.421 0.073 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CC3";
-const probnum = "16";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--B-bCC-C---cB---cBbbc----:0:0:1:44:0:0:3:0:10");
+  const problem = {
+    categoryid: "CC3",
+    probnum: "16",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--B-bCC-C---cB---cBbbc----:0:0:1:44:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

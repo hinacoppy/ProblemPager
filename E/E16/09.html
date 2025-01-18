@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2016</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 9</span>&ensp;
-<span>(E16-09)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E16-09) &ensp; Problem 9</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白からのキューブアクション</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=140 Black=157</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=140 Black=157</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='No double/Take#75'>1. No double/Take</label></td><td class='answerscore'>75</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='Double/Take#0'>2. Double/Take</label></td><td class='answerscore'>0</td></tr>
@@ -40,28 +42,39 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">オープニングから、白65(24/13)、黒43(24/20 13/10)、白44(13/5*(2))、黒53(Bar/22 13/8)と進んだ五手目です。レース、陣地、バックマン、チャンスの四つの要素を比べてみましょう。<br>
+</div>
+
+<div class="description"><hr>
+オープニングから、白65(24/13)、黒43(24/20 13/10)、白44(13/5*(2))、黒53(Bar/22 13/8)と進んだ五手目です。レース、陣地、バックマン、チャンスの四つの要素を比べてみましょう。<br>
 レースは、17ピップリードで白が有利です。陣地は、5ポイントを作っているので白が有利です。バックマンは、1枚対2枚で白が有利です。チャンスは、54と63で15ポイントのブロットをヒットすることができますし、53,33,55でポイントオンできますので、少しあると言って良いでしょう。ということで、全ての項目で白が有利なのでダブルしましょう。<br>
 黒は全ての要素で不利でしたが、決定的に負けている要素はありませんし、まだまだ先が長いゲームです。アンカーを確保することができれば十分戦うことができます。なので、テイクが正解です。<br>
 なお、黒の四手目が51(Bar/24 13/8)と進んだ場合の局面、つまり黒の22ポイントのバックマンを24ポイントに移動させた局面では、白の攻めるチャンスが減っており、ダブルとノーダブルの境になります。リファレンスとして覚えておくと良いでしょう。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E16";
-const probnum = "09";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-a-a-BE-C---cD-a-d-e----A-:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "E16",
+    probnum: "09",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-a-a-BE-C---cD-a-d-e----A-:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

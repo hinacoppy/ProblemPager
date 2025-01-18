@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2019 - Position 218</span>&ensp;
-<span>(CBz-18)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBz-18) &ensp; 2019 - Position 218</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red leads 5-4 to 13.  How should Red play 22?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=150 White=133</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=150 White=133</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Quite simply, if Red does not hit he must pass White’s double. After a passive play such as bar/23,24/22(2), 8/6 he is behind in race, threat and position and being behind in all three elements normally always indicates a pass.<br>
+</div>
+
+<div class="description"><hr>
+Quite simply, if Red does not hit he must pass White’s double. After a passive play such as bar/23,24/22(2), 8/6 he is behind in race, threat and position and being behind in all three elements normally always indicates a pass.<br>
 <br>
 After bar/23, 13/9*, the other 2 can be played 24/22 or 23/21. There is virtually no equity difference between the two plays. When in doubt, hit. That might just bring Red’s three-point home board into play.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 24/22 13/9*           Eq.: -0.794
-       0.337 0.136 0.007 - 0.663 0.264 0.036
-    2. Cubeful 2-ply    bar/21 13/9*                 Eq.: -0.881 (-0.087)
-       0.321 0.130 0.006 - 0.679 0.265 0.030
-    3. Cubeful 2-ply    bar/21 24/22(2)              Eq.: -0.920 (-0.126)
-       0.289 0.078 0.003 - 0.711 0.192 0.007
-    4. Cubeful 2-ply    bar/23 24/22(2) 6/4          Eq.: -0.950 (-0.156)
-       0.282 0.069 0.002 - 0.718 0.183 0.007
-    5. Cubeful 2-ply    bar/23 24/22(2) 8/6          Eq.: -1.000 (-0.206)
-       0.264 0.054 0.001 - 0.736 0.172 0.006
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 24/22 13/9*           Eq.: -0.791
+       0.338 0.136 0.007 - 0.662 0.264 0.036
+    2. Cubeful 2-ply    bar/21 13/9*                 Eq.: -0.879 (-0.087)
+       0.321 0.129 0.006 - 0.679 0.265 0.030
+    3. Cubeful 2-ply    bar/21 24/22(2)              Eq.: -0.911 (-0.120)
+       0.290 0.078 0.003 - 0.710 0.191 0.007
+    4. Cubeful 2-ply    bar/23 24/22(2) 6/4          Eq.: -0.949 (-0.158)
+       0.283 0.069 0.002 - 0.717 0.183 0.007
+    5. Cubeful 2-ply    bar/23 24/22(2) 8/6          Eq.: -1.000 (-0.209)
+       0.263 0.054 0.001 - 0.737 0.171 0.006
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBz";
-const probnum = "18";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=---C-BDbAa---B--acbdb---BA:0:0:1:22:5:4:0:13:10");
+  const problem = {
+    categoryid: "CBz",
+    probnum: "18",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=---C-BDbAa---B--acbdb---BA:0:0:1:22:5:4:0:13:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

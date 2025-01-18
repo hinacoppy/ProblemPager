@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">To Blot or not to Blot?</span>&ensp;
-<span>(CBp-06)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBp-06) &ensp; To Blot or not to Blot?</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=83 White=115</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=83 White=115</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I doubt Shakespeare had backgammon in mind when he wrote his famous “To be or not to be, that is the question” lines in Hamlet. However, backgammon players constantly have to ask themselves whether the risk is worth the reward when voluntarily leaving a blot, particularly in the endgame where home boards are strong and a hit can be ruinous.<br>
+</div>
+
+<div class="description"><hr>
+I doubt Shakespeare had backgammon in mind when he wrote his famous “To be or not to be, that is the question” lines in Hamlet. However, backgammon players constantly have to ask themselves whether the risk is worth the reward when voluntarily leaving a blot, particularly in the endgame where home boards are strong and a hit can be ruinous.<br>
 <br>
 This week's position is a typical late-game prime versus prime situation. Black has a 54 to play. He can immediate discount 8/3, 7/3 as a candidate play as any six allows White to hit and win the game. The choice is between the completely safe 6/1, 5/1 and the riskier 7/3, 6/1.<br>
 <br>
@@ -50,34 +55,42 @@ Interestingly in the above position both plays win very nearly the same percenta
 <br>
 Now, be honest. Did you even think about the gammon percentages when you started to read this article and analyse the position? If not, don't worry, neither did any of my students to whom I have shown this position. As noted many times before, backgammon really is a very difficult game.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1 5/1                      Eq.: +0.297
-       0.691 0.046 0.001 - 0.309 0.025 0.000
-    2. Cubeful 2-ply    7/3 6/1                      Eq.: +0.288 (-0.009)
-       0.679 0.081 0.002 - 0.321 0.044 0.002
-    3. Cubeful 2-ply    8/3 7/3                      Eq.: +0.198 (-0.099)
-       0.642 0.059 0.001 - 0.358 0.032 0.001
-    4. Cubeful 0-ply    8/4 8/3                      Eq.: +0.277 (-0.020)
-       0.677 0.061 0.003 - 0.323 0.031 0.000
-    5. Cubeful 0-ply    8/4 6/1                      Eq.: +0.055 (-0.242)
-       0.591 0.057 0.002 - 0.409 0.046 0.001
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1 5/1                      Eq.: +0.295
+       0.690 0.046 0.001 - 0.310 0.026 0.000
+    2. Cubeful 2-ply    7/3 6/1                      Eq.: +0.289 (-0.006)
+       0.680 0.081 0.002 - 0.320 0.044 0.002
+    3. Cubeful 2-ply    8/3 7/3                      Eq.: +0.201 (-0.094)
+       0.643 0.060 0.001 - 0.357 0.032 0.001
+    4. Cubeful 0-ply    8/4 8/3                      Eq.: +0.277 (-0.018)
+       0.677 0.061 0.003 - 0.323 0.032 0.000
+    5. Cubeful 0-ply    8/4 6/1                      Eq.: +0.057 (-0.238)
+       0.592 0.057 0.002 - 0.408 0.046 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBp";
-const probnum = "06";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-Ab-CCCCB--------bbbbbc---:1:-1:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBp",
+    probnum: "06",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-Ab-CCCCB--------bbbbbc---:1:-1:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

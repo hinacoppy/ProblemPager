@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>michy problem</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ミューチュアル・ホールディングゲーム</span>&ensp;
-<span>(KA2-46)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KA2-46) &ensp; ミューチュアル・ホールディングゲーム</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">このタイプのゲームには、特徴的な考え方を使う。</div>
 <div class="gamesituation">11ptマッチ、スコア6-8で負けている。</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips 黒=131 白=139</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=131 白=139</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">michihito_k＞<br>
+</div>
+
+<div class="description"><hr>
+michihito_k＞<br>
 ミューチャル・ホールディングゲームでは、フレキシビリティーが大切。<br>
 スペアが十分にある状態を保ちたい。<br>
 相手にインナーブロットがあれば、その機会にアウターポイントをクリアしよう。<br>
@@ -42,32 +47,42 @@
 13/8 6/2 でミッドポイントをクリアしつつ、2ポイントをカバーするのだ。<br>
 最善手：13/8 6/2<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.253
-  0.603 0.121 0.000 - 0.397 0.073 0.001
-Cubeful equities:
-1. No double           +0.339
-2. Double, pass        +1.000  (+0.661)
-3. Double, take        +0.249  (-0.090)
-Proper cube action: No double, take (11.9%)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 6/2                     Eq.: +0.135
+       0.547 0.090 0.002 - 0.453 0.092 0.002
+    2. Cubeful 2-ply    6/2 6/1                      Eq.: +0.062 (-0.073)
+       0.529 0.084 0.001 - 0.471 0.109 0.001
+    3. Cubeful 2-ply    13/9 13/8                    Eq.: +0.052 (-0.082)
+       0.520 0.093 0.002 - 0.480 0.095 0.002
+    4. Cubeful 2-ply    13/8 7/3                     Eq.: +0.050 (-0.084)
+       0.521 0.096 0.003 - 0.479 0.104 0.002
+    5. Cubeful 2-ply    7/3 6/1                      Eq.: +0.045 (-0.090)
+       0.524 0.081 0.001 - 0.476 0.107 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KA2";
-const probnum = "46";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle5", "ccw");
-board.showBoard("XGID=--A-b-ECB---bBb--bBcb-aa--:0:0:1:54:0:0:3:0:10");
+  const problem = {
+    categoryid: "KA2",
+    probnum: "46",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--A-b-ECB---bBb--bBcb-aa--:0:0:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

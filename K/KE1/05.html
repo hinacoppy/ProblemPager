@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ベアオフのテクニック</span>&ensp;
-<span>(KE1-05)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KE1-05) &ensp; ベアオフのテクニック</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b2-w8/9</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=49 w=126</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=49 w=126</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">相手からキューブが飛んでこないスコア。こちらのギャモン勝ちだけが有効ということで勝率、ギャモン勝ち率最大のプレー。<br>
+</div>
+
+<div class="description"><hr>
+相手からキューブが飛んでこないスコア。こちらのギャモン勝ちだけが有効ということで勝率、ギャモン勝ち率最大のプレー。<br>
 5/3*/offとすると次に18通りも割れるが、6/3* 5/3とすれば5ゾロ以外安全にプレーできる。しかもここで3ポイントを埋めることによりギャップがあるポジションより今後の割れる確率を減らしている。相手に2ポイントの傷がある今なら打たれてもチャンスが残る。<br>
 <br>
 なお、スコアイーブン、センターキューブだとこのプレーはエラーになる。<br>
@@ -53,6 +58,20 @@
 0.560 0.271 0.019 - 0.440 0.000 0.000 CL +0.535 CF +0.535<br>
 <br>
 b0-w0/9 センターキューブの場合<br>
+<pre>   +24-23-22-21-20-19------18-17-16-15-14-13-+
+   | O  O  O  O  O  O |   |                  |
+   | O     O  O  O  O |   |                  |
+   |                  |   |                  |
+   |                  |   |                  |
+   |                  |   |                  |
+   |                  |BAR|      2 3         | (Cube: 1)
+   |    6     X       |   |                  |
+   |    X     X       |   |                  |
+   |    X     X       |   |                  |
+   | O  X     X     X |   |                  |
+  X| O  X  O  X  X  X |   |       O          |
+   +-1--2--3--4--5--6-------7--8--9-10-11-12-+
+</pre>
 1. 5/3*/off  Eq.: +0.625<br>
 0.571 0.311 0.034 - 0.429 0.000 0.000 CL +0.510 CF +0.625<br>
 <br>
@@ -62,23 +81,31 @@ b0-w0/9 センターキューブの場合<br>
 3. 5/off        Eq.: +0.499 ( -0.127)<br>
 0.562 0.272 0.026 - 0.438 0.000 0.000 CL +0.437 CF +0.499<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KE1";
-const probnum = "05";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-bFaEAB--a---------bbbbab-:1:-1:1:23:2:8:0:9:10");
+  const problem = {
+    categoryid: "KE1",
+    probnum: "05",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-bFaEAB--a---------bbbbab-:1:-1:1:23:2:8:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

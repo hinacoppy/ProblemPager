@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Timothy Chow</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 1-1</span>&ensp;
-<span>(TC1-01)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(TC1-01) &ensp; Problem 1-1</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Black to play 51</div>
 <div class="gamesituation">Money play with Jacoby</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=127 White=161</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=127 White=161</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">It is easy, especially over the board, to see only two plays here: 16/10* and 21/16 9/8.  However, the blot on the 8pt is not in all that much danger (there are some rolls where White will decline to break anchor to hit), and the blot on the 23pt is poorly positioned.<br>
+</div>
+
+<div class="description"><hr>
+It is easy, especially over the board, to see only two plays here: 16/10* and 21/16 9/8.  However, the blot on the 8pt is not in all that much danger (there are some rolls where White will decline to break anchor to hit), and the blot on the 23pt is poorly positioned.<br>
 Many players underestimate how weak a blot on the 23pt is when it is blocked by the opponent&#39;s 8pt.<br>
 Shift Black&#39;s blot forward a pip to the 22pt and the decision is much closer, with 21/16 9/8 apparently best (see variant below).<br>
 <pre>
@@ -44,23 +49,31 @@ Shift Black&#39;s blot forward a pip to the 22pt and the decision is much closer
 4. 21/16 8/7    eq: +0.169 (-0.120) 54.15% (G:14.67% B:0.33&)  45.85% (G: 9.23% B:0.37%)
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "TC1";
-const probnum = "01";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle5", "cw");
-board.showBoard("XGID=--BBbBB-ACa-d---Ac-cbA-A--:0:0:1:51:0:0:0:0:10");
+  const problem = {
+    categoryid: "TC1",
+    probnum: "01",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "cw",
+    xgid: "XGID=--BBbBB-ACa-d---Ac-cbA-A--:0:0:1:51:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "quiz");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/quizpager.js"></script>
 </body>
 </html>

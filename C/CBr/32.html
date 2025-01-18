@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Inflection Point</span>&ensp;
-<span>(CBr-32)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBr-32) &ensp; Inflection Point</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=81 White=103</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=81 White=103</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">The US teacher, Phil Simborg, posted this position on Facebook and admitted he had made the wrong play over the board in his chouette. He didn’t say which play he actually made but I suspect he moved something like 17/14, 2/1, bringing one of the outfield checkers closer to home. So what is the correct play?<br>
+</div>
+
+<div class="description"><hr>
+The US teacher, Phil Simborg, posted this position on Facebook and admitted he had made the wrong play over the board in his chouette. He didn’t say which play he actually made but I suspect he moved something like 17/14, 2/1, bringing one of the outfield checkers closer to home. So what is the correct play?<br>
 <br>
 I remember in one of the early London Open tournaments in the decisive game, the winner, John Hurst, rolled what everyone assumed was a lucky 65 to hit an outfield blot which led to him subsequently winning the game and match. However, when analysing the match later it became evident that his opponent should not have left John the opportunity to roll that 65, he should have played completely safe.<br>
 <br>
@@ -48,34 +53,42 @@ It is only by studying variations from the initial position that you get a fulle
 <br>
 What started out as a relatively simple position has given us a way to think about risk and reward in many similar positional types. Thus, our backgammon knowledge is once again increased by a small increment. These small increments all add up and over time we become better players, always assuming we remember the lessons!<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    17/15(2)                     Eq.: +0.430
        0.656 0.036 0.000 - 0.344 0.035 0.000
-    2. Cubeful 2-ply    17/16(2) 6/5 2/1             Eq.: +0.313 (-0.117)
-       0.615 0.037 0.000 - 0.385 0.046 0.000
-    3. Cubeful 0-ply    17/14 2/1                    Eq.: +0.307 (-0.123)
-       0.609 0.050 0.000 - 0.391 0.062 0.000
+    2. Cubeful 2-ply    17/16(2) 6/5 2/1             Eq.: +0.313 (-0.118)
+       0.615 0.037 0.000 - 0.385 0.047 0.000
+    3. Cubeful 0-ply    17/14 2/1                    Eq.: +0.309 (-0.122)
+       0.610 0.050 0.000 - 0.390 0.062 0.000
     4. Cubeful 0-ply    17/16(2) 3/1                 Eq.: +0.294 (-0.136)
-       0.608 0.037 0.000 - 0.392 0.060 0.000
+       0.609 0.037 0.000 - 0.391 0.061 0.000
     5. Cubeful 0-ply    17/16(2) 2/1(2)              Eq.: +0.287 (-0.143)
-       0.605 0.036 0.000 - 0.395 0.058 0.000
+       0.606 0.036 0.000 - 0.394 0.058 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBr";
-const probnum = "32";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BCBbCC----------Bcbbbbb--:0:0:1:11:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBr",
+    probnum: "32",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BCBbCC----------Bcbbbbb--:0:0:1:11:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

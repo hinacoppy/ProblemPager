@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 129</span>&ensp;
-<span>(CB3-29)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB3-29) &ensp; 2014 - Position 129</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">a)	Match Play. Red trails 0-1 to 7. Should Red redouble? If redoubled should White take?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=87 White=129</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=87 White=129</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">b)	Match Play. Red leads 1-0 to 7. Should Red redouble? If redoubled should White take?<br>
+</div>
+
+<div class="description"><hr>
+b)	Match Play. Red leads 1-0 to 7. Should Red redouble? If redoubled should White take?<br>
 <br>
 Unlike the last position I posted this time the dice were with me. I redoubled at 0-1, my opponent took and my next two rolls were 54 and 16. I won a gammon easily and with it the match. But what about the cube decisions?<br>
 <br>
@@ -44,34 +49,40 @@ Small differences in the score in short matches lead to huge changes in the doub
 <br>
 By the way I seem to remember that in one of Kleinman's or Robertie's book there is the analysis to prove that  Red's checker on the 23pt will take, on average, 5.5 rolls to escape.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/13                        Eq.: -0.088
-       0.474 0.005 0.000 - 0.526 0.004 0.000
-    2. Cubeful 2-ply    11/5 10/5                    Eq.: -0.274 (-0.186)
-       0.421 0.058 0.001 - 0.579 0.060 0.001
-    3. Cubeful 0-ply    11/5 8/3                     Eq.: -0.318 (-0.230)
-       0.409 0.055 0.001 - 0.591 0.071 0.002
-    4. Cubeful 0-ply    10/5 10/4                    Eq.: -0.321 (-0.233)
-       0.408 0.052 0.001 - 0.592 0.070 0.002
-    5. Cubeful 0-ply    11/6 11/5                    Eq.: -0.327 (-0.239)
-       0.407 0.051 0.001 - 0.593 0.070 0.002
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.364 (Money: +0.341)
+  0.554 0.294 0.005 - 0.446 0.065 0.002
+Cubeful equities:
+1. Double, take        +0.553
+2. Double, pass        +1.000  (+0.447)
+3. No double           +0.549  (-0.003)
+Proper cube action: Redouble, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB3";
-const probnum = "29";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aaCBBCC----A-----bdcbb-A--:1:1:1:D:0:1:0:7:10");
+  const problem = {
+    categoryid: "CB3",
+    probnum: "29",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aaCBBCC----A-----bdcbb-A--:1:1:1:D:0:1:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

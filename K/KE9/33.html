@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">どこにスペアを積んでいるか</span>&ensp;
-<span>(KE9-33)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KE9-33) &ensp; どこにスペアを積んでいるか</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b5-w4/9</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=152 w=201</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=152 w=201</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">一見安全な９ポイントメイクは４ポイントにあるアンカーの飛び出しを止め、２ポイントのスペアマンが６で飛び出せるブロックの仕方になる。相手はスペアのない４ポイントは元々外したくないわけで、このブロックの仕方は相手にプレッシャーを与えていない。そこで４ポイントからのダイレクトショットを与えてでも８ポイントを作り、２ポイントのスタックに対して穴あきプライムを完成させる。この形で６を振られてもアンカーを１つ外させたことでスタックをただで飛び出されるよりこちらの勝率は高い。<br>
+</div>
+
+<div class="description"><hr>
+一見安全な９ポイントメイクは４ポイントにあるアンカーの飛び出しを止め、２ポイントのスペアマンが６で飛び出せるブロックの仕方になる。相手はスペアのない４ポイントは元々外したくないわけで、このブロックの仕方は相手にプレッシャーを与えていない。そこで４ポイントからのダイレクトショットを与えてでも８ポイントを作り、２ポイントのスタックに対して穴あきプライムを完成させる。この形で６を振られてもアンカーを１つ外させたことでスタックをただで飛び出されるよりこちらの勝率は高い。<br>
 <br>
 ちなみにスペアの数を４ポイントの方が多い状態にすると、４ポイントからの穴あきプライムとなる９ポイントメイクがベストになり２ポイントアンカーを外させようとする意思が見える。<br>
 <br>
@@ -69,23 +74,31 @@ pips b=152 w=197<br>
 2. 11/8 10/8  Eq.: +0.623 ( -0.115)<br>
 0.633 0.323 0.026 - 0.367 0.104 0.006 CL +0.610 CF +0.623<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KE9";
-const probnum = "33";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=--eBbBBB--BAA-----bbbbBA--:1:1:1:23:5:4:0:9:10");
+  const problem = {
+    categoryid: "KE9",
+    probnum: "33",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=--eBbBBB--BAA-----bbbbBA--:1:1:1:23:5:4:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

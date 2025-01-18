@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2022</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 48</span>&ensp;
-<span>(E22-48)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E22-48) &ensp; Problem 48</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白番。最善のキューブアクションを選べ</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=79 Black=83</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=79 Black=83</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='No redouble/Take#171'>1. No redouble/Take</label></td><td class='answerscore'>171</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='Redouble/Take#0'>2. Redouble/Take</label></td><td class='answerscore'>0</td></tr>
@@ -41,25 +43,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">白の出目をパターン分けして、勝率を見積もりましょう。白は、直ちに6を振る 11 通りでは全部勝つでしょう。また6を振らない 25 通りでは、55，44，33でない限りクローズアウトを保てるので、その後に6を振る 3 割弱、すなわち 7 通り（25 通り×0.3 弱）も勝つでしょう。合計すると、白は 1 手目か 2 手目に6を振る 18 通りで勝つことができます。残りの 18 通りでは白は劣勢ですが、黒がダンスし続ける可能性もあるので、4 割勝つとすれば 7 通り（18 通り×0.4）を勝つでしょう。合計で白は 36 通りのうち 25 通り（18 通り＋7 通り）を勝つので、勝率は 70％くらいと予想できます。これだけ勝てる上に、今すぐに6を振れば大きくマーケットを失うので、白はリダブルするべきです。黒は 30％くらい勝てるので断然テイクします。<br>
 </div>
+
+<div class="description"><hr>
+白の出目をパターン分けして、勝率を見積もりましょう。白は、直ちに6を振る 11 通りでは全部勝つでしょう。また6を振らない 25 通りでは、55，44，33でない限りクローズアウトを保てるので、その後に6を振る 3 割弱、すなわち 7 通り（25 通り×0.3 弱）も勝つでしょう。合計すると、白は 1 手目か 2 手目に6を振る 18 通りで勝つことができます。残りの 18 通りでは白は劣勢ですが、黒がダンスし続ける可能性もあるので、4 割勝つとすれば 7 通り（18 通り×0.4）を勝つでしょう。合計で白は 36 通りのうち 25 通り（18 通り＋7 通り）を勝つので、勝率は 70％くらいと予想できます。これだけ勝てる上に、今すぐに6を振れば大きくマーケットを失うので、白はリダブルするべきです。黒は 30％くらい勝てるので断然テイクします。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E22";
-const probnum = "48";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=aBBBBCB-A----------ccccbA-:1:1:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "E22",
+    probnum: "48",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=aBBBBCB-A----------ccccbA-:1:1:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

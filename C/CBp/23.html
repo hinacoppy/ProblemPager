@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Back Game Perfection</span>&ensp;
-<span>(CBp-23)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBp-23) &ensp; Back Game Perfection</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=187 White=95</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=187 White=95</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">In this week's position Black has a perfectly-timed 2-3 back game. He trails by 92 pips before the roll. As a rough guide you want to be trailing by a number of pips equal to the pips represented by your two back game anchors. Playing a 2-3 back game implies that you should trail by 46+44=90 pips so Black has achieved perfection in that regard.<br>
+</div>
+
+<div class="description"><hr>
+In this week's position Black has a perfectly-timed 2-3 back game. He trails by 92 pips before the roll. As a rough guide you want to be trailing by a number of pips equal to the pips represented by your two back game anchors. Playing a 2-3 back game implies that you should trail by 46+44=90 pips so Black has achieved perfection in that regard.<br>
 <br>
 With his roll of 21 he has the option of hitting and trying to win by going forwards or he can play something like 11/9, 10/9 and wait for a later shot from his excellent back game. What should he do?<br>
 <br>
@@ -48,34 +53,42 @@ The lesson here is by all means try to win by going forward as you can always fa
 <br>
 This is a complex position with many subtleties and demonstrates the beauty of a well-played back game. Black is already a 57% favourite after 11/8* and owning the cube is very powerful in such positions. He will be itching to redouble to 4 at the appropriate moment and White may well have a difficult decision to make in the not too distant future if things go well for Black.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/8*/7                      Eq.: +0.155
-       0.562 0.099 0.002 - 0.438 0.246 0.016
-    2. Cubeful 2-ply    11/8*                        Eq.: +0.144 (-0.011)
-       0.557 0.099 0.002 - 0.443 0.246 0.015
+       0.562 0.100 0.002 - 0.438 0.246 0.016
+    2. Cubeful 2-ply    11/8*                        Eq.: +0.144 (-0.012)
+       0.557 0.099 0.002 - 0.443 0.246 0.016
     3. Cubeful 2-ply    12/11 10/8*                  Eq.: +0.109 (-0.046)
        0.548 0.094 0.002 - 0.452 0.252 0.016
     4. Cubeful 2-ply    17/16 10/8*                  Eq.: +0.092 (-0.063)
-       0.549 0.094 0.002 - 0.451 0.266 0.022
-    5. Cubeful 2-ply    11/9 10/9                    Eq.: -0.030 (-0.185)
+       0.549 0.093 0.002 - 0.451 0.266 0.022
+    5. Cubeful 2-ply    11/9 10/9                    Eq.: -0.029 (-0.185)
        0.517 0.065 0.001 - 0.483 0.290 0.015
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBp";
-const probnum = "23";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=----BBB-a-AAA-b--BbcbcBBb-:1:1:1:21:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBp",
+    probnum: "23",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=----BBB-a-AAA-b--BbcbcBBb-:1:1:1:21:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

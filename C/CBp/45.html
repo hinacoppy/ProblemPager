@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">General Rules</span>&ensp;
-<span>(CBp-45)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBp-45) &ensp; General Rules</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=55 White=39</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=55 White=39</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Many of our move selections at backgammon are governed by a set of rules and principles that we learn as we improve at the game and then we apply those rules to new positions as we encounter them in live play. Backgammon is too difficult to analyse each position from scratch and so those general rules enable us to play the game at a reasonable speed and, in the majority of situations, they also enable us to select the correct move.<br>
+</div>
+
+<div class="description"><hr>
+Many of our move selections at backgammon are governed by a set of rules and principles that we learn as we improve at the game and then we apply those rules to new positions as we encounter them in live play. Backgammon is too difficult to analyse each position from scratch and so those general rules enable us to play the game at a reasonable speed and, in the majority of situations, they also enable us to select the correct move.<br>
 <br>
 The problem as somebody once remarked is that “as a general rule all general rules are wrong”. I am not sure that I wholly agree with that statement but there are nearly always exceptions to every rule and that is particularly true in backgammon where our rules give us an overall framework within which to operate but good players know when a rule should be overlooked because of a specific tactical or even a strategic requirement.<br>
 <br>
@@ -50,34 +55,42 @@ The bots have taught us that we must re-examine long held beliefs with regard to
 <br>
 This particular example is not that difficult, but it clearly demonstrates the need to stay constantly alert. I was White in the position and benefited when my opponent played 10/5. I won a very close race by a single checker so he paid a heavy price for playing by rote rather than thinking things through.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/6 1/off                   Eq.: +0.607
        0.804 0.000 0.000 - 0.196 0.000 0.000
     2. Cubeful 2-ply    10/5                         Eq.: +0.551 (-0.056)
-       0.775 0.000 0.000 - 0.225 0.000 0.000
+       0.776 0.000 0.000 - 0.224 0.000 0.000
     3. Cubeful 2-ply    10/6 2/1                     Eq.: +0.461 (-0.146)
        0.731 0.000 0.000 - 0.269 0.000 0.000
     4. Cubeful 0-ply    6/5 6/2                      Eq.: +0.141 (-0.466)
        0.571 0.000 0.000 - 0.429 0.001 0.000
-    5. Cubeful 0-ply    10/6 5/4                     Eq.: +0.127 (-0.481)
-       0.563 0.000 0.000 - 0.437 0.009 0.000
+    5. Cubeful 0-ply    10/6 5/4                     Eq.: +0.133 (-0.474)
+       0.567 0.000 0.000 - 0.433 0.009 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBp";
-const probnum = "45";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=aCCBBBB---A------------df-:1:1:1:41:5:5:0:7:10");
+  const problem = {
+    categoryid: "CBp",
+    probnum: "45",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=aCCBBBB---A------------df-:1:1:1:41:5:5:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

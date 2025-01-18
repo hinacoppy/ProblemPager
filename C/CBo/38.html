@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Christmas with Mycroft</span>&ensp;
-<span>(CBo-38)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBo-38) &ensp; Christmas with Mycroft</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=138 White=172</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=138 White=172</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">On Christmas Day Holmes and I dined with Mycroft in the Stranger’s Room at the Diogenes Club, it being the only room in the club where talking is permitted! The club may contain the most misanthropic men in London but their catering staff are magnificent and by the time we took to the comfortable chairs to enjoy a glass of port we were well sated.<br>
+</div>
+
+<div class="description"><hr>
+On Christmas Day Holmes and I dined with Mycroft in the Stranger’s Room at the Diogenes Club, it being the only room in the club where talking is permitted! The club may contain the most misanthropic men in London but their catering staff are magnificent and by the time we took to the comfortable chairs to enjoy a glass of port we were well sated.<br>
 <br>
 As ever the conversation drifted towards backgammon and we ended up discussing whether or not it was a more complex game than chess.<br>
 <br>
@@ -54,34 +59,42 @@ As ever the conversation drifted towards backgammon and we ended up discussing w
 <br>
 “Possibly, but perhaps Sherlock and I are merely better at applying the knowledge that we already have? One thing is certain and that is that neither backgammon nor chess can be played without thinking. Both games constantly throw up new challenges and learning opportunities. That is why they have both lasted for many centuries and will survive for many centuries to come. Now, perhaps one more glass of port?”<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    20/16(2)                     Eq.: +0.418
-       0.629 0.115 0.002 - 0.371 0.074 0.001
-    2. Cubeful 2-ply    13/5                         Eq.: +0.357 (-0.061)
-       0.599 0.137 0.004 - 0.401 0.063 0.002
-    3. Cubeful 2-ply    20/18(2) 13/11(2)            Eq.: +0.285 (-0.133)
+       0.629 0.116 0.002 - 0.371 0.074 0.001
+    2. Cubeful 2-ply    13/5                         Eq.: +0.357 (-0.060)
+       0.600 0.137 0.004 - 0.400 0.063 0.002
+    3. Cubeful 2-ply    20/18(2) 13/11(2)            Eq.: +0.286 (-0.132)
        0.582 0.129 0.003 - 0.418 0.078 0.002
-    4. Cubeful 0-ply    20/18(2) 13/11 8/6           Eq.: +0.237 (-0.180)
-       0.566 0.137 0.004 - 0.434 0.089 0.003
-    5. Cubeful 0-ply    20/18(2) 13/11 5/3           Eq.: +0.231 (-0.187)
-       0.566 0.129 0.003 - 0.434 0.086 0.002
+    4. Cubeful 0-ply    20/18(2) 13/11 8/6           Eq.: +0.237 (-0.181)
+       0.567 0.137 0.004 - 0.433 0.089 0.003
+    5. Cubeful 0-ply    20/18(2) 13/11 5/3           Eq.: +0.230 (-0.188)
+       0.566 0.129 0.003 - 0.434 0.087 0.002
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBo";
-const probnum = "38";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=---BcAD-C---cCb--c-dB-----:0:0:1:22:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBo",
+    probnum: "38",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=---BcAD-C---cCb--c-dB-----:0:0:1:22:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

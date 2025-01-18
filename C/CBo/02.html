@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">A Timely Reminder</span>&ensp;
-<span>(CBo-02)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBo-02) &ensp; A Timely Reminder</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=99 White=133</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=99 White=133</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">On Armistice Day it seems appropriate to remind ourselves that backgammon is, like many ancient games, a representation of war. Its origins are long lost in the sands of time but the two armies have now been battling it out for 5,000 years or more. The second oldest game in the world, Go, is a mere fledgling with only 2,500 years of history.<br>
+</div>
+
+<div class="description"><hr>
+On Armistice Day it seems appropriate to remind ourselves that backgammon is, like many ancient games, a representation of war. Its origins are long lost in the sands of time but the two armies have now been battling it out for 5,000 years or more. The second oldest game in the world, Go, is a mere fledgling with only 2,500 years of history.<br>
 <br>
 The themes of warfare are constantly repeated in backgammon and indeed I have detailed presentation entitled “The Lessons of War” which I frequently use when teaching.<br>
 <br>
@@ -46,28 +51,36 @@ After bar/20/14 White cannot hit and make a new point unless he rolls 44 and so 
 <br>
 The risk and rewards of leaving blots in front of a stripped point (one with only two checkers on it) have been much better understood since the advent of computers. Like warfare new ideas and methods are constantly being developed and brought into play. Unlike warfare, where new weapons and tactics normally cost lives, the development of backgammon theory merely brings greater understanding and more enjoyment in the game.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/14                       Eq.: +0.217
-       0.559 0.153 0.003 - 0.441 0.096 0.003
-    2. Cubeful 2-ply    bar/20 16/10                 Eq.: +0.158 (-0.059)
+       0.559 0.153 0.003 - 0.441 0.097 0.003
+    2. Cubeful 2-ply    bar/20 16/10                 Eq.: +0.157 (-0.061)
        0.522 0.193 0.003 - 0.478 0.082 0.003
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBo";
-const probnum = "02";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BBbCBB--B--b---Acac-bb--A:0:0:1:65:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBo",
+    probnum: "02",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BBbCBB--B--b---Acac-bb--A:0:0:1:65:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

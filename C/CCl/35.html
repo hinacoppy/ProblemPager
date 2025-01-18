@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2024 - Position 35</span>&ensp;
-<span>(CCl-35)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CCl-35) &ensp; 2024 - Position 35</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">(a) Unlimited Games. How should Red play 65?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=109 White=94</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=109 White=94</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">(b) Unlimited Games. If the cube was in the centre would this change your answer?<br>
+</div>
+
+<div class="description"><hr>
+(b) Unlimited Games. If the cube was in the centre would this change your answer?<br>
 <br>
 With the cube turned 13/8, 13/7 and 20/9* have identical equities. 20/9* both wins and loses many more gammons while 13/8, 13/7 wins more games. This is difficult to judge over the board as the two moves lead to such very different game types. I would hit because that is my style but whatever choice you make you will be correct.<br>
 <br>
 With the cube in the middle and assuming the Jacoby Rule is in force 20/9* is very clear because if White hits back you will be dropping the cube in most scenarios. Now 13/8, 13/7 is an error.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 13/7                    Eq.: -0.472
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8 13/7                    Eq.: -0.473
        0.375 0.025 0.000 - 0.625 0.033 0.001
-    2. Cubeful 2-ply    20/9*                        Eq.: -0.512 (-0.040)
-       0.429 0.120 0.002 - 0.571 0.348 0.041
-    3. Cubeful 2-ply    8/2 6/1                      Eq.: -0.567 (-0.094)
+    2. Cubeful 2-ply    20/9*                        Eq.: -0.511 (-0.038)
+       0.430 0.120 0.002 - 0.570 0.348 0.041
+    3. Cubeful 2-ply    8/2 6/1                      Eq.: -0.567 (-0.095)
        0.345 0.019 0.000 - 0.655 0.043 0.001
-    4. Cubeful 0-ply    13/2                         Eq.: -0.753 (-0.280)
-       0.287 0.035 0.001 - 0.713 0.081 0.002
-    5. Cubeful 0-ply    13/7 8/3                     Eq.: -0.981 (-0.509)
-       0.251 0.029 0.000 - 0.749 0.104 0.004
+    4. Cubeful 0-ply    13/2                         Eq.: -0.758 (-0.285)
+       0.286 0.035 0.001 - 0.714 0.081 0.002
+    5. Cubeful 0-ply    13/7 8/3                     Eq.: -0.980 (-0.507)
+       0.252 0.029 0.000 - 0.748 0.104 0.004
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CCl";
-const probnum = "35";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-BABBAB-Aa--bB----bcBbbc--:1:-1:1:65:0:0:2:0:10");
+  const problem = {
+    categoryid: "CCl",
+    probnum: "35",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-BABBAB-Aa--bB----bcBbbc--:1:-1:1:65:0:0:2:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

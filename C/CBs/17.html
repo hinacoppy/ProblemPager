@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">World Championship 2018</span>&ensp;
-<span>(CBs-17)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBs-17) &ensp; World Championship 2018</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=78 White=83</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=78 White=83</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">The 50th World Backgammon Championships took place in Monte Carlo last week. The event was advertised as the 43rd Championship but that is because the numbering system went awry some years ago. Bill Robertie proved conclusively in his article on the topic last year (see https://thegammonpress.com/world-backgammon-championship-1/) that 2018 would be the 50th Championship so I will use his numbering system now and in the future. What a shame that the most famous winner of them all, Paul Magriel (1978), passed away earlier this year and could not witness the landmark occasion.<br>
+</div>
+
+<div class="description"><hr>
+The 50th World Backgammon Championships took place in Monte Carlo last week. The event was advertised as the 43rd Championship but that is because the numbering system went awry some years ago. Bill Robertie proved conclusively in his article on the topic last year (see https://thegammonpress.com/world-backgammon-championship-1/) that 2018 would be the 50th Championship so I will use his numbering system now and in the future. What a shame that the most famous winner of them all, Paul Magriel (1978), passed away earlier this year and could not witness the landmark occasion.<br>
 <br>
 And what a landmark it turned out to be. In the history of the championship there have been four female World Champions: Carol Crawford (1973), Lee Genud (1981), Katie Scalamandre (2000) and Akiko Yazawa (2014).  This year Akiko became the first woman ever to become a double World Champion. She remained unbeaten throughout the week in the double elimination event.<br>
 <br>
@@ -56,10 +61,10 @@ This passage of play demonstrates just how difficult match play backgammon can b
 <br>
 Congratulations also to UK players Raj Jansari, for reaching the semi-finals of the undefeated bracket, Martin Barkwill, who was part of the three-man team that won the Team Championship, and of course to Lawrence Powell on his bronze medal for finishing third.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.629 (Money: +0.629)
+2-ply cubeless equity +0.628 (Money: +0.629)
   0.803 0.023 0.000 - 0.197 0.001 0.000
 Cubeful equities:
 1. Double, pass        +1.000
@@ -69,19 +74,27 @@ Proper cube action: Double, pass
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBs";
-const probnum = "17";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBbDCBB--------a--bbbcc-:0:0:1:00:4:9:0:19:10");
+  const problem = {
+    categoryid: "CBs",
+    probnum: "17",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--BBbDCBB--------a--bbbcc-:0:0:1:00:4:9:0:19:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

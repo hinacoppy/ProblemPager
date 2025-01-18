@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Changing Plans</span>&ensp;
-<span>(CBk-05)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBk-05) &ensp; Changing Plans</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=214 White=100</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=214 White=100</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Black had been playing a well-timed 2-4 back game when this double four tumbled out of his dice cup. Noticing that he could put two White checkers on the bar he immediately switched to an attacking game plan and swiftly played 16/12, 15/11*, 8/4(2)*.  <br>
+</div>
+
+<div class="description"><hr>
+Black had been playing a well-timed 2-4 back game when this double four tumbled out of his dice cup. Noticing that he could put two White checkers on the bar he immediately switched to an attacking game plan and swiftly played 16/12, 15/11*, 8/4(2)*.  <br>
 <br>
 He failed to contain the two White checkers and ended up with a badly timed back game from which there was no recovery. He lost a single game. So, was Black unlucky or did he misplay his 44?<br>
 <br>
@@ -46,34 +51,42 @@ Look at the resultant position after 16/12, 15/11*, 13/9(2). Now Black has a fou
 <br>
 It is important to recognize game changing rolls and even more important to take the time to decide upon the right game plan. Here Black was guilty of playing on automatic. Two minutes thought would probably have led him to make the much stronger priming play. XG rates Black’s actual play as a double blunder, showing just how costly selecting the wrong game plan can be.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/12 15/11* 13/9(2)         Eq.: +0.349
        0.618 0.143 0.003 - 0.382 0.232 0.011
-    2. Cubeful 2-ply    15/11*/7 13/9(2)             Eq.: +0.164 (-0.185)
+    2. Cubeful 2-ply    15/11*/7 13/9(2)             Eq.: +0.165 (-0.185)
        0.568 0.124 0.002 - 0.432 0.280 0.015
     3. Cubeful 0-ply    16/12 15/11* 8/4*(2)         Eq.: +0.151 (-0.198)
        0.565 0.097 0.003 - 0.435 0.256 0.015
     4. Cubeful 0-ply    15/11* 13/9 8/4*(2)          Eq.: +0.141 (-0.208)
        0.563 0.102 0.003 - 0.437 0.263 0.018
-    5. Cubeful 0-ply    15/11*/7 8/4*(2)             Eq.: +0.120 (-0.229)
-       0.555 0.092 0.002 - 0.445 0.258 0.016
+    5. Cubeful 0-ply    15/11*/7 8/4*(2)             Eq.: +0.122 (-0.227)
+       0.556 0.092 0.002 - 0.444 0.257 0.016
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBk";
-const probnum = "05";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=----a-B-B-Ba-B-AAc-ccCbBb-:1:1:1:44:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBk",
+    probnum: "05",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=----a-B-B-Ba-B-AAc-ccCbBb-:1:1:1:44:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2024</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 21</span>&ensp;
-<span>(E24-21)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E24-21) &ensp; Problem 21</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白番。出目31の最善手を選ベ</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=135 Black=146</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=135 Black=146</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='24/20#185'>1. 24/20</label></td><td class='answerscore'>185</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='8/4*#134'>2. 8/4*</label></td><td class='answerscore'>134</td></tr>
@@ -40,29 +42,40 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">24/20のようにゆっくりした手を選ぶと、黒にアンカーを作られたり1ポイントをヒットされたりして立ち直る余地を与えます。白は攻め駒が11枚のブリッツ態勢なので、うまく攻めを繋げる手を探しましょう。黒のアウターブロットの存在もブリッツを支持します。<br>
+</div>
+
+<div class="description"><hr>
+24/20のようにゆっくりした手を選ぶと、黒にアンカーを作られたり1ポイントをヒットされたりして立ち直る余地を与えます。白は攻め駒が11枚のブリッツ態勢なので、うまく攻めを繋げる手を探しましょう。黒のアウターブロットの存在もブリッツを支持します。<br>
 <br>
 8/4* は次に4ポイントを作ろうとする手ですが、インナーにダブルブロットを晒してしまい、どちらかがヒットされると面白くありません。そこで 5/4* 4/1 が工夫した手で、インナーブロットが1枚で済みます。5ポイントは崩れてしまいますが、代わりに1ポイントが作れるので問題ありません。ブリッツ中は5ポイントも1ポイントもほぼ同じ価値を持ちます。<br>
 <br>
 一般にインナーブロックを崩しながらのヒットを「バナナスプリッ卜」と呼びますが、今回の 5/4* 4/1 もその一種です。ブリッツ中にたまに現れる手なので狙ってみましょう。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
+<script src="/js/fontawesome-inuse.min.js" defer></script>
 <script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E24";
-const probnum = "21";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=aA-BaBB-B-B-bB-a-d-dAb--A-:0:0:1:31:0:0:3:0:10");
+  const problem = {
+    categoryid: "E24",
+    probnum: "21",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=aA-BaBB-B-B-bB-a-d-dAb--A-:0:0:1:31:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

@@ -3,70 +3,83 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2022 - Position 77</span>&ensp;
-<span>(CCc-27)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CCc-27) &ensp; 2022 - Position 77</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red leads 3-2 to 11. How should Red play 41?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=160 White=148</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=160 White=148</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I don’t think this problem is particularly easy.<br>
+</div>
+
+<div class="description"><hr>
+I don’t think this problem is particularly easy.<br>
 Red’s position runs the danger of crashing and he doesn’t have the timing for a back game.<br>
 Over the board 24/23, 5/1* was tried but that was too ambitious. Red should play this as 5-pt holding game and after 24/20, preparing to run that checker the only sensible ace is 6/5. If he can then run one of the checkers on White’s 5-pt his position will be fine. After 24/23, 5/1* his fours could cause him severe problems. That play is a double blunder while 6/1* is merely a single blunder. The hit does nothing as Red doesn’t have the ammunition for an attack.<br>
 Ugly as it looks 24/20, 6/5 is the correct play.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 6/5                    Eq.: -0.400
-       0.397 0.086 0.002 - 0.603 0.149 0.005
-    2. Cubeful 2-ply    6/1*                         Eq.: -0.427 (-0.027)
-       0.403 0.108 0.003 - 0.597 0.191 0.009
-    3. Cubeful 2-ply    5/1* 2/1                     Eq.: -0.454 (-0.055)
-       0.397 0.108 0.003 - 0.603 0.192 0.009
-    4. Cubeful 2-ply    24/23 5/1*                   Eq.: -0.469 (-0.069)
-       0.387 0.100 0.003 - 0.613 0.186 0.009
-    5. Cubeful 0-ply    24/23 6/2                    Eq.: -0.588 (-0.188)
-       0.347 0.089 0.003 - 0.653 0.178 0.006
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 6/5                    Eq.: -0.397
+       0.398 0.086 0.002 - 0.602 0.149 0.005
+    2. Cubeful 2-ply    6/1*                         Eq.: -0.423 (-0.026)
+       0.404 0.108 0.003 - 0.596 0.191 0.009
+    3. Cubeful 2-ply    5/1* 2/1                     Eq.: -0.450 (-0.054)
+       0.398 0.108 0.003 - 0.602 0.192 0.009
+    4. Cubeful 2-ply    24/23 5/1*                   Eq.: -0.467 (-0.070)
+       0.388 0.100 0.003 - 0.612 0.186 0.009
+    5. Cubeful 0-ply    24/23 6/2                    Eq.: -0.590 (-0.193)
+       0.347 0.089 0.003 - 0.653 0.179 0.006
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CCc";
-const probnum = "27";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-aB-bCC-B---a---cb-bCbbAA-:0:0:1:41:3:2:0:11:10");
+  const problem = {
+    categoryid: "CCc",
+    probnum: "27",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-aB-bCC-B---a---cb-bCbbAA-:0:0:1:41:3:2:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">３兎を追わず</span>&ensp;
-<span>(KEa-18)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KEa-18) &ensp; ３兎を追わず</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=106 w=148</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=106 w=148</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">こちらはバックマンを安全に逃がせばいいだけだが前途は多難。ピップの遅れている相手はアンカーも保持していることだしルースヒットも厭わず敢行してくることが予想されるためこちらも相手のバックマンを自由にさせないプレーが必要。ここで１０ポイントを外してしまうと後ろの３枚すべての動きが楽になってしまい捕まえておくのが困難になる。ここで４ポイントを作るとアンカーの２枚にとっては何でもないがエースの１枚に対して強い穴あきプライムができる。重ねる４、ヒットの３の目が向こう側のヒットの目とデュプリケーションになっていて相手のいい目を限定的にしている点も大きい。<br>
+</div>
+
+<div class="description"><hr>
+こちらはバックマンを安全に逃がせばいいだけだが前途は多難。ピップの遅れている相手はアンカーも保持していることだしルースヒットも厭わず敢行してくることが予想されるためこちらも相手のバックマンを自由にさせないプレーが必要。ここで１０ポイントを外してしまうと後ろの３枚すべての動きが楽になってしまい捕まえておくのが困難になる。ここで４ポイントを作るとアンカーの２枚にとっては何でもないがエースの１枚に対して強い穴あきプライムができる。重ねる４、ヒットの３の目が向こう側のヒットの目とデュプリケーションになっていて相手のいい目を限定的にしている点も大きい。<br>
 <br>
 1. 8/4 7/4    Eq.: +0.244<br>
 0.542 0.202 0.008 - 0.458 0.095 0.003 CL +0.201 CF +0.244<br>
@@ -48,23 +53,31 @@
 4. 8/1*         Eq.: -0.153 ( -0.397)<br>
 0.456 0.150 0.003 - 0.544 0.148 0.007 CL -0.090 CF -0.153<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KEa";
-const probnum = "18";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-aBB-bCCB-B-b----bbbbAb---:0:0:1:43:0:0:0:7:10");
+  const problem = {
+    categoryid: "KEa",
+    probnum: "18",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-aBB-bCCB-B-b----bbbbAb---:0:0:1:43:0:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2019</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 31</span>&ensp;
-<span>(E19-31)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E19-31) &ensp; Problem 31</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白61</div>
 <div class="gamesituation">11pマッチ 白10-10黒</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=143 Black=128</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=143 Black=128</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='Bar/24 21/15#0'>1. Bar/24 21/15</label></td><td class='answerscore'>0</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='Bar/24 13/7#74'>2. Bar/24 13/7</label></td><td class='answerscore'>74</td></tr>
@@ -40,25 +42,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">スコアに注目してください。お互いにあと1点とれば勝ちのスコアです。このスコアはDMP(Double Match Point)と呼ばれ、ギャモン負けもギャモン勝ちも全く関係ありません。勝率が一番高い手を考えることに集中してください。正解はBar/24 21/15と飛び出す手です。一見とても危険に思えますが、自分のボードをキープし、ヒットされたときに最も多くのリターンヒットを産み出します。ギャモン負けのリスクがありますが、このスコアでは無関係です。Bar/24 13/7ではダブルショットを残しますし、打たれた後にリターンヒットがほとんどありません。Bar/24 7/1では駒を1枚死なせてしまいます。ピップカウントでリードしていない限り、駒を死なせるのは大抵悪手です。なお、正解の21/15はマネーゲームや通常のスコアではギャモン負けのリスクが高く、危険過ぎます。このスコアならではのムーブと言えます。<br>
 </div>
+
+<div class="description"><hr>
+スコアに注目してください。お互いにあと1点とれば勝ちのスコアです。このスコアはDMP(Double Match Point)と呼ばれ、ギャモン負けもギャモン勝ちも全く関係ありません。勝率が一番高い手を考えることに集中してください。正解はBar/24 21/15と飛び出す手です。一見とても危険に思えますが、自分のボードをキープし、ヒットされたときに最も多くのリターンヒットを産み出します。ギャモン負けのリスクがありますが、このスコアでは無関係です。Bar/24 13/7ではダブルショットを残しますし、打たれた後にリターンヒットがほとんどありません。Bar/24 7/1では駒を1枚死なせてしまいます。ピップカウントでリードしていない限り、駒を死なせるのは大抵悪手です。なお、正解の21/15はマネーゲームや通常のスコアではギャモン負けのリスクが高く、危険過ぎます。このスコアならではのムーブと言えます。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E19";
-const probnum = "31";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-B--aBDBa---bB---bbcbBb--A:0:0:1:61:10:10:0:11:10");
+  const problem = {
+    categoryid: "E19",
+    probnum: "31",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-B--aBDBa---bB---bbcbBb--A:0:0:1:61:10:10:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

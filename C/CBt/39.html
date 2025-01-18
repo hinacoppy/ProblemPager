@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">A Backgammon Lesson from Mochy - Part 2</span>&ensp;
-<span>(CBt-39)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBt-39) &ensp; A Backgammon Lesson from Mochy - Part 2</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=78 White=66</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=78 White=66</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This is the second article on my match against Mochy from the Cyprus tournament. After he accepted my redouble to 4 in the position discussed last week he slowly but surely gained the advantage until we reached this week’s position.  Mochy is playing Black. At this point he redoubled me to 8, potentially putting the match on the line. Should I accept the redouble to 8?<br>
+</div>
+
+<div class="description"><hr>
+This is the second article on my match against Mochy from the Cyprus tournament. After he accepted my redouble to 4 in the position discussed last week he slowly but surely gained the advantage until we reached this week’s position.  Mochy is playing Black. At this point he redoubled me to 8, potentially putting the match on the line. Should I accept the redouble to 8?<br>
 <br>
 On the previous set of moves Mochy had made one of his few errors in the match when he played his 64 by moving 7/3, 7/1 instead of the correct 8/4, 8/2. Sadly, his error paid off when I rolled 33 and had to crash my home board.<br>
 <br>
@@ -50,10 +55,10 @@ In the end there wasn’t much in the PR ratings. Mochy played at 2.69 while my 
 <br>
 Both positions from the match that I have discussed added to my backgammon knowledge, particularly the first one. Both were key doubling decisions and let me remind you that such decisions are the key to winning backgammon. As Magriel famously said, “good checker play will never compensate you for the bad errors you make with the doubling cube”. Hopefully, I will be able to reuse that learning in future matches. We shall see.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.492 (Money: +0.491)
+2-ply cubeless equity +0.493 (Money: +0.491)
   0.712 0.070 0.000 - 0.288 0.004 0.000
 Cubeful equities:
 1. Double, take        +0.862
@@ -63,19 +68,27 @@ Proper cube action: Redouble, take
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBt";
-const probnum = "39";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-ABCBbC-B--B---------abfd-:2:1:1:00:1:1:0:9:10");
+  const problem = {
+    categoryid: "CBt",
+    probnum: "39",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-ABCBbC-B--B---------abfd-:2:1:1:00:1:1:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

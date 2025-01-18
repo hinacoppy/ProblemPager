@@ -3,62 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Osaka Open Quiz</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 8 (takadaleft Quiz 2024)</span>&ensp;
-<span>(QZb-08)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(QZb-08) &ensp; Problem 8 (takadaleft Quiz 2024)</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Black to Play 21</div>
 <div class="gamesituation">7 point match b3-w3/7</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=167 White=113</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=167 White=113</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description"><pre>
-Bar/22         eq: -1.127           21.92% (G:2.54% B:0.28%) 78.08% (G:40.97% B:18.49%)
-Bar/23* 5/4*   eq: -1.298 (-0.171)  17.87% (G:1.90% B:0.29%) 82.13% (G:43.19% B:17.40%)
-Bar/23* 23/22  eq: -1.306 (-0.179)  15.51% (G:1.69% B:0.15%) 84.49% (G:39.28% B:14.02%)
-Bar/23* 24/23  eq: -1.313 (-0.186)  15.14% (G:1.52% B:0.14%) 84.86% (G:39.20% B:12.61%)
-Bar/23* 7/6    eq: -1.379 (-0.252)  14.45% (G:1.21% B:0.20%) 85.55% (G:41.58% B:14.87%)
+</div>
+
+<div class="description"><hr>
+<pre>
+1. Bar/22         eq: -1.127           21.92% (G:2.54% B:0.28%) 78.08% (G:40.97% B:18.49%)
+2. Bar/23* 5/4*   eq: -1.298 (-0.171)  17.87% (G:1.90% B:0.29%) 82.13% (G:43.19% B:17.40%)
+3. Bar/23* 23/22  eq: -1.306 (-0.179)  15.51% (G:1.69% B:0.15%) 84.49% (G:39.28% B:14.02%)
+4. Bar/23* 24/23  eq: -1.313 (-0.186)  15.14% (G:1.52% B:0.14%) 84.86% (G:39.20% B:12.61%)
+5. Bar/23* 7/6    eq: -1.379 (-0.252)  14.45% (G:1.21% B:0.20%) 85.55% (G:41.58% B:14.87%)
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "QZb";
-const probnum = "08";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=----aCCCB----a--bbbbbb-aCA:1:1:1:21:3:3:0:7:10");
+  const problem = {
+    categoryid: "QZb",
+    probnum: "08",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=----aCCCB----a--bbbbbb-aCA:1:1:1:21:3:3:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "quiz");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/quizpager.js"></script>
 </body>
 </html>

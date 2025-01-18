@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Timothy Chow</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 2-1</span>&ensp;
-<span>(TC1-16)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(TC1-16) &ensp; Problem 2-1</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Black to play 32</div>
 <div class="gamesituation">Money play with Jacoby</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=174 White=136</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=174 White=136</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">When this position came up OTB, I played 7/5 and looked around for a 3. But 24/22 is mandatory here, and then the only plausible 3 is 8/5, making the 5pt. I have found it to be a surprisingly good rule of thumb that if your opponent has an advanced anchor while you still have a 24pt anchor, then you  must  try to get an advanced anchor yourself.<br>
+</div>
+
+<div class="description"><hr>
+When this position came up OTB, I played 7/5 and looked around for a 3. But 24/22 is mandatory here, and then the only plausible 3 is 8/5, making the 5pt. I have found it to be a surprisingly good rule of thumb that if your opponent has an advanced anchor while you still have a 24pt anchor, then you  must  try to get an advanced anchor yourself.<br>
 Here, White&#39;s strong board would have made me balk at playing 24/22 8/5 and leaving a double shot even if I had seen that play, but actually, White&#39;s strong board makes it even more urgent to get a better anchor.<br>
 <br>
 In the variant position, I have changed the roll to 42, and anchoring on the 20pt comes out on top by a sizable margin (according to XGR+) despite many seemingly plausible alternatives.<br>
@@ -46,23 +51,31 @@ In the variant position, I have changed the roll to 42, and anchoring on the 20p
 5. 24/22 5/2 eq: -0.737 (-0.210) 34.52% (G:6.68% B:0.26%)  65.48% (G:25.51% B:1.51%)
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "TC1";
-const probnum = "16";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle5", "cw");
-board.showBoard("XGID=----bADAB---cD--ab-c-bAbB-:0:0:1:32:0:0:0:0:10");
+  const problem = {
+    categoryid: "TC1",
+    probnum: "16",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "cw",
+    xgid: "XGID=----bADAB---cD--ab-c-bAbB-:0:0:1:32:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "quiz");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/quizpager.js"></script>
 </body>
 </html>

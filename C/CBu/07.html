@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">More on Broken Primes</span>&ensp;
-<span>(CBu-07)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBu-07) &ensp; More on Broken Primes</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=120 White=112</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=120 White=112</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This position occurred this week when I was running a training session for relative beginners. All of the class gave virtually no thought to doubling this position as Black, but I stopped them rolling so we could do some analysis. Long experience of broken primes over the last few years has taught me just how powerful they can be. <br>
+</div>
+
+<div class="description"><hr>
+This position occurred this week when I was running a training session for relative beginners. All of the class gave virtually no thought to doubling this position as Black, but I stopped them rolling so we could do some analysis. Long experience of broken primes over the last few years has taught me just how powerful they can be. <br>
 <br>
 My students did not have the benefit of having a huge number of similar reference positions to call upon, but I did. Remember that most doubling decisions are made by reference to one’s store of backgammon knowledge.  Of course, we add calculation on top of the initial subjective analysis to arrive at a decision, but you cannot play top-class backgammon without having a personal library of thousands of reference positions.<br>
 <br>
@@ -50,25 +55,33 @@ My opinion was that this was indeed a correct double for Black. My students were
 <br>
 A long rollout shows that the double is correct, and it is an error not to double now. The take is, of course, very easy. I would not expect many players to drop as White, but you never know in backgammon. The key point is to be able to recognise that Black has a double in the initial position and to be able to do that you need a reasonable amount of experience. That is why both playing experience and hours of study are necessary to become an expert at the game.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">There are no legal moves.
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBu";
-const probnum = "07";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--bB-CCBB---bB-----bbbbabA:0:0:1:34:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBu",
+    probnum: "07",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--bB-CCBB---bB-----bbbbabA:0:0:1:34:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

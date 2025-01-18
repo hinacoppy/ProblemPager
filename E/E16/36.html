@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2016</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 36</span>&ensp;
-<span>(E16-36)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E16-36) &ensp; Problem 36</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白21</div>
 <div class="gamesituation">9pマッチ 白2-0黒</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=33 Black=142</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=33 Black=142</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='5/4 3/1#221'>1. 5/4 3/1</label></td><td class='answerscore'>221</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='5/3 4/3#0'>2. 5/3 4/3</label></td><td class='answerscore'>0</td></tr>
@@ -40,25 +42,36 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">黒がギャモンセーブするために必要なピップ(最低1枚上がるまでに必要なピップ)を数えてみると、最低69ピップも必要です。ヒットさえされなければ白のギャモン勝ちは間違いなさそうです。そこで、最も安全なムーブを探しましょう。5/4 3/1は次にショットを与える目が無いのですが、4ポイントをクリアする目もゾロ目しかありません。ほとんどの場合で、結局次にショットを与える形になります。特に62,52,42,32を振ると、目も当てられない悪形になります。5/3 1/Offは1枚上がれていますが、これも次に4ポイントをクリアする目がありません。正解の5/3 4/3は、次にほとんどの目で4ポイントをクリアすることができ、最も安全なムーブです。なお、黒のピップがもっと進んでいて、ギャモンで勝てるかどうか際どいポジションならば、1枚でも多く上がる5/3 1/Offが正解になります。<br>
 </div>
+
+<div class="description"><hr>
+黒がギャモンセーブするために必要なピップ(最低1枚上がるまでに必要なピップ)を数えてみると、最低69ピップも必要です。ヒットさえされなければ白のギャモン勝ちは間違いなさそうです。そこで、最も安全なムーブを探しましょう。5/4 3/1は次にショットを与える目が無いのですが、4ポイントをクリアする目もゾロ目しかありません。ほとんどの場合で、結局次にショットを与える形になります。特に62,52,42,32を振ると、目も当てられない悪形になります。5/3 1/Offは1枚上がれていますが、これも次に4ポイントをクリアする目がありません。正解の5/3 4/3は、次にほとんどの目で4ポイントをクリアすることができ、最も安全なムーブです。なお、黒のピップがもっと進んでいて、ギャモンで勝てるかどうか際どいポジションならば、1枚でも多く上がる5/3 1/Offが正解になります。<br>
 </div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E16";
-const probnum = "36";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-DbDCAaa----a-----abcb-b--:1:-1:1:21:2:0:0:9:10");
+  const problem = {
+    categoryid: "E16",
+    probnum: "36",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-DbDCAaa----a-----abcb-b--:1:-1:1:21:2:0:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

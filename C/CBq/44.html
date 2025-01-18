@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Match Play Complexity</span>&ensp;
-<span>(CBq-44)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBq-44) &ensp; Match Play Complexity</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=135 White=80</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=135 White=80</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">I have constantly reiterated just how complex match play can be, and much of that complexity arises from understanding the use of the doubling cube, particularly in short matches or towards the end of a long match where the scores are close. The key thing in any match is not how many points you have already won but how many more you need to win the match.<br>
+</div>
+
+<div class="description"><hr>
+I have constantly reiterated just how complex match play can be, and much of that complexity arises from understanding the use of the doubling cube, particularly in short matches or towards the end of a long match where the scores are close. The key thing in any match is not how many points you have already won but how many more you need to win the match.<br>
 <br>
 In such situations gammons are crucial to the decision-making process. There is no short cut to the learning involved. I have played hundreds of short matches in the last three to four years on GridGammon and supplemented that by playing Extreme Gammon (XG) in Tutor Mode both on the PC and on XG Mobile. All the games on GridGammon are subsequently downloaded and then analysed using XG. Each error is then analysed and (hopefully) something is learnt from it. Key learning points are recorded and over time the blunders become fewer and the errors become smaller. That at least is the theory!<br>
 <br>
@@ -46,32 +51,40 @@ I have fifteen immediate hits (any 2 plus 31 and 61), all of which will give me 
 <br>
 Given that Roehampton won the overall match 10-8 it could be said that the win was down to making the correct decision in this position. Of course, that is not quite true, as my team colleagues provided great support but it is very rewarding when practice and study pays off.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.085
+2-ply cubeless equity +0.084
   0.513 0.158 0.004 - 0.487 0.102 0.001
 Cubeful equities:
-1. No double           -0.126
-2. Double, pass        +1.000  (+1.126)
-3. Double, take        -0.282  (-0.155)
-Proper cube action: No double, beaver (12.1%)
+1. No double           -0.127
+2. Double, pass        +1.000  (+1.127)
+3. Double, take        -0.284  (-0.157)
+Proper cube action: No double, beaver (12.2%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBq";
-const probnum = "44";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--BBBBB-----aB---d--cdBabA:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBq",
+    probnum: "44",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--BBBBB-----aB---d--cdBabA:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

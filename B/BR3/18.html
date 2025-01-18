@@ -3,69 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">7. ゲーム中盤</span>&ensp;
-<span>(BR3-18)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR3-18) &ensp; 7. ゲーム中盤</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.115 Blue to play 14</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=123 w=160</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=123 w=160</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:ローポイント(1ポイントや2ポイント)のポイントをインナーに作ってしまったら、アウトフィールドにプライムを作ろうとしてはならない。その代わりにボードを完成することを目指そう。13/9, 10/9でアウトフィールドにポイントを作るのはよく見えるが、正しい考え方は、10/6, 3/2*だ。アウターフィールドのポイントとインナーのローポイントは一緒にはうまく機能しない。<br>
+</div>
+
+<div class="description"><hr>
+501:ローポイント(1ポイントや2ポイント)のポイントをインナーに作ってしまったら、アウトフィールドにプライムを作ろうとしてはならない。その代わりにボードを完成することを目指そう。13/9, 10/9でアウトフィールドにポイントを作るのはよく見えるが、正しい考え方は、10/6, 3/2*だ。アウターフィールドのポイントとインナーのローポイントは一緒にはうまく機能しない。<br>
 <br>
 kinchan:ふむふむ<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/6 3/2*                    Eq.: +0.508
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    10/6 3/2*                    Eq.: +0.507
        0.621 0.183 0.004 - 0.379 0.078 0.003
-    2. Cubeful 2-ply    20/16 3/2*                   Eq.: +0.459 (-0.049)
+    2. Cubeful 2-ply    20/16 3/2*                   Eq.: +0.459 (-0.048)
        0.611 0.190 0.004 - 0.389 0.104 0.005
-    3. Cubeful 2-ply    13/9 3/2*                    Eq.: +0.428 (-0.080)
-       0.591 0.193 0.005 - 0.409 0.086 0.004
-    4. Cubeful 2-ply    13/9 10/9                    Eq.: +0.413 (-0.096)
-       0.605 0.164 0.004 - 0.395 0.077 0.003
-    5. Cubeful 2-ply    8/4 3/2*                     Eq.: +0.391 (-0.117)
-       0.580 0.192 0.005 - 0.420 0.095 0.004
+    3. Cubeful 2-ply    13/9 3/2*                    Eq.: +0.427 (-0.081)
+       0.591 0.193 0.005 - 0.409 0.087 0.004
+    4. Cubeful 2-ply    13/9 10/9                    Eq.: +0.413 (-0.095)
+       0.605 0.164 0.004 - 0.395 0.078 0.003
+    5. Cubeful 2-ply    8/4 3/2*                     Eq.: +0.390 (-0.117)
+       0.581 0.192 0.005 - 0.419 0.096 0.004
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR3";
-const probnum = "18";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-BaC-bB-C-A-dB---b-dB-aa--:0:0:1:14:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR3",
+    probnum: "18",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-BaC-bB-C-A-dB---b-dB-aa--:0:0:1:14:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2019</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 5</span>&ensp;
-<span>(E19-05)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E19-05) &ensp; Problem 5</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白31</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=160 Black=158</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=160 Black=158</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='24/23 13/10*#78'>1. 24/23 13/10*</label></td><td class='answerscore'>78</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='24/21 22/21#192'>2. 24/21 22/21</label></td><td class='answerscore'>192</td></tr>
@@ -42,7 +44,10 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">初手から52で24/22 13/8、63で24/15と進んだ3手目の局面です。ヒットする手、21ポイントにアンカーを作る手、5ポイントを作る手などが候補に挙げられます。まず、21ポイントを作るか5ポイントを作るかの比較では、ほとんど常に5ポイントが優ります。単純に5ポイントの方が価値が高いのです。そこで21ポイント作りは却下しましょう。次にヒットするかどうかで悩みますが、ここでも5ポイント作りが正解です。5ポイントはとても強く、作るかどうかで迷ったら作る、と考えても差し支えありません。ここでは、さらに6ポイントと8ポイントにスタックした駒も使うことができるので、なおさらです。<br>
+</div>
+
+<div class="description"><hr>
+初手から52で24/22 13/8、63で24/15と進んだ3手目の局面です。ヒットする手、21ポイントにアンカーを作る手、5ポイントを作る手などが候補に挙げられます。まず、21ポイントを作るか5ポイントを作るかの比較では、ほとんど常に5ポイントが優ります。単純に5ポイントの方が価値が高いのです。そこで21ポイント作りは却下しましょう。次にヒットするかどうかで悩みますが、ここでも5ポイント作りが正解です。5ポイントはとても強く、作るかどうかで迷ったら作る、と考えても差し支えありません。ここでは、さらに6ポイントと8ポイントにスタックした駒も使うことができるので、なおさらです。<br>
 <br>
 ここで、白の8ポイントの4枚目の駒をミッドポイントに移してみるとどうなるでしようか。次の参考図を見てください。<br>
 <br>
@@ -64,23 +69,31 @@
 <br>
 今度は13/10*とヒットする手と8/5 6/5と5ポイントを作る手が非常に僅差になります。問題図と違い、ミッドに5枚ある駒を使いたくなりますし、5ポイントを作ると8ポイントにスペアがいない状態になってしまいます。スタックしている駒を使う、というのは序盤で非常に重要なコンセプトです。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E19";
-const probnum = "05";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=-a----E-D-a-eD---c-e--A-A-:0:0:1:31:0:0:3:0:10");
+  const problem = {
+    categoryid: "E19",
+    probnum: "05",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=-a----E-D-a-eD---c-e--A-A-:0:0:1:31:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

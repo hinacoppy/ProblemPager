@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>501</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">24. ポスト・エースポイントゲーム</span>&ensp;
-<span>(BR9-21)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(BR9-21) &ensp; 24. ポスト・エースポイントゲーム</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">No.401 Blue on roll. Cube Action?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=16 w=26</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=16 w=26</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">501:青は8枚上がり、白は13枚上がり。ほとんど終わりの局面だ。白のチャンスは悪化している。青は良いダブルで、白は次の手番でショットを得る可能性が高いのでテイクだ。<br>
+</div>
+
+<div class="description"><hr>
+501:青は8枚上がり、白は13枚上がり。ほとんど終わりの局面だ。白のチャンスは悪化している。青は良いダブルで、白は次の手番でショットを得る可能性が高いのでテイクだ。<br>
 <br>
 kinchan:24ポイントの白が2枚でようやく、ダブル・テイク。この局面だとノーダブルだ。<br>
 下のロールアウトはこの局面のもの。<br>
@@ -56,32 +61,40 @@ kinchan:24ポイントの白が2枚でようやく、ダブル・テイク。こ
  [0.005 0.000 0.000 - 0.005 0.000 0.000 CL   0.019 CF   0.031]
 </pre>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity +0.340
-  0.670 0.000 0.000 - 0.330 0.000 0.000
+2-ply cubeless equity +0.341
+  0.671 0.000 0.000 - 0.329 0.000 0.000
 Cubeful equities:
 1. No double           +0.569
 2. Double, pass        +1.000  (+0.431)
-3. Double, take        +0.494  (-0.075)
-Proper cube action: No redouble, take (14.7%)
+3. Double, take        +0.496  (-0.073)
+Proper cube action: No redouble, take (14.6%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "BR9";
-const probnum = "21";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=aBBBA-------------------a-:1:1:1:00:0:0:0:0:10");
+  const problem = {
+    categoryid: "BR9",
+    probnum: "21",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=aBBBA-------------------a-:1:1:1:00:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

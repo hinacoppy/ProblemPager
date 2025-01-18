@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">ベアオフのテクニック　その３</span>&ensp;
-<span>(KE2-07)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KE2-07) &ensp; ベアオフのテクニック　その３</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b2-w7/9</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=16 w=52</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=16 w=52</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">薄いながらもギャモン勝ちがあるポジション。打たれたところでそれほど勝率を落とさないのをいいことにショットを残して２枚上がる。１ポイント側にチェッカーが寄っていて、あと１枚上がれば偶数枚にできるのならそのほうがこちらのロール数が一回少なく済む。逆に安全策で偶数枚になるのなら無理してもう１枚あげてもロール数に影響がないので２枚上げるとエラーとなる。<br>
+</div>
+
+<div class="description"><hr>
+薄いながらもギャモン勝ちがあるポジション。打たれたところでそれほど勝率を落とさないのをいいことにショットを残して２枚上がる。１ポイント側にチェッカーが寄っていて、あと１枚上がれば偶数枚にできるのならそのほうがこちらのロール数が一回少なく済む。逆に安全策で偶数枚になるのなら無理してもう１枚あげてもロール数に影響がないので２枚上げるとエラーとなる。<br>
 <br>
 上記のポジション<br>
 1. 3/off 2/off  Eq.: +1.354<br>
@@ -67,23 +72,31 @@ pips b=17 w=52<br>
 2. 3/off 2/off  Eq.: +1.119 ( -0.106)<br>
 0.973 0.150 0.002 - 0.027 0.000 0.000 CL +1.119 CF +1.119<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KE2";
-const probnum = "07";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=aBDB-----------------bbcg-:1:-1:1:25:2:7:0:9:10");
+  const problem = {
+    categoryid: "KE2",
+    probnum: "07",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=aBDB-----------------bbcg-:1:-1:1:25:2:7:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

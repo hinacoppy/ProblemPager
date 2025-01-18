@@ -3,71 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2019 - Position 169</span>&ensp;
-<span>(CBy-19)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBy-19) &ensp; 2019 - Position 169</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red trails 7-9 to 13. How should Red play 51?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=155 White=150</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=155 White=150</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">For money this would be a relatively close call between 13/7* and 8/7*, 8/3.<br>
+</div>
+
+<div class="description"><hr>
+For money this would be a relatively close call between 13/7* and 8/7*, 8/3.<br>
 <br>
 At this score it is no contest and any play other than 8/7*, 8/3* is at least a blunder. Most of the time Red will seeking to get in a powerful redouble or playing on for the gammon (or both!). This is not the time for caution. If thing go badly for him Red will lose a gammon and the match so he should think positively and play the move that maximises his match equity.<br>
 <br>
 That play is 8/7*, 8/3*.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/7* 8/3*                    Eq.: +0.226
-       0.476 0.172 0.013 - 0.524 0.231 0.026
-    2. Cubeful 2-ply    13/7*                        Eq.: +0.199 (-0.027)
-       0.474 0.143 0.008 - 0.526 0.202 0.012
-    3. Cubeful 2-ply    8/7* 6/1*                    Eq.: +0.118 (-0.108)
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/7* 8/3*                    Eq.: +0.224
+       0.476 0.171 0.013 - 0.524 0.232 0.027
+    2. Cubeful 2-ply    13/7*                        Eq.: +0.198 (-0.026)
+       0.474 0.143 0.008 - 0.526 0.203 0.012
+    3. Cubeful 2-ply    8/7* 6/1*                    Eq.: +0.116 (-0.108)
        0.457 0.148 0.007 - 0.543 0.222 0.018
-    4. Cubeful 0-ply    13/8 6/5                     Eq.: +0.014 (-0.212)
-       0.434 0.121 0.006 - 0.566 0.216 0.009
-    5. Cubeful 0-ply    8/7*/2                       Eq.: +0.010 (-0.216)
-       0.434 0.123 0.007 - 0.566 0.224 0.015
+    4. Cubeful 0-ply    13/8 6/5                     Eq.: +0.011 (-0.213)
+       0.434 0.120 0.006 - 0.566 0.216 0.009
+    5. Cubeful 0-ply    8/7*/2                       Eq.: -0.016 (-0.240)
+       0.429 0.118 0.006 - 0.571 0.227 0.015
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBy";
-const probnum = "19";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-a-a-CCaC---dD-----bbbAbA-:1:1:1:51:7:9:0:13:10");
+  const problem = {
+    categoryid: "CBy",
+    probnum: "19",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-a-a-CCaC---dD-----bbbAbA-:1:1:1:51:7:9:0:13:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

@@ -3,36 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Backgammon Exam 2018</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 29</span>&ensp;
-<span>(E18-29)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(E18-29) &ensp; Problem 29</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">白番のキューブアクション。5ポイントマッチで、白がダブルすれば黒はパスするべきなのはどのスコアか。下から一つ選べ。</div>
 <div class="gamesituation">なお、白の勝率は78%あり、マネーゲームであればテイクとパスの境界線上である。</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips White=44 Black=50</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips White=44 Black=50</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"><table><tbody>
 <tr><td><label><input type='radio' name='uchoice' value='白-黒: 0-0/5p#55'>1. 白-黒: 0-0/5p</label></td><td class='answerscore'>55</td></tr>
 <tr><td><label><input type='radio' name='uchoice' value='白-黒: 0-3/5p#55'>2. 白-黒: 0-3/5p</label></td><td class='answerscore'>55</td></tr>
@@ -42,7 +44,10 @@
 </tbody></table>
 <br><button id='answer'>Answer</button>
 </div>
- <div class="description">マッチ勝ちにあと何点必要かを「アウェイ」という用語で表します。2点必要なら2アウェイと表現します。<br>
+</div>
+
+<div class="description"><hr>
+マッチ勝ちにあと何点必要かを「アウェイ」という用語で表します。2点必要なら2アウェイと表現します。<br>
 <br>
 1(0-0/5p)で黒はテイクして負けても、白が3アウェイになるだけなので、デメリットがそれほど大きくありません。3点はバックギャモンにおいて中途半端な点数であり、ピタリこの点数を取ることは稀です。したがって黒はテイクします。<br>
 <br>
@@ -54,23 +59,31 @@
 <br>
 4(3-0/5p)で黒はテイクすれば、直ちに4倍のリダブルを返します。しかしこれを勝っても4対3のクロフォードであり、まだマッチを勝ったわけではありません(マッチ勝率67.7%)。この点が4の選択肢との大きな違いです。黒は受けて負けるとマッチを負けます。一方降りると0対4になり、マッチ勝率は15.8%です。このように各キューブアクションに対してマッチ勝率が明確なら15.8÷67.7という計算から23.3%という数値が得られます。これは黒の勝率がこれ以上あればテイク出来ることを表します。図では黒の勝率は22%しかないので、パスするべきです。<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "E18";
-const probnum = "29";
-const showpipflg = false;
-const board = new BgBoard("#board", "boardStyle4", "ccw");
-board.showBoard("XGID=---ABCC------------dcba---:0:0:1:00:0:0:3:0:10");
+  const problem = {
+    categoryid: "E18",
+    probnum: "29",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle4",
+    rotation: "ccw",
+    xgid: "XGID=---ABCC------------dcba---:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "exam");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/exampager.js"></script>
 </body>
 </html>

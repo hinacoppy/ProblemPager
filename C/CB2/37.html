@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 87</span>&ensp;
-<span>(CB2-37)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB2-37) &ensp; 2014 - Position 87</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Money Play.  How should Red play 42?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=61 White=83</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=61 White=83</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">This is an example of what Paul Magriel calls “duplication for the sake of duplication”.<br>
+</div>
+
+<div class="description"><hr>
+This is an example of what Paul Magriel calls “duplication for the sake of duplication”.<br>
 <br>
 Red can play 16/10 duplicating fours but leaving sixteen shots which is a lot against White's five-point board. Red's board is already busted so weakening it some more with 5/3, 5/1 doesn't really matter.<br>
 <br>
@@ -42,32 +47,40 @@ Meanwhile White's position is likely to weaken next turn. All this implies that 
 <br>
 Note that if either player owned the cube then 16/10 becomes a blunder because now gammons are active and White will be playing on after a hit and fan sequence.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/10                        Eq.: +0.025
-       0.471 0.017 0.000 - 0.529 0.082 0.002
-    2. Cubeful 2-ply    5/3 5/1                      Eq.: +0.001 (-0.024)
-       0.524 0.013 0.000 - 0.476 0.050 0.000
-    3. Cubeful 0-ply    5/1 3/1                      Eq.: -0.353 (-0.378)
-       0.403 0.005 0.000 - 0.597 0.082 0.000
-    4. Cubeful 0-ply    16/14 5/1                    Eq.: -1.000 (-1.025)
-       0.261 0.006 0.000 - 0.739 0.182 0.001
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/10                        Eq.: +0.024
+       0.470 0.017 0.000 - 0.530 0.081 0.002
+    2. Cubeful 2-ply    5/3 5/1                      Eq.: -0.002 (-0.026)
+       0.523 0.013 0.000 - 0.477 0.050 0.000
+    3. Cubeful 0-ply    5/1 3/1                      Eq.: -0.359 (-0.383)
+       0.401 0.005 0.000 - 0.599 0.081 0.000
+    4. Cubeful 0-ply    16/14 5/1                    Eq.: -1.000 (-1.024)
+       0.260 0.006 0.000 - 0.740 0.182 0.001
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB2";
-const probnum = "37";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-EDB-Ba-----b---B--bbb-bd-:0:0:1:42:0:0:3:0:10");
+  const problem = {
+    categoryid: "CB2",
+    probnum: "37",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-EDB-Ba-----b---B--bbb-bd-:0:0:1:42:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

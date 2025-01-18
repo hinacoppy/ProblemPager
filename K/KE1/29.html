@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>keeae</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">エースポイントを作った後は</span>&ensp;
-<span>(KE1-29)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(KE1-29) &ensp; エースポイントを作った後は</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation">b0-w0/7</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips b=167 w=171</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips b=167 w=171</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">４プラを作られているバックマンが飛び出せて乗っかれるのでそれで安心してしまった。しかし、この後なおこちらの駒は逃げにくい状態に対して相手のバックマンは捕まえていると言い切れず、簡単に飛び出される。エースにポイントを作ってしまった以上、アタックを続けてその隙にこちらが逃げるのが理想的な展開。<br>
+</div>
+
+<div class="description"><hr>
+４プラを作られているバックマンが飛び出せて乗っかれるのでそれで安心してしまった。しかし、この後なおこちらの駒は逃げにくい状態に対して相手のバックマンは捕まえていると言い切れず、簡単に飛び出される。エースにポイントを作ってしまった以上、アタックを続けてその隙にこちらが逃げるのが理想的な展開。<br>
 このエースポイントをバーに移動すると24/17も良い手となる。インナーが弱くなったことによりヒットし続けてもエンターされやすく、バックゲームに持ち込まれる危険が増える。勝率は低いがギャモン率の高いポジションとその逆のポジションの違いが見て取れる。<br>
 <br>
 上記のポジション<br>
@@ -83,23 +88,31 @@ pips b=179 w=171<br>
 5. 22/16 17/16    Eq.: -0.168 ( -0.157)<br>
 0.475 0.120 0.004 - 0.525 0.178 0.010 CL -0.117 CF -0.168<br>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "KE1";
-const probnum = "29";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle1", "cw");
-board.showBoard("XGID=-Ba-cBC-a---aDa--AbbbbB-A-:0:0:1:16:0:0:0:7:10");
+  const problem = {
+    categoryid: "KE1",
+    probnum: "29",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle1",
+    rotation: "cw",
+    xgid: "XGID=-Ba-cBC-a---aDa--AbbbbB-A-:0:0:1:16:0:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "keeae");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/keeaepager.js"></script>
 </body>
 </html>

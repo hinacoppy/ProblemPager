@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Never Forget the Match Score</span>&ensp;
-<span>(CBu-12)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBu-12) &ensp; Never Forget the Match Score</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=71 White=80</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=71 White=80</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">The two most common errors that I see in match play backgammon are: a) taking a single point by doubling out the opponent when in fact it is correct to play on for an undoubled gammon; b) making a money game decision without giving due consideration to the score. Of course, these two errors are closely aligned. The rule is quite simple: never ever forget you are playing a match and crucially, never forget the influence the precise score has on your cube handling.<br>
+</div>
+
+<div class="description"><hr>
+The two most common errors that I see in match play backgammon are: a) taking a single point by doubling out the opponent when in fact it is correct to play on for an undoubled gammon; b) making a money game decision without giving due consideration to the score. Of course, these two errors are closely aligned. The rule is quite simple: never ever forget you are playing a match and crucially, never forget the influence the precise score has on your cube handling.<br>
 <br>
 Take a look at this week’s position. White is nine pips behind but has a Black checker trapped on the bar. He has an exposed blot on his ace-point but even if Black hits that blot White will not worry too much as a return hit could generate some gammons for him, given the state of Black’s home board. <br>
 <br>
@@ -48,32 +53,40 @@ Positions like this one are largely calculated on the race and here Black still 
 <br>
 Rollouts show that for money Black should pass and taking is a small error. As we surmised, at this score taking Is correct and passing is a small error. NEVER FORGET THE MATCH SCORE<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">Cube analysis
-2-ply cubeless equity -0.206 (Money: -0.270)
+2-ply cubeless equity -0.207 (Money: -0.270)
   0.365 0.062 0.000 - 0.635 0.061 0.002
 Cubeful equities:
-1. No double           -0.442
-2. Double, pass        +1.000  (+1.442)
-3. Double, take        -1.541  (-1.099)
+1. No double           -0.444
+2. Double, pass        +1.000  (+1.444)
+3. Double, take        -1.542  (-1.098)
 Proper cube action: No double, take (43.2%)
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBu";
-const probnum = "12";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=-CDBBA-A-Aa---a---cb-bbcaA:0:0:1:00:3:0:0:5:10");
+  const problem = {
+    categoryid: "CBu",
+    probnum: "12",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=-CDBBA-A-Aa---a---cb-bbcaA:0:0:1:00:3:0:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

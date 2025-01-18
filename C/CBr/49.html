@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">A Question of Priorities</span>&ensp;
-<span>(CBr-49)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CBr-49) &ensp; A Question of Priorities</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction"></div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=157 White=122</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=157 White=122</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Black was delighted to roll a 1 and be able to play bar/24, securing an anchor and keeping him in the game until the end. Gaining the anchor would also save him a fair few gammons. Keeping in his mind that he wanted to save the gammon he played 13/10 with the 3.<br>
+</div>
+
+<div class="description"><hr>
+Black was delighted to roll a 1 and be able to play bar/24, securing an anchor and keeping him in the game until the end. Gaining the anchor would also save him a fair few gammons. Keeping in his mind that he wanted to save the gammon he played 13/10 with the 3.<br>
 <br>
 This move leaves White only eight hitting numbers (all 7s plus 53) and, if not hit, Black had the potential to build a prime in front of White’s rear checkers. The problem was that once he had anchored Black’s priority should have changed. <br>
 <br>
@@ -48,32 +53,40 @@ This position is one where you want to limit your opponent’s choices as much a
 <br>
 The general principle of proscribing your opponent’s moves is an important one in backgammon, and it can often be used to make the correct decision over the board. The more you play the game the more the oldest backgammon adage of all. ‘when in doubt, hit’, is proved to be correct.<br>
 </div>
-</div>
+
 <hr>
 <pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/24 6/3*                  Eq.: -0.501
        0.329 0.062 0.001 - 0.671 0.302 0.033
     2. Cubeful 2-ply    bar/24 13/10                 Eq.: -0.575 (-0.074)
-       0.281 0.052 0.001 - 0.719 0.263 0.023
-    3. Cubeful 2-ply    bar/24 8/5                   Eq.: -0.685 (-0.184)
+       0.282 0.052 0.001 - 0.718 0.264 0.024
+    3. Cubeful 2-ply    bar/24 8/5                   Eq.: -0.684 (-0.183)
        0.276 0.046 0.001 - 0.724 0.338 0.039
-    4. Cubeful 0-ply    bar/24 4/1                   Eq.: -0.922 (-0.421)
-       0.208 0.028 0.000 - 0.792 0.394 0.042
+    4. Cubeful 0-ply    bar/24 4/1                   Eq.: -0.925 (-0.424)
+       0.207 0.028 0.000 - 0.793 0.395 0.042
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CBr";
-const probnum = "49";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=--baB-D-C----D----bbbbbbAA:1:1:1:31:0:0:3:0:10");
+  const problem = {
+    categoryid: "CBr",
+    probnum: "49",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=--baB-D-C----D----bbbbbbAA:1:1:1:31:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

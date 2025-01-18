@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>ChrisBray</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">2014 - Position 184</span>&ensp;
-<span>(CB4-34)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CB4-34) &ensp; 2014 - Position 184</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Match Play. Red trails 0-1 to 3. How should Red play 32?</div>
 <div class="gamesituation"></div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Red=72 White=152</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=72 White=152</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">Position submitted by Danny De Meester<br>
+</div>
+
+<div class="description"><hr>
+Position submitted by Danny De Meester<br>
 <br>
 Backgammon and its infinite variety!<br>
 <br>
@@ -42,34 +47,42 @@ I think over the board most would play 8/6, 5/2*. However the quiz factor makes 
 <br>
 It increases Red's backgammons by about 4% and at this score that outweighs the relatively minor risks because with a backgammon Red wins the match. Red wins about 84% of time more or less whatever he does. In a money game with the cube on White's side the double slot is an overplay but hitting is still obviously correct.<br>
 </div>
-</div>
+
 <hr>
-<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/2* 3/1                     Eq.: +1.871
-       0.847 0.684 0.070 - 0.153 0.018 0.000
-    2. Cubeful 2-ply    8/6 5/2*                     Eq.: +1.850 (-0.022)
-       0.843 0.678 0.071 - 0.157 0.018 0.001
-    3. Cubeful 2-ply    6/4 5/2*                     Eq.: +1.848 (-0.024)
-       0.812 0.678 0.096 - 0.188 0.035 0.001
-    4. Cubeful 2-ply    8/3                          Eq.: +1.733 (-0.138)
-       0.837 0.616 0.047 - 0.163 0.005 0.000
-    5. Cubeful 2-ply    8/6 8/5                      Eq.: +1.724 (-0.148)
-       0.841 0.601 0.049 - 0.159 0.001 0.000
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/2* 3/1                     Eq.: +1.869
+       0.847 0.683 0.069 - 0.153 0.018 0.000
+    2. Cubeful 2-ply    8/6 5/2*                     Eq.: +1.847 (-0.021)
+       0.844 0.677 0.070 - 0.156 0.018 0.001
+    3. Cubeful 2-ply    6/4 5/2*                     Eq.: +1.846 (-0.023)
+       0.812 0.677 0.095 - 0.188 0.035 0.001
+    4. Cubeful 2-ply    8/3                          Eq.: +1.730 (-0.139)
+       0.837 0.615 0.046 - 0.163 0.005 0.000
+    5. Cubeful 2-ply    8/6 8/5                      Eq.: +1.721 (-0.148)
+       0.841 0.599 0.048 - 0.159 0.001 0.000
 </pre>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "CB4";
-const probnum = "34";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle2", "ccw");
-board.showBoard("XGID=bBaC-CE-B---a--a-a-ebb----:0:0:1:32:0:1:0:3:10");
+  const problem = {
+    categoryid: "CB4",
+    probnum: "34",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=bBaC-CE-B---a--a-a-ebb----:0:0:1:32:0:1:0:3:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/problempager.js"></script>
 </body>
 </html>

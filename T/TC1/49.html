@@ -3,38 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="../../css/problempager.css">
 <link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
 <title>Timothy Chow</title>
 </head>
 
 <body>
 <header>
-<span id="sectionTitle" class="sectionTitle">Problem 3-10</span>&ensp;
-<span>(TC1-49)</span>&ensp;
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(TC1-49) &ensp; Problem 3-10</span>
 </header>
-<nav>
-<button id="selectfirst">&lt;&lt;</button>&ensp;
-<button id="selectprev">&lt;</button></button>&ensp;
-<button id="return2menu">Idx</button>&ensp;
-<button id="selectnext">&gt;</button>&ensp;
-<button id="selectlast">&gt;&gt;</button>&ensp;
-<button id="showanswer">Desc</button>&ensp;
-<button id="resetscr">Rst SCR</button>&ensp;
+<nav class="navpopup">
+<button id="selectfirst"><i class="fas fa-angle-double-left"></i></button>
+<button id="selectprev"><i class="fas fa-angle-left"></i></button></button>
+<button id="return2menu"><i class="fas fa-home"></i></button>
+<button id="selectnext"><i class="fas fa-angle-right"></i></button>
+<button id="selectlast"><i class="fas fa-angle-double-right"></i></button>
+<button id="showanswer"><i class="fas fa-lightbulb"></i></button>
+<button id="resetscr"><i class="fas fa-times"></i></button>
 </nav>
 
 <article>
 <div class="doAction">Black to play 11</div>
 <div class="gamesituation">Unlimited game</div>
 <div class="bgcontainer">
- <div><div id="board" class="board"></div>
-      <div class="pipinfo">pips Black=166 White=138</div>
-      <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div></div>
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Black=166 White=138</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
  <div class="answertable"></div>
- <div class="description">After the obvious 8/7*(2), Black has to weigh various priorities.  He is way behind in the pip count, so he wants to block White&#39;s anchor if he can, and perhaps make some home-board points to cause trouble for White&#39;s straggler.  His back checkers are getting primed, so he would like to try to escape them, but without giving White too many opportunities to attack with her 12 checkers in the zone.<br>
+</div>
+
+<div class="description"><hr>
+After the obvious 8/7*(2), Black has to weigh various priorities.  He is way behind in the pip count, so he wants to block White&#39;s anchor if he can, and perhaps make some home-board points to cause trouble for White&#39;s straggler.  His back checkers are getting primed, so he would like to try to escape them, but without giving White too many opportunities to attack with her 12 checkers in the zone.<br>
 The eXtreme Gammon rollout favors 11/10(2), which gives up the six-away point but keeps an eye on the 4pt in case White enters there.<br>
 Black&#39;s outfield checkers are not in any danger of getting hit, so keeping them on separate points gives him more ways to make another outfield blocking point next roll.<br>
 But note that Black&#39;s balancing of priorities would be much trickier if his 4pt were already made (see Variant position below).<br>
@@ -52,23 +57,31 @@ But note that Black&#39;s balancing of priorities would be much trickier if his 
 11. 24/23 15/14 8/7*(2) eq: -0.248 (-0.142) 46.36% (G:8.00% B:0.36&)  53.64% (G:19.81% B:1.36%)
 </pre>
 </div>
-</div>
+
 <hr>
 </article>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/BgUtil_class.js"></script>
 <script src="/js/BgXgid_class.js"></script>
 <script src="/js/BgChequer_class.js"></script>
 <script src="/js/BgStaticBoard_class.js"></script>
+<script src="/js/swipetracker_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
 <script>
-const categoryid = "TC1";
-const probnum = "49";
-const showpipflg = true;
-const board = new BgBoard("#board", "boardStyle5", "cw");
-board.showBoard("XGID=-----bDaD--BAA-Abc-e-b--B-:0:0:1:11:0:0:0:0:10");
+  const problem = {
+    categoryid: "TC1",
+    probnum: "49",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "cw",
+    xgid: "XGID=-----bDaD--BAA-Abc-e-b--B-:0:0:1:11:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "quiz");
 </script>
-<script src="../../js/examscore.js"></script>
-<script src="../../js/quizpager.js"></script>
 </body>
 </html>
