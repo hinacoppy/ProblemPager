@@ -31,8 +31,8 @@ class ProblemPager {
     this.iframemodeflg = (window != window.parent); //iframeで呼ばれているときはtrue
 
     this.init();
+    this.load("navpopup", "../../navpopup.html", ".navpopup"); //navを挿し込む
     this.setEventHandler();
-    this.setSwipeEventHandler();
   }
 
   setDefault(userVars) {
@@ -52,13 +52,27 @@ class ProblemPager {
     return vars;
   }
 
+  load(id, url, param="body") {
+    //idのところにurlのコンテンツのparamの部分を挿入する。
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const html = parser.parseFromString(data, "text/html");
+        const elem = html.querySelector(param);
+        const insertTo = document.getElementById(id);
+        if (insertTo !== null) {
+          insertTo.appendChild(elem);
+        }
+      });
+  }
+
   init() {
     //回答、解説を最初は非表示にする
     $('.description').hide();
     $('.gnuanalysis').hide();
     $('.answerscore').hide();
     $('.pipinfo').toggle(this.showpipflg);
-//    if (!this.showpipflg) { $('.pipinfo').hide(); }
     $('.navpopup').hide();
 
     if (this.problemmode != "exam") {
@@ -66,50 +80,24 @@ class ProblemPager {
     }
 
     $("#scr").text(this.examscore.getScoreStr()); //localStorageからPRを取り出して表示
-
-    //範囲を超えて移動できないようにする
-    $("#selectfirst, #selectprev").prop('disabled', (this.probnum == "01"));
-    $("#selectlast,  #selectnext").prop('disabled', (this.probnum == "50"));
   }
 
   setEventHandler() {
-    //ナビゲーションボタンがクリックされたときは、ボタンIDで処理を振り分け
-    $('button').on('click',  (e) => {
-console.log("$('button').on('click' id=", $(e.currentTarget).attr("id"), e);
-      switch ( $(e.currentTarget).attr("id") ) {
-      case 'selectfirst':
-        this.move_page("01", 0);
-        break;
-      case 'selectlast':
-        this.move_page("50", 0);
-        break;
-      case 'selectnext':
+    //次の問題を表示
+    $('#selectnext').on('click', () => {
         this.move_page(this.probnum, +1);
-        break;
-      case 'selectprev':
+    });
+
+    //前の問題を表示
+    $('#selectprev').on('click', () => {
         this.move_page(this.probnum, -1);
-        break;
-      }
     });
 
     //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
-    $('#showanswer').on('click', () => {
-      $('.navpopup').hide();
-      this.description("toggle");
-    });
-
-    //[Description]ボタンか、ボードのクリックで、回答、解説の表示/非表示を切替え
-    $('#answer, #boardZZ').on('click', () => {
-console.log("$('#answer, #board').on('click' this.iframemodeflg=", this.iframemodeflg);
+    $('#answer, #board').on('click', () => {
       $('.navpopup').hide();
       if (this.iframemodeflg) { return; } //iframeで呼ばれているときは何もしない
       this.description("toggle");
-    });
-
-    //[Analysis Result]ボタンで、解析結果を表示/非表示を切替え
-    $('#analyse').on('click', () => {
-      $('.navpopup').hide();
-      $('#gnuanalysis').toggle();
     });
 
     //[navmenu]ボタンで、ナビゲーションボタンを表示/非表示を切替え
@@ -117,18 +105,30 @@ console.log("$('#answer, #board').on('click' this.iframemodeflg=", this.iframemo
       $('.navpopup').toggle();
     });
 
+    //問題番号を選択
+    $("#navpopup").on("click", "#toctable td", (e) => {
+      $('.navpopup').hide();
+      const probnum = $(e.target).text();
+      this.move_page(probnum, 0);
+    });
+
     //[Home]ボタンで、メニューに遷移
-    $('#return2menu').on('click', () => {
+    $("#navpopup").on('click', '#return2menu', () => {
       window.location.href = "../../index.html";
     });
 
     //[ResetSCR]ボタンで、スコアをリセット
-    $('#resetscr').on('click', () => {
+    $("#navpopup").on('click', '#resetscr', () => {
       if (confirm("Reset score, OK?")) {
         this.examscore.resetScore();
         $("#scr").text(this.examscore.getScoreStr());
       }
       $('.navpopup').hide();
+    });
+
+    //[showanswer]ボタンか、ボードのクリックで、回答、解説を表示
+    $('#navpopup').on('click', '#showanswer', () => {
+      this.description("toggle");
     });
 
     //画面の大きさが変わったときはボードを再描画
@@ -137,26 +137,10 @@ console.log("$('#answer, #board').on('click' this.iframemodeflg=", this.iframemo
     });
   }
 
-  setSwipeEventHandler() {
-    //swipeイベントを登録
-    const bgcontainer = document.querySelector(".board");
-    const description = document.querySelector(".description");
-
-    const thres = Math.max(window.innerHeight, window.innerWidth) / 6;
-    new SwipeTracker(bgcontainer, "tlr", thres); //swipeleft, swiperightを見張る。
-    new SwipeTracker(description, "lr", thres); //swipeleft, swiperightを見張る。
-    bgcontainer.addEventListener("swiperight", () => { this.move_page(this.probnum, +1); });
-    bgcontainer.addEventListener("swipeleft",  () => { this.move_page(this.probnum, -1); });
-    bgcontainer.addEventListener("mytap",  () => { this.description("toggle"); });
-    description.addEventListener("swiperight", () => { this.move_page(this.probnum, +1); });
-    description.addEventListener("swipeleft",  () => { this.move_page(this.probnum, -1); });
-  }
-
   move_page(probnum, delta) {
     const nextpage = Number(probnum) + delta;
-    if (nextpage <= 0 || nextpage > 50) { return; }
+    if (nextpage <= 0 || nextpage > 50) { return; } //範囲を超えて移動できない
     const pn = ("00" + String(nextpage)).slice(-2);
-//alert("jump to " + pn + ".html");
     window.location.href = "./" + pn + ".html";
   }
 
@@ -183,7 +167,7 @@ console.log("$('#answer, #board').on('click' this.iframemodeflg=", this.iframemo
       $('.description').show();
       $('.gnuanalysis').show();
       if (this.problemmode != "exam") {
-        $('.answertable').hide();
+        //$('.answertable').hide();
       }
       $('.answerscore').show();
       $('.pipinfo').show();
@@ -199,7 +183,7 @@ console.log("$('#answer, #board').on('click' this.iframemodeflg=", this.iframemo
       $('.description').toggle();
       $('.gnuanalysis').toggle();
       if (this.problemmode != "exam") {
-        $('.answertable').toggle();
+        //$('.answertable').toggle();
       }
       $('.answerscore').toggle();
       if (!this.showpipflg) { $('.pipinfo').toggle(); }

@@ -9,7 +9,6 @@ html{
   height:-webkit-fill-available; /* iOSで100%表示されない事態を回避 */
 }
 body{
-/*  margin:10px;*/
   padding:0;
   background:#efe;
   -webkit-text-size-adjust:100%; /* iPhoneで文字サイズが勝手に大きくならないように */
@@ -27,7 +26,6 @@ button{
   cursor:pointer;
   display:inline-block;
   min-width:4vw;
-/*  font-size:x-large;*/
   background-color:#eee;
   border:1px solid #999;
   border-radius:10px; /* 角丸表示 */
@@ -36,7 +34,6 @@ button{
   padding:0.5em 1em;
 }
 header{
-  /*display:inline-block; /* navボタンを横並びに */
 }
 pre{
   font-size:120%;
@@ -45,24 +42,29 @@ pre{
 
 /* Article decoration ----------------------------------------*/
 .navpopup{
-  position: absolute;
-  display: none;
-  top: 8px;
-  left: 3em;
-  z-index: 9;
-}
-.sectionTitle{
-  display:inline-block;
-  width:45vw;
-  font-size:x-large;
-  font-weight:bold;
-  background-color:#eee;
-  background-image:linear-gradient(#fff 0%, #eee 50%, #ddd 51%, #fff 100%);
+  position:absolute;
+  display:none;
+  margin:8px; /* body(既定) の margin に合わせる */
+  top:0;
+  left:3em;
+  z-index:90;
+  background-color:#efc;
+  padding:2vh 3vw;
   border:1px solid #999;
-  border-radius:15px; /* 角丸表示 */
-  margin-bottom:1em; /* 行下にスペースを空ける */
-  padding:5px 10px;
-  white-space:nowrap;
+}
+.prevnext{
+  position:fixed;
+  top:26vh; /* boardの真ん中にボタンを置く */
+  min-width:0;
+  opacity:0.7;
+  margin:0.5vw;
+  z-index:9;
+}
+#selectprev{
+  left:0;
+}
+#selectnext{
+  right:0;
 }
 .doAction{
   font-weight:bold;
@@ -72,7 +74,6 @@ pre{
   flex-wrap:wrap;
 }
 .board{
-/*  cursor:pointer;*/
 }
 .answertable{
   margin-left:20px;
@@ -81,33 +82,25 @@ pre{
 .answerscore{
   text-align:right;
 }
-.option{
-  position:absolute; /* 画面右上に表示 */
-  top:15px;
-  right:10px;
-}
 .description{
-/*  margin-left:20px;*/
 }
 .gnuanalysis{
   font-size:120%;
-}
-.container{
 }
 
 /* Constant definision for bgStaticBoard.css ---------------------- */
 @media screen and (min-width:1024px) { /* for PC */
 :root{
-  --boardWidthNum: 60; /* < 100 and 15*n */
-  --boardHeightNum: 45; /* = boardWidthNum * 3/4 */
-  --pointWidthNum: 4; /* = boardWidthNum / 15 */
-  --cubeSizeNum: 3.6; /* = pointWidthum * 0.9 */
-  --frameSizeNum: 1.5;
-  --offtrayMarginNum: 5;
-  --offtrayHeightNum: 45; /* = boardHeightNum */
-  --cubeFontSizeNum: 2.5;
-  --labelFontSizeNum: 1.2;
-  --stackFontSizeNum: 2.0;
+  --boardWidthNum:60; /* < 100 and 15*n */
+  --boardHeightNum:45; /* = boardWidthNum * 3/4 */
+  --pointWidthNum:4; /* = boardWidthNum / 15 */
+  --cubeSizeNum:3.6; /* = pointWidthum * 0.9 */
+  --frameSizeNum:1.5;
+  --offtrayMarginNum:5;
+  --offtrayHeightNum:45; /* = boardHeightNum */
+  --cubeFontSizeNum:2.5;
+  --labelFontSizeNum:1.2;
+  --stackFontSizeNum:2.0;
 }}
 
 /* XG Font Board ---------------------------------------------*/
@@ -158,70 +151,47 @@ pre{
 }
 /* exammodePager.html decoration ----------------------------------------*/
 .exammodepager{
-  position:relative;
   margin:0;
   padding:0;
 }
 .iframe_container{
-  position:relative;
   width:100%;
-  height:0;
-  padding-top:100%;
+  height:100vh;
 }
 .iframe{
-  position:absolute;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
-  border-width:0px;
-}
-.prevnext{
-  position:absolute;
-  font-size:xx-large;
-  top:40vh;
-  min-width:0;
-  opacity:0.7;
-  margin:0.5vw;
-}
-#exammodeprev{
-  left:0;
-}
-#exammodenext{
-  right:0;
-}
-#navbody{
-  padding:10px;
+  border:none;
+  padding:0;
+  margin:0;
 }
 /* dbmodePager.html decoration ----------------------------------------*/
 .bgboard{
-  line-height: 1px;  /* ボード画像部品を上下詰めて表示 */
-  width: 328px;
-  page-break-inside: avoid;
+  line-height:1px;  /* ボード画像部品を上下詰めて表示 */
+  width:328px;
+  page-break-inside:avoid;
 }
 .bgid{
-  background: #eef;
-  border: 1px solid #06c;
-  line-height: 1.3em;
-  padding: 10px;
-  width: 600px;
-  white-space: pre;
-  font-family: monospace, monospace;
+  background:#eef;
+  border:1px solid #06c;
+  line-height:1.3em;
+  padding:10px;
+  width:600px;
+  white-space:pre;
+  font-family:monospace, monospace;
 }
 /* toctable decoration (used in exammodePager and dbmodePager) ---------*/
 .toctable{
   border-collapse:collapse;
   border:solid 3px #0aa;
   overflow:visible;
+  margin-top:1vh;
 }
 .toctable td{
-  font-size:1.5vw;
-  height:4vh;
-  line-height:4vh; /* 上下中央寄せ */
   text-align:center; /* 左右中央寄せ */
   background-color:#fee;
   border:solid 2px #aa0;
-  padding:0.7vh 1.5vw;
+  padding:1vh 2vw;
   cursor:pointer;
 }
 .toctable td:hover{
@@ -240,5 +210,5 @@ pre{
   padding:5px;
 }
 .paragraph {
-  padding-left: 20px;
+  padding-left:20px;
 }

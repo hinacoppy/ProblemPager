@@ -2,53 +2,45 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="/css/FloatWindow4.css">
 <link rel="stylesheet" href="css/problempager.css">
 <title>Exam Mode Pager</title>
 </head>
 
 <body class="exammodepager">
-<nav id="nav" class="modalContainer">
-<div id="navheader" class="modalTitle">
- <span class="modalTitleText">Navigation</span>
-</div>
-<div id="navbody">
-<label><input type="radio" name="mode" value="Exam" checked>試験</label>&emsp;
-<label><input type="radio" name="mode" value="Kaisetsu">解説</label>&emsp;
-<button id="jumpbtn" >Jump</button>&emsp;
-<button id="homebtn">Home</button>
-</div>
+<header>
+ <button id="navmenu"><i class="fas fa-bars"></i></button>&emsp;
+ <label><input type="radio" name="mode" value="Exam" checked>試験</label>&emsp;
+ <label><input type="radio" name="mode" value="Kaisetsu">解説</label>&emsp;
+ <button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+ <button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav class="navpopup">
+ <button id="return2menu"><i class="fas fa-home"></i></button> &emsp;
+ <table id="toctable" class="toctable ">
+  <tr><td>01</td><td>11</td><td>21</td><td>31</td><td>41</td></tr>
+  <tr><td>02</td><td>12</td><td>22</td><td>32</td><td>42</td></tr>
+  <tr><td>03</td><td>13</td><td>23</td><td>33</td><td>43</td></tr>
+  <tr><td>04</td><td>14</td><td>24</td><td>34</td><td>44</td></tr>
+  <tr><td>05</td><td>15</td><td>25</td><td>35</td><td>45</td></tr>
+  <tr><td>06</td><td>16</td><td>26</td><td>36</td><td>46</td></tr>
+  <tr><td>07</td><td>17</td><td>27</td><td>37</td><td>47</td></tr>
+  <tr><td>08</td><td>18</td><td>28</td><td>38</td><td>48</td></tr>
+  <tr><td>09</td><td>19</td><td>29</td><td>39</td><td>49</td></tr>
+  <tr><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr>
+ </table>
 </nav>
 
-<article id="iframe_container" class="iframe_container">
-<iframe id="iframe" class="iframe" src=""></iframe>
+<article class="iframe_container">
+ <iframe id="iframe" class="iframe" allowfullscreen></iframe>
 </article>
-<button id="exammodeprev" class="prevnext">&lt;</button>
-<button id="exammodenext" class="prevnext">&gt;</button>
-
-<aside id="tocWindow" class="modalContainer">
-<div id="toctableheader" class="modalTitle">
- <span class="modalTitleText">Jump to Problem</span>
- <button id="maxBtn">O</button><button id="minBtn">_</button><button id="closeBtn">X</button>
-</div>
-<table id="toctable" class="toctable ">
- <tr><td>01</td><td>11</td><td>21</td><td>31</td><td>41</td></tr>
- <tr><td>02</td><td>12</td><td>22</td><td>32</td><td>42</td></tr>
- <tr><td>03</td><td>13</td><td>23</td><td>33</td><td>43</td></tr>
- <tr><td>04</td><td>14</td><td>24</td><td>34</td><td>44</td></tr>
- <tr><td>05</td><td>15</td><td>25</td><td>35</td><td>45</td></tr>
- <tr><td>06</td><td>16</td><td>26</td><td>36</td><td>46</td></tr>
- <tr><td>07</td><td>17</td><td>27</td><td>37</td><td>47</td></tr>
- <tr><td>08</td><td>18</td><td>28</td><td>38</td><td>48</td></tr>
- <tr><td>09</td><td>19</td><td>29</td><td>39</td><td>49</td></tr>
- <tr><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr>
-</table>
-</aside>
 
 <!-- scripts -->
+<script src="/js/fontawesome-inuse.min.js" defer></script>
 <script src="/js/jquery-3.7.1.min.js"></script>
-<script src="/js/FloatWindow4.js"></script>
-<script src="js/examscore.js"></script>
-<script src="js/exammodepager.js"></script>
+<script src="js/examscore_class.js"></script>
+<script src="js/exammodepager_class.js"></script>
+<script>
+  const dummy = new ExamModePager();
+</script>
 </body>
 </html>
