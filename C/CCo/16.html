@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>ChrisBray</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CCo-16) &ensp; 2025 - Position of the Week 5</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">Unlimited Games. How should Red play 21?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=110 White=100</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+<pre>
+1. 8/7 8/6      eq: +0.122           52.5% (G:2.9% B:0.1%)  47.5% (G: 4.2% B:0.1%)
+2. 6/3          eq: +0.099 (-0.023)  51.9% (G:2.9% B:0.1%)  48.1% (G: 4.9% B:0.1%)
+3. 13/12 13/11  eq: +0.049 (-0.073)  49.9% (G:2.9% B:0.1%)  50.1% (G: 6.2% B:0.1%)
+4. 13/11 4/3    eq: +0.019 (-0.104)  48.7% (G:2.5% B:0.1%)  51.3% (G: 8.7% B:0.1%)
+5. 13/11 3/2    eq: -0.032 (-0.154)  47.9% (G:3.3% B:0.1%)  52.1% (G:10.7% B:0.2%)
+</pre>
+<br>
+This is a second position from the recent Gibraltar tournament.<br>
+<br>
+It might look obvious to play 13/12, 13/11 but a lesson I was reminded of during the recent UBC matches was that you never leave even an indirect shot if your opponent has a perfect board. 13/12, 13/11 leaves White four immediate winning numbers so that apparently flexible option must be discounted.<br>
+<br>
+XG’s initial evaluation gives 6/3 as the best play but when it looks much deeper on a rollout it comes up with the correct play 8/7, 8/6.<br>
+<br>
+At the cost of giving up the 8-pt Red gets spares on his bar and 6-pts. In turn, those spares will give him time to clear his outer board points and for White’s position to weaken.<br>
+<br>
+6/3 is a mistake but not an error. The key is to remember not to give unnecessary indirect shots when your opponent has a perfect reception committee.<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3                          Eq.: +0.028
+       0.512 0.028 0.000 - 0.488 0.038 0.000
+    2. Cubeful 2-ply    13/12 13/11                  Eq.: -0.005 (-0.033)
+       0.495 0.023 0.000 - 0.505 0.060 0.000
+    3. Cubeful 2-ply    8/7 8/6                      Eq.: -0.030 (-0.058)
+       0.491 0.029 0.000 - 0.509 0.036 0.000
+    4. Cubeful 2-ply    4/2 3/2                      Eq.: -0.053 (-0.081)
+       0.488 0.029 0.000 - 0.512 0.052 0.000
+    5. Cubeful 2-ply    6/4 3/2                      Eq.: -0.073 (-0.102)
+       0.480 0.025 0.000 - 0.520 0.047 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "CCo",
+    probnum: "16",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=---BBbCBB--B-B----bcbbbb--:0:0:1:21:0:0:1:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

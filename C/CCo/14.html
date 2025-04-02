@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>ChrisBray</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(CCo-14) &ensp; 2025 - Position of the Week 3</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">a) Match Play. Red trails 6-7 to 9. How should Red play 21?</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips Red=154 White=139</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+b) Unlimited Games. How should Red play 21?<br>
+<br>
+<pre>
+1. 6/4* 4/3  eq: -0.031           47.4% (G:9.4% B:0.7%)  52.6% (G:21.0% B:0.8%)
+2. 8/7 8/6   eq: -0.109 (-0.078)  45.0% (G:7.4% B:0.4%)  55.0% (G:13.3% B:0.4%)
+3. 18/15     eq: -0.131 (-0.100)  45.8% (G:8.1% B:0.5%)  54.2% (G:21.4% B:1.2%)
+</pre>
+<br>
+For money the hit 6/4*/3 is correct but only just. It wins more games but loses more gammons and the trade-off is very close as you can see from the rollout.<br>
+<br>
+At the match score the hit is clearly correct. Those extra gammons get Red to the Crawford Game and therefore the extra risk is acceptable.<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/4*/3                       Eq.: -0.034
+       0.482 0.081 0.003 - 0.518 0.172 0.003
+    2. Cubeful 2-ply    18/15                        Eq.: -0.111 (-0.077)
+       0.465 0.073 0.003 - 0.535 0.181 0.003
+    3. Cubeful 2-ply    8/7 8/6                      Eq.: -0.121 (-0.087)
+       0.455 0.063 0.002 - 0.545 0.115 0.001
+    4. Cubeful 2-ply    13/10                        Eq.: -0.123 (-0.089)
+       0.460 0.072 0.003 - 0.540 0.167 0.003
+    5. Cubeful 2-ply    18/17 6/4*                   Eq.: -0.192 (-0.158)
+       0.451 0.081 0.004 - 0.549 0.253 0.008
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "CCo",
+    probnum: "14",
+    showpipflg: true,
+    boardid: "#board",
+    style: "boardStyle2",
+    rotation: "ccw",
+    xgid: "XGID=----abDBB-B-cB----Cbcb-b--:0:0:1:21:6:7:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>
