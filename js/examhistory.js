@@ -44,12 +44,11 @@ function getTitle(row) {
     CC6:"ChrisBray 2021 1", CC7:"ChrisBray 2021 2", CC8:"ChrisBray 2021 3", CC9:"ChrisBray 2021 4", CCa:"ChrisBray 2021 5",
     CCb:"ChrisBray 2022 1", CCc:"ChrisBray 2022 2", CCd:"ChrisBray 2022 3", CCe:"ChrisBray 2022 4", CCf:"ChrisBray 2022 5",
     CCg:"ChrisBray 2023 1", CCh:"ChrisBray 2023 2", CCi:"ChrisBray 2023 3", CCj:"ChrisBray 2023 4", CCk:"ChrisBray 2023 5",
-    CCl:"ChrisBray 2024 1", CCm:"ChrisBray 2024 2", CCn:"ChrisBray 2024 3", CCo:"ChrisBray 2024 4", CCp:"ChrisBray 2024 5",
-    CCq:"ChrisBray 2025 1", CCr:"ChrisBray 2025 2", CCs:"ChrisBray 2025 3", CCt:"ChrisBray 2025 4", CCu:"ChrisBray 2025 5",
+    CCl:"ChrisBray 2024 1", CCm:"ChrisBray 2024 2", CCn:"ChrisBray 2024 3", CCo:"ChrisBray 2025",
     QZ1:"Othello Quiz 2000 - 2004", QZ2:"Othello Quiz 2005 - 2009", QZ3:"Othello Quiz 2010 - 2014",
-    QZ4:"Othello Quiz 2015 - 2019", QZ5:"Othello Quiz 2022 - 20xx",
+    QZ4:"Othello Quiz 2015 - 2019", QZ5:"Othello Quiz 2022 - 202x",
     QZ6:"Osaka Quiz 2014, 06 - 03", QZ7:"Sapporo Quiz 2010 - 2008", QZ8:"Sapporo Quiz 2007 - 2005",
-    QZ9:"Nagoya Quiz 2004 - 2005", QZa:"peever Quiz 2005, 2013", QZb:"Osaka Quiz 2024",
+    QZ9:"Nagoya Quiz 2004 - 2005", QZa:"peever Quiz 2005, 2013", QZb:"Osaka Quiz 2024 - 202x",
     TC1:"Timothy Chow",
     GP1:"Gammon Minami Aoyama 1", GP2:"Gammon Minami Aoyama 2", GP3:"Gammon Minami Aoyama 3",
     GP4:"Gammon Minami Aoyama 4", GP5:"Gammon Minami Aoyama 5",
@@ -97,6 +96,7 @@ function actionDeleteButton() {
   }
 
   if (dirty) { //checkが入っていてデータ編集が必要なら
+    if (!confirm("削除してよろしいでしょうか？")) { return; }
     setDataToStorage(exampager); //ローカルストレージを更新して
     location.reload(); //ページを再表示(テーブルを最新データで再表示)
   }
@@ -130,7 +130,7 @@ function getGridJsSettingObject() {
   return settings;
 }
 
-function setEventLitener() {
+function setEventListener() {
   const deletebtn = document.querySelector("#deletebtn");
   deletebtn.addEventListener("click", () => { actionDeleteButton(); });
 
@@ -144,6 +144,6 @@ function showHistoryTable() {
 }
 
 //main
-setEventLitener(); //イベントリスナー登録
+setEventListener(); //イベントリスナー登録
 showHistoryTable(); //テーブル表示
 
