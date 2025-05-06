@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-31) &ensp; 7のショット</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">ブロットを隠した方がいいのか？</div>
+<div class="gamesituation">11ptマッチ、0-2で黒が負けている。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=104 白=111</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+miyukichi＞<br>
+5/2　とします。<br>
+<br>
+11Pは打たれてもインダイレクトだし、相手のボードにブロットがあるので、隠すよりもボードを強くしておきたいです。<br>
+<br>
+nori＞<br>
+5/2は6通り与える。<br>
+5/2だとして白は61以外の6がらみでなにをするのだろう？<br>
+困る目は63くらいだろう。<br>
+61はそもそもに困る目なのに良くなっている気がする。<br>
+<br>
+8ptに乗っかり<br>
+<br>
+michihito_k＞<br>
+7のショットは6通りもあり、一般に隠す方がよい。<br>
+しかしここでは、4/1という確かな仕事が出来る。<br>
+白はすべてのポイントがストリップ状態であり、黒が5ポイントボードを作るメリットは大きい。<br>
+また、白にインナーブロットがあり、それをカバーしづらい状態になっているため、黒がヒットされるダメージは少ない。<br>
+正解手：4/1<br>
+(11/8に比べて、money cubeless equityで0.050優る)<br>
+<br>
+michihito_k＞<br>
+訂正：正解手は5/2です。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    5/2                          Eq.: +0.232
+       0.563 0.116 0.001 - 0.437 0.064 0.001
+    2. Cubeful 2-ply    11/8                         Eq.: +0.201 (-0.031)
+       0.557 0.102 0.001 - 0.443 0.058 0.001
+    3. Cubeful 0-ply    11/9 3/2                     Eq.: +0.014 (-0.218)
+       0.502 0.099 0.001 - 0.498 0.088 0.003
+    4. Cubeful 0-ply    5/3 2/1                      Eq.: -0.004 (-0.236)
+       0.498 0.083 0.001 - 0.502 0.080 0.002
+    5. Cubeful 0-ply    3/2 3/1                      Eq.: -0.005 (-0.237)
+       0.498 0.081 0.001 - 0.502 0.078 0.002
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "31",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BABbCB-B--A--b--b-bBbbba-:0:0:1:21:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

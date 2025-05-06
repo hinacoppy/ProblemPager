@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-22) &ensp; キューブアクション</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の振り番で、キューブアクションは？</div>
+<div class="gamesituation">11ポイントマッチ、スコア0-0。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=114 白=130</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+※ 「キューブアクションは？」という問いかけに対しては、次の2つを答える。<br>
+　(1) 振り番である黒はダブルするべきかどうか？<br>
+　(2) もしダブルされたら白はテイクかパスか？<br>
+<br>
+miyukichi＞<br>
+ノーダブル－テイク<br>
+<br>
+黒が白に勝っているのはボード強度だけで、それでも4P、5Pが空いていて質はよいとはいえない。<br>
+ピップも負けている。<br>
+アンカーもない。<br>
+ヒットチャンスあるとはいっても、ミッドを崩してのヒットで、下手すると4箇所ブロット。<br>
+うーん。<br>
+まだ行く気しないんですが・・・行けるんですか？<br>
+<br>
+nori＞<br>
+double-pass<br>
+- ヒットするとgammonish、ボードが硬い。<br>
+- raceで良い、ヒットしなくてもバーアンカー。<br>
+<br>
+11pt Matchだし、仕切りなおしで十分。4ptはあげられない。<br>
+ギャモントライはありえない、ヒットしてからでは引いてもらえない、<br>
+のでdouble。<br>
+<br>
+Hitがなければeasy takeなのですが・・・。<br>
+<br>
+謎の豚＞<br>
+Double-Take<br>
+黒はムーブ前で16pipリードと、レースで勝っていることが<br>
+大きく、たとえこのショットをはずしてもダブルしたことを<br>
+さほど後悔するわけではありません。6でバーアンカー、5で<br>
+1枚逃げれて4でヒットのため、有効なムーブができない目は<br>
+1-2くらいしかありません。(1-1は5ポイントメイクで<br>
+きるのでさほど悪くも無いでしょう)<br>
+ヒットして、白が良くないレスポンス(16とおりのダンスが<br>
+メインですね)を振ると大パスになりますし、その場合ダブル<br>
+していないことによる損が大きすぎる気もします。<br>
+テイクもクリアーな気がします。すぐヒットされない限り、<br>
+なんでもないポジションですし、ヒットされてダンスという<br>
+展開は4分の1程度ですから。<br>
+<br>
+michihito_k＞<br>
+黒が4ポイントボードを作っているが、白も5ptと10ptを作っており、<br>
+良好なプライム形となっている。更に<br>
+<br>
+・黒は4ポイントボードだが、4､5ptが空いている<br>
+・黒はハイアンカーを確保していない<br>
+<br>
+以上から、黒のアドバンテイジはそれほどの大きくなく、ノーダブル＆テイクが正解となる。<br>
+MCEが0.260で、ダブルすると0.100のエラー。<br>
+<br>
+※ 一般にプライム対プリッツならば、プライム側に大きなアドバンテイジがある。<br>
+　ブリッツ側が強くなるのは、既にバーに上げている場合ではないだろうか。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.235
+  0.569 0.169 0.002 - 0.431 0.070 0.003
+Cubeful equities:
+1. No double           +0.322
+2. Double, pass        +1.000  (+0.678)
+3. Double, take        +0.177  (-0.145)
+Proper cube action: No double, take (17.6%)
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "22",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BBB--C-Ba--cB-b-bAdc---A-:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

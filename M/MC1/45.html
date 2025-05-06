@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-45) &ensp; どこを作るか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に4ゾロが出ました。いろんな所を作れますねえ。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=172 白=146</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+みろり＞<br>
+まず24/20(2)は確定。残りは良いムーブが見当たりませんが、安全策＋インナー2ポイントボードに強化＋6ptスタック解消で6/2(2)とします。<br>
+<br>
+michihito_k＞<br>
+私は「20ptを作るか5ptを作るか？」と捕えました。<br>
+しかし、みろりさんは一目で20ptだと見抜いてますねえ。<br>
+<br>
+20pt作りを支持する理由は<br>
+(1) バックマンが3枚いるので、ハイアンカーの価値が高い<br>
+(2) 20ptに単独でバックマンを置くと、相手の攻め駒が10枚あって恐い<br>
+<br>
+また、5pt作りがイマイチな理由は<br>
+(3) ミッドポイントがストリップになって、全体にバランスが悪い<br>
+(4) 相手のバックマンが1枚だけで、5ptの価値がやや落ちる<br>
+　 (相手のバックマンが2枚ならば、5ptの価値がより高い)<br>
+<br>
+よって20pt作りが断然優ります。<br>
+それを確定させれば、残り2回で4ptを作るか2ptを作るかは、ほとんど差がありません。<br>
+正解：24/20(2) 8/4(2) または 24/20(2) 6/2(2)<br>
+<br>
+miyukichi＞<br>
+なるほど～～。<br>
+私はこういうときのハイアンカーの価値があまりわからず、5Pをつくったうえにバックマンばらしたりしてました＾＾；；<br>
+ひょえ～～。<br>
+<br>
+みろり＞<br>
+ナックギャモン or バックゲームを死ぬほどやるとわかります。笑　＜ハイアンカーの価値<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20(2) 6/2(2)              Eq.: -0.218
+       0.427 0.103 0.004 - 0.573 0.102 0.003
+    2. Cubeful 2-ply    24/20(2) 8/4(2)              Eq.: -0.220 (-0.002)
+       0.425 0.112 0.004 - 0.575 0.109 0.004
+    3. Cubeful 2-ply    24/16(2)                     Eq.: -0.234 (-0.016)
+       0.442 0.090 0.003 - 0.558 0.147 0.004
+    4. Cubeful 2-ply    24/20(2) 13/9 8/4            Eq.: -0.250 (-0.032)
+       0.424 0.101 0.004 - 0.576 0.126 0.004
+    5. Cubeful 2-ply    24/20(2) 13/9 6/2            Eq.: -0.262 (-0.044)
+       0.420 0.096 0.004 - 0.580 0.125 0.004
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "45",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a----E-CAa-cC---cbe--A-B-:0:0:1:44:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

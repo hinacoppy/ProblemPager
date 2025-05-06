@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-24) &ensp; 続キューブアクション</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の振り番でキューブアクションは？</div>
+<div class="gamesituation">7ポイントマッチ。黒が3-4で負けています。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=147 白=145</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+黒は3でヒットすれば優勢。<br>
+ヒットできなくても互角以上でしょう。<br>
+ただ、白がハイアンカーを確保しているため、まだまだ先の長いゲームです。<br>
+マネーゲームならば、ダブルするかどうか微妙でしょう。<br>
+<br>
+だとすれば、このスコアではかなり強力なダブルを打てます。<br>
+ノーダブルは致命的なエラー。<br>
+<br>
+※ ポイントマッチのスコアに関する考え方を持っていないと、このような判断はできませんね。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.391 (Money: +0.418)
+  0.654 0.195 0.008 - 0.346 0.089 0.003
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.005  (+0.005)
+3. No double           +0.785  (-0.215)
+Proper cube action: Double, pass
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "24",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---abCC-CB--bB---c-da--Bb-:0:0:1:00:3:4:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-18) &ensp; 引き続きベアイン</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の31で私は大きなミスムーブをやらかしました。</div>
+<div class="gamesituation">ダブルマッチポイントです。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=74 白=106</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+相手陣の5ptが空いており、且つエースポイントにブロットもあります。<br>
+実戦では超安全策をとるほどでもない、と判断して 13/9 と進めました。<br>
+しかしよく考えてみれば、ヒットされるとかなりのピンチじゃありませんか！<br>
+“ダンス → 二枚目を拾われる”で簡単に負けてしまいます。<br>
+ギャモン勝ちは必要ないのですから、ショットを与えない 12/8 が最善手となります。<br>
+他のムーブに比べて3%勝率が高い！<br>
+<br>
+※ ダブルマッチポイント ＝ どちらもあと1点でマッチ勝利となるスコア状況<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    12/8                         Eq.: +0.815
+       0.907 0.237 0.003 - 0.093 0.004 0.000
+    2. Cubeful 2-ply    12/9 3/2                     Eq.: +0.760 (-0.054)
+       0.880 0.300 0.005 - 0.120 0.013 0.000
+    3. Cubeful 2-ply    13/10 12/11                  Eq.: +0.749 (-0.065)
+       0.875 0.341 0.005 - 0.125 0.018 0.000
+    4. Cubeful 2-ply    13/9                         Eq.: +0.745 (-0.069)
+       0.873 0.365 0.006 - 0.127 0.019 0.000
+    5. Cubeful 2-ply    13/10 3/2                    Eq.: +0.729 (-0.085)
+       0.865 0.362 0.006 - 0.135 0.019 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "18",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=aBBCBBa-B---AA-aa--d-bbba-:0:0:1:31:0:0:0:1:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

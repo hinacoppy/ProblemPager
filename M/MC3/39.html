@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC3-39) &ensp; キューブ　その16</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">赤の振り番でキューブアクションは？</div>
+<div class="gamesituation">7ptマッチ、赤が4-0でリード。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 赤=121 白=90</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+WooMets＞<br>
+マネーの場合、赤に2-6抜けが必要で、赤は既にエスケープを完了しているので、ダブルパスだと思います。<br>
+このポイント状況では、白のテイクポイントは、白の勝率が小さくなってもテイクできる方向になっています。でも、白がボードを維持するためにはよほど都合のいい目(2と小さな目の組み合わせ)が必要に感じます。ボードが崩れてきたら、赤はピュアプレイでアタックを開始するでしょう。テイクして勝つのはずいぶん都合のいい目が必要に感じます。少ない確率の5away-3awayを目指すよりは、7away-2awayからギャモニッシュな展開を志向するほうがいいような気がします。<br>
+<br>
+hiraiya3＞<br>
+相手のボードはこの先崩れる一方で、こちらの危険はどんどん減少すると思います。<br>
+ここで白がアンカーを取れない限り、<br>
+または、6ゾロ振ってバックマン1枚が完全に脱出しない限り<br>
+赤にギャモン勝ちの可能性がありそうに見えました。<br>
+もう少しギャモントライしてみたいです。<br>
+<br>
+ノーダブル－パス<br>
+<br>
+michihito_k＞<br>
+お二人が書いているように、赤がたいへん優勢だ。<br>
+ダブルすれば、このスコアであっても白はテイクできない。<br>
+しかしtoo goodではない。<br>
+赤の良い目は 22 33 44 55 66 45 35 で9通り。<br>
+赤が上記の目を振らず、白に2が出たならば、もはや赤はダブルできないからだ。<br>
+(ダブルされたら白はイージーテイク)<br>
+正解：ダブル＆パス<br>
+<br>
+※ money cubeless equityは0.700<br>
+　ダブルしないと0.150のエラー。<br>
+　テイクすると0.070のエラー。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.713 (Money: +0.710)
+  0.784 0.173 0.006 - 0.216 0.037 0.000
+Cubeful equities:
+1. Double, take        +0.950
+2. Double, pass        +1.000  (+0.050)
+3. No double           +0.836  (-0.114)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC3",
+    probnum: "39",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--aBaBBBBB-----C--abb-ccb-:0:0:1:00:4:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC4-16) &ensp; 序盤のムーブでおます</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">この2ゾロをどないするか？</div>
+<div class="gamesituation">7ptマッチ、2-2のタイスコア。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 赤=162 白=154</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+daichan＞<br>
+まず6/4(2)は確定。<br>
+つぎに13/11もやりたい。<br>
+そうすると残りは24/22になるかと思います。<br>
+<br>
+WooMets＞<br>
+スタックしている相手にバックマンを割りたくない。24/22(2) 6/4(2)<br>
+<br>
+null＞<br>
+実戦ならノータイムで、24/22(2)、6/4(2)とやります。<br>
+しかし、問題になっているということは誤りなのでしょうか。<br>
+代替案は、6/4(2)、13/11、24/22という欲張りな手。<br>
+24/20(2)でしょうか。<br>
+しかし、後者は一つの仕事しかしておらず、前者はミッドが2枚でかつ、5ゾロを与えます。<br>
+平凡に、24/22(2)、6/4(2)が正解と考えます。<br>
+<br>
+shirofukurou＞<br>
+6/4(2) 24/22(2)とします。<br>
+第一感は13/11 24/22でしたが、11ptメイクしても<br>
+相手の63、54はどうせ当たるので、得するのは<br>
+相手が64の時だけ。ならば2通りには目をつむって<br>
+アンカー前進させます。<br>
+<br>
+michihito_k＞<br>
+6/4(2)は確定だろう。<br>
+13/11も私にとっては確定だった。<br>
+アウターポイントの価値は高いからだ。<br>
+しかし最後の1回で24/22と動かした場合、相手の攻め駒が10枚あって、<br>
+バックマンに対するプレッシャーが大きい。<br>
+よって13/11よりも24/22(2)の価値の方が高い。<br>
+最善手：24/22(2) 6/4(2)<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/22(2) 6/4(2)              Eq.: +0.123
+       0.525 0.148 0.005 - 0.475 0.106 0.003
+    2. Cubeful 2-ply    24/22 13/11 6/4(2)           Eq.: +0.059 (-0.064)
+       0.519 0.151 0.007 - 0.481 0.147 0.007
+    3. Cubeful 2-ply    24/20(2)                     Eq.: +0.051 (-0.072)
+       0.506 0.114 0.003 - 0.494 0.086 0.003
+    4. Cubeful 2-ply    13/11 10/8 6/4(2)            Eq.: +0.027 (-0.096)
+       0.505 0.155 0.006 - 0.495 0.143 0.007
+    5. Cubeful 2-ply    13/11 8/4 6/4                Eq.: -0.016 (-0.139)
+       0.495 0.155 0.007 - 0.505 0.152 0.010
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC4",
+    probnum: "16",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-aa---E-C-AAcC---cbe----B-:0:0:1:22:2:2:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

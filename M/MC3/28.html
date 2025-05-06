@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC3-28) &ensp; キューブ　その5</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の振り番でキューブアクションは？</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=153 白=177</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+double/take<br>
+好みは3pt or 7pt をcoverしてからキャッシュ。<br>
+8枚しかいない＋三枚戻されなので、blitzで仕上がることは無い。<br>
+<br>
+白はアンカーしても引きたくない形になりそうだが、takeだろうなぁ。<br>
+<br>
+null＞<br>
+黒が4Pっをカバーできるのは、any4、55、66、51、62、で17通り。<br>
+50%に満たない。バックマンが3枚もあり、まだひと波乱あってもおかしくない。<br>
+no double/take<br>
+<br>
+michihito_k＞<br>
+単純に4ptをカバーする目が any4 と 11 22 13 55 66 で17通り。<br>
+また null さん指摘のように、51 62 も良い目だ。<br>
+更に、16 33 36 46 56 の9通りが7ptをカバーできる良い目となる。<br>
+よって良い目が多く、たいへん強力なダブルとなり、白はパスした方が若干よい。<br>
+正解：ダブル＆パス<br>
+※ money cubeless equityが0.630。テイクとパスの差は0.050。<br>
+※ 私は実戦で、テイクがクリア、ダブルが際どいとジャッジした…<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.643
+  0.687 0.299 0.026 - 0.313 0.055 0.002
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.074  (+0.074)
+3. No double           +0.876  (-0.124)
+Proper cube action: Double, pass
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC3",
+    probnum: "28",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=aaaABBBA----cD--bc-dBA----:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

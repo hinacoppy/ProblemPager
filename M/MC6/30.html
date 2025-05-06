@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-30) &ensp; 続・ベアオフ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">1ゾロはめっちゃええ目に思えます。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=62 白=75</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+昨日とは別のゲームですね。<br>
+ただ「好事魔多し」ということわざもあることやし、安易にのっかってええものか？<br>
+<br>
+vin＞<br>
+7/6(2)  1/off(2)<br>
+5,6ポイントにスペアが多く、白は4以上で強制moveになるので、これが一番安全に見えます。<br>
+7/6(2) 5/4(2) では 63 に対応できませんし。<br>
+<br>
+キスノ＞<br>
+私も第1感は7/6(2)　1/0(2)だったけど、ここで2枚上がってもギャモン取れる気がしませんでした。<br>
+だったら安全に6ゾロケアーしときたいなぁ<br>
+7/6 7/5 1/0<br>
+せめて1枚上がっておきましょう。<br>
+vinさんが言うように7/6(2) 5/4(2)だと6ゾロはおろか、63でも割れてしまう上に、1枚も上がっていませんね。<br>
+<br>
+キスノ＞<br>
+ちょっと待てよ、別のアイディアが浮かびました。<br>
+景山さんのコメントの「安易にのっかってええものか」にひっかかって<br>
+超安全策を考えてみました。<br>
+6/4 5/4 2/1<br>
+こうすると将来的にも割れにくいですよね。<br>
+64が出たら泣こう！<br>
+2/1としたので、ダブルブロットは一応免れている。<br>
+そして4で打たれないことを祈ろうではないか。<br>
+1枚も上がってないけど、4プライムだし。<br>
+よし、こっちを採用しよう。<br>
+<br>
+michihito_k＞<br>
+まず7/6(2)は確定ですよね。<br>
+今一番やりたい“ベアイン”を何が何でも行ってやりましょう。<br>
+さて残り2回で、私は5/4(2)と4ポイントを埋めたんです。<br>
+もちろん喜んで！<br>
+しかしよく見ると、6ポイントの5枚がひどい形です。<br>
+63(2通り)で割れてしまうし、65や64でもひどい形になります。<br>
+それに対して、4ポイントを作らなければ割れる目は66(1通り)だけ。<br>
+おまけに、すぐ悪い形になることはありません。<br>
+そしてvinさんが書いているように、白にはタイミングなく、すぐにバックマン1枚を逃さないといけないし、遠からず2枚目も逃すことになるでしょう。<br>
+ならば4ポイントが空いていても、大きな問題ではないんです。<br>
+最善手：7/6(2) 1/off(2) または 7/6(2) 2/off<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    7/6(2) 1/off(2)              Eq.: +0.801
+       0.901 0.031 0.001 - 0.099 0.000 0.000
+    2. Cubeful 2-ply    7/6(2) 2/off                 Eq.: +0.801 (-0.000)
+       0.900 0.033 0.000 - 0.100 0.000 0.000
+    3. Cubeful 2-ply    7/5 7/6 1/off                Eq.: +0.782 (-0.019)
+       0.891 0.023 0.000 - 0.109 0.000 0.000
+    4. Cubeful 2-ply    7/6(2) 5/4(2)                Eq.: +0.761 (-0.040)
+       0.881 0.028 0.000 - 0.119 0.000 0.000
+    5. Cubeful 2-ply    7/5 7/6 2/1                  Eq.: +0.760 (-0.042)
+       0.880 0.024 0.000 - 0.120 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "30",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BDb-DCB-------------bddc-:0:0:1:11:6:3:1:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

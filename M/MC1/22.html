@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-22) &ensp; ベアオフ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に43が出ました。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=52 白=159</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+実戦ではノータイムで 5/1 5/2 と進めました。<br>
+いけませんねえ。<br>
+<br>
+(1) ヒットされなければギャモン勝ちは確定<br>
+(2) バックギャモン勝ちはほとんどない<br>
+<br>
+以上からもっとも安全な 6/2 6/3 が最善手となります。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/3 6/2                      Eq.: +1.900
+       0.982 0.934 0.008 - 0.018 0.000 0.000
+    2. Cubeful 2-ply    5/2 5/1                      Eq.: +1.895 (-0.004)
+       0.978 0.938 0.008 - 0.022 0.000 0.000
+    3. Cubeful 2-ply    4/1 4/off                    Eq.: +1.808 (-0.092)
+       0.957 0.897 0.012 - 0.043 0.000 0.000
+    4. Cubeful 0-ply    6/3 5/1                      Eq.: +1.485 (-0.415)
+       0.862 0.799 0.008 - 0.138 0.000 0.000
+    5. Cubeful 0-ply    6/2 5/2                      Eq.: +1.438 (-0.462)
+       0.849 0.783 0.009 - 0.151 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "22",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=bBBBBDB-----c--b-b-db-----:1:-1:1:43:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

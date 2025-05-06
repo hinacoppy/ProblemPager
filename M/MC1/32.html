@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-32) &ensp; ヒットか作るか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に42が出ました。選択肢は二つ。どちらにしますか？</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=146 白=145</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+・相手がハイアンカーを作る目と逃げる目がどちらも5で、ダブっている。<br>
+・こちらのバックマンは1枚だけなので、リターンヒットされると痛い。<br>
+<br>
+以上の理由から、私は4pt作りを選びました。<br>
+しかし、正解は13/7* のヒット！<br>
+どうして、もう一度考えました。<br>
+<br>
+(1) リターンヒットされるダメージ<br>
+バックマンが増えると悲しいのですが、相手はノーボードなので、まだまだいい勝負でしょう。<br>
+<br>
+(2) 4ptを作ると相手の良い目が多い<br>
+8/4 6/4 と進めると、最初考えた以上に相手は色々なことができます。<br>
+ハイアンカー確保の他にも、インナー作りやバックマン1枚の脱出など。<br>
+何もできない悪い目は 12 と 16 しかありません。<br>
+<br>
+つまり、ヒットされてもまだまだだし、ヒットしないと相手の良い目が多過ぎるため、13/7* が最善手となるのです。<br>
+<br>
+ちなみに 8/4 6/4 は0．200に迫る大きなエラーです。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/7*                        Eq.: +0.441
+       0.607 0.187 0.006 - 0.393 0.094 0.004
+    2. Cubeful 2-ply    8/4 6/4                      Eq.: +0.275 (-0.166)
+       0.563 0.170 0.005 - 0.437 0.091 0.003
+    3. Cubeful 0-ply    8/2*                         Eq.: +0.071 (-0.370)
+       0.510 0.163 0.004 - 0.490 0.117 0.004
+    4. Cubeful 0-ply    24/22 6/2*                   Eq.: +0.062 (-0.379)
+       0.513 0.145 0.004 - 0.487 0.118 0.004
+    5. Cubeful 0-ply    13/11 6/2*                   Eq.: +0.054 (-0.387)
+       0.508 0.161 0.005 - 0.492 0.126 0.006
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "32",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--a--CCaC---bE-a-cbe----A-:0:0:1:42:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

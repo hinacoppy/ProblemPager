@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-29) &ensp; ヒットするべきか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に43が出ました。ヒットするべきか否か？</div>
+<div class="gamesituation">11ポイントマッチ。スコア9-6で黒がリードしています。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=121 白=133</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+ヒットすればギャモン勝ちできるかもしれません。<br>
+そうなれば、ぴったりとマッチを勝ちます。<br>
+ただ、ブロットをばらまき過ぎています。<br>
+何通りでリターンヒットされるのか数えましょう。<br>
+どうでしょうか？<br>
+<br>
+そう、17通りもありますね。<br>
+いくらなんでも多過ぎます。<br>
+ではヒットしないとどうなるのか？<br>
+<br>
+16/9と無難に進めると、ピップで19もリードします。<br>
+十分満足できる状態ですね。<br>
+<br>
+16/9 が最善手であり、13/9 13/10* に対して、money cubeless equityで0.150優ります。<br>
+そして、スコアとキューブ込みに期待値ならば、0.350も優ります！<br>
+久々に強烈なエラーをやらかしました…<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    16/9                         Eq.: +0.223
+       0.560 0.065 0.001 - 0.440 0.034 0.000
+    2. Cubeful 2-ply    16/13 7/3                    Eq.: +0.198 (-0.025)
+       0.552 0.054 0.000 - 0.448 0.031 0.000
+    3. Cubeful 2-ply    16/13 6/2                    Eq.: +0.112 (-0.110)
+       0.527 0.046 0.000 - 0.473 0.035 0.000
+    4. Cubeful 0-ply    13/10* 13/9                  Eq.: -0.040 (-0.263)
+       0.504 0.203 0.002 - 0.496 0.125 0.011
+    5. Cubeful 0-ply    13/10*/6                     Eq.: -0.101 (-0.324)
+       0.482 0.166 0.002 - 0.518 0.116 0.006
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "29",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BB---EA--a-bB-dAcBcb-----:0:0:1:34:9:6:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

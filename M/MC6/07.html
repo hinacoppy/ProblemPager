@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-07) &ensp; ギャモン負けを逃れろ！</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=149 白=31</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+実戦では、13/7 をロスが大きいと考えて、19/13 を選んだ。<br>
+<br>
+実際は？<br>
+19/13 も決して効果的とは言えない。<br>
+そして 13/7 ならば、1の目を有効に使える。<br>
+19/13(2) はgammon負けを1.6%も増やしている！<br>
+最善手：b/19(2) 13/7(2)<br>
+<br>
+DASH!＞<br>
+一番違うのは5の目だと思います。19/13(2)とすると5の目が最悪の13/8と強制されてしまいます。1の目は13/12と動かせるのでロスとは感じません。<br>
+結局動かせる駒が4箇所から選択できた方が2箇所より嬉しいということでしょう。<br>
+<br>
+michihito_k＞<br>
+5の目で13/8と動かすデメリットと、1の目で13/12と動かすデメリットをSnowieを使って比較しようとしたんですが、これがなかなか厄介。<br>
+はっきりとしたデータを得ることができませんでした。<br>
+何かよい検証方法があるでしょうか？<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/19(2) 13/7(2)            Eq.: -2.584
+       0.000 0.000 0.000 - 1.000 0.797 0.000
+    2. Cubeful 2-ply    bar/7 bar/19                 Eq.: -2.592 (-0.008)
+       0.000 0.000 0.000 - 1.000 0.801 0.000
+    3. Cubeful 2-ply    bar/13(2)                    Eq.: -2.634 (-0.051)
+       0.000 0.000 0.000 - 1.000 0.822 0.000
+    4. Cubeful 2-ply    bar/19(2) 13/7 8/2           Eq.: -2.642 (-0.058)
+       0.000 0.000 0.000 - 1.000 0.826 0.000
+    5. Cubeful 2-ply    bar/13 bar/19 8/2            Eq.: -2.661 (-0.077)
+       0.000 0.000 0.000 - 1.000 0.835 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "07",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---B--E-C----C-------cccdB:0:0:1:66:4:5:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

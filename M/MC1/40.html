@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-40) &ensp; スタックには割るな</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に51が出ました。相手陣の様子をよく見て、ムーブを考えましょう。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=153 白=142</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+5の目は 13/8 でOKでしょう。<br>
+1の目でスプリットするかどうかを検討します。<br>
+「スタックには割るな」という大切な格言がありました。<br>
+白の6ptに5枚あってスタックしているため、私はスプリットしない 6/5 を選びました。<br>
+でも正解は 24/23 。<br>
+どうしてでしょう？<br>
+<br>
+(1) 白の8ptに2枚しかないので、ゾーンに9枚。<br>
+　　ちょっと恐い程度。<br>
+(2) 陣地の強さはまったく同じ<br>
+(3) 白がハイアンカーを確保しているので、黒もハイアンカーを目指してバックマンを割りたい<br>
+<br>
+以上3つの理由が重なって、24/23 13/8 が最善手となるのだと思います。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/23 13/8                   Eq.: -0.412
+       0.391 0.096 0.002 - 0.609 0.171 0.006
+    2. Cubeful 2-ply    24/23 8/3                    Eq.: -0.430 (-0.018)
+       0.386 0.098 0.002 - 0.614 0.175 0.007
+    3. Cubeful 2-ply    8/3 6/5                      Eq.: -0.470 (-0.058)
+       0.374 0.097 0.002 - 0.626 0.166 0.007
+    4. Cubeful 2-ply    13/8 6/5                     Eq.: -0.471 (-0.059)
+       0.373 0.094 0.002 - 0.627 0.163 0.006
+    5. Cubeful 2-ply    24/18                        Eq.: -0.539 (-0.127)
+       0.374 0.091 0.002 - 0.626 0.220 0.009
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "40",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---A-BDbB---cDa--b-eb---B-:0:0:1:51:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

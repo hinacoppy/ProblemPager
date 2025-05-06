@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-43) &ensp; サバイバル</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">緑に41が出ました。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=60 白=66</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+この1枚が逃げ切れるかどうか、運命の分かれ道ですね。<br>
+昨日の「サタトナ Joe-Guy杯予選」では、見事othelloさんが優勝！<br>
+おめでとうございました～<br>
+また、25名もの方に参加して頂きました。<br>
+御礼申し上げます。<br>
+<br>
+キスノ＞<br>
+ピップは少しですがリードしているので、緑は白をヒットせずにすれ違いたい。<br>
+ボードを壊してしまいますが、この4 1 は20の駒を進めずに耐えましょう。<br>
+6/1として、次にヒットされず大きな目を振ることを祈ります。<br>
+<br>
+toku＞<br>
+僕もキスノさんと同様にインナーの駒を動かします。<br>
+乗っかり～＾＾；<br>
+<br>
+しすけ＞<br>
+ぼくも、6/1<br>
+<br>
+vin＞<br>
+6/1<br>
+やっぱ、出遅れると悔しいなあ。<br>
+キスノさんの意見に納得です。<br>
+<br>
+H.S＞<br>
+特攻(20→15)も良いかと思ったのですが、ヒットされた後のダンス<br>
+が怖いのを考えるとキスノさんの考えもありな気がしました。(一発で<br>
+出てリターンヒットできれば逆にチャンスですが)<br>
+<br>
+キスノ＞<br>
+20の駒を進めずに耐えることに変わりはないのですが<br>
+6/2 4/3っていうのはないですかね。<br>
+ヒットしたくはないけれど、ゾロ目などでどうしてもヒットしなければならない場合、インナーにブロットが少ない方がいいよなぁ、とかちょっと思いました。<br>
+<br>
+michihito_k＞<br>
+申し訳ありません！<br>
+選択肢として5つのムーブがあって、そのどれもがほぼ同じなんです。<br>
+つまりどれを選んでも正解と…<br>
+問題としてふさわしくなかったですわ。<br>
+こんな経緯でした。<br>
+まずSnowieでロールアウトすると、6/1が最善手。<br>
+これは面白いと出題したのですが、今日、あらためてGnubgでかなり濃いロールアウトをやってみると、5つのムーブがほぼ同価値になってしまったんです。<br>
+ちなみに、濃いロールアウトとは次のような設定でした。<br>
+Full cubeful rollout with var.redn.<br>
+1296 games,<br>
+Play: world class 2-ply cubeful prune<br>
+Cube: 2-ply cubeful prune<br>
+<br>
+michihito_k＞<br>
+簡単に分析してみると<br>
+バックマンを動かさないムーブの長所<br>
+・次の瞬間はヒットされづらい(6通りでしかヒットされない)<br>
+バックマンを前に進めるムーブの長所<br>
+・ヒットされなければ、次ですれ違えそう<br>
+・強いインナーを保ち、相手にプレッシャーを与える<br>
+両者の長所が相殺して、ほぼ同じになるのだと思います。<br>
+5つのムーブとは次の通りです～<br>
+6/5 6/2<br>
+6/1<br>
+20/15<br>
+6/2 4/3<br>
+20/16 2/1<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1                          Eq.: +0.467
+       0.680 0.021 0.000 - 0.320 0.000 0.000
+    2. Cubeful 2-ply    6/5 6/2                      Eq.: +0.447 (-0.021)
+       0.670 0.018 0.000 - 0.330 0.000 0.000
+    3. Cubeful 2-ply    6/2 4/3                      Eq.: +0.446 (-0.021)
+       0.670 0.018 0.000 - 0.330 0.000 0.000
+    4. Cubeful 2-ply    20/16 2/1                    Eq.: +0.424 (-0.043)
+       0.658 0.037 0.001 - 0.342 0.000 0.000
+    5. Cubeful 2-ply    20/15                        Eq.: +0.421 (-0.046)
+       0.657 0.024 0.000 - 0.343 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "43",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--EBC-Ba-----b------Abbbf-:1:1:1:41:4:1:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

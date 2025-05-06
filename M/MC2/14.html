@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-14) &ensp; コンテインメント・ゲーム</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の目的は何か。そのための最善策は？</div>
+<div class="gamesituation">アンリミティドマッチ。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=78 白=39</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+相手が8枚上がりなのでclose outしないと勝てません。<br>
+8/3 13/9<br>
+<br>
+michihito_k＞<br>
+確かに nori さんが書いているように、クローズアウトしたくなります。<br>
+(クローズアウトすれば6割ほど勝てます)<br>
+ここでは、全体の駒の進み具合に注目しましょう。<br>
+黒の駒が遅れているほど、後ろ側の駒を進めたくなります。<br>
+進むほど、スロットしたくなります。<br>
+今スロットしないと、もうクローズアウトできないかもしれません。<br>
+正解：13/9 8/3<br>
+<br>
+※ 正解手は 13/8 10/6 に比べると、ギャモン負けを5%増やしますが、勝率を9%もアップします。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 8/3                     Eq.: +0.034
+       0.478 0.000 0.000 - 0.522 0.077 0.006
+    2. Cubeful 2-ply    10/6 8/3                     Eq.: -0.010 (-0.044)
+       0.452 0.000 0.000 - 0.548 0.065 0.002
+    3. Cubeful 2-ply    13/9 10/5                    Eq.: -0.028 (-0.063)
+       0.430 0.000 0.000 - 0.570 0.034 0.001
+    4. Cubeful 2-ply    13/4                         Eq.: -0.051 (-0.085)
+       0.419 0.000 0.000 - 0.581 0.031 0.001
+    5. Cubeful 2-ply    13/8 10/6                    Eq.: -0.070 (-0.105)
+       0.408 0.000 0.000 - 0.592 0.024 0.001
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "14",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=aBB-BCC-A-A--A-------b-bb-:1:1:1:54:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

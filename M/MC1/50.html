@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-50) &ensp; アンカーを外すか</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に63が出ました。アンカーの外し時って難しいですよねえ。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=145 白=150</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+みろり＞<br>
+8/2 13/10<br>
+<br>
+アンカーを外すと黒は12以外の34通りでヒットしてくるでしょう。白のアウターが崩れるか、先にヒットできるまでアンカーは維持したいです。13/7とするとショット数14,15,16,24,26,34,36,45,46,56,33,44,66の23通り64%、13/4とするとショット数any1,any3,の20通り56%、どちらも多すぎます。8/2とするしか無いと思います。<br>
+残りはダイレクトショットを避けた13/10とします。<br>
+<br>
+michihito_k＞<br>
+黒はピップで少しリードしているので、バックマンを逃がしたいと考えます。<br>
+しかし 21/12 と進めると、mirori さんが書いているように、あまりにも多くの目で攻められてしまいます。<br>
+21ptを埋められて、一気に負けてしまう展開も予想されるだけに、危険すぎると言ってよいでしょう。<br>
+<br>
+そこで他のムーブを考えます。<br>
+3つの候補手で、相手に与えるショット数を比較しましょう。<br>
+<br>
+13/4　　　20通り<br>
+13/7 8/5　24通り<br>
+13/10 8/2 16通り<br>
+<br>
+13/10 8/2 が最も安全ですが、大きなデメリットがあります。<br>
+・2ptは作りたい場所ではない<br>
+・8ptがストリップ<br>
+<br>
+よってショット数が比較的少なく、作りたい場所に駒を置く 13/4 がベストとなります。<br>
+これならば、ヒットされても一気に負けることはありません。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/4                         Eq.: -0.180
+       0.439 0.108 0.004 - 0.561 0.113 0.004
+    2. Cubeful 2-ply    13/10 8/2                    Eq.: -0.237 (-0.057)
+       0.428 0.104 0.004 - 0.572 0.120 0.004
+    3. Cubeful 2-ply    13/7 8/5                     Eq.: -0.257 (-0.077)
+       0.420 0.099 0.004 - 0.580 0.118 0.004
+    4. Cubeful 2-ply    21/12                        Eq.: -0.283 (-0.103)
+       0.450 0.127 0.007 - 0.550 0.226 0.008
+    5. Cubeful 0-ply    8/5 8/2                      Eq.: -0.431 (-0.251)
+       0.369 0.089 0.003 - 0.631 0.141 0.005
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "50",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a-b-BE-C----C-bbb-bbBb---:0:0:1:63:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

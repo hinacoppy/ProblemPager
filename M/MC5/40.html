@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-40) &ensp; 三手目の5ゾロ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=156 白=157</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+レスポンスの5ゾロならば　6/1＊（2）　8/3（2）が定番であり、相手がバックマンを割っていれば、100%このムーブで間違いない。<br>
+しかし、三手目となると様相が変わってくる。<br>
+特に初手65でバックマンを1枚逃がしていれば、ヒットされることを避けたくなるため、6/1＊（2）　13/8（2）が最善となる。<br>
+<br>
+※ ほおって置くと相手の良い目が多すぎるため、ヒットすることは必須だ。<br>
+※ 13/8（2）ならばミッドポイントの山を崩している。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8(2) 6/1*(2)              Eq.: +0.517
+       0.614 0.217 0.005 - 0.386 0.083 0.002
+    2. Cubeful 2-ply    8/3(2) 6/1*(2)               Eq.: +0.432 (-0.085)
+       0.584 0.261 0.004 - 0.416 0.098 0.003
+    3. Cubeful 2-ply    13/3 8/3 6/1*                Eq.: +0.288 (-0.228)
+       0.558 0.199 0.005 - 0.442 0.105 0.003
+    4. Cubeful 2-ply    13/3(2)                      Eq.: +0.260 (-0.257)
+       0.571 0.147 0.004 - 0.429 0.089 0.002
+    5. Cubeful 0-ply    13/3 6/1*(2)                 Eq.: +0.194 (-0.323)
+       0.541 0.191 0.003 - 0.459 0.107 0.003
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "40",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a----EaC---dF--ac-e----A-:0:0:1:55:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

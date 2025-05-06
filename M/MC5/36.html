@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-36) &ensp; 打つべきか、打たざるべきか</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=133 白=102</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+どのみち3ptに向けてルースヒットすることになる。<br>
+今するのも次にするのも、ほとんど変わりないだろう。<br>
+今ヒットしないと、6で逃げられるかもしれない。<br>
+そう考えて、7/3＊を選択したが、0.087のエラー！<br>
+<br>
+実は同じルースヒットでも、5の目と4の目ではそうとうに価値が異なる。<br>
+5の目でルースヒットすればフルプライムが可能だが、4の目だと5プラにしかならない。<br>
+必勝形にはならないのだ。<br>
+また、ここでは次の理由から22/18は明らかにプラスのムーブだ。<br>
+・バックマンが同じ場所に3枚では働きが悪い<br>
+・動きづらいバックマンを進めている<br>
+<br>
+したがって苦しいルースヒットよりも、駒の働きをよくする22/18が優るのだ。<br>
+<br>
+※出目が35ならば b/22　8/3＊が最善となる。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    bar/18                       Eq.: +0.029
+       0.504 0.081 0.002 - 0.496 0.096 0.004
+    2. Cubeful 0-ply    bar/22 7/3*                  Eq.: -0.134 (-0.163)
+       0.478 0.083 0.002 - 0.522 0.168 0.013
+    3. Cubeful 0-ply    bar/22 8/4                   Eq.: -0.537 (-0.566)
+       0.344 0.051 0.001 - 0.656 0.132 0.007
+    4. Cubeful 0-ply    bar/22 5/1                   Eq.: -0.956 (-0.985)
+       0.279 0.036 0.001 - 0.721 0.169 0.009
+    5. Cubeful 0-ply    bar/22 6/2                   Eq.: -1.000 (-1.029)
+       0.260 0.031 0.000 - 0.740 0.173 0.008
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "36",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--BaBBBBB-------b--edcB--A:0:0:1:43:3:4:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

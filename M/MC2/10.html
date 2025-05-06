@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-10) &ensp; 終盤</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の65は易しいでしょうか？</div>
+<div class="gamesituation">アンリミティドマッチです。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=111 白=70</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+miyukichi＞<br>
+7/1*、23/18<br>
+<br>
+打ち込み＆バックマン1枚外へ出します。<br>
+1でリターンされても、11、12、16以外は相手のボードが崩れます。<br>
+11、12の場合も直後に6を振れなければ同じくボードが崩れていきます。<br>
+<br>
+michihito_k＞<br>
+黒は、1か3でカバーして、フルプライムを作りたかったことでしょう。<br>
+できない場合は、6で打ち込みます。<br>
+5の目ですが、「保険としてアンカーを保ちたい」と考えると、せっかく相手がダンスしてくれても、クラッシュの危機にさらされます。<br>
+バックマンを進めるべきです。<br>
+最善手：23/18 7/1*<br>
+みゆきっちゃん、いつもながら正解でしたねー<br>
+(money cubeless equityで 10/5 7/1* に0.100ほど優ります)<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/18 7/1*                   Eq.: +0.409
+       0.756 0.105 0.005 - 0.244 0.130 0.006
+    2. Cubeful 2-ply    10/5 7/1*                    Eq.: +0.342 (-0.067)
+       0.716 0.092 0.003 - 0.284 0.089 0.003
+    3. Cubeful 2-ply    8/3 7/1*                     Eq.: +0.307 (-0.103)
+       0.704 0.091 0.002 - 0.296 0.094 0.003
+    4. Cubeful 2-ply    23/17 7/2                    Eq.: +0.046 (-0.363)
+       0.604 0.088 0.003 - 0.396 0.121 0.002
+    5. Cubeful 0-ply    23/18 23/17                  Eq.: +0.142 (-0.267)
+       0.675 0.061 0.004 - 0.325 0.161 0.002
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "10",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-aBBBBBAA-A--------bbbdBd-:1:-1:1:65:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

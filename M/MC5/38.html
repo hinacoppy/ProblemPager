@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-38) &ensp; バックマンの配置</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=163 白=152</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+ムーブ後で2ピップ遅れているので、バックマンを逃がすムーブは不自然。<br>
+21ptに居座り、アンカー確保のために戦おうと考えた。<br>
+ルースヒットされても、16通りでリターンヒットを狙える。<br>
+しかし大きなエラーだった！<br>
+<br>
+通常、相手の作りたい場所に居座ることには、大きなリスクが伴う。<br>
+シンプルにビルダーの枚数を比較しよう。<br>
+21ptに残れば三箇所から狙われる。<br>
+16ptに飛び出せば二箇所からだけだ。<br>
+したがって、b/16が最善となる。<br>
+<br>
+※ 単純すぎる考え方かもしれないが、ほとんどの場合、これで最善手を選べるはずだ。<br>
+※ 実戦はポイントマッチだが、マネーゲームに置き換えている。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/16                       Eq.: -0.698
+       0.363 0.084 0.004 - 0.637 0.274 0.011
+    2. Cubeful 2-ply    bar/21 13/8                  Eq.: -0.768 (-0.070)
+       0.350 0.088 0.005 - 0.650 0.284 0.012
+    3. Cubeful 0-ply    bar/21 8/3                   Eq.: -0.957 (-0.259)
+       0.331 0.079 0.004 - 0.669 0.316 0.020
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "38",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-b----E-D---dD-a-a-cb-b-AA:0:0:1:45:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

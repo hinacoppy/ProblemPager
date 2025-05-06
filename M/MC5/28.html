@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-28) &ensp; 3ptゲーム</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=162 白=131</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+シンプルな3ptゲームであれば、<br>
+・緑は31ピップも遅れている<br>
+・白は4プライムを作っており、更にそれが5プライムに伸びそう<br>
+以上からはパスと判断できる。<br>
+<br>
+問題となるのは、互いに余分なバックマンが1枚ずつある点だ。<br>
+私はこれを、どちらにも公平なマイナス要素と考えて、パスと判断した。<br>
+<br>
+しかし、ロールアウトするとテイクするべきだった。<br>
+（money cubeless equityは0.560）<br>
+どちらにもバックマンが増えるのならば、0枚が1枚になるダメージの方がはるかに大きいからなのだろう。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.568 (Money: +0.563)
+  0.708 0.196 0.007 - 0.292 0.055 0.002
+Cubeful equities:
+1. Double, take        +0.852
+2. Double, pass        +1.000  (+0.148)
+3. No double           +0.801  (-0.051)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "28",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a--B-D-C---bC-a-cbcc-BA--:0:0:-1:00:0:2:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

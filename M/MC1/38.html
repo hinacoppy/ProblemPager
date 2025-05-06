@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-38) &ensp; ヒットか作るか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">ヒットできるし、4pt作りもできます。あなたならどっち？</div>
+<div class="gamesituation">マネーゲーム。黒に52が出ました。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=157 白=147</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+相手のバックマンが逃げようとこちらのアウターに飛び出した場合、ヒットできるならばヒットするのが大原則となります。<br>
+例外は<br>
+(1) ヒットするとミッドポイントがストリップになる<br>
+(2) こちらがノーボード<br>
+(3) 他に良いムーブがある<br>
+<br>
+3つの条件にぴったりと当てはまりますね。<br>
+よってヒットしない 9/4 6/4 がベストムーブになります。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/4 6/4                      Eq.: -0.318
+       0.411 0.114 0.003 - 0.589 0.157 0.006
+    2. Cubeful 2-ply    23/18 13/11*                 Eq.: -0.371 (-0.053)
+       0.417 0.104 0.004 - 0.583 0.203 0.014
+    3. Cubeful 2-ply    13/11*/6                     Eq.: -0.377 (-0.059)
+       0.405 0.109 0.004 - 0.595 0.183 0.010
+    4. Cubeful 0-ply    13/11* 13/8                  Eq.: -0.522 (-0.204)
+       0.373 0.104 0.004 - 0.627 0.218 0.025
+    5. Cubeful 0-ply    13/11* 9/4                   Eq.: -0.531 (-0.213)
+       0.376 0.095 0.004 - 0.624 0.224 0.020
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "38",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--a---E-DA-adC---c-db--AA-:0:0:1:52:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

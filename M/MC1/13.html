@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-13) &ensp; 序盤の5ゾロ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に5ゾロが出ました。</div>
+<div class="gamesituation">マネーゲームです。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=176 白=157</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+5ゾロの定番のムーブと言えば…<br>
+<br>
+6/1*(2) が定番なのですが、他に 10pt を作る手もあります。<br>
+私は考えた末に 10pt 作りを選びました。<br>
+その価値をとても高いと判断して。<br>
+<br>
+しかし、かなりの大差で 6/1*(2) が優りました。<br>
+理由を挙げてみると、次の2つでしょう。<br>
+(1) テンポを奪うメリットがそれなりに大きい<br>
+ → 相手はフリーロールがあれば、次の目が有効です。<br>
+　　　13 16 23 24 34 35 45<br>
+(2) ダンスの4通りは大きい<br>
+<br>
+特殊な例を除くと、序盤の5ゾロでは、常にエースへのポイントオンが最善手になるのでしょう。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/20 13/8 6/1*(2)          Eq.: +0.028
+       0.493 0.184 0.006 - 0.507 0.127 0.007
+    2. Cubeful 2-ply    bar/15 6/1*(2)               Eq.: -0.055 (-0.083)
+       0.475 0.162 0.005 - 0.525 0.136 0.008
+    3. Cubeful 2-ply    bar/20 10/5 6/1*(2)          Eq.: -0.073 (-0.101)
+       0.470 0.163 0.005 - 0.530 0.138 0.008
+    4. Cubeful 2-ply    bar/20 13/3 8/3              Eq.: -0.087 (-0.115)
+       0.467 0.157 0.008 - 0.533 0.135 0.008
+    5. Cubeful 2-ply    bar/10 6/1*                  Eq.: -0.090 (-0.118)
+       0.471 0.136 0.004 - 0.529 0.138 0.007
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "13",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a----E-C-AaeC---c-e----BA:0:0:1:55:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

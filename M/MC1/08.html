@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-08) &ensp; ダブルマッチポイント</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の53でどんな風に動かしましょう？</div>
+<div class="gamesituation">5ポイントマッチでスコア1-1です。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=127 白=29</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+キューブが4倍なので、ダブルマッチポイントですね。<br>
+<br>
+アウターを手厚くして、65のジョーカーを避けるために 21/13 と私は進めました。<br>
+次に8ポイント作りを目指します。<br>
+<br>
+しかし、最善手はヒットでした！<br>
+私は1秒も考えなかったですわ。<br>
+<br>
+鍵は相手のインナーにあります。<br>
+相手がワンポイントボードなので、リターンヒットされるリスクが小さく、<br>
+強引なヒットが成立するんです。<br>
+ジョーカーの6ゾロを消していることもメリットの1つですね。<br>
+7/2＊ とヒットして、3の目は 14/11 と 13/10 のどちらでもよいでしょう。<br>
+<br>
+※ くれぐれも、相手がワンポイントボードだから成立することをお忘れなく。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/11 7/2*                   Eq.: -0.142
+       0.429 0.000 0.000 - 0.571 0.130 0.021
+    2. Cubeful 2-ply    23/20 7/2*                   Eq.: -0.145 (-0.003)
+       0.427 0.000 0.000 - 0.573 0.130 0.016
+    3. Cubeful 2-ply    13/10 7/2*                   Eq.: -0.148 (-0.007)
+       0.426 0.000 0.000 - 0.574 0.132 0.021
+    4. Cubeful 2-ply    21/18 7/2*                   Eq.: -0.150 (-0.008)
+       0.425 0.000 0.000 - 0.575 0.133 0.016
+    5. Cubeful 2-ply    7/4 7/2*                     Eq.: -0.157 (-0.015)
+       0.421 0.000 0.000 - 0.579 0.136 0.013
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "08",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--aBBBCB-----AA------A-Af-:2:-1:1:53:1:1:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

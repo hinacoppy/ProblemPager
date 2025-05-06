@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-35) &ensp; プライム目前</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=132 白=121</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+フルプライム目前だが、こちらのバックマンも動きづらい。<br>
+相手が5ptか7ptを作るとたいへんな事になる。<br>
+そう考えて、実戦ではダブルしなかった。<br>
+しかし0.170のエラー！<br>
+<br>
+もう一度考えてみる。<br>
+まず、いきなり大有利になる目が8通りある。<br>
+(62 44 66 55 22 42)<br>
+そして、65 の2通りも十分良い目だろう。<br>
+更に 45 46 11 21 23 25 の11通りでも、次の相手の目次第ではかなりの優勢になってしまう。<br>
+以上から、次にパスとなる展開が多くあるため、今ダブルした方がよいと分かる。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.499 (Money: +0.490)
+  0.690 0.170 0.005 - 0.310 0.064 0.002
+Cubeful equities:
+1. Double, take        +0.890
+2. Double, pass        +1.000  (+0.110)
+3. No double           +0.747  (-0.143)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "35",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--a-BBBBCA-A--a-cc-d-cB---:0:0:1:00:3:4:0:11:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

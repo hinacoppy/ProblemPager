@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-27) &ensp; Pay now or later?</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=95 白=119</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+4つのチェックポイントを使う。<br>
+(1) 必勝形になるか？　yes<br>
+(2) 相手は発展途上か？ yes<br>
+(3) 自陣は手詰まりか？ yes<br>
+(4) 安全なクリアがたいへん困難か？ not sure<br>
+<br>
+よって、明らかに今アンカーを外すべきとなる。<br>
+8/2 8/3 は0.110のエラー。<br>
+<br>
+※ 4つのチェックポイントは「New Ideas In Backgammon」より<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    14/9 14/8                    Eq.: +0.391
+       0.736 0.060 0.002 - 0.264 0.027 0.001
+    2. Cubeful 2-ply    7/2 7/1                      Eq.: +0.296 (-0.095)
+       0.697 0.056 0.000 - 0.303 0.033 0.000
+    3. Cubeful 2-ply    8/3 8/2                      Eq.: +0.293 (-0.098)
+       0.695 0.055 0.000 - 0.305 0.031 0.000
+    4. Cubeful 0-ply    14/3                         Eq.: +0.197 (-0.194)
+       0.659 0.063 0.000 - 0.341 0.046 0.000
+    5. Cubeful 0-ply    14/8 6/1                     Eq.: -0.135 (-0.526)
+       0.557 0.064 0.000 - 0.443 0.123 0.002
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "27",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=--BBbCBBB---b-B--a-ccb--b-:1:-1:1:65:1:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

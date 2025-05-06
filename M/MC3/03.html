@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC3-03) &ensp; キューブ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">白がダブルしてきた。黒はテイクかパスか？</div>
+<div class="gamesituation">7ptマッチ。黒は5-3でリードしている。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=123 白=142</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+パス。<br>
+<br>
+白は四点取れば勝ちということで、<br>
+barを作れない目はもれなく突撃してくる。<br>
+リターンヒットすると、二枚目を拾える。<br>
+<br>
+テイクするとしたら根拠はpipくらい。<br>
+13ptが捌けていないことがつらい。<br>
+<br>
+michihito_k＞<br>
+・白は理想3ポイントボード<br>
+・白の攻め駒は10個<br>
+<br>
+以上から白にはギャモン勝ちが十分あり、黒はパスしたくなる。<br>
+加えて、黒には次の弱点が存在。<br>
+・黒は3ポイントボードだが、インナーブロットが2つ<br>
+・アウターポイントがない<br>
+・ミッドポイントに5駒スタック<br>
+<br>
+よって、ピップで大きく勝っていても、このスコアではパスするべきとなる。<br>
+※ マネーならばイージーテイク。<br>
+　このスコアでテイクすると0.470のエラー。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.478
+  0.655 0.287 0.008 - 0.345 0.126 0.002
+Cubeful equities:
+1. Double, take        +0.721
+2. Double, pass        +1.000  (+0.279)
+3. No double           +0.641  (-0.080)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC3",
+    probnum: "03",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-ABAaBCb----bE---bacbbA---:0:0:-1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-29) &ensp; ベアオフ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">出目は緑の22です。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=34 白=99</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+簡単といえばそうかもしれませんが、きちんと考えると意外に難しい。<br>
+<br>
+vin＞<br>
+4/2*/off (2)<br>
+白はギャモンセーブまで32ピップ。緑はかなりロスがありそうですから、4/2*(2) 3/1(2) の安全策は、ギャモンを狙うなら採用できません。<br>
+さくっと大きい目でエンターしてくれることを祈ります。<br>
+<br>
+tam＞<br>
+4/2*/0(2)<br>
+あがって損するケースは、<br>
+白が2でエンターorダンス→緑が割れる→打たれる、など。<br>
+でも、それってあんまりなさそっ。<br>
+それよりもぎゃもんが際どい今は、2枚あがる方がメリットがデカい！<br>
+<br>
+michihito_k＞<br>
+4/2*(2)は確定。<br>
+残りの2回に関しては、お二人のコメントが的確ですね。<br>
+特に2枚上げてもあまり負けないないんだよ、ということをtamさんが分かりやすく説明してくれており、正にこの通りだと思います。<br>
+さてギャモン勝ち狙いについて少し補足を。<br>
+緑は安全策の3/1(2)を採ると残りが14枚。<br>
+7ロールで上げられます。<br>
+積極的な2/0(2)を選ぶと残りが12枚で、次からの3振りの間に2の目が出なければ、6ロールで上げられます。<br>
+つまり丸々1ロールの差があるわけで、明らかに2/0(2)の方がギャモン勝ちが増えるんです。<br>
+最善手：4/2*/0(2)<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 0-ply    4/2*/off(2)                  Eq.: +1.258
+       0.987 0.189 0.000 - 0.013 0.000 0.000
+    2. Cubeful 0-ply    4/2*(2) 3/1(2)               Eq.: +1.083 (-0.175)
+       0.978 0.090 0.000 - 0.022 0.000 0.000
+    3. Cubeful 0-ply    3/1(4)                       Eq.: +0.715 (-0.544)
+       0.855 0.049 0.000 - 0.145 0.000 0.000
+    4. Cubeful 0-ply    4/2*/off 4/2 3/1             Eq.: +0.467 (-0.791)
+       0.743 0.071 0.000 - 0.257 0.000 0.000
+    5. Cubeful 0-ply    4/2*/off 3/1(2)              Eq.: +0.313 (-0.946)
+       0.677 0.081 0.000 - 0.323 0.000 0.000
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "29",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-EaGB-----a-----a-abcbbb--:1:-1:1:22:2:3:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

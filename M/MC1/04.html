@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-04) &ensp; 今日はちょっとマニアックかも。</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">マネーゲームで黒に41が出ました。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=150 白=136</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+このようなタイプのゲームを「ミューチュアルホールディングゲーム」と呼びます。<br>
+安全なムーブ 13/8 があるのですが、実戦で私は 13/9 6/5 を選びました。<br>
+・駒を重ねてもつまらない<br>
+・ヒットされないとおいしい<br>
+と考えたからです。<br>
+<br>
+でも、本当にショットを与えてよかったのでしょうか？<br>
+わざわざショットを与えたくなる理由を掘り下げてみます。<br>
+<br>
+(1) ショットを与えないと、形がとても悪くなる<br>
+　→ 13/8 はそれほどアグリーではありません。<br>
+(2) 相手にインナーブロットがある<br>
+　→ ありません。<br>
+(3) ヒットされないとかなり好形<br>
+　→ これはあてはまるかも。ヒットされず、9ptをカバーできると明らかに良くなります。<br>
+　　　ただし、まだ4ptと7ptが空いています。<br>
+(4) こちらのアンカーの方が悪い<br>
+　→ こちらのアンカーの方が悪ければ、冒険したくなります。<br>
+　　　でも実際は逆で、こちらのアンカーの方が良いのです。<br>
+<br>
+結局(3)の理由だけが 13/9 6/5 を後押しし、他はすべて安全策を支持します。<br>
+無難な 13/8 が最善手となります。<br>
+<br>
+2008/04/04<br>
+「こちらの方がよいanchorを持っている」という理由の比重がたいへん大きい。<br>
+また9ptにslotしてもフォローアップが弱いのでは。<br>
+13/9 6/5は0.073のerror、8/4 6/5は0.041のerror。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/8                         Eq.: +0.202
+       0.551 0.116 0.002 - 0.449 0.070 0.001
+    2. Cubeful 2-ply    8/4 6/5                      Eq.: +0.154 (-0.048)
+       0.536 0.130 0.004 - 0.464 0.089 0.002
+    3. Cubeful 2-ply    6/5 6/2                      Eq.: +0.144 (-0.058)
+       0.532 0.119 0.002 - 0.468 0.076 0.001
+    4. Cubeful 2-ply    13/9 6/5                     Eq.: +0.137 (-0.065)
+       0.533 0.124 0.004 - 0.467 0.090 0.001
+    5. Cubeful 2-ply    6/1                          Eq.: +0.082 (-0.120)
+       0.511 0.124 0.003 - 0.489 0.083 0.001
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "04",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---b-BD-C---bD---dbcB---b-:0:0:1:41:0:0:0:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-01) &ensp; アンカー外し</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=120 白=141</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+8/3 6/2 ならば、6ptのstackを解消しつつinnerを強化できる。<br>
+しかし、outer pointがすべてstrip状態になってしまうではないか。<br>
+ゾロ目にしか期待できず、且つ一度どころか二度必要となる。<br>
+相手陣がある程度強くとも、今anchorを外すべきだ。<br>
+最善手：18/13 18/14<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    18/14 18/13                  Eq.: +0.089
+       0.559 0.052 0.001 - 0.441 0.100 0.002
+    2. Cubeful 2-ply    8/3 6/2                      Eq.: +0.014 (-0.075)
+       0.518 0.085 0.001 - 0.482 0.116 0.002
+    3. Cubeful 2-ply    13/9 13/8                    Eq.: -0.001 (-0.090)
+       0.513 0.070 0.001 - 0.487 0.096 0.002
+    4. Cubeful 2-ply    13/8 6/2                     Eq.: -0.063 (-0.152)
+       0.495 0.077 0.001 - 0.505 0.114 0.002
+    5. Cubeful 2-ply    6/2 6/1                      Eq.: -0.085 (-0.174)
+       0.493 0.072 0.001 - 0.507 0.126 0.001
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "01",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BA--bE-C---dB---bBbc-b---:0:0:1:45:2:2:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

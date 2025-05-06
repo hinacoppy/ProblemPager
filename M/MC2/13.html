@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-13) &ensp; バックマンをいずこに？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒オンザバーから52が出ました。20ptにとどまるか、18ptまで進むのか？</div>
+<div class="gamesituation">アンリミティドマッチ。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=115 白=130</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+boardが強いときは堂々と。<br>
+bar/18<br>
+<br>
+michihito_k＞<br>
+18ptに飛び出すと、相手に自由にヒットされるでしょうか？<br>
+実は、アウターポイントが全部ストリップ状態なので、ゾロ目以外でうまくヒットできる目はほとんどありません。<br>
+むしろ、相手はヒットよりも、7ptのブロットを逃がす事を考えるでしょう。<br>
+20ptにとどまると、61のポイントオンを与えます。<br>
+また 6/4 は、すぐにはカバーできないブロットを生み出すため、マイナスのムーブです。<br>
+よって大差で b/18 が最善手となります。<br>
+(money cubeless equityで b/20 6/4 に 0.150以上優ります)<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/18                       Eq.: +0.140
+       0.526 0.189 0.003 - 0.474 0.104 0.003
+    2. Cubeful 2-ply    bar/20 6/4                   Eq.: +0.004 (-0.135)
+       0.494 0.192 0.002 - 0.506 0.138 0.005
+    3. Cubeful 0-ply    bar/20 5/3                   Eq.: -0.211 (-0.351)
+       0.433 0.174 0.002 - 0.567 0.188 0.008
+    4. Cubeful 0-ply    bar/20 3/1                   Eq.: -0.269 (-0.409)
+       0.422 0.158 0.002 - 0.578 0.199 0.007
+    5. Cubeful 0-ply    bar/20 13/11                 Eq.: -0.480 (-0.620)
+       0.369 0.136 0.002 - 0.631 0.226 0.015
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "13",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BBB-BCa--b-bBb----d--bbAA:0:0:1:52:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC3-23) &ensp; 3ゾロ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">選択肢が多いぞ。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=153 白=135</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+null＞<br>
+23/20(2)をまず確定します。<br>
+残りは、13/10,8/5<br>
+13/7も考えられますが、ダイレクトを与える必要はない。<br>
+24/21では、相手を楽にする。<br>
+9/3、6/3、13/10、は相手にプライムを作られやすい。<br>
+<br>
+michihito_k＞<br>
+null さんの 23/20(2) を優先させる考えかたはよいと思う。<br>
+だとすると、残り2回は 4/1*(2) だ！<br>
+きれいなプライムを悪形にしてしまうようだが、すっぽり空いた2､3､4ポイントに対するビルダーがたっぷりと存在する。<br>
+私は実戦で3ポイント作りをやってしまい、とんでもないエラーとなった。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    23/20(2) 4/1*(2)             Eq.: +0.159
+       0.511 0.192 0.005 - 0.489 0.095 0.004
+    2. Cubeful 2-ply    24/21 23/20(2) 13/10         Eq.: +0.059 (-0.100)
+       0.512 0.114 0.004 - 0.488 0.076 0.003
+    3. Cubeful 2-ply    23/20(2) 13/7                Eq.: +0.053 (-0.106)
+       0.510 0.135 0.004 - 0.490 0.097 0.004
+    4. Cubeful 2-ply    24/21 23/20 4/1*(2)          Eq.: +0.043 (-0.115)
+       0.488 0.185 0.006 - 0.512 0.124 0.009
+    5. Cubeful 2-ply    23/20(2) 13/10 6/3           Eq.: +0.036 (-0.123)
+       0.502 0.135 0.004 - 0.498 0.099 0.003
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC3",
+    probnum: "23",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a--BBC-BB--aA-c-cbe---BA-:0:0:1:33:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-05) &ensp; テイクかパスか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">白の振り番で、ダブルすることは明らかだろう。で、テイクかパスか？</div>
+<div class="gamesituation">5ポイントマッチ、白が2－1でリード。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=149 白=126</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+・相手はまだ2pointed board。それに対してこちらは4pointed board<br>
+・相手のprime potencialは低い<br>
+以上から実戦ではtakeと判断した。<br>
+しかし0.300のエラー！<br>
+<br>
+手振りrolloutをして分かったこと。<br>
+黒にはヒットチャンスがけっこうやって来る。<br>
+しかしそれが当たっても、まだまだ勝ちには遠い。<br>
+つまり、ヒットして即優勢になるようなboardを持っていればtakeでよいが、そうでないならばpassするべきだ。<br>
+<br>
+nori＞<br>
+18ptにいるコマを23ptにするとtakeになったりしませんか？<br>
+2 men on the barのシーケンスが多すぎる気がします。<br>
+<br>
+michihito_k＞<br>
+18ポイントの駒が23ポイントに移動したとすると、あまりにもポジションが変わり過ぎて、比較にならないと思いますわ。<br>
+<br>
+面白いのは緑のインナーを変えた場合。<br>
+エースポイントの2枚を2ポイントに移すだけでかなり強くなり、テイクになるんです！<br>
+<br>
+michihito_k＞<br>
+noriさんのアイディア通り、18ポイントのバックマンを23ポイントに移してみた。<br>
+するとパスという結果は変わらないが、0.75のエラーで済む。<br>
+<br>
+ちなみにオリジナルポジションのmoney cubeless equityは0.660。<br>
+それがバックマンを移動することで0.594になっている。<br>
+<br>
+michihito_k＞<br>
+あう、上記の0.75は間違いで、当然0.075が正です。<br>
+<br>
+nori＞<br>
+primeで反撃できるとかなり違うのですね。<br>
+primeの価値は0.3以上だけど、backmanの位置は0.2前後ということで。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity -0.409 (Money: -0.301)
+  0.379 0.110 0.002 - 0.621 0.161 0.010
+Cubeful equities:
+1. No double           -0.391
+2. Double, pass        +1.000  (+1.391)
+3. Double, take        -1.052  (-0.661)
+Proper cube action: No double, take (32.2%)
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "05",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-B-B-BBa----bDb--cAe--b-AA:0:0:1:00:1:2:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

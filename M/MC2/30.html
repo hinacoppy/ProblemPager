@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-30) &ensp; 序盤</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">ヒットは確定か？</div>
+<div class="gamesituation">11ptマッチ、黒は0-2で負けている。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=151 白=150</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+&gt; ヒットは確定か？<br>
+天邪鬼に13/8ですか？<br>
+うーん。スタックとストリップは解決するけどアンカーされるとつまらない。<br>
+<br>
+ぱっとみは13/9 6/5*。<br>
+打たれてもアンカーがあるから死にはしない。<br>
+<br>
+<br>
+michihito_k＞<br>
+最もリターンヒットの少ないムーブは 6/5*/1*。<br>
+しかし、攻め駒が8枚だけで弱過ぎる。<br>
+駒を補充しつつ強いポジション作りを目指す 13/9 6/5* が最善となる。<br>
+なお、黒はハイアンカーを確保しているので、ヒットされたくない。<br>
+その観点からだと 13/8 も有力だが、最善手にやや劣る。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    13/9 6/5*                    Eq.: +0.102
+       0.514 0.150 0.006 - 0.486 0.100 0.003
+    2. Cubeful 2-ply    6/5*/1*                      Eq.: +0.051 (-0.051)
+       0.499 0.154 0.005 - 0.501 0.097 0.003
+    3. Cubeful 2-ply    13/8                         Eq.: +0.034 (-0.069)
+       0.500 0.102 0.003 - 0.500 0.067 0.001
+    4. Cubeful 0-ply    6/1*                         Eq.: -0.142 (-0.245)
+       0.447 0.105 0.003 - 0.553 0.094 0.003
+    5. Cubeful 0-ply    6/5* 6/2                     Eq.: -0.178 (-0.280)
+       0.445 0.112 0.006 - 0.555 0.133 0.006
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "30",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a-B-aD-B---bEb--d-cBb----:0:0:1:41:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

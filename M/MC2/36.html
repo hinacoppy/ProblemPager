@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-36) &ensp; too goodなのか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の振り番で、ダブルすればパスは間違いない。キャッシュするかしないか？</div>
+<div class="gamesituation">11ptマッチ、スコア0-0。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=107 白=160</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+※ キャッシュ ＝ ダブルして確実に1点を獲得すること。<br>
+<br>
+null＞<br>
+11ptのオープニングゲーム。考えるのはマッチエクイティ。<br>
+10away-11awayで0.548、9away-11awayだと0.598。<br>
+次にこの局面をどう見積もるのか。<br>
+ざっと勝率70%、ギャモン率30%で計算すると、エクイティは0.534。<br>
+キャッシュするのが正解と思われます。<br>
+実戦では電卓を使えませんが・・・。じゃ、意味ないか・・・。<br>
+<br>
+michihito_k＞<br>
+黒はプライムではなく、ブリッツで攻めようとしている。<br>
+そんな黒に対して、白がアンカーを確保していない事は致命的。<br>
+・黒の攻め駒は12枚<br>
+・白のブロットが4枚もある<br>
+・白の陣地がまだ2ポイントボードで、反撃力が弱い<br>
+このように黒が圧倒的に優勢。<br>
+白がうまくアンカーを確保しても、残り五箇所が埋まって、バーの上に2枚、<br>
+というケースが容易に想像できる。<br>
+黒は有利過ぎるため、キャッシュしてはならない。<br>
+正解：too good to double - pass<br>
+(黒のmoney cubeless equityが1.100もあり、キャッシュすると0.230のエラー)<br>
+※ 私がどうしたかって？　もちろん、実戦でキャッシュしましたよ。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +1.071
+  0.776 0.519 0.041 - 0.224 0.039 0.002
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.990  (+0.990)
+3. No double           +0.937  (-0.063)
+Proper cube action: Double, pass
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "36",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=aBaBa-CCB---bB--abAeb-----:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

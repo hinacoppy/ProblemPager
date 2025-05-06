@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC7-38) &ensp; ヒットしてそして？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">昨日の次のムーブですね。緑に43が出ました。</div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=159 白=147</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+やけに早い時間に投稿してます。今からTMGにて、モンテカルロトーナメントが始まるからなんですわ。<br>
+<br>
+西本＞<br>
+む、昨日の正解は 24/15!?<br>
+13/10* は当然として、残りは24/20, 13/9, 10/6のどれかでしょう。<br>
+10/6 は6ptに強烈にスタックしてしまいますので、除外します。<br>
+13/9は、次にインナーをつくる目を増やしますが、インダイレクトとはいえ<br>
+アウターに2ブロット発生します。<br>
+今は相手のミッドに駒が大量にスタックしているので、それを安易に降ろさせないようにする24/20がいいと思います。24/20 13/10*で。<br>
+#第一印象では13/10* 13/9でした。このところ第一印象から変えて失敗するケースが増えているので、今日も心配です。<br>
+<br>
+toku＞<br>
+13/10*は決りです。<br>
+白はバックマンを1枚安全にしてるので緑としてはヒットしたバックマンを逃がしてはならないから、もう一枚ミッドから降ろして攻めます。<br>
+リターンは5通りと少ないのでいいかなと・・・<br>
+13/10*　13/9<br>
+<br>
+shisuke＞<br>
+24/20がいいです<br>
+ヒット＆スプリットだっけ<br>
+<br>
+vin＞<br>
+13/10*  24/20<br>
+僕も、hit & split。<br>
+白の mid point のスタックに注目して、outer control です。<br>
+<br>
+michihito_k＞<br>
+確かに「ヒット＆スプリット」は手筋ですね。<br>
+ただ私は緑のミッドに5枚スタックしているので、それを一気に解消する13/9も良い手かなと考えました。<br>
+ところが大差で24/20がまさります！<br>
+理由は、西本さんとvinさんが指摘している通りでしょう。<br>
+すなわち、白のミッドポイントに大量6枚がスタックしているため、それを働かせない24/20がたいへん効果的になるのですね。<br>
+最善手：13/10* 24/20<br>
+＞西本さん<br>
+第一印象から変えてよかったですね～<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/20 13/10*                 Eq.: +0.208
+       0.553 0.184 0.005 - 0.447 0.092 0.003
+    2. Cubeful 2-ply    13/10* 13/9                  Eq.: +0.161 (-0.047)
+       0.539 0.202 0.006 - 0.461 0.104 0.005
+    3. Cubeful 0-ply    13/10*/6                     Eq.: +0.008 (-0.200)
+       0.509 0.171 0.004 - 0.491 0.115 0.004
+    4. Cubeful 0-ply    13/10* 6/2                   Eq.: -0.109 (-0.317)
+       0.484 0.161 0.004 - 0.516 0.129 0.007
+    5. Cubeful 0-ply    13/10* 8/4                   Eq.: -0.149 (-0.356)
+       0.477 0.162 0.005 - 0.523 0.136 0.010
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC7",
+    probnum: "38",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---B--D-B-a-fE---c-e----B-:0:0:1:43:4:3:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

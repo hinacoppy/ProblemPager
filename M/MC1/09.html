@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-09) &ensp; キューブアクション</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の振り番でキューブアクションは？</div>
+<div class="gamesituation">5ポイントマッチ、黒が1-0でリードしています。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=122 白=106</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+まず、マネーゲームとして考えます。<br>
+黒が理想的な4ポイントボードを作っており、これを見ただけでダブルしたくなります。<br>
+ただし3つの弱点があります。<br>
+・16ピップ遅れている<br>
+・9ポイントの2駒の働きが悪い<br>
+・ミッドポイントを失った<br>
+<br>
+よって白のテイクがクリアであり、黒はダブルするかどうか迷う状態です。<br>
+<br>
+では、このスコアではどうなるのか？<br>
+ギャモニッシュな形で、マネーでダブルを迷うような形勢ならば、このスコアでは<br>
+断然ダブルするべきとなります。<br>
+<br>
+※ 4awayならば4点を取る価値がたいへん高い。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.502 (Money: +0.443)
+  0.665 0.190 0.005 - 0.335 0.080 0.002
+Cubeful equities:
+1. Double, take        +0.846
+2. Double, pass        +1.000  (+0.154)
+3. No double           +0.673  (-0.173)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "09",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a-BBCB-AB--bA---b-ccB-ca-:0:0:1:00:1:0:0:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

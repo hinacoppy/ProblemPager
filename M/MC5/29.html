@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC5-29) &ensp; 相手をブロックする</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=122 白=116</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+実戦では、何気なく 13/8 6/3 と進めた。<br>
+しかし、0.130ものエラーだ！<br>
+<br>
+緑にとってはバックマン脱出が最優先の課題。<br>
+不用意にアウターブロットを作ると、4通りでヒットされるダメージが大き過ぎる。<br>
+それに比べると、9ptが相手をブロックする働きはきわめて小さい。<br>
+9/4 9/6 が最善だ。<br>
+この後は、6が出ればバックマンを逃がすし、それ以外の目ならば、4,6ptのスペアチェッカーを動かすことになる。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    9/6 9/4                      Eq.: -0.582
+       0.368 0.051 0.001 - 0.632 0.152 0.002
+    2. Cubeful 2-ply    6/1 4/1                      Eq.: -0.655 (-0.072)
+       0.369 0.055 0.001 - 0.631 0.188 0.004
+    3. Cubeful 2-ply    13/8 6/3                     Eq.: -0.733 (-0.150)
+       0.347 0.047 0.001 - 0.653 0.168 0.004
+    4. Cubeful 0-ply    6/3 6/1                      Eq.: -0.730 (-0.148)
+       0.354 0.055 0.001 - 0.646 0.188 0.003
+    5. Cubeful 0-ply    13/10 13/8                   Eq.: -0.899 (-0.316)
+       0.326 0.051 0.001 - 0.674 0.194 0.005
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC5",
+    probnum: "29",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---BBbD-BB---B--bc-bbb-bA-:0:0:1:53:3:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

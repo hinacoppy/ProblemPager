@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC3-21) &ensp; ベアイン　その3</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">平凡すぎるか？</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=75 白=155</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+ぱっとみ<br>
+8/5 6/2<br>
+<br>
+少し眺めると<br>
+8/1<br>
+が見つかる。<br>
+<br>
+66割れないから8/1なの？<br>
+<br>
+WooMets＞<br>
+ほとんどnoriさんと同じ思考です。一般的にストリップポイントを減らすほうが不幸ロールを減らす方向に働くと認識していますが、8/5 6/2は66でもブロット発生させてしまうのが気になるから、8/1もありかなと思う。でも、その後の展開で不自由なのは8/1のほうじゃないかなーとスペア配置だけで判断しています。botのように出目21通りをつぶさに見ないとだめですかね。<br>
+<br>
+michihito_k＞<br>
+みなさんが書いているように、8/5 6/2 では次の6ゾロでブロットが残る。<br>
+8/1 ならば、6ゾロでも大丈夫。<br>
+しかし、スペア配置を考えると 8/5 6/2 が優る。<br>
+結局のところ、トータルで安全なのはどちらか？<br>
+ロールアウトすると、8/5 6/2 がmoney cubeless equityで0.050上回る。<br>
+よって私は「1通りの違いならば、形の良い方を選択する」を教訓とする。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    24/21 13/9                   Eq.: -0.165
+       0.499 0.140 0.007 - 0.501 0.133 0.006
+    2. Cubeful 2-ply    13/10 13/9                   Eq.: -0.165 (-0.000)
+       0.496 0.155 0.009 - 0.504 0.141 0.008
+    3. Cubeful 2-ply    24/20 13/10                  Eq.: -0.166 (-0.001)
+       0.500 0.136 0.006 - 0.500 0.132 0.006
+    4. Cubeful 2-ply    24/21 24/20                  Eq.: -0.179 (-0.014)
+       0.500 0.124 0.006 - 0.500 0.132 0.004
+    5. Cubeful 2-ply    13/9 8/5                     Eq.: -0.229 (-0.063)
+       0.481 0.141 0.008 - 0.519 0.151 0.011
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC3",
+    probnum: "21",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-A-dDBDaC--------aaabc-c--:1:-1:1:43:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

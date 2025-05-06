@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC3-24) &ensp; キューブ　その1</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">白の振り番で、キューブアクションは？</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=131 白=95</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+double. big pass.<br>
+勝率は多分15%をすこしこえる程度。20%はまったく無い。<br>
+<br>
+nori＞<br>
+あ、レース考えてないや・・・。<br>
+<br>
+null＞<br>
+白がブロット作る率が6割としても打てる率が約3割<br>
+打てれば勝ちと考えても勝率は2割を超えない。<br>
+白がギャモンを取れる形でもない。<br>
+ダブル／パス。ピップは85-131。<br>
+<br>
+michihito_k＞<br>
+お二人の考察がまったく正しい。<br>
+一般に、20ptで待ち構えている場合、相手がミッドポイントをクリアしたならば、<br>
+ヒットできる可能性は10%くらいだろう。<br>
+ここでは白の形が悪いため(6ptにスペアがない)、15%くらいに増えると見積もれる。<br>
+次にレースを考えてみる。<br>
+36ピップ差もあれば、黒が勝つ見込みは5%もなく、せいぜい2%前後ではないだろうか。<br>
+ということは、単純に15%と2%を加えても17%にしかならず、黒は全然テイクできない。<br>
+正解：ダブル＆パス<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.662
+  0.821 0.027 0.000 - 0.179 0.008 0.000
+Cubeful equities:
+1. Double, pass        +1.000
+2. Double, take        +1.203  (+0.203)
+3. No double           +0.991  (-0.009)
+Proper cube action: Double, pass
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC3",
+    probnum: "24",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=---BBBB-B----C-bbd-bBb-ba-:0:0:-1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-06) &ensp; どっちでエンター？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒はどちらの目でもエンターできますねえ。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=153 白=167</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+michihito_k＞<br>
+通常、ヒット出来るときは、必ずします。<br>
+それがバックギャモンの大原則でしょう。<br>
+ただ、ここでは4の目が 13/9 しかなく、不満です。<br>
+次の相手の出目を考えると、<br>
+11 13 22 23 24 33 34 35 36 44 45<br>
+の18通りがが良い目になります。<br>
+<br>
+だまって4の目でエンターすると、ハイアンカーを確保できます。<br>
+1の目は 8/7 でしょう。<br>
+相手の良い目は<br>
+11 12 22 23 33 34<br>
+の9通りだけです。<br>
+<br>
+よって、ハイアンカーを確保し、相手の良い目を減らす b/21 8/7 が最善手となります。<br>
+(b/24* 13/9 に比べてmoney cubeless equityで0.080優ります)<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 8/7                   Eq.: +0.348
+       0.599 0.155 0.006 - 0.401 0.092 0.002
+    2. Cubeful 2-ply    bar/21 6/5                   Eq.: +0.281 (-0.067)
+       0.566 0.155 0.008 - 0.434 0.100 0.003
+    3. Cubeful 0-ply    bar/24* 13/9                 Eq.: +0.167 (-0.181)
+       0.529 0.200 0.012 - 0.471 0.116 0.006
+    4. Cubeful 0-ply    bar/24* 8/4                  Eq.: +0.068 (-0.280)
+       0.509 0.168 0.011 - 0.491 0.127 0.007
+    5. Cubeful 0-ply    bar/21 7/6                   Eq.: -0.018 (-0.366)
+       0.487 0.130 0.006 - 0.513 0.112 0.003
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "06",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-ab---EBC---dC---b-cbA--aA:0:0:1:41:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

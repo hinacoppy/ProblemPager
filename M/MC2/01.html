@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-01) &ensp; どんな方針で？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒に32が出ました。どんな指針を持って動かしますか？</div>
+<div class="gamesituation">例によってマネーゲームです。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=118 白=153</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+みろり＞<br>
+8/3 <br>
+<br>
+ピップカウント　23%リード、充分にリードしていることから、基本的に安全ムーブを考えます。14ptにブロットがあるのでギャモン勝ちが欲しい局面ならば6/1*も考えられますが、マネーでセンターキューブですので今ギャモンは必要ありません。<br>
+やはりこのターンでは安全にムーブして次ターンでキューブを打つプランが最善かと思います。従って、8/3 もしくは13/8を選びます。ミッドポイントをはずすと56,66の3通り8%強のショットチャンスを与えるので、8/3とします。<br>
+<br>
+michihito_k＞<br>
+相手がアンカーを確保している場合、通常、その後ろの駒をヒットしません。<br>
+リターンヒットされずに、そこをカバーしても効力が小さいからです。<br>
+<br>
+しかしこれは例外で、ヒットするべきなのです。<br>
+理由は次の通り。<br>
+(1) 他に良い手がない。13/8 や 8/3 はマイナスのムーブ。<br>
+(2) インナーはこちらの方が強い<br>
+(3) 6ptのスタックを解消できる<br>
+(4) テンポの効果が大きい<br>
+　(相手にフリーロールを与えると、バックマンを攻められたり、21ptを作られたりする)<br>
+<br>
+正解：6/1*<br>
+money cubeless equityで 13/8 や 8/3 に 0.110 以上優ります。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/1*                         Eq.: +0.379
+       0.583 0.206 0.012 - 0.417 0.107 0.004
+    2. Cubeful 2-ply    8/3                          Eq.: +0.205 (-0.174)
+       0.541 0.200 0.015 - 0.459 0.116 0.004
+    3. Cubeful 2-ply    8/5 6/4                      Eq.: +0.179 (-0.200)
+       0.540 0.197 0.015 - 0.460 0.141 0.006
+    4. Cubeful 2-ply    13/8                         Eq.: +0.151 (-0.228)
+       0.530 0.187 0.013 - 0.470 0.119 0.005
+    5. Cubeful 0-ply    13/11 13/10                  Eq.: +0.125 (-0.254)
+       0.525 0.182 0.012 - 0.475 0.129 0.009
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "01",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-abB-BE-C----Ba--cbdb-A---:0:0:1:32:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

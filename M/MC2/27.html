@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-27) &ensp; ショットを与えるか？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">昨日の続き。</div>
+<div class="gamesituation">11ptマッチ、黒が6-4でリード。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=95 白=92</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+b/23 16/13<br>
+ボードが弱くなると気軽にルーズヒットされる。<br>
+16をヒットされてももしかしたらアンカー作れるかもしれない。<br>
+<br>
+michihito_k＞<br>
+相手がアタックしてくるので、インナーを崩すデメリットは大き過ぎる。<br>
+相手に2の目が出た場合を比較しよう。<br>
+(1) 6/3 と進めた場合<br>
+　4/2* とルースヒットされる。<br>
+　こちらのインナーが崩れており、リターンヒットできても大変。<br>
+(2) 16/13 と進めた場合<br>
+　11/9* と2枚目をヒットされる。<br>
+　ただし、強い陣地を保っている。<br>
+<br>
+このように 16/13 は悪くない。<br>
+ならば、相手に2が出ない場合も考えると、大差で 16/13 が優る。<br>
+(money cubeless equityで0.140の違い)<br>
+<br>
+noriさん、正解！<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/23 16/13                 Eq.: -0.739
+       0.191 0.022 0.000 - 0.809 0.201 0.007
+    2. Cubeful 2-ply    bar/23 6/3                   Eq.: -0.878 (-0.139)
+       0.159 0.018 0.000 - 0.841 0.264 0.005
+    3. Cubeful 2-ply    bar/23 4/1                   Eq.: -0.896 (-0.157)
+       0.156 0.018 0.000 - 0.844 0.274 0.006
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "27",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BBDB-B-------c-Bb-bbcc--A:1:1:1:32:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

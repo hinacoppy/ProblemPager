@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC2-24) &ensp; キューブ</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の振り番で、キューブアクションは？</div>
+<div class="gamesituation">11ptマッチ、2-4で黒が負けている。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=139 白=150</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+nori＞<br>
+no double-take<br>
+cubeは次で十分です。<br>
+<br>
+相手は7 awayなので、ひっくり返ったときに相手は想像以上に<br>
+積極的なプレーをしてくる。<br>
+redouble gammon/8pt勝ち、redouble single/4pt勝ちの価値<br>
+が大きいため。<br>
+また4ptに立てれば本当になんでもないため。<br>
+<br>
+michihito_k＞<br>
+黒はバックマンが不安定な状態だが、攻める力はそこそこある。<br>
+<br>
+・攻め駒10枚<br>
+・1,2,3,5,6 の目が有効<br>
+・インナーで優る<br>
+<br>
+マネーでスモールダブル(ダブルした方が少しよい)なので、このスコアではダブルするべき。<br>
+※ money cubeless equityは0.441<br>
+※ このスコアで、ダブルとノーダブルの差は0.079<br>
+※ 「相手が7アウェイだからダブルが慎重になる」とはならない。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">Cube analysis
+2-ply cubeless equity +0.446
+  0.656 0.207 0.009 - 0.344 0.078 0.003
+Cubeful equities:
+1. Double, take        +0.659
+2. Double, pass        +1.000  (+0.341)
+3. No double           +0.611  (-0.048)
+Proper cube action: Double, take
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC2",
+    probnum: "24",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a-ABaC-B--BcD---bceA-----:0:0:1:00:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

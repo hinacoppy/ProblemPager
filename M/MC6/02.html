@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-02) &ensp; よく分からない</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=144 白=148</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+第56回サタデートーナメントの決勝戦より。<br>
+私のムーブは0.069のエラーだった。<br>
+考えてみても分からない。<br>
+みなさんの意見はいかに？<br>
+<br>
+miyukichi＞<br>
+エンターの1回確定で、スロットする意味も見えないので、<br>
+① b/21, 11/7, 8/4(2)<br>
+② b/21, 11/7, 6/2(2)<br>
+の2択と考えました。<br>
+一見4Pメイクする①がよさそうですが、ボードに並べて次の相手の悪い目と自分のよい目を考えると、②のほうがよさそうに思えます。<br>
+・白にとってアンカーがつくれる5の目が、②のほうが少ない。<br>
+・4でエンターしても、8Pが残っているので、42、43はバックマンが飛び出せない（44は5プラがつくれるのでよい目となりそうですが）。45も1枚残る。<br>
+・バックマンが残ったときに、2枚残った場合は打ち込み目が1、2、3、4、飛び出し目が5、6、とこちらにとってよい目が多くなる。<br>
+・26のときに①と②で大差。①だと46ダンスがあるので同じように思えるが、次にこちらの3、4がらみがイマイチ。<br>
+・12、13のときも②のほうがよさそう。<br>
+<br>
+ってことで、b/21, 11/7, 6/2(2)としたいです。<br>
+<br>
+michihito_k＞<br>
+選択肢は miyukichi さんの書いてる2つで間違いない。<br>
+そして miyukichi さんの結論通り、b/21 11/7 6/2(2)が最善手となる。<br>
+読んでみて、特に重要だと感じた部分は次の2つ。<br>
+・白がハイアンカーを確保する目が2通り少ない。<br>
+・5ポイントの白のバックマンが1枚のままで残った場合、アタックする目の種類が多い。<br>
+・次に白が12を振った時の差が大きい。<br>
+<br>
+たいへん優れた分析をありがとうございました。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    bar/21 11/7 6/2(2)           Eq.: +0.075
+       0.490 0.181 0.005 - 0.510 0.089 0.003
+    2. Cubeful 2-ply    bar/21 11/7 8/4(2)           Eq.: +0.028 (-0.047)
+       0.481 0.158 0.004 - 0.519 0.084 0.002
+    3. Cubeful 0-ply    bar/21 8/4(2) 6/2            Eq.: -0.191 (-0.265)
+       0.425 0.152 0.005 - 0.575 0.123 0.004
+    4. Cubeful 0-ply    bar/21 8/4(2) 7/3            Eq.: -0.230 (-0.305)
+       0.416 0.145 0.004 - 0.584 0.123 0.006
+    5. Cubeful 0-ply    bar/21 6/2(3)                Eq.: -0.309 (-0.384)
+       0.395 0.129 0.003 - 0.605 0.123 0.004
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "02",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=a--B-aEBB--Ac----bbdbB---A:0:0:1:44:0:0:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

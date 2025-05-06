@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC4-28) &ensp; 1枚つかまり</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">どんな戦略で駒を動かすのか。</div>
+<div class="gamesituation">5ptマッチ、赤が4-1でリードしたクロフォードゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 赤=147 白=144</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+shirofukurou＞<br>
+8/4 6/4<br>
+22に進むと9ポイントを作られないときは突っ込まれるし<br>
+作られると進んだ手がマイナスになる。<br>
+じっとインナーを作り、自力で勝ちにいくことより<br>
+ギャモンセーブを重視する。<br>
+<br>
+miyukichi＞<br>
+8/4, 6/4<br>
+私も4Pをつくります。<br>
+クロフォードなのでキューブは関係ないですが、方針を考えるためにキューブアクションの際の考え方を参考にしてみました。<br>
+キューブアクションを考える目安に、「バックマン1枚のときは、ボード強度で勝るかピップリードしてなければテイクできない」っていうのがあったと思います。<br>
+ここではピップは同等で勝っていないので、ボードを強化しつつ、逃げるチャンスを待ちたいです。<br>
+shirofukurouさんのコメントにもあるように、22Pに進むと、相手は9Pがつくれなかったらこっちがノーボードなだけに容赦なく打ち込んできます。<br>
+9Pメイクに2と4、打ち込みに3と6(ポイントオンなら5も)と、よい目も多くなるし、そもそも9Pをつくられたら22Pに進むメリットもなくなる。<br>
+こっちの6P、8Pがスタックしてるので、コマの活用という観点からも4Pメイクがよいように思います。<br>
+<br>
+WooMets＞<br>
+4Pメイク以外に見えません。1man backなら、自分の陣地を強化して相手にルースヒットをびびらせるのが定石と思います。<br>
+<br>
+nori＞<br>
+4pt make.<br>
+一枚なので、あわてて前に進んでも打たれやすくなるだけ。<br>
+飛び出る目を振る前に自陣を強化。<br>
+<br>
+michihito_k＞<br>
+みなさんのコメントに反論の余地がない。<br>
+「プライムに閉じ込められそうなら前に寄る」という考え方を盲信せず、<br>
+全体の配置を考えるべきだ。<br>
+前に進むとそれだけ攻められやすいわけで、ヒット合戦に耐えうるような<br>
+強い陣地が必要。<br>
+最善手：8/4 6/4<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/4 6/4                      Eq.: -0.499
+       0.344 0.055 0.001 - 0.656 0.181 0.004
+    2. Cubeful 2-ply    24/22 8/4                    Eq.: -0.559 (-0.060)
+       0.335 0.056 0.001 - 0.665 0.223 0.005
+    3. Cubeful 2-ply    13/11 8/4                    Eq.: -0.583 (-0.084)
+       0.308 0.053 0.001 - 0.692 0.194 0.005
+    4. Cubeful 2-ply    6/4 6/2                      Eq.: -0.598 (-0.100)
+       0.308 0.054 0.001 - 0.692 0.209 0.006
+    5. Cubeful 2-ply    24/22 6/2                    Eq.: -0.606 (-0.107)
+       0.323 0.056 0.001 - 0.677 0.244 0.006
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC4",
+    probnum: "28",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-----bE-D--BbCa-abbcb---A-:0:0:1:42:4:1:1:5:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

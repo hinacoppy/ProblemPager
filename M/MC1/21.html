@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC1-21) &ensp; ブレイキング・アンカー</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">黒の41はチャンスかもしれません。</div>
+<div class="gamesituation">マネーゲーム。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 黒=114 白=140</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+ダイスを振る前で黒114ピップ、白140ピップ。<br>
+たっぷりレースで勝っているので、今のうちにアンカーを外してレースに持ち込みたくなります。<br>
+私は考えた末に18/13 を選びました。<br>
+しかし大失敗！<br>
+残されたバックマンが18ptにいるため、2つの問題が生じます。<br>
+(1) ショット数が多い<br>
+　20通り以上でヒットされ、その中の8通りで同時に6ptをカバーされます。<br>
+(2) 次も逃げづらい<br>
+　もしヒットされなくても、18ptの駒を安全地帯に運べない目が20通りもあります。<br>
+<br>
+以上から 18/13 のようなムーブは成立しません。<br>
+13/8 または 6/2 4/3 が最善手となります。<br>
+<br>
+※ もしも 52 53 54 が出たならばチャンスです。アンカーを外しましょう。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    6/2 4/3                      Eq.: +0.065
+       0.529 0.108 0.001 - 0.471 0.127 0.003
+    2. Cubeful 2-ply    13/8                         Eq.: +0.062 (-0.003)
+       0.529 0.111 0.002 - 0.471 0.118 0.003
+    3. Cubeful 2-ply    8/7 8/4                      Eq.: -0.001 (-0.066)
+       0.510 0.110 0.001 - 0.490 0.135 0.003
+    4. Cubeful 2-ply    6/1                          Eq.: -0.026 (-0.091)
+       0.504 0.094 0.001 - 0.496 0.135 0.002
+    5. Cubeful 2-ply    8/7 6/2                      Eq.: -0.048 (-0.112)
+       0.501 0.122 0.002 - 0.499 0.160 0.005
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC1",
+    probnum: "21",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-BA-BcD-B---bB---cBabbb---:0:0:1:41:0:0:3:0:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

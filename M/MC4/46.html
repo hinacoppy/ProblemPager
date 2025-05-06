@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC4-46) &ensp; どんな狙いで？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction">喜んでヒットして、残りの2の目は？</div>
+<div class="gamesituation">9ptマッチ、0-3で負けている。</div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 赤=129 白=127</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+tam＞<br>
+15/9*/7<br>
+ヒットは間違いないので2のチョイス<br>
+【6/4の場合】<br>
+9ｐｔに留まっていると54　63　の4通りでリターンがある<br>
+白は3ｐｔボードで且つ、後寄りだが4プラもあるのでリターンされると痛い<br>
+赤が次に作りたいポイントは5ｐｔなのでその前にコマが行ってしまうのももったいない<br>
+【13/11の場合】<br>
+6/4の時と同じくリターンが痛い<br>
+54　63　に65も増え、6通り<br>
+ヒットされなければ強力に5ｐｔが作れそうだが危険が伴うなぁ<br>
+【9/7の場合】<br>
+ブロットが発生しないのでリターンの心配なし<br>
+5ｐｔ作りのビルダーとしても充分文句なし<br>
+<br>
+miyukichi＞<br>
+15/9*/7<br>
+5Pメイクをにらんで11Pにビルダーを落とすかどうかだと思いますが、<br>
+・ムーブ後で15ピップリードで、6通りとはいえリターンされると優勢でなくなる(陣地は白のほうが強い)。<br>
+・ビルダーを下ろせば1,3,4,6の組み合わせで5Pつくれるが、9/7としても1,2,3の組み合わせでつくれる。<br>
+・相手の54はアンカーメイクの目とかぶっているが、5Pにアンカーとられたとしたらなおさらビルダー落とす意味はなくなる。<br>
+<br>
+michihito_k＞<br>
+お二人のコメント通り、15/9*/7 が最善だ。<br>
+赤は5ptをもっとも作りたいわけで、そのための 15/9* 13/11 がどうして悪手になるのか？<br>
+もう少しだけ詳しくコメントしてみる。<br>
+15/9* 13/11と進めると次に15通りで5ptを作れる。<br>
+15/9*/7ならば9通り。<br>
+その差は6通りだ。<br>
+一方で、15/9* 13/11は白に6通りのショットを与える。<br>
+どちらも6通りならば、現在優勢な赤にとっては損な取り引きだ。<br>
+無難な15/9*/7で十分となる。<br>
+※ 赤が劣勢だったらば、危険を冒しても自分の良い目を増やした方がベターかもしれない。<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    15/9*/7                      Eq.: +0.565
+       0.754 0.120 0.002 - 0.246 0.032 0.000
+    2. Cubeful 2-ply    15/9* 13/11                  Eq.: +0.518 (-0.047)
+       0.727 0.149 0.004 - 0.273 0.068 0.001
+    3. Cubeful 2-ply    15/9* 6/4                    Eq.: +0.490 (-0.075)
+       0.719 0.135 0.003 - 0.281 0.058 0.001
+    4. Cubeful 0-ply    15/7                         Eq.: +0.323 (-0.243)
+       0.675 0.064 0.001 - 0.325 0.033 0.000
+    5. Cubeful 0-ply    15/9* 8/6                    Eq.: +0.249 (-0.316)
+       0.630 0.116 0.004 - 0.370 0.093 0.001
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC4",
+    probnum: "46",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-a--B-DBBa--bD-A-bbbc--b--:1:-1:1:62:0:3:0:9:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>

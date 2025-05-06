@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/css/bgStaticBoard.css">
+<link rel="stylesheet" href="../../css/problempager.css">
+<title>michy problem</title>
+</head>
+
+<body>
+<header>
+<button id="navmenu"><i class="fas fa-bars"></i></button>&ensp;
+<span>(MC6-11) &ensp; ペイナウ？</span>
+<button id="selectprev" class="prevnext"><i class="fas fa-angle-left"></i></button>
+<button id="selectnext" class="prevnext"><i class="fas fa-angle-right"></i></button>
+</header>
+<nav id="navpopup"></nav>
+
+<article>
+<div class="doAction"></div>
+<div class="gamesituation"></div>
+<div class="bgcontainer">
+ <div>
+  <div id="board" class="board"></div>
+  <div class="pipinfo">pips 緑=82 白=109</div>
+  <div id="scr">(CorrectAnswer= 0/0, ErrorScore= 0)</div>
+ </div>
+ <div class="answertable"></div>
+</div>
+
+<div class="description"><hr>
+【実戦の考え】<br>
+今blotを隠しても次が大変。<br>
+4pt作りには確かな価値がある。<br>
+<br>
+【実際は？】<br>
+4ptを作ると、直ちにヒットされる可能性が30%<br>
+その次でヒットされる可能性が7%<br>
+合計で37%も与えてしまう。<br>
+<br>
+今隠せば、次にdirect shotを与える目は8通りのみ。<br>
+Indirect shotを考えても、ヒットされる可能性は10%に満たないだろう。<br>
+<br>
+将来的には4pt作りが安全だとしても、直後の2ターンでこれほど大きな差があれば、挽回は難しい。<br>
+最善手：8/6　5/1<br>
+（4pt作りは0.244のエラーだ！）<br>
+</div>
+
+<hr>
+<pre id="gnuanalysis" class="gnuanalysis">    1. Cubeful 2-ply    8/6 5/1                      Eq.: +0.150
+       0.575 0.016 0.000 - 0.425 0.051 0.000
+    2. Cubeful 2-ply    13/11 5/1                    Eq.: -0.001 (-0.151)
+       0.529 0.016 0.000 - 0.471 0.082 0.002
+    3. Cubeful 0-ply    8/4 6/4                      Eq.: -0.105 (-0.256)
+       0.486 0.040 0.000 - 0.514 0.110 0.001
+    4. Cubeful 0-ply    8/2                          Eq.: -0.357 (-0.507)
+       0.415 0.028 0.000 - 0.585 0.145 0.001
+    5. Cubeful 0-ply    6/4 5/1                      Eq.: -0.399 (-0.549)
+       0.404 0.023 0.000 - 0.596 0.145 0.001
+</pre>
+</article>
+
+<script src="/js/fontawesome-inuse.min.js" defer></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/BgUtil_class.js"></script>
+<script src="/js/BgXgid_class.js"></script>
+<script src="/js/BgChequer_class.js"></script>
+<script src="/js/BgStaticBoard_class.js"></script>
+<script src="../../js/examscore_class.js"></script>
+<script src="../../js/problempager_class.js"></script>
+<script>
+  const problem = {
+    categoryid: "MC6",
+    probnum: "11",
+    showpipflg: false,
+    boardid: "#board",
+    style: "boardStyle5",
+    rotation: "ccw",
+    xgid: "XGID=-CCb-AC-C----B----bcccb---:0:0:1:24:2:5:0:7:10",
+    xgmodeflg: false,
+  };
+  const dummy = new ProblemPager(problem,  "gnubg");
+</script>
+</body>
+</html>
